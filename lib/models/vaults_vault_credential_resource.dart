@@ -8,57 +8,110 @@ part of 'vaults_vault.dart';
 class VaultCredentialResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the credential.
   final String id;
+
   /// The object type. Always `vault.credential`.
   final VaultCredentialResourceObject object;
+
   /// The ID of the vault containing this credential.
   final String vaultId;
+
   /// The human-readable name of the credential.
   final String name;
+
   /// The authentication method and non-secret configuration of the credential.
   final VaultCredentialAuthResource auth;
+
   /// Application-defined key-value pairs associated with this credential.
   final Map<String, String> metadata;
+
   /// The Unix timestamp, in seconds, when the credential was created.
   final int createdAt;
+
   /// The Unix timestamp, in seconds, when the credential was last updated.
   final int updatedAt;
 
-  const VaultCredentialResource({required this.id, required this.object, required this.vaultId, required this.name, required this.auth, required this.metadata, required this.createdAt, required this.updatedAt});
+  const VaultCredentialResource(
+      {required this.id,
+      required this.object,
+      required this.vaultId,
+      required this.name,
+      required this.auth,
+      required this.metadata,
+      required this.createdAt,
+      required this.updatedAt});
 
-  VaultCredentialResource Function({String id, VaultCredentialResourceObject object, String vaultId, String name, VaultCredentialAuthResource auth, Map<String, String> metadata, int createdAt, int updatedAt}) get copyWith => _copyWith;
+  VaultCredentialResource Function(
+      {String id,
+      VaultCredentialResourceObject object,
+      String vaultId,
+      String name,
+      VaultCredentialAuthResource auth,
+      Map<String, String> metadata,
+      int createdAt,
+      int updatedAt}) get copyWith => _copyWith;
 
-  VaultCredentialResource _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? vaultId = sdkOmittedValue, Object? name = sdkOmittedValue, Object? auth = sdkOmittedValue, Object? metadata = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => VaultCredentialResource(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as VaultCredentialResourceObject,
-    vaultId: identical(vaultId, sdkOmittedValue) ? this.vaultId : vaultId as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    auth: identical(auth, sdkOmittedValue) ? this.auth : auth as VaultCredentialAuthResource,
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as Map<String, String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as int,
-  );
+  VaultCredentialResource _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? vaultId = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? auth = sdkOmittedValue,
+          Object? metadata = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue}) =>
+      VaultCredentialResource(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as VaultCredentialResourceObject,
+        vaultId: identical(vaultId, sdkOmittedValue)
+            ? this.vaultId
+            : vaultId as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        auth: identical(auth, sdkOmittedValue)
+            ? this.auth
+            : auth as VaultCredentialAuthResource,
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as Map<String, String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as int,
+      );
 
-  factory VaultCredentialResource.fromJson(Map<String, dynamic> json) => VaultCredentialResource(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? VaultCredentialResourceObject.fromJson(json['object'] as String) : null)!,
-    vaultId: (json['vault_id'] as String?)!,
-    name: (json['name'] as String?)!,
-    auth: (json['auth'] != null ? VaultCredentialAuthResource.fromJson(json['auth']) : null)!,
-    metadata: (json['metadata'] == null ? null : Map<String, dynamic>.from(json['metadata'] as Map).map((key, value) => MapEntry(key, value as String)))!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    updatedAt: ((json['updated_at'] as num?)?.toInt())!,
-  );
+  factory VaultCredentialResource.fromJson(Map<String, dynamic> json) =>
+      VaultCredentialResource(
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? VaultCredentialResourceObject.fromJson(json['object'] as String)
+            : null)!,
+        vaultId: (json['vault_id'] as String?)!,
+        name: (json['name'] as String?)!,
+        auth: (json['auth'] != null
+            ? VaultCredentialAuthResource.fromJson(json['auth'])
+            : null)!,
+        metadata: (json['metadata'] == null
+            ? null
+            : Map<String, dynamic>.from(json['metadata'] as Map)
+                .map((key, value) => MapEntry(key, value as String)))!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        updatedAt: ((json['updated_at'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'vault_id': vaultId,
-    'name': name,
-    'auth': auth.toJson(),
-    'metadata': metadata,
-    'created_at': createdAt,
-    'updated_at': updatedAt,
-  };
+        'id': id,
+        'object': object.toJson(),
+        'vault_id': vaultId,
+        'name': name,
+        'auth': auth.toJson(),
+        'metadata': metadata,
+        'created_at': createdAt,
+        'updated_at': updatedAt,
+      };
 }

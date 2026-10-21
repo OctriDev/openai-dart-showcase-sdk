@@ -10,40 +10,87 @@ sealed class VaultCredentialAuthResource {
   const VaultCredentialAuthResource();
   factory VaultCredentialAuthResource.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = VaultCredentialAuthResourceMcpOauth.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return VaultCredentialAuthResourceVaultCredentialAuthResourceMcpOauth(value); } } catch (_) {}
-      try { final value = VaultCredentialAuthResourceStaticBearer.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return VaultCredentialAuthResourceVaultCredentialAuthResourceStaticBearer(value); } } catch (_) {}
-      try { final value = VaultCredentialAuthResourceEnvironmentVariable.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return VaultCredentialAuthResourceVaultCredentialAuthResourceEnvironmentVariable(value); } } catch (_) {}
+      try {
+        final value = VaultCredentialAuthResourceMcpOauth.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return VaultCredentialAuthResourceVaultCredentialAuthResourceMcpOauth(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = VaultCredentialAuthResourceStaticBearer.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return VaultCredentialAuthResourceVaultCredentialAuthResourceStaticBearer(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            VaultCredentialAuthResourceEnvironmentVariable.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return VaultCredentialAuthResourceVaultCredentialAuthResourceEnvironmentVariable(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return VaultCredentialAuthResourceVaultCredentialAuthResourceMcpOauth(VaultCredentialAuthResourceMcpOauth.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return VaultCredentialAuthResourceVaultCredentialAuthResourceStaticBearer(VaultCredentialAuthResourceStaticBearer.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return VaultCredentialAuthResourceVaultCredentialAuthResourceEnvironmentVariable(VaultCredentialAuthResourceEnvironmentVariable.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"mcp_oauth", "static_bearer", "environment_variable"}.contains(json["type"])) { return UnknownVaultCredentialAuthResource(json); }
+    try {
+      return VaultCredentialAuthResourceVaultCredentialAuthResourceMcpOauth(
+          VaultCredentialAuthResourceMcpOauth.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return VaultCredentialAuthResourceVaultCredentialAuthResourceStaticBearer(
+          VaultCredentialAuthResourceStaticBearer.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return VaultCredentialAuthResourceVaultCredentialAuthResourceEnvironmentVariable(
+          VaultCredentialAuthResourceEnvironmentVariable.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"mcp_oauth", "static_bearer", "environment_variable"}
+            .contains(json["type"])) {
+      return UnknownVaultCredentialAuthResource(json);
+    }
     throw FormatException("No variant matched for VaultCredentialAuthResource");
   }
   Object? toJson();
 }
 
-final class VaultCredentialAuthResourceVaultCredentialAuthResourceMcpOauth extends VaultCredentialAuthResource {
+final class VaultCredentialAuthResourceVaultCredentialAuthResourceMcpOauth
+    extends VaultCredentialAuthResource {
   final VaultCredentialAuthResourceMcpOauth value;
-  const VaultCredentialAuthResourceVaultCredentialAuthResourceMcpOauth(this.value);
-  @override Object? toJson() => value.toJson();
+  const VaultCredentialAuthResourceVaultCredentialAuthResourceMcpOauth(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class VaultCredentialAuthResourceVaultCredentialAuthResourceStaticBearer extends VaultCredentialAuthResource {
+final class VaultCredentialAuthResourceVaultCredentialAuthResourceStaticBearer
+    extends VaultCredentialAuthResource {
   final VaultCredentialAuthResourceStaticBearer value;
-  const VaultCredentialAuthResourceVaultCredentialAuthResourceStaticBearer(this.value);
-  @override Object? toJson() => value.toJson();
+  const VaultCredentialAuthResourceVaultCredentialAuthResourceStaticBearer(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class VaultCredentialAuthResourceVaultCredentialAuthResourceEnvironmentVariable extends VaultCredentialAuthResource {
+final class VaultCredentialAuthResourceVaultCredentialAuthResourceEnvironmentVariable
+    extends VaultCredentialAuthResource {
   final VaultCredentialAuthResourceEnvironmentVariable value;
-  const VaultCredentialAuthResourceVaultCredentialAuthResourceEnvironmentVariable(this.value);
-  @override Object? toJson() => value.toJson();
+  const VaultCredentialAuthResourceVaultCredentialAuthResourceEnvironmentVariable(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [VaultCredentialAuthResource] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownVaultCredentialAuthResource extends VaultCredentialAuthResource {
+final class UnknownVaultCredentialAuthResource
+    extends VaultCredentialAuthResource {
   final Map<String, dynamic> raw;
   const UnknownVaultCredentialAuthResource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

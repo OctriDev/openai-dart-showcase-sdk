@@ -8,260 +8,466 @@ part of 'agents.dart';
 class PublicEnvironmentResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Whether the environment is hosted by OpenAI or by the application.
   final EnvironmentTypeResource type_;
+
   /// The ID of the environment.
   final String id;
+
   /// The object type. Always `agent.environment`.
   final PublicEnvironmentResourceObject object;
+
   /// The current environment connection status.
   final EnvironmentStatusResource status;
+
   /// Files installed in the environment, without their contents.
   final List<HostedEnvironmentFileResource> files;
+
   /// Skills installed in the environment, without their archive contents.
   final List<HostedSkillResource> skills;
+
   /// Plugins installed in the environment, without their archive contents.
   final List<HostedPluginResource> plugins;
 
-  const PublicEnvironmentResource({required this.type_, required this.id, required this.object, required this.status, required this.files, required this.skills, required this.plugins});
+  const PublicEnvironmentResource(
+      {required this.type_,
+      required this.id,
+      required this.object,
+      required this.status,
+      required this.files,
+      required this.skills,
+      required this.plugins});
 
-  PublicEnvironmentResource Function({EnvironmentTypeResource type_, String id, PublicEnvironmentResourceObject object, EnvironmentStatusResource status, List<HostedEnvironmentFileResource> files, List<HostedSkillResource> skills, List<HostedPluginResource> plugins}) get copyWith => _copyWith;
+  PublicEnvironmentResource Function(
+      {EnvironmentTypeResource type_,
+      String id,
+      PublicEnvironmentResourceObject object,
+      EnvironmentStatusResource status,
+      List<HostedEnvironmentFileResource> files,
+      List<HostedSkillResource> skills,
+      List<HostedPluginResource> plugins}) get copyWith => _copyWith;
 
-  PublicEnvironmentResource _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? status = sdkOmittedValue, Object? files = sdkOmittedValue, Object? skills = sdkOmittedValue, Object? plugins = sdkOmittedValue}) => PublicEnvironmentResource(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as EnvironmentTypeResource,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as PublicEnvironmentResourceObject,
-    status: identical(status, sdkOmittedValue) ? this.status : status as EnvironmentStatusResource,
-    files: identical(files, sdkOmittedValue) ? this.files : files as List<HostedEnvironmentFileResource>,
-    skills: identical(skills, sdkOmittedValue) ? this.skills : skills as List<HostedSkillResource>,
-    plugins: identical(plugins, sdkOmittedValue) ? this.plugins : plugins as List<HostedPluginResource>,
-  );
+  PublicEnvironmentResource _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? files = sdkOmittedValue,
+          Object? skills = sdkOmittedValue,
+          Object? plugins = sdkOmittedValue}) =>
+      PublicEnvironmentResource(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as EnvironmentTypeResource,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as PublicEnvironmentResourceObject,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as EnvironmentStatusResource,
+        files: identical(files, sdkOmittedValue)
+            ? this.files
+            : files as List<HostedEnvironmentFileResource>,
+        skills: identical(skills, sdkOmittedValue)
+            ? this.skills
+            : skills as List<HostedSkillResource>,
+        plugins: identical(plugins, sdkOmittedValue)
+            ? this.plugins
+            : plugins as List<HostedPluginResource>,
+      );
 
-  factory PublicEnvironmentResource.fromJson(Map<String, dynamic> json) => PublicEnvironmentResource(
-    type_: (json['type'] != null ? EnvironmentTypeResource.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? PublicEnvironmentResourceObject.fromJson(json['object'] as String) : null)!,
-    status: (json['status'] != null ? EnvironmentStatusResource.fromJson(json['status'] as String) : null)!,
-    files: ((json['files'] as List?)?.map((e) => HostedEnvironmentFileResource.fromJson(e)).toList())!,
-    skills: ((json['skills'] as List?)?.map((e) => HostedSkillResource.fromJson(e)).toList())!,
-    plugins: ((json['plugins'] as List?)?.map((e) => HostedPluginResource.fromJson(e)).toList())!,
-  );
+  factory PublicEnvironmentResource.fromJson(Map<String, dynamic> json) =>
+      PublicEnvironmentResource(
+        type_: (json['type'] != null
+            ? EnvironmentTypeResource.fromJson(json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? PublicEnvironmentResourceObject.fromJson(json['object'] as String)
+            : null)!,
+        status: (json['status'] != null
+            ? EnvironmentStatusResource.fromJson(json['status'] as String)
+            : null)!,
+        files: ((json['files'] as List?)
+            ?.map((e) => HostedEnvironmentFileResource.fromJson(e))
+            .toList())!,
+        skills: ((json['skills'] as List?)
+            ?.map((e) => HostedSkillResource.fromJson(e))
+            .toList())!,
+        plugins: ((json['plugins'] as List?)
+            ?.map((e) => HostedPluginResource.fromJson(e))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'id': id,
-    'object': object.toJson(),
-    'status': status.toJson(),
-    'files': files.map((item) => item.toJson()).toList(),
-    'skills': skills.map((item) => item.toJson()).toList(),
-    'plugins': plugins.map((item) => item.toJson()).toList(),
-  };
+        'type': type_.toJson(),
+        'id': id,
+        'object': object.toJson(),
+        'status': status.toJson(),
+        'files': files.map((item) => item.toJson()).toList(),
+        'skills': skills.map((item) => item.toJson()).toList(),
+        'plugins': plugins.map((item) => item.toJson()).toList(),
+      };
 }
 
 /// A request to resume a subagent.
 class ResumeSubagentCallItemResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The item type. Always `resume_subagent_call`.
   final ResumeSubagentCallItemResourceType type_;
+
   /// The ID of the tool call item.
   final String id;
+
   /// The ID of the turn that contains this item.
   final String turnId;
+
   /// The status of the tool call.
   final FunctionCallStatusResource status;
+
   /// The ID of the agent requesting the resume.
   final String senderAgentId;
+
   /// The ID of the agent to resume.
   final String recipientAgentId;
 
-  const ResumeSubagentCallItemResource({required this.type_, required this.id, required this.turnId, required this.status, required this.senderAgentId, required this.recipientAgentId});
+  const ResumeSubagentCallItemResource(
+      {required this.type_,
+      required this.id,
+      required this.turnId,
+      required this.status,
+      required this.senderAgentId,
+      required this.recipientAgentId});
 
-  ResumeSubagentCallItemResource Function({ResumeSubagentCallItemResourceType type_, String id, String turnId, FunctionCallStatusResource status, String senderAgentId, String recipientAgentId}) get copyWith => _copyWith;
+  ResumeSubagentCallItemResource Function(
+      {ResumeSubagentCallItemResourceType type_,
+      String id,
+      String turnId,
+      FunctionCallStatusResource status,
+      String senderAgentId,
+      String recipientAgentId}) get copyWith => _copyWith;
 
-  ResumeSubagentCallItemResource _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? turnId = sdkOmittedValue, Object? status = sdkOmittedValue, Object? senderAgentId = sdkOmittedValue, Object? recipientAgentId = sdkOmittedValue}) => ResumeSubagentCallItemResource(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResumeSubagentCallItemResourceType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    turnId: identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
-    status: identical(status, sdkOmittedValue) ? this.status : status as FunctionCallStatusResource,
-    senderAgentId: identical(senderAgentId, sdkOmittedValue) ? this.senderAgentId : senderAgentId as String,
-    recipientAgentId: identical(recipientAgentId, sdkOmittedValue) ? this.recipientAgentId : recipientAgentId as String,
-  );
+  ResumeSubagentCallItemResource _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? turnId = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? senderAgentId = sdkOmittedValue,
+          Object? recipientAgentId = sdkOmittedValue}) =>
+      ResumeSubagentCallItemResource(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResumeSubagentCallItemResourceType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        turnId:
+            identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as FunctionCallStatusResource,
+        senderAgentId: identical(senderAgentId, sdkOmittedValue)
+            ? this.senderAgentId
+            : senderAgentId as String,
+        recipientAgentId: identical(recipientAgentId, sdkOmittedValue)
+            ? this.recipientAgentId
+            : recipientAgentId as String,
+      );
 
-  factory ResumeSubagentCallItemResource.fromJson(Map<String, dynamic> json) => ResumeSubagentCallItemResource(
-    type_: (json['type'] != null ? ResumeSubagentCallItemResourceType.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    turnId: (json['turn_id'] as String?)!,
-    status: (json['status'] != null ? FunctionCallStatusResource.fromJson(json['status'] as String) : null)!,
-    senderAgentId: (json['sender_agent_id'] as String?)!,
-    recipientAgentId: (json['recipient_agent_id'] as String?)!,
-  );
+  factory ResumeSubagentCallItemResource.fromJson(Map<String, dynamic> json) =>
+      ResumeSubagentCallItemResource(
+        type_: (json['type'] != null
+            ? ResumeSubagentCallItemResourceType.fromJson(
+                json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        turnId: (json['turn_id'] as String?)!,
+        status: (json['status'] != null
+            ? FunctionCallStatusResource.fromJson(json['status'] as String)
+            : null)!,
+        senderAgentId: (json['sender_agent_id'] as String?)!,
+        recipientAgentId: (json['recipient_agent_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'id': id,
-    'turn_id': turnId,
-    'status': status.toJson(),
-    'sender_agent_id': senderAgentId,
-    'recipient_agent_id': recipientAgentId,
-  };
+        'type': type_.toJson(),
+        'id': id,
+        'turn_id': turnId,
+        'status': status.toJson(),
+        'sender_agent_id': senderAgentId,
+        'recipient_agent_id': recipientAgentId,
+      };
 }
 
 /// A request to send input to another agent.
 class SendSubagentInputCallItemResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The item type. Always `send_subagent_input_call`.
   final SendSubagentInputCallItemResourceType type_;
+
   /// The ID of the tool call item.
   final String id;
+
   /// The ID of the turn that contains this item.
   final String turnId;
+
   /// The status of the tool call.
   final FunctionCallStatusResource status;
+
   /// The ID of the agent sending the input.
   final String senderAgentId;
+
   /// The ID of the agent receiving the input.
   final String recipientAgentId;
+
   /// The input sent to the receiving agent.
   final List<AgentContentResource> content;
 
-  const SendSubagentInputCallItemResource({required this.type_, required this.id, required this.turnId, required this.status, required this.senderAgentId, required this.recipientAgentId, required this.content});
+  const SendSubagentInputCallItemResource(
+      {required this.type_,
+      required this.id,
+      required this.turnId,
+      required this.status,
+      required this.senderAgentId,
+      required this.recipientAgentId,
+      required this.content});
 
-  SendSubagentInputCallItemResource Function({SendSubagentInputCallItemResourceType type_, String id, String turnId, FunctionCallStatusResource status, String senderAgentId, String recipientAgentId, List<AgentContentResource> content}) get copyWith => _copyWith;
+  SendSubagentInputCallItemResource Function(
+      {SendSubagentInputCallItemResourceType type_,
+      String id,
+      String turnId,
+      FunctionCallStatusResource status,
+      String senderAgentId,
+      String recipientAgentId,
+      List<AgentContentResource> content}) get copyWith => _copyWith;
 
-  SendSubagentInputCallItemResource _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? turnId = sdkOmittedValue, Object? status = sdkOmittedValue, Object? senderAgentId = sdkOmittedValue, Object? recipientAgentId = sdkOmittedValue, Object? content = sdkOmittedValue}) => SendSubagentInputCallItemResource(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SendSubagentInputCallItemResourceType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    turnId: identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
-    status: identical(status, sdkOmittedValue) ? this.status : status as FunctionCallStatusResource,
-    senderAgentId: identical(senderAgentId, sdkOmittedValue) ? this.senderAgentId : senderAgentId as String,
-    recipientAgentId: identical(recipientAgentId, sdkOmittedValue) ? this.recipientAgentId : recipientAgentId as String,
-    content: identical(content, sdkOmittedValue) ? this.content : content as List<AgentContentResource>,
-  );
+  SendSubagentInputCallItemResource _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? turnId = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? senderAgentId = sdkOmittedValue,
+          Object? recipientAgentId = sdkOmittedValue,
+          Object? content = sdkOmittedValue}) =>
+      SendSubagentInputCallItemResource(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SendSubagentInputCallItemResourceType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        turnId:
+            identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as FunctionCallStatusResource,
+        senderAgentId: identical(senderAgentId, sdkOmittedValue)
+            ? this.senderAgentId
+            : senderAgentId as String,
+        recipientAgentId: identical(recipientAgentId, sdkOmittedValue)
+            ? this.recipientAgentId
+            : recipientAgentId as String,
+        content: identical(content, sdkOmittedValue)
+            ? this.content
+            : content as List<AgentContentResource>,
+      );
 
-  factory SendSubagentInputCallItemResource.fromJson(Map<String, dynamic> json) => SendSubagentInputCallItemResource(
-    type_: (json['type'] != null ? SendSubagentInputCallItemResourceType.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    turnId: (json['turn_id'] as String?)!,
-    status: (json['status'] != null ? FunctionCallStatusResource.fromJson(json['status'] as String) : null)!,
-    senderAgentId: (json['sender_agent_id'] as String?)!,
-    recipientAgentId: (json['recipient_agent_id'] as String?)!,
-    content: ((json['content'] as List?)?.map((e) => AgentContentResource.fromJson(e)).toList())!,
-  );
+  factory SendSubagentInputCallItemResource.fromJson(
+          Map<String, dynamic> json) =>
+      SendSubagentInputCallItemResource(
+        type_: (json['type'] != null
+            ? SendSubagentInputCallItemResourceType.fromJson(
+                json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        turnId: (json['turn_id'] as String?)!,
+        status: (json['status'] != null
+            ? FunctionCallStatusResource.fromJson(json['status'] as String)
+            : null)!,
+        senderAgentId: (json['sender_agent_id'] as String?)!,
+        recipientAgentId: (json['recipient_agent_id'] as String?)!,
+        content: ((json['content'] as List?)
+            ?.map((e) => AgentContentResource.fromJson(e))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'id': id,
-    'turn_id': turnId,
-    'status': status.toJson(),
-    'sender_agent_id': senderAgentId,
-    'recipient_agent_id': recipientAgentId,
-    'content': content.map((item) => item.toJson()).toList(),
-  };
+        'type': type_.toJson(),
+        'id': id,
+        'turn_id': turnId,
+        'status': status.toJson(),
+        'sender_agent_id': senderAgentId,
+        'recipient_agent_id': recipientAgentId,
+        'content': content.map((item) => item.toJson()).toList(),
+      };
 }
 
 /// A confidential setup command executed before the hosted agent starts.
 class SetupCommandParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The shell command to execute.
   final String command;
+
   /// The absolute working directory. Defaults to `/workspace`.
   final SdkOptional<String?> cwd;
 
-  const SetupCommandParam({required this.command, this.cwd = const SdkOmitted()});
+  const SetupCommandParam(
+      {required this.command, this.cwd = const SdkOmitted()});
 
-  SetupCommandParam Function({String command, SdkOptional<String?> cwd}) get copyWith => _copyWith;
+  SetupCommandParam Function({String command, SdkOptional<String?> cwd})
+      get copyWith => _copyWith;
 
-  SetupCommandParam _copyWith({Object? command = sdkOmittedValue, Object? cwd = sdkOmittedValue}) => SetupCommandParam(
-    command: identical(command, sdkOmittedValue) ? this.command : command as String,
-    cwd: identical(cwd, sdkOmittedValue) ? this.cwd : cwd as SdkOptional<String?>,
-  );
+  SetupCommandParam _copyWith(
+          {Object? command = sdkOmittedValue, Object? cwd = sdkOmittedValue}) =>
+      SetupCommandParam(
+        command: identical(command, sdkOmittedValue)
+            ? this.command
+            : command as String,
+        cwd: identical(cwd, sdkOmittedValue)
+            ? this.cwd
+            : cwd as SdkOptional<String?>,
+      );
 
-  factory SetupCommandParam.fromJson(Map<String, dynamic> json) => SetupCommandParam(
-    command: (json['command'] as String?)!,
-    cwd: json.containsKey('cwd') ? SdkPresent(json['cwd'] as String?) : const SdkOmitted(),
-  );
+  factory SetupCommandParam.fromJson(Map<String, dynamic> json) =>
+      SetupCommandParam(
+        command: (json['command'] as String?)!,
+        cwd: json.containsKey('cwd')
+            ? SdkPresent(json['cwd'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'command': command,
-    ...switch (cwd) {
-      SdkPresent<String?>(value: final value) => {'cwd': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'command': command,
+        ...switch (cwd) {
+          SdkPresent<String?>(value: final value) => {
+              'cwd': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A reasoning summary content part.
 class SummaryTextResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The content type. Always `summary_text`.
   final SummaryTextResourceType type_;
+
   /// The reasoning summary text.
   final String text;
 
   const SummaryTextResource({required this.type_, required this.text});
 
-  SummaryTextResource Function({SummaryTextResourceType type_, String text}) get copyWith => _copyWith;
+  SummaryTextResource Function({SummaryTextResourceType type_, String text})
+      get copyWith => _copyWith;
 
-  SummaryTextResource _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => SummaryTextResource(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SummaryTextResourceType,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-  );
+  SummaryTextResource _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
+      SummaryTextResource(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SummaryTextResourceType,
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+      );
 
-  factory SummaryTextResource.fromJson(Map<String, dynamic> json) => SummaryTextResource(
-    type_: (json['type'] != null ? SummaryTextResourceType.fromJson(json['type'] as String) : null)!,
-    text: (json['text'] as String?)!,
-  );
+  factory SummaryTextResource.fromJson(Map<String, dynamic> json) =>
+      SummaryTextResource(
+        type_: (json['type'] != null
+            ? SummaryTextResourceType.fromJson(json['type'] as String)
+            : null)!,
+        text: (json['text'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'text': text,
-  };
+        'type': type_.toJson(),
+        'text': text,
+      };
 }
 
 /// Recorded token usage for a session or turn. Usage is best effort and may change.
 class TokenUsageResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The number of input tokens used by the agent.
   final int inputTokens;
+
   /// A breakdown of the agent's input token usage.
   final InputTokensDetailsResource2 inputTokensDetails;
+
   /// The number of output tokens generated by the agent.
   final int outputTokens;
+
   /// A breakdown of the agent's output token usage.
   final OutputTokensDetailsResource2 outputTokensDetails;
+
   /// The total number of input and output tokens used by the agent.
   final int totalTokens;
 
-  const TokenUsageResource({required this.inputTokens, required this.inputTokensDetails, required this.outputTokens, required this.outputTokensDetails, required this.totalTokens});
+  const TokenUsageResource(
+      {required this.inputTokens,
+      required this.inputTokensDetails,
+      required this.outputTokens,
+      required this.outputTokensDetails,
+      required this.totalTokens});
 
-  TokenUsageResource Function({int inputTokens, InputTokensDetailsResource2 inputTokensDetails, int outputTokens, OutputTokensDetailsResource2 outputTokensDetails, int totalTokens}) get copyWith => _copyWith;
+  TokenUsageResource Function(
+      {int inputTokens,
+      InputTokensDetailsResource2 inputTokensDetails,
+      int outputTokens,
+      OutputTokensDetailsResource2 outputTokensDetails,
+      int totalTokens}) get copyWith => _copyWith;
 
-  TokenUsageResource _copyWith({Object? inputTokens = sdkOmittedValue, Object? inputTokensDetails = sdkOmittedValue, Object? outputTokens = sdkOmittedValue, Object? outputTokensDetails = sdkOmittedValue, Object? totalTokens = sdkOmittedValue}) => TokenUsageResource(
-    inputTokens: identical(inputTokens, sdkOmittedValue) ? this.inputTokens : inputTokens as int,
-    inputTokensDetails: identical(inputTokensDetails, sdkOmittedValue) ? this.inputTokensDetails : inputTokensDetails as InputTokensDetailsResource2,
-    outputTokens: identical(outputTokens, sdkOmittedValue) ? this.outputTokens : outputTokens as int,
-    outputTokensDetails: identical(outputTokensDetails, sdkOmittedValue) ? this.outputTokensDetails : outputTokensDetails as OutputTokensDetailsResource2,
-    totalTokens: identical(totalTokens, sdkOmittedValue) ? this.totalTokens : totalTokens as int,
-  );
+  TokenUsageResource _copyWith(
+          {Object? inputTokens = sdkOmittedValue,
+          Object? inputTokensDetails = sdkOmittedValue,
+          Object? outputTokens = sdkOmittedValue,
+          Object? outputTokensDetails = sdkOmittedValue,
+          Object? totalTokens = sdkOmittedValue}) =>
+      TokenUsageResource(
+        inputTokens: identical(inputTokens, sdkOmittedValue)
+            ? this.inputTokens
+            : inputTokens as int,
+        inputTokensDetails: identical(inputTokensDetails, sdkOmittedValue)
+            ? this.inputTokensDetails
+            : inputTokensDetails as InputTokensDetailsResource2,
+        outputTokens: identical(outputTokens, sdkOmittedValue)
+            ? this.outputTokens
+            : outputTokens as int,
+        outputTokensDetails: identical(outputTokensDetails, sdkOmittedValue)
+            ? this.outputTokensDetails
+            : outputTokensDetails as OutputTokensDetailsResource2,
+        totalTokens: identical(totalTokens, sdkOmittedValue)
+            ? this.totalTokens
+            : totalTokens as int,
+      );
 
-  factory TokenUsageResource.fromJson(Map<String, dynamic> json) => TokenUsageResource(
-    inputTokens: ((json['input_tokens'] as num?)?.toInt())!,
-    inputTokensDetails: (json['input_tokens_details'] != null ? InputTokensDetailsResource2.fromJson(json['input_tokens_details'] as Map<String, dynamic>) : null)!,
-    outputTokens: ((json['output_tokens'] as num?)?.toInt())!,
-    outputTokensDetails: (json['output_tokens_details'] != null ? OutputTokensDetailsResource2.fromJson(json['output_tokens_details'] as Map<String, dynamic>) : null)!,
-    totalTokens: ((json['total_tokens'] as num?)?.toInt())!,
-  );
+  factory TokenUsageResource.fromJson(Map<String, dynamic> json) =>
+      TokenUsageResource(
+        inputTokens: ((json['input_tokens'] as num?)?.toInt())!,
+        inputTokensDetails: (json['input_tokens_details'] != null
+            ? InputTokensDetailsResource2.fromJson(
+                json['input_tokens_details'] as Map<String, dynamic>)
+            : null)!,
+        outputTokens: ((json['output_tokens'] as num?)?.toInt())!,
+        outputTokensDetails: (json['output_tokens_details'] != null
+            ? OutputTokensDetailsResource2.fromJson(
+                json['output_tokens_details'] as Map<String, dynamic>)
+            : null)!,
+        totalTokens: ((json['total_tokens'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'input_tokens': inputTokens,
-    'input_tokens_details': inputTokensDetails.toJson(),
-    'output_tokens': outputTokens,
-    'output_tokens_details': outputTokensDetails.toJson(),
-    'total_tokens': totalTokens,
-  };
+        'input_tokens': inputTokens,
+        'input_tokens_details': inputTokensDetails.toJson(),
+        'output_tokens': outputTokens,
+        'output_tokens_details': outputTokensDetails.toJson(),
+        'total_tokens': totalTokens,
+      };
 }

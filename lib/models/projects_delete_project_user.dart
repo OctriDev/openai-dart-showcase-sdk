@@ -8,32 +8,50 @@ part of 'projects.dart';
 class ProjectUserDeleteResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `object` wire field.
   final ProjectUserDeleteResponseObject object;
+
   /// Required `string` value serialized in the `id` wire field.
   final String id;
+
   /// Required `boolean` value serialized in the `deleted` wire field.
   final bool deleted;
 
-  const ProjectUserDeleteResponse({required this.object, required this.id, required this.deleted});
+  const ProjectUserDeleteResponse(
+      {required this.object, required this.id, required this.deleted});
 
-  ProjectUserDeleteResponse Function({ProjectUserDeleteResponseObject object, String id, bool deleted}) get copyWith => _copyWith;
+  ProjectUserDeleteResponse Function(
+      {ProjectUserDeleteResponseObject object,
+      String id,
+      bool deleted}) get copyWith => _copyWith;
 
-  ProjectUserDeleteResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => ProjectUserDeleteResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as ProjectUserDeleteResponseObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
-  );
+  ProjectUserDeleteResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue}) =>
+      ProjectUserDeleteResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ProjectUserDeleteResponseObject,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as bool,
+      );
 
-  factory ProjectUserDeleteResponse.fromJson(Map<String, dynamic> json) => ProjectUserDeleteResponse(
-    object: (json['object'] != null ? ProjectUserDeleteResponseObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    deleted: (json['deleted'] as bool?)!,
-  );
+  factory ProjectUserDeleteResponse.fromJson(Map<String, dynamic> json) =>
+      ProjectUserDeleteResponse(
+        object: (json['object'] != null
+            ? ProjectUserDeleteResponseObject.fromJson(json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        deleted: (json['deleted'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'deleted': deleted,
-  };
+        'object': object.toJson(),
+        'id': id,
+        'deleted': deleted,
+      };
 }

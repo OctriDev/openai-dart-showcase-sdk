@@ -10,39 +10,72 @@ sealed class RealtimeSessionCreateRequestGAToolChoice {
   const RealtimeSessionCreateRequestGAToolChoice();
   factory RealtimeSessionCreateRequestGAToolChoice.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = ToolChoiceFunction.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeSessionCreateRequestGAToolChoiceToolChoiceFunction(value); } } catch (_) {}
-      try { final value = ToolChoiceMCP.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeSessionCreateRequestGAToolChoiceToolChoiceMCP(value); } } catch (_) {}
+      try {
+        final value = ToolChoiceFunction.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeSessionCreateRequestGAToolChoiceToolChoiceFunction(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ToolChoiceMCP.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeSessionCreateRequestGAToolChoiceToolChoiceMCP(value);
+        }
+      } catch (_) {}
     }
-    try { return RealtimeSessionCreateRequestGAToolChoiceToolChoiceOptions(ToolChoiceOptions.fromJson(json as String)); } catch (_) {}
-    try { return RealtimeSessionCreateRequestGAToolChoiceToolChoiceFunction(ToolChoiceFunction.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeSessionCreateRequestGAToolChoiceToolChoiceMCP(ToolChoiceMCP.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"function", "mcp"}.contains(json["type"])) { return UnknownRealtimeSessionCreateRequestGAToolChoice(json); }
-    throw FormatException("No variant matched for RealtimeSessionCreateRequestGAToolChoice");
+    try {
+      return RealtimeSessionCreateRequestGAToolChoiceToolChoiceOptions(
+          ToolChoiceOptions.fromJson(json as String));
+    } catch (_) {}
+    try {
+      return RealtimeSessionCreateRequestGAToolChoiceToolChoiceFunction(
+          ToolChoiceFunction.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeSessionCreateRequestGAToolChoiceToolChoiceMCP(
+          ToolChoiceMCP.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"function", "mcp"}.contains(json["type"])) {
+      return UnknownRealtimeSessionCreateRequestGAToolChoice(json);
+    }
+    throw FormatException(
+        "No variant matched for RealtimeSessionCreateRequestGAToolChoice");
   }
   Object? toJson();
 }
 
-final class RealtimeSessionCreateRequestGAToolChoiceToolChoiceOptions extends RealtimeSessionCreateRequestGAToolChoice {
+final class RealtimeSessionCreateRequestGAToolChoiceToolChoiceOptions
+    extends RealtimeSessionCreateRequestGAToolChoice {
   final ToolChoiceOptions value;
   const RealtimeSessionCreateRequestGAToolChoiceToolChoiceOptions(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeSessionCreateRequestGAToolChoiceToolChoiceFunction extends RealtimeSessionCreateRequestGAToolChoice {
+final class RealtimeSessionCreateRequestGAToolChoiceToolChoiceFunction
+    extends RealtimeSessionCreateRequestGAToolChoice {
   final ToolChoiceFunction value;
   const RealtimeSessionCreateRequestGAToolChoiceToolChoiceFunction(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeSessionCreateRequestGAToolChoiceToolChoiceMCP extends RealtimeSessionCreateRequestGAToolChoice {
+final class RealtimeSessionCreateRequestGAToolChoiceToolChoiceMCP
+    extends RealtimeSessionCreateRequestGAToolChoice {
   final ToolChoiceMCP value;
   const RealtimeSessionCreateRequestGAToolChoiceToolChoiceMCP(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [RealtimeSessionCreateRequestGAToolChoice] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownRealtimeSessionCreateRequestGAToolChoice extends RealtimeSessionCreateRequestGAToolChoice {
+final class UnknownRealtimeSessionCreateRequestGAToolChoice
+    extends RealtimeSessionCreateRequestGAToolChoice {
   final Map<String, dynamic> raw;
   const UnknownRealtimeSessionCreateRequestGAToolChoice(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

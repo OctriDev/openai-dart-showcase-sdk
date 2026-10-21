@@ -8,127 +8,290 @@ part of 'fine_tuning.dart';
 class FineTuningJob {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The object identifier, which can be referenced in the API endpoints.
   final String id;
+
   /// The Unix timestamp (in seconds) for when the fine-tuning job was created.
   final int createdAt;
+
   /// Required API value serialized in the `error` wire field.
   final dynamic error;
+
   /// Required `string` value serialized in the `fine_tuned_model` wire field.
   final String? fineTunedModel;
+
   /// Required API value serialized in the `finished_at` wire field.
   final int? finishedAt;
+
   /// The hyperparameters used for the fine-tuning job. This value will only be returned when running `supervised` jobs.
   final SdkOptional<FineTuningJobHyperparameters?> hyperparameters;
+
   /// The base model that is being fine-tuned.
   final String model;
+
   /// The object type, which is always "fine_tuning.job".
   final FineTuningJobObject object;
+
   /// The organization that owns the fine-tuning job.
   final String organizationId;
+
   /// The compiled results file ID(s) for the fine-tuning job. You can retrieve the results with the [Files API](https://developers.openai.com/api/reference/resources/files/methods/content).
   final List<String> resultFiles;
+
   /// The current status of the fine-tuning job, which can be `validating_files`, `queued`, `running`, `pausing`, `paused`, `succeeded`, `failed`, or `cancelled`.
   final FineTuningJobStatus status;
+
   /// Required `integer` value serialized in the `trained_tokens` wire field.
   final int? trainedTokens;
+
   /// The file ID used for training. You can retrieve the training data with the [Files API](https://developers.openai.com/api/reference/resources/files/methods/content).
   final String trainingFile;
+
   /// Required `string` value serialized in the `validation_file` wire field.
   final String? validationFile;
+
   /// A list of integrations to enable for this fine-tuning job.
   final SdkOptional<List<FineTuningIntegration>?> integrations;
+
   /// The seed used for the fine-tuning job.
   final int? seed;
+
   /// Optional API value serialized in the `estimated_finish` wire field.
   final SdkOptional<int?> estimatedFinish;
+
   /// Optional API value serialized in the `method` wire field.
   final SdkOptional<FineTuneMethod?> method;
+
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
   final SdkOptional<Map<String, dynamic>?> metadata;
 
-  const FineTuningJob({required this.id, required this.createdAt, required this.error, required this.fineTunedModel, required this.finishedAt, this.hyperparameters = const SdkOmitted(), required this.model, required this.object, required this.organizationId, required this.resultFiles, required this.status, required this.trainedTokens, required this.trainingFile, required this.validationFile, this.integrations = const SdkOmitted(), required this.seed, this.estimatedFinish = const SdkOmitted(), this.method = const SdkOmitted(), this.metadata = const SdkOmitted()});
+  const FineTuningJob(
+      {required this.id,
+      required this.createdAt,
+      required this.error,
+      required this.fineTunedModel,
+      required this.finishedAt,
+      this.hyperparameters = const SdkOmitted(),
+      required this.model,
+      required this.object,
+      required this.organizationId,
+      required this.resultFiles,
+      required this.status,
+      required this.trainedTokens,
+      required this.trainingFile,
+      required this.validationFile,
+      this.integrations = const SdkOmitted(),
+      required this.seed,
+      this.estimatedFinish = const SdkOmitted(),
+      this.method = const SdkOmitted(),
+      this.metadata = const SdkOmitted()});
 
-  FineTuningJob Function({String id, int createdAt, dynamic error, String? fineTunedModel, int? finishedAt, SdkOptional<FineTuningJobHyperparameters?> hyperparameters, String model, FineTuningJobObject object, String organizationId, List<String> resultFiles, FineTuningJobStatus status, int? trainedTokens, String trainingFile, String? validationFile, SdkOptional<List<FineTuningIntegration>?> integrations, int? seed, SdkOptional<int?> estimatedFinish, SdkOptional<FineTuneMethod?> method, SdkOptional<Map<String, dynamic>?> metadata}) get copyWith => _copyWith;
+  FineTuningJob Function(
+      {String id,
+      int createdAt,
+      dynamic error,
+      String? fineTunedModel,
+      int? finishedAt,
+      SdkOptional<FineTuningJobHyperparameters?> hyperparameters,
+      String model,
+      FineTuningJobObject object,
+      String organizationId,
+      List<String> resultFiles,
+      FineTuningJobStatus status,
+      int? trainedTokens,
+      String trainingFile,
+      String? validationFile,
+      SdkOptional<List<FineTuningIntegration>?> integrations,
+      int? seed,
+      SdkOptional<int?> estimatedFinish,
+      SdkOptional<FineTuneMethod?> method,
+      SdkOptional<Map<String, dynamic>?> metadata}) get copyWith => _copyWith;
 
-  FineTuningJob _copyWith({Object? id = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? error = sdkOmittedValue, Object? fineTunedModel = sdkOmittedValue, Object? finishedAt = sdkOmittedValue, Object? hyperparameters = sdkOmittedValue, Object? model = sdkOmittedValue, Object? object = sdkOmittedValue, Object? organizationId = sdkOmittedValue, Object? resultFiles = sdkOmittedValue, Object? status = sdkOmittedValue, Object? trainedTokens = sdkOmittedValue, Object? trainingFile = sdkOmittedValue, Object? validationFile = sdkOmittedValue, Object? integrations = sdkOmittedValue, Object? seed = sdkOmittedValue, Object? estimatedFinish = sdkOmittedValue, Object? method = sdkOmittedValue, Object? metadata = sdkOmittedValue}) => FineTuningJob(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    error: identical(error, sdkOmittedValue) ? this.error : error as dynamic,
-    fineTunedModel: identical(fineTunedModel, sdkOmittedValue) ? this.fineTunedModel : fineTunedModel as String?,
-    finishedAt: identical(finishedAt, sdkOmittedValue) ? this.finishedAt : finishedAt as int?,
-    hyperparameters: identical(hyperparameters, sdkOmittedValue) ? this.hyperparameters : hyperparameters as SdkOptional<FineTuningJobHyperparameters?>,
-    model: identical(model, sdkOmittedValue) ? this.model : model as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as FineTuningJobObject,
-    organizationId: identical(organizationId, sdkOmittedValue) ? this.organizationId : organizationId as String,
-    resultFiles: identical(resultFiles, sdkOmittedValue) ? this.resultFiles : resultFiles as List<String>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as FineTuningJobStatus,
-    trainedTokens: identical(trainedTokens, sdkOmittedValue) ? this.trainedTokens : trainedTokens as int?,
-    trainingFile: identical(trainingFile, sdkOmittedValue) ? this.trainingFile : trainingFile as String,
-    validationFile: identical(validationFile, sdkOmittedValue) ? this.validationFile : validationFile as String?,
-    integrations: identical(integrations, sdkOmittedValue) ? this.integrations : integrations as SdkOptional<List<FineTuningIntegration>?>,
-    seed: identical(seed, sdkOmittedValue) ? this.seed : seed as int?,
-    estimatedFinish: identical(estimatedFinish, sdkOmittedValue) ? this.estimatedFinish : estimatedFinish as SdkOptional<int?>,
-    method: identical(method, sdkOmittedValue) ? this.method : method as SdkOptional<FineTuneMethod?>,
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, dynamic>?>,
-  );
+  FineTuningJob _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? error = sdkOmittedValue,
+          Object? fineTunedModel = sdkOmittedValue,
+          Object? finishedAt = sdkOmittedValue,
+          Object? hyperparameters = sdkOmittedValue,
+          Object? model = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? organizationId = sdkOmittedValue,
+          Object? resultFiles = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? trainedTokens = sdkOmittedValue,
+          Object? trainingFile = sdkOmittedValue,
+          Object? validationFile = sdkOmittedValue,
+          Object? integrations = sdkOmittedValue,
+          Object? seed = sdkOmittedValue,
+          Object? estimatedFinish = sdkOmittedValue,
+          Object? method = sdkOmittedValue,
+          Object? metadata = sdkOmittedValue}) =>
+      FineTuningJob(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        error:
+            identical(error, sdkOmittedValue) ? this.error : error as dynamic,
+        fineTunedModel: identical(fineTunedModel, sdkOmittedValue)
+            ? this.fineTunedModel
+            : fineTunedModel as String?,
+        finishedAt: identical(finishedAt, sdkOmittedValue)
+            ? this.finishedAt
+            : finishedAt as int?,
+        hyperparameters: identical(hyperparameters, sdkOmittedValue)
+            ? this.hyperparameters
+            : hyperparameters as SdkOptional<FineTuningJobHyperparameters?>,
+        model: identical(model, sdkOmittedValue) ? this.model : model as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as FineTuningJobObject,
+        organizationId: identical(organizationId, sdkOmittedValue)
+            ? this.organizationId
+            : organizationId as String,
+        resultFiles: identical(resultFiles, sdkOmittedValue)
+            ? this.resultFiles
+            : resultFiles as List<String>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as FineTuningJobStatus,
+        trainedTokens: identical(trainedTokens, sdkOmittedValue)
+            ? this.trainedTokens
+            : trainedTokens as int?,
+        trainingFile: identical(trainingFile, sdkOmittedValue)
+            ? this.trainingFile
+            : trainingFile as String,
+        validationFile: identical(validationFile, sdkOmittedValue)
+            ? this.validationFile
+            : validationFile as String?,
+        integrations: identical(integrations, sdkOmittedValue)
+            ? this.integrations
+            : integrations as SdkOptional<List<FineTuningIntegration>?>,
+        seed: identical(seed, sdkOmittedValue) ? this.seed : seed as int?,
+        estimatedFinish: identical(estimatedFinish, sdkOmittedValue)
+            ? this.estimatedFinish
+            : estimatedFinish as SdkOptional<int?>,
+        method: identical(method, sdkOmittedValue)
+            ? this.method
+            : method as SdkOptional<FineTuneMethod?>,
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as SdkOptional<Map<String, dynamic>?>,
+      );
 
   factory FineTuningJob.fromJson(Map<String, dynamic> json) => FineTuningJob(
-    id: (json['id'] as String?)!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    error: json.containsKey('error') ? json['error'] : throw ArgumentError.value(null, 'error', 'Required property is missing'),
-    fineTunedModel: json.containsKey('fine_tuned_model') ? json['fine_tuned_model'] as String? : throw ArgumentError.value(null, 'fine_tuned_model', 'Required property is missing'),
-    finishedAt: json.containsKey('finished_at') ? (json['finished_at'] as num?)?.toInt() : throw ArgumentError.value(null, 'finished_at', 'Required property is missing'),
-    hyperparameters: json.containsKey('hyperparameters') ? SdkPresent(json['hyperparameters'] != null ? FineTuningJobHyperparameters.fromJson(json['hyperparameters'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    model: (json['model'] as String?)!,
-    object: (json['object'] != null ? FineTuningJobObject.fromJson(json['object'] as String) : null)!,
-    organizationId: (json['organization_id'] as String?)!,
-    resultFiles: ((json['result_files'] as List?)?.map((e) => e as String).toList())!,
-    status: (json['status'] != null ? FineTuningJobStatus.fromJson(json['status'] as String) : null)!,
-    trainedTokens: json.containsKey('trained_tokens') ? (json['trained_tokens'] as num?)?.toInt() : throw ArgumentError.value(null, 'trained_tokens', 'Required property is missing'),
-    trainingFile: (json['training_file'] as String?)!,
-    validationFile: json.containsKey('validation_file') ? json['validation_file'] as String? : throw ArgumentError.value(null, 'validation_file', 'Required property is missing'),
-    integrations: json.containsKey('integrations') ? SdkPresent((json['integrations'] as List?)?.map((e) => FineTuningIntegration.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
-    seed: json.containsKey('seed') ? (json['seed'] as num?)?.toInt() : throw ArgumentError.value(null, 'seed', 'Required property is missing'),
-    estimatedFinish: json.containsKey('estimated_finish') ? SdkPresent((json['estimated_finish'] as num?)?.toInt()) : const SdkOmitted(),
-    method: json.containsKey('method') ? SdkPresent(json['method'] != null ? FineTuneMethod.fromJson(json['method'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    metadata: json.containsKey('metadata') ? SdkPresent(json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic>) : const SdkOmitted(),
-  );
+        id: (json['id'] as String?)!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        error: json.containsKey('error')
+            ? json['error']
+            : throw ArgumentError.value(
+                null, 'error', 'Required property is missing'),
+        fineTunedModel: json.containsKey('fine_tuned_model')
+            ? json['fine_tuned_model'] as String?
+            : throw ArgumentError.value(
+                null, 'fine_tuned_model', 'Required property is missing'),
+        finishedAt: json.containsKey('finished_at')
+            ? (json['finished_at'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'finished_at', 'Required property is missing'),
+        hyperparameters: json.containsKey('hyperparameters')
+            ? SdkPresent(json['hyperparameters'] != null
+                ? FineTuningJobHyperparameters.fromJson(
+                    json['hyperparameters'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        model: (json['model'] as String?)!,
+        object: (json['object'] != null
+            ? FineTuningJobObject.fromJson(json['object'] as String)
+            : null)!,
+        organizationId: (json['organization_id'] as String?)!,
+        resultFiles: ((json['result_files'] as List?)
+            ?.map((e) => e as String)
+            .toList())!,
+        status: (json['status'] != null
+            ? FineTuningJobStatus.fromJson(json['status'] as String)
+            : null)!,
+        trainedTokens: json.containsKey('trained_tokens')
+            ? (json['trained_tokens'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'trained_tokens', 'Required property is missing'),
+        trainingFile: (json['training_file'] as String?)!,
+        validationFile: json.containsKey('validation_file')
+            ? json['validation_file'] as String?
+            : throw ArgumentError.value(
+                null, 'validation_file', 'Required property is missing'),
+        integrations: json.containsKey('integrations')
+            ? SdkPresent((json['integrations'] as List?)
+                ?.map((e) =>
+                    FineTuningIntegration.fromJson(e as Map<String, dynamic>))
+                .toList())
+            : const SdkOmitted(),
+        seed: json.containsKey('seed')
+            ? (json['seed'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'seed', 'Required property is missing'),
+        estimatedFinish: json.containsKey('estimated_finish')
+            ? SdkPresent((json['estimated_finish'] as num?)?.toInt())
+            : const SdkOmitted(),
+        method: json.containsKey('method')
+            ? SdkPresent(json['method'] != null
+                ? FineTuneMethod.fromJson(
+                    json['method'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        metadata: json.containsKey('metadata')
+            ? SdkPresent(json['metadata'] == null
+                ? null
+                : json['metadata'] as Map<String, dynamic>)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'created_at': createdAt,
-    'error': error,
-    'fine_tuned_model': fineTunedModel,
-    'finished_at': finishedAt,
-    ...switch (hyperparameters) {
-      SdkPresent<FineTuningJobHyperparameters?>(value: final value) => {'hyperparameters': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'model': model,
-    'object': object.toJson(),
-    'organization_id': organizationId,
-    'result_files': resultFiles,
-    'status': status.toJson(),
-    'trained_tokens': trainedTokens,
-    'training_file': trainingFile,
-    'validation_file': validationFile,
-    ...switch (integrations) {
-      SdkPresent<List<FineTuningIntegration>?>(value: final value) => {'integrations': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    'seed': seed,
-    ...switch (estimatedFinish) {
-      SdkPresent<int?>(value: final value) => {'estimated_finish': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (method) {
-      SdkPresent<FineTuneMethod?>(value: final value) => {'method': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (metadata) {
-      SdkPresent<Map<String, dynamic>?>(value: final value) => {'metadata': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'id': id,
+        'created_at': createdAt,
+        'error': error,
+        'fine_tuned_model': fineTunedModel,
+        'finished_at': finishedAt,
+        ...switch (hyperparameters) {
+          SdkPresent<FineTuningJobHyperparameters?>(value: final value) => {
+              'hyperparameters': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'model': model,
+        'object': object.toJson(),
+        'organization_id': organizationId,
+        'result_files': resultFiles,
+        'status': status.toJson(),
+        'trained_tokens': trainedTokens,
+        'training_file': trainingFile,
+        'validation_file': validationFile,
+        ...switch (integrations) {
+          SdkPresent<List<FineTuningIntegration>?>(value: final value) => {
+              'integrations': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'seed': seed,
+        ...switch (estimatedFinish) {
+          SdkPresent<int?>(value: final value) => {
+              'estimated_finish': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (method) {
+          SdkPresent<FineTuneMethod?>(value: final value) => {
+              'method': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (metadata) {
+          SdkPresent<Map<String, dynamic>?>(value: final value) => {
+              'metadata': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

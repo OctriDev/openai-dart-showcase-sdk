@@ -6,12 +6,12 @@ part of 'shared_computer.dart';
 // shared_computer domain models
 /// Typed representation of the `ComputerCallOutputStatus` API schema.
 final class ComputerCallOutputStatus {
-
   final String value;
 
   const ComputerCallOutputStatus._(this.value);
 
-  factory ComputerCallOutputStatus.fromJson(String value) => ComputerCallOutputStatus._(value);
+  factory ComputerCallOutputStatus.fromJson(String value) =>
+      ComputerCallOutputStatus._(value);
 
   static const completed = ComputerCallOutputStatus._('completed');
   static const incomplete = ComputerCallOutputStatus._('incomplete');
@@ -19,10 +19,13 @@ final class ComputerCallOutputStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ComputerCallOutputStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ComputerCallOutputStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

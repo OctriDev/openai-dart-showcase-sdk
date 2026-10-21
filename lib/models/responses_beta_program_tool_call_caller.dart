@@ -8,27 +8,42 @@ part of 'responses_beta_program.dart';
 class BetaProgramToolCallCaller {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final BetaProgramToolCallCallerType type_;
+
   /// The call ID of the program item that produced this tool call.
   final String callerId;
 
-  const BetaProgramToolCallCaller({required this.type_, required this.callerId});
+  const BetaProgramToolCallCaller(
+      {required this.type_, required this.callerId});
 
-  BetaProgramToolCallCaller Function({BetaProgramToolCallCallerType type_, String callerId}) get copyWith => _copyWith;
+  BetaProgramToolCallCaller Function(
+      {BetaProgramToolCallCallerType type_,
+      String callerId}) get copyWith => _copyWith;
 
-  BetaProgramToolCallCaller _copyWith({Object? type_ = sdkOmittedValue, Object? callerId = sdkOmittedValue}) => BetaProgramToolCallCaller(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaProgramToolCallCallerType,
-    callerId: identical(callerId, sdkOmittedValue) ? this.callerId : callerId as String,
-  );
+  BetaProgramToolCallCaller _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? callerId = sdkOmittedValue}) =>
+      BetaProgramToolCallCaller(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaProgramToolCallCallerType,
+        callerId: identical(callerId, sdkOmittedValue)
+            ? this.callerId
+            : callerId as String,
+      );
 
-  factory BetaProgramToolCallCaller.fromJson(Map<String, dynamic> json) => BetaProgramToolCallCaller(
-    type_: (json['type'] != null ? BetaProgramToolCallCallerType.fromJson(json['type'] as String) : null)!,
-    callerId: (json['caller_id'] as String?)!,
-  );
+  factory BetaProgramToolCallCaller.fromJson(Map<String, dynamic> json) =>
+      BetaProgramToolCallCaller(
+        type_: (json['type'] != null
+            ? BetaProgramToolCallCallerType.fromJson(json['type'] as String)
+            : null)!,
+        callerId: (json['caller_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'caller_id': callerId,
-  };
+        'type': type_.toJson(),
+        'caller_id': callerId,
+      };
 }

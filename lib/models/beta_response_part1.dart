@@ -8,228 +8,396 @@ part of 'beta_response.dart';
 class BetaResponseInjectCreatedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The event discriminator. Always `response.inject.created`.
   final BetaResponseInjectCreatedEventType type_;
+
   /// The ID of the response that accepted the input.
   final String responseId;
+
   /// The sequence number for this event.
   final int sequenceNumber;
+
   /// The multiplexed WebSocket stream that emitted the event. This field is present only when WebSocket multiplexing is enabled separately.
   final SdkOptional<String> streamId;
 
-  const BetaResponseInjectCreatedEvent({required this.type_, required this.responseId, required this.sequenceNumber, this.streamId = const SdkOmitted()});
+  const BetaResponseInjectCreatedEvent(
+      {required this.type_,
+      required this.responseId,
+      required this.sequenceNumber,
+      this.streamId = const SdkOmitted()});
 
-  BetaResponseInjectCreatedEvent Function({BetaResponseInjectCreatedEventType type_, String responseId, int sequenceNumber, SdkOptional<String> streamId}) get copyWith => _copyWith;
+  BetaResponseInjectCreatedEvent Function(
+      {BetaResponseInjectCreatedEventType type_,
+      String responseId,
+      int sequenceNumber,
+      SdkOptional<String> streamId}) get copyWith => _copyWith;
 
-  BetaResponseInjectCreatedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? responseId = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? streamId = sdkOmittedValue}) => BetaResponseInjectCreatedEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseInjectCreatedEventType,
-    responseId: identical(responseId, sdkOmittedValue) ? this.responseId : responseId as String,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
-  );
+  BetaResponseInjectCreatedEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? responseId = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue,
+          Object? streamId = sdkOmittedValue}) =>
+      BetaResponseInjectCreatedEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaResponseInjectCreatedEventType,
+        responseId: identical(responseId, sdkOmittedValue)
+            ? this.responseId
+            : responseId as String,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+        streamId: identical(streamId, sdkOmittedValue)
+            ? this.streamId
+            : streamId as SdkOptional<String>,
+      );
 
-  factory BetaResponseInjectCreatedEvent.fromJson(Map<String, dynamic> json) => BetaResponseInjectCreatedEvent(
-    type_: (json['type'] != null ? BetaResponseInjectCreatedEventType.fromJson(json['type'] as String) : null)!,
-    responseId: (json['response_id'] as String?)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory BetaResponseInjectCreatedEvent.fromJson(Map<String, dynamic> json) =>
+      BetaResponseInjectCreatedEvent(
+        type_: (json['type'] != null
+            ? BetaResponseInjectCreatedEventType.fromJson(
+                json['type'] as String)
+            : null)!,
+        responseId: (json['response_id'] as String?)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+        streamId: json['stream_id'] != null
+            ? SdkPresent((json['stream_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'response_id': responseId,
-    'sequence_number': sequenceNumber,
-    ...switch (streamId) {
-      SdkPresent<String>(value: final value) => {'stream_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'response_id': responseId,
+        'sequence_number': sequenceNumber,
+        ...switch (streamId) {
+          SdkPresent<String>(value: final value) => {
+              'stream_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Injects input items into an active response over a WebSocket connection. The items are validated and committed atomically. Currently, the server accepts client-owned tool outputs that resume a waiting agent.
 class BetaResponseInjectEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The event discriminator. Always `response.inject`.
   final BetaResponseInjectEventType type_;
+
   /// The ID of the active response that should receive the input.
   final String responseId;
+
   /// Input items to inject into the active response.
   final List<BetaInputItem> input;
 
-  const BetaResponseInjectEvent({required this.type_, required this.responseId, required this.input});
+  const BetaResponseInjectEvent(
+      {required this.type_, required this.responseId, required this.input});
 
-  BetaResponseInjectEvent Function({BetaResponseInjectEventType type_, String responseId, List<BetaInputItem> input}) get copyWith => _copyWith;
+  BetaResponseInjectEvent Function(
+      {BetaResponseInjectEventType type_,
+      String responseId,
+      List<BetaInputItem> input}) get copyWith => _copyWith;
 
-  BetaResponseInjectEvent _copyWith({Object? type_ = sdkOmittedValue, Object? responseId = sdkOmittedValue, Object? input = sdkOmittedValue}) => BetaResponseInjectEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseInjectEventType,
-    responseId: identical(responseId, sdkOmittedValue) ? this.responseId : responseId as String,
-    input: identical(input, sdkOmittedValue) ? this.input : input as List<BetaInputItem>,
-  );
+  BetaResponseInjectEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? responseId = sdkOmittedValue,
+          Object? input = sdkOmittedValue}) =>
+      BetaResponseInjectEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaResponseInjectEventType,
+        responseId: identical(responseId, sdkOmittedValue)
+            ? this.responseId
+            : responseId as String,
+        input: identical(input, sdkOmittedValue)
+            ? this.input
+            : input as List<BetaInputItem>,
+      );
 
-  factory BetaResponseInjectEvent.fromJson(Map<String, dynamic> json) => BetaResponseInjectEvent(
-    type_: (json['type'] != null ? BetaResponseInjectEventType.fromJson(json['type'] as String) : null)!,
-    responseId: (json['response_id'] as String?)!,
-    input: ((json['input'] as List?)?.map((e) => BetaInputItem.fromJson(e)).toList())!,
-  );
+  factory BetaResponseInjectEvent.fromJson(Map<String, dynamic> json) =>
+      BetaResponseInjectEvent(
+        type_: (json['type'] != null
+            ? BetaResponseInjectEventType.fromJson(json['type'] as String)
+            : null)!,
+        responseId: (json['response_id'] as String?)!,
+        input: ((json['input'] as List?)
+            ?.map((e) => BetaInputItem.fromJson(e))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'response_id': responseId,
-    'input': input.map((item) => item.toJson()).toList(),
-  };
+        'type': type_.toJson(),
+        'response_id': responseId,
+        'input': input.map((item) => item.toJson()).toList(),
+      };
 }
 
 /// Information about why the input was not committed.
 class BetaResponseInjectFailedEventError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A machine-readable error code.
   final BetaResponseInjectFailedEventErrorCode code;
+
   /// A human-readable description of the error.
   final String message;
 
-  const BetaResponseInjectFailedEventError({required this.code, required this.message});
+  const BetaResponseInjectFailedEventError(
+      {required this.code, required this.message});
 
-  BetaResponseInjectFailedEventError Function({BetaResponseInjectFailedEventErrorCode code, String message}) get copyWith => _copyWith;
+  BetaResponseInjectFailedEventError Function(
+      {BetaResponseInjectFailedEventErrorCode code,
+      String message}) get copyWith => _copyWith;
 
-  BetaResponseInjectFailedEventError _copyWith({Object? code = sdkOmittedValue, Object? message = sdkOmittedValue}) => BetaResponseInjectFailedEventError(
-    code: identical(code, sdkOmittedValue) ? this.code : code as BetaResponseInjectFailedEventErrorCode,
-    message: identical(message, sdkOmittedValue) ? this.message : message as String,
-  );
+  BetaResponseInjectFailedEventError _copyWith(
+          {Object? code = sdkOmittedValue,
+          Object? message = sdkOmittedValue}) =>
+      BetaResponseInjectFailedEventError(
+        code: identical(code, sdkOmittedValue)
+            ? this.code
+            : code as BetaResponseInjectFailedEventErrorCode,
+        message: identical(message, sdkOmittedValue)
+            ? this.message
+            : message as String,
+      );
 
-  factory BetaResponseInjectFailedEventError.fromJson(Map<String, dynamic> json) => BetaResponseInjectFailedEventError(
-    code: (json['code'] != null ? BetaResponseInjectFailedEventErrorCode.fromJson(json['code'] as String) : null)!,
-    message: (json['message'] as String?)!,
-  );
+  factory BetaResponseInjectFailedEventError.fromJson(
+          Map<String, dynamic> json) =>
+      BetaResponseInjectFailedEventError(
+        code: (json['code'] != null
+            ? BetaResponseInjectFailedEventErrorCode.fromJson(
+                json['code'] as String)
+            : null)!,
+        message: (json['message'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'code': code.toJson(),
-    'message': message,
-  };
+        'code': code.toJson(),
+        'message': message,
+      };
 }
 
 /// Emitted when injected input could not be committed to a response. The event returns the uncommitted raw input so the client can retry it in another response when appropriate.
 class BetaResponseInjectFailedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The event discriminator. Always `response.inject.failed`.
   final BetaResponseInjectFailedEventType type_;
+
   /// The ID of the response that rejected the input.
   final String responseId;
+
   /// The raw input items that were not committed.
   final List<BetaInputItem> input;
+
   /// Information about why the input was not committed.
   final BetaResponseInjectFailedEventError error;
+
   /// The sequence number for this event.
   final int sequenceNumber;
+
   /// The multiplexed WebSocket stream that emitted the event. This field is present only when WebSocket multiplexing is enabled separately.
   final SdkOptional<String> streamId;
 
-  const BetaResponseInjectFailedEvent({required this.type_, required this.responseId, required this.input, required this.error, required this.sequenceNumber, this.streamId = const SdkOmitted()});
+  const BetaResponseInjectFailedEvent(
+      {required this.type_,
+      required this.responseId,
+      required this.input,
+      required this.error,
+      required this.sequenceNumber,
+      this.streamId = const SdkOmitted()});
 
-  BetaResponseInjectFailedEvent Function({BetaResponseInjectFailedEventType type_, String responseId, List<BetaInputItem> input, BetaResponseInjectFailedEventError error, int sequenceNumber, SdkOptional<String> streamId}) get copyWith => _copyWith;
+  BetaResponseInjectFailedEvent Function(
+      {BetaResponseInjectFailedEventType type_,
+      String responseId,
+      List<BetaInputItem> input,
+      BetaResponseInjectFailedEventError error,
+      int sequenceNumber,
+      SdkOptional<String> streamId}) get copyWith => _copyWith;
 
-  BetaResponseInjectFailedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? responseId = sdkOmittedValue, Object? input = sdkOmittedValue, Object? error = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? streamId = sdkOmittedValue}) => BetaResponseInjectFailedEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseInjectFailedEventType,
-    responseId: identical(responseId, sdkOmittedValue) ? this.responseId : responseId as String,
-    input: identical(input, sdkOmittedValue) ? this.input : input as List<BetaInputItem>,
-    error: identical(error, sdkOmittedValue) ? this.error : error as BetaResponseInjectFailedEventError,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
-  );
+  BetaResponseInjectFailedEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? responseId = sdkOmittedValue,
+          Object? input = sdkOmittedValue,
+          Object? error = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue,
+          Object? streamId = sdkOmittedValue}) =>
+      BetaResponseInjectFailedEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaResponseInjectFailedEventType,
+        responseId: identical(responseId, sdkOmittedValue)
+            ? this.responseId
+            : responseId as String,
+        input: identical(input, sdkOmittedValue)
+            ? this.input
+            : input as List<BetaInputItem>,
+        error: identical(error, sdkOmittedValue)
+            ? this.error
+            : error as BetaResponseInjectFailedEventError,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+        streamId: identical(streamId, sdkOmittedValue)
+            ? this.streamId
+            : streamId as SdkOptional<String>,
+      );
 
-  factory BetaResponseInjectFailedEvent.fromJson(Map<String, dynamic> json) => BetaResponseInjectFailedEvent(
-    type_: (json['type'] != null ? BetaResponseInjectFailedEventType.fromJson(json['type'] as String) : null)!,
-    responseId: (json['response_id'] as String?)!,
-    input: ((json['input'] as List?)?.map((e) => BetaInputItem.fromJson(e)).toList())!,
-    error: (json['error'] != null ? BetaResponseInjectFailedEventError.fromJson(json['error'] as Map<String, dynamic>) : null)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory BetaResponseInjectFailedEvent.fromJson(Map<String, dynamic> json) =>
+      BetaResponseInjectFailedEvent(
+        type_: (json['type'] != null
+            ? BetaResponseInjectFailedEventType.fromJson(json['type'] as String)
+            : null)!,
+        responseId: (json['response_id'] as String?)!,
+        input: ((json['input'] as List?)
+            ?.map((e) => BetaInputItem.fromJson(e))
+            .toList())!,
+        error: (json['error'] != null
+            ? BetaResponseInjectFailedEventError.fromJson(
+                json['error'] as Map<String, dynamic>)
+            : null)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+        streamId: json['stream_id'] != null
+            ? SdkPresent((json['stream_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'response_id': responseId,
-    'input': input.map((item) => item.toJson()).toList(),
-    'error': error.toJson(),
-    'sequence_number': sequenceNumber,
-    ...switch (streamId) {
-      SdkPresent<String>(value: final value) => {'stream_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'response_id': responseId,
+        'input': input.map((item) => item.toJson()).toList(),
+        'error': error.toJson(),
+        'sequence_number': sequenceNumber,
+        ...switch (streamId) {
+          SdkPresent<String>(value: final value) => {
+              'stream_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The accepted steering submission.
 class BetaResponseSteerAcceptedEventSteer {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID assigned to the steering submission.
   final String id;
+
   /// The ID of the response being steered.
   final String previousResponseId;
 
-  const BetaResponseSteerAcceptedEventSteer({required this.id, required this.previousResponseId});
+  const BetaResponseSteerAcceptedEventSteer(
+      {required this.id, required this.previousResponseId});
 
-  BetaResponseSteerAcceptedEventSteer Function({String id, String previousResponseId}) get copyWith => _copyWith;
+  BetaResponseSteerAcceptedEventSteer Function(
+      {String id, String previousResponseId}) get copyWith => _copyWith;
 
-  BetaResponseSteerAcceptedEventSteer _copyWith({Object? id = sdkOmittedValue, Object? previousResponseId = sdkOmittedValue}) => BetaResponseSteerAcceptedEventSteer(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    previousResponseId: identical(previousResponseId, sdkOmittedValue) ? this.previousResponseId : previousResponseId as String,
-  );
+  BetaResponseSteerAcceptedEventSteer _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? previousResponseId = sdkOmittedValue}) =>
+      BetaResponseSteerAcceptedEventSteer(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        previousResponseId: identical(previousResponseId, sdkOmittedValue)
+            ? this.previousResponseId
+            : previousResponseId as String,
+      );
 
-  factory BetaResponseSteerAcceptedEventSteer.fromJson(Map<String, dynamic> json) => BetaResponseSteerAcceptedEventSteer(
-    id: (json['id'] as String?)!,
-    previousResponseId: (json['previous_response_id'] as String?)!,
-  );
+  factory BetaResponseSteerAcceptedEventSteer.fromJson(
+          Map<String, dynamic> json) =>
+      BetaResponseSteerAcceptedEventSteer(
+        id: (json['id'] as String?)!,
+        previousResponseId: (json['previous_response_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'previous_response_id': previousResponseId,
-  };
+        'id': id,
+        'previous_response_id': previousResponseId,
+      };
 }
 
 /// Emitted when steering input has been validated and queued. Acceptance means the server owns the input, not that it has been applied. The successor's `response.created` event is the commit point. If accepted input cannot be committed, `response.steer.failed` returns it with the same steering ID. When the response stops for client-owned tool output or approval, the input remains queued and `response.steer.pending` is emitted after `response.completed`. Fill the pending event's `required_input` stubs with saved results and send one matching explicit `response.create` per parent. Do not resend accepted input while it is still queued.
 class BetaResponseSteerAcceptedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The event discriminator. Always `response.steer.accepted`.
   final BetaResponseSteerAcceptedEventType type_;
+
   /// The sequence number for this event.
   final int sequenceNumber;
+
   /// The accepted steering submission.
   final BetaResponseSteerAcceptedEventSteer steer;
+
   /// The WebSocket lane that emitted this event. This field is present when the target response's `response.create` event supplied a `stream_id`.
   final SdkOptional<String> streamId;
 
-  const BetaResponseSteerAcceptedEvent({required this.type_, required this.sequenceNumber, required this.steer, this.streamId = const SdkOmitted()});
+  const BetaResponseSteerAcceptedEvent(
+      {required this.type_,
+      required this.sequenceNumber,
+      required this.steer,
+      this.streamId = const SdkOmitted()});
 
-  BetaResponseSteerAcceptedEvent Function({BetaResponseSteerAcceptedEventType type_, int sequenceNumber, BetaResponseSteerAcceptedEventSteer steer, SdkOptional<String> streamId}) get copyWith => _copyWith;
+  BetaResponseSteerAcceptedEvent Function(
+      {BetaResponseSteerAcceptedEventType type_,
+      int sequenceNumber,
+      BetaResponseSteerAcceptedEventSteer steer,
+      SdkOptional<String> streamId}) get copyWith => _copyWith;
 
-  BetaResponseSteerAcceptedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? steer = sdkOmittedValue, Object? streamId = sdkOmittedValue}) => BetaResponseSteerAcceptedEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseSteerAcceptedEventType,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-    steer: identical(steer, sdkOmittedValue) ? this.steer : steer as BetaResponseSteerAcceptedEventSteer,
-    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
-  );
+  BetaResponseSteerAcceptedEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue,
+          Object? steer = sdkOmittedValue,
+          Object? streamId = sdkOmittedValue}) =>
+      BetaResponseSteerAcceptedEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaResponseSteerAcceptedEventType,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+        steer: identical(steer, sdkOmittedValue)
+            ? this.steer
+            : steer as BetaResponseSteerAcceptedEventSteer,
+        streamId: identical(streamId, sdkOmittedValue)
+            ? this.streamId
+            : streamId as SdkOptional<String>,
+      );
 
-  factory BetaResponseSteerAcceptedEvent.fromJson(Map<String, dynamic> json) => BetaResponseSteerAcceptedEvent(
-    type_: (json['type'] != null ? BetaResponseSteerAcceptedEventType.fromJson(json['type'] as String) : null)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-    steer: (json['steer'] != null ? BetaResponseSteerAcceptedEventSteer.fromJson(json['steer'] as Map<String, dynamic>) : null)!,
-    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory BetaResponseSteerAcceptedEvent.fromJson(Map<String, dynamic> json) =>
+      BetaResponseSteerAcceptedEvent(
+        type_: (json['type'] != null
+            ? BetaResponseSteerAcceptedEventType.fromJson(
+                json['type'] as String)
+            : null)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+        steer: (json['steer'] != null
+            ? BetaResponseSteerAcceptedEventSteer.fromJson(
+                json['steer'] as Map<String, dynamic>)
+            : null)!,
+        streamId: json['stream_id'] != null
+            ? SdkPresent((json['stream_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'sequence_number': sequenceNumber,
-    'steer': steer.toJson(),
-    ...switch (streamId) {
-      SdkPresent<String>(value: final value) => {'stream_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'sequence_number': sequenceNumber,
+        'steer': steer.toJson(),
+        ...switch (streamId) {
+          SdkPresent<String>(value: final value) => {
+              'stream_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 // BetaResponseSteerErrorCode = String
@@ -238,32 +406,56 @@ class BetaResponseSteerAcceptedEvent {
 class BetaResponseSteerEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The event discriminator. Always `response.steer`.
   final BetaResponseSteerEventType type_;
+
   /// The ID of the response to steer on this WebSocket connection.
   final String previousResponseId;
+
   /// Input to queue for a continuation of the response. Uses the same string or input-item shape as `response.create.input`, with a non-empty array when supplying input items. Steering accepts only messages with the `user` role. Each message may contain only `type`, `role`, and `content`, with `content` as a string or an array of `input_text`, `input_image`, and `input_file` parts. The optional `type` must be `message`. Other roles, tool outputs, and item types are not supported for steering.
   final BetaResponseSteerInput input;
 
-  const BetaResponseSteerEvent({required this.type_, required this.previousResponseId, required this.input});
+  const BetaResponseSteerEvent(
+      {required this.type_,
+      required this.previousResponseId,
+      required this.input});
 
-  BetaResponseSteerEvent Function({BetaResponseSteerEventType type_, String previousResponseId, BetaResponseSteerInput input}) get copyWith => _copyWith;
+  BetaResponseSteerEvent Function(
+      {BetaResponseSteerEventType type_,
+      String previousResponseId,
+      BetaResponseSteerInput input}) get copyWith => _copyWith;
 
-  BetaResponseSteerEvent _copyWith({Object? type_ = sdkOmittedValue, Object? previousResponseId = sdkOmittedValue, Object? input = sdkOmittedValue}) => BetaResponseSteerEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseSteerEventType,
-    previousResponseId: identical(previousResponseId, sdkOmittedValue) ? this.previousResponseId : previousResponseId as String,
-    input: identical(input, sdkOmittedValue) ? this.input : input as BetaResponseSteerInput,
-  );
+  BetaResponseSteerEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? previousResponseId = sdkOmittedValue,
+          Object? input = sdkOmittedValue}) =>
+      BetaResponseSteerEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaResponseSteerEventType,
+        previousResponseId: identical(previousResponseId, sdkOmittedValue)
+            ? this.previousResponseId
+            : previousResponseId as String,
+        input: identical(input, sdkOmittedValue)
+            ? this.input
+            : input as BetaResponseSteerInput,
+      );
 
-  factory BetaResponseSteerEvent.fromJson(Map<String, dynamic> json) => BetaResponseSteerEvent(
-    type_: (json['type'] != null ? BetaResponseSteerEventType.fromJson(json['type'] as String) : null)!,
-    previousResponseId: (json['previous_response_id'] as String?)!,
-    input: (json['input'] != null ? BetaResponseSteerInput.fromJson(json['input']) : null)!,
-  );
+  factory BetaResponseSteerEvent.fromJson(Map<String, dynamic> json) =>
+      BetaResponseSteerEvent(
+        type_: (json['type'] != null
+            ? BetaResponseSteerEventType.fromJson(json['type'] as String)
+            : null)!,
+        previousResponseId: (json['previous_response_id'] as String?)!,
+        input: (json['input'] != null
+            ? BetaResponseSteerInput.fromJson(json['input'])
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'previous_response_id': previousResponseId,
-    'input': input.toJson(),
-  };
+        'type': type_.toJson(),
+        'previous_response_id': previousResponseId,
+        'input': input.toJson(),
+      };
 }

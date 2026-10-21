@@ -10,18 +10,70 @@ sealed class DecisionInputItem {
   const DecisionInputItem();
   factory DecisionInputItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = DecisionInputMessage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DecisionInputItemDecisionInputMessage(value); } } catch (_) {}
-      try { final value = DecisionInputFunctionCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DecisionInputItemDecisionInputFunctionCall(value); } } catch (_) {}
-      try { final value = DecisionInputFunctionCallOutput.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DecisionInputItemDecisionInputFunctionCallOutput(value); } } catch (_) {}
-      try { final value = DecisionInputCustomToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DecisionInputItemDecisionInputCustomToolCall(value); } } catch (_) {}
-      try { final value = DecisionInputCustomToolCallOutput.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DecisionInputItemDecisionInputCustomToolCallOutput(value); } } catch (_) {}
+      try {
+        final value = DecisionInputMessage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return DecisionInputItemDecisionInputMessage(value);
+        }
+      } catch (_) {}
+      try {
+        final value = DecisionInputFunctionCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return DecisionInputItemDecisionInputFunctionCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = DecisionInputFunctionCallOutput.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return DecisionInputItemDecisionInputFunctionCallOutput(value);
+        }
+      } catch (_) {}
+      try {
+        final value = DecisionInputCustomToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return DecisionInputItemDecisionInputCustomToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = DecisionInputCustomToolCallOutput.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return DecisionInputItemDecisionInputCustomToolCallOutput(value);
+        }
+      } catch (_) {}
     }
-    try { return DecisionInputItemDecisionInputMessage(DecisionInputMessage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return DecisionInputItemDecisionInputFunctionCall(DecisionInputFunctionCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return DecisionInputItemDecisionInputFunctionCallOutput(DecisionInputFunctionCallOutput.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return DecisionInputItemDecisionInputCustomToolCall(DecisionInputCustomToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return DecisionInputItemDecisionInputCustomToolCallOutput(DecisionInputCustomToolCallOutput.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"message", "function_call", "function_call_output", "custom_tool_call", "custom_tool_call_output"}.contains(json["type"])) { return UnknownDecisionInputItem(json); }
+    try {
+      return DecisionInputItemDecisionInputMessage(
+          DecisionInputMessage.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return DecisionInputItemDecisionInputFunctionCall(
+          DecisionInputFunctionCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return DecisionInputItemDecisionInputFunctionCallOutput(
+          DecisionInputFunctionCallOutput.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return DecisionInputItemDecisionInputCustomToolCall(
+          DecisionInputCustomToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return DecisionInputItemDecisionInputCustomToolCallOutput(
+          DecisionInputCustomToolCallOutput.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {
+          "message",
+          "function_call",
+          "function_call_output",
+          "custom_tool_call",
+          "custom_tool_call_output"
+        }.contains(json["type"])) {
+      return UnknownDecisionInputItem(json);
+    }
     throw FormatException("No variant matched for DecisionInputItem");
   }
   Object? toJson();
@@ -30,36 +82,46 @@ sealed class DecisionInputItem {
 final class DecisionInputItemDecisionInputMessage extends DecisionInputItem {
   final DecisionInputMessage value;
   const DecisionInputItemDecisionInputMessage(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class DecisionInputItemDecisionInputFunctionCall extends DecisionInputItem {
+final class DecisionInputItemDecisionInputFunctionCall
+    extends DecisionInputItem {
   final DecisionInputFunctionCall value;
   const DecisionInputItemDecisionInputFunctionCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class DecisionInputItemDecisionInputFunctionCallOutput extends DecisionInputItem {
+final class DecisionInputItemDecisionInputFunctionCallOutput
+    extends DecisionInputItem {
   final DecisionInputFunctionCallOutput value;
   const DecisionInputItemDecisionInputFunctionCallOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class DecisionInputItemDecisionInputCustomToolCall extends DecisionInputItem {
+final class DecisionInputItemDecisionInputCustomToolCall
+    extends DecisionInputItem {
   final DecisionInputCustomToolCall value;
   const DecisionInputItemDecisionInputCustomToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class DecisionInputItemDecisionInputCustomToolCallOutput extends DecisionInputItem {
+final class DecisionInputItemDecisionInputCustomToolCallOutput
+    extends DecisionInputItem {
   final DecisionInputCustomToolCallOutput value;
   const DecisionInputItemDecisionInputCustomToolCallOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [DecisionInputItem] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownDecisionInputItem extends DecisionInputItem {
   final Map<String, dynamic> raw;
   const UnknownDecisionInputItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

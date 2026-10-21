@@ -8,81 +8,139 @@ part of 'response_steer.dart';
 class ResponseSteerPendingEventSteer {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID assigned to the steering submission.
   final String id;
+
   /// The ID of the response being steered.
   final String previousResponseId;
 
-  const ResponseSteerPendingEventSteer({required this.id, required this.previousResponseId});
+  const ResponseSteerPendingEventSteer(
+      {required this.id, required this.previousResponseId});
 
-  ResponseSteerPendingEventSteer Function({String id, String previousResponseId}) get copyWith => _copyWith;
+  ResponseSteerPendingEventSteer Function(
+      {String id, String previousResponseId}) get copyWith => _copyWith;
 
-  ResponseSteerPendingEventSteer _copyWith({Object? id = sdkOmittedValue, Object? previousResponseId = sdkOmittedValue}) => ResponseSteerPendingEventSteer(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    previousResponseId: identical(previousResponseId, sdkOmittedValue) ? this.previousResponseId : previousResponseId as String,
-  );
+  ResponseSteerPendingEventSteer _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? previousResponseId = sdkOmittedValue}) =>
+      ResponseSteerPendingEventSteer(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        previousResponseId: identical(previousResponseId, sdkOmittedValue)
+            ? this.previousResponseId
+            : previousResponseId as String,
+      );
 
-  factory ResponseSteerPendingEventSteer.fromJson(Map<String, dynamic> json) => ResponseSteerPendingEventSteer(
-    id: (json['id'] as String?)!,
-    previousResponseId: (json['previous_response_id'] as String?)!,
-  );
+  factory ResponseSteerPendingEventSteer.fromJson(Map<String, dynamic> json) =>
+      ResponseSteerPendingEventSteer(
+        id: (json['id'] as String?)!,
+        previousResponseId: (json['previous_response_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'previous_response_id': previousResponseId,
-  };
+        'id': id,
+        'previous_response_id': previousResponseId,
+      };
 }
 
 /// Emitted when accepted steering input remains queued after the target response completes. The server still owns the input. Do not resend it. The successor's `response.created` event is the commit point. When `reason` is `waiting_for_required_input`, this event follows `response.completed` while the response waits for the tool results or approval decisions identified by `required_input`. Copy those stubs, fill their result fields using the ordinary `response.create` input schemas, and submit one continuation per parent with the same `previous_response_id` and WebSocket lane. Use saved results without rerunning tools. The queued steering input is prepended in submission order to the continuation's input. That explicit request retains its own settings. This notification is emitted at most once per steering submission. Multiple submissions for the same parent can report the same required inputs; they do not each require a separate continuation.
 class ResponseSteerPendingEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The event discriminator. Always `response.steer.pending`.
   final ResponseSteerPendingEventType type_;
+
   /// The sequence number for this event.
   final int sequenceNumber;
+
   /// The steering submission that remains queued.
   final ResponseSteerPendingEventSteer steer;
+
   /// An extensible enum describing why accepted steering input is still queued. Clients should handle unknown values because additional reasons may be introduced. Known values include: - `waiting_for_required_input`: The response is waiting for the tool results or approval decisions identified by `required_input`.
   final String reason;
+
   /// Input stubs identifying outstanding client-owned tool results or approval decisions. Each stub contains identifying fields only; the client supplies the result before including it in `response.create`.
   final List<ResponseSteerRequiredInput> requiredInput;
+
   /// The WebSocket lane that emitted this event. This field is present when the target response's `response.create` event supplied a `stream_id`.
   final SdkOptional<String> streamId;
 
-  const ResponseSteerPendingEvent({required this.type_, required this.sequenceNumber, required this.steer, required this.reason, required this.requiredInput, this.streamId = const SdkOmitted()});
+  const ResponseSteerPendingEvent(
+      {required this.type_,
+      required this.sequenceNumber,
+      required this.steer,
+      required this.reason,
+      required this.requiredInput,
+      this.streamId = const SdkOmitted()});
 
-  ResponseSteerPendingEvent Function({ResponseSteerPendingEventType type_, int sequenceNumber, ResponseSteerPendingEventSteer steer, String reason, List<ResponseSteerRequiredInput> requiredInput, SdkOptional<String> streamId}) get copyWith => _copyWith;
+  ResponseSteerPendingEvent Function(
+      {ResponseSteerPendingEventType type_,
+      int sequenceNumber,
+      ResponseSteerPendingEventSteer steer,
+      String reason,
+      List<ResponseSteerRequiredInput> requiredInput,
+      SdkOptional<String> streamId}) get copyWith => _copyWith;
 
-  ResponseSteerPendingEvent _copyWith({Object? type_ = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? steer = sdkOmittedValue, Object? reason = sdkOmittedValue, Object? requiredInput = sdkOmittedValue, Object? streamId = sdkOmittedValue}) => ResponseSteerPendingEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseSteerPendingEventType,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-    steer: identical(steer, sdkOmittedValue) ? this.steer : steer as ResponseSteerPendingEventSteer,
-    reason: identical(reason, sdkOmittedValue) ? this.reason : reason as String,
-    requiredInput: identical(requiredInput, sdkOmittedValue) ? this.requiredInput : requiredInput as List<ResponseSteerRequiredInput>,
-    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
-  );
+  ResponseSteerPendingEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue,
+          Object? steer = sdkOmittedValue,
+          Object? reason = sdkOmittedValue,
+          Object? requiredInput = sdkOmittedValue,
+          Object? streamId = sdkOmittedValue}) =>
+      ResponseSteerPendingEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponseSteerPendingEventType,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+        steer: identical(steer, sdkOmittedValue)
+            ? this.steer
+            : steer as ResponseSteerPendingEventSteer,
+        reason:
+            identical(reason, sdkOmittedValue) ? this.reason : reason as String,
+        requiredInput: identical(requiredInput, sdkOmittedValue)
+            ? this.requiredInput
+            : requiredInput as List<ResponseSteerRequiredInput>,
+        streamId: identical(streamId, sdkOmittedValue)
+            ? this.streamId
+            : streamId as SdkOptional<String>,
+      );
 
-  factory ResponseSteerPendingEvent.fromJson(Map<String, dynamic> json) => ResponseSteerPendingEvent(
-    type_: (json['type'] != null ? ResponseSteerPendingEventType.fromJson(json['type'] as String) : null)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-    steer: (json['steer'] != null ? ResponseSteerPendingEventSteer.fromJson(json['steer'] as Map<String, dynamic>) : null)!,
-    reason: (json['reason'] as String?)!,
-    requiredInput: ((json['required_input'] as List?)?.map((e) => ResponseSteerRequiredInput.fromJson(e)).toList())!,
-    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory ResponseSteerPendingEvent.fromJson(Map<String, dynamic> json) =>
+      ResponseSteerPendingEvent(
+        type_: (json['type'] != null
+            ? ResponseSteerPendingEventType.fromJson(json['type'] as String)
+            : null)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+        steer: (json['steer'] != null
+            ? ResponseSteerPendingEventSteer.fromJson(
+                json['steer'] as Map<String, dynamic>)
+            : null)!,
+        reason: (json['reason'] as String?)!,
+        requiredInput: ((json['required_input'] as List?)
+            ?.map((e) => ResponseSteerRequiredInput.fromJson(e))
+            .toList())!,
+        streamId: json['stream_id'] != null
+            ? SdkPresent((json['stream_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'sequence_number': sequenceNumber,
-    'steer': steer.toJson(),
-    'reason': reason,
-    'required_input': requiredInput.map((item) => item.toJson()).toList(),
-    ...switch (streamId) {
-      SdkPresent<String>(value: final value) => {'stream_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'sequence_number': sequenceNumber,
+        'steer': steer.toJson(),
+        'reason': reason,
+        'required_input': requiredInput.map((item) => item.toJson()).toList(),
+        ...switch (streamId) {
+          SdkPresent<String>(value: final value) => {
+              'stream_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 // ResponseSteerPendingReason = String
@@ -91,182 +149,290 @@ class ResponseSteerPendingEvent {
 class ResponseSteerRequiredInputVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final ResponseSteerRequiredInputVariant0Type type_;
+
   /// Required `string` value serialized in the `call_id` wire field.
   final String callId;
+
   /// Required `string` value serialized in the `name` wire field.
   final String name;
 
-  const ResponseSteerRequiredInputVariant0({required this.type_, required this.callId, required this.name});
+  const ResponseSteerRequiredInputVariant0(
+      {required this.type_, required this.callId, required this.name});
 
-  ResponseSteerRequiredInputVariant0 Function({ResponseSteerRequiredInputVariant0Type type_, String callId, String name}) get copyWith => _copyWith;
+  ResponseSteerRequiredInputVariant0 Function(
+      {ResponseSteerRequiredInputVariant0Type type_,
+      String callId,
+      String name}) get copyWith => _copyWith;
 
-  ResponseSteerRequiredInputVariant0 _copyWith({Object? type_ = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? name = sdkOmittedValue}) => ResponseSteerRequiredInputVariant0(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseSteerRequiredInputVariant0Type,
-    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-  );
+  ResponseSteerRequiredInputVariant0 _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? callId = sdkOmittedValue,
+          Object? name = sdkOmittedValue}) =>
+      ResponseSteerRequiredInputVariant0(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponseSteerRequiredInputVariant0Type,
+        callId:
+            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+      );
 
-  factory ResponseSteerRequiredInputVariant0.fromJson(Map<String, dynamic> json) => ResponseSteerRequiredInputVariant0(
-    type_: (json['type'] != null ? ResponseSteerRequiredInputVariant0Type.fromJson(json['type'] as String) : null)!,
-    callId: (json['call_id'] as String?)!,
-    name: (json['name'] as String?)!,
-  );
+  factory ResponseSteerRequiredInputVariant0.fromJson(
+          Map<String, dynamic> json) =>
+      ResponseSteerRequiredInputVariant0(
+        type_: (json['type'] != null
+            ? ResponseSteerRequiredInputVariant0Type.fromJson(
+                json['type'] as String)
+            : null)!,
+        callId: (json['call_id'] as String?)!,
+        name: (json['name'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'call_id': callId,
-    'name': name,
-  };
+        'type': type_.toJson(),
+        'call_id': callId,
+        'name': name,
+      };
 }
 
 /// Supply `output` using the custom tool call output input schema. The original custom tool call supplies the tool's name.
 class ResponseSteerRequiredInputVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final ResponseSteerRequiredInputVariant1Type type_;
+
   /// Required `string` value serialized in the `call_id` wire field.
   final String callId;
 
-  const ResponseSteerRequiredInputVariant1({required this.type_, required this.callId});
+  const ResponseSteerRequiredInputVariant1(
+      {required this.type_, required this.callId});
 
-  ResponseSteerRequiredInputVariant1 Function({ResponseSteerRequiredInputVariant1Type type_, String callId}) get copyWith => _copyWith;
+  ResponseSteerRequiredInputVariant1 Function(
+      {ResponseSteerRequiredInputVariant1Type type_,
+      String callId}) get copyWith => _copyWith;
 
-  ResponseSteerRequiredInputVariant1 _copyWith({Object? type_ = sdkOmittedValue, Object? callId = sdkOmittedValue}) => ResponseSteerRequiredInputVariant1(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseSteerRequiredInputVariant1Type,
-    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-  );
+  ResponseSteerRequiredInputVariant1 _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? callId = sdkOmittedValue}) =>
+      ResponseSteerRequiredInputVariant1(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponseSteerRequiredInputVariant1Type,
+        callId:
+            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+      );
 
-  factory ResponseSteerRequiredInputVariant1.fromJson(Map<String, dynamic> json) => ResponseSteerRequiredInputVariant1(
-    type_: (json['type'] != null ? ResponseSteerRequiredInputVariant1Type.fromJson(json['type'] as String) : null)!,
-    callId: (json['call_id'] as String?)!,
-  );
+  factory ResponseSteerRequiredInputVariant1.fromJson(
+          Map<String, dynamic> json) =>
+      ResponseSteerRequiredInputVariant1(
+        type_: (json['type'] != null
+            ? ResponseSteerRequiredInputVariant1Type.fromJson(
+                json['type'] as String)
+            : null)!,
+        callId: (json['call_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'call_id': callId,
-  };
+        'type': type_.toJson(),
+        'call_id': callId,
+      };
 }
 
 /// Supply `output` using the computer tool call output input schema, including any required `acknowledged_safety_checks`.
 class ResponseSteerRequiredInputVariant2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final ResponseSteerRequiredInputVariant2Type type_;
+
   /// Required `string` value serialized in the `call_id` wire field.
   final String callId;
 
-  const ResponseSteerRequiredInputVariant2({required this.type_, required this.callId});
+  const ResponseSteerRequiredInputVariant2(
+      {required this.type_, required this.callId});
 
-  ResponseSteerRequiredInputVariant2 Function({ResponseSteerRequiredInputVariant2Type type_, String callId}) get copyWith => _copyWith;
+  ResponseSteerRequiredInputVariant2 Function(
+      {ResponseSteerRequiredInputVariant2Type type_,
+      String callId}) get copyWith => _copyWith;
 
-  ResponseSteerRequiredInputVariant2 _copyWith({Object? type_ = sdkOmittedValue, Object? callId = sdkOmittedValue}) => ResponseSteerRequiredInputVariant2(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseSteerRequiredInputVariant2Type,
-    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-  );
+  ResponseSteerRequiredInputVariant2 _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? callId = sdkOmittedValue}) =>
+      ResponseSteerRequiredInputVariant2(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponseSteerRequiredInputVariant2Type,
+        callId:
+            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+      );
 
-  factory ResponseSteerRequiredInputVariant2.fromJson(Map<String, dynamic> json) => ResponseSteerRequiredInputVariant2(
-    type_: (json['type'] != null ? ResponseSteerRequiredInputVariant2Type.fromJson(json['type'] as String) : null)!,
-    callId: (json['call_id'] as String?)!,
-  );
+  factory ResponseSteerRequiredInputVariant2.fromJson(
+          Map<String, dynamic> json) =>
+      ResponseSteerRequiredInputVariant2(
+        type_: (json['type'] != null
+            ? ResponseSteerRequiredInputVariant2Type.fromJson(
+                json['type'] as String)
+            : null)!,
+        callId: (json['call_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'call_id': callId,
-  };
+        'type': type_.toJson(),
+        'call_id': callId,
+      };
 }
 
 /// Supply `output` using the shell tool call output input schema. Each output entry includes `stdout`, `stderr`, and `outcome`.
 class ResponseSteerRequiredInputVariant3 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final ResponseSteerRequiredInputVariant3Type type_;
+
   /// Required `string` value serialized in the `call_id` wire field.
   final String callId;
 
-  const ResponseSteerRequiredInputVariant3({required this.type_, required this.callId});
+  const ResponseSteerRequiredInputVariant3(
+      {required this.type_, required this.callId});
 
-  ResponseSteerRequiredInputVariant3 Function({ResponseSteerRequiredInputVariant3Type type_, String callId}) get copyWith => _copyWith;
+  ResponseSteerRequiredInputVariant3 Function(
+      {ResponseSteerRequiredInputVariant3Type type_,
+      String callId}) get copyWith => _copyWith;
 
-  ResponseSteerRequiredInputVariant3 _copyWith({Object? type_ = sdkOmittedValue, Object? callId = sdkOmittedValue}) => ResponseSteerRequiredInputVariant3(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseSteerRequiredInputVariant3Type,
-    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-  );
+  ResponseSteerRequiredInputVariant3 _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? callId = sdkOmittedValue}) =>
+      ResponseSteerRequiredInputVariant3(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponseSteerRequiredInputVariant3Type,
+        callId:
+            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+      );
 
-  factory ResponseSteerRequiredInputVariant3.fromJson(Map<String, dynamic> json) => ResponseSteerRequiredInputVariant3(
-    type_: (json['type'] != null ? ResponseSteerRequiredInputVariant3Type.fromJson(json['type'] as String) : null)!,
-    callId: (json['call_id'] as String?)!,
-  );
+  factory ResponseSteerRequiredInputVariant3.fromJson(
+          Map<String, dynamic> json) =>
+      ResponseSteerRequiredInputVariant3(
+        type_: (json['type'] != null
+            ? ResponseSteerRequiredInputVariant3Type.fromJson(
+                json['type'] as String)
+            : null)!,
+        callId: (json['call_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'call_id': callId,
-  };
+        'type': type_.toJson(),
+        'call_id': callId,
+      };
 }
 
 /// Supply `status` and optional `output` using the apply patch tool call output input schema.
 class ResponseSteerRequiredInputVariant4 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final ResponseSteerRequiredInputVariant4Type type_;
+
   /// Required `string` value serialized in the `call_id` wire field.
   final String callId;
 
-  const ResponseSteerRequiredInputVariant4({required this.type_, required this.callId});
+  const ResponseSteerRequiredInputVariant4(
+      {required this.type_, required this.callId});
 
-  ResponseSteerRequiredInputVariant4 Function({ResponseSteerRequiredInputVariant4Type type_, String callId}) get copyWith => _copyWith;
+  ResponseSteerRequiredInputVariant4 Function(
+      {ResponseSteerRequiredInputVariant4Type type_,
+      String callId}) get copyWith => _copyWith;
 
-  ResponseSteerRequiredInputVariant4 _copyWith({Object? type_ = sdkOmittedValue, Object? callId = sdkOmittedValue}) => ResponseSteerRequiredInputVariant4(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseSteerRequiredInputVariant4Type,
-    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-  );
+  ResponseSteerRequiredInputVariant4 _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? callId = sdkOmittedValue}) =>
+      ResponseSteerRequiredInputVariant4(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponseSteerRequiredInputVariant4Type,
+        callId:
+            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+      );
 
-  factory ResponseSteerRequiredInputVariant4.fromJson(Map<String, dynamic> json) => ResponseSteerRequiredInputVariant4(
-    type_: (json['type'] != null ? ResponseSteerRequiredInputVariant4Type.fromJson(json['type'] as String) : null)!,
-    callId: (json['call_id'] as String?)!,
-  );
+  factory ResponseSteerRequiredInputVariant4.fromJson(
+          Map<String, dynamic> json) =>
+      ResponseSteerRequiredInputVariant4(
+        type_: (json['type'] != null
+            ? ResponseSteerRequiredInputVariant4Type.fromJson(
+                json['type'] as String)
+            : null)!,
+        callId: (json['call_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'call_id': callId,
-  };
+        'type': type_.toJson(),
+        'call_id': callId,
+      };
 }
 
 /// Supply `tools` using the tool search output input schema, retaining `execution: "client"`.
 class ResponseSteerRequiredInputVariant5 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final ResponseSteerRequiredInputVariant5Type type_;
+
   /// Required `string` value serialized in the `call_id` wire field.
   final String callId;
+
   /// Required enumerated value serialized in the `execution` wire field.
   final ResponseSteerRequiredInputVariant5Execution execution;
 
-  const ResponseSteerRequiredInputVariant5({required this.type_, required this.callId, required this.execution});
+  const ResponseSteerRequiredInputVariant5(
+      {required this.type_, required this.callId, required this.execution});
 
-  ResponseSteerRequiredInputVariant5 Function({ResponseSteerRequiredInputVariant5Type type_, String callId, ResponseSteerRequiredInputVariant5Execution execution}) get copyWith => _copyWith;
+  ResponseSteerRequiredInputVariant5 Function(
+          {ResponseSteerRequiredInputVariant5Type type_,
+          String callId,
+          ResponseSteerRequiredInputVariant5Execution execution})
+      get copyWith => _copyWith;
 
-  ResponseSteerRequiredInputVariant5 _copyWith({Object? type_ = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? execution = sdkOmittedValue}) => ResponseSteerRequiredInputVariant5(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseSteerRequiredInputVariant5Type,
-    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-    execution: identical(execution, sdkOmittedValue) ? this.execution : execution as ResponseSteerRequiredInputVariant5Execution,
-  );
+  ResponseSteerRequiredInputVariant5 _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? callId = sdkOmittedValue,
+          Object? execution = sdkOmittedValue}) =>
+      ResponseSteerRequiredInputVariant5(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponseSteerRequiredInputVariant5Type,
+        callId:
+            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+        execution: identical(execution, sdkOmittedValue)
+            ? this.execution
+            : execution as ResponseSteerRequiredInputVariant5Execution,
+      );
 
-  factory ResponseSteerRequiredInputVariant5.fromJson(Map<String, dynamic> json) => ResponseSteerRequiredInputVariant5(
-    type_: (json['type'] != null ? ResponseSteerRequiredInputVariant5Type.fromJson(json['type'] as String) : null)!,
-    callId: (json['call_id'] as String?)!,
-    execution: (json['execution'] != null ? ResponseSteerRequiredInputVariant5Execution.fromJson(json['execution'] as String) : null)!,
-  );
+  factory ResponseSteerRequiredInputVariant5.fromJson(
+          Map<String, dynamic> json) =>
+      ResponseSteerRequiredInputVariant5(
+        type_: (json['type'] != null
+            ? ResponseSteerRequiredInputVariant5Type.fromJson(
+                json['type'] as String)
+            : null)!,
+        callId: (json['call_id'] as String?)!,
+        execution: (json['execution'] != null
+            ? ResponseSteerRequiredInputVariant5Execution.fromJson(
+                json['execution'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'call_id': callId,
-    'execution': execution.toJson(),
-  };
+        'type': type_.toJson(),
+        'call_id': callId,
+        'execution': execution.toJson(),
+      };
 }

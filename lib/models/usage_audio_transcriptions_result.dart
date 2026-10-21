@@ -8,64 +8,126 @@ part of 'usage.dart';
 class UsageAudioTranscriptionsResult {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `object` wire field.
   final UsageAudioTranscriptionsResultObject object;
+
   /// The number of seconds processed.
   final int seconds;
+
   /// The count of requests made to the model.
   final int numModelRequests;
+
   /// Optional `string` value serialized in the `project_id` wire field.
   final SdkOptional<String?> projectId;
+
   /// Optional `string` value serialized in the `user_id` wire field.
   final SdkOptional<String?> userId;
+
   /// Optional `string` value serialized in the `api_key_id` wire field.
   final SdkOptional<String?> apiKeyId;
+
   /// Optional `string` value serialized in the `model` wire field.
   final SdkOptional<String?> model;
 
-  const UsageAudioTranscriptionsResult({required this.object, required this.seconds, required this.numModelRequests, this.projectId = const SdkOmitted(), this.userId = const SdkOmitted(), this.apiKeyId = const SdkOmitted(), this.model = const SdkOmitted()});
+  const UsageAudioTranscriptionsResult(
+      {required this.object,
+      required this.seconds,
+      required this.numModelRequests,
+      this.projectId = const SdkOmitted(),
+      this.userId = const SdkOmitted(),
+      this.apiKeyId = const SdkOmitted(),
+      this.model = const SdkOmitted()});
 
-  UsageAudioTranscriptionsResult Function({UsageAudioTranscriptionsResultObject object, int seconds, int numModelRequests, SdkOptional<String?> projectId, SdkOptional<String?> userId, SdkOptional<String?> apiKeyId, SdkOptional<String?> model}) get copyWith => _copyWith;
+  UsageAudioTranscriptionsResult Function(
+      {UsageAudioTranscriptionsResultObject object,
+      int seconds,
+      int numModelRequests,
+      SdkOptional<String?> projectId,
+      SdkOptional<String?> userId,
+      SdkOptional<String?> apiKeyId,
+      SdkOptional<String?> model}) get copyWith => _copyWith;
 
-  UsageAudioTranscriptionsResult _copyWith({Object? object = sdkOmittedValue, Object? seconds = sdkOmittedValue, Object? numModelRequests = sdkOmittedValue, Object? projectId = sdkOmittedValue, Object? userId = sdkOmittedValue, Object? apiKeyId = sdkOmittedValue, Object? model = sdkOmittedValue}) => UsageAudioTranscriptionsResult(
-    object: identical(object, sdkOmittedValue) ? this.object : object as UsageAudioTranscriptionsResultObject,
-    seconds: identical(seconds, sdkOmittedValue) ? this.seconds : seconds as int,
-    numModelRequests: identical(numModelRequests, sdkOmittedValue) ? this.numModelRequests : numModelRequests as int,
-    projectId: identical(projectId, sdkOmittedValue) ? this.projectId : projectId as SdkOptional<String?>,
-    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as SdkOptional<String?>,
-    apiKeyId: identical(apiKeyId, sdkOmittedValue) ? this.apiKeyId : apiKeyId as SdkOptional<String?>,
-    model: identical(model, sdkOmittedValue) ? this.model : model as SdkOptional<String?>,
-  );
+  UsageAudioTranscriptionsResult _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? seconds = sdkOmittedValue,
+          Object? numModelRequests = sdkOmittedValue,
+          Object? projectId = sdkOmittedValue,
+          Object? userId = sdkOmittedValue,
+          Object? apiKeyId = sdkOmittedValue,
+          Object? model = sdkOmittedValue}) =>
+      UsageAudioTranscriptionsResult(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as UsageAudioTranscriptionsResultObject,
+        seconds:
+            identical(seconds, sdkOmittedValue) ? this.seconds : seconds as int,
+        numModelRequests: identical(numModelRequests, sdkOmittedValue)
+            ? this.numModelRequests
+            : numModelRequests as int,
+        projectId: identical(projectId, sdkOmittedValue)
+            ? this.projectId
+            : projectId as SdkOptional<String?>,
+        userId: identical(userId, sdkOmittedValue)
+            ? this.userId
+            : userId as SdkOptional<String?>,
+        apiKeyId: identical(apiKeyId, sdkOmittedValue)
+            ? this.apiKeyId
+            : apiKeyId as SdkOptional<String?>,
+        model: identical(model, sdkOmittedValue)
+            ? this.model
+            : model as SdkOptional<String?>,
+      );
 
-  factory UsageAudioTranscriptionsResult.fromJson(Map<String, dynamic> json) => UsageAudioTranscriptionsResult(
-    object: (json['object'] != null ? UsageAudioTranscriptionsResultObject.fromJson(json['object'] as String) : null)!,
-    seconds: ((json['seconds'] as num?)?.toInt())!,
-    numModelRequests: ((json['num_model_requests'] as num?)?.toInt())!,
-    projectId: json.containsKey('project_id') ? SdkPresent(json['project_id'] as String?) : const SdkOmitted(),
-    userId: json.containsKey('user_id') ? SdkPresent(json['user_id'] as String?) : const SdkOmitted(),
-    apiKeyId: json.containsKey('api_key_id') ? SdkPresent(json['api_key_id'] as String?) : const SdkOmitted(),
-    model: json.containsKey('model') ? SdkPresent(json['model'] as String?) : const SdkOmitted(),
-  );
+  factory UsageAudioTranscriptionsResult.fromJson(Map<String, dynamic> json) =>
+      UsageAudioTranscriptionsResult(
+        object: (json['object'] != null
+            ? UsageAudioTranscriptionsResultObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        seconds: ((json['seconds'] as num?)?.toInt())!,
+        numModelRequests: ((json['num_model_requests'] as num?)?.toInt())!,
+        projectId: json.containsKey('project_id')
+            ? SdkPresent(json['project_id'] as String?)
+            : const SdkOmitted(),
+        userId: json.containsKey('user_id')
+            ? SdkPresent(json['user_id'] as String?)
+            : const SdkOmitted(),
+        apiKeyId: json.containsKey('api_key_id')
+            ? SdkPresent(json['api_key_id'] as String?)
+            : const SdkOmitted(),
+        model: json.containsKey('model')
+            ? SdkPresent(json['model'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'seconds': seconds,
-    'num_model_requests': numModelRequests,
-    ...switch (projectId) {
-      SdkPresent<String?>(value: final value) => {'project_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (userId) {
-      SdkPresent<String?>(value: final value) => {'user_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (apiKeyId) {
-      SdkPresent<String?>(value: final value) => {'api_key_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (model) {
-      SdkPresent<String?>(value: final value) => {'model': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'object': object.toJson(),
+        'seconds': seconds,
+        'num_model_requests': numModelRequests,
+        ...switch (projectId) {
+          SdkPresent<String?>(value: final value) => {
+              'project_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (userId) {
+          SdkPresent<String?>(value: final value) => {
+              'user_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (apiKeyId) {
+          SdkPresent<String?>(value: final value) => {
+              'api_key_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (model) {
+          SdkPresent<String?>(value: final value) => {
+              'model': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

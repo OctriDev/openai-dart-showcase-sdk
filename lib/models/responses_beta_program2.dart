@@ -8,50 +8,90 @@ part of 'responses_beta_program.dart';
 class BetaProgram {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that produced this item.
   final SdkOptional<BetaAgentTag> agent;
+
   /// The type of the item. Always `program`.
   final BetaProgramType type_;
+
   /// The unique ID of the program item.
   final String id;
+
   /// The stable call ID of the program item.
   final String callId;
+
   /// The JavaScript source executed by programmatic tool calling.
   final String code;
+
   /// Opaque program replay fingerprint that must be round-tripped.
   final String fingerprint;
 
-  const BetaProgram({this.agent = const SdkOmitted(), required this.type_, required this.id, required this.callId, required this.code, required this.fingerprint});
+  const BetaProgram(
+      {this.agent = const SdkOmitted(),
+      required this.type_,
+      required this.id,
+      required this.callId,
+      required this.code,
+      required this.fingerprint});
 
-  BetaProgram Function({SdkOptional<BetaAgentTag> agent, BetaProgramType type_, String id, String callId, String code, String fingerprint}) get copyWith => _copyWith;
+  BetaProgram Function(
+      {SdkOptional<BetaAgentTag> agent,
+      BetaProgramType type_,
+      String id,
+      String callId,
+      String code,
+      String fingerprint}) get copyWith => _copyWith;
 
-  BetaProgram _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? code = sdkOmittedValue, Object? fingerprint = sdkOmittedValue}) => BetaProgram(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaProgramType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-    code: identical(code, sdkOmittedValue) ? this.code : code as String,
-    fingerprint: identical(fingerprint, sdkOmittedValue) ? this.fingerprint : fingerprint as String,
-  );
+  BetaProgram _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? callId = sdkOmittedValue,
+          Object? code = sdkOmittedValue,
+          Object? fingerprint = sdkOmittedValue}) =>
+      BetaProgram(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaProgramType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        callId:
+            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+        code: identical(code, sdkOmittedValue) ? this.code : code as String,
+        fingerprint: identical(fingerprint, sdkOmittedValue)
+            ? this.fingerprint
+            : fingerprint as String,
+      );
 
   factory BetaProgram.fromJson(Map<String, dynamic> json) => BetaProgram(
-    agent: json['agent'] != null ? SdkPresent((json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    type_: (json['type'] != null ? BetaProgramType.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    callId: (json['call_id'] as String?)!,
-    code: (json['code'] as String?)!,
-    fingerprint: (json['fingerprint'] as String?)!,
-  );
+        agent: json['agent'] != null
+            ? SdkPresent((json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? BetaProgramType.fromJson(json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        callId: (json['call_id'] as String?)!,
+        code: (json['code'] as String?)!,
+        fingerprint: (json['fingerprint'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag>(value: final value) => {'agent': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'id': id,
-    'call_id': callId,
-    'code': code,
-    'fingerprint': fingerprint,
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag>(value: final value) => {
+              'agent': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'id': id,
+        'call_id': callId,
+        'code': code,
+        'fingerprint': fingerprint,
+      };
 }

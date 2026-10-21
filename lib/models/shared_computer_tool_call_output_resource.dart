@@ -8,90 +8,174 @@ part of 'shared_computer.dart';
 class ComputerToolCallOutputResourceVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The status of the message input. One of `in_progress`, `completed`, or `incomplete`. Populated when input items are returned via API.
   final ComputerCallOutputStatus status;
+
   /// The identifier of the actor that created the item.
   final SdkOptional<String> createdBy;
 
-  const ComputerToolCallOutputResourceVariant1({required this.status, this.createdBy = const SdkOmitted()});
+  const ComputerToolCallOutputResourceVariant1(
+      {required this.status, this.createdBy = const SdkOmitted()});
 
-  ComputerToolCallOutputResourceVariant1 Function({ComputerCallOutputStatus status, SdkOptional<String> createdBy}) get copyWith => _copyWith;
+  ComputerToolCallOutputResourceVariant1 Function(
+      {ComputerCallOutputStatus status,
+      SdkOptional<String> createdBy}) get copyWith => _copyWith;
 
-  ComputerToolCallOutputResourceVariant1 _copyWith({Object? status = sdkOmittedValue, Object? createdBy = sdkOmittedValue}) => ComputerToolCallOutputResourceVariant1(
-    status: identical(status, sdkOmittedValue) ? this.status : status as ComputerCallOutputStatus,
-    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as SdkOptional<String>,
-  );
+  ComputerToolCallOutputResourceVariant1 _copyWith(
+          {Object? status = sdkOmittedValue,
+          Object? createdBy = sdkOmittedValue}) =>
+      ComputerToolCallOutputResourceVariant1(
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as ComputerCallOutputStatus,
+        createdBy: identical(createdBy, sdkOmittedValue)
+            ? this.createdBy
+            : createdBy as SdkOptional<String>,
+      );
 
-  factory ComputerToolCallOutputResourceVariant1.fromJson(Map<String, dynamic> json) => ComputerToolCallOutputResourceVariant1(
-    status: (json['status'] != null ? ComputerCallOutputStatus.fromJson(json['status'] as String) : null)!,
-    createdBy: json['created_by'] != null ? SdkPresent((json['created_by'] as String?)!) : const SdkOmitted(),
-  );
+  factory ComputerToolCallOutputResourceVariant1.fromJson(
+          Map<String, dynamic> json) =>
+      ComputerToolCallOutputResourceVariant1(
+        status: (json['status'] != null
+            ? ComputerCallOutputStatus.fromJson(json['status'] as String)
+            : null)!,
+        createdBy: json['created_by'] != null
+            ? SdkPresent((json['created_by'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'status': status.toJson(),
-    ...switch (createdBy) {
-      SdkPresent<String>(value: final value) => {'created_by': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'status': status.toJson(),
+        ...switch (createdBy) {
+          SdkPresent<String>(value: final value) => {
+              'created_by': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ComputerToolCallOutputResource` API schema.
 class ComputerToolCallOutputResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the computer tool call output. Always `computer_call_output`.
   final ComputerToolCallOutputType type_;
+
   /// The ID of the computer tool call output.
   final String id;
+
   /// The ID of the computer tool call that produced the output.
   final String callId;
+
   /// The safety checks reported by the API that have been acknowledged by the developer.
-  final SdkOptional<List<ComputerCallSafetyCheckParam>> acknowledgedSafetyChecks;
+  final SdkOptional<List<ComputerCallSafetyCheckParam>>
+      acknowledgedSafetyChecks;
+
   /// A computer screenshot image used with the computer use tool.
   final ComputerScreenshotImage output;
+
   /// The status of the message input. One of `in_progress`, `completed`, or `incomplete`. Populated when input items are returned via API.
   final ComputerCallOutputStatus status;
+
   /// The identifier of the actor that created the item.
   final SdkOptional<String> createdBy;
 
-  const ComputerToolCallOutputResource({required this.type_, required this.id, required this.callId, this.acknowledgedSafetyChecks = const SdkOmitted(), required this.output, required this.status, this.createdBy = const SdkOmitted()});
+  const ComputerToolCallOutputResource(
+      {required this.type_,
+      required this.id,
+      required this.callId,
+      this.acknowledgedSafetyChecks = const SdkOmitted(),
+      required this.output,
+      required this.status,
+      this.createdBy = const SdkOmitted()});
 
-  ComputerToolCallOutputResource Function({ComputerToolCallOutputType type_, String id, String callId, SdkOptional<List<ComputerCallSafetyCheckParam>> acknowledgedSafetyChecks, ComputerScreenshotImage output, ComputerCallOutputStatus status, SdkOptional<String> createdBy}) get copyWith => _copyWith;
+  ComputerToolCallOutputResource Function(
+      {ComputerToolCallOutputType type_,
+      String id,
+      String callId,
+      SdkOptional<List<ComputerCallSafetyCheckParam>> acknowledgedSafetyChecks,
+      ComputerScreenshotImage output,
+      ComputerCallOutputStatus status,
+      SdkOptional<String> createdBy}) get copyWith => _copyWith;
 
-  ComputerToolCallOutputResource _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? acknowledgedSafetyChecks = sdkOmittedValue, Object? output = sdkOmittedValue, Object? status = sdkOmittedValue, Object? createdBy = sdkOmittedValue}) => ComputerToolCallOutputResource(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ComputerToolCallOutputType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-    acknowledgedSafetyChecks: identical(acknowledgedSafetyChecks, sdkOmittedValue) ? this.acknowledgedSafetyChecks : acknowledgedSafetyChecks as SdkOptional<List<ComputerCallSafetyCheckParam>>,
-    output: identical(output, sdkOmittedValue) ? this.output : output as ComputerScreenshotImage,
-    status: identical(status, sdkOmittedValue) ? this.status : status as ComputerCallOutputStatus,
-    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as SdkOptional<String>,
-  );
+  ComputerToolCallOutputResource _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? callId = sdkOmittedValue,
+          Object? acknowledgedSafetyChecks = sdkOmittedValue,
+          Object? output = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? createdBy = sdkOmittedValue}) =>
+      ComputerToolCallOutputResource(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ComputerToolCallOutputType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        callId:
+            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+        acknowledgedSafetyChecks:
+            identical(acknowledgedSafetyChecks, sdkOmittedValue)
+                ? this.acknowledgedSafetyChecks
+                : acknowledgedSafetyChecks
+                    as SdkOptional<List<ComputerCallSafetyCheckParam>>,
+        output: identical(output, sdkOmittedValue)
+            ? this.output
+            : output as ComputerScreenshotImage,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as ComputerCallOutputStatus,
+        createdBy: identical(createdBy, sdkOmittedValue)
+            ? this.createdBy
+            : createdBy as SdkOptional<String>,
+      );
 
-  factory ComputerToolCallOutputResource.fromJson(Map<String, dynamic> json) => ComputerToolCallOutputResource(
-    type_: (json['type'] != null ? ComputerToolCallOutputType.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    callId: (json['call_id'] as String?)!,
-    acknowledgedSafetyChecks: json['acknowledged_safety_checks'] != null ? SdkPresent(((json['acknowledged_safety_checks'] as List?)?.map((e) => ComputerCallSafetyCheckParam.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    output: (json['output'] != null ? ComputerScreenshotImage.fromJson(json['output'] as Map<String, dynamic>) : null)!,
-    status: (json['status'] != null ? ComputerCallOutputStatus.fromJson(json['status'] as String) : null)!,
-    createdBy: json['created_by'] != null ? SdkPresent((json['created_by'] as String?)!) : const SdkOmitted(),
-  );
+  factory ComputerToolCallOutputResource.fromJson(Map<String, dynamic> json) =>
+      ComputerToolCallOutputResource(
+        type_: (json['type'] != null
+            ? ComputerToolCallOutputType.fromJson(json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        callId: (json['call_id'] as String?)!,
+        acknowledgedSafetyChecks: json['acknowledged_safety_checks'] != null
+            ? SdkPresent(((json['acknowledged_safety_checks'] as List?)
+                ?.map((e) => ComputerCallSafetyCheckParam.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        output: (json['output'] != null
+            ? ComputerScreenshotImage.fromJson(
+                json['output'] as Map<String, dynamic>)
+            : null)!,
+        status: (json['status'] != null
+            ? ComputerCallOutputStatus.fromJson(json['status'] as String)
+            : null)!,
+        createdBy: json['created_by'] != null
+            ? SdkPresent((json['created_by'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'id': id,
-    'call_id': callId,
-    ...switch (acknowledgedSafetyChecks) {
-      SdkPresent<List<ComputerCallSafetyCheckParam>>(value: final value) => {'acknowledged_safety_checks': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    'output': output.toJson(),
-    'status': status.toJson(),
-    ...switch (createdBy) {
-      SdkPresent<String>(value: final value) => {'created_by': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'id': id,
+        'call_id': callId,
+        ...switch (acknowledgedSafetyChecks) {
+          SdkPresent<List<ComputerCallSafetyCheckParam>>(value: final value) =>
+            {
+              'acknowledged_safety_checks':
+                  value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'output': output.toJson(),
+        'status': status.toJson(),
+        ...switch (createdBy) {
+          SdkPresent<String>(value: final value) => {
+              'created_by': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

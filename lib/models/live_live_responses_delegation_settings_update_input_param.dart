@@ -8,106 +8,238 @@ sealed class LiveResponsesDelegationSettingsUpdateInputParamMaxOutputTokens {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const LiveResponsesDelegationSettingsUpdateInputParamMaxOutputTokens();
-  factory LiveResponsesDelegationSettingsUpdateInputParamMaxOutputTokens.fromJson(Object? json) {
-    if (json is num) { return LiveResponsesDelegationSettingsUpdateInputParamMaxOutputTokensInt(json.toInt()); }
-    throw FormatException("No variant matched for LiveResponsesDelegationSettingsUpdateInputParamMaxOutputTokens");
+  factory LiveResponsesDelegationSettingsUpdateInputParamMaxOutputTokens.fromJson(
+      Object? json) {
+    if (json is num) {
+      return LiveResponsesDelegationSettingsUpdateInputParamMaxOutputTokensInt(
+          json.toInt());
+    }
+    throw FormatException(
+        "No variant matched for LiveResponsesDelegationSettingsUpdateInputParamMaxOutputTokens");
   }
   Object? toJson();
 }
 
-final class LiveResponsesDelegationSettingsUpdateInputParamMaxOutputTokensInt extends LiveResponsesDelegationSettingsUpdateInputParamMaxOutputTokens {
+final class LiveResponsesDelegationSettingsUpdateInputParamMaxOutputTokensInt
+    extends LiveResponsesDelegationSettingsUpdateInputParamMaxOutputTokens {
   final int value;
-  const LiveResponsesDelegationSettingsUpdateInputParamMaxOutputTokensInt(this.value);
-  @override Object? toJson() => value;
+  const LiveResponsesDelegationSettingsUpdateInputParamMaxOutputTokensInt(
+      this.value);
+  @override
+  Object? toJson() => value;
 }
 
 /// Updates to the Responses backend of an existing Live session. Omitted settings retain their current values.
 class LiveResponsesDelegationSettingsUpdateInputParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The Responses backend model to use for subsequent delegated requests. Omit to keep the current backend model.
   final SdkOptional<String> model;
+
   /// Optional `string` value serialized in the `instructions` wire field.
   final SdkOptional<String?> instructions;
+
   /// Optional API value serialized in the `max_output_tokens` wire field.
   final SdkOptional<int?> maxOutputTokens;
+
   /// Optional API value serialized in the `service_tier` wire field.
   final SdkOptional<LiveResponsesServiceTier?> serviceTier;
+
   /// Optional API value serialized in the `reasoning` wire field.
   final SdkOptional<LiveDelegationReasoningInputParam?> reasoning;
+
   /// Optional API value serialized in the `text` wire field.
   final SdkOptional<LiveDelegationTextInputParam?> text;
+
   /// Tools available to the Responses backend while it handles tasks delegated by the Live model.
-  final SdkOptional<List<LiveResponsesDelegationSettingsUpdateInputParamToolsItem>> tools;
+  final SdkOptional<
+      List<LiveResponsesDelegationSettingsUpdateInputParamToolsItem>> tools;
+
   /// Controls which tool the Responses backend uses when handling a task delegated by the Live model.
-  final SdkOptional<LiveResponsesDelegationSettingsUpdateInputParamToolChoice> toolChoice;
+  final SdkOptional<LiveResponsesDelegationSettingsUpdateInputParamToolChoice>
+      toolChoice;
+
   /// Optional `boolean` value serialized in the `parallel_tool_calls` wire field.
   final SdkOptional<bool?> parallelToolCalls;
 
-  const LiveResponsesDelegationSettingsUpdateInputParam({this.model = const SdkOmitted(), this.instructions = const SdkOmitted(), this.maxOutputTokens = const SdkOmitted(), this.serviceTier = const SdkOmitted(), this.reasoning = const SdkOmitted(), this.text = const SdkOmitted(), this.tools = const SdkOmitted(), this.toolChoice = const SdkOmitted(), this.parallelToolCalls = const SdkOmitted()});
+  const LiveResponsesDelegationSettingsUpdateInputParam(
+      {this.model = const SdkOmitted(),
+      this.instructions = const SdkOmitted(),
+      this.maxOutputTokens = const SdkOmitted(),
+      this.serviceTier = const SdkOmitted(),
+      this.reasoning = const SdkOmitted(),
+      this.text = const SdkOmitted(),
+      this.tools = const SdkOmitted(),
+      this.toolChoice = const SdkOmitted(),
+      this.parallelToolCalls = const SdkOmitted()});
 
-  LiveResponsesDelegationSettingsUpdateInputParam Function({SdkOptional<String> model, SdkOptional<String?> instructions, SdkOptional<int?> maxOutputTokens, SdkOptional<LiveResponsesServiceTier?> serviceTier, SdkOptional<LiveDelegationReasoningInputParam?> reasoning, SdkOptional<LiveDelegationTextInputParam?> text, SdkOptional<List<LiveResponsesDelegationSettingsUpdateInputParamToolsItem>> tools, SdkOptional<LiveResponsesDelegationSettingsUpdateInputParamToolChoice> toolChoice, SdkOptional<bool?> parallelToolCalls}) get copyWith => _copyWith;
+  LiveResponsesDelegationSettingsUpdateInputParam Function(
+      {SdkOptional<String> model,
+      SdkOptional<String?> instructions,
+      SdkOptional<int?> maxOutputTokens,
+      SdkOptional<LiveResponsesServiceTier?> serviceTier,
+      SdkOptional<LiveDelegationReasoningInputParam?> reasoning,
+      SdkOptional<LiveDelegationTextInputParam?> text,
+      SdkOptional<
+              List<LiveResponsesDelegationSettingsUpdateInputParamToolsItem>>
+          tools,
+      SdkOptional<LiveResponsesDelegationSettingsUpdateInputParamToolChoice>
+          toolChoice,
+      SdkOptional<bool?> parallelToolCalls}) get copyWith => _copyWith;
 
-  LiveResponsesDelegationSettingsUpdateInputParam _copyWith({Object? model = sdkOmittedValue, Object? instructions = sdkOmittedValue, Object? maxOutputTokens = sdkOmittedValue, Object? serviceTier = sdkOmittedValue, Object? reasoning = sdkOmittedValue, Object? text = sdkOmittedValue, Object? tools = sdkOmittedValue, Object? toolChoice = sdkOmittedValue, Object? parallelToolCalls = sdkOmittedValue}) => LiveResponsesDelegationSettingsUpdateInputParam(
-    model: identical(model, sdkOmittedValue) ? this.model : model as SdkOptional<String>,
-    instructions: identical(instructions, sdkOmittedValue) ? this.instructions : instructions as SdkOptional<String?>,
-    maxOutputTokens: identical(maxOutputTokens, sdkOmittedValue) ? this.maxOutputTokens : maxOutputTokens as SdkOptional<int?>,
-    serviceTier: identical(serviceTier, sdkOmittedValue) ? this.serviceTier : serviceTier as SdkOptional<LiveResponsesServiceTier?>,
-    reasoning: identical(reasoning, sdkOmittedValue) ? this.reasoning : reasoning as SdkOptional<LiveDelegationReasoningInputParam?>,
-    text: identical(text, sdkOmittedValue) ? this.text : text as SdkOptional<LiveDelegationTextInputParam?>,
-    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as SdkOptional<List<LiveResponsesDelegationSettingsUpdateInputParamToolsItem>>,
-    toolChoice: identical(toolChoice, sdkOmittedValue) ? this.toolChoice : toolChoice as SdkOptional<LiveResponsesDelegationSettingsUpdateInputParamToolChoice>,
-    parallelToolCalls: identical(parallelToolCalls, sdkOmittedValue) ? this.parallelToolCalls : parallelToolCalls as SdkOptional<bool?>,
-  );
+  LiveResponsesDelegationSettingsUpdateInputParam _copyWith(
+          {Object? model = sdkOmittedValue,
+          Object? instructions = sdkOmittedValue,
+          Object? maxOutputTokens = sdkOmittedValue,
+          Object? serviceTier = sdkOmittedValue,
+          Object? reasoning = sdkOmittedValue,
+          Object? text = sdkOmittedValue,
+          Object? tools = sdkOmittedValue,
+          Object? toolChoice = sdkOmittedValue,
+          Object? parallelToolCalls = sdkOmittedValue}) =>
+      LiveResponsesDelegationSettingsUpdateInputParam(
+        model: identical(model, sdkOmittedValue)
+            ? this.model
+            : model as SdkOptional<String>,
+        instructions: identical(instructions, sdkOmittedValue)
+            ? this.instructions
+            : instructions as SdkOptional<String?>,
+        maxOutputTokens: identical(maxOutputTokens, sdkOmittedValue)
+            ? this.maxOutputTokens
+            : maxOutputTokens as SdkOptional<int?>,
+        serviceTier: identical(serviceTier, sdkOmittedValue)
+            ? this.serviceTier
+            : serviceTier as SdkOptional<LiveResponsesServiceTier?>,
+        reasoning: identical(reasoning, sdkOmittedValue)
+            ? this.reasoning
+            : reasoning as SdkOptional<LiveDelegationReasoningInputParam?>,
+        text: identical(text, sdkOmittedValue)
+            ? this.text
+            : text as SdkOptional<LiveDelegationTextInputParam?>,
+        tools: identical(tools, sdkOmittedValue)
+            ? this.tools
+            : tools as SdkOptional<
+                List<LiveResponsesDelegationSettingsUpdateInputParamToolsItem>>,
+        toolChoice: identical(toolChoice, sdkOmittedValue)
+            ? this.toolChoice
+            : toolChoice as SdkOptional<
+                LiveResponsesDelegationSettingsUpdateInputParamToolChoice>,
+        parallelToolCalls: identical(parallelToolCalls, sdkOmittedValue)
+            ? this.parallelToolCalls
+            : parallelToolCalls as SdkOptional<bool?>,
+      );
 
-  factory LiveResponsesDelegationSettingsUpdateInputParam.fromJson(Map<String, dynamic> json) => LiveResponsesDelegationSettingsUpdateInputParam(
-    model: json['model'] != null ? SdkPresent((json['model'] as String?)!) : const SdkOmitted(),
-    instructions: json.containsKey('instructions') ? SdkPresent(json['instructions'] as String?) : const SdkOmitted(),
-    maxOutputTokens: json.containsKey('max_output_tokens') ? SdkPresent((json['max_output_tokens'] as num?)?.toInt()) : const SdkOmitted(),
-    serviceTier: json.containsKey('service_tier') ? SdkPresent(json['service_tier'] != null ? LiveResponsesServiceTier.fromJson(json['service_tier'] as String) : null) : const SdkOmitted(),
-    reasoning: json.containsKey('reasoning') ? SdkPresent(json['reasoning'] != null ? LiveDelegationReasoningInputParam.fromJson(json['reasoning'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    text: json.containsKey('text') ? SdkPresent(json['text'] != null ? LiveDelegationTextInputParam.fromJson(json['text'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    tools: json['tools'] != null ? SdkPresent(((json['tools'] as List?)?.map((e) => LiveResponsesDelegationSettingsUpdateInputParamToolsItem.fromJson(e)).toList())!) : const SdkOmitted(),
-    toolChoice: json['tool_choice'] != null ? SdkPresent((json['tool_choice'] != null ? LiveResponsesDelegationSettingsUpdateInputParamToolChoice.fromJson(json['tool_choice']) : null)!) : const SdkOmitted(),
-    parallelToolCalls: json.containsKey('parallel_tool_calls') ? SdkPresent(json['parallel_tool_calls'] as bool?) : const SdkOmitted(),
-  );
+  factory LiveResponsesDelegationSettingsUpdateInputParam.fromJson(
+          Map<String, dynamic> json) =>
+      LiveResponsesDelegationSettingsUpdateInputParam(
+        model: json['model'] != null
+            ? SdkPresent((json['model'] as String?)!)
+            : const SdkOmitted(),
+        instructions: json.containsKey('instructions')
+            ? SdkPresent(json['instructions'] as String?)
+            : const SdkOmitted(),
+        maxOutputTokens: json.containsKey('max_output_tokens')
+            ? SdkPresent((json['max_output_tokens'] as num?)?.toInt())
+            : const SdkOmitted(),
+        serviceTier: json.containsKey('service_tier')
+            ? SdkPresent(json['service_tier'] != null
+                ? LiveResponsesServiceTier.fromJson(
+                    json['service_tier'] as String)
+                : null)
+            : const SdkOmitted(),
+        reasoning: json.containsKey('reasoning')
+            ? SdkPresent(json['reasoning'] != null
+                ? LiveDelegationReasoningInputParam.fromJson(
+                    json['reasoning'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        text: json.containsKey('text')
+            ? SdkPresent(json['text'] != null
+                ? LiveDelegationTextInputParam.fromJson(
+                    json['text'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        tools: json['tools'] != null
+            ? SdkPresent(((json['tools'] as List?)
+                ?.map((e) =>
+                    LiveResponsesDelegationSettingsUpdateInputParamToolsItem
+                        .fromJson(e))
+                .toList())!)
+            : const SdkOmitted(),
+        toolChoice: json['tool_choice'] != null
+            ? SdkPresent((json['tool_choice'] != null
+                ? LiveResponsesDelegationSettingsUpdateInputParamToolChoice
+                    .fromJson(json['tool_choice'])
+                : null)!)
+            : const SdkOmitted(),
+        parallelToolCalls: json.containsKey('parallel_tool_calls')
+            ? SdkPresent(json['parallel_tool_calls'] as bool?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (model) {
-      SdkPresent<String>(value: final value) => {'model': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (instructions) {
-      SdkPresent<String?>(value: final value) => {'instructions': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (maxOutputTokens) {
-      SdkPresent<int?>(value: final value) => {'max_output_tokens': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (serviceTier) {
-      SdkPresent<LiveResponsesServiceTier?>(value: final value) => {'service_tier': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (reasoning) {
-      SdkPresent<LiveDelegationReasoningInputParam?>(value: final value) => {'reasoning': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (text) {
-      SdkPresent<LiveDelegationTextInputParam?>(value: final value) => {'text': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tools) {
-      SdkPresent<List<LiveResponsesDelegationSettingsUpdateInputParamToolsItem>>(value: final value) => {'tools': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (toolChoice) {
-      SdkPresent<LiveResponsesDelegationSettingsUpdateInputParamToolChoice>(value: final value) => {'tool_choice': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (parallelToolCalls) {
-      SdkPresent<bool?>(value: final value) => {'parallel_tool_calls': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (model) {
+          SdkPresent<String>(value: final value) => {
+              'model': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (instructions) {
+          SdkPresent<String?>(value: final value) => {
+              'instructions': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (maxOutputTokens) {
+          SdkPresent<int?>(value: final value) => {
+              'max_output_tokens': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (serviceTier) {
+          SdkPresent<LiveResponsesServiceTier?>(value: final value) => {
+              'service_tier': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (reasoning) {
+          SdkPresent<LiveDelegationReasoningInputParam?>(value: final value) =>
+            {
+              'reasoning': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (text) {
+          SdkPresent<LiveDelegationTextInputParam?>(value: final value) => {
+              'text': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tools) {
+          SdkPresent<
+                List<LiveResponsesDelegationSettingsUpdateInputParamToolsItem>>(
+            value: final value
+          ) =>
+            {
+              'tools': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (toolChoice) {
+          SdkPresent<LiveResponsesDelegationSettingsUpdateInputParamToolChoice>(
+            value: final value
+          ) =>
+            {
+              'tool_choice': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (parallelToolCalls) {
+          SdkPresent<bool?>(value: final value) => {
+              'parallel_tool_calls': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

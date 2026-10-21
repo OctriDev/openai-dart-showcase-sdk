@@ -8,62 +8,120 @@ part of 'realtime_realtime_beta_server.dart';
 class RealtimeBetaServerEventConversationItemInputAudioTranscriptionSegment {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the server event.
   final String eventId;
+
   /// The event type, must be `conversation.item.input_audio_transcription.segment`.
-  final RealtimeBetaServerEventConversationItemInputAudioTranscriptionSegmentType type_;
+  final RealtimeBetaServerEventConversationItemInputAudioTranscriptionSegmentType
+      type_;
+
   /// The ID of the item containing the input audio content.
   final String itemId;
+
   /// The index of the input audio content part within the item.
   final int contentIndex;
+
   /// The text for this segment.
   final String text;
+
   /// The segment identifier.
   final String id;
+
   /// The detected speaker label for this segment.
   final String speaker;
+
   /// Start time of the segment in seconds.
   final double start;
+
   /// End time of the segment in seconds.
   final double end;
 
-  const RealtimeBetaServerEventConversationItemInputAudioTranscriptionSegment({required this.eventId, required this.type_, required this.itemId, required this.contentIndex, required this.text, required this.id, required this.speaker, required this.start, required this.end});
+  const RealtimeBetaServerEventConversationItemInputAudioTranscriptionSegment(
+      {required this.eventId,
+      required this.type_,
+      required this.itemId,
+      required this.contentIndex,
+      required this.text,
+      required this.id,
+      required this.speaker,
+      required this.start,
+      required this.end});
 
-  RealtimeBetaServerEventConversationItemInputAudioTranscriptionSegment Function({String eventId, RealtimeBetaServerEventConversationItemInputAudioTranscriptionSegmentType type_, String itemId, int contentIndex, String text, String id, String speaker, double start, double end}) get copyWith => _copyWith;
+  RealtimeBetaServerEventConversationItemInputAudioTranscriptionSegment Function(
+      {String eventId,
+      RealtimeBetaServerEventConversationItemInputAudioTranscriptionSegmentType
+          type_,
+      String itemId,
+      int contentIndex,
+      String text,
+      String id,
+      String speaker,
+      double start,
+      double end}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventConversationItemInputAudioTranscriptionSegment _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? contentIndex = sdkOmittedValue, Object? text = sdkOmittedValue, Object? id = sdkOmittedValue, Object? speaker = sdkOmittedValue, Object? start = sdkOmittedValue, Object? end = sdkOmittedValue}) => RealtimeBetaServerEventConversationItemInputAudioTranscriptionSegment(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventConversationItemInputAudioTranscriptionSegmentType,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    contentIndex: identical(contentIndex, sdkOmittedValue) ? this.contentIndex : contentIndex as int,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    speaker: identical(speaker, sdkOmittedValue) ? this.speaker : speaker as String,
-    start: identical(start, sdkOmittedValue) ? this.start : start as double,
-    end: identical(end, sdkOmittedValue) ? this.end : end as double,
-  );
+  RealtimeBetaServerEventConversationItemInputAudioTranscriptionSegment
+      _copyWith(
+              {Object? eventId = sdkOmittedValue,
+              Object? type_ = sdkOmittedValue,
+              Object? itemId = sdkOmittedValue,
+              Object? contentIndex = sdkOmittedValue,
+              Object? text = sdkOmittedValue,
+              Object? id = sdkOmittedValue,
+              Object? speaker = sdkOmittedValue,
+              Object? start = sdkOmittedValue,
+              Object? end = sdkOmittedValue}) =>
+          RealtimeBetaServerEventConversationItemInputAudioTranscriptionSegment(
+            eventId: identical(eventId, sdkOmittedValue)
+                ? this.eventId
+                : eventId as String,
+            type_: identical(type_, sdkOmittedValue)
+                ? this.type_
+                : type_
+                    as RealtimeBetaServerEventConversationItemInputAudioTranscriptionSegmentType,
+            itemId: identical(itemId, sdkOmittedValue)
+                ? this.itemId
+                : itemId as String,
+            contentIndex: identical(contentIndex, sdkOmittedValue)
+                ? this.contentIndex
+                : contentIndex as int,
+            text: identical(text, sdkOmittedValue) ? this.text : text as String,
+            id: identical(id, sdkOmittedValue) ? this.id : id as String,
+            speaker: identical(speaker, sdkOmittedValue)
+                ? this.speaker
+                : speaker as String,
+            start: identical(start, sdkOmittedValue)
+                ? this.start
+                : start as double,
+            end: identical(end, sdkOmittedValue) ? this.end : end as double,
+          );
 
-  factory RealtimeBetaServerEventConversationItemInputAudioTranscriptionSegment.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventConversationItemInputAudioTranscriptionSegment(
-    eventId: (json['event_id'] as String?)!,
-    type_: (json['type'] != null ? RealtimeBetaServerEventConversationItemInputAudioTranscriptionSegmentType.fromJson(json['type'] as String) : null)!,
-    itemId: (json['item_id'] as String?)!,
-    contentIndex: ((json['content_index'] as num?)?.toInt())!,
-    text: (json['text'] as String?)!,
-    id: (json['id'] as String?)!,
-    speaker: (json['speaker'] as String?)!,
-    start: ((json['start'] as num?)?.toDouble())!,
-    end: ((json['end'] as num?)?.toDouble())!,
-  );
+  factory RealtimeBetaServerEventConversationItemInputAudioTranscriptionSegment.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeBetaServerEventConversationItemInputAudioTranscriptionSegment(
+        eventId: (json['event_id'] as String?)!,
+        type_: (json['type'] != null
+            ? RealtimeBetaServerEventConversationItemInputAudioTranscriptionSegmentType
+                .fromJson(json['type'] as String)
+            : null)!,
+        itemId: (json['item_id'] as String?)!,
+        contentIndex: ((json['content_index'] as num?)?.toInt())!,
+        text: (json['text'] as String?)!,
+        id: (json['id'] as String?)!,
+        speaker: (json['speaker'] as String?)!,
+        start: ((json['start'] as num?)?.toDouble())!,
+        end: ((json['end'] as num?)?.toDouble())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    'type': type_.toJson(),
-    'item_id': itemId,
-    'content_index': contentIndex,
-    'text': text,
-    'id': id,
-    'speaker': speaker,
-    'start': start,
-    'end': end,
-  };
+        'event_id': eventId,
+        'type': type_.toJson(),
+        'item_id': itemId,
+        'content_index': contentIndex,
+        'text': text,
+        'id': id,
+        'speaker': speaker,
+        'start': start,
+        'end': end,
+      };
 }

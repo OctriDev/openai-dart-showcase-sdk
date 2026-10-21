@@ -8,27 +8,47 @@ part of 'certificates.dart';
 class OrganizationProjectCertificateDeactivationResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The project certificate deactivation result type.
   final OrganizationProjectCertificateDeactivationResponseObject object;
+
   /// Required array value serialized in the `data` wire field.
   final List<OrganizationProjectCertificate> data;
 
-  const OrganizationProjectCertificateDeactivationResponse({required this.object, required this.data});
+  const OrganizationProjectCertificateDeactivationResponse(
+      {required this.object, required this.data});
 
-  OrganizationProjectCertificateDeactivationResponse Function({OrganizationProjectCertificateDeactivationResponseObject object, List<OrganizationProjectCertificate> data}) get copyWith => _copyWith;
+  OrganizationProjectCertificateDeactivationResponse Function(
+      {OrganizationProjectCertificateDeactivationResponseObject object,
+      List<OrganizationProjectCertificate> data}) get copyWith => _copyWith;
 
-  OrganizationProjectCertificateDeactivationResponse _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue}) => OrganizationProjectCertificateDeactivationResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as OrganizationProjectCertificateDeactivationResponseObject,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<OrganizationProjectCertificate>,
-  );
+  OrganizationProjectCertificateDeactivationResponse _copyWith(
+          {Object? object = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      OrganizationProjectCertificateDeactivationResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object
+                as OrganizationProjectCertificateDeactivationResponseObject,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<OrganizationProjectCertificate>,
+      );
 
-  factory OrganizationProjectCertificateDeactivationResponse.fromJson(Map<String, dynamic> json) => OrganizationProjectCertificateDeactivationResponse(
-    object: (json['object'] != null ? OrganizationProjectCertificateDeactivationResponseObject.fromJson(json['object'] as String) : null)!,
-    data: ((json['data'] as List?)?.map((e) => OrganizationProjectCertificate.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+  factory OrganizationProjectCertificateDeactivationResponse.fromJson(
+          Map<String, dynamic> json) =>
+      OrganizationProjectCertificateDeactivationResponse(
+        object: (json['object'] != null
+            ? OrganizationProjectCertificateDeactivationResponseObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        data: ((json['data'] as List?)
+            ?.map((e) => OrganizationProjectCertificate.fromJson(
+                e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'data': data.map((item) => item.toJson()).toList(),
-  };
+        'object': object.toJson(),
+        'data': data.map((item) => item.toJson()).toList(),
+      };
 }

@@ -8,56 +8,82 @@ part of 'shared_input.dart';
 class InputAudioInputAudio {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Base64-encoded audio data.
   final String data;
+
   /// The format of the audio data. Currently supported formats are `mp3` and `wav`.
   final InputAudioInputAudioFormat format;
 
   const InputAudioInputAudio({required this.data, required this.format});
 
-  InputAudioInputAudio Function({String data, InputAudioInputAudioFormat format}) get copyWith => _copyWith;
+  InputAudioInputAudio Function(
+      {String data,
+      InputAudioInputAudioFormat format}) get copyWith => _copyWith;
 
-  InputAudioInputAudio _copyWith({Object? data = sdkOmittedValue, Object? format = sdkOmittedValue}) => InputAudioInputAudio(
-    data: identical(data, sdkOmittedValue) ? this.data : data as String,
-    format: identical(format, sdkOmittedValue) ? this.format : format as InputAudioInputAudioFormat,
-  );
+  InputAudioInputAudio _copyWith(
+          {Object? data = sdkOmittedValue, Object? format = sdkOmittedValue}) =>
+      InputAudioInputAudio(
+        data: identical(data, sdkOmittedValue) ? this.data : data as String,
+        format: identical(format, sdkOmittedValue)
+            ? this.format
+            : format as InputAudioInputAudioFormat,
+      );
 
-  factory InputAudioInputAudio.fromJson(Map<String, dynamic> json) => InputAudioInputAudio(
-    data: (json['data'] as String?)!,
-    format: (json['format'] != null ? InputAudioInputAudioFormat.fromJson(json['format'] as String) : null)!,
-  );
+  factory InputAudioInputAudio.fromJson(Map<String, dynamic> json) =>
+      InputAudioInputAudio(
+        data: (json['data'] as String?)!,
+        format: (json['format'] != null
+            ? InputAudioInputAudioFormat.fromJson(json['format'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'data': data,
-    'format': format.toJson(),
-  };
+        'data': data,
+        'format': format.toJson(),
+      };
 }
 
 /// An audio input to the model.
 class InputAudio {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the input item. Always `input_audio`.
   final InputAudioType type_;
+
   /// Required object value serialized in the `input_audio` wire field.
   final InputAudioInputAudio inputAudio;
 
   const InputAudio({required this.type_, required this.inputAudio});
 
-  InputAudio Function({InputAudioType type_, InputAudioInputAudio inputAudio}) get copyWith => _copyWith;
+  InputAudio Function({InputAudioType type_, InputAudioInputAudio inputAudio})
+      get copyWith => _copyWith;
 
-  InputAudio _copyWith({Object? type_ = sdkOmittedValue, Object? inputAudio = sdkOmittedValue}) => InputAudio(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as InputAudioType,
-    inputAudio: identical(inputAudio, sdkOmittedValue) ? this.inputAudio : inputAudio as InputAudioInputAudio,
-  );
+  InputAudio _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? inputAudio = sdkOmittedValue}) =>
+      InputAudio(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as InputAudioType,
+        inputAudio: identical(inputAudio, sdkOmittedValue)
+            ? this.inputAudio
+            : inputAudio as InputAudioInputAudio,
+      );
 
   factory InputAudio.fromJson(Map<String, dynamic> json) => InputAudio(
-    type_: (json['type'] != null ? InputAudioType.fromJson(json['type'] as String) : null)!,
-    inputAudio: (json['input_audio'] != null ? InputAudioInputAudio.fromJson(json['input_audio'] as Map<String, dynamic>) : null)!,
-  );
+        type_: (json['type'] != null
+            ? InputAudioType.fromJson(json['type'] as String)
+            : null)!,
+        inputAudio: (json['input_audio'] != null
+            ? InputAudioInputAudio.fromJson(
+                json['input_audio'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'input_audio': inputAudio.toJson(),
-  };
+        'type': type_.toJson(),
+        'input_audio': inputAudio.toJson(),
+      };
 }

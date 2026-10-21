@@ -8,103 +8,204 @@ part of 'realtime_realtime_server_event.dart';
 class RealtimeServerEventResponseContentPartDonePart {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The content type ("text", "audio").
   final SdkOptional<RealtimeServerEventResponseContentPartDonePartType> type_;
+
   /// The text content (if type is "text").
   final SdkOptional<String> text;
+
   /// Base64-encoded audio data (if type is "audio").
   final SdkOptional<String> audio;
+
   /// The transcript of the audio (if type is "audio").
   final SdkOptional<String> transcript;
 
-  const RealtimeServerEventResponseContentPartDonePart({this.type_ = const SdkOmitted(), this.text = const SdkOmitted(), this.audio = const SdkOmitted(), this.transcript = const SdkOmitted()});
+  const RealtimeServerEventResponseContentPartDonePart(
+      {this.type_ = const SdkOmitted(),
+      this.text = const SdkOmitted(),
+      this.audio = const SdkOmitted(),
+      this.transcript = const SdkOmitted()});
 
-  RealtimeServerEventResponseContentPartDonePart Function({SdkOptional<RealtimeServerEventResponseContentPartDonePartType> type_, SdkOptional<String> text, SdkOptional<String> audio, SdkOptional<String> transcript}) get copyWith => _copyWith;
+  RealtimeServerEventResponseContentPartDonePart Function(
+      {SdkOptional<RealtimeServerEventResponseContentPartDonePartType> type_,
+      SdkOptional<String> text,
+      SdkOptional<String> audio,
+      SdkOptional<String> transcript}) get copyWith => _copyWith;
 
-  RealtimeServerEventResponseContentPartDonePart _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue, Object? audio = sdkOmittedValue, Object? transcript = sdkOmittedValue}) => RealtimeServerEventResponseContentPartDonePart(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<RealtimeServerEventResponseContentPartDonePartType>,
-    text: identical(text, sdkOmittedValue) ? this.text : text as SdkOptional<String>,
-    audio: identical(audio, sdkOmittedValue) ? this.audio : audio as SdkOptional<String>,
-    transcript: identical(transcript, sdkOmittedValue) ? this.transcript : transcript as SdkOptional<String>,
-  );
+  RealtimeServerEventResponseContentPartDonePart _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? text = sdkOmittedValue,
+          Object? audio = sdkOmittedValue,
+          Object? transcript = sdkOmittedValue}) =>
+      RealtimeServerEventResponseContentPartDonePart(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<
+                RealtimeServerEventResponseContentPartDonePartType>,
+        text: identical(text, sdkOmittedValue)
+            ? this.text
+            : text as SdkOptional<String>,
+        audio: identical(audio, sdkOmittedValue)
+            ? this.audio
+            : audio as SdkOptional<String>,
+        transcript: identical(transcript, sdkOmittedValue)
+            ? this.transcript
+            : transcript as SdkOptional<String>,
+      );
 
-  factory RealtimeServerEventResponseContentPartDonePart.fromJson(Map<String, dynamic> json) => RealtimeServerEventResponseContentPartDonePart(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? RealtimeServerEventResponseContentPartDonePartType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    text: json['text'] != null ? SdkPresent((json['text'] as String?)!) : const SdkOmitted(),
-    audio: json['audio'] != null ? SdkPresent((json['audio'] as String?)!) : const SdkOmitted(),
-    transcript: json['transcript'] != null ? SdkPresent((json['transcript'] as String?)!) : const SdkOmitted(),
-  );
+  factory RealtimeServerEventResponseContentPartDonePart.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeServerEventResponseContentPartDonePart(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? RealtimeServerEventResponseContentPartDonePartType.fromJson(
+                    json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        text: json['text'] != null
+            ? SdkPresent((json['text'] as String?)!)
+            : const SdkOmitted(),
+        audio: json['audio'] != null
+            ? SdkPresent((json['audio'] as String?)!)
+            : const SdkOmitted(),
+        transcript: json['transcript'] != null
+            ? SdkPresent((json['transcript'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<RealtimeServerEventResponseContentPartDonePartType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (text) {
-      SdkPresent<String>(value: final value) => {'text': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (audio) {
-      SdkPresent<String>(value: final value) => {'audio': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (transcript) {
-      SdkPresent<String>(value: final value) => {'transcript': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<RealtimeServerEventResponseContentPartDonePartType>(
+            value: final value
+          ) =>
+            {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (text) {
+          SdkPresent<String>(value: final value) => {
+              'text': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (audio) {
+          SdkPresent<String>(value: final value) => {
+              'audio': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (transcript) {
+          SdkPresent<String>(value: final value) => {
+              'transcript': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Returned when a content part is done streaming in an assistant message item. Also emitted when a Response is interrupted, incomplete, or cancelled.
 class RealtimeServerEventResponseContentPartDone {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the server event.
   final String eventId;
+
   /// The event type, must be `response.content_part.done`.
   final RealtimeServerEventResponseContentPartDoneType type_;
+
   /// The ID of the response.
   final String responseId;
+
   /// The ID of the item.
   final String itemId;
+
   /// The index of the output item in the response.
   final int outputIndex;
+
   /// The index of the content part in the item's content array.
   final int contentIndex;
+
   /// The content part that is done.
   final RealtimeServerEventResponseContentPartDonePart part_;
 
-  const RealtimeServerEventResponseContentPartDone({required this.eventId, required this.type_, required this.responseId, required this.itemId, required this.outputIndex, required this.contentIndex, required this.part_});
+  const RealtimeServerEventResponseContentPartDone(
+      {required this.eventId,
+      required this.type_,
+      required this.responseId,
+      required this.itemId,
+      required this.outputIndex,
+      required this.contentIndex,
+      required this.part_});
 
-  RealtimeServerEventResponseContentPartDone Function({String eventId, RealtimeServerEventResponseContentPartDoneType type_, String responseId, String itemId, int outputIndex, int contentIndex, RealtimeServerEventResponseContentPartDonePart part_}) get copyWith => _copyWith;
+  RealtimeServerEventResponseContentPartDone Function(
+          {String eventId,
+          RealtimeServerEventResponseContentPartDoneType type_,
+          String responseId,
+          String itemId,
+          int outputIndex,
+          int contentIndex,
+          RealtimeServerEventResponseContentPartDonePart part_})
+      get copyWith => _copyWith;
 
-  RealtimeServerEventResponseContentPartDone _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? responseId = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? contentIndex = sdkOmittedValue, Object? part_ = sdkOmittedValue}) => RealtimeServerEventResponseContentPartDone(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeServerEventResponseContentPartDoneType,
-    responseId: identical(responseId, sdkOmittedValue) ? this.responseId : responseId as String,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    contentIndex: identical(contentIndex, sdkOmittedValue) ? this.contentIndex : contentIndex as int,
-    part_: identical(part_, sdkOmittedValue) ? this.part_ : part_ as RealtimeServerEventResponseContentPartDonePart,
-  );
+  RealtimeServerEventResponseContentPartDone _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? responseId = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? contentIndex = sdkOmittedValue,
+          Object? part_ = sdkOmittedValue}) =>
+      RealtimeServerEventResponseContentPartDone(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeServerEventResponseContentPartDoneType,
+        responseId: identical(responseId, sdkOmittedValue)
+            ? this.responseId
+            : responseId as String,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        contentIndex: identical(contentIndex, sdkOmittedValue)
+            ? this.contentIndex
+            : contentIndex as int,
+        part_: identical(part_, sdkOmittedValue)
+            ? this.part_
+            : part_ as RealtimeServerEventResponseContentPartDonePart,
+      );
 
-  factory RealtimeServerEventResponseContentPartDone.fromJson(Map<String, dynamic> json) => RealtimeServerEventResponseContentPartDone(
-    eventId: (json['event_id'] as String?)!,
-    type_: (json['type'] != null ? RealtimeServerEventResponseContentPartDoneType.fromJson(json['type'] as String) : null)!,
-    responseId: (json['response_id'] as String?)!,
-    itemId: (json['item_id'] as String?)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    contentIndex: ((json['content_index'] as num?)?.toInt())!,
-    part_: (json['part'] != null ? RealtimeServerEventResponseContentPartDonePart.fromJson(json['part'] as Map<String, dynamic>) : null)!,
-  );
+  factory RealtimeServerEventResponseContentPartDone.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeServerEventResponseContentPartDone(
+        eventId: (json['event_id'] as String?)!,
+        type_: (json['type'] != null
+            ? RealtimeServerEventResponseContentPartDoneType.fromJson(
+                json['type'] as String)
+            : null)!,
+        responseId: (json['response_id'] as String?)!,
+        itemId: (json['item_id'] as String?)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        contentIndex: ((json['content_index'] as num?)?.toInt())!,
+        part_: (json['part'] != null
+            ? RealtimeServerEventResponseContentPartDonePart.fromJson(
+                json['part'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    'type': type_.toJson(),
-    'response_id': responseId,
-    'item_id': itemId,
-    'output_index': outputIndex,
-    'content_index': contentIndex,
-    'part': part_.toJson(),
-  };
+        'event_id': eventId,
+        'type': type_.toJson(),
+        'response_id': responseId,
+        'item_id': itemId,
+        'output_index': outputIndex,
+        'content_index': contentIndex,
+        'part': part_.toJson(),
+      };
 }

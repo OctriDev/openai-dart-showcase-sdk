@@ -6,7 +6,6 @@ part of 'responses_service.dart';
 // responses_service domain models
 /// Typed representation of the `ServiceTierEnum` API schema.
 final class ServiceTierEnum {
-
   final String value;
 
   const ServiceTierEnum._(this.value);
@@ -21,12 +20,15 @@ final class ServiceTierEnum {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ServiceTierEnum && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ServiceTierEnum && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 sealed class ServiceTierResponses {
@@ -34,14 +36,19 @@ sealed class ServiceTierResponses {
   static const String constructionSurface = 'named';
   const ServiceTierResponses();
   factory ServiceTierResponses.fromJson(Object? json) {
-    try { return ServiceTierResponsesServiceTierResponsesVariant0(ServiceTierResponsesVariant0.fromJson(json as String)); } catch (_) {}
+    try {
+      return ServiceTierResponsesServiceTierResponsesVariant0(
+          ServiceTierResponsesVariant0.fromJson(json as String));
+    } catch (_) {}
     throw FormatException("No variant matched for ServiceTierResponses");
   }
   Object? toJson();
 }
 
-final class ServiceTierResponsesServiceTierResponsesVariant0 extends ServiceTierResponses {
+final class ServiceTierResponsesServiceTierResponsesVariant0
+    extends ServiceTierResponses {
   final ServiceTierResponsesVariant0 value;
   const ServiceTierResponsesServiceTierResponsesVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }

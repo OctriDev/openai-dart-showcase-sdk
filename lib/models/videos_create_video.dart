@@ -8,56 +8,110 @@ part of 'videos.dart';
 class CreateVideoJsonBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The video generation model to use (allowed values: sora-2, sora-2-pro). Defaults to `sora-2`.
   final SdkOptional<String> model;
+
   /// Text prompt that describes the video to generate.
   final String prompt;
+
   /// Optional reference object that guides generation. Provide exactly one of `image_url` or `file_id`.
   final SdkOptional<ImageRefParam2> inputReference;
+
   /// Clip duration in seconds (allowed values: 4, 8, 12). Defaults to 4 seconds.
   final SdkOptional<VideoSeconds> seconds;
+
   /// Output resolution formatted as width x height (allowed values: 720x1280, 1280x720, 1024x1792, 1792x1024). Defaults to 720x1280.
   final SdkOptional<VideoSize> size;
 
-  const CreateVideoJsonBody({this.model = const SdkOmitted(), required this.prompt, this.inputReference = const SdkOmitted(), this.seconds = const SdkOmitted(), this.size = const SdkOmitted()});
+  const CreateVideoJsonBody(
+      {this.model = const SdkOmitted(),
+      required this.prompt,
+      this.inputReference = const SdkOmitted(),
+      this.seconds = const SdkOmitted(),
+      this.size = const SdkOmitted()});
 
-  CreateVideoJsonBody Function({SdkOptional<String> model, String prompt, SdkOptional<ImageRefParam2> inputReference, SdkOptional<VideoSeconds> seconds, SdkOptional<VideoSize> size}) get copyWith => _copyWith;
+  CreateVideoJsonBody Function(
+      {SdkOptional<String> model,
+      String prompt,
+      SdkOptional<ImageRefParam2> inputReference,
+      SdkOptional<VideoSeconds> seconds,
+      SdkOptional<VideoSize> size}) get copyWith => _copyWith;
 
-  CreateVideoJsonBody _copyWith({Object? model = sdkOmittedValue, Object? prompt = sdkOmittedValue, Object? inputReference = sdkOmittedValue, Object? seconds = sdkOmittedValue, Object? size = sdkOmittedValue}) => CreateVideoJsonBody(
-    model: identical(model, sdkOmittedValue) ? this.model : model as SdkOptional<String>,
-    prompt: identical(prompt, sdkOmittedValue) ? this.prompt : prompt as String,
-    inputReference: identical(inputReference, sdkOmittedValue) ? this.inputReference : inputReference as SdkOptional<ImageRefParam2>,
-    seconds: identical(seconds, sdkOmittedValue) ? this.seconds : seconds as SdkOptional<VideoSeconds>,
-    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<VideoSize>,
-  );
+  CreateVideoJsonBody _copyWith(
+          {Object? model = sdkOmittedValue,
+          Object? prompt = sdkOmittedValue,
+          Object? inputReference = sdkOmittedValue,
+          Object? seconds = sdkOmittedValue,
+          Object? size = sdkOmittedValue}) =>
+      CreateVideoJsonBody(
+        model: identical(model, sdkOmittedValue)
+            ? this.model
+            : model as SdkOptional<String>,
+        prompt:
+            identical(prompt, sdkOmittedValue) ? this.prompt : prompt as String,
+        inputReference: identical(inputReference, sdkOmittedValue)
+            ? this.inputReference
+            : inputReference as SdkOptional<ImageRefParam2>,
+        seconds: identical(seconds, sdkOmittedValue)
+            ? this.seconds
+            : seconds as SdkOptional<VideoSeconds>,
+        size: identical(size, sdkOmittedValue)
+            ? this.size
+            : size as SdkOptional<VideoSize>,
+      );
 
-  factory CreateVideoJsonBody.fromJson(Map<String, dynamic> json) => CreateVideoJsonBody(
-    model: json['model'] != null ? SdkPresent((json['model'] as String?)!) : const SdkOmitted(),
-    prompt: (json['prompt'] as String?)!,
-    inputReference: json['input_reference'] != null ? SdkPresent((json['input_reference'] != null ? ImageRefParam2.fromJson(json['input_reference'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    seconds: json['seconds'] != null ? SdkPresent((json['seconds'] != null ? VideoSeconds.fromJson(json['seconds'] as String) : null)!) : const SdkOmitted(),
-    size: json['size'] != null ? SdkPresent((json['size'] != null ? VideoSize.fromJson(json['size'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory CreateVideoJsonBody.fromJson(Map<String, dynamic> json) =>
+      CreateVideoJsonBody(
+        model: json['model'] != null
+            ? SdkPresent((json['model'] as String?)!)
+            : const SdkOmitted(),
+        prompt: (json['prompt'] as String?)!,
+        inputReference: json['input_reference'] != null
+            ? SdkPresent((json['input_reference'] != null
+                ? ImageRefParam2.fromJson(
+                    json['input_reference'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        seconds: json['seconds'] != null
+            ? SdkPresent((json['seconds'] != null
+                ? VideoSeconds.fromJson(json['seconds'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        size: json['size'] != null
+            ? SdkPresent((json['size'] != null
+                ? VideoSize.fromJson(json['size'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (model) {
-      SdkPresent<String>(value: final value) => {'model': value,},
-      _ => const <String, dynamic>{},
-    },
-    'prompt': prompt,
-    ...switch (inputReference) {
-      SdkPresent<ImageRefParam2>(value: final value) => {'input_reference': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (seconds) {
-      SdkPresent<VideoSeconds>(value: final value) => {'seconds': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (size) {
-      SdkPresent<VideoSize>(value: final value) => {'size': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (model) {
+          SdkPresent<String>(value: final value) => {
+              'model': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'prompt': prompt,
+        ...switch (inputReference) {
+          SdkPresent<ImageRefParam2>(value: final value) => {
+              'input_reference': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (seconds) {
+          SdkPresent<VideoSeconds>(value: final value) => {
+              'seconds': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (size) {
+          SdkPresent<VideoSize>(value: final value) => {
+              'size': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class CreateVideoMultipartBodyInputReference {
@@ -65,112 +119,195 @@ sealed class CreateVideoMultipartBodyInputReference {
   static const String constructionSurface = 'named';
   const CreateVideoMultipartBodyInputReference();
   factory CreateVideoMultipartBodyInputReference.fromJson(Object? json) {
-    if (json is List) { return CreateVideoMultipartBodyInputReferenceListint(json.map((e) => (e as num).toInt()).toList().cast<int>()); }
-    try { return CreateVideoMultipartBodyInputReferenceImageRefParam2(ImageRefParam2.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    throw FormatException("No variant matched for CreateVideoMultipartBodyInputReference");
+    if (json is List) {
+      return CreateVideoMultipartBodyInputReferenceListint(
+          json.map((e) => (e as num).toInt()).toList().cast<int>());
+    }
+    try {
+      return CreateVideoMultipartBodyInputReferenceImageRefParam2(
+          ImageRefParam2.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for CreateVideoMultipartBodyInputReference");
   }
   Object? toJson();
 }
 
-final class CreateVideoMultipartBodyInputReferenceListint extends CreateVideoMultipartBodyInputReference {
+final class CreateVideoMultipartBodyInputReferenceListint
+    extends CreateVideoMultipartBodyInputReference {
   final List<int> value;
   const CreateVideoMultipartBodyInputReferenceListint(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class CreateVideoMultipartBodyInputReferenceImageRefParam2 extends CreateVideoMultipartBodyInputReference {
+final class CreateVideoMultipartBodyInputReferenceImageRefParam2
+    extends CreateVideoMultipartBodyInputReference {
   final ImageRefParam2 value;
   const CreateVideoMultipartBodyInputReferenceImageRefParam2(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// Multipart parameters for creating a new video generation job.
 class CreateVideoMultipartBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The video generation model to use (allowed values: sora-2, sora-2-pro). Defaults to `sora-2`.
   final SdkOptional<String> model;
+
   /// Text prompt that describes the video to generate.
   final String prompt;
+
   /// Optional API value serialized in the `input_reference` wire field.
   final SdkOptional<dynamic> inputReference;
+
   /// Clip duration in seconds (allowed values: 4, 8, 12). Defaults to 4 seconds.
   final SdkOptional<VideoSeconds> seconds;
+
   /// Output resolution formatted as width x height (allowed values: 720x1280, 1280x720, 1024x1792, 1792x1024). Defaults to 720x1280.
   final SdkOptional<VideoSize> size;
 
-  const CreateVideoMultipartBody({this.model = const SdkOmitted(), required this.prompt, this.inputReference = const SdkOmitted(), this.seconds = const SdkOmitted(), this.size = const SdkOmitted()});
+  const CreateVideoMultipartBody(
+      {this.model = const SdkOmitted(),
+      required this.prompt,
+      this.inputReference = const SdkOmitted(),
+      this.seconds = const SdkOmitted(),
+      this.size = const SdkOmitted()});
 
-  CreateVideoMultipartBody Function({SdkOptional<String> model, String prompt, SdkOptional<dynamic> inputReference, SdkOptional<VideoSeconds> seconds, SdkOptional<VideoSize> size}) get copyWith => _copyWith;
+  CreateVideoMultipartBody Function(
+      {SdkOptional<String> model,
+      String prompt,
+      SdkOptional<dynamic> inputReference,
+      SdkOptional<VideoSeconds> seconds,
+      SdkOptional<VideoSize> size}) get copyWith => _copyWith;
 
-  CreateVideoMultipartBody _copyWith({Object? model = sdkOmittedValue, Object? prompt = sdkOmittedValue, Object? inputReference = sdkOmittedValue, Object? seconds = sdkOmittedValue, Object? size = sdkOmittedValue}) => CreateVideoMultipartBody(
-    model: identical(model, sdkOmittedValue) ? this.model : model as SdkOptional<String>,
-    prompt: identical(prompt, sdkOmittedValue) ? this.prompt : prompt as String,
-    inputReference: identical(inputReference, sdkOmittedValue) ? this.inputReference : inputReference as SdkOptional<dynamic>,
-    seconds: identical(seconds, sdkOmittedValue) ? this.seconds : seconds as SdkOptional<VideoSeconds>,
-    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<VideoSize>,
-  );
+  CreateVideoMultipartBody _copyWith(
+          {Object? model = sdkOmittedValue,
+          Object? prompt = sdkOmittedValue,
+          Object? inputReference = sdkOmittedValue,
+          Object? seconds = sdkOmittedValue,
+          Object? size = sdkOmittedValue}) =>
+      CreateVideoMultipartBody(
+        model: identical(model, sdkOmittedValue)
+            ? this.model
+            : model as SdkOptional<String>,
+        prompt:
+            identical(prompt, sdkOmittedValue) ? this.prompt : prompt as String,
+        inputReference: identical(inputReference, sdkOmittedValue)
+            ? this.inputReference
+            : inputReference as SdkOptional<dynamic>,
+        seconds: identical(seconds, sdkOmittedValue)
+            ? this.seconds
+            : seconds as SdkOptional<VideoSeconds>,
+        size: identical(size, sdkOmittedValue)
+            ? this.size
+            : size as SdkOptional<VideoSize>,
+      );
 
-  factory CreateVideoMultipartBody.fromJson(Map<String, dynamic> json) => CreateVideoMultipartBody(
-    model: json['model'] != null ? SdkPresent((json['model'] as String?)!) : const SdkOmitted(),
-    prompt: (json['prompt'] as String?)!,
-    inputReference: json['input_reference'] != null ? SdkPresent((SdkUtils.unionBranch(json['input_reference'], [ImageRefParam2.fromJson]))!) : const SdkOmitted(),
-    seconds: json['seconds'] != null ? SdkPresent((json['seconds'] != null ? VideoSeconds.fromJson(json['seconds'] as String) : null)!) : const SdkOmitted(),
-    size: json['size'] != null ? SdkPresent((json['size'] != null ? VideoSize.fromJson(json['size'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory CreateVideoMultipartBody.fromJson(Map<String, dynamic> json) =>
+      CreateVideoMultipartBody(
+        model: json['model'] != null
+            ? SdkPresent((json['model'] as String?)!)
+            : const SdkOmitted(),
+        prompt: (json['prompt'] as String?)!,
+        inputReference: json['input_reference'] != null
+            ? SdkPresent((SdkUtils.unionBranch(
+                json['input_reference'], [ImageRefParam2.fromJson]))!)
+            : const SdkOmitted(),
+        seconds: json['seconds'] != null
+            ? SdkPresent((json['seconds'] != null
+                ? VideoSeconds.fromJson(json['seconds'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        size: json['size'] != null
+            ? SdkPresent((json['size'] != null
+                ? VideoSize.fromJson(json['size'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (model) {
-      SdkPresent<String>(value: final value) => {'model': value,},
-      _ => const <String, dynamic>{},
-    },
-    'prompt': prompt,
-    ...switch (inputReference) {
-      SdkPresent<dynamic>(value: final value) => {'input_reference': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (seconds) {
-      SdkPresent<VideoSeconds>(value: final value) => {'seconds': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (size) {
-      SdkPresent<VideoSize>(value: final value) => {'size': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (model) {
+          SdkPresent<String>(value: final value) => {
+              'model': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'prompt': prompt,
+        ...switch (inputReference) {
+          SdkPresent<dynamic>(value: final value) => {
+              'input_reference': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (seconds) {
+          SdkPresent<VideoSeconds>(value: final value) => {
+              'seconds': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (size) {
+          SdkPresent<VideoSize>(value: final value) => {
+              'size': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ImageRefParam2` API schema.
 class ImageRefParam2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A fully qualified URL or base64-encoded data URL.
   final SdkOptional<String> imageUrl;
+
   /// Optional `string` value serialized in the `file_id` wire field.
   final SdkOptional<String> fileId;
 
-  const ImageRefParam2({this.imageUrl = const SdkOmitted(), this.fileId = const SdkOmitted()});
+  const ImageRefParam2(
+      {this.imageUrl = const SdkOmitted(), this.fileId = const SdkOmitted()});
 
-  ImageRefParam2 Function({SdkOptional<String> imageUrl, SdkOptional<String> fileId}) get copyWith => _copyWith;
+  ImageRefParam2 Function(
+      {SdkOptional<String> imageUrl,
+      SdkOptional<String> fileId}) get copyWith => _copyWith;
 
-  ImageRefParam2 _copyWith({Object? imageUrl = sdkOmittedValue, Object? fileId = sdkOmittedValue}) => ImageRefParam2(
-    imageUrl: identical(imageUrl, sdkOmittedValue) ? this.imageUrl : imageUrl as SdkOptional<String>,
-    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as SdkOptional<String>,
-  );
+  ImageRefParam2 _copyWith(
+          {Object? imageUrl = sdkOmittedValue,
+          Object? fileId = sdkOmittedValue}) =>
+      ImageRefParam2(
+        imageUrl: identical(imageUrl, sdkOmittedValue)
+            ? this.imageUrl
+            : imageUrl as SdkOptional<String>,
+        fileId: identical(fileId, sdkOmittedValue)
+            ? this.fileId
+            : fileId as SdkOptional<String>,
+      );
 
   factory ImageRefParam2.fromJson(Map<String, dynamic> json) => ImageRefParam2(
-    imageUrl: json['image_url'] != null ? SdkPresent((json['image_url'] as String?)!) : const SdkOmitted(),
-    fileId: json['file_id'] != null ? SdkPresent((json['file_id'] as String?)!) : const SdkOmitted(),
-  );
+        imageUrl: json['image_url'] != null
+            ? SdkPresent((json['image_url'] as String?)!)
+            : const SdkOmitted(),
+        fileId: json['file_id'] != null
+            ? SdkPresent((json['file_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (imageUrl) {
-      SdkPresent<String>(value: final value) => {'image_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (fileId) {
-      SdkPresent<String>(value: final value) => {'file_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (imageUrl) {
+          SdkPresent<String>(value: final value) => {
+              'image_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (fileId) {
+          SdkPresent<String>(value: final value) => {
+              'file_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

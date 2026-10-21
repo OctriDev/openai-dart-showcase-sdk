@@ -8,27 +8,44 @@ part of 'vaults_vault.dart';
 class VaultCredentialAuthResourceStaticBearer {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `static_bearer`.
   final VaultCredentialAuthResourceStaticBearerType type_;
+
   /// The HTTPS MCP server URL authorized by this credential.
   final String mcpServerUrl;
 
-  const VaultCredentialAuthResourceStaticBearer({required this.type_, required this.mcpServerUrl});
+  const VaultCredentialAuthResourceStaticBearer(
+      {required this.type_, required this.mcpServerUrl});
 
-  VaultCredentialAuthResourceStaticBearer Function({VaultCredentialAuthResourceStaticBearerType type_, String mcpServerUrl}) get copyWith => _copyWith;
+  VaultCredentialAuthResourceStaticBearer Function(
+      {VaultCredentialAuthResourceStaticBearerType type_,
+      String mcpServerUrl}) get copyWith => _copyWith;
 
-  VaultCredentialAuthResourceStaticBearer _copyWith({Object? type_ = sdkOmittedValue, Object? mcpServerUrl = sdkOmittedValue}) => VaultCredentialAuthResourceStaticBearer(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as VaultCredentialAuthResourceStaticBearerType,
-    mcpServerUrl: identical(mcpServerUrl, sdkOmittedValue) ? this.mcpServerUrl : mcpServerUrl as String,
-  );
+  VaultCredentialAuthResourceStaticBearer _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? mcpServerUrl = sdkOmittedValue}) =>
+      VaultCredentialAuthResourceStaticBearer(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as VaultCredentialAuthResourceStaticBearerType,
+        mcpServerUrl: identical(mcpServerUrl, sdkOmittedValue)
+            ? this.mcpServerUrl
+            : mcpServerUrl as String,
+      );
 
-  factory VaultCredentialAuthResourceStaticBearer.fromJson(Map<String, dynamic> json) => VaultCredentialAuthResourceStaticBearer(
-    type_: (json['type'] != null ? VaultCredentialAuthResourceStaticBearerType.fromJson(json['type'] as String) : null)!,
-    mcpServerUrl: (json['mcp_server_url'] as String?)!,
-  );
+  factory VaultCredentialAuthResourceStaticBearer.fromJson(
+          Map<String, dynamic> json) =>
+      VaultCredentialAuthResourceStaticBearer(
+        type_: (json['type'] != null
+            ? VaultCredentialAuthResourceStaticBearerType.fromJson(
+                json['type'] as String)
+            : null)!,
+        mcpServerUrl: (json['mcp_server_url'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'mcp_server_url': mcpServerUrl,
-  };
+        'type': type_.toJson(),
+        'mcp_server_url': mcpServerUrl,
+      };
 }

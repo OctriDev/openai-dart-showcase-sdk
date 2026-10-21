@@ -10,128 +10,298 @@ sealed class AgentOutputItemResource {
   const AgentOutputItemResource();
   factory AgentOutputItemResource.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = AssistantMessageItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceAssistantMessageItemResource(value); } } catch (_) {}
-      try { final value = ReasoningItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceReasoningItemResource(value); } } catch (_) {}
-      try { final value = FunctionCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceFunctionCallItemResource(value); } } catch (_) {}
-      try { final value = McpCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceMcpCallItemResource(value); } } catch (_) {}
-      try { final value = ComputerUseCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceComputerUseCallItemResource(value); } } catch (_) {}
-      try { final value = BrowserAuthenticationRequestItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceBrowserAuthenticationRequestItemResource(value); } } catch (_) {}
-      try { final value = WebSearchCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceWebSearchCallItemResource(value); } } catch (_) {}
-      try { final value = CommandExecutionItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceCommandExecutionItemResource(value); } } catch (_) {}
-      try { final value = CreateSubagentCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceCreateSubagentCallItemResource(value); } } catch (_) {}
-      try { final value = SendSubagentInputCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceSendSubagentInputCallItemResource(value); } } catch (_) {}
-      try { final value = ResumeSubagentCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceResumeSubagentCallItemResource(value); } } catch (_) {}
-      try { final value = WaitForSubagentsCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceWaitForSubagentsCallItemResource(value); } } catch (_) {}
-      try { final value = InterruptSubagentCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceInterruptSubagentCallItemResource(value); } } catch (_) {}
-      try { final value = CloseSubagentCallItemResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentOutputItemResourceCloseSubagentCallItemResource(value); } } catch (_) {}
+      try {
+        final value = AssistantMessageItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceAssistantMessageItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ReasoningItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceReasoningItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = FunctionCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceFunctionCallItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = McpCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceMcpCallItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ComputerUseCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceComputerUseCallItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BrowserAuthenticationRequestItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceBrowserAuthenticationRequestItemResource(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = WebSearchCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceWebSearchCallItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CommandExecutionItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceCommandExecutionItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CreateSubagentCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceCreateSubagentCallItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = SendSubagentInputCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceSendSubagentInputCallItemResource(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResumeSubagentCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceResumeSubagentCallItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = WaitForSubagentsCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceWaitForSubagentsCallItemResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = InterruptSubagentCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceInterruptSubagentCallItemResource(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = CloseSubagentCallItemResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentOutputItemResourceCloseSubagentCallItemResource(value);
+        }
+      } catch (_) {}
     }
-    try { return AgentOutputItemResourceAssistantMessageItemResource(AssistantMessageItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentOutputItemResourceReasoningItemResource(ReasoningItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentOutputItemResourceFunctionCallItemResource(FunctionCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentOutputItemResourceMcpCallItemResource(McpCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentOutputItemResourceComputerUseCallItemResource(ComputerUseCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentOutputItemResourceBrowserAuthenticationRequestItemResource(BrowserAuthenticationRequestItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentOutputItemResourceWebSearchCallItemResource(WebSearchCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentOutputItemResourceCommandExecutionItemResource(CommandExecutionItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentOutputItemResourceCreateSubagentCallItemResource(CreateSubagentCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentOutputItemResourceSendSubagentInputCallItemResource(SendSubagentInputCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentOutputItemResourceResumeSubagentCallItemResource(ResumeSubagentCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentOutputItemResourceWaitForSubagentsCallItemResource(WaitForSubagentsCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentOutputItemResourceInterruptSubagentCallItemResource(InterruptSubagentCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentOutputItemResourceCloseSubagentCallItemResource(CloseSubagentCallItemResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"message", "reasoning", "function_call", "mcp_call", "computer_use_call", "computer_use_approval_request", "web_search_call", "command_execution", "interrupt_subagent_call", "create_subagent_call", "send_subagent_input_call", "resume_subagent_call", "wait_for_subagents_call", "close_subagent_call"}.contains(json["type"])) { return UnknownAgentOutputItemResource(json); }
+    try {
+      return AgentOutputItemResourceAssistantMessageItemResource(
+          AssistantMessageItemResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentOutputItemResourceReasoningItemResource(
+          ReasoningItemResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentOutputItemResourceFunctionCallItemResource(
+          FunctionCallItemResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentOutputItemResourceMcpCallItemResource(
+          McpCallItemResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentOutputItemResourceComputerUseCallItemResource(
+          ComputerUseCallItemResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentOutputItemResourceBrowserAuthenticationRequestItemResource(
+          BrowserAuthenticationRequestItemResource.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentOutputItemResourceWebSearchCallItemResource(
+          WebSearchCallItemResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentOutputItemResourceCommandExecutionItemResource(
+          CommandExecutionItemResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentOutputItemResourceCreateSubagentCallItemResource(
+          CreateSubagentCallItemResource.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentOutputItemResourceSendSubagentInputCallItemResource(
+          SendSubagentInputCallItemResource.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentOutputItemResourceResumeSubagentCallItemResource(
+          ResumeSubagentCallItemResource.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentOutputItemResourceWaitForSubagentsCallItemResource(
+          WaitForSubagentsCallItemResource.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentOutputItemResourceInterruptSubagentCallItemResource(
+          InterruptSubagentCallItemResource.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentOutputItemResourceCloseSubagentCallItemResource(
+          CloseSubagentCallItemResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {
+          "message",
+          "reasoning",
+          "function_call",
+          "mcp_call",
+          "computer_use_call",
+          "computer_use_approval_request",
+          "web_search_call",
+          "command_execution",
+          "interrupt_subagent_call",
+          "create_subagent_call",
+          "send_subagent_input_call",
+          "resume_subagent_call",
+          "wait_for_subagents_call",
+          "close_subagent_call"
+        }.contains(json["type"])) {
+      return UnknownAgentOutputItemResource(json);
+    }
     throw FormatException("No variant matched for AgentOutputItemResource");
   }
   Object? toJson();
 }
 
-final class AgentOutputItemResourceAssistantMessageItemResource extends AgentOutputItemResource {
+final class AgentOutputItemResourceAssistantMessageItemResource
+    extends AgentOutputItemResource {
   final AssistantMessageItemResource value;
   const AgentOutputItemResourceAssistantMessageItemResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentOutputItemResourceReasoningItemResource extends AgentOutputItemResource {
+final class AgentOutputItemResourceReasoningItemResource
+    extends AgentOutputItemResource {
   final ReasoningItemResource value;
   const AgentOutputItemResourceReasoningItemResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentOutputItemResourceFunctionCallItemResource extends AgentOutputItemResource {
+final class AgentOutputItemResourceFunctionCallItemResource
+    extends AgentOutputItemResource {
   final FunctionCallItemResource value;
   const AgentOutputItemResourceFunctionCallItemResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentOutputItemResourceMcpCallItemResource extends AgentOutputItemResource {
+final class AgentOutputItemResourceMcpCallItemResource
+    extends AgentOutputItemResource {
   final McpCallItemResource value;
   const AgentOutputItemResourceMcpCallItemResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentOutputItemResourceComputerUseCallItemResource extends AgentOutputItemResource {
+final class AgentOutputItemResourceComputerUseCallItemResource
+    extends AgentOutputItemResource {
   final ComputerUseCallItemResource value;
   const AgentOutputItemResourceComputerUseCallItemResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentOutputItemResourceBrowserAuthenticationRequestItemResource extends AgentOutputItemResource {
+final class AgentOutputItemResourceBrowserAuthenticationRequestItemResource
+    extends AgentOutputItemResource {
   final BrowserAuthenticationRequestItemResource value;
-  const AgentOutputItemResourceBrowserAuthenticationRequestItemResource(this.value);
-  @override Object? toJson() => value.toJson();
+  const AgentOutputItemResourceBrowserAuthenticationRequestItemResource(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentOutputItemResourceWebSearchCallItemResource extends AgentOutputItemResource {
+final class AgentOutputItemResourceWebSearchCallItemResource
+    extends AgentOutputItemResource {
   final WebSearchCallItemResource value;
   const AgentOutputItemResourceWebSearchCallItemResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentOutputItemResourceCommandExecutionItemResource extends AgentOutputItemResource {
+final class AgentOutputItemResourceCommandExecutionItemResource
+    extends AgentOutputItemResource {
   final CommandExecutionItemResource value;
   const AgentOutputItemResourceCommandExecutionItemResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentOutputItemResourceCreateSubagentCallItemResource extends AgentOutputItemResource {
+final class AgentOutputItemResourceCreateSubagentCallItemResource
+    extends AgentOutputItemResource {
   final CreateSubagentCallItemResource value;
   const AgentOutputItemResourceCreateSubagentCallItemResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentOutputItemResourceSendSubagentInputCallItemResource extends AgentOutputItemResource {
+final class AgentOutputItemResourceSendSubagentInputCallItemResource
+    extends AgentOutputItemResource {
   final SendSubagentInputCallItemResource value;
   const AgentOutputItemResourceSendSubagentInputCallItemResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentOutputItemResourceResumeSubagentCallItemResource extends AgentOutputItemResource {
+final class AgentOutputItemResourceResumeSubagentCallItemResource
+    extends AgentOutputItemResource {
   final ResumeSubagentCallItemResource value;
   const AgentOutputItemResourceResumeSubagentCallItemResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentOutputItemResourceWaitForSubagentsCallItemResource extends AgentOutputItemResource {
+final class AgentOutputItemResourceWaitForSubagentsCallItemResource
+    extends AgentOutputItemResource {
   final WaitForSubagentsCallItemResource value;
   const AgentOutputItemResourceWaitForSubagentsCallItemResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentOutputItemResourceInterruptSubagentCallItemResource extends AgentOutputItemResource {
+final class AgentOutputItemResourceInterruptSubagentCallItemResource
+    extends AgentOutputItemResource {
   final InterruptSubagentCallItemResource value;
   const AgentOutputItemResourceInterruptSubagentCallItemResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentOutputItemResourceCloseSubagentCallItemResource extends AgentOutputItemResource {
+final class AgentOutputItemResourceCloseSubagentCallItemResource
+    extends AgentOutputItemResource {
   final CloseSubagentCallItemResource value;
   const AgentOutputItemResourceCloseSubagentCallItemResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [AgentOutputItemResource] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownAgentOutputItemResource extends AgentOutputItemResource {
   final Map<String, dynamic> raw;
   const UnknownAgentOutputItemResource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

@@ -10,14 +10,17 @@ enum SessionEventErrorType {
 
   static SessionEventErrorType fromJson(String value) {
     switch (value) {
-      case 'error': return SessionEventErrorType.error;
-      default: throw ArgumentError('Unknown SessionEventErrorType: $value');
+      case 'error':
+        return SessionEventErrorType.error;
+      default:
+        throw ArgumentError('Unknown SessionEventErrorType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionEventErrorType.error: return 'error';
+      case SessionEventErrorType.error:
+        return 'error';
     }
   }
 
@@ -31,14 +34,19 @@ enum SessionInputParamAgentSessionInputCancelType {
 
   static SessionInputParamAgentSessionInputCancelType fromJson(String value) {
     switch (value) {
-      case 'agent.session.input.cancel': return SessionInputParamAgentSessionInputCancelType.agentSessionInputCancel;
-      default: throw ArgumentError('Unknown SessionInputParamAgentSessionInputCancelType: $value');
+      case 'agent.session.input.cancel':
+        return SessionInputParamAgentSessionInputCancelType
+            .agentSessionInputCancel;
+      default:
+        throw ArgumentError(
+            'Unknown SessionInputParamAgentSessionInputCancelType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionInputParamAgentSessionInputCancelType.agentSessionInputCancel: return 'agent.session.input.cancel';
+      case SessionInputParamAgentSessionInputCancelType.agentSessionInputCancel:
+        return 'agent.session.input.cancel';
     }
   }
 
@@ -50,16 +58,23 @@ enum SessionInputParamAgentSessionInputCancelType {
 enum SessionInputParamAgentSessionInputComputerUseApprovalRequestResultType {
   agentSessionInputComputerUseApprovalRequestResult;
 
-  static SessionInputParamAgentSessionInputComputerUseApprovalRequestResultType fromJson(String value) {
+  static SessionInputParamAgentSessionInputComputerUseApprovalRequestResultType
+      fromJson(String value) {
     switch (value) {
-      case 'agent.session.input.computer_use_approval_request_result': return SessionInputParamAgentSessionInputComputerUseApprovalRequestResultType.agentSessionInputComputerUseApprovalRequestResult;
-      default: throw ArgumentError('Unknown SessionInputParamAgentSessionInputComputerUseApprovalRequestResultType: $value');
+      case 'agent.session.input.computer_use_approval_request_result':
+        return SessionInputParamAgentSessionInputComputerUseApprovalRequestResultType
+            .agentSessionInputComputerUseApprovalRequestResult;
+      default:
+        throw ArgumentError(
+            'Unknown SessionInputParamAgentSessionInputComputerUseApprovalRequestResultType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionInputParamAgentSessionInputComputerUseApprovalRequestResultType.agentSessionInputComputerUseApprovalRequestResult: return 'agent.session.input.computer_use_approval_request_result';
+      case SessionInputParamAgentSessionInputComputerUseApprovalRequestResultType
+            .agentSessionInputComputerUseApprovalRequestResult:
+        return 'agent.session.input.computer_use_approval_request_result';
     }
   }
 
@@ -73,14 +88,20 @@ enum SessionInputParamAgentSessionInputMessageType {
 
   static SessionInputParamAgentSessionInputMessageType fromJson(String value) {
     switch (value) {
-      case 'agent.session.input.message': return SessionInputParamAgentSessionInputMessageType.agentSessionInputMessage;
-      default: throw ArgumentError('Unknown SessionInputParamAgentSessionInputMessageType: $value');
+      case 'agent.session.input.message':
+        return SessionInputParamAgentSessionInputMessageType
+            .agentSessionInputMessage;
+      default:
+        throw ArgumentError(
+            'Unknown SessionInputParamAgentSessionInputMessageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionInputParamAgentSessionInputMessageType.agentSessionInputMessage: return 'agent.session.input.message';
+      case SessionInputParamAgentSessionInputMessageType
+            .agentSessionInputMessage:
+        return 'agent.session.input.message';
     }
   }
 
@@ -92,16 +113,23 @@ enum SessionInputParamAgentSessionInputMessageType {
 enum SessionInputParamAgentSessionInputToolResultType {
   agentSessionInputToolResult;
 
-  static SessionInputParamAgentSessionInputToolResultType fromJson(String value) {
+  static SessionInputParamAgentSessionInputToolResultType fromJson(
+      String value) {
     switch (value) {
-      case 'agent.session.input.tool_result': return SessionInputParamAgentSessionInputToolResultType.agentSessionInputToolResult;
-      default: throw ArgumentError('Unknown SessionInputParamAgentSessionInputToolResultType: $value');
+      case 'agent.session.input.tool_result':
+        return SessionInputParamAgentSessionInputToolResultType
+            .agentSessionInputToolResult;
+      default:
+        throw ArgumentError(
+            'Unknown SessionInputParamAgentSessionInputToolResultType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionInputParamAgentSessionInputToolResultType.agentSessionInputToolResult: return 'agent.session.input.tool_result';
+      case SessionInputParamAgentSessionInputToolResultType
+            .agentSessionInputToolResult:
+        return 'agent.session.input.tool_result';
     }
   }
 
@@ -111,60 +139,73 @@ enum SessionInputParamAgentSessionInputToolResultType {
 
 /// The object type, which is always `list`.
 final class SessionItemListResourceObject {
-
   final String value;
 
   const SessionItemListResourceObject._(this.value);
 
-  factory SessionItemListResourceObject.fromJson(String value) => SessionItemListResourceObject._(value);
+  factory SessionItemListResourceObject.fromJson(String value) =>
+      SessionItemListResourceObject._(value);
 
   static const list = SessionItemListResourceObject._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SessionItemListResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SessionItemListResourceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type, which is always `list`.
 final class SessionListResourceObject {
-
   final String value;
 
   const SessionListResourceObject._(this.value);
 
-  factory SessionListResourceObject.fromJson(String value) => SessionListResourceObject._(value);
+  factory SessionListResourceObject.fromJson(String value) =>
+      SessionListResourceObject._(value);
 
   static const list = SessionListResourceObject._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SessionListResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SessionListResourceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the object. Always `computer_use_approval_request`.
 enum SessionRequiredActionResourceComputerUseApprovalRequestType {
   computerUseApprovalRequest;
 
-  static SessionRequiredActionResourceComputerUseApprovalRequestType fromJson(String value) {
+  static SessionRequiredActionResourceComputerUseApprovalRequestType fromJson(
+      String value) {
     switch (value) {
-      case 'computer_use_approval_request': return SessionRequiredActionResourceComputerUseApprovalRequestType.computerUseApprovalRequest;
-      default: throw ArgumentError('Unknown SessionRequiredActionResourceComputerUseApprovalRequestType: $value');
+      case 'computer_use_approval_request':
+        return SessionRequiredActionResourceComputerUseApprovalRequestType
+            .computerUseApprovalRequest;
+      default:
+        throw ArgumentError(
+            'Unknown SessionRequiredActionResourceComputerUseApprovalRequestType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionRequiredActionResourceComputerUseApprovalRequestType.computerUseApprovalRequest: return 'computer_use_approval_request';
+      case SessionRequiredActionResourceComputerUseApprovalRequestType
+            .computerUseApprovalRequest:
+        return 'computer_use_approval_request';
     }
   }
 
@@ -176,16 +217,23 @@ enum SessionRequiredActionResourceComputerUseApprovalRequestType {
 enum SessionRequiredActionResourceEnvironmentConnectionType {
   environmentConnection;
 
-  static SessionRequiredActionResourceEnvironmentConnectionType fromJson(String value) {
+  static SessionRequiredActionResourceEnvironmentConnectionType fromJson(
+      String value) {
     switch (value) {
-      case 'environment_connection': return SessionRequiredActionResourceEnvironmentConnectionType.environmentConnection;
-      default: throw ArgumentError('Unknown SessionRequiredActionResourceEnvironmentConnectionType: $value');
+      case 'environment_connection':
+        return SessionRequiredActionResourceEnvironmentConnectionType
+            .environmentConnection;
+      default:
+        throw ArgumentError(
+            'Unknown SessionRequiredActionResourceEnvironmentConnectionType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionRequiredActionResourceEnvironmentConnectionType.environmentConnection: return 'environment_connection';
+      case SessionRequiredActionResourceEnvironmentConnectionType
+            .environmentConnection:
+        return 'environment_connection';
     }
   }
 
@@ -199,14 +247,18 @@ enum SessionRequiredActionResourceFunctionCallType {
 
   static SessionRequiredActionResourceFunctionCallType fromJson(String value) {
     switch (value) {
-      case 'function_call': return SessionRequiredActionResourceFunctionCallType.functionCall;
-      default: throw ArgumentError('Unknown SessionRequiredActionResourceFunctionCallType: $value');
+      case 'function_call':
+        return SessionRequiredActionResourceFunctionCallType.functionCall;
+      default:
+        throw ArgumentError(
+            'Unknown SessionRequiredActionResourceFunctionCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case SessionRequiredActionResourceFunctionCallType.functionCall: return 'function_call';
+      case SessionRequiredActionResourceFunctionCallType.functionCall:
+        return 'function_call';
     }
   }
 
@@ -216,63 +268,72 @@ enum SessionRequiredActionResourceFunctionCallType {
 
 /// The object type. Always `agent.session`.
 final class SessionResourceObject {
-
   final String value;
 
   const SessionResourceObject._(this.value);
 
-  factory SessionResourceObject.fromJson(String value) => SessionResourceObject._(value);
+  factory SessionResourceObject.fromJson(String value) =>
+      SessionResourceObject._(value);
 
   static const agentSession = SessionResourceObject._('agent.session');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SessionResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SessionResourceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type, which is always `list`.
 final class SessionTraceListResourceObject {
-
   final String value;
 
   const SessionTraceListResourceObject._(this.value);
 
-  factory SessionTraceListResourceObject.fromJson(String value) => SessionTraceListResourceObject._(value);
+  factory SessionTraceListResourceObject.fromJson(String value) =>
+      SessionTraceListResourceObject._(value);
 
   static const list = SessionTraceListResourceObject._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SessionTraceListResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SessionTraceListResourceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type, which is always `list`.
 final class SessionTurnListResourceObject {
-
   final String value;
 
   const SessionTurnListResourceObject._(this.value);
 
-  factory SessionTurnListResourceObject.fromJson(String value) => SessionTurnListResourceObject._(value);
+  factory SessionTurnListResourceObject.fromJson(String value) =>
+      SessionTurnListResourceObject._(value);
 
   static const list = SessionTurnListResourceObject._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SessionTurnListResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SessionTurnListResourceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

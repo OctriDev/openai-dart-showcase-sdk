@@ -8,58 +8,94 @@ part of 'agents_environment.dart';
 class EnvironmentFileListResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The object type. Always `page`.
   final EnvironmentFilePageObjectResource object;
+
   /// Files available on the current page.
   final List<EnvironmentFileResource> data;
+
   /// The opaque cursor to use when requesting the next page, if any.
   final String? next;
+
   /// Whether more files follow this page.
   final bool hasMore;
 
-  const EnvironmentFileListResource({required this.object, required this.data, required this.next, required this.hasMore});
+  const EnvironmentFileListResource(
+      {required this.object,
+      required this.data,
+      required this.next,
+      required this.hasMore});
 
-  EnvironmentFileListResource Function({EnvironmentFilePageObjectResource object, List<EnvironmentFileResource> data, String? next, bool hasMore}) get copyWith => _copyWith;
+  EnvironmentFileListResource Function(
+      {EnvironmentFilePageObjectResource object,
+      List<EnvironmentFileResource> data,
+      String? next,
+      bool hasMore}) get copyWith => _copyWith;
 
-  EnvironmentFileListResource _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? next = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => EnvironmentFileListResource(
-    object: identical(object, sdkOmittedValue) ? this.object : object as EnvironmentFilePageObjectResource,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<EnvironmentFileResource>,
-    next: identical(next, sdkOmittedValue) ? this.next : next as String?,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
-  );
+  EnvironmentFileListResource _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? next = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue}) =>
+      EnvironmentFileListResource(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as EnvironmentFilePageObjectResource,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<EnvironmentFileResource>,
+        next: identical(next, sdkOmittedValue) ? this.next : next as String?,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as bool,
+      );
 
-  factory EnvironmentFileListResource.fromJson(Map<String, dynamic> json) => EnvironmentFileListResource(
-    object: (json['object'] != null ? EnvironmentFilePageObjectResource.fromJson(json['object'] as String) : null)!,
-    data: ((json['data'] as List?)?.map((e) => EnvironmentFileResource.fromJson(e as Map<String, dynamic>)).toList())!,
-    next: json.containsKey('next') ? json['next'] as String? : throw ArgumentError.value(null, 'next', 'Required property is missing'),
-    hasMore: (json['has_more'] as bool?)!,
-  );
+  factory EnvironmentFileListResource.fromJson(Map<String, dynamic> json) =>
+      EnvironmentFileListResource(
+        object: (json['object'] != null
+            ? EnvironmentFilePageObjectResource.fromJson(
+                json['object'] as String)
+            : null)!,
+        data: ((json['data'] as List?)
+            ?.map((e) =>
+                EnvironmentFileResource.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        next: json.containsKey('next')
+            ? json['next'] as String?
+            : throw ArgumentError.value(
+                null, 'next', 'Required property is missing'),
+        hasMore: (json['has_more'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'data': data.map((item) => item.toJson()).toList(),
-    'next': next,
-    'has_more': hasMore,
-  };
+        'object': object.toJson(),
+        'data': data.map((item) => item.toJson()).toList(),
+        'next': next,
+        'has_more': hasMore,
+      };
 }
 
 /// The object type for a page of files in an execution environment.
 final class EnvironmentFilePageObjectResource {
-
   final String value;
 
   const EnvironmentFilePageObjectResource._(this.value);
 
-  factory EnvironmentFilePageObjectResource.fromJson(String value) => EnvironmentFilePageObjectResource._(value);
+  factory EnvironmentFilePageObjectResource.fromJson(String value) =>
+      EnvironmentFilePageObjectResource._(value);
 
   static const page = EnvironmentFilePageObjectResource._('page');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is EnvironmentFilePageObjectResource && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is EnvironmentFilePageObjectResource && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

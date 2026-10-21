@@ -8,27 +8,41 @@ part of 'live_live_initial.dart';
 class LiveInitialOutputTextContentPartParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The text content type. Always `output_text`.
   final LiveInitialOutputTextContentPartParamType type_;
+
   /// The message text to include in the Live session’s initial conversation history.
   final String text;
 
-  const LiveInitialOutputTextContentPartParam({required this.type_, required this.text});
+  const LiveInitialOutputTextContentPartParam(
+      {required this.type_, required this.text});
 
-  LiveInitialOutputTextContentPartParam Function({LiveInitialOutputTextContentPartParamType type_, String text}) get copyWith => _copyWith;
+  LiveInitialOutputTextContentPartParam Function(
+      {LiveInitialOutputTextContentPartParamType type_,
+      String text}) get copyWith => _copyWith;
 
-  LiveInitialOutputTextContentPartParam _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => LiveInitialOutputTextContentPartParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveInitialOutputTextContentPartParamType,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-  );
+  LiveInitialOutputTextContentPartParam _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
+      LiveInitialOutputTextContentPartParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveInitialOutputTextContentPartParamType,
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+      );
 
-  factory LiveInitialOutputTextContentPartParam.fromJson(Map<String, dynamic> json) => LiveInitialOutputTextContentPartParam(
-    type_: (json['type'] != null ? LiveInitialOutputTextContentPartParamType.fromJson(json['type'] as String) : null)!,
-    text: (json['text'] as String?)!,
-  );
+  factory LiveInitialOutputTextContentPartParam.fromJson(
+          Map<String, dynamic> json) =>
+      LiveInitialOutputTextContentPartParam(
+        type_: (json['type'] != null
+            ? LiveInitialOutputTextContentPartParamType.fromJson(
+                json['type'] as String)
+            : null)!,
+        text: (json['text'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'text': text,
-  };
+        'type': type_.toJson(),
+        'text': text,
+      };
 }

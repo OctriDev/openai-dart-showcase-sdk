@@ -8,27 +8,45 @@ part of 'vaults_create.dart';
 class CreateMcpOauthTokenEndpointAuthParamClientSecretBasic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `client_secret_basic`.
   final CreateMcpOauthTokenEndpointAuthParamClientSecretBasicType type_;
+
   /// The OAuth client secret to store. Never returned in credential resources.
   final String clientSecret;
 
-  const CreateMcpOauthTokenEndpointAuthParamClientSecretBasic({required this.type_, required this.clientSecret});
+  const CreateMcpOauthTokenEndpointAuthParamClientSecretBasic(
+      {required this.type_, required this.clientSecret});
 
-  CreateMcpOauthTokenEndpointAuthParamClientSecretBasic Function({CreateMcpOauthTokenEndpointAuthParamClientSecretBasicType type_, String clientSecret}) get copyWith => _copyWith;
+  CreateMcpOauthTokenEndpointAuthParamClientSecretBasic Function(
+      {CreateMcpOauthTokenEndpointAuthParamClientSecretBasicType type_,
+      String clientSecret}) get copyWith => _copyWith;
 
-  CreateMcpOauthTokenEndpointAuthParamClientSecretBasic _copyWith({Object? type_ = sdkOmittedValue, Object? clientSecret = sdkOmittedValue}) => CreateMcpOauthTokenEndpointAuthParamClientSecretBasic(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateMcpOauthTokenEndpointAuthParamClientSecretBasicType,
-    clientSecret: identical(clientSecret, sdkOmittedValue) ? this.clientSecret : clientSecret as String,
-  );
+  CreateMcpOauthTokenEndpointAuthParamClientSecretBasic _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? clientSecret = sdkOmittedValue}) =>
+      CreateMcpOauthTokenEndpointAuthParamClientSecretBasic(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_
+                as CreateMcpOauthTokenEndpointAuthParamClientSecretBasicType,
+        clientSecret: identical(clientSecret, sdkOmittedValue)
+            ? this.clientSecret
+            : clientSecret as String,
+      );
 
-  factory CreateMcpOauthTokenEndpointAuthParamClientSecretBasic.fromJson(Map<String, dynamic> json) => CreateMcpOauthTokenEndpointAuthParamClientSecretBasic(
-    type_: (json['type'] != null ? CreateMcpOauthTokenEndpointAuthParamClientSecretBasicType.fromJson(json['type'] as String) : null)!,
-    clientSecret: (json['client_secret'] as String?)!,
-  );
+  factory CreateMcpOauthTokenEndpointAuthParamClientSecretBasic.fromJson(
+          Map<String, dynamic> json) =>
+      CreateMcpOauthTokenEndpointAuthParamClientSecretBasic(
+        type_: (json['type'] != null
+            ? CreateMcpOauthTokenEndpointAuthParamClientSecretBasicType
+                .fromJson(json['type'] as String)
+            : null)!,
+        clientSecret: (json['client_secret'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'client_secret': clientSecret,
-  };
+        'type': type_.toJson(),
+        'client_secret': clientSecret,
+      };
 }

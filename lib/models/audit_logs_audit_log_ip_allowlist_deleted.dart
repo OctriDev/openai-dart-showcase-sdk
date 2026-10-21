@@ -8,235 +8,400 @@ part of 'audit_logs.dart';
 class AuditLogIpAllowlistDeleted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the IP allowlist configuration.
   final SdkOptional<String> id;
+
   /// The name of the IP allowlist configuration.
   final SdkOptional<String> name;
+
   /// The IP addresses or CIDR ranges that were in the configuration.
   final SdkOptional<List<String>> allowedIps;
 
-  const AuditLogIpAllowlistDeleted({this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.allowedIps = const SdkOmitted()});
+  const AuditLogIpAllowlistDeleted(
+      {this.id = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.allowedIps = const SdkOmitted()});
 
-  AuditLogIpAllowlistDeleted Function({SdkOptional<String> id, SdkOptional<String> name, SdkOptional<List<String>> allowedIps}) get copyWith => _copyWith;
+  AuditLogIpAllowlistDeleted Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> name,
+      SdkOptional<List<String>> allowedIps}) get copyWith => _copyWith;
 
-  AuditLogIpAllowlistDeleted _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? allowedIps = sdkOmittedValue}) => AuditLogIpAllowlistDeleted(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    allowedIps: identical(allowedIps, sdkOmittedValue) ? this.allowedIps : allowedIps as SdkOptional<List<String>>,
-  );
+  AuditLogIpAllowlistDeleted _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? allowedIps = sdkOmittedValue}) =>
+      AuditLogIpAllowlistDeleted(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        allowedIps: identical(allowedIps, sdkOmittedValue)
+            ? this.allowedIps
+            : allowedIps as SdkOptional<List<String>>,
+      );
 
-  factory AuditLogIpAllowlistDeleted.fromJson(Map<String, dynamic> json) => AuditLogIpAllowlistDeleted(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    allowedIps: json['allowed_ips'] != null ? SdkPresent(((json['allowed_ips'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory AuditLogIpAllowlistDeleted.fromJson(Map<String, dynamic> json) =>
+      AuditLogIpAllowlistDeleted(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        allowedIps: json['allowed_ips'] != null
+            ? SdkPresent(((json['allowed_ips'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (allowedIps) {
-      SdkPresent<List<String>>(value: final value) => {'allowed_ips': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (allowedIps) {
+          SdkPresent<List<String>>(value: final value) => {
+              'allowed_ips': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Required object value serialized in the `configs[]` wire field.
 class AuditLogIpAllowlistConfigActivatedConfigsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the IP allowlist configuration.
   final SdkOptional<String> id;
+
   /// The name of the IP allowlist configuration.
   final SdkOptional<String> name;
 
-  const AuditLogIpAllowlistConfigActivatedConfigsItem({this.id = const SdkOmitted(), this.name = const SdkOmitted()});
+  const AuditLogIpAllowlistConfigActivatedConfigsItem(
+      {this.id = const SdkOmitted(), this.name = const SdkOmitted()});
 
-  AuditLogIpAllowlistConfigActivatedConfigsItem Function({SdkOptional<String> id, SdkOptional<String> name}) get copyWith => _copyWith;
+  AuditLogIpAllowlistConfigActivatedConfigsItem Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> name}) get copyWith => _copyWith;
 
-  AuditLogIpAllowlistConfigActivatedConfigsItem _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue}) => AuditLogIpAllowlistConfigActivatedConfigsItem(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-  );
+  AuditLogIpAllowlistConfigActivatedConfigsItem _copyWith(
+          {Object? id = sdkOmittedValue, Object? name = sdkOmittedValue}) =>
+      AuditLogIpAllowlistConfigActivatedConfigsItem(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+      );
 
-  factory AuditLogIpAllowlistConfigActivatedConfigsItem.fromJson(Map<String, dynamic> json) => AuditLogIpAllowlistConfigActivatedConfigsItem(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-  );
+  factory AuditLogIpAllowlistConfigActivatedConfigsItem.fromJson(
+          Map<String, dynamic> json) =>
+      AuditLogIpAllowlistConfigActivatedConfigsItem(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The details for events with this `type`.
 class AuditLogIpAllowlistConfigActivated {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The configurations that were activated.
-  final SdkOptional<List<AuditLogIpAllowlistConfigActivatedConfigsItem>> configs;
+  final SdkOptional<List<AuditLogIpAllowlistConfigActivatedConfigsItem>>
+      configs;
 
   const AuditLogIpAllowlistConfigActivated({this.configs = const SdkOmitted()});
 
-  AuditLogIpAllowlistConfigActivated Function({SdkOptional<List<AuditLogIpAllowlistConfigActivatedConfigsItem>> configs}) get copyWith => _copyWith;
+  AuditLogIpAllowlistConfigActivated Function(
+      {SdkOptional<List<AuditLogIpAllowlistConfigActivatedConfigsItem>>
+          configs}) get copyWith => _copyWith;
 
-  AuditLogIpAllowlistConfigActivated _copyWith({Object? configs = sdkOmittedValue}) => AuditLogIpAllowlistConfigActivated(
-    configs: identical(configs, sdkOmittedValue) ? this.configs : configs as SdkOptional<List<AuditLogIpAllowlistConfigActivatedConfigsItem>>,
-  );
+  AuditLogIpAllowlistConfigActivated _copyWith(
+          {Object? configs = sdkOmittedValue}) =>
+      AuditLogIpAllowlistConfigActivated(
+        configs: identical(configs, sdkOmittedValue)
+            ? this.configs
+            : configs as SdkOptional<
+                List<AuditLogIpAllowlistConfigActivatedConfigsItem>>,
+      );
 
-  factory AuditLogIpAllowlistConfigActivated.fromJson(Map<String, dynamic> json) => AuditLogIpAllowlistConfigActivated(
-    configs: json['configs'] != null ? SdkPresent(((json['configs'] as List?)?.map((e) => AuditLogIpAllowlistConfigActivatedConfigsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory AuditLogIpAllowlistConfigActivated.fromJson(
+          Map<String, dynamic> json) =>
+      AuditLogIpAllowlistConfigActivated(
+        configs: json['configs'] != null
+            ? SdkPresent(((json['configs'] as List?)
+                ?.map((e) =>
+                    AuditLogIpAllowlistConfigActivatedConfigsItem.fromJson(
+                        e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (configs) {
-      SdkPresent<List<AuditLogIpAllowlistConfigActivatedConfigsItem>>(value: final value) => {'configs': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (configs) {
+          SdkPresent<List<AuditLogIpAllowlistConfigActivatedConfigsItem>>(
+            value: final value
+          ) =>
+            {
+              'configs': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Required object value serialized in the `configs[]` wire field.
 class AuditLogIpAllowlistConfigDeactivatedConfigsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the IP allowlist configuration.
   final SdkOptional<String> id;
+
   /// The name of the IP allowlist configuration.
   final SdkOptional<String> name;
 
-  const AuditLogIpAllowlistConfigDeactivatedConfigsItem({this.id = const SdkOmitted(), this.name = const SdkOmitted()});
+  const AuditLogIpAllowlistConfigDeactivatedConfigsItem(
+      {this.id = const SdkOmitted(), this.name = const SdkOmitted()});
 
-  AuditLogIpAllowlistConfigDeactivatedConfigsItem Function({SdkOptional<String> id, SdkOptional<String> name}) get copyWith => _copyWith;
+  AuditLogIpAllowlistConfigDeactivatedConfigsItem Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> name}) get copyWith => _copyWith;
 
-  AuditLogIpAllowlistConfigDeactivatedConfigsItem _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue}) => AuditLogIpAllowlistConfigDeactivatedConfigsItem(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-  );
+  AuditLogIpAllowlistConfigDeactivatedConfigsItem _copyWith(
+          {Object? id = sdkOmittedValue, Object? name = sdkOmittedValue}) =>
+      AuditLogIpAllowlistConfigDeactivatedConfigsItem(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+      );
 
-  factory AuditLogIpAllowlistConfigDeactivatedConfigsItem.fromJson(Map<String, dynamic> json) => AuditLogIpAllowlistConfigDeactivatedConfigsItem(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-  );
+  factory AuditLogIpAllowlistConfigDeactivatedConfigsItem.fromJson(
+          Map<String, dynamic> json) =>
+      AuditLogIpAllowlistConfigDeactivatedConfigsItem(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The details for events with this `type`.
 class AuditLogIpAllowlistConfigDeactivated {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The configurations that were deactivated.
-  final SdkOptional<List<AuditLogIpAllowlistConfigDeactivatedConfigsItem>> configs;
+  final SdkOptional<List<AuditLogIpAllowlistConfigDeactivatedConfigsItem>>
+      configs;
 
-  const AuditLogIpAllowlistConfigDeactivated({this.configs = const SdkOmitted()});
+  const AuditLogIpAllowlistConfigDeactivated(
+      {this.configs = const SdkOmitted()});
 
-  AuditLogIpAllowlistConfigDeactivated Function({SdkOptional<List<AuditLogIpAllowlistConfigDeactivatedConfigsItem>> configs}) get copyWith => _copyWith;
+  AuditLogIpAllowlistConfigDeactivated Function(
+      {SdkOptional<List<AuditLogIpAllowlistConfigDeactivatedConfigsItem>>
+          configs}) get copyWith => _copyWith;
 
-  AuditLogIpAllowlistConfigDeactivated _copyWith({Object? configs = sdkOmittedValue}) => AuditLogIpAllowlistConfigDeactivated(
-    configs: identical(configs, sdkOmittedValue) ? this.configs : configs as SdkOptional<List<AuditLogIpAllowlistConfigDeactivatedConfigsItem>>,
-  );
+  AuditLogIpAllowlistConfigDeactivated _copyWith(
+          {Object? configs = sdkOmittedValue}) =>
+      AuditLogIpAllowlistConfigDeactivated(
+        configs: identical(configs, sdkOmittedValue)
+            ? this.configs
+            : configs as SdkOptional<
+                List<AuditLogIpAllowlistConfigDeactivatedConfigsItem>>,
+      );
 
-  factory AuditLogIpAllowlistConfigDeactivated.fromJson(Map<String, dynamic> json) => AuditLogIpAllowlistConfigDeactivated(
-    configs: json['configs'] != null ? SdkPresent(((json['configs'] as List?)?.map((e) => AuditLogIpAllowlistConfigDeactivatedConfigsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory AuditLogIpAllowlistConfigDeactivated.fromJson(
+          Map<String, dynamic> json) =>
+      AuditLogIpAllowlistConfigDeactivated(
+        configs: json['configs'] != null
+            ? SdkPresent(((json['configs'] as List?)
+                ?.map((e) =>
+                    AuditLogIpAllowlistConfigDeactivatedConfigsItem.fromJson(
+                        e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (configs) {
-      SdkPresent<List<AuditLogIpAllowlistConfigDeactivatedConfigsItem>>(value: final value) => {'configs': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (configs) {
+          SdkPresent<List<AuditLogIpAllowlistConfigDeactivatedConfigsItem>>(
+            value: final value
+          ) =>
+            {
+              'configs': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The details for events with this `type`.
 class AuditLogLoginFailed {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The error code of the failure.
   final SdkOptional<String> errorCode;
+
   /// The error message of the failure.
   final SdkOptional<String> errorMessage;
 
-  const AuditLogLoginFailed({this.errorCode = const SdkOmitted(), this.errorMessage = const SdkOmitted()});
+  const AuditLogLoginFailed(
+      {this.errorCode = const SdkOmitted(),
+      this.errorMessage = const SdkOmitted()});
 
-  AuditLogLoginFailed Function({SdkOptional<String> errorCode, SdkOptional<String> errorMessage}) get copyWith => _copyWith;
+  AuditLogLoginFailed Function(
+      {SdkOptional<String> errorCode,
+      SdkOptional<String> errorMessage}) get copyWith => _copyWith;
 
-  AuditLogLoginFailed _copyWith({Object? errorCode = sdkOmittedValue, Object? errorMessage = sdkOmittedValue}) => AuditLogLoginFailed(
-    errorCode: identical(errorCode, sdkOmittedValue) ? this.errorCode : errorCode as SdkOptional<String>,
-    errorMessage: identical(errorMessage, sdkOmittedValue) ? this.errorMessage : errorMessage as SdkOptional<String>,
-  );
+  AuditLogLoginFailed _copyWith(
+          {Object? errorCode = sdkOmittedValue,
+          Object? errorMessage = sdkOmittedValue}) =>
+      AuditLogLoginFailed(
+        errorCode: identical(errorCode, sdkOmittedValue)
+            ? this.errorCode
+            : errorCode as SdkOptional<String>,
+        errorMessage: identical(errorMessage, sdkOmittedValue)
+            ? this.errorMessage
+            : errorMessage as SdkOptional<String>,
+      );
 
-  factory AuditLogLoginFailed.fromJson(Map<String, dynamic> json) => AuditLogLoginFailed(
-    errorCode: json['error_code'] != null ? SdkPresent((json['error_code'] as String?)!) : const SdkOmitted(),
-    errorMessage: json['error_message'] != null ? SdkPresent((json['error_message'] as String?)!) : const SdkOmitted(),
-  );
+  factory AuditLogLoginFailed.fromJson(Map<String, dynamic> json) =>
+      AuditLogLoginFailed(
+        errorCode: json['error_code'] != null
+            ? SdkPresent((json['error_code'] as String?)!)
+            : const SdkOmitted(),
+        errorMessage: json['error_message'] != null
+            ? SdkPresent((json['error_message'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (errorCode) {
-      SdkPresent<String>(value: final value) => {'error_code': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (errorMessage) {
-      SdkPresent<String>(value: final value) => {'error_message': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (errorCode) {
+          SdkPresent<String>(value: final value) => {
+              'error_code': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (errorMessage) {
+          SdkPresent<String>(value: final value) => {
+              'error_message': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The details for events with this `type`.
 class AuditLogLogoutFailed {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The error code of the failure.
   final SdkOptional<String> errorCode;
+
   /// The error message of the failure.
   final SdkOptional<String> errorMessage;
 
-  const AuditLogLogoutFailed({this.errorCode = const SdkOmitted(), this.errorMessage = const SdkOmitted()});
+  const AuditLogLogoutFailed(
+      {this.errorCode = const SdkOmitted(),
+      this.errorMessage = const SdkOmitted()});
 
-  AuditLogLogoutFailed Function({SdkOptional<String> errorCode, SdkOptional<String> errorMessage}) get copyWith => _copyWith;
+  AuditLogLogoutFailed Function(
+      {SdkOptional<String> errorCode,
+      SdkOptional<String> errorMessage}) get copyWith => _copyWith;
 
-  AuditLogLogoutFailed _copyWith({Object? errorCode = sdkOmittedValue, Object? errorMessage = sdkOmittedValue}) => AuditLogLogoutFailed(
-    errorCode: identical(errorCode, sdkOmittedValue) ? this.errorCode : errorCode as SdkOptional<String>,
-    errorMessage: identical(errorMessage, sdkOmittedValue) ? this.errorMessage : errorMessage as SdkOptional<String>,
-  );
+  AuditLogLogoutFailed _copyWith(
+          {Object? errorCode = sdkOmittedValue,
+          Object? errorMessage = sdkOmittedValue}) =>
+      AuditLogLogoutFailed(
+        errorCode: identical(errorCode, sdkOmittedValue)
+            ? this.errorCode
+            : errorCode as SdkOptional<String>,
+        errorMessage: identical(errorMessage, sdkOmittedValue)
+            ? this.errorMessage
+            : errorMessage as SdkOptional<String>,
+      );
 
-  factory AuditLogLogoutFailed.fromJson(Map<String, dynamic> json) => AuditLogLogoutFailed(
-    errorCode: json['error_code'] != null ? SdkPresent((json['error_code'] as String?)!) : const SdkOmitted(),
-    errorMessage: json['error_message'] != null ? SdkPresent((json['error_message'] as String?)!) : const SdkOmitted(),
-  );
+  factory AuditLogLogoutFailed.fromJson(Map<String, dynamic> json) =>
+      AuditLogLogoutFailed(
+        errorCode: json['error_code'] != null
+            ? SdkPresent((json['error_code'] as String?)!)
+            : const SdkOmitted(),
+        errorMessage: json['error_message'] != null
+            ? SdkPresent((json['error_message'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (errorCode) {
-      SdkPresent<String>(value: final value) => {'error_code': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (errorMessage) {
-      SdkPresent<String>(value: final value) => {'error_message': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (errorCode) {
+          SdkPresent<String>(value: final value) => {
+              'error_code': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (errorMessage) {
+          SdkPresent<String>(value: final value) => {
+              'error_message': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -9,67 +9,125 @@ sealed class BetaInputImageContentImageUrl {
   static const String constructionSurface = 'named';
   const BetaInputImageContentImageUrl();
   factory BetaInputImageContentImageUrl.fromJson(Object? json) {
-    if (json is String) { return BetaInputImageContentImageUrlString(json); }
-    throw FormatException("No variant matched for BetaInputImageContentImageUrl");
+    if (json is String) {
+      return BetaInputImageContentImageUrlString(json);
+    }
+    throw FormatException(
+        "No variant matched for BetaInputImageContentImageUrl");
   }
   Object? toJson();
 }
 
-final class BetaInputImageContentImageUrlString extends BetaInputImageContentImageUrl {
+final class BetaInputImageContentImageUrlString
+    extends BetaInputImageContentImageUrl {
   final String value;
   const BetaInputImageContentImageUrlString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// An image input to the model. Learn about [image inputs](https://developers.openai.com/api/docs/guides/images-vision).
 class BetaInputImageContent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the input item. Always `input_image`.
   final BetaInputImageContentType type_;
+
   /// Optional API value serialized in the `image_url` wire field.
   final SdkOptional<String?> imageUrl;
+
   /// Optional `string` value serialized in the `file_id` wire field.
   final SdkOptional<String?> fileId;
+
   /// The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.
   final BetaImageDetail detail;
+
   /// Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request's `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
   final SdkOptional<BetaPromptCacheBreakpointConfig> promptCacheBreakpoint;
 
-  const BetaInputImageContent({required this.type_, this.imageUrl = const SdkOmitted(), this.fileId = const SdkOmitted(), required this.detail, this.promptCacheBreakpoint = const SdkOmitted()});
+  const BetaInputImageContent(
+      {required this.type_,
+      this.imageUrl = const SdkOmitted(),
+      this.fileId = const SdkOmitted(),
+      required this.detail,
+      this.promptCacheBreakpoint = const SdkOmitted()});
 
-  BetaInputImageContent Function({BetaInputImageContentType type_, SdkOptional<String?> imageUrl, SdkOptional<String?> fileId, BetaImageDetail detail, SdkOptional<BetaPromptCacheBreakpointConfig> promptCacheBreakpoint}) get copyWith => _copyWith;
+  BetaInputImageContent Function(
+          {BetaInputImageContentType type_,
+          SdkOptional<String?> imageUrl,
+          SdkOptional<String?> fileId,
+          BetaImageDetail detail,
+          SdkOptional<BetaPromptCacheBreakpointConfig> promptCacheBreakpoint})
+      get copyWith => _copyWith;
 
-  BetaInputImageContent _copyWith({Object? type_ = sdkOmittedValue, Object? imageUrl = sdkOmittedValue, Object? fileId = sdkOmittedValue, Object? detail = sdkOmittedValue, Object? promptCacheBreakpoint = sdkOmittedValue}) => BetaInputImageContent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaInputImageContentType,
-    imageUrl: identical(imageUrl, sdkOmittedValue) ? this.imageUrl : imageUrl as SdkOptional<String?>,
-    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as SdkOptional<String?>,
-    detail: identical(detail, sdkOmittedValue) ? this.detail : detail as BetaImageDetail,
-    promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue) ? this.promptCacheBreakpoint : promptCacheBreakpoint as SdkOptional<BetaPromptCacheBreakpointConfig>,
-  );
+  BetaInputImageContent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? imageUrl = sdkOmittedValue,
+          Object? fileId = sdkOmittedValue,
+          Object? detail = sdkOmittedValue,
+          Object? promptCacheBreakpoint = sdkOmittedValue}) =>
+      BetaInputImageContent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaInputImageContentType,
+        imageUrl: identical(imageUrl, sdkOmittedValue)
+            ? this.imageUrl
+            : imageUrl as SdkOptional<String?>,
+        fileId: identical(fileId, sdkOmittedValue)
+            ? this.fileId
+            : fileId as SdkOptional<String?>,
+        detail: identical(detail, sdkOmittedValue)
+            ? this.detail
+            : detail as BetaImageDetail,
+        promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue)
+            ? this.promptCacheBreakpoint
+            : promptCacheBreakpoint
+                as SdkOptional<BetaPromptCacheBreakpointConfig>,
+      );
 
-  factory BetaInputImageContent.fromJson(Map<String, dynamic> json) => BetaInputImageContent(
-    type_: (json['type'] != null ? BetaInputImageContentType.fromJson(json['type'] as String) : null)!,
-    imageUrl: json.containsKey('image_url') ? SdkPresent(json['image_url'] as String?) : const SdkOmitted(),
-    fileId: json.containsKey('file_id') ? SdkPresent(json['file_id'] as String?) : const SdkOmitted(),
-    detail: (json['detail'] != null ? BetaImageDetail.fromJson(json['detail'] as String) : null)!,
-    promptCacheBreakpoint: json['prompt_cache_breakpoint'] != null ? SdkPresent((json['prompt_cache_breakpoint'] != null ? BetaPromptCacheBreakpointConfig.fromJson(json['prompt_cache_breakpoint'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory BetaInputImageContent.fromJson(Map<String, dynamic> json) =>
+      BetaInputImageContent(
+        type_: (json['type'] != null
+            ? BetaInputImageContentType.fromJson(json['type'] as String)
+            : null)!,
+        imageUrl: json.containsKey('image_url')
+            ? SdkPresent(json['image_url'] as String?)
+            : const SdkOmitted(),
+        fileId: json.containsKey('file_id')
+            ? SdkPresent(json['file_id'] as String?)
+            : const SdkOmitted(),
+        detail: (json['detail'] != null
+            ? BetaImageDetail.fromJson(json['detail'] as String)
+            : null)!,
+        promptCacheBreakpoint: json['prompt_cache_breakpoint'] != null
+            ? SdkPresent((json['prompt_cache_breakpoint'] != null
+                ? BetaPromptCacheBreakpointConfig.fromJson(
+                    json['prompt_cache_breakpoint'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (imageUrl) {
-      SdkPresent<String?>(value: final value) => {'image_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (fileId) {
-      SdkPresent<String?>(value: final value) => {'file_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'detail': detail.toJson(),
-    ...switch (promptCacheBreakpoint) {
-      SdkPresent<BetaPromptCacheBreakpointConfig>(value: final value) => {'prompt_cache_breakpoint': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (imageUrl) {
+          SdkPresent<String?>(value: final value) => {
+              'image_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (fileId) {
+          SdkPresent<String?>(value: final value) => {
+              'file_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'detail': detail.toJson(),
+        ...switch (promptCacheBreakpoint) {
+          SdkPresent<BetaPromptCacheBreakpointConfig>(value: final value) => {
+              'prompt_cache_breakpoint': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

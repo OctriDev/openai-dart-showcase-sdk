@@ -8,47 +8,88 @@ part of 'realtime_realtime_server_event.dart';
 class RealtimeServerEventResponseMCPCallArgumentsDone {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the server event.
   final String eventId;
+
   /// The event type, must be `response.mcp_call_arguments.done`.
   final RealtimeServerEventResponseMCPCallArgumentsDoneType type_;
+
   /// The ID of the response.
   final String responseId;
+
   /// The ID of the MCP tool call item.
   final String itemId;
+
   /// The index of the output item in the response.
   final int outputIndex;
+
   /// The final JSON-encoded arguments string.
   final String arguments;
 
-  const RealtimeServerEventResponseMCPCallArgumentsDone({required this.eventId, required this.type_, required this.responseId, required this.itemId, required this.outputIndex, required this.arguments});
+  const RealtimeServerEventResponseMCPCallArgumentsDone(
+      {required this.eventId,
+      required this.type_,
+      required this.responseId,
+      required this.itemId,
+      required this.outputIndex,
+      required this.arguments});
 
-  RealtimeServerEventResponseMCPCallArgumentsDone Function({String eventId, RealtimeServerEventResponseMCPCallArgumentsDoneType type_, String responseId, String itemId, int outputIndex, String arguments}) get copyWith => _copyWith;
+  RealtimeServerEventResponseMCPCallArgumentsDone Function(
+      {String eventId,
+      RealtimeServerEventResponseMCPCallArgumentsDoneType type_,
+      String responseId,
+      String itemId,
+      int outputIndex,
+      String arguments}) get copyWith => _copyWith;
 
-  RealtimeServerEventResponseMCPCallArgumentsDone _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? responseId = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? arguments = sdkOmittedValue}) => RealtimeServerEventResponseMCPCallArgumentsDone(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeServerEventResponseMCPCallArgumentsDoneType,
-    responseId: identical(responseId, sdkOmittedValue) ? this.responseId : responseId as String,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    arguments: identical(arguments, sdkOmittedValue) ? this.arguments : arguments as String,
-  );
+  RealtimeServerEventResponseMCPCallArgumentsDone _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? responseId = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? arguments = sdkOmittedValue}) =>
+      RealtimeServerEventResponseMCPCallArgumentsDone(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeServerEventResponseMCPCallArgumentsDoneType,
+        responseId: identical(responseId, sdkOmittedValue)
+            ? this.responseId
+            : responseId as String,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        arguments: identical(arguments, sdkOmittedValue)
+            ? this.arguments
+            : arguments as String,
+      );
 
-  factory RealtimeServerEventResponseMCPCallArgumentsDone.fromJson(Map<String, dynamic> json) => RealtimeServerEventResponseMCPCallArgumentsDone(
-    eventId: (json['event_id'] as String?)!,
-    type_: (json['type'] != null ? RealtimeServerEventResponseMCPCallArgumentsDoneType.fromJson(json['type'] as String) : null)!,
-    responseId: (json['response_id'] as String?)!,
-    itemId: (json['item_id'] as String?)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    arguments: (json['arguments'] as String?)!,
-  );
+  factory RealtimeServerEventResponseMCPCallArgumentsDone.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeServerEventResponseMCPCallArgumentsDone(
+        eventId: (json['event_id'] as String?)!,
+        type_: (json['type'] != null
+            ? RealtimeServerEventResponseMCPCallArgumentsDoneType.fromJson(
+                json['type'] as String)
+            : null)!,
+        responseId: (json['response_id'] as String?)!,
+        itemId: (json['item_id'] as String?)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        arguments: (json['arguments'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    'type': type_.toJson(),
-    'response_id': responseId,
-    'item_id': itemId,
-    'output_index': outputIndex,
-    'arguments': arguments,
-  };
+        'event_id': eventId,
+        'type': type_.toJson(),
+        'response_id': responseId,
+        'item_id': itemId,
+        'output_index': outputIndex,
+        'arguments': arguments,
+      };
 }

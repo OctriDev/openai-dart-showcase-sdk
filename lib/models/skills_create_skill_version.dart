@@ -8,30 +8,49 @@ part of 'skills.dart';
 class CreateSkillVersionBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Skill files to upload (directory upload) or a single zip file.
   final List<List<int>> files;
+
   /// Whether to set this version as the default.
   final SdkOptional<bool> default_;
 
-  const CreateSkillVersionBody({required this.files, this.default_ = const SdkOmitted()});
+  const CreateSkillVersionBody(
+      {required this.files, this.default_ = const SdkOmitted()});
 
-  CreateSkillVersionBody Function({List<List<int>> files, SdkOptional<bool> default_}) get copyWith => _copyWith;
+  CreateSkillVersionBody Function(
+      {List<List<int>> files,
+      SdkOptional<bool> default_}) get copyWith => _copyWith;
 
-  CreateSkillVersionBody _copyWith({Object? files = sdkOmittedValue, Object? default_ = sdkOmittedValue}) => CreateSkillVersionBody(
-    files: identical(files, sdkOmittedValue) ? this.files : files as List<List<int>>,
-    default_: identical(default_, sdkOmittedValue) ? this.default_ : default_ as SdkOptional<bool>,
-  );
+  CreateSkillVersionBody _copyWith(
+          {Object? files = sdkOmittedValue,
+          Object? default_ = sdkOmittedValue}) =>
+      CreateSkillVersionBody(
+        files: identical(files, sdkOmittedValue)
+            ? this.files
+            : files as List<List<int>>,
+        default_: identical(default_, sdkOmittedValue)
+            ? this.default_
+            : default_ as SdkOptional<bool>,
+      );
 
-  factory CreateSkillVersionBody.fromJson(Map<String, dynamic> json) => CreateSkillVersionBody(
-    files: ((json['files'] as List?)?.map((e) => base64Decode(e as String)).toList())!,
-    default_: json['default'] != null ? SdkPresent((json['default'] as bool?)!) : const SdkOmitted(),
-  );
+  factory CreateSkillVersionBody.fromJson(Map<String, dynamic> json) =>
+      CreateSkillVersionBody(
+        files: ((json['files'] as List?)
+            ?.map((e) => base64Decode(e as String))
+            .toList())!,
+        default_: json['default'] != null
+            ? SdkPresent((json['default'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'files': files.map(base64Encode).toList(),
-    ...switch (default_) {
-      SdkPresent<bool>(value: final value) => {'default': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'files': files.map(base64Encode).toList(),
+        ...switch (default_) {
+          SdkPresent<bool>(value: final value) => {
+              'default': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -10,66 +10,334 @@ sealed class ConversationItem {
   const ConversationItem();
   factory ConversationItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = Message.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemMessage(value); } } catch (_) {}
-      try { final value = FunctionToolCallResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemFunctionToolCallResource(value); } } catch (_) {}
-      try { final value = FunctionToolCallOutputResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemFunctionToolCallOutputResource(value); } } catch (_) {}
-      try { final value = FileSearchToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemFileSearchToolCall(value); } } catch (_) {}
-      try { final value = WebSearchToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemWebSearchToolCall(value); } } catch (_) {}
-      try { final value = ImageGenToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemImageGenToolCall(value); } } catch (_) {}
-      try { final value = ComputerToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemComputerToolCall(value); } } catch (_) {}
-      try { final value = ComputerToolCallOutputResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemComputerToolCallOutputResource(value); } } catch (_) {}
-      try { final value = ToolSearchCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemToolSearchCall(value); } } catch (_) {}
-      try { final value = ToolSearchOutput.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemToolSearchOutput(value); } } catch (_) {}
-      try { final value = AdditionalTools.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemAdditionalTools(value); } } catch (_) {}
-      try { final value = ResponseConfigurationUpdate.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemResponseConfigurationUpdate(value); } } catch (_) {}
-      try { final value = ReasoningItem.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemReasoningItem(value); } } catch (_) {}
-      try { final value = Program.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemProgram(value); } } catch (_) {}
-      try { final value = ProgramOutput.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemProgramOutput(value); } } catch (_) {}
-      try { final value = CompactionBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemCompactionBody(value); } } catch (_) {}
-      try { final value = CodeInterpreterToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemCodeInterpreterToolCall(value); } } catch (_) {}
-      try { final value = LocalShellToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemLocalShellToolCall(value); } } catch (_) {}
-      try { final value = LocalShellToolCallOutput.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemLocalShellToolCallOutput(value); } } catch (_) {}
-      try { final value = FunctionShellCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemFunctionShellCall(value); } } catch (_) {}
-      try { final value = FunctionShellCallOutput.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemFunctionShellCallOutput(value); } } catch (_) {}
-      try { final value = ApplyPatchToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemApplyPatchToolCall(value); } } catch (_) {}
-      try { final value = ApplyPatchToolCallOutput.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemApplyPatchToolCallOutput(value); } } catch (_) {}
-      try { final value = MCPListTools.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemMCPListTools(value); } } catch (_) {}
-      try { final value = MCPApprovalRequest.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemMCPApprovalRequest(value); } } catch (_) {}
-      try { final value = MCPApprovalResponseResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemMCPApprovalResponseResource(value); } } catch (_) {}
-      try { final value = MCPToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemMCPToolCall(value); } } catch (_) {}
-      try { final value = CustomToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemCustomToolCall(value); } } catch (_) {}
-      try { final value = CustomToolCallOutput.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ConversationItemCustomToolCallOutput(value); } } catch (_) {}
+      try {
+        final value = Message.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemMessage(value);
+        }
+      } catch (_) {}
+      try {
+        final value = FunctionToolCallResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemFunctionToolCallResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = FunctionToolCallOutputResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemFunctionToolCallOutputResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = FileSearchToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemFileSearchToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = WebSearchToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemWebSearchToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ImageGenToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemImageGenToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ComputerToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemComputerToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ComputerToolCallOutputResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemComputerToolCallOutputResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ToolSearchCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemToolSearchCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ToolSearchOutput.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemToolSearchOutput(value);
+        }
+      } catch (_) {}
+      try {
+        final value = AdditionalTools.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemAdditionalTools(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseConfigurationUpdate.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemResponseConfigurationUpdate(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ReasoningItem.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemReasoningItem(value);
+        }
+      } catch (_) {}
+      try {
+        final value = Program.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemProgram(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ProgramOutput.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemProgramOutput(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CompactionBody.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemCompactionBody(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CodeInterpreterToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemCodeInterpreterToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LocalShellToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemLocalShellToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LocalShellToolCallOutput.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemLocalShellToolCallOutput(value);
+        }
+      } catch (_) {}
+      try {
+        final value = FunctionShellCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemFunctionShellCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = FunctionShellCallOutput.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemFunctionShellCallOutput(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ApplyPatchToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemApplyPatchToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ApplyPatchToolCallOutput.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemApplyPatchToolCallOutput(value);
+        }
+      } catch (_) {}
+      try {
+        final value = MCPListTools.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemMCPListTools(value);
+        }
+      } catch (_) {}
+      try {
+        final value = MCPApprovalRequest.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemMCPApprovalRequest(value);
+        }
+      } catch (_) {}
+      try {
+        final value = MCPApprovalResponseResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemMCPApprovalResponseResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = MCPToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemMCPToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CustomToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemCustomToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CustomToolCallOutput.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ConversationItemCustomToolCallOutput(value);
+        }
+      } catch (_) {}
     }
-    try { return ConversationItemMessage(Message.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemFunctionToolCallResource(FunctionToolCallResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemFunctionToolCallOutputResource(FunctionToolCallOutputResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemFileSearchToolCall(FileSearchToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemWebSearchToolCall(WebSearchToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemImageGenToolCall(ImageGenToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemComputerToolCall(ComputerToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemComputerToolCallOutputResource(ComputerToolCallOutputResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemToolSearchCall(ToolSearchCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemToolSearchOutput(ToolSearchOutput.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemAdditionalTools(AdditionalTools.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemResponseConfigurationUpdate(ResponseConfigurationUpdate.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemReasoningItem(ReasoningItem.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemProgram(Program.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemProgramOutput(ProgramOutput.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemCompactionBody(CompactionBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemCodeInterpreterToolCall(CodeInterpreterToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemLocalShellToolCall(LocalShellToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemLocalShellToolCallOutput(LocalShellToolCallOutput.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemFunctionShellCall(FunctionShellCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemFunctionShellCallOutput(FunctionShellCallOutput.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemApplyPatchToolCall(ApplyPatchToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemApplyPatchToolCallOutput(ApplyPatchToolCallOutput.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemMCPListTools(MCPListTools.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemMCPApprovalRequest(MCPApprovalRequest.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemMCPApprovalResponseResource(MCPApprovalResponseResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemMCPToolCall(MCPToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemCustomToolCall(CustomToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ConversationItemCustomToolCallOutput(CustomToolCallOutput.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"message", "function_call", "function_call_output", "file_search_call", "web_search_call", "image_generation_call", "computer_call", "computer_call_output", "tool_search_call", "tool_search_output", "additional_tools", "configuration_update", "reasoning", "program", "program_output", "compaction", "code_interpreter_call", "local_shell_call", "local_shell_call_output", "shell_call", "shell_call_output", "apply_patch_call", "apply_patch_call_output", "mcp_list_tools", "mcp_approval_request", "mcp_approval_response", "mcp_call", "custom_tool_call", "custom_tool_call_output"}.contains(json["type"])) { return UnknownConversationItem(json); }
+    try {
+      return ConversationItemMessage(
+          Message.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemFunctionToolCallResource(
+          FunctionToolCallResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemFunctionToolCallOutputResource(
+          FunctionToolCallOutputResource.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemFileSearchToolCall(
+          FileSearchToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemWebSearchToolCall(
+          WebSearchToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemImageGenToolCall(
+          ImageGenToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemComputerToolCall(
+          ComputerToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemComputerToolCallOutputResource(
+          ComputerToolCallOutputResource.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemToolSearchCall(
+          ToolSearchCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemToolSearchOutput(
+          ToolSearchOutput.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemAdditionalTools(
+          AdditionalTools.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemResponseConfigurationUpdate(
+          ResponseConfigurationUpdate.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemReasoningItem(
+          ReasoningItem.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemProgram(
+          Program.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemProgramOutput(
+          ProgramOutput.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemCompactionBody(
+          CompactionBody.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemCodeInterpreterToolCall(
+          CodeInterpreterToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemLocalShellToolCall(
+          LocalShellToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemLocalShellToolCallOutput(
+          LocalShellToolCallOutput.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemFunctionShellCall(
+          FunctionShellCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemFunctionShellCallOutput(
+          FunctionShellCallOutput.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemApplyPatchToolCall(
+          ApplyPatchToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemApplyPatchToolCallOutput(
+          ApplyPatchToolCallOutput.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemMCPListTools(
+          MCPListTools.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemMCPApprovalRequest(
+          MCPApprovalRequest.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemMCPApprovalResponseResource(
+          MCPApprovalResponseResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemMCPToolCall(
+          MCPToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemCustomToolCall(
+          CustomToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ConversationItemCustomToolCallOutput(
+          CustomToolCallOutput.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {
+          "message",
+          "function_call",
+          "function_call_output",
+          "file_search_call",
+          "web_search_call",
+          "image_generation_call",
+          "computer_call",
+          "computer_call_output",
+          "tool_search_call",
+          "tool_search_output",
+          "additional_tools",
+          "configuration_update",
+          "reasoning",
+          "program",
+          "program_output",
+          "compaction",
+          "code_interpreter_call",
+          "local_shell_call",
+          "local_shell_call_output",
+          "shell_call",
+          "shell_call_output",
+          "apply_patch_call",
+          "apply_patch_call_output",
+          "mcp_list_tools",
+          "mcp_approval_request",
+          "mcp_approval_response",
+          "mcp_call",
+          "custom_tool_call",
+          "custom_tool_call_output"
+        }.contains(json["type"])) {
+      return UnknownConversationItem(json);
+    }
     throw FormatException("No variant matched for ConversationItem");
   }
   Object? toJson();
@@ -78,180 +346,214 @@ sealed class ConversationItem {
 final class ConversationItemMessage extends ConversationItem {
   final Message value;
   const ConversationItemMessage(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ConversationItemFunctionToolCallResource extends ConversationItem {
   final FunctionToolCallResource value;
   const ConversationItemFunctionToolCallResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ConversationItemFunctionToolCallOutputResource extends ConversationItem {
+final class ConversationItemFunctionToolCallOutputResource
+    extends ConversationItem {
   final FunctionToolCallOutputResource value;
   const ConversationItemFunctionToolCallOutputResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ConversationItemFileSearchToolCall extends ConversationItem {
   final FileSearchToolCall value;
   const ConversationItemFileSearchToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ConversationItemWebSearchToolCall extends ConversationItem {
   final WebSearchToolCall value;
   const ConversationItemWebSearchToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ConversationItemImageGenToolCall extends ConversationItem {
   final ImageGenToolCall value;
   const ConversationItemImageGenToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ConversationItemComputerToolCall extends ConversationItem {
   final ComputerToolCall value;
   const ConversationItemComputerToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ConversationItemComputerToolCallOutputResource extends ConversationItem {
+final class ConversationItemComputerToolCallOutputResource
+    extends ConversationItem {
   final ComputerToolCallOutputResource value;
   const ConversationItemComputerToolCallOutputResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ConversationItemToolSearchCall extends ConversationItem {
   final ToolSearchCall value;
   const ConversationItemToolSearchCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ConversationItemToolSearchOutput extends ConversationItem {
   final ToolSearchOutput value;
   const ConversationItemToolSearchOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ConversationItemAdditionalTools extends ConversationItem {
   final AdditionalTools value;
   const ConversationItemAdditionalTools(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ConversationItemResponseConfigurationUpdate extends ConversationItem {
+final class ConversationItemResponseConfigurationUpdate
+    extends ConversationItem {
   final ResponseConfigurationUpdate value;
   const ConversationItemResponseConfigurationUpdate(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ConversationItemReasoningItem extends ConversationItem {
   final ReasoningItem value;
   const ConversationItemReasoningItem(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ConversationItemProgram extends ConversationItem {
   final Program value;
   const ConversationItemProgram(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ConversationItemProgramOutput extends ConversationItem {
   final ProgramOutput value;
   const ConversationItemProgramOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ConversationItemCompactionBody extends ConversationItem {
   final CompactionBody value;
   const ConversationItemCompactionBody(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ConversationItemCodeInterpreterToolCall extends ConversationItem {
   final CodeInterpreterToolCall value;
   const ConversationItemCodeInterpreterToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ConversationItemLocalShellToolCall extends ConversationItem {
   final LocalShellToolCall value;
   const ConversationItemLocalShellToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ConversationItemLocalShellToolCallOutput extends ConversationItem {
   final LocalShellToolCallOutput value;
   const ConversationItemLocalShellToolCallOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ConversationItemFunctionShellCall extends ConversationItem {
   final FunctionShellCall value;
   const ConversationItemFunctionShellCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ConversationItemFunctionShellCallOutput extends ConversationItem {
   final FunctionShellCallOutput value;
   const ConversationItemFunctionShellCallOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ConversationItemApplyPatchToolCall extends ConversationItem {
   final ApplyPatchToolCall value;
   const ConversationItemApplyPatchToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ConversationItemApplyPatchToolCallOutput extends ConversationItem {
   final ApplyPatchToolCallOutput value;
   const ConversationItemApplyPatchToolCallOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ConversationItemMCPListTools extends ConversationItem {
   final MCPListTools value;
   const ConversationItemMCPListTools(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ConversationItemMCPApprovalRequest extends ConversationItem {
   final MCPApprovalRequest value;
   const ConversationItemMCPApprovalRequest(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ConversationItemMCPApprovalResponseResource extends ConversationItem {
+final class ConversationItemMCPApprovalResponseResource
+    extends ConversationItem {
   final MCPApprovalResponseResource value;
   const ConversationItemMCPApprovalResponseResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ConversationItemMCPToolCall extends ConversationItem {
   final MCPToolCall value;
   const ConversationItemMCPToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ConversationItemCustomToolCall extends ConversationItem {
   final CustomToolCall value;
   const ConversationItemCustomToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ConversationItemCustomToolCallOutput extends ConversationItem {
   final CustomToolCallOutput value;
   const ConversationItemCustomToolCallOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [ConversationItem] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownConversationItem extends ConversationItem {
   final Map<String, dynamic> raw;
   const UnknownConversationItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

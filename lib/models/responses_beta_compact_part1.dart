@@ -8,44 +8,80 @@ part of 'responses_beta_compact.dart';
 class BetaCompactResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique identifier for the compacted response.
   final String id;
+
   /// The object type. Always `response.compaction`.
   final BetaCompactResourceObject object;
+
   /// The compacted list of output items.
   final List<BetaItemField> output;
+
   /// Unix timestamp (in seconds) when the compacted conversation was created.
   final int createdAt;
+
   /// Token accounting for the compaction pass, including cached, reasoning, and total tokens.
   final BetaResponseUsage usage;
 
-  const BetaCompactResource({required this.id, required this.object, required this.output, required this.createdAt, required this.usage});
+  const BetaCompactResource(
+      {required this.id,
+      required this.object,
+      required this.output,
+      required this.createdAt,
+      required this.usage});
 
-  BetaCompactResource Function({String id, BetaCompactResourceObject object, List<BetaItemField> output, int createdAt, BetaResponseUsage usage}) get copyWith => _copyWith;
+  BetaCompactResource Function(
+      {String id,
+      BetaCompactResourceObject object,
+      List<BetaItemField> output,
+      int createdAt,
+      BetaResponseUsage usage}) get copyWith => _copyWith;
 
-  BetaCompactResource _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? output = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? usage = sdkOmittedValue}) => BetaCompactResource(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as BetaCompactResourceObject,
-    output: identical(output, sdkOmittedValue) ? this.output : output as List<BetaItemField>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as BetaResponseUsage,
-  );
+  BetaCompactResource _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? output = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? usage = sdkOmittedValue}) =>
+      BetaCompactResource(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as BetaCompactResourceObject,
+        output: identical(output, sdkOmittedValue)
+            ? this.output
+            : output as List<BetaItemField>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        usage: identical(usage, sdkOmittedValue)
+            ? this.usage
+            : usage as BetaResponseUsage,
+      );
 
-  factory BetaCompactResource.fromJson(Map<String, dynamic> json) => BetaCompactResource(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? BetaCompactResourceObject.fromJson(json['object'] as String) : null)!,
-    output: ((json['output'] as List?)?.map((e) => BetaItemField.fromJson(e)).toList())!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    usage: (json['usage'] != null ? BetaResponseUsage.fromJson(json['usage'] as Map<String, dynamic>) : null)!,
-  );
+  factory BetaCompactResource.fromJson(Map<String, dynamic> json) =>
+      BetaCompactResource(
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? BetaCompactResourceObject.fromJson(json['object'] as String)
+            : null)!,
+        output: ((json['output'] as List?)
+            ?.map((e) => BetaItemField.fromJson(e))
+            .toList())!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        usage: (json['usage'] != null
+            ? BetaResponseUsage.fromJson(json['usage'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'output': output.map((item) => item.toJson()).toList(),
-    'created_at': createdAt,
-    'usage': usage.toJson(),
-  };
+        'id': id,
+        'object': object.toJson(),
+        'output': output.map((item) => item.toJson()).toList(),
+        'created_at': createdAt,
+        'usage': usage.toJson(),
+      };
 }
 
 sealed class BetaCompactResponseMethodPublicBodyInput {
@@ -53,118 +89,227 @@ sealed class BetaCompactResponseMethodPublicBodyInput {
   static const String constructionSurface = 'named';
   const BetaCompactResponseMethodPublicBodyInput();
   factory BetaCompactResponseMethodPublicBodyInput.fromJson(Object? json) {
-    if (json is String) { return BetaCompactResponseMethodPublicBodyInputString(json); }
-    try { return BetaCompactResponseMethodPublicBodyInputBetaInputItem(BetaInputItem.fromJson(json)); } catch (_) {}
-    throw FormatException("No variant matched for BetaCompactResponseMethodPublicBodyInput");
+    if (json is String) {
+      return BetaCompactResponseMethodPublicBodyInputString(json);
+    }
+    try {
+      return BetaCompactResponseMethodPublicBodyInputBetaInputItem(
+          BetaInputItem.fromJson(json));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for BetaCompactResponseMethodPublicBodyInput");
   }
   Object? toJson();
 }
 
-final class BetaCompactResponseMethodPublicBodyInputString extends BetaCompactResponseMethodPublicBodyInput {
+final class BetaCompactResponseMethodPublicBodyInputString
+    extends BetaCompactResponseMethodPublicBodyInput {
   final String value;
   const BetaCompactResponseMethodPublicBodyInputString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class BetaCompactResponseMethodPublicBodyInputBetaInputItem extends BetaCompactResponseMethodPublicBodyInput {
+final class BetaCompactResponseMethodPublicBodyInputBetaInputItem
+    extends BetaCompactResponseMethodPublicBodyInput {
   final BetaInputItem value;
   const BetaCompactResponseMethodPublicBodyInputBetaInputItem(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 sealed class BetaCompactResponseMethodPublicBodyPromptCacheKey {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const BetaCompactResponseMethodPublicBodyPromptCacheKey();
-  factory BetaCompactResponseMethodPublicBodyPromptCacheKey.fromJson(Object? json) {
-    if (json is String) { return BetaCompactResponseMethodPublicBodyPromptCacheKeyString(json); }
-    throw FormatException("No variant matched for BetaCompactResponseMethodPublicBodyPromptCacheKey");
+  factory BetaCompactResponseMethodPublicBodyPromptCacheKey.fromJson(
+      Object? json) {
+    if (json is String) {
+      return BetaCompactResponseMethodPublicBodyPromptCacheKeyString(json);
+    }
+    throw FormatException(
+        "No variant matched for BetaCompactResponseMethodPublicBodyPromptCacheKey");
   }
   Object? toJson();
 }
 
-final class BetaCompactResponseMethodPublicBodyPromptCacheKeyString extends BetaCompactResponseMethodPublicBodyPromptCacheKey {
+final class BetaCompactResponseMethodPublicBodyPromptCacheKeyString
+    extends BetaCompactResponseMethodPublicBodyPromptCacheKey {
   final String value;
   const BetaCompactResponseMethodPublicBodyPromptCacheKeyString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// Typed representation of the `BetaCompactResponseMethodPublicBody` API schema.
 class BetaCompactResponseMethodPublicBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Model ID used to generate the response, like `gpt-6-astra`. OpenAI offers a wide range of models with different capabilities, performance characteristics, and price points. Refer to the [model guide](https://developers.openai.com/api/docs/models) to browse and compare available models.
   final BetaModelIdsCompaction? model;
+
   /// Text, image, or file inputs to the model, used to generate a response
   final SdkOptional<dynamic> input;
+
   /// Optional `string` value serialized in the `previous_response_id` wire field.
   final SdkOptional<String?> previousResponseId;
+
   /// Optional `string` value serialized in the `instructions` wire field.
   final SdkOptional<String?> instructions;
+
   /// Optional API value serialized in the `prompt_cache_key` wire field.
   final SdkOptional<String?> promptCacheKey;
+
   /// Optional API value serialized in the `prompt_cache_retention` wire field.
   final SdkOptional<BetaPromptCacheRetentionEnum?> promptCacheRetention;
+
   /// Optional API value serialized in the `prompt_cache_options` wire field.
   final SdkOptional<BetaPromptCacheOptionsParam?> promptCacheOptions;
+
   /// Optional API value serialized in the `service_tier` wire field.
   final SdkOptional<BetaServiceTierEnum?> serviceTier;
 
-  const BetaCompactResponseMethodPublicBody({required this.model, this.input = const SdkOmitted(), this.previousResponseId = const SdkOmitted(), this.instructions = const SdkOmitted(), this.promptCacheKey = const SdkOmitted(), this.promptCacheRetention = const SdkOmitted(), this.promptCacheOptions = const SdkOmitted(), this.serviceTier = const SdkOmitted()});
+  const BetaCompactResponseMethodPublicBody(
+      {required this.model,
+      this.input = const SdkOmitted(),
+      this.previousResponseId = const SdkOmitted(),
+      this.instructions = const SdkOmitted(),
+      this.promptCacheKey = const SdkOmitted(),
+      this.promptCacheRetention = const SdkOmitted(),
+      this.promptCacheOptions = const SdkOmitted(),
+      this.serviceTier = const SdkOmitted()});
 
-  BetaCompactResponseMethodPublicBody Function({BetaModelIdsCompaction? model, SdkOptional<dynamic> input, SdkOptional<String?> previousResponseId, SdkOptional<String?> instructions, SdkOptional<String?> promptCacheKey, SdkOptional<BetaPromptCacheRetentionEnum?> promptCacheRetention, SdkOptional<BetaPromptCacheOptionsParam?> promptCacheOptions, SdkOptional<BetaServiceTierEnum?> serviceTier}) get copyWith => _copyWith;
+  BetaCompactResponseMethodPublicBody Function(
+      {BetaModelIdsCompaction? model,
+      SdkOptional<dynamic> input,
+      SdkOptional<String?> previousResponseId,
+      SdkOptional<String?> instructions,
+      SdkOptional<String?> promptCacheKey,
+      SdkOptional<BetaPromptCacheRetentionEnum?> promptCacheRetention,
+      SdkOptional<BetaPromptCacheOptionsParam?> promptCacheOptions,
+      SdkOptional<BetaServiceTierEnum?> serviceTier}) get copyWith => _copyWith;
 
-  BetaCompactResponseMethodPublicBody _copyWith({Object? model = sdkOmittedValue, Object? input = sdkOmittedValue, Object? previousResponseId = sdkOmittedValue, Object? instructions = sdkOmittedValue, Object? promptCacheKey = sdkOmittedValue, Object? promptCacheRetention = sdkOmittedValue, Object? promptCacheOptions = sdkOmittedValue, Object? serviceTier = sdkOmittedValue}) => BetaCompactResponseMethodPublicBody(
-    model: identical(model, sdkOmittedValue) ? this.model : model as BetaModelIdsCompaction?,
-    input: identical(input, sdkOmittedValue) ? this.input : input as SdkOptional<dynamic>,
-    previousResponseId: identical(previousResponseId, sdkOmittedValue) ? this.previousResponseId : previousResponseId as SdkOptional<String?>,
-    instructions: identical(instructions, sdkOmittedValue) ? this.instructions : instructions as SdkOptional<String?>,
-    promptCacheKey: identical(promptCacheKey, sdkOmittedValue) ? this.promptCacheKey : promptCacheKey as SdkOptional<String?>,
-    promptCacheRetention: identical(promptCacheRetention, sdkOmittedValue) ? this.promptCacheRetention : promptCacheRetention as SdkOptional<BetaPromptCacheRetentionEnum?>,
-    promptCacheOptions: identical(promptCacheOptions, sdkOmittedValue) ? this.promptCacheOptions : promptCacheOptions as SdkOptional<BetaPromptCacheOptionsParam?>,
-    serviceTier: identical(serviceTier, sdkOmittedValue) ? this.serviceTier : serviceTier as SdkOptional<BetaServiceTierEnum?>,
-  );
+  BetaCompactResponseMethodPublicBody _copyWith(
+          {Object? model = sdkOmittedValue,
+          Object? input = sdkOmittedValue,
+          Object? previousResponseId = sdkOmittedValue,
+          Object? instructions = sdkOmittedValue,
+          Object? promptCacheKey = sdkOmittedValue,
+          Object? promptCacheRetention = sdkOmittedValue,
+          Object? promptCacheOptions = sdkOmittedValue,
+          Object? serviceTier = sdkOmittedValue}) =>
+      BetaCompactResponseMethodPublicBody(
+        model: identical(model, sdkOmittedValue)
+            ? this.model
+            : model as BetaModelIdsCompaction?,
+        input: identical(input, sdkOmittedValue)
+            ? this.input
+            : input as SdkOptional<dynamic>,
+        previousResponseId: identical(previousResponseId, sdkOmittedValue)
+            ? this.previousResponseId
+            : previousResponseId as SdkOptional<String?>,
+        instructions: identical(instructions, sdkOmittedValue)
+            ? this.instructions
+            : instructions as SdkOptional<String?>,
+        promptCacheKey: identical(promptCacheKey, sdkOmittedValue)
+            ? this.promptCacheKey
+            : promptCacheKey as SdkOptional<String?>,
+        promptCacheRetention: identical(promptCacheRetention, sdkOmittedValue)
+            ? this.promptCacheRetention
+            : promptCacheRetention
+                as SdkOptional<BetaPromptCacheRetentionEnum?>,
+        promptCacheOptions: identical(promptCacheOptions, sdkOmittedValue)
+            ? this.promptCacheOptions
+            : promptCacheOptions as SdkOptional<BetaPromptCacheOptionsParam?>,
+        serviceTier: identical(serviceTier, sdkOmittedValue)
+            ? this.serviceTier
+            : serviceTier as SdkOptional<BetaServiceTierEnum?>,
+      );
 
-  factory BetaCompactResponseMethodPublicBody.fromJson(Map<String, dynamic> json) => BetaCompactResponseMethodPublicBody(
-    model: json.containsKey('model') ? json['model'] != null ? BetaModelIdsCompaction.fromJson(json['model']) : null : throw ArgumentError.value(null, 'model', 'Required property is missing'),
-    input: json.containsKey('input') ? SdkPresent(json['input']) : const SdkOmitted(),
-    previousResponseId: json.containsKey('previous_response_id') ? SdkPresent(json['previous_response_id'] as String?) : const SdkOmitted(),
-    instructions: json.containsKey('instructions') ? SdkPresent(json['instructions'] as String?) : const SdkOmitted(),
-    promptCacheKey: json.containsKey('prompt_cache_key') ? SdkPresent(json['prompt_cache_key'] as String?) : const SdkOmitted(),
-    promptCacheRetention: json.containsKey('prompt_cache_retention') ? SdkPresent(json['prompt_cache_retention'] != null ? BetaPromptCacheRetentionEnum.fromJson(json['prompt_cache_retention'] as String) : null) : const SdkOmitted(),
-    promptCacheOptions: json.containsKey('prompt_cache_options') ? SdkPresent(json['prompt_cache_options'] != null ? BetaPromptCacheOptionsParam.fromJson(json['prompt_cache_options'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    serviceTier: json.containsKey('service_tier') ? SdkPresent(json['service_tier'] != null ? BetaServiceTierEnum.fromJson(json['service_tier'] as String) : null) : const SdkOmitted(),
-  );
+  factory BetaCompactResponseMethodPublicBody.fromJson(
+          Map<String, dynamic> json) =>
+      BetaCompactResponseMethodPublicBody(
+        model: json.containsKey('model')
+            ? json['model'] != null
+                ? BetaModelIdsCompaction.fromJson(json['model'])
+                : null
+            : throw ArgumentError.value(
+                null, 'model', 'Required property is missing'),
+        input: json.containsKey('input')
+            ? SdkPresent(json['input'])
+            : const SdkOmitted(),
+        previousResponseId: json.containsKey('previous_response_id')
+            ? SdkPresent(json['previous_response_id'] as String?)
+            : const SdkOmitted(),
+        instructions: json.containsKey('instructions')
+            ? SdkPresent(json['instructions'] as String?)
+            : const SdkOmitted(),
+        promptCacheKey: json.containsKey('prompt_cache_key')
+            ? SdkPresent(json['prompt_cache_key'] as String?)
+            : const SdkOmitted(),
+        promptCacheRetention: json.containsKey('prompt_cache_retention')
+            ? SdkPresent(json['prompt_cache_retention'] != null
+                ? BetaPromptCacheRetentionEnum.fromJson(
+                    json['prompt_cache_retention'] as String)
+                : null)
+            : const SdkOmitted(),
+        promptCacheOptions: json.containsKey('prompt_cache_options')
+            ? SdkPresent(json['prompt_cache_options'] != null
+                ? BetaPromptCacheOptionsParam.fromJson(
+                    json['prompt_cache_options'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        serviceTier: json.containsKey('service_tier')
+            ? SdkPresent(json['service_tier'] != null
+                ? BetaServiceTierEnum.fromJson(json['service_tier'] as String)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'model': model?.toJson(),
-    ...switch (input) {
-      SdkPresent<dynamic>(value: final value) => {'input': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (previousResponseId) {
-      SdkPresent<String?>(value: final value) => {'previous_response_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (instructions) {
-      SdkPresent<String?>(value: final value) => {'instructions': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (promptCacheKey) {
-      SdkPresent<String?>(value: final value) => {'prompt_cache_key': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (promptCacheRetention) {
-      SdkPresent<BetaPromptCacheRetentionEnum?>(value: final value) => {'prompt_cache_retention': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (promptCacheOptions) {
-      SdkPresent<BetaPromptCacheOptionsParam?>(value: final value) => {'prompt_cache_options': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (serviceTier) {
-      SdkPresent<BetaServiceTierEnum?>(value: final value) => {'service_tier': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'model': model?.toJson(),
+        ...switch (input) {
+          SdkPresent<dynamic>(value: final value) => {
+              'input': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (previousResponseId) {
+          SdkPresent<String?>(value: final value) => {
+              'previous_response_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (instructions) {
+          SdkPresent<String?>(value: final value) => {
+              'instructions': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (promptCacheKey) {
+          SdkPresent<String?>(value: final value) => {
+              'prompt_cache_key': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (promptCacheRetention) {
+          SdkPresent<BetaPromptCacheRetentionEnum?>(value: final value) => {
+              'prompt_cache_retention': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (promptCacheOptions) {
+          SdkPresent<BetaPromptCacheOptionsParam?>(value: final value) => {
+              'prompt_cache_options': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (serviceTier) {
+          SdkPresent<BetaServiceTierEnum?>(value: final value) => {
+              'service_tier': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

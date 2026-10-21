@@ -8,93 +8,174 @@ part of 'shared_computer.dart';
 class ComputerScreenshotContent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Specifies the event type. For a computer screenshot, this property is always set to `computer_screenshot`.
   final ComputerScreenshotContentType type_;
+
   /// Required API value serialized in the `image_url` wire field.
   final String? imageUrl;
+
   /// Required `string` value serialized in the `file_id` wire field.
   final String? fileId;
+
   /// The detail level of the screenshot image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.
   final ImageDetail detail;
+
   /// Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request's `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
   final SdkOptional<PromptCacheBreakpointConfig> promptCacheBreakpoint;
 
-  const ComputerScreenshotContent({required this.type_, required this.imageUrl, required this.fileId, required this.detail, this.promptCacheBreakpoint = const SdkOmitted()});
+  const ComputerScreenshotContent(
+      {required this.type_,
+      required this.imageUrl,
+      required this.fileId,
+      required this.detail,
+      this.promptCacheBreakpoint = const SdkOmitted()});
 
-  ComputerScreenshotContent Function({ComputerScreenshotContentType type_, String? imageUrl, String? fileId, ImageDetail detail, SdkOptional<PromptCacheBreakpointConfig> promptCacheBreakpoint}) get copyWith => _copyWith;
+  ComputerScreenshotContent Function(
+          {ComputerScreenshotContentType type_,
+          String? imageUrl,
+          String? fileId,
+          ImageDetail detail,
+          SdkOptional<PromptCacheBreakpointConfig> promptCacheBreakpoint})
+      get copyWith => _copyWith;
 
-  ComputerScreenshotContent _copyWith({Object? type_ = sdkOmittedValue, Object? imageUrl = sdkOmittedValue, Object? fileId = sdkOmittedValue, Object? detail = sdkOmittedValue, Object? promptCacheBreakpoint = sdkOmittedValue}) => ComputerScreenshotContent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ComputerScreenshotContentType,
-    imageUrl: identical(imageUrl, sdkOmittedValue) ? this.imageUrl : imageUrl as String?,
-    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String?,
-    detail: identical(detail, sdkOmittedValue) ? this.detail : detail as ImageDetail,
-    promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue) ? this.promptCacheBreakpoint : promptCacheBreakpoint as SdkOptional<PromptCacheBreakpointConfig>,
-  );
+  ComputerScreenshotContent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? imageUrl = sdkOmittedValue,
+          Object? fileId = sdkOmittedValue,
+          Object? detail = sdkOmittedValue,
+          Object? promptCacheBreakpoint = sdkOmittedValue}) =>
+      ComputerScreenshotContent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ComputerScreenshotContentType,
+        imageUrl: identical(imageUrl, sdkOmittedValue)
+            ? this.imageUrl
+            : imageUrl as String?,
+        fileId: identical(fileId, sdkOmittedValue)
+            ? this.fileId
+            : fileId as String?,
+        detail: identical(detail, sdkOmittedValue)
+            ? this.detail
+            : detail as ImageDetail,
+        promptCacheBreakpoint: identical(promptCacheBreakpoint, sdkOmittedValue)
+            ? this.promptCacheBreakpoint
+            : promptCacheBreakpoint as SdkOptional<PromptCacheBreakpointConfig>,
+      );
 
-  factory ComputerScreenshotContent.fromJson(Map<String, dynamic> json) => ComputerScreenshotContent(
-    type_: (json['type'] != null ? ComputerScreenshotContentType.fromJson(json['type'] as String) : null)!,
-    imageUrl: json.containsKey('image_url') ? json['image_url'] as String? : throw ArgumentError.value(null, 'image_url', 'Required property is missing'),
-    fileId: json.containsKey('file_id') ? json['file_id'] as String? : throw ArgumentError.value(null, 'file_id', 'Required property is missing'),
-    detail: (json['detail'] != null ? ImageDetail.fromJson(json['detail'] as String) : null)!,
-    promptCacheBreakpoint: json['prompt_cache_breakpoint'] != null ? SdkPresent((json['prompt_cache_breakpoint'] != null ? PromptCacheBreakpointConfig.fromJson(json['prompt_cache_breakpoint'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ComputerScreenshotContent.fromJson(Map<String, dynamic> json) =>
+      ComputerScreenshotContent(
+        type_: (json['type'] != null
+            ? ComputerScreenshotContentType.fromJson(json['type'] as String)
+            : null)!,
+        imageUrl: json.containsKey('image_url')
+            ? json['image_url'] as String?
+            : throw ArgumentError.value(
+                null, 'image_url', 'Required property is missing'),
+        fileId: json.containsKey('file_id')
+            ? json['file_id'] as String?
+            : throw ArgumentError.value(
+                null, 'file_id', 'Required property is missing'),
+        detail: (json['detail'] != null
+            ? ImageDetail.fromJson(json['detail'] as String)
+            : null)!,
+        promptCacheBreakpoint: json['prompt_cache_breakpoint'] != null
+            ? SdkPresent((json['prompt_cache_breakpoint'] != null
+                ? PromptCacheBreakpointConfig.fromJson(
+                    json['prompt_cache_breakpoint'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'image_url': imageUrl,
-    'file_id': fileId,
-    'detail': detail.toJson(),
-    ...switch (promptCacheBreakpoint) {
-      SdkPresent<PromptCacheBreakpointConfig>(value: final value) => {'prompt_cache_breakpoint': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'image_url': imageUrl,
+        'file_id': fileId,
+        'detail': detail.toJson(),
+        ...switch (promptCacheBreakpoint) {
+          SdkPresent<PromptCacheBreakpointConfig>(value: final value) => {
+              'prompt_cache_breakpoint': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A computer screenshot image used with the computer use tool.
 class ComputerScreenshotImage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Specifies the event type. For a computer screenshot, this property is always set to `computer_screenshot`.
   final ComputerScreenshotImageType type_;
+
   /// The URL of the screenshot image.
   final SdkOptional<String> imageUrl;
+
   /// The identifier of an uploaded file that contains the screenshot.
   final SdkOptional<String> fileId;
 
-  const ComputerScreenshotImage({required this.type_, this.imageUrl = const SdkOmitted(), this.fileId = const SdkOmitted()});
+  const ComputerScreenshotImage(
+      {required this.type_,
+      this.imageUrl = const SdkOmitted(),
+      this.fileId = const SdkOmitted()});
 
-  ComputerScreenshotImage Function({ComputerScreenshotImageType type_, SdkOptional<String> imageUrl, SdkOptional<String> fileId}) get copyWith => _copyWith;
+  ComputerScreenshotImage Function(
+      {ComputerScreenshotImageType type_,
+      SdkOptional<String> imageUrl,
+      SdkOptional<String> fileId}) get copyWith => _copyWith;
 
-  ComputerScreenshotImage _copyWith({Object? type_ = sdkOmittedValue, Object? imageUrl = sdkOmittedValue, Object? fileId = sdkOmittedValue}) => ComputerScreenshotImage(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ComputerScreenshotImageType,
-    imageUrl: identical(imageUrl, sdkOmittedValue) ? this.imageUrl : imageUrl as SdkOptional<String>,
-    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as SdkOptional<String>,
-  );
+  ComputerScreenshotImage _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? imageUrl = sdkOmittedValue,
+          Object? fileId = sdkOmittedValue}) =>
+      ComputerScreenshotImage(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ComputerScreenshotImageType,
+        imageUrl: identical(imageUrl, sdkOmittedValue)
+            ? this.imageUrl
+            : imageUrl as SdkOptional<String>,
+        fileId: identical(fileId, sdkOmittedValue)
+            ? this.fileId
+            : fileId as SdkOptional<String>,
+      );
 
-  factory ComputerScreenshotImage.fromJson(Map<String, dynamic> json) => ComputerScreenshotImage(
-    type_: (json['type'] != null ? ComputerScreenshotImageType.fromJson(json['type'] as String) : null)!,
-    imageUrl: json['image_url'] != null ? SdkPresent((json['image_url'] as String?)!) : const SdkOmitted(),
-    fileId: json['file_id'] != null ? SdkPresent((json['file_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory ComputerScreenshotImage.fromJson(Map<String, dynamic> json) =>
+      ComputerScreenshotImage(
+        type_: (json['type'] != null
+            ? ComputerScreenshotImageType.fromJson(json['type'] as String)
+            : null)!,
+        imageUrl: json['image_url'] != null
+            ? SdkPresent((json['image_url'] as String?)!)
+            : const SdkOmitted(),
+        fileId: json['file_id'] != null
+            ? SdkPresent((json['file_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (imageUrl) {
-      SdkPresent<String>(value: final value) => {'image_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (fileId) {
-      SdkPresent<String>(value: final value) => {'file_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (imageUrl) {
+          SdkPresent<String>(value: final value) => {
+              'image_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (fileId) {
+          SdkPresent<String>(value: final value) => {
+              'file_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A tool that controls a virtual computer. Learn more about the [computer tool](https://developers.openai.com/api/docs/guides/tools-computer-use).
 class ComputerTool {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the computer tool. Always `computer`.
   final ComputerToolType type_;
 
@@ -103,164 +184,315 @@ class ComputerTool {
   ComputerTool Function({ComputerToolType type_}) get copyWith => _copyWith;
 
   ComputerTool _copyWith({Object? type_ = sdkOmittedValue}) => ComputerTool(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ComputerToolType,
-  );
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ComputerToolType,
+      );
 
   factory ComputerTool.fromJson(Map<String, dynamic> json) => ComputerTool(
-    type_: (json['type'] != null ? ComputerToolType.fromJson(json['type'] as String) : null)!,
-  );
+        type_: (json['type'] != null
+            ? ComputerToolType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 /// A tool call to a computer use tool. See the [computer use guide](https://developers.openai.com/api/docs/guides/tools-computer-use) for more information.
 class ComputerToolCall {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the computer call. Always `computer_call`.
   final ComputerToolCallType type_;
+
   /// The unique ID of the computer call.
   final String id;
+
   /// An identifier used when responding to the tool call with output.
   final String callId;
+
   /// Optional API value serialized in the `action` wire field.
   final SdkOptional<ComputerAction> action;
+
   /// Flattened batched actions for `computer_use`. Each action includes an `type` discriminator and action-specific fields.
   final SdkOptional<List<ComputerAction>> actions;
+
   /// The pending safety checks for the computer call.
   final List<ComputerCallSafetyCheckParam> pendingSafetyChecks;
+
   /// The status of the item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
   final ComputerToolCallStatus status;
 
-  const ComputerToolCall({required this.type_, required this.id, required this.callId, this.action = const SdkOmitted(), this.actions = const SdkOmitted(), required this.pendingSafetyChecks, required this.status});
+  const ComputerToolCall(
+      {required this.type_,
+      required this.id,
+      required this.callId,
+      this.action = const SdkOmitted(),
+      this.actions = const SdkOmitted(),
+      required this.pendingSafetyChecks,
+      required this.status});
 
-  ComputerToolCall Function({ComputerToolCallType type_, String id, String callId, SdkOptional<ComputerAction> action, SdkOptional<List<ComputerAction>> actions, List<ComputerCallSafetyCheckParam> pendingSafetyChecks, ComputerToolCallStatus status}) get copyWith => _copyWith;
+  ComputerToolCall Function(
+      {ComputerToolCallType type_,
+      String id,
+      String callId,
+      SdkOptional<ComputerAction> action,
+      SdkOptional<List<ComputerAction>> actions,
+      List<ComputerCallSafetyCheckParam> pendingSafetyChecks,
+      ComputerToolCallStatus status}) get copyWith => _copyWith;
 
-  ComputerToolCall _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? action = sdkOmittedValue, Object? actions = sdkOmittedValue, Object? pendingSafetyChecks = sdkOmittedValue, Object? status = sdkOmittedValue}) => ComputerToolCall(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ComputerToolCallType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-    action: identical(action, sdkOmittedValue) ? this.action : action as SdkOptional<ComputerAction>,
-    actions: identical(actions, sdkOmittedValue) ? this.actions : actions as SdkOptional<List<ComputerAction>>,
-    pendingSafetyChecks: identical(pendingSafetyChecks, sdkOmittedValue) ? this.pendingSafetyChecks : pendingSafetyChecks as List<ComputerCallSafetyCheckParam>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as ComputerToolCallStatus,
-  );
+  ComputerToolCall _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? callId = sdkOmittedValue,
+          Object? action = sdkOmittedValue,
+          Object? actions = sdkOmittedValue,
+          Object? pendingSafetyChecks = sdkOmittedValue,
+          Object? status = sdkOmittedValue}) =>
+      ComputerToolCall(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ComputerToolCallType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        callId:
+            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+        action: identical(action, sdkOmittedValue)
+            ? this.action
+            : action as SdkOptional<ComputerAction>,
+        actions: identical(actions, sdkOmittedValue)
+            ? this.actions
+            : actions as SdkOptional<List<ComputerAction>>,
+        pendingSafetyChecks: identical(pendingSafetyChecks, sdkOmittedValue)
+            ? this.pendingSafetyChecks
+            : pendingSafetyChecks as List<ComputerCallSafetyCheckParam>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as ComputerToolCallStatus,
+      );
 
-  factory ComputerToolCall.fromJson(Map<String, dynamic> json) => ComputerToolCall(
-    type_: (json['type'] != null ? ComputerToolCallType.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    callId: (json['call_id'] as String?)!,
-    action: json['action'] != null ? SdkPresent((json['action'] != null ? ComputerAction.fromJson(json['action']) : null)!) : const SdkOmitted(),
-    actions: json['actions'] != null ? SdkPresent(((json['actions'] as List?)?.map((e) => ComputerAction.fromJson(e)).toList())!) : const SdkOmitted(),
-    pendingSafetyChecks: ((json['pending_safety_checks'] as List?)?.map((e) => ComputerCallSafetyCheckParam.fromJson(e as Map<String, dynamic>)).toList())!,
-    status: (json['status'] != null ? ComputerToolCallStatus.fromJson(json['status'] as String) : null)!,
-  );
+  factory ComputerToolCall.fromJson(Map<String, dynamic> json) =>
+      ComputerToolCall(
+        type_: (json['type'] != null
+            ? ComputerToolCallType.fromJson(json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        callId: (json['call_id'] as String?)!,
+        action: json['action'] != null
+            ? SdkPresent((json['action'] != null
+                ? ComputerAction.fromJson(json['action'])
+                : null)!)
+            : const SdkOmitted(),
+        actions: json['actions'] != null
+            ? SdkPresent(((json['actions'] as List?)
+                ?.map((e) => ComputerAction.fromJson(e))
+                .toList())!)
+            : const SdkOmitted(),
+        pendingSafetyChecks: ((json['pending_safety_checks'] as List?)
+            ?.map((e) => ComputerCallSafetyCheckParam.fromJson(
+                e as Map<String, dynamic>))
+            .toList())!,
+        status: (json['status'] != null
+            ? ComputerToolCallStatus.fromJson(json['status'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'id': id,
-    'call_id': callId,
-    ...switch (action) {
-      SdkPresent<ComputerAction>(value: final value) => {'action': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (actions) {
-      SdkPresent<List<ComputerAction>>(value: final value) => {'actions': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    'pending_safety_checks': pendingSafetyChecks.map((item) => item.toJson()).toList(),
-    'status': status.toJson(),
-  };
+        'type': type_.toJson(),
+        'id': id,
+        'call_id': callId,
+        ...switch (action) {
+          SdkPresent<ComputerAction>(value: final value) => {
+              'action': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (actions) {
+          SdkPresent<List<ComputerAction>>(value: final value) => {
+              'actions': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'pending_safety_checks':
+            pendingSafetyChecks.map((item) => item.toJson()).toList(),
+        'status': status.toJson(),
+      };
 }
 
 /// The output of a computer tool call.
 class ComputerToolCallOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the computer tool call output. Always `computer_call_output`.
   final ComputerToolCallOutputType type_;
+
   /// The ID of the computer tool call output.
   final SdkOptional<String> id;
+
   /// The ID of the computer tool call that produced the output.
   final String callId;
+
   /// The safety checks reported by the API that have been acknowledged by the developer.
-  final SdkOptional<List<ComputerCallSafetyCheckParam>> acknowledgedSafetyChecks;
+  final SdkOptional<List<ComputerCallSafetyCheckParam>>
+      acknowledgedSafetyChecks;
+
   /// A computer screenshot image used with the computer use tool.
   final ComputerScreenshotImage output;
+
   /// The status of the message input. One of `in_progress`, `completed`, or `incomplete`. Populated when input items are returned via API.
   final SdkOptional<ComputerToolCallOutputStatus> status;
 
-  const ComputerToolCallOutput({required this.type_, this.id = const SdkOmitted(), required this.callId, this.acknowledgedSafetyChecks = const SdkOmitted(), required this.output, this.status = const SdkOmitted()});
+  const ComputerToolCallOutput(
+      {required this.type_,
+      this.id = const SdkOmitted(),
+      required this.callId,
+      this.acknowledgedSafetyChecks = const SdkOmitted(),
+      required this.output,
+      this.status = const SdkOmitted()});
 
-  ComputerToolCallOutput Function({ComputerToolCallOutputType type_, SdkOptional<String> id, String callId, SdkOptional<List<ComputerCallSafetyCheckParam>> acknowledgedSafetyChecks, ComputerScreenshotImage output, SdkOptional<ComputerToolCallOutputStatus> status}) get copyWith => _copyWith;
+  ComputerToolCallOutput Function(
+      {ComputerToolCallOutputType type_,
+      SdkOptional<String> id,
+      String callId,
+      SdkOptional<List<ComputerCallSafetyCheckParam>> acknowledgedSafetyChecks,
+      ComputerScreenshotImage output,
+      SdkOptional<ComputerToolCallOutputStatus>
+          status}) get copyWith => _copyWith;
 
-  ComputerToolCallOutput _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? acknowledgedSafetyChecks = sdkOmittedValue, Object? output = sdkOmittedValue, Object? status = sdkOmittedValue}) => ComputerToolCallOutput(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ComputerToolCallOutputType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-    acknowledgedSafetyChecks: identical(acknowledgedSafetyChecks, sdkOmittedValue) ? this.acknowledgedSafetyChecks : acknowledgedSafetyChecks as SdkOptional<List<ComputerCallSafetyCheckParam>>,
-    output: identical(output, sdkOmittedValue) ? this.output : output as ComputerScreenshotImage,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<ComputerToolCallOutputStatus>,
-  );
+  ComputerToolCallOutput _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? callId = sdkOmittedValue,
+          Object? acknowledgedSafetyChecks = sdkOmittedValue,
+          Object? output = sdkOmittedValue,
+          Object? status = sdkOmittedValue}) =>
+      ComputerToolCallOutput(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ComputerToolCallOutputType,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        callId:
+            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+        acknowledgedSafetyChecks:
+            identical(acknowledgedSafetyChecks, sdkOmittedValue)
+                ? this.acknowledgedSafetyChecks
+                : acknowledgedSafetyChecks
+                    as SdkOptional<List<ComputerCallSafetyCheckParam>>,
+        output: identical(output, sdkOmittedValue)
+            ? this.output
+            : output as ComputerScreenshotImage,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<ComputerToolCallOutputStatus>,
+      );
 
-  factory ComputerToolCallOutput.fromJson(Map<String, dynamic> json) => ComputerToolCallOutput(
-    type_: (json['type'] != null ? ComputerToolCallOutputType.fromJson(json['type'] as String) : null)!,
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    callId: (json['call_id'] as String?)!,
-    acknowledgedSafetyChecks: json['acknowledged_safety_checks'] != null ? SdkPresent(((json['acknowledged_safety_checks'] as List?)?.map((e) => ComputerCallSafetyCheckParam.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    output: (json['output'] != null ? ComputerScreenshotImage.fromJson(json['output'] as Map<String, dynamic>) : null)!,
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? ComputerToolCallOutputStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory ComputerToolCallOutput.fromJson(Map<String, dynamic> json) =>
+      ComputerToolCallOutput(
+        type_: (json['type'] != null
+            ? ComputerToolCallOutputType.fromJson(json['type'] as String)
+            : null)!,
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        callId: (json['call_id'] as String?)!,
+        acknowledgedSafetyChecks: json['acknowledged_safety_checks'] != null
+            ? SdkPresent(((json['acknowledged_safety_checks'] as List?)
+                ?.map((e) => ComputerCallSafetyCheckParam.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        output: (json['output'] != null
+            ? ComputerScreenshotImage.fromJson(
+                json['output'] as Map<String, dynamic>)
+            : null)!,
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? ComputerToolCallOutputStatus.fromJson(
+                    json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'call_id': callId,
-    ...switch (acknowledgedSafetyChecks) {
-      SdkPresent<List<ComputerCallSafetyCheckParam>>(value: final value) => {'acknowledged_safety_checks': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    'output': output.toJson(),
-    ...switch (status) {
-      SdkPresent<ComputerToolCallOutputStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'call_id': callId,
+        ...switch (acknowledgedSafetyChecks) {
+          SdkPresent<List<ComputerCallSafetyCheckParam>>(value: final value) =>
+            {
+              'acknowledged_safety_checks':
+                  value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'output': output.toJson(),
+        ...switch (status) {
+          SdkPresent<ComputerToolCallOutputStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Required object value serialized in the `data[]` wire field.
 class ComputerToolCallOutputResourceVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The status of the message input. One of `in_progress`, `completed`, or `incomplete`. Populated when input items are returned via API.
   final ComputerCallOutputStatus status;
+
   /// The identifier of the actor that created the item.
   final SdkOptional<String> createdBy;
 
-  const ComputerToolCallOutputResourceVariant1({required this.status, this.createdBy = const SdkOmitted()});
+  const ComputerToolCallOutputResourceVariant1(
+      {required this.status, this.createdBy = const SdkOmitted()});
 
-  ComputerToolCallOutputResourceVariant1 Function({ComputerCallOutputStatus status, SdkOptional<String> createdBy}) get copyWith => _copyWith;
+  ComputerToolCallOutputResourceVariant1 Function(
+      {ComputerCallOutputStatus status,
+      SdkOptional<String> createdBy}) get copyWith => _copyWith;
 
-  ComputerToolCallOutputResourceVariant1 _copyWith({Object? status = sdkOmittedValue, Object? createdBy = sdkOmittedValue}) => ComputerToolCallOutputResourceVariant1(
-    status: identical(status, sdkOmittedValue) ? this.status : status as ComputerCallOutputStatus,
-    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as SdkOptional<String>,
-  );
+  ComputerToolCallOutputResourceVariant1 _copyWith(
+          {Object? status = sdkOmittedValue,
+          Object? createdBy = sdkOmittedValue}) =>
+      ComputerToolCallOutputResourceVariant1(
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as ComputerCallOutputStatus,
+        createdBy: identical(createdBy, sdkOmittedValue)
+            ? this.createdBy
+            : createdBy as SdkOptional<String>,
+      );
 
-  factory ComputerToolCallOutputResourceVariant1.fromJson(Map<String, dynamic> json) => ComputerToolCallOutputResourceVariant1(
-    status: (json['status'] != null ? ComputerCallOutputStatus.fromJson(json['status'] as String) : null)!,
-    createdBy: json['created_by'] != null ? SdkPresent((json['created_by'] as String?)!) : const SdkOmitted(),
-  );
+  factory ComputerToolCallOutputResourceVariant1.fromJson(
+          Map<String, dynamic> json) =>
+      ComputerToolCallOutputResourceVariant1(
+        status: (json['status'] != null
+            ? ComputerCallOutputStatus.fromJson(json['status'] as String)
+            : null)!,
+        createdBy: json['created_by'] != null
+            ? SdkPresent((json['created_by'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'status': status.toJson(),
-    ...switch (createdBy) {
-      SdkPresent<String>(value: final value) => {'created_by': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'status': status.toJson(),
+        ...switch (createdBy) {
+          SdkPresent<String>(value: final value) => {
+              'created_by': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

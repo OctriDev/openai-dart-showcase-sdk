@@ -8,27 +8,38 @@ part of 'decisions_decision.dart';
 class DecisionInputOutputText {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final DecisionInputOutputTextType type_;
+
   /// Required `string` value serialized in the `text` wire field.
   final String text;
 
   const DecisionInputOutputText({required this.type_, required this.text});
 
-  DecisionInputOutputText Function({DecisionInputOutputTextType type_, String text}) get copyWith => _copyWith;
+  DecisionInputOutputText Function(
+      {DecisionInputOutputTextType type_,
+      String text}) get copyWith => _copyWith;
 
-  DecisionInputOutputText _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => DecisionInputOutputText(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DecisionInputOutputTextType,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-  );
+  DecisionInputOutputText _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
+      DecisionInputOutputText(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as DecisionInputOutputTextType,
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+      );
 
-  factory DecisionInputOutputText.fromJson(Map<String, dynamic> json) => DecisionInputOutputText(
-    type_: (json['type'] != null ? DecisionInputOutputTextType.fromJson(json['type'] as String) : null)!,
-    text: (json['text'] as String?)!,
-  );
+  factory DecisionInputOutputText.fromJson(Map<String, dynamic> json) =>
+      DecisionInputOutputText(
+        type_: (json['type'] != null
+            ? DecisionInputOutputTextType.fromJson(json['type'] as String)
+            : null)!,
+        text: (json['text'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'text': text,
-  };
+        'type': type_.toJson(),
+        'text': text,
+      };
 }

@@ -8,6 +8,7 @@ part of 'audio.dart';
 class TranscriptionLanguage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The code of a language detected in the audio.
   final String code;
 
@@ -15,15 +16,17 @@ class TranscriptionLanguage {
 
   TranscriptionLanguage Function({String code}) get copyWith => _copyWith;
 
-  TranscriptionLanguage _copyWith({Object? code = sdkOmittedValue}) => TranscriptionLanguage(
-    code: identical(code, sdkOmittedValue) ? this.code : code as String,
-  );
+  TranscriptionLanguage _copyWith({Object? code = sdkOmittedValue}) =>
+      TranscriptionLanguage(
+        code: identical(code, sdkOmittedValue) ? this.code : code as String,
+      );
 
-  factory TranscriptionLanguage.fromJson(Map<String, dynamic> json) => TranscriptionLanguage(
-    code: (json['code'] as String?)!,
-  );
+  factory TranscriptionLanguage.fromJson(Map<String, dynamic> json) =>
+      TranscriptionLanguage(
+        code: (json['code'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'code': code,
-  };
+        'code': code,
+      };
 }

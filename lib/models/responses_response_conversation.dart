@@ -8,6 +8,7 @@ part of 'responses_response.dart';
 class ResponseConversation {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the conversation that this response was associated with.
   final String id;
 
@@ -15,15 +16,17 @@ class ResponseConversation {
 
   ResponseConversation Function({String id}) get copyWith => _copyWith;
 
-  ResponseConversation _copyWith({Object? id = sdkOmittedValue}) => ResponseConversation(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
+  ResponseConversation _copyWith({Object? id = sdkOmittedValue}) =>
+      ResponseConversation(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
 
-  factory ResponseConversation.fromJson(Map<String, dynamic> json) => ResponseConversation(
-    id: (json['id'] as String?)!,
-  );
+  factory ResponseConversation.fromJson(Map<String, dynamic> json) =>
+      ResponseConversation(
+        id: (json['id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-  };
+        'id': id,
+      };
 }

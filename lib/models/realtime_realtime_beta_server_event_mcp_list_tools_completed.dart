@@ -8,32 +8,53 @@ part of 'realtime_realtime_beta_server.dart';
 class RealtimeBetaServerEventMCPListToolsCompleted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the server event.
   final String eventId;
+
   /// The event type, must be `mcp_list_tools.completed`.
   final RealtimeBetaServerEventMCPListToolsCompletedType type_;
+
   /// The ID of the MCP list tools item.
   final String itemId;
 
-  const RealtimeBetaServerEventMCPListToolsCompleted({required this.eventId, required this.type_, required this.itemId});
+  const RealtimeBetaServerEventMCPListToolsCompleted(
+      {required this.eventId, required this.type_, required this.itemId});
 
-  RealtimeBetaServerEventMCPListToolsCompleted Function({String eventId, RealtimeBetaServerEventMCPListToolsCompletedType type_, String itemId}) get copyWith => _copyWith;
+  RealtimeBetaServerEventMCPListToolsCompleted Function(
+      {String eventId,
+      RealtimeBetaServerEventMCPListToolsCompletedType type_,
+      String itemId}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventMCPListToolsCompleted _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue}) => RealtimeBetaServerEventMCPListToolsCompleted(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventMCPListToolsCompletedType,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-  );
+  RealtimeBetaServerEventMCPListToolsCompleted _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue}) =>
+      RealtimeBetaServerEventMCPListToolsCompleted(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeBetaServerEventMCPListToolsCompletedType,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+      );
 
-  factory RealtimeBetaServerEventMCPListToolsCompleted.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventMCPListToolsCompleted(
-    eventId: (json['event_id'] as String?)!,
-    type_: (json['type'] != null ? RealtimeBetaServerEventMCPListToolsCompletedType.fromJson(json['type'] as String) : null)!,
-    itemId: (json['item_id'] as String?)!,
-  );
+  factory RealtimeBetaServerEventMCPListToolsCompleted.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeBetaServerEventMCPListToolsCompleted(
+        eventId: (json['event_id'] as String?)!,
+        type_: (json['type'] != null
+            ? RealtimeBetaServerEventMCPListToolsCompletedType.fromJson(
+                json['type'] as String)
+            : null)!,
+        itemId: (json['item_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    'type': type_.toJson(),
-    'item_id': itemId,
-  };
+        'event_id': eventId,
+        'type': type_.toJson(),
+        'item_id': itemId,
+      };
 }

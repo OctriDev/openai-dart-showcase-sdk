@@ -9,51 +9,81 @@ sealed class BetaWebSearchActionFindUrl {
   static const String constructionSurface = 'named';
   const BetaWebSearchActionFindUrl();
   factory BetaWebSearchActionFindUrl.fromJson(Object? json) {
-    if (json is String) { return BetaWebSearchActionFindUrlString(json); }
+    if (json is String) {
+      return BetaWebSearchActionFindUrlString(json);
+    }
     throw FormatException("No variant matched for BetaWebSearchActionFindUrl");
   }
   Object? toJson();
 }
 
-final class BetaWebSearchActionFindUrlString extends BetaWebSearchActionFindUrl {
+final class BetaWebSearchActionFindUrlString
+    extends BetaWebSearchActionFindUrl {
   final String value;
   const BetaWebSearchActionFindUrlString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// Action type "find_in_page": Searches for a pattern within a loaded page.
 class BetaWebSearchActionFind {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The action type.
   final BetaWebSearchActionFindType type_;
+
   /// The URL of the page searched for the pattern, when available.
   final SdkOptional<String?> url;
+
   /// The pattern or text to search for within the page.
   final String pattern;
 
-  const BetaWebSearchActionFind({required this.type_, this.url = const SdkOmitted(), required this.pattern});
+  const BetaWebSearchActionFind(
+      {required this.type_,
+      this.url = const SdkOmitted(),
+      required this.pattern});
 
-  BetaWebSearchActionFind Function({BetaWebSearchActionFindType type_, SdkOptional<String?> url, String pattern}) get copyWith => _copyWith;
+  BetaWebSearchActionFind Function(
+      {BetaWebSearchActionFindType type_,
+      SdkOptional<String?> url,
+      String pattern}) get copyWith => _copyWith;
 
-  BetaWebSearchActionFind _copyWith({Object? type_ = sdkOmittedValue, Object? url = sdkOmittedValue, Object? pattern = sdkOmittedValue}) => BetaWebSearchActionFind(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaWebSearchActionFindType,
-    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String?>,
-    pattern: identical(pattern, sdkOmittedValue) ? this.pattern : pattern as String,
-  );
+  BetaWebSearchActionFind _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? url = sdkOmittedValue,
+          Object? pattern = sdkOmittedValue}) =>
+      BetaWebSearchActionFind(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaWebSearchActionFindType,
+        url: identical(url, sdkOmittedValue)
+            ? this.url
+            : url as SdkOptional<String?>,
+        pattern: identical(pattern, sdkOmittedValue)
+            ? this.pattern
+            : pattern as String,
+      );
 
-  factory BetaWebSearchActionFind.fromJson(Map<String, dynamic> json) => BetaWebSearchActionFind(
-    type_: (json['type'] != null ? BetaWebSearchActionFindType.fromJson(json['type'] as String) : null)!,
-    url: json.containsKey('url') ? SdkPresent(json['url'] as String?) : const SdkOmitted(),
-    pattern: (json['pattern'] as String?)!,
-  );
+  factory BetaWebSearchActionFind.fromJson(Map<String, dynamic> json) =>
+      BetaWebSearchActionFind(
+        type_: (json['type'] != null
+            ? BetaWebSearchActionFindType.fromJson(json['type'] as String)
+            : null)!,
+        url: json.containsKey('url')
+            ? SdkPresent(json['url'] as String?)
+            : const SdkOmitted(),
+        pattern: (json['pattern'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (url) {
-      SdkPresent<String?>(value: final value) => {'url': value,},
-      _ => const <String, dynamic>{},
-    },
-    'pattern': pattern,
-  };
+        'type': type_.toJson(),
+        ...switch (url) {
+          SdkPresent<String?>(value: final value) => {
+              'url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'pattern': pattern,
+      };
 }

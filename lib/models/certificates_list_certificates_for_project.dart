@@ -8,42 +8,86 @@ part of 'certificates.dart';
 class ListProjectCertificatesResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required array value serialized in the `data` wire field.
   final List<OrganizationProjectCertificate> data;
+
   /// Required `string` value serialized in the `first_id` wire field.
   final String? firstId;
+
   /// Required `string` value serialized in the `last_id` wire field.
   final String? lastId;
+
   /// Required `boolean` value serialized in the `has_more` wire field.
   final bool hasMore;
+
   /// Required enumerated value serialized in the `object` wire field.
   final ListProjectCertificatesResponseObject object;
 
-  const ListProjectCertificatesResponse({required this.data, required this.firstId, required this.lastId, required this.hasMore, required this.object});
+  const ListProjectCertificatesResponse(
+      {required this.data,
+      required this.firstId,
+      required this.lastId,
+      required this.hasMore,
+      required this.object});
 
-  ListProjectCertificatesResponse Function({List<OrganizationProjectCertificate> data, String? firstId, String? lastId, bool hasMore, ListProjectCertificatesResponseObject object}) get copyWith => _copyWith;
+  ListProjectCertificatesResponse Function(
+      {List<OrganizationProjectCertificate> data,
+      String? firstId,
+      String? lastId,
+      bool hasMore,
+      ListProjectCertificatesResponseObject object}) get copyWith => _copyWith;
 
-  ListProjectCertificatesResponse _copyWith({Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue, Object? object = sdkOmittedValue}) => ListProjectCertificatesResponse(
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<OrganizationProjectCertificate>,
-    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String?,
-    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String?,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
-    object: identical(object, sdkOmittedValue) ? this.object : object as ListProjectCertificatesResponseObject,
-  );
+  ListProjectCertificatesResponse _copyWith(
+          {Object? data = sdkOmittedValue,
+          Object? firstId = sdkOmittedValue,
+          Object? lastId = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue,
+          Object? object = sdkOmittedValue}) =>
+      ListProjectCertificatesResponse(
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<OrganizationProjectCertificate>,
+        firstId: identical(firstId, sdkOmittedValue)
+            ? this.firstId
+            : firstId as String?,
+        lastId: identical(lastId, sdkOmittedValue)
+            ? this.lastId
+            : lastId as String?,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as bool,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ListProjectCertificatesResponseObject,
+      );
 
-  factory ListProjectCertificatesResponse.fromJson(Map<String, dynamic> json) => ListProjectCertificatesResponse(
-    data: ((json['data'] as List?)?.map((e) => OrganizationProjectCertificate.fromJson(e as Map<String, dynamic>)).toList())!,
-    firstId: json.containsKey('first_id') ? json['first_id'] as String? : throw ArgumentError.value(null, 'first_id', 'Required property is missing'),
-    lastId: json.containsKey('last_id') ? json['last_id'] as String? : throw ArgumentError.value(null, 'last_id', 'Required property is missing'),
-    hasMore: (json['has_more'] as bool?)!,
-    object: (json['object'] != null ? ListProjectCertificatesResponseObject.fromJson(json['object'] as String) : null)!,
-  );
+  factory ListProjectCertificatesResponse.fromJson(Map<String, dynamic> json) =>
+      ListProjectCertificatesResponse(
+        data: ((json['data'] as List?)
+            ?.map((e) => OrganizationProjectCertificate.fromJson(
+                e as Map<String, dynamic>))
+            .toList())!,
+        firstId: json.containsKey('first_id')
+            ? json['first_id'] as String?
+            : throw ArgumentError.value(
+                null, 'first_id', 'Required property is missing'),
+        lastId: json.containsKey('last_id')
+            ? json['last_id'] as String?
+            : throw ArgumentError.value(
+                null, 'last_id', 'Required property is missing'),
+        hasMore: (json['has_more'] as bool?)!,
+        object: (json['object'] != null
+            ? ListProjectCertificatesResponseObject.fromJson(
+                json['object'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'data': data.map((item) => item.toJson()).toList(),
-    'first_id': firstId,
-    'last_id': lastId,
-    'has_more': hasMore,
-    'object': object.toJson(),
-  };
+        'data': data.map((item) => item.toJson()).toList(),
+        'first_id': firstId,
+        'last_id': lastId,
+        'has_more': hasMore,
+        'object': object.toJson(),
+      };
 }

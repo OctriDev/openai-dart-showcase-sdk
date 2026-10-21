@@ -8,37 +8,66 @@ part of 'realtime_realtime_beta_server.dart';
 class RealtimeBetaServerEventInputAudioBufferSpeechStarted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the server event.
   final String eventId;
+
   /// The event type, must be `input_audio_buffer.speech_started`.
   final RealtimeBetaServerEventInputAudioBufferSpeechStartedType type_;
+
   /// Milliseconds from the start of all audio written to the buffer during the session when speech was first detected. This will correspond to the beginning of audio sent to the model, and thus includes the `prefix_padding_ms` configured in the Session.
   final int audioStartMs;
+
   /// The ID of the user message item that will be created when speech stops.
   final String itemId;
 
-  const RealtimeBetaServerEventInputAudioBufferSpeechStarted({required this.eventId, required this.type_, required this.audioStartMs, required this.itemId});
+  const RealtimeBetaServerEventInputAudioBufferSpeechStarted(
+      {required this.eventId,
+      required this.type_,
+      required this.audioStartMs,
+      required this.itemId});
 
-  RealtimeBetaServerEventInputAudioBufferSpeechStarted Function({String eventId, RealtimeBetaServerEventInputAudioBufferSpeechStartedType type_, int audioStartMs, String itemId}) get copyWith => _copyWith;
+  RealtimeBetaServerEventInputAudioBufferSpeechStarted Function(
+      {String eventId,
+      RealtimeBetaServerEventInputAudioBufferSpeechStartedType type_,
+      int audioStartMs,
+      String itemId}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventInputAudioBufferSpeechStarted _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? audioStartMs = sdkOmittedValue, Object? itemId = sdkOmittedValue}) => RealtimeBetaServerEventInputAudioBufferSpeechStarted(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventInputAudioBufferSpeechStartedType,
-    audioStartMs: identical(audioStartMs, sdkOmittedValue) ? this.audioStartMs : audioStartMs as int,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-  );
+  RealtimeBetaServerEventInputAudioBufferSpeechStarted _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? audioStartMs = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue}) =>
+      RealtimeBetaServerEventInputAudioBufferSpeechStarted(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeBetaServerEventInputAudioBufferSpeechStartedType,
+        audioStartMs: identical(audioStartMs, sdkOmittedValue)
+            ? this.audioStartMs
+            : audioStartMs as int,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+      );
 
-  factory RealtimeBetaServerEventInputAudioBufferSpeechStarted.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventInputAudioBufferSpeechStarted(
-    eventId: (json['event_id'] as String?)!,
-    type_: (json['type'] != null ? RealtimeBetaServerEventInputAudioBufferSpeechStartedType.fromJson(json['type'] as String) : null)!,
-    audioStartMs: ((json['audio_start_ms'] as num?)?.toInt())!,
-    itemId: (json['item_id'] as String?)!,
-  );
+  factory RealtimeBetaServerEventInputAudioBufferSpeechStarted.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeBetaServerEventInputAudioBufferSpeechStarted(
+        eventId: (json['event_id'] as String?)!,
+        type_: (json['type'] != null
+            ? RealtimeBetaServerEventInputAudioBufferSpeechStartedType.fromJson(
+                json['type'] as String)
+            : null)!,
+        audioStartMs: ((json['audio_start_ms'] as num?)?.toInt())!,
+        itemId: (json['item_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    'type': type_.toJson(),
-    'audio_start_ms': audioStartMs,
-    'item_id': itemId,
-  };
+        'event_id': eventId,
+        'type': type_.toJson(),
+        'audio_start_ms': audioStartMs,
+        'item_id': itemId,
+      };
 }

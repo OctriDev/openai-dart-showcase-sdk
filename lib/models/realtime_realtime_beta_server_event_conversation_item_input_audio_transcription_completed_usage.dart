@@ -8,34 +8,68 @@ sealed class RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompl
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage();
-  factory RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage.fromJson(Object? json) {
+  factory RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage.fromJson(
+      Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = TranscriptTextUsageTokens.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens(value); } } catch (_) {}
-      try { final value = TranscriptTextUsageDuration.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration(value); } } catch (_) {}
+      try {
+        final value = TranscriptTextUsageTokens.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = TranscriptTextUsageDuration.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens(TranscriptTextUsageTokens.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration(TranscriptTextUsageDuration.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"tokens", "duration"}.contains(json["type"])) { return UnknownRealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage(json); }
-    throw FormatException("No variant matched for RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage");
+    try {
+      return RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens(
+          TranscriptTextUsageTokens.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration(
+          TranscriptTextUsageDuration.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"tokens", "duration"}.contains(json["type"])) {
+      return UnknownRealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage(
+          json);
+    }
+    throw FormatException(
+        "No variant matched for RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage");
   }
   Object? toJson();
 }
 
-final class RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens extends RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage {
+final class RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens
+    extends RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage {
   final TranscriptTextUsageTokens value;
-  const RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageTokens(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration extends RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage {
+final class RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration
+    extends RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage {
   final TranscriptTextUsageDuration value;
-  const RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsageTranscriptTextUsageDuration(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownRealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage extends RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage {
+final class UnknownRealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage
+    extends RealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage {
   final Map<String, dynamic> raw;
-  const UnknownRealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage(this.raw);
-  @override Object? toJson() => raw;
+  const UnknownRealtimeBetaServerEventConversationItemInputAudioTranscriptionCompletedUsage(
+      this.raw);
+  @override
+  Object? toJson() => raw;
 }

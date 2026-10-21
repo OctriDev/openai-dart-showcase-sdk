@@ -8,46 +8,95 @@ part of 'fine_tuning.dart';
 class FineTuneMethod {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of method. Is either `supervised`, `dpo`, or `reinforcement`.
   final FineTuneMethodType type_;
+
   /// Configuration for the supervised fine-tuning method.
   final SdkOptional<FineTuneSupervisedMethod> supervised;
+
   /// Configuration for the DPO fine-tuning method.
   final SdkOptional<FineTuneDPOMethod> dpo;
+
   /// Configuration for the reinforcement fine-tuning method.
   final SdkOptional<FineTuneReinforcementMethod> reinforcement;
 
-  const FineTuneMethod({required this.type_, this.supervised = const SdkOmitted(), this.dpo = const SdkOmitted(), this.reinforcement = const SdkOmitted()});
+  const FineTuneMethod(
+      {required this.type_,
+      this.supervised = const SdkOmitted(),
+      this.dpo = const SdkOmitted(),
+      this.reinforcement = const SdkOmitted()});
 
-  FineTuneMethod Function({FineTuneMethodType type_, SdkOptional<FineTuneSupervisedMethod> supervised, SdkOptional<FineTuneDPOMethod> dpo, SdkOptional<FineTuneReinforcementMethod> reinforcement}) get copyWith => _copyWith;
+  FineTuneMethod Function(
+          {FineTuneMethodType type_,
+          SdkOptional<FineTuneSupervisedMethod> supervised,
+          SdkOptional<FineTuneDPOMethod> dpo,
+          SdkOptional<FineTuneReinforcementMethod> reinforcement})
+      get copyWith => _copyWith;
 
-  FineTuneMethod _copyWith({Object? type_ = sdkOmittedValue, Object? supervised = sdkOmittedValue, Object? dpo = sdkOmittedValue, Object? reinforcement = sdkOmittedValue}) => FineTuneMethod(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as FineTuneMethodType,
-    supervised: identical(supervised, sdkOmittedValue) ? this.supervised : supervised as SdkOptional<FineTuneSupervisedMethod>,
-    dpo: identical(dpo, sdkOmittedValue) ? this.dpo : dpo as SdkOptional<FineTuneDPOMethod>,
-    reinforcement: identical(reinforcement, sdkOmittedValue) ? this.reinforcement : reinforcement as SdkOptional<FineTuneReinforcementMethod>,
-  );
+  FineTuneMethod _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? supervised = sdkOmittedValue,
+          Object? dpo = sdkOmittedValue,
+          Object? reinforcement = sdkOmittedValue}) =>
+      FineTuneMethod(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as FineTuneMethodType,
+        supervised: identical(supervised, sdkOmittedValue)
+            ? this.supervised
+            : supervised as SdkOptional<FineTuneSupervisedMethod>,
+        dpo: identical(dpo, sdkOmittedValue)
+            ? this.dpo
+            : dpo as SdkOptional<FineTuneDPOMethod>,
+        reinforcement: identical(reinforcement, sdkOmittedValue)
+            ? this.reinforcement
+            : reinforcement as SdkOptional<FineTuneReinforcementMethod>,
+      );
 
   factory FineTuneMethod.fromJson(Map<String, dynamic> json) => FineTuneMethod(
-    type_: (json['type'] != null ? FineTuneMethodType.fromJson(json['type'] as String) : null)!,
-    supervised: json['supervised'] != null ? SdkPresent((json['supervised'] != null ? FineTuneSupervisedMethod.fromJson(json['supervised'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    dpo: json['dpo'] != null ? SdkPresent((json['dpo'] != null ? FineTuneDPOMethod.fromJson(json['dpo'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    reinforcement: json['reinforcement'] != null ? SdkPresent((json['reinforcement'] != null ? FineTuneReinforcementMethod.fromJson(json['reinforcement'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        type_: (json['type'] != null
+            ? FineTuneMethodType.fromJson(json['type'] as String)
+            : null)!,
+        supervised: json['supervised'] != null
+            ? SdkPresent((json['supervised'] != null
+                ? FineTuneSupervisedMethod.fromJson(
+                    json['supervised'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        dpo: json['dpo'] != null
+            ? SdkPresent((json['dpo'] != null
+                ? FineTuneDPOMethod.fromJson(
+                    json['dpo'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        reinforcement: json['reinforcement'] != null
+            ? SdkPresent((json['reinforcement'] != null
+                ? FineTuneReinforcementMethod.fromJson(
+                    json['reinforcement'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (supervised) {
-      SdkPresent<FineTuneSupervisedMethod>(value: final value) => {'supervised': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (dpo) {
-      SdkPresent<FineTuneDPOMethod>(value: final value) => {'dpo': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (reinforcement) {
-      SdkPresent<FineTuneReinforcementMethod>(value: final value) => {'reinforcement': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (supervised) {
+          SdkPresent<FineTuneSupervisedMethod>(value: final value) => {
+              'supervised': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (dpo) {
+          SdkPresent<FineTuneDPOMethod>(value: final value) => {
+              'dpo': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (reinforcement) {
+          SdkPresent<FineTuneReinforcementMethod>(value: final value) => {
+              'reinforcement': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

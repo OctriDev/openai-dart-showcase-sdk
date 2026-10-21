@@ -8,37 +8,67 @@ part of 'responses_beta_output.dart';
 class BetaOutputTextContent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the output text. Always `output_text`.
   final BetaOutputTextContentType type_;
+
   /// The text output from the model.
   final String text;
+
   /// The annotations of the text output.
   final List<BetaAnnotation> annotations;
+
   /// Required array value serialized in the `logprobs` wire field.
   final List<BetaLogProb> logprobs;
 
-  const BetaOutputTextContent({required this.type_, required this.text, required this.annotations, required this.logprobs});
+  const BetaOutputTextContent(
+      {required this.type_,
+      required this.text,
+      required this.annotations,
+      required this.logprobs});
 
-  BetaOutputTextContent Function({BetaOutputTextContentType type_, String text, List<BetaAnnotation> annotations, List<BetaLogProb> logprobs}) get copyWith => _copyWith;
+  BetaOutputTextContent Function(
+      {BetaOutputTextContentType type_,
+      String text,
+      List<BetaAnnotation> annotations,
+      List<BetaLogProb> logprobs}) get copyWith => _copyWith;
 
-  BetaOutputTextContent _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue, Object? annotations = sdkOmittedValue, Object? logprobs = sdkOmittedValue}) => BetaOutputTextContent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaOutputTextContentType,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-    annotations: identical(annotations, sdkOmittedValue) ? this.annotations : annotations as List<BetaAnnotation>,
-    logprobs: identical(logprobs, sdkOmittedValue) ? this.logprobs : logprobs as List<BetaLogProb>,
-  );
+  BetaOutputTextContent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? text = sdkOmittedValue,
+          Object? annotations = sdkOmittedValue,
+          Object? logprobs = sdkOmittedValue}) =>
+      BetaOutputTextContent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaOutputTextContentType,
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+        annotations: identical(annotations, sdkOmittedValue)
+            ? this.annotations
+            : annotations as List<BetaAnnotation>,
+        logprobs: identical(logprobs, sdkOmittedValue)
+            ? this.logprobs
+            : logprobs as List<BetaLogProb>,
+      );
 
-  factory BetaOutputTextContent.fromJson(Map<String, dynamic> json) => BetaOutputTextContent(
-    type_: (json['type'] != null ? BetaOutputTextContentType.fromJson(json['type'] as String) : null)!,
-    text: (json['text'] as String?)!,
-    annotations: ((json['annotations'] as List?)?.map((e) => BetaAnnotation.fromJson(e)).toList())!,
-    logprobs: ((json['logprobs'] as List?)?.map((e) => BetaLogProb.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+  factory BetaOutputTextContent.fromJson(Map<String, dynamic> json) =>
+      BetaOutputTextContent(
+        type_: (json['type'] != null
+            ? BetaOutputTextContentType.fromJson(json['type'] as String)
+            : null)!,
+        text: (json['text'] as String?)!,
+        annotations: ((json['annotations'] as List?)
+            ?.map((e) => BetaAnnotation.fromJson(e))
+            .toList())!,
+        logprobs: ((json['logprobs'] as List?)
+            ?.map((e) => BetaLogProb.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'text': text,
-    'annotations': annotations.map((item) => item.toJson()).toList(),
-    'logprobs': logprobs.map((item) => item.toJson()).toList(),
-  };
+        'type': type_.toJson(),
+        'text': text,
+        'annotations': annotations.map((item) => item.toJson()).toList(),
+        'logprobs': logprobs.map((item) => item.toJson()).toList(),
+      };
 }

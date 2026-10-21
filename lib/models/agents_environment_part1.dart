@@ -8,176 +8,289 @@ part of 'agents_environment.dart';
 class EnvironmentFileListResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The object type. Always `page`.
   final EnvironmentFilePageObjectResource object;
+
   /// Files available on the current page.
   final List<EnvironmentFileResource> data;
+
   /// The opaque cursor to use when requesting the next page, if any.
   final String? next;
+
   /// Whether more files follow this page.
   final bool hasMore;
 
-  const EnvironmentFileListResource({required this.object, required this.data, required this.next, required this.hasMore});
+  const EnvironmentFileListResource(
+      {required this.object,
+      required this.data,
+      required this.next,
+      required this.hasMore});
 
-  EnvironmentFileListResource Function({EnvironmentFilePageObjectResource object, List<EnvironmentFileResource> data, String? next, bool hasMore}) get copyWith => _copyWith;
+  EnvironmentFileListResource Function(
+      {EnvironmentFilePageObjectResource object,
+      List<EnvironmentFileResource> data,
+      String? next,
+      bool hasMore}) get copyWith => _copyWith;
 
-  EnvironmentFileListResource _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? next = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => EnvironmentFileListResource(
-    object: identical(object, sdkOmittedValue) ? this.object : object as EnvironmentFilePageObjectResource,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<EnvironmentFileResource>,
-    next: identical(next, sdkOmittedValue) ? this.next : next as String?,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
-  );
+  EnvironmentFileListResource _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? next = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue}) =>
+      EnvironmentFileListResource(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as EnvironmentFilePageObjectResource,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<EnvironmentFileResource>,
+        next: identical(next, sdkOmittedValue) ? this.next : next as String?,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as bool,
+      );
 
-  factory EnvironmentFileListResource.fromJson(Map<String, dynamic> json) => EnvironmentFileListResource(
-    object: (json['object'] != null ? EnvironmentFilePageObjectResource.fromJson(json['object'] as String) : null)!,
-    data: ((json['data'] as List?)?.map((e) => EnvironmentFileResource.fromJson(e as Map<String, dynamic>)).toList())!,
-    next: json.containsKey('next') ? json['next'] as String? : throw ArgumentError.value(null, 'next', 'Required property is missing'),
-    hasMore: (json['has_more'] as bool?)!,
-  );
+  factory EnvironmentFileListResource.fromJson(Map<String, dynamic> json) =>
+      EnvironmentFileListResource(
+        object: (json['object'] != null
+            ? EnvironmentFilePageObjectResource.fromJson(
+                json['object'] as String)
+            : null)!,
+        data: ((json['data'] as List?)
+            ?.map((e) =>
+                EnvironmentFileResource.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        next: json.containsKey('next')
+            ? json['next'] as String?
+            : throw ArgumentError.value(
+                null, 'next', 'Required property is missing'),
+        hasMore: (json['has_more'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'data': data.map((item) => item.toJson()).toList(),
-    'next': next,
-    'has_more': hasMore,
-  };
+        'object': object.toJson(),
+        'data': data.map((item) => item.toJson()).toList(),
+        'next': next,
+        'has_more': hasMore,
+      };
 }
 
 /// The object type for a page of files in an execution environment.
 final class EnvironmentFilePageObjectResource {
-
   final String value;
 
   const EnvironmentFilePageObjectResource._(this.value);
 
-  factory EnvironmentFilePageObjectResource.fromJson(String value) => EnvironmentFilePageObjectResource._(value);
+  factory EnvironmentFilePageObjectResource.fromJson(String value) =>
+      EnvironmentFilePageObjectResource._(value);
 
   static const page = EnvironmentFilePageObjectResource._('page');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is EnvironmentFilePageObjectResource && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is EnvironmentFilePageObjectResource && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// A live file in an execution environment.
 class EnvironmentFileResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The object type. Always `agent.environment.file`.
   final EnvironmentFileResourceObject object;
+
   /// The ID of the environment containing this file.
   final String environmentId;
+
   /// The absolute file path inside the environment's workspace.
   final String path;
+
   /// The file size in bytes.
   final int sizeBytes;
 
-  const EnvironmentFileResource({required this.object, required this.environmentId, required this.path, required this.sizeBytes});
+  const EnvironmentFileResource(
+      {required this.object,
+      required this.environmentId,
+      required this.path,
+      required this.sizeBytes});
 
-  EnvironmentFileResource Function({EnvironmentFileResourceObject object, String environmentId, String path, int sizeBytes}) get copyWith => _copyWith;
+  EnvironmentFileResource Function(
+      {EnvironmentFileResourceObject object,
+      String environmentId,
+      String path,
+      int sizeBytes}) get copyWith => _copyWith;
 
-  EnvironmentFileResource _copyWith({Object? object = sdkOmittedValue, Object? environmentId = sdkOmittedValue, Object? path = sdkOmittedValue, Object? sizeBytes = sdkOmittedValue}) => EnvironmentFileResource(
-    object: identical(object, sdkOmittedValue) ? this.object : object as EnvironmentFileResourceObject,
-    environmentId: identical(environmentId, sdkOmittedValue) ? this.environmentId : environmentId as String,
-    path: identical(path, sdkOmittedValue) ? this.path : path as String,
-    sizeBytes: identical(sizeBytes, sdkOmittedValue) ? this.sizeBytes : sizeBytes as int,
-  );
+  EnvironmentFileResource _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? environmentId = sdkOmittedValue,
+          Object? path = sdkOmittedValue,
+          Object? sizeBytes = sdkOmittedValue}) =>
+      EnvironmentFileResource(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as EnvironmentFileResourceObject,
+        environmentId: identical(environmentId, sdkOmittedValue)
+            ? this.environmentId
+            : environmentId as String,
+        path: identical(path, sdkOmittedValue) ? this.path : path as String,
+        sizeBytes: identical(sizeBytes, sdkOmittedValue)
+            ? this.sizeBytes
+            : sizeBytes as int,
+      );
 
-  factory EnvironmentFileResource.fromJson(Map<String, dynamic> json) => EnvironmentFileResource(
-    object: (json['object'] != null ? EnvironmentFileResourceObject.fromJson(json['object'] as String) : null)!,
-    environmentId: (json['environment_id'] as String?)!,
-    path: (json['path'] as String?)!,
-    sizeBytes: ((json['size_bytes'] as num?)?.toInt())!,
-  );
+  factory EnvironmentFileResource.fromJson(Map<String, dynamic> json) =>
+      EnvironmentFileResource(
+        object: (json['object'] != null
+            ? EnvironmentFileResourceObject.fromJson(json['object'] as String)
+            : null)!,
+        environmentId: (json['environment_id'] as String?)!,
+        path: (json['path'] as String?)!,
+        sizeBytes: ((json['size_bytes'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'environment_id': environmentId,
-    'path': path,
-    'size_bytes': sizeBytes,
-  };
+        'object': object.toJson(),
+        'environment_id': environmentId,
+        'path': path,
+        'size_bytes': sizeBytes,
+      };
 }
 
 /// Packages to install in an OpenAI-hosted environment.
 class EnvironmentPackagesParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Python packages to install. Defaults to an empty list.
   final SdkOptional<List<String>?> python;
+
   /// System packages to install. Defaults to an empty list.
   final SdkOptional<List<String>?> system;
+
   /// npm packages to install globally. Defaults to an empty list.
   final SdkOptional<List<String>?> npm;
 
-  const EnvironmentPackagesParam({this.python = const SdkOmitted(), this.system = const SdkOmitted(), this.npm = const SdkOmitted()});
+  const EnvironmentPackagesParam(
+      {this.python = const SdkOmitted(),
+      this.system = const SdkOmitted(),
+      this.npm = const SdkOmitted()});
 
-  EnvironmentPackagesParam Function({SdkOptional<List<String>?> python, SdkOptional<List<String>?> system, SdkOptional<List<String>?> npm}) get copyWith => _copyWith;
+  EnvironmentPackagesParam Function(
+      {SdkOptional<List<String>?> python,
+      SdkOptional<List<String>?> system,
+      SdkOptional<List<String>?> npm}) get copyWith => _copyWith;
 
-  EnvironmentPackagesParam _copyWith({Object? python = sdkOmittedValue, Object? system = sdkOmittedValue, Object? npm = sdkOmittedValue}) => EnvironmentPackagesParam(
-    python: identical(python, sdkOmittedValue) ? this.python : python as SdkOptional<List<String>?>,
-    system: identical(system, sdkOmittedValue) ? this.system : system as SdkOptional<List<String>?>,
-    npm: identical(npm, sdkOmittedValue) ? this.npm : npm as SdkOptional<List<String>?>,
-  );
+  EnvironmentPackagesParam _copyWith(
+          {Object? python = sdkOmittedValue,
+          Object? system = sdkOmittedValue,
+          Object? npm = sdkOmittedValue}) =>
+      EnvironmentPackagesParam(
+        python: identical(python, sdkOmittedValue)
+            ? this.python
+            : python as SdkOptional<List<String>?>,
+        system: identical(system, sdkOmittedValue)
+            ? this.system
+            : system as SdkOptional<List<String>?>,
+        npm: identical(npm, sdkOmittedValue)
+            ? this.npm
+            : npm as SdkOptional<List<String>?>,
+      );
 
-  factory EnvironmentPackagesParam.fromJson(Map<String, dynamic> json) => EnvironmentPackagesParam(
-    python: json.containsKey('python') ? SdkPresent((json['python'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
-    system: json.containsKey('system') ? SdkPresent((json['system'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
-    npm: json.containsKey('npm') ? SdkPresent((json['npm'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
-  );
+  factory EnvironmentPackagesParam.fromJson(Map<String, dynamic> json) =>
+      EnvironmentPackagesParam(
+        python: json.containsKey('python')
+            ? SdkPresent(
+                (json['python'] as List?)?.map((e) => e as String).toList())
+            : const SdkOmitted(),
+        system: json.containsKey('system')
+            ? SdkPresent(
+                (json['system'] as List?)?.map((e) => e as String).toList())
+            : const SdkOmitted(),
+        npm: json.containsKey('npm')
+            ? SdkPresent(
+                (json['npm'] as List?)?.map((e) => e as String).toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (python) {
-      SdkPresent<List<String>?>(value: final value) => {'python': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (system) {
-      SdkPresent<List<String>?>(value: final value) => {'system': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (npm) {
-      SdkPresent<List<String>?>(value: final value) => {'npm': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (python) {
+          SdkPresent<List<String>?>(value: final value) => {
+              'python': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (system) {
+          SdkPresent<List<String>?>(value: final value) => {
+              'system': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (npm) {
+          SdkPresent<List<String>?>(value: final value) => {
+              'npm': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Packages installed in an OpenAI-hosted environment.
 class EnvironmentPackagesResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Python packages installed in the environment.
   final List<String> python;
+
   /// System packages installed in the environment.
   final List<String> system;
+
   /// npm packages installed globally in the environment.
   final List<String> npm;
 
-  const EnvironmentPackagesResource({required this.python, required this.system, required this.npm});
+  const EnvironmentPackagesResource(
+      {required this.python, required this.system, required this.npm});
 
-  EnvironmentPackagesResource Function({List<String> python, List<String> system, List<String> npm}) get copyWith => _copyWith;
+  EnvironmentPackagesResource Function(
+      {List<String> python,
+      List<String> system,
+      List<String> npm}) get copyWith => _copyWith;
 
-  EnvironmentPackagesResource _copyWith({Object? python = sdkOmittedValue, Object? system = sdkOmittedValue, Object? npm = sdkOmittedValue}) => EnvironmentPackagesResource(
-    python: identical(python, sdkOmittedValue) ? this.python : python as List<String>,
-    system: identical(system, sdkOmittedValue) ? this.system : system as List<String>,
-    npm: identical(npm, sdkOmittedValue) ? this.npm : npm as List<String>,
-  );
+  EnvironmentPackagesResource _copyWith(
+          {Object? python = sdkOmittedValue,
+          Object? system = sdkOmittedValue,
+          Object? npm = sdkOmittedValue}) =>
+      EnvironmentPackagesResource(
+        python: identical(python, sdkOmittedValue)
+            ? this.python
+            : python as List<String>,
+        system: identical(system, sdkOmittedValue)
+            ? this.system
+            : system as List<String>,
+        npm: identical(npm, sdkOmittedValue) ? this.npm : npm as List<String>,
+      );
 
-  factory EnvironmentPackagesResource.fromJson(Map<String, dynamic> json) => EnvironmentPackagesResource(
-    python: ((json['python'] as List?)?.map((e) => e as String).toList())!,
-    system: ((json['system'] as List?)?.map((e) => e as String).toList())!,
-    npm: ((json['npm'] as List?)?.map((e) => e as String).toList())!,
-  );
+  factory EnvironmentPackagesResource.fromJson(Map<String, dynamic> json) =>
+      EnvironmentPackagesResource(
+        python: ((json['python'] as List?)?.map((e) => e as String).toList())!,
+        system: ((json['system'] as List?)?.map((e) => e as String).toList())!,
+        npm: ((json['npm'] as List?)?.map((e) => e as String).toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'python': python,
-    'system': system,
-    'npm': npm,
-  };
+        'python': python,
+        'system': system,
+        'npm': npm,
+      };
 }
 
 sealed class EnvironmentParam {
@@ -186,14 +299,43 @@ sealed class EnvironmentParam {
   const EnvironmentParam();
   factory EnvironmentParam.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = EnvironmentParamNone.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EnvironmentParamEnvironmentParamNone(value); } } catch (_) {}
-      try { final value = EnvironmentParamOpenaiHosted.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EnvironmentParamEnvironmentParamOpenaiHosted(value); } } catch (_) {}
-      try { final value = EnvironmentParamSelfHosted.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EnvironmentParamEnvironmentParamSelfHosted(value); } } catch (_) {}
+      try {
+        final value = EnvironmentParamNone.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EnvironmentParamEnvironmentParamNone(value);
+        }
+      } catch (_) {}
+      try {
+        final value = EnvironmentParamOpenaiHosted.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EnvironmentParamEnvironmentParamOpenaiHosted(value);
+        }
+      } catch (_) {}
+      try {
+        final value = EnvironmentParamSelfHosted.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EnvironmentParamEnvironmentParamSelfHosted(value);
+        }
+      } catch (_) {}
     }
-    try { return EnvironmentParamEnvironmentParamNone(EnvironmentParamNone.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return EnvironmentParamEnvironmentParamOpenaiHosted(EnvironmentParamOpenaiHosted.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return EnvironmentParamEnvironmentParamSelfHosted(EnvironmentParamSelfHosted.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"none", "openai_hosted", "self_hosted"}.contains(json["type"])) { return UnknownEnvironmentParam(json); }
+    try {
+      return EnvironmentParamEnvironmentParamNone(
+          EnvironmentParamNone.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return EnvironmentParamEnvironmentParamOpenaiHosted(
+          EnvironmentParamOpenaiHosted.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return EnvironmentParamEnvironmentParamSelfHosted(
+          EnvironmentParamSelfHosted.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"none", "openai_hosted", "self_hosted"}
+            .contains(json["type"])) {
+      return UnknownEnvironmentParam(json);
+    }
     throw FormatException("No variant matched for EnvironmentParam");
   }
   Object? toJson();
@@ -202,48 +344,62 @@ sealed class EnvironmentParam {
 final class EnvironmentParamEnvironmentParamNone extends EnvironmentParam {
   final EnvironmentParamNone value;
   const EnvironmentParamEnvironmentParamNone(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class EnvironmentParamEnvironmentParamOpenaiHosted extends EnvironmentParam {
+final class EnvironmentParamEnvironmentParamOpenaiHosted
+    extends EnvironmentParam {
   final EnvironmentParamOpenaiHosted value;
   const EnvironmentParamEnvironmentParamOpenaiHosted(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class EnvironmentParamEnvironmentParamSelfHosted extends EnvironmentParam {
+final class EnvironmentParamEnvironmentParamSelfHosted
+    extends EnvironmentParam {
   final EnvironmentParamSelfHosted value;
   const EnvironmentParamEnvironmentParamSelfHosted(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [EnvironmentParam] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownEnvironmentParam extends EnvironmentParam {
   final Map<String, dynamic> raw;
   const UnknownEnvironmentParam(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// Runs the agent without an execution environment.
 class EnvironmentParamNone {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `none`.
   final EnvironmentParamNoneType type_;
 
   const EnvironmentParamNone({required this.type_});
 
-  EnvironmentParamNone Function({EnvironmentParamNoneType type_}) get copyWith => _copyWith;
+  EnvironmentParamNone Function({EnvironmentParamNoneType type_})
+      get copyWith => _copyWith;
 
-  EnvironmentParamNone _copyWith({Object? type_ = sdkOmittedValue}) => EnvironmentParamNone(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as EnvironmentParamNoneType,
-  );
+  EnvironmentParamNone _copyWith({Object? type_ = sdkOmittedValue}) =>
+      EnvironmentParamNone(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as EnvironmentParamNoneType,
+      );
 
-  factory EnvironmentParamNone.fromJson(Map<String, dynamic> json) => EnvironmentParamNone(
-    type_: (json['type'] != null ? EnvironmentParamNoneType.fromJson(json['type'] as String) : null)!,
-  );
+  factory EnvironmentParamNone.fromJson(Map<String, dynamic> json) =>
+      EnvironmentParamNone(
+        type_: (json['type'] != null
+            ? EnvironmentParamNoneType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }

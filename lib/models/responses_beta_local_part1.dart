@@ -8,166 +8,300 @@ part of 'responses_beta_local.dart';
 class BetaLocalEnvironmentParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Use a local computer environment.
   final BetaLocalEnvironmentParamType type_;
+
   /// An optional list of skills.
   final SdkOptional<List<BetaLocalSkillParam>> skills;
 
-  const BetaLocalEnvironmentParam({required this.type_, this.skills = const SdkOmitted()});
+  const BetaLocalEnvironmentParam(
+      {required this.type_, this.skills = const SdkOmitted()});
 
-  BetaLocalEnvironmentParam Function({BetaLocalEnvironmentParamType type_, SdkOptional<List<BetaLocalSkillParam>> skills}) get copyWith => _copyWith;
+  BetaLocalEnvironmentParam Function(
+      {BetaLocalEnvironmentParamType type_,
+      SdkOptional<List<BetaLocalSkillParam>> skills}) get copyWith => _copyWith;
 
-  BetaLocalEnvironmentParam _copyWith({Object? type_ = sdkOmittedValue, Object? skills = sdkOmittedValue}) => BetaLocalEnvironmentParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaLocalEnvironmentParamType,
-    skills: identical(skills, sdkOmittedValue) ? this.skills : skills as SdkOptional<List<BetaLocalSkillParam>>,
-  );
+  BetaLocalEnvironmentParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? skills = sdkOmittedValue}) =>
+      BetaLocalEnvironmentParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaLocalEnvironmentParamType,
+        skills: identical(skills, sdkOmittedValue)
+            ? this.skills
+            : skills as SdkOptional<List<BetaLocalSkillParam>>,
+      );
 
-  factory BetaLocalEnvironmentParam.fromJson(Map<String, dynamic> json) => BetaLocalEnvironmentParam(
-    type_: (json['type'] != null ? BetaLocalEnvironmentParamType.fromJson(json['type'] as String) : null)!,
-    skills: json['skills'] != null ? SdkPresent(((json['skills'] as List?)?.map((e) => BetaLocalSkillParam.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory BetaLocalEnvironmentParam.fromJson(Map<String, dynamic> json) =>
+      BetaLocalEnvironmentParam(
+        type_: (json['type'] != null
+            ? BetaLocalEnvironmentParamType.fromJson(json['type'] as String)
+            : null)!,
+        skills: json['skills'] != null
+            ? SdkPresent(((json['skills'] as List?)
+                ?.map((e) =>
+                    BetaLocalSkillParam.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (skills) {
-      SdkPresent<List<BetaLocalSkillParam>>(value: final value) => {'skills': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (skills) {
+          SdkPresent<List<BetaLocalSkillParam>>(value: final value) => {
+              'skills': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Represents the use of a local environment to perform shell actions.
 class BetaLocalEnvironmentResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The environment type. Always `local`.
   final BetaLocalEnvironmentResourceType type_;
 
   const BetaLocalEnvironmentResource({required this.type_});
 
-  BetaLocalEnvironmentResource Function({BetaLocalEnvironmentResourceType type_}) get copyWith => _copyWith;
+  BetaLocalEnvironmentResource Function(
+      {BetaLocalEnvironmentResourceType type_}) get copyWith => _copyWith;
 
-  BetaLocalEnvironmentResource _copyWith({Object? type_ = sdkOmittedValue}) => BetaLocalEnvironmentResource(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaLocalEnvironmentResourceType,
-  );
+  BetaLocalEnvironmentResource _copyWith({Object? type_ = sdkOmittedValue}) =>
+      BetaLocalEnvironmentResource(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaLocalEnvironmentResourceType,
+      );
 
-  factory BetaLocalEnvironmentResource.fromJson(Map<String, dynamic> json) => BetaLocalEnvironmentResource(
-    type_: (json['type'] != null ? BetaLocalEnvironmentResourceType.fromJson(json['type'] as String) : null)!,
-  );
+  factory BetaLocalEnvironmentResource.fromJson(Map<String, dynamic> json) =>
+      BetaLocalEnvironmentResource(
+        type_: (json['type'] != null
+            ? BetaLocalEnvironmentResourceType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 /// Execute a shell command on the server.
 class BetaLocalShellExecAction {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the local shell action. Always `exec`.
   final BetaLocalShellExecActionType type_;
+
   /// The command to run.
   final List<String> command;
+
   /// Optional `integer` value serialized in the `timeout_ms` wire field.
   final SdkOptional<int?> timeoutMs;
+
   /// Optional `string` value serialized in the `working_directory` wire field.
   final SdkOptional<String?> workingDirectory;
+
   /// Environment variables to set for the command.
   final Map<String, String> env;
+
   /// Optional `string` value serialized in the `user` wire field.
   final SdkOptional<String?> user;
 
-  const BetaLocalShellExecAction({required this.type_, required this.command, this.timeoutMs = const SdkOmitted(), this.workingDirectory = const SdkOmitted(), required this.env, this.user = const SdkOmitted()});
+  const BetaLocalShellExecAction(
+      {required this.type_,
+      required this.command,
+      this.timeoutMs = const SdkOmitted(),
+      this.workingDirectory = const SdkOmitted(),
+      required this.env,
+      this.user = const SdkOmitted()});
 
-  BetaLocalShellExecAction Function({BetaLocalShellExecActionType type_, List<String> command, SdkOptional<int?> timeoutMs, SdkOptional<String?> workingDirectory, Map<String, String> env, SdkOptional<String?> user}) get copyWith => _copyWith;
+  BetaLocalShellExecAction Function(
+      {BetaLocalShellExecActionType type_,
+      List<String> command,
+      SdkOptional<int?> timeoutMs,
+      SdkOptional<String?> workingDirectory,
+      Map<String, String> env,
+      SdkOptional<String?> user}) get copyWith => _copyWith;
 
-  BetaLocalShellExecAction _copyWith({Object? type_ = sdkOmittedValue, Object? command = sdkOmittedValue, Object? timeoutMs = sdkOmittedValue, Object? workingDirectory = sdkOmittedValue, Object? env = sdkOmittedValue, Object? user = sdkOmittedValue}) => BetaLocalShellExecAction(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaLocalShellExecActionType,
-    command: identical(command, sdkOmittedValue) ? this.command : command as List<String>,
-    timeoutMs: identical(timeoutMs, sdkOmittedValue) ? this.timeoutMs : timeoutMs as SdkOptional<int?>,
-    workingDirectory: identical(workingDirectory, sdkOmittedValue) ? this.workingDirectory : workingDirectory as SdkOptional<String?>,
-    env: identical(env, sdkOmittedValue) ? this.env : env as Map<String, String>,
-    user: identical(user, sdkOmittedValue) ? this.user : user as SdkOptional<String?>,
-  );
+  BetaLocalShellExecAction _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? command = sdkOmittedValue,
+          Object? timeoutMs = sdkOmittedValue,
+          Object? workingDirectory = sdkOmittedValue,
+          Object? env = sdkOmittedValue,
+          Object? user = sdkOmittedValue}) =>
+      BetaLocalShellExecAction(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaLocalShellExecActionType,
+        command: identical(command, sdkOmittedValue)
+            ? this.command
+            : command as List<String>,
+        timeoutMs: identical(timeoutMs, sdkOmittedValue)
+            ? this.timeoutMs
+            : timeoutMs as SdkOptional<int?>,
+        workingDirectory: identical(workingDirectory, sdkOmittedValue)
+            ? this.workingDirectory
+            : workingDirectory as SdkOptional<String?>,
+        env: identical(env, sdkOmittedValue)
+            ? this.env
+            : env as Map<String, String>,
+        user: identical(user, sdkOmittedValue)
+            ? this.user
+            : user as SdkOptional<String?>,
+      );
 
-  factory BetaLocalShellExecAction.fromJson(Map<String, dynamic> json) => BetaLocalShellExecAction(
-    type_: (json['type'] != null ? BetaLocalShellExecActionType.fromJson(json['type'] as String) : null)!,
-    command: ((json['command'] as List?)?.map((e) => e as String).toList())!,
-    timeoutMs: json.containsKey('timeout_ms') ? SdkPresent((json['timeout_ms'] as num?)?.toInt()) : const SdkOmitted(),
-    workingDirectory: json.containsKey('working_directory') ? SdkPresent(json['working_directory'] as String?) : const SdkOmitted(),
-    env: (json['env'] == null ? null : Map<String, dynamic>.from(json['env'] as Map).map((key, value) => MapEntry(key, value as String)))!,
-    user: json.containsKey('user') ? SdkPresent(json['user'] as String?) : const SdkOmitted(),
-  );
+  factory BetaLocalShellExecAction.fromJson(Map<String, dynamic> json) =>
+      BetaLocalShellExecAction(
+        type_: (json['type'] != null
+            ? BetaLocalShellExecActionType.fromJson(json['type'] as String)
+            : null)!,
+        command:
+            ((json['command'] as List?)?.map((e) => e as String).toList())!,
+        timeoutMs: json.containsKey('timeout_ms')
+            ? SdkPresent((json['timeout_ms'] as num?)?.toInt())
+            : const SdkOmitted(),
+        workingDirectory: json.containsKey('working_directory')
+            ? SdkPresent(json['working_directory'] as String?)
+            : const SdkOmitted(),
+        env: (json['env'] == null
+            ? null
+            : Map<String, dynamic>.from(json['env'] as Map)
+                .map((key, value) => MapEntry(key, value as String)))!,
+        user: json.containsKey('user')
+            ? SdkPresent(json['user'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'command': command,
-    ...switch (timeoutMs) {
-      SdkPresent<int?>(value: final value) => {'timeout_ms': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (workingDirectory) {
-      SdkPresent<String?>(value: final value) => {'working_directory': value,},
-      _ => const <String, dynamic>{},
-    },
-    'env': env,
-    ...switch (user) {
-      SdkPresent<String?>(value: final value) => {'user': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'command': command,
+        ...switch (timeoutMs) {
+          SdkPresent<int?>(value: final value) => {
+              'timeout_ms': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (workingDirectory) {
+          SdkPresent<String?>(value: final value) => {
+              'working_directory': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'env': env,
+        ...switch (user) {
+          SdkPresent<String?>(value: final value) => {
+              'user': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A tool call to run a command on the local shell.
 class BetaLocalShellToolCall {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that produced this item.
   final SdkOptional<BetaAgentTag?> agent;
+
   /// The type of the local shell call. Always `local_shell_call`.
   final BetaLocalShellToolCallType type_;
+
   /// The unique ID of the local shell call.
   final String id;
+
   /// The unique ID of the local shell tool call generated by the model.
   final String callId;
+
   /// Execute a shell command on the server.
   final BetaLocalShellExecAction action;
+
   /// The status of the local shell call.
   final BetaLocalShellToolCallStatus status;
 
-  const BetaLocalShellToolCall({this.agent = const SdkOmitted(), required this.type_, required this.id, required this.callId, required this.action, required this.status});
+  const BetaLocalShellToolCall(
+      {this.agent = const SdkOmitted(),
+      required this.type_,
+      required this.id,
+      required this.callId,
+      required this.action,
+      required this.status});
 
-  BetaLocalShellToolCall Function({SdkOptional<BetaAgentTag?> agent, BetaLocalShellToolCallType type_, String id, String callId, BetaLocalShellExecAction action, BetaLocalShellToolCallStatus status}) get copyWith => _copyWith;
+  BetaLocalShellToolCall Function(
+      {SdkOptional<BetaAgentTag?> agent,
+      BetaLocalShellToolCallType type_,
+      String id,
+      String callId,
+      BetaLocalShellExecAction action,
+      BetaLocalShellToolCallStatus status}) get copyWith => _copyWith;
 
-  BetaLocalShellToolCall _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? action = sdkOmittedValue, Object? status = sdkOmittedValue}) => BetaLocalShellToolCall(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaLocalShellToolCallType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-    action: identical(action, sdkOmittedValue) ? this.action : action as BetaLocalShellExecAction,
-    status: identical(status, sdkOmittedValue) ? this.status : status as BetaLocalShellToolCallStatus,
-  );
+  BetaLocalShellToolCall _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? callId = sdkOmittedValue,
+          Object? action = sdkOmittedValue,
+          Object? status = sdkOmittedValue}) =>
+      BetaLocalShellToolCall(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaLocalShellToolCallType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        callId:
+            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+        action: identical(action, sdkOmittedValue)
+            ? this.action
+            : action as BetaLocalShellExecAction,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as BetaLocalShellToolCallStatus,
+      );
 
-  factory BetaLocalShellToolCall.fromJson(Map<String, dynamic> json) => BetaLocalShellToolCall(
-    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    type_: (json['type'] != null ? BetaLocalShellToolCallType.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    callId: (json['call_id'] as String?)!,
-    action: (json['action'] != null ? BetaLocalShellExecAction.fromJson(json['action'] as Map<String, dynamic>) : null)!,
-    status: (json['status'] != null ? BetaLocalShellToolCallStatus.fromJson(json['status'] as String) : null)!,
-  );
+  factory BetaLocalShellToolCall.fromJson(Map<String, dynamic> json) =>
+      BetaLocalShellToolCall(
+        agent: json.containsKey('agent')
+            ? SdkPresent(json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? BetaLocalShellToolCallType.fromJson(json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        callId: (json['call_id'] as String?)!,
+        action: (json['action'] != null
+            ? BetaLocalShellExecAction.fromJson(
+                json['action'] as Map<String, dynamic>)
+            : null)!,
+        status: (json['status'] != null
+            ? BetaLocalShellToolCallStatus.fromJson(json['status'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'id': id,
-    'call_id': callId,
-    'action': action.toJson(),
-    'status': status.toJson(),
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag?>(value: final value) => {
+              'agent': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'id': id,
+        'call_id': callId,
+        'action': action.toJson(),
+        'status': status.toJson(),
+      };
 }
 
 sealed class BetaLocalShellToolCallOutputStatus {
@@ -175,122 +309,198 @@ sealed class BetaLocalShellToolCallOutputStatus {
   static const String constructionSurface = 'named';
   const BetaLocalShellToolCallOutputStatus();
   factory BetaLocalShellToolCallOutputStatus.fromJson(Object? json) {
-    try { return BetaLocalShellToolCallOutputStatusBetaLocalShellToolCallOutputStatusVariant0(BetaLocalShellToolCallOutputStatusVariant0.fromJson(json as String)); } catch (_) {}
-    throw FormatException("No variant matched for BetaLocalShellToolCallOutputStatus");
+    try {
+      return BetaLocalShellToolCallOutputStatusBetaLocalShellToolCallOutputStatusVariant0(
+          BetaLocalShellToolCallOutputStatusVariant0.fromJson(json as String));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for BetaLocalShellToolCallOutputStatus");
   }
   Object? toJson();
 }
 
-final class BetaLocalShellToolCallOutputStatusBetaLocalShellToolCallOutputStatusVariant0 extends BetaLocalShellToolCallOutputStatus {
+final class BetaLocalShellToolCallOutputStatusBetaLocalShellToolCallOutputStatusVariant0
+    extends BetaLocalShellToolCallOutputStatus {
   final BetaLocalShellToolCallOutputStatusVariant0 value;
-  const BetaLocalShellToolCallOutputStatusBetaLocalShellToolCallOutputStatusVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaLocalShellToolCallOutputStatusBetaLocalShellToolCallOutputStatusVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// The output of a local shell tool call.
 class BetaLocalShellToolCallOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that produced this item.
   final SdkOptional<BetaAgentTag?> agent;
+
   /// The type of the local shell tool call output. Always `local_shell_call_output`.
   final BetaLocalShellToolCallOutputType type_;
+
   /// The unique ID of the local shell tool call generated by the model.
   final String id;
+
   /// A JSON string of the output of the local shell tool call.
   final String output;
+
   /// Optional API value serialized in the `status` wire field.
   final SdkOptional<BetaLocalShellToolCallOutputStatusVariant0?> status;
 
-  const BetaLocalShellToolCallOutput({this.agent = const SdkOmitted(), required this.type_, required this.id, required this.output, this.status = const SdkOmitted()});
+  const BetaLocalShellToolCallOutput(
+      {this.agent = const SdkOmitted(),
+      required this.type_,
+      required this.id,
+      required this.output,
+      this.status = const SdkOmitted()});
 
-  BetaLocalShellToolCallOutput Function({SdkOptional<BetaAgentTag?> agent, BetaLocalShellToolCallOutputType type_, String id, String output, SdkOptional<BetaLocalShellToolCallOutputStatusVariant0?> status}) get copyWith => _copyWith;
+  BetaLocalShellToolCallOutput Function(
+          {SdkOptional<BetaAgentTag?> agent,
+          BetaLocalShellToolCallOutputType type_,
+          String id,
+          String output,
+          SdkOptional<BetaLocalShellToolCallOutputStatusVariant0?> status})
+      get copyWith => _copyWith;
 
-  BetaLocalShellToolCallOutput _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? output = sdkOmittedValue, Object? status = sdkOmittedValue}) => BetaLocalShellToolCallOutput(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaLocalShellToolCallOutputType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    output: identical(output, sdkOmittedValue) ? this.output : output as String,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<BetaLocalShellToolCallOutputStatusVariant0?>,
-  );
+  BetaLocalShellToolCallOutput _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? output = sdkOmittedValue,
+          Object? status = sdkOmittedValue}) =>
+      BetaLocalShellToolCallOutput(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaLocalShellToolCallOutputType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        output:
+            identical(output, sdkOmittedValue) ? this.output : output as String,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status
+                as SdkOptional<BetaLocalShellToolCallOutputStatusVariant0?>,
+      );
 
-  factory BetaLocalShellToolCallOutput.fromJson(Map<String, dynamic> json) => BetaLocalShellToolCallOutput(
-    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    type_: (json['type'] != null ? BetaLocalShellToolCallOutputType.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    output: (json['output'] as String?)!,
-    status: json.containsKey('status') ? SdkPresent(json['status'] != null ? BetaLocalShellToolCallOutputStatusVariant0.fromJson(json['status'] as String) : null) : const SdkOmitted(),
-  );
+  factory BetaLocalShellToolCallOutput.fromJson(Map<String, dynamic> json) =>
+      BetaLocalShellToolCallOutput(
+        agent: json.containsKey('agent')
+            ? SdkPresent(json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? BetaLocalShellToolCallOutputType.fromJson(json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        output: (json['output'] as String?)!,
+        status: json.containsKey('status')
+            ? SdkPresent(json['status'] != null
+                ? BetaLocalShellToolCallOutputStatusVariant0.fromJson(
+                    json['status'] as String)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'id': id,
-    'output': output,
-    ...switch (status) {
-      SdkPresent<BetaLocalShellToolCallOutputStatusVariant0?>(value: final value) => {'status': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag?>(value: final value) => {
+              'agent': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'id': id,
+        'output': output,
+        ...switch (status) {
+          SdkPresent<BetaLocalShellToolCallOutputStatusVariant0?>(
+            value: final value
+          ) =>
+            {
+              'status': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A tool that allows the model to execute shell commands in a local environment.
 class BetaLocalShellToolParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the local shell tool. Always `local_shell`.
   final BetaLocalShellToolParamType type_;
 
   const BetaLocalShellToolParam({required this.type_});
 
-  BetaLocalShellToolParam Function({BetaLocalShellToolParamType type_}) get copyWith => _copyWith;
+  BetaLocalShellToolParam Function({BetaLocalShellToolParamType type_})
+      get copyWith => _copyWith;
 
-  BetaLocalShellToolParam _copyWith({Object? type_ = sdkOmittedValue}) => BetaLocalShellToolParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaLocalShellToolParamType,
-  );
+  BetaLocalShellToolParam _copyWith({Object? type_ = sdkOmittedValue}) =>
+      BetaLocalShellToolParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaLocalShellToolParamType,
+      );
 
-  factory BetaLocalShellToolParam.fromJson(Map<String, dynamic> json) => BetaLocalShellToolParam(
-    type_: (json['type'] != null ? BetaLocalShellToolParamType.fromJson(json['type'] as String) : null)!,
-  );
+  factory BetaLocalShellToolParam.fromJson(Map<String, dynamic> json) =>
+      BetaLocalShellToolParam(
+        type_: (json['type'] != null
+            ? BetaLocalShellToolParamType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 /// Typed representation of the `BetaLocalSkillParam` API schema.
 class BetaLocalSkillParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the skill.
   final String name;
+
   /// The description of the skill.
   final String description;
+
   /// The path to the directory containing the skill.
   final String path;
 
-  const BetaLocalSkillParam({required this.name, required this.description, required this.path});
+  const BetaLocalSkillParam(
+      {required this.name, required this.description, required this.path});
 
-  BetaLocalSkillParam Function({String name, String description, String path}) get copyWith => _copyWith;
+  BetaLocalSkillParam Function({String name, String description, String path})
+      get copyWith => _copyWith;
 
-  BetaLocalSkillParam _copyWith({Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? path = sdkOmittedValue}) => BetaLocalSkillParam(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as String,
-    path: identical(path, sdkOmittedValue) ? this.path : path as String,
-  );
+  BetaLocalSkillParam _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? path = sdkOmittedValue}) =>
+      BetaLocalSkillParam(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as String,
+        path: identical(path, sdkOmittedValue) ? this.path : path as String,
+      );
 
-  factory BetaLocalSkillParam.fromJson(Map<String, dynamic> json) => BetaLocalSkillParam(
-    name: (json['name'] as String?)!,
-    description: (json['description'] as String?)!,
-    path: (json['path'] as String?)!,
-  );
+  factory BetaLocalSkillParam.fromJson(Map<String, dynamic> json) =>
+      BetaLocalSkillParam(
+        name: (json['name'] as String?)!,
+        description: (json['description'] as String?)!,
+        path: (json['path'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'description': description,
-    'path': path,
-  };
+        'name': name,
+        'description': description,
+        'path': path,
+      };
 }

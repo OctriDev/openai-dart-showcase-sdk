@@ -10,32 +10,66 @@ sealed class RealtimeServerEventSessionCreatedSession {
   const RealtimeServerEventSessionCreatedSession();
   factory RealtimeServerEventSessionCreatedSession.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = RealtimeSessionCreateResponseGA.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeServerEventSessionCreatedSessionRealtimeSessionCreateResponseGA(value); } } catch (_) {}
-      try { final value = RealtimeTranscriptionSessionCreateResponseGA.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeServerEventSessionCreatedSessionRealtimeTranscriptionSessionCreateResponseGA(value); } } catch (_) {}
+      try {
+        final value = RealtimeSessionCreateResponseGA.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventSessionCreatedSessionRealtimeSessionCreateResponseGA(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeTranscriptionSessionCreateResponseGA.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeServerEventSessionCreatedSessionRealtimeTranscriptionSessionCreateResponseGA(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return RealtimeServerEventSessionCreatedSessionRealtimeSessionCreateResponseGA(RealtimeSessionCreateResponseGA.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeServerEventSessionCreatedSessionRealtimeTranscriptionSessionCreateResponseGA(RealtimeTranscriptionSessionCreateResponseGA.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"realtime", "transcription"}.contains(json["type"])) { return UnknownRealtimeServerEventSessionCreatedSession(json); }
-    throw FormatException("No variant matched for RealtimeServerEventSessionCreatedSession");
+    try {
+      return RealtimeServerEventSessionCreatedSessionRealtimeSessionCreateResponseGA(
+          RealtimeSessionCreateResponseGA.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeServerEventSessionCreatedSessionRealtimeTranscriptionSessionCreateResponseGA(
+          RealtimeTranscriptionSessionCreateResponseGA.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"realtime", "transcription"}.contains(json["type"])) {
+      return UnknownRealtimeServerEventSessionCreatedSession(json);
+    }
+    throw FormatException(
+        "No variant matched for RealtimeServerEventSessionCreatedSession");
   }
   Object? toJson();
 }
 
-final class RealtimeServerEventSessionCreatedSessionRealtimeSessionCreateResponseGA extends RealtimeServerEventSessionCreatedSession {
+final class RealtimeServerEventSessionCreatedSessionRealtimeSessionCreateResponseGA
+    extends RealtimeServerEventSessionCreatedSession {
   final RealtimeSessionCreateResponseGA value;
-  const RealtimeServerEventSessionCreatedSessionRealtimeSessionCreateResponseGA(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeServerEventSessionCreatedSessionRealtimeSessionCreateResponseGA(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeServerEventSessionCreatedSessionRealtimeTranscriptionSessionCreateResponseGA extends RealtimeServerEventSessionCreatedSession {
+final class RealtimeServerEventSessionCreatedSessionRealtimeTranscriptionSessionCreateResponseGA
+    extends RealtimeServerEventSessionCreatedSession {
   final RealtimeTranscriptionSessionCreateResponseGA value;
-  const RealtimeServerEventSessionCreatedSessionRealtimeTranscriptionSessionCreateResponseGA(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeServerEventSessionCreatedSessionRealtimeTranscriptionSessionCreateResponseGA(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [RealtimeServerEventSessionCreatedSession] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownRealtimeServerEventSessionCreatedSession extends RealtimeServerEventSessionCreatedSession {
+final class UnknownRealtimeServerEventSessionCreatedSession
+    extends RealtimeServerEventSessionCreatedSession {
   final Map<String, dynamic> raw;
   const UnknownRealtimeServerEventSessionCreatedSession(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

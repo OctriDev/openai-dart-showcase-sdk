@@ -8,32 +8,44 @@ part of 'shared_container.dart';
 class ContainerNetworkPolicyDomainSecretParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The domain associated with the secret.
   final String domain;
+
   /// The name of the secret to inject for the domain.
   final String name;
+
   /// The secret value to inject for the domain.
   final String value;
 
-  const ContainerNetworkPolicyDomainSecretParam({required this.domain, required this.name, required this.value});
+  const ContainerNetworkPolicyDomainSecretParam(
+      {required this.domain, required this.name, required this.value});
 
-  ContainerNetworkPolicyDomainSecretParam Function({String domain, String name, String value}) get copyWith => _copyWith;
+  ContainerNetworkPolicyDomainSecretParam Function(
+      {String domain, String name, String value}) get copyWith => _copyWith;
 
-  ContainerNetworkPolicyDomainSecretParam _copyWith({Object? domain = sdkOmittedValue, Object? name = sdkOmittedValue, Object? value = sdkOmittedValue}) => ContainerNetworkPolicyDomainSecretParam(
-    domain: identical(domain, sdkOmittedValue) ? this.domain : domain as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    value: identical(value, sdkOmittedValue) ? this.value : value as String,
-  );
+  ContainerNetworkPolicyDomainSecretParam _copyWith(
+          {Object? domain = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? value = sdkOmittedValue}) =>
+      ContainerNetworkPolicyDomainSecretParam(
+        domain:
+            identical(domain, sdkOmittedValue) ? this.domain : domain as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        value: identical(value, sdkOmittedValue) ? this.value : value as String,
+      );
 
-  factory ContainerNetworkPolicyDomainSecretParam.fromJson(Map<String, dynamic> json) => ContainerNetworkPolicyDomainSecretParam(
-    domain: (json['domain'] as String?)!,
-    name: (json['name'] as String?)!,
-    value: (json['value'] as String?)!,
-  );
+  factory ContainerNetworkPolicyDomainSecretParam.fromJson(
+          Map<String, dynamic> json) =>
+      ContainerNetworkPolicyDomainSecretParam(
+        domain: (json['domain'] as String?)!,
+        name: (json['name'] as String?)!,
+        value: (json['value'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'domain': domain,
-    'name': name,
-    'value': value,
-  };
+        'domain': domain,
+        'name': name,
+        'value': value,
+      };
 }

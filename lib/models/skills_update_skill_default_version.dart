@@ -8,22 +8,29 @@ part of 'skills.dart';
 class SetDefaultSkillVersionBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The skill version number to set as default.
   final String defaultVersion;
 
   const SetDefaultSkillVersionBody({required this.defaultVersion});
 
-  SetDefaultSkillVersionBody Function({String defaultVersion}) get copyWith => _copyWith;
+  SetDefaultSkillVersionBody Function({String defaultVersion}) get copyWith =>
+      _copyWith;
 
-  SetDefaultSkillVersionBody _copyWith({Object? defaultVersion = sdkOmittedValue}) => SetDefaultSkillVersionBody(
-    defaultVersion: identical(defaultVersion, sdkOmittedValue) ? this.defaultVersion : defaultVersion as String,
-  );
+  SetDefaultSkillVersionBody _copyWith(
+          {Object? defaultVersion = sdkOmittedValue}) =>
+      SetDefaultSkillVersionBody(
+        defaultVersion: identical(defaultVersion, sdkOmittedValue)
+            ? this.defaultVersion
+            : defaultVersion as String,
+      );
 
-  factory SetDefaultSkillVersionBody.fromJson(Map<String, dynamic> json) => SetDefaultSkillVersionBody(
-    defaultVersion: (json['default_version'] as String?)!,
-  );
+  factory SetDefaultSkillVersionBody.fromJson(Map<String, dynamic> json) =>
+      SetDefaultSkillVersionBody(
+        defaultVersion: (json['default_version'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'default_version': defaultVersion,
-  };
+        'default_version': defaultVersion,
+      };
 }

@@ -10,32 +10,57 @@ sealed class CustomToolParamFormat {
   const CustomToolParamFormat();
   factory CustomToolParamFormat.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = CustomTextFormatParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CustomToolParamFormatCustomTextFormatParam(value); } } catch (_) {}
-      try { final value = CustomGrammarFormatParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CustomToolParamFormatCustomGrammarFormatParam(value); } } catch (_) {}
+      try {
+        final value = CustomTextFormatParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CustomToolParamFormatCustomTextFormatParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CustomGrammarFormatParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CustomToolParamFormatCustomGrammarFormatParam(value);
+        }
+      } catch (_) {}
     }
-    try { return CustomToolParamFormatCustomTextFormatParam(CustomTextFormatParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CustomToolParamFormatCustomGrammarFormatParam(CustomGrammarFormatParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"text", "grammar"}.contains(json["type"])) { return UnknownCustomToolParamFormat(json); }
+    try {
+      return CustomToolParamFormatCustomTextFormatParam(
+          CustomTextFormatParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CustomToolParamFormatCustomGrammarFormatParam(
+          CustomGrammarFormatParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"text", "grammar"}.contains(json["type"])) {
+      return UnknownCustomToolParamFormat(json);
+    }
     throw FormatException("No variant matched for CustomToolParamFormat");
   }
   Object? toJson();
 }
 
-final class CustomToolParamFormatCustomTextFormatParam extends CustomToolParamFormat {
+final class CustomToolParamFormatCustomTextFormatParam
+    extends CustomToolParamFormat {
   final CustomTextFormatParam value;
   const CustomToolParamFormatCustomTextFormatParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CustomToolParamFormatCustomGrammarFormatParam extends CustomToolParamFormat {
+final class CustomToolParamFormatCustomGrammarFormatParam
+    extends CustomToolParamFormat {
   final CustomGrammarFormatParam value;
   const CustomToolParamFormatCustomGrammarFormatParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [CustomToolParamFormat] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownCustomToolParamFormat extends CustomToolParamFormat {
   final Map<String, dynamic> raw;
   const UnknownCustomToolParamFormat(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

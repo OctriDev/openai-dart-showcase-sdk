@@ -8,16 +8,21 @@ part of 'inline.dart';
 enum ChatCompletionRequestMessageContentPartRefusalType {
   refusal;
 
-  static ChatCompletionRequestMessageContentPartRefusalType fromJson(String value) {
+  static ChatCompletionRequestMessageContentPartRefusalType fromJson(
+      String value) {
     switch (value) {
-      case 'refusal': return ChatCompletionRequestMessageContentPartRefusalType.refusal;
-      default: throw ArgumentError('Unknown ChatCompletionRequestMessageContentPartRefusalType: $value');
+      case 'refusal':
+        return ChatCompletionRequestMessageContentPartRefusalType.refusal;
+      default:
+        throw ArgumentError(
+            'Unknown ChatCompletionRequestMessageContentPartRefusalType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ChatCompletionRequestMessageContentPartRefusalType.refusal: return 'refusal';
+      case ChatCompletionRequestMessageContentPartRefusalType.refusal:
+        return 'refusal';
     }
   }
 
@@ -29,16 +34,21 @@ enum ChatCompletionRequestMessageContentPartRefusalType {
 enum ChatCompletionRequestMessageContentPartTextType {
   text;
 
-  static ChatCompletionRequestMessageContentPartTextType fromJson(String value) {
+  static ChatCompletionRequestMessageContentPartTextType fromJson(
+      String value) {
     switch (value) {
-      case 'text': return ChatCompletionRequestMessageContentPartTextType.text;
-      default: throw ArgumentError('Unknown ChatCompletionRequestMessageContentPartTextType: $value');
+      case 'text':
+        return ChatCompletionRequestMessageContentPartTextType.text;
+      default:
+        throw ArgumentError(
+            'Unknown ChatCompletionRequestMessageContentPartTextType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ChatCompletionRequestMessageContentPartTextType.text: return 'text';
+      case ChatCompletionRequestMessageContentPartTextType.text:
+        return 'text';
     }
   }
 
@@ -52,14 +62,18 @@ enum ChatCompletionRequestSystemMessageRole {
 
   static ChatCompletionRequestSystemMessageRole fromJson(String value) {
     switch (value) {
-      case 'system': return ChatCompletionRequestSystemMessageRole.system;
-      default: throw ArgumentError('Unknown ChatCompletionRequestSystemMessageRole: $value');
+      case 'system':
+        return ChatCompletionRequestSystemMessageRole.system;
+      default:
+        throw ArgumentError(
+            'Unknown ChatCompletionRequestSystemMessageRole: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ChatCompletionRequestSystemMessageRole.system: return 'system';
+      case ChatCompletionRequestSystemMessageRole.system:
+        return 'system';
     }
   }
 
@@ -73,14 +87,18 @@ enum ChatCompletionRequestToolMessageRole {
 
   static ChatCompletionRequestToolMessageRole fromJson(String value) {
     switch (value) {
-      case 'tool': return ChatCompletionRequestToolMessageRole.tool;
-      default: throw ArgumentError('Unknown ChatCompletionRequestToolMessageRole: $value');
+      case 'tool':
+        return ChatCompletionRequestToolMessageRole.tool;
+      default:
+        throw ArgumentError(
+            'Unknown ChatCompletionRequestToolMessageRole: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ChatCompletionRequestToolMessageRole.tool: return 'tool';
+      case ChatCompletionRequestToolMessageRole.tool:
+        return 'tool';
     }
   }
 
@@ -94,14 +112,18 @@ enum ChatCompletionRequestUserMessageRole {
 
   static ChatCompletionRequestUserMessageRole fromJson(String value) {
     switch (value) {
-      case 'user': return ChatCompletionRequestUserMessageRole.user;
-      default: throw ArgumentError('Unknown ChatCompletionRequestUserMessageRole: $value');
+      case 'user':
+        return ChatCompletionRequestUserMessageRole.user;
+      default:
+        throw ArgumentError(
+            'Unknown ChatCompletionRequestUserMessageRole: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ChatCompletionRequestUserMessageRole.user: return 'user';
+      case ChatCompletionRequestUserMessageRole.user:
+        return 'user';
     }
   }
 
@@ -111,54 +133,63 @@ enum ChatCompletionRequestUserMessageRole {
 
 /// The type of the URL citation. Always `url_citation`.
 final class ChatCompletionResponseMessageAnnotationsItemType {
-
   final String value;
 
   const ChatCompletionResponseMessageAnnotationsItemType._(this.value);
 
-  factory ChatCompletionResponseMessageAnnotationsItemType.fromJson(String value) => ChatCompletionResponseMessageAnnotationsItemType._(value);
+  factory ChatCompletionResponseMessageAnnotationsItemType.fromJson(
+          String value) =>
+      ChatCompletionResponseMessageAnnotationsItemType._(value);
 
-  static const urlCitation = ChatCompletionResponseMessageAnnotationsItemType._('url_citation');
+  static const urlCitation =
+      ChatCompletionResponseMessageAnnotationsItemType._('url_citation');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ChatCompletionResponseMessageAnnotationsItemType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ChatCompletionResponseMessageAnnotationsItemType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The role of the author of this message.
 final class ChatCompletionResponseMessageRole {
-
   final String value;
 
   const ChatCompletionResponseMessageRole._(this.value);
 
-  factory ChatCompletionResponseMessageRole.fromJson(String value) => ChatCompletionResponseMessageRole._(value);
+  factory ChatCompletionResponseMessageRole.fromJson(String value) =>
+      ChatCompletionResponseMessageRole._(value);
 
   static const assistant = ChatCompletionResponseMessageRole._('assistant');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ChatCompletionResponseMessageRole && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ChatCompletionResponseMessageRole && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The role of the author of this message.
 final class ChatCompletionStreamResponseDeltaRole {
-
   final String value;
 
   const ChatCompletionStreamResponseDeltaRole._(this.value);
 
-  factory ChatCompletionStreamResponseDeltaRole.fromJson(String value) => ChatCompletionStreamResponseDeltaRole._(value);
+  factory ChatCompletionStreamResponseDeltaRole.fromJson(String value) =>
+      ChatCompletionStreamResponseDeltaRole._(value);
 
   static const developer = ChatCompletionStreamResponseDeltaRole._('developer');
   static const system = ChatCompletionStreamResponseDeltaRole._('system');
@@ -168,12 +199,15 @@ final class ChatCompletionStreamResponseDeltaRole {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ChatCompletionStreamResponseDeltaRole && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ChatCompletionStreamResponseDeltaRole && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the tool. Currently, only `function` is supported.
@@ -182,14 +216,17 @@ enum ChatCompletionToolType {
 
   static ChatCompletionToolType fromJson(String value) {
     switch (value) {
-      case 'function': return ChatCompletionToolType.function_;
-      default: throw ArgumentError('Unknown ChatCompletionToolType: $value');
+      case 'function':
+        return ChatCompletionToolType.function_;
+      default:
+        throw ArgumentError('Unknown ChatCompletionToolType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ChatCompletionToolType.function_: return 'function';
+      case ChatCompletionToolType.function_:
+        return 'function';
     }
   }
 
@@ -199,12 +236,12 @@ enum ChatCompletionToolType {
 
 /// `none` means the model will not call any tool and instead generates a message. `auto` means the model can pick between generating a message or calling one or more tools. `required` means the model must call one or more tools.
 final class ChatCompletionToolChoiceOptionVariant0 {
-
   final String value;
 
   const ChatCompletionToolChoiceOptionVariant0._(this.value);
 
-  factory ChatCompletionToolChoiceOptionVariant0.fromJson(String value) => ChatCompletionToolChoiceOptionVariant0._(value);
+  factory ChatCompletionToolChoiceOptionVariant0.fromJson(String value) =>
+      ChatCompletionToolChoiceOptionVariant0._(value);
 
   static const none = ChatCompletionToolChoiceOptionVariant0._('none');
   static const auto = ChatCompletionToolChoiceOptionVariant0._('auto');
@@ -212,33 +249,39 @@ final class ChatCompletionToolChoiceOptionVariant0 {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ChatCompletionToolChoiceOptionVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ChatCompletionToolChoiceOptionVariant0 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Type discriminator that is always `chatkit.session`.
 final class ChatSessionResourceObject {
-
   final String value;
 
   const ChatSessionResourceObject._(this.value);
 
-  factory ChatSessionResourceObject.fromJson(String value) => ChatSessionResourceObject._(value);
+  factory ChatSessionResourceObject.fromJson(String value) =>
+      ChatSessionResourceObject._(value);
 
   static const chatkitSession = ChatSessionResourceObject._('chatkit.session');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ChatSessionResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ChatSessionResourceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Specifies the event type. For a click action, this property is always `click`.
@@ -247,14 +290,17 @@ enum ClickParamType {
 
   static ClickParamType fromJson(String value) {
     switch (value) {
-      case 'click': return ClickParamType.click;
-      default: throw ArgumentError('Unknown ClickParamType: $value');
+      case 'click':
+        return ClickParamType.click;
+      default:
+        throw ArgumentError('Unknown ClickParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ClickParamType.click: return 'click';
+      case ClickParamType.click:
+        return 'click';
     }
   }
 
@@ -264,21 +310,25 @@ enum ClickParamType {
 
 /// Type discriminator that is always `chatkit.thread_item`.
 final class ClientToolCallItemObject {
-
   final String value;
 
   const ClientToolCallItemObject._(this.value);
 
-  factory ClientToolCallItemObject.fromJson(String value) => ClientToolCallItemObject._(value);
+  factory ClientToolCallItemObject.fromJson(String value) =>
+      ClientToolCallItemObject._(value);
 
-  static const chatkitThreadItem = ClientToolCallItemObject._('chatkit.thread_item');
+  static const chatkitThreadItem =
+      ClientToolCallItemObject._('chatkit.thread_item');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ClientToolCallItemObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ClientToolCallItemObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

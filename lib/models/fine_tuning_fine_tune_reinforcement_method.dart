@@ -8,30 +8,57 @@ part of 'fine_tuning.dart';
 class FineTuneReinforcementMethod {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The grader used for the fine-tuning job.
   final FineTuneReinforcementMethodGrader grader;
+
   /// The hyperparameters used for the reinforcement fine-tuning job.
   final SdkOptional<FineTuneReinforcementHyperparameters> hyperparameters;
 
-  const FineTuneReinforcementMethod({required this.grader, this.hyperparameters = const SdkOmitted()});
+  const FineTuneReinforcementMethod(
+      {required this.grader, this.hyperparameters = const SdkOmitted()});
 
-  FineTuneReinforcementMethod Function({FineTuneReinforcementMethodGrader grader, SdkOptional<FineTuneReinforcementHyperparameters> hyperparameters}) get copyWith => _copyWith;
+  FineTuneReinforcementMethod Function(
+          {FineTuneReinforcementMethodGrader grader,
+          SdkOptional<FineTuneReinforcementHyperparameters> hyperparameters})
+      get copyWith => _copyWith;
 
-  FineTuneReinforcementMethod _copyWith({Object? grader = sdkOmittedValue, Object? hyperparameters = sdkOmittedValue}) => FineTuneReinforcementMethod(
-    grader: identical(grader, sdkOmittedValue) ? this.grader : grader as FineTuneReinforcementMethodGrader,
-    hyperparameters: identical(hyperparameters, sdkOmittedValue) ? this.hyperparameters : hyperparameters as SdkOptional<FineTuneReinforcementHyperparameters>,
-  );
+  FineTuneReinforcementMethod _copyWith(
+          {Object? grader = sdkOmittedValue,
+          Object? hyperparameters = sdkOmittedValue}) =>
+      FineTuneReinforcementMethod(
+        grader: identical(grader, sdkOmittedValue)
+            ? this.grader
+            : grader as FineTuneReinforcementMethodGrader,
+        hyperparameters: identical(hyperparameters, sdkOmittedValue)
+            ? this.hyperparameters
+            : hyperparameters
+                as SdkOptional<FineTuneReinforcementHyperparameters>,
+      );
 
-  factory FineTuneReinforcementMethod.fromJson(Map<String, dynamic> json) => FineTuneReinforcementMethod(
-    grader: (json['grader'] != null ? FineTuneReinforcementMethodGrader.fromJson(json['grader']) : null)!,
-    hyperparameters: json['hyperparameters'] != null ? SdkPresent((json['hyperparameters'] != null ? FineTuneReinforcementHyperparameters.fromJson(json['hyperparameters'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory FineTuneReinforcementMethod.fromJson(Map<String, dynamic> json) =>
+      FineTuneReinforcementMethod(
+        grader: (json['grader'] != null
+            ? FineTuneReinforcementMethodGrader.fromJson(json['grader'])
+            : null)!,
+        hyperparameters: json['hyperparameters'] != null
+            ? SdkPresent((json['hyperparameters'] != null
+                ? FineTuneReinforcementHyperparameters.fromJson(
+                    json['hyperparameters'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'grader': grader.toJson(),
-    ...switch (hyperparameters) {
-      SdkPresent<FineTuneReinforcementHyperparameters>(value: final value) => {'hyperparameters': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'grader': grader.toJson(),
+        ...switch (hyperparameters) {
+          SdkPresent<FineTuneReinforcementHyperparameters>(
+            value: final value
+          ) =>
+            {
+              'hyperparameters': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -10,12 +10,33 @@ sealed class Filters {
   const Filters();
   factory Filters.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = ComparisonFilter.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FiltersComparisonFilter(value); } } catch (_) {}
-      try { final value = CompoundFilter.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FiltersCompoundFilter(value); } } catch (_) {}
+      try {
+        final value = ComparisonFilter.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return FiltersComparisonFilter(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CompoundFilter.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return FiltersCompoundFilter(value);
+        }
+      } catch (_) {}
     }
-    try { return FiltersComparisonFilter(ComparisonFilter.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return FiltersCompoundFilter(CompoundFilter.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"eq", "ne", "gt", "gte", "lt", "lte", "in", "nin", "and", "or"}.contains(json["type"])) { return UnknownFilters(json); }
+    try {
+      return FiltersComparisonFilter(
+          ComparisonFilter.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return FiltersCompoundFilter(
+          CompoundFilter.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"eq", "ne", "gt", "gte", "lt", "lte", "in", "nin", "and", "or"}
+            .contains(json["type"])) {
+      return UnknownFilters(json);
+    }
     throw FormatException("No variant matched for Filters");
   }
   Object? toJson();
@@ -24,18 +45,21 @@ sealed class Filters {
 final class FiltersComparisonFilter extends Filters {
   final ComparisonFilter value;
   const FiltersComparisonFilter(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class FiltersCompoundFilter extends Filters {
   final CompoundFilter value;
   const FiltersCompoundFilter(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [Filters] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownFilters extends Filters {
   final Map<String, dynamic> raw;
   const UnknownFilters(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

@@ -9,8 +9,14 @@ sealed class PredictionContentContent {
   static const String constructionSurface = 'named';
   const PredictionContentContent();
   factory PredictionContentContent.fromJson(Object? json) {
-    if (json is String) { return PredictionContentContentString(json); }
-    try { return PredictionContentContentChatCompletionRequestMessageContentPartText(ChatCompletionRequestMessageContentPartText.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is String) {
+      return PredictionContentContentString(json);
+    }
+    try {
+      return PredictionContentContentChatCompletionRequestMessageContentPartText(
+          ChatCompletionRequestMessageContentPartText.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
     throw FormatException("No variant matched for PredictionContentContent");
   }
   Object? toJson();
@@ -19,42 +25,59 @@ sealed class PredictionContentContent {
 final class PredictionContentContentString extends PredictionContentContent {
   final String value;
   const PredictionContentContentString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class PredictionContentContentChatCompletionRequestMessageContentPartText extends PredictionContentContent {
+final class PredictionContentContentChatCompletionRequestMessageContentPartText
+    extends PredictionContentContent {
   final ChatCompletionRequestMessageContentPartText value;
-  const PredictionContentContentChatCompletionRequestMessageContentPartText(this.value);
-  @override Object? toJson() => value.toJson();
+  const PredictionContentContentChatCompletionRequestMessageContentPartText(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// Static predicted output content, such as the content of a text file that is being regenerated.
 class PredictionContent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the predicted content you want to provide. This type is currently always `content`.
   final PredictionContentType type_;
+
   /// The content that should be matched when generating a model response. If generated tokens would match this content, the entire model response can be returned much more quickly.
   final dynamic content;
 
   const PredictionContent({required this.type_, required this.content});
 
-  PredictionContent Function({PredictionContentType type_, dynamic content}) get copyWith => _copyWith;
+  PredictionContent Function({PredictionContentType type_, dynamic content})
+      get copyWith => _copyWith;
 
-  PredictionContent _copyWith({Object? type_ = sdkOmittedValue, Object? content = sdkOmittedValue}) => PredictionContent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as PredictionContentType,
-    content: identical(content, sdkOmittedValue) ? this.content : content as dynamic,
-  );
+  PredictionContent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? content = sdkOmittedValue}) =>
+      PredictionContent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as PredictionContentType,
+        content: identical(content, sdkOmittedValue)
+            ? this.content
+            : content as dynamic,
+      );
 
-  factory PredictionContent.fromJson(Map<String, dynamic> json) => PredictionContent(
-    type_: (json['type'] != null ? PredictionContentType.fromJson(json['type'] as String) : null)!,
-    content: (json['content'])!,
-  );
+  factory PredictionContent.fromJson(Map<String, dynamic> json) =>
+      PredictionContent(
+        type_: (json['type'] != null
+            ? PredictionContentType.fromJson(json['type'] as String)
+            : null)!,
+        content: (json['content'])!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'content': content,
-  };
+        'type': type_.toJson(),
+        'content': content,
+      };
 }
 
 // ResponseModalities = List<ResponseModalitiesItem>
@@ -64,7 +87,10 @@ sealed class ServiceTier {
   static const String constructionSurface = 'named';
   const ServiceTier();
   factory ServiceTier.fromJson(Object? json) {
-    try { return ServiceTierServiceTierVariant0(ServiceTierVariant0.fromJson(json as String)); } catch (_) {}
+    try {
+      return ServiceTierServiceTierVariant0(
+          ServiceTierVariant0.fromJson(json as String));
+    } catch (_) {}
     throw FormatException("No variant matched for ServiceTier");
   }
   Object? toJson();
@@ -73,5 +99,6 @@ sealed class ServiceTier {
 final class ServiceTierServiceTierVariant0 extends ServiceTier {
   final ServiceTierVariant0 value;
   const ServiceTierServiceTierVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }

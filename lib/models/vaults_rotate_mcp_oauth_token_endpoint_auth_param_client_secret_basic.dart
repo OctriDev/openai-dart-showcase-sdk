@@ -8,30 +8,52 @@ part of 'vaults_rotate.dart';
 class RotateMcpOauthTokenEndpointAuthParamClientSecretBasic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `client_secret_basic`.
   final RotateMcpOauthTokenEndpointAuthParamClientSecretBasicType type_;
+
   /// The replacement OAuth client secret. Omit or pass `null` to keep the stored secret. This secret is never returned in resources.
   final SdkOptional<String?> clientSecret;
 
-  const RotateMcpOauthTokenEndpointAuthParamClientSecretBasic({required this.type_, this.clientSecret = const SdkOmitted()});
+  const RotateMcpOauthTokenEndpointAuthParamClientSecretBasic(
+      {required this.type_, this.clientSecret = const SdkOmitted()});
 
-  RotateMcpOauthTokenEndpointAuthParamClientSecretBasic Function({RotateMcpOauthTokenEndpointAuthParamClientSecretBasicType type_, SdkOptional<String?> clientSecret}) get copyWith => _copyWith;
+  RotateMcpOauthTokenEndpointAuthParamClientSecretBasic Function(
+      {RotateMcpOauthTokenEndpointAuthParamClientSecretBasicType type_,
+      SdkOptional<String?> clientSecret}) get copyWith => _copyWith;
 
-  RotateMcpOauthTokenEndpointAuthParamClientSecretBasic _copyWith({Object? type_ = sdkOmittedValue, Object? clientSecret = sdkOmittedValue}) => RotateMcpOauthTokenEndpointAuthParamClientSecretBasic(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RotateMcpOauthTokenEndpointAuthParamClientSecretBasicType,
-    clientSecret: identical(clientSecret, sdkOmittedValue) ? this.clientSecret : clientSecret as SdkOptional<String?>,
-  );
+  RotateMcpOauthTokenEndpointAuthParamClientSecretBasic _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? clientSecret = sdkOmittedValue}) =>
+      RotateMcpOauthTokenEndpointAuthParamClientSecretBasic(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_
+                as RotateMcpOauthTokenEndpointAuthParamClientSecretBasicType,
+        clientSecret: identical(clientSecret, sdkOmittedValue)
+            ? this.clientSecret
+            : clientSecret as SdkOptional<String?>,
+      );
 
-  factory RotateMcpOauthTokenEndpointAuthParamClientSecretBasic.fromJson(Map<String, dynamic> json) => RotateMcpOauthTokenEndpointAuthParamClientSecretBasic(
-    type_: (json['type'] != null ? RotateMcpOauthTokenEndpointAuthParamClientSecretBasicType.fromJson(json['type'] as String) : null)!,
-    clientSecret: json.containsKey('client_secret') ? SdkPresent(json['client_secret'] as String?) : const SdkOmitted(),
-  );
+  factory RotateMcpOauthTokenEndpointAuthParamClientSecretBasic.fromJson(
+          Map<String, dynamic> json) =>
+      RotateMcpOauthTokenEndpointAuthParamClientSecretBasic(
+        type_: (json['type'] != null
+            ? RotateMcpOauthTokenEndpointAuthParamClientSecretBasicType
+                .fromJson(json['type'] as String)
+            : null)!,
+        clientSecret: json.containsKey('client_secret')
+            ? SdkPresent(json['client_secret'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (clientSecret) {
-      SdkPresent<String?>(value: final value) => {'client_secret': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (clientSecret) {
+          SdkPresent<String?>(value: final value) => {
+              'client_secret': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

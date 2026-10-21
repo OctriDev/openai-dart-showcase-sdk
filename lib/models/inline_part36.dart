@@ -6,12 +6,12 @@ part of 'inline.dart';
 // Inline operation models (part 36)
 /// The memory limit configured for the container.
 final class ContainerResourceMemoryLimit {
-
   final String value;
 
   const ContainerResourceMemoryLimit._(this.value);
 
-  factory ContainerResourceMemoryLimit.fromJson(String value) => ContainerResourceMemoryLimit._(value);
+  factory ContainerResourceMemoryLimit.fromJson(String value) =>
+      ContainerResourceMemoryLimit._(value);
 
   static const v1g = ContainerResourceMemoryLimit._('1g');
   static const v4g = ContainerResourceMemoryLimit._('4g');
@@ -20,98 +20,113 @@ final class ContainerResourceMemoryLimit {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ContainerResourceMemoryLimit && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ContainerResourceMemoryLimit && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The network policy mode.
 final class ContainerResourceNetworkPolicyType {
-
   final String value;
 
   const ContainerResourceNetworkPolicyType._(this.value);
 
-  factory ContainerResourceNetworkPolicyType.fromJson(String value) => ContainerResourceNetworkPolicyType._(value);
+  factory ContainerResourceNetworkPolicyType.fromJson(String value) =>
+      ContainerResourceNetworkPolicyType._(value);
 
   static const allowlist = ContainerResourceNetworkPolicyType._('allowlist');
   static const disabled = ContainerResourceNetworkPolicyType._('disabled');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ContainerResourceNetworkPolicyType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ContainerResourceNetworkPolicyType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of object returned, must be `list`.
 final class ConversationItemListObject {
-
   final String value;
 
   const ConversationItemListObject._(this.value);
 
-  factory ConversationItemListObject.fromJson(String value) => ConversationItemListObject._(value);
+  factory ConversationItemListObject.fromJson(String value) =>
+      ConversationItemListObject._(value);
 
   static const list = ConversationItemListObject._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ConversationItemListObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ConversationItemListObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type, which is always `conversation`.
 final class ConversationResourceObject {
-
   final String value;
 
   const ConversationResourceObject._(this.value);
 
-  factory ConversationResourceObject.fromJson(String value) => ConversationResourceObject._(value);
+  factory ConversationResourceObject.fromJson(String value) =>
+      ConversationResourceObject._(value);
 
   static const conversation = ConversationResourceObject._('conversation');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ConversationResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ConversationResourceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `api_source` wire field.
 final class CostsResultApiSourceVariant0 {
-
   final String value;
 
   const CostsResultApiSourceVariant0._(this.value);
 
-  factory CostsResultApiSourceVariant0.fromJson(String value) => CostsResultApiSourceVariant0._(value);
+  factory CostsResultApiSourceVariant0.fromJson(String value) =>
+      CostsResultApiSourceVariant0._(value);
 
   static const agentsApi = CostsResultApiSourceVariant0._('agents_api');
   static const unlabeled = CostsResultApiSourceVariant0._('unlabeled');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CostsResultApiSourceVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CostsResultApiSourceVariant0 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
@@ -120,14 +135,17 @@ enum CostsResultObject {
 
   static CostsResultObject fromJson(String value) {
     switch (value) {
-      case 'organization.costs.result': return CostsResultObject.organizationCostsResult;
-      default: throw ArgumentError('Unknown CostsResultObject: $value');
+      case 'organization.costs.result':
+        return CostsResultObject.organizationCostsResult;
+      default:
+        throw ArgumentError('Unknown CostsResultObject: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CostsResultObject.organizationCostsResult: return 'organization.costs.result';
+      case CostsResultObject.organizationCostsResult:
+        return 'organization.costs.result';
     }
   }
 
@@ -139,16 +157,23 @@ enum CostsResultObject {
 enum CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type {
   auto;
 
-  static CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type fromJson(String value) {
+  static CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type
+      fromJson(String value) {
     switch (value) {
-      case 'auto': return CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type.auto;
-      default: throw ArgumentError('Unknown CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type: $value');
+      case 'auto':
+        return CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type
+            .auto;
+      default:
+        throw ArgumentError(
+            'Unknown CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type.auto: return 'auto';
+      case CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type
+            .auto:
+        return 'auto';
     }
   }
 
@@ -160,16 +185,23 @@ enum CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrate
 enum CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type {
   static_;
 
-  static CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type fromJson(String value) {
+  static CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type
+      fromJson(String value) {
     switch (value) {
-      case 'static': return CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type.static_;
-      default: throw ArgumentError('Unknown CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type: $value');
+      case 'static':
+        return CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type
+            .static_;
+      default:
+        throw ArgumentError(
+            'Unknown CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type.static_: return 'static';
+      case CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type
+            .static_:
+        return 'static';
     }
   }
 
@@ -179,97 +211,118 @@ enum CreateAssistantRequestToolResourcesFileSearchVectorStoresItemChunkingStrate
 
 /// The time frame within which the batch should be processed. Currently only `24h` is supported.
 final class CreateBatchRequestCompletionWindow {
-
   final String value;
 
   const CreateBatchRequestCompletionWindow._(this.value);
 
-  factory CreateBatchRequestCompletionWindow.fromJson(String value) => CreateBatchRequestCompletionWindow._(value);
+  factory CreateBatchRequestCompletionWindow.fromJson(String value) =>
+      CreateBatchRequestCompletionWindow._(value);
 
   static const v24h = CreateBatchRequestCompletionWindow._('24h');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateBatchRequestCompletionWindow && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateBatchRequestCompletionWindow && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The endpoint to be used for all requests in the batch. Currently `/v1/responses`, `/v1/chat/completions`, `/v1/embeddings`, `/v1/completions`, `/v1/moderations`, `/v1/images/generations`, `/v1/images/edits`, and `/v1/videos` are supported. Note that `/v1/embeddings` batches are also restricted to a maximum of 50,000 embedding inputs across all requests in the batch.
 final class CreateBatchRequestEndpoint {
-
   final String value;
 
   const CreateBatchRequestEndpoint._(this.value);
 
-  factory CreateBatchRequestEndpoint.fromJson(String value) => CreateBatchRequestEndpoint._(value);
+  factory CreateBatchRequestEndpoint.fromJson(String value) =>
+      CreateBatchRequestEndpoint._(value);
 
   static const v1Responses = CreateBatchRequestEndpoint._('/v1/responses');
-  static const v1ChatCompletions = CreateBatchRequestEndpoint._('/v1/chat/completions');
+  static const v1ChatCompletions =
+      CreateBatchRequestEndpoint._('/v1/chat/completions');
   static const v1Embeddings = CreateBatchRequestEndpoint._('/v1/embeddings');
   static const v1Completions = CreateBatchRequestEndpoint._('/v1/completions');
   static const v1Moderations = CreateBatchRequestEndpoint._('/v1/moderations');
-  static const v1ImagesGenerations = CreateBatchRequestEndpoint._('/v1/images/generations');
+  static const v1ImagesGenerations =
+      CreateBatchRequestEndpoint._('/v1/images/generations');
   static const v1ImagesEdits = CreateBatchRequestEndpoint._('/v1/images/edits');
   static const v1Videos = CreateBatchRequestEndpoint._('/v1/videos');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateBatchRequestEndpoint && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateBatchRequestEndpoint && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Specifies the output audio format. Must be one of `wav`, `mp3`, `flac`, `opus`, or `pcm16`.
 final class CreateChatCompletionRequestVariant1AudioFormat {
-
   final String value;
 
   const CreateChatCompletionRequestVariant1AudioFormat._(this.value);
 
-  factory CreateChatCompletionRequestVariant1AudioFormat.fromJson(String value) => CreateChatCompletionRequestVariant1AudioFormat._(value);
+  factory CreateChatCompletionRequestVariant1AudioFormat.fromJson(
+          String value) =>
+      CreateChatCompletionRequestVariant1AudioFormat._(value);
 
   static const wav = CreateChatCompletionRequestVariant1AudioFormat._('wav');
   static const aac = CreateChatCompletionRequestVariant1AudioFormat._('aac');
   static const mp3 = CreateChatCompletionRequestVariant1AudioFormat._('mp3');
   static const flac = CreateChatCompletionRequestVariant1AudioFormat._('flac');
   static const opus = CreateChatCompletionRequestVariant1AudioFormat._('opus');
-  static const pcm16 = CreateChatCompletionRequestVariant1AudioFormat._('pcm16');
+  static const pcm16 =
+      CreateChatCompletionRequestVariant1AudioFormat._('pcm16');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateChatCompletionRequestVariant1AudioFormat && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateChatCompletionRequestVariant1AudioFormat &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// `none` means the model will not call a function and instead generates a message. `auto` means the model can pick between generating a message or calling a function.
 final class CreateChatCompletionRequestVariant1FunctionCallVariant0 {
-
   final String value;
 
   const CreateChatCompletionRequestVariant1FunctionCallVariant0._(this.value);
 
-  factory CreateChatCompletionRequestVariant1FunctionCallVariant0.fromJson(String value) => CreateChatCompletionRequestVariant1FunctionCallVariant0._(value);
+  factory CreateChatCompletionRequestVariant1FunctionCallVariant0.fromJson(
+          String value) =>
+      CreateChatCompletionRequestVariant1FunctionCallVariant0._(value);
 
-  static const none = CreateChatCompletionRequestVariant1FunctionCallVariant0._('none');
-  static const auto = CreateChatCompletionRequestVariant1FunctionCallVariant0._('auto');
+  static const none =
+      CreateChatCompletionRequestVariant1FunctionCallVariant0._('none');
+  static const auto =
+      CreateChatCompletionRequestVariant1FunctionCallVariant0._('auto');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateChatCompletionRequestVariant1FunctionCallVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateChatCompletionRequestVariant1FunctionCallVariant0 &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

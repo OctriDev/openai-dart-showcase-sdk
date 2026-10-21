@@ -8,40 +8,74 @@ part of 'realtime_realtime.dart';
 class RealtimeMCPListTools {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the item. Always `mcp_list_tools`.
   final RealtimeMCPListToolsType type_;
+
   /// The unique ID of the list.
   final SdkOptional<String> id;
+
   /// The label of the MCP server.
   final String serverLabel;
+
   /// The tools available on the server.
   final List<MCPListToolsTool> tools;
 
-  const RealtimeMCPListTools({required this.type_, this.id = const SdkOmitted(), required this.serverLabel, required this.tools});
+  const RealtimeMCPListTools(
+      {required this.type_,
+      this.id = const SdkOmitted(),
+      required this.serverLabel,
+      required this.tools});
 
-  RealtimeMCPListTools Function({RealtimeMCPListToolsType type_, SdkOptional<String> id, String serverLabel, List<MCPListToolsTool> tools}) get copyWith => _copyWith;
+  RealtimeMCPListTools Function(
+      {RealtimeMCPListToolsType type_,
+      SdkOptional<String> id,
+      String serverLabel,
+      List<MCPListToolsTool> tools}) get copyWith => _copyWith;
 
-  RealtimeMCPListTools _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? serverLabel = sdkOmittedValue, Object? tools = sdkOmittedValue}) => RealtimeMCPListTools(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeMCPListToolsType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    serverLabel: identical(serverLabel, sdkOmittedValue) ? this.serverLabel : serverLabel as String,
-    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as List<MCPListToolsTool>,
-  );
+  RealtimeMCPListTools _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? serverLabel = sdkOmittedValue,
+          Object? tools = sdkOmittedValue}) =>
+      RealtimeMCPListTools(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeMCPListToolsType,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        serverLabel: identical(serverLabel, sdkOmittedValue)
+            ? this.serverLabel
+            : serverLabel as String,
+        tools: identical(tools, sdkOmittedValue)
+            ? this.tools
+            : tools as List<MCPListToolsTool>,
+      );
 
-  factory RealtimeMCPListTools.fromJson(Map<String, dynamic> json) => RealtimeMCPListTools(
-    type_: (json['type'] != null ? RealtimeMCPListToolsType.fromJson(json['type'] as String) : null)!,
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    serverLabel: (json['server_label'] as String?)!,
-    tools: ((json['tools'] as List?)?.map((e) => MCPListToolsTool.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+  factory RealtimeMCPListTools.fromJson(Map<String, dynamic> json) =>
+      RealtimeMCPListTools(
+        type_: (json['type'] != null
+            ? RealtimeMCPListToolsType.fromJson(json['type'] as String)
+            : null)!,
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        serverLabel: (json['server_label'] as String?)!,
+        tools: ((json['tools'] as List?)
+            ?.map((e) => MCPListToolsTool.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'server_label': serverLabel,
-    'tools': tools.map((item) => item.toJson()).toList(),
-  };
+        'type': type_.toJson(),
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'server_label': serverLabel,
+        'tools': tools.map((item) => item.toJson()).toList(),
+      };
 }

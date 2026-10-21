@@ -8,80 +8,173 @@ part of 'live_live_session.dart';
 class LiveSessionCreateParams {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The Live model. Required in the session configuration for every transport; do not pass it as a URL query parameter.
   final String model;
+
   /// Optional `string` value serialized in the `instructions` wire field.
   final SdkOptional<String?> instructions;
+
   /// Ordered text-only history supplied before startup. Supports developer, user, and assistant messages with one text part each; at most 128 messages and a configured rendered-token limit (8,192 by default).
   final SdkOptional<List<LiveInitialItem>> input;
+
   /// Startup audio configuration. Only primary WebSockets accept audio.format; WebRTC and SIP negotiate their media format. Voice and format are immutable after startup.
   final SdkOptional<LiveInitialSessionAudioParam> audio;
+
   /// Who handles tasks delegated by the Live model. Omitted or null selects your application; use `responses` or `decisions` to delegate to the corresponding API.
   final SdkOptional<LiveSessionCreateParamsDelegation?> delegation;
+
   /// At most one Decisions trigger per transcript event type. Triggers run independently of delegation. On update, omit triggers to keep the current configuration, send a list to replace it, or send an empty list to disable triggers.
   final SdkOptional<List<LiveDecisionTriggerInputParam2>> triggers;
+
   /// Whether to store the session for later forking and recording download. Defaults to false for new sessions.
   final SdkOptional<bool> store;
+
   /// Startup-only capabilities for an untrusted frontend attached to a unified WebRTC session. Trusted sideband connections are unaffected.
   final SdkOptional<LiveClientConfigParam> client;
 
-  const LiveSessionCreateParams({required this.model, this.instructions = const SdkOmitted(), this.input = const SdkOmitted(), this.audio = const SdkOmitted(), this.delegation = const SdkOmitted(), this.triggers = const SdkOmitted(), this.store = const SdkOmitted(), this.client = const SdkOmitted()});
+  const LiveSessionCreateParams(
+      {required this.model,
+      this.instructions = const SdkOmitted(),
+      this.input = const SdkOmitted(),
+      this.audio = const SdkOmitted(),
+      this.delegation = const SdkOmitted(),
+      this.triggers = const SdkOmitted(),
+      this.store = const SdkOmitted(),
+      this.client = const SdkOmitted()});
 
-  LiveSessionCreateParams Function({String model, SdkOptional<String?> instructions, SdkOptional<List<LiveInitialItem>> input, SdkOptional<LiveInitialSessionAudioParam> audio, SdkOptional<LiveSessionCreateParamsDelegation?> delegation, SdkOptional<List<LiveDecisionTriggerInputParam2>> triggers, SdkOptional<bool> store, SdkOptional<LiveClientConfigParam> client}) get copyWith => _copyWith;
+  LiveSessionCreateParams Function(
+      {String model,
+      SdkOptional<String?> instructions,
+      SdkOptional<List<LiveInitialItem>> input,
+      SdkOptional<LiveInitialSessionAudioParam> audio,
+      SdkOptional<LiveSessionCreateParamsDelegation?> delegation,
+      SdkOptional<List<LiveDecisionTriggerInputParam2>> triggers,
+      SdkOptional<bool> store,
+      SdkOptional<LiveClientConfigParam> client}) get copyWith => _copyWith;
 
-  LiveSessionCreateParams _copyWith({Object? model = sdkOmittedValue, Object? instructions = sdkOmittedValue, Object? input = sdkOmittedValue, Object? audio = sdkOmittedValue, Object? delegation = sdkOmittedValue, Object? triggers = sdkOmittedValue, Object? store = sdkOmittedValue, Object? client = sdkOmittedValue}) => LiveSessionCreateParams(
-    model: identical(model, sdkOmittedValue) ? this.model : model as String,
-    instructions: identical(instructions, sdkOmittedValue) ? this.instructions : instructions as SdkOptional<String?>,
-    input: identical(input, sdkOmittedValue) ? this.input : input as SdkOptional<List<LiveInitialItem>>,
-    audio: identical(audio, sdkOmittedValue) ? this.audio : audio as SdkOptional<LiveInitialSessionAudioParam>,
-    delegation: identical(delegation, sdkOmittedValue) ? this.delegation : delegation as SdkOptional<LiveSessionCreateParamsDelegation?>,
-    triggers: identical(triggers, sdkOmittedValue) ? this.triggers : triggers as SdkOptional<List<LiveDecisionTriggerInputParam2>>,
-    store: identical(store, sdkOmittedValue) ? this.store : store as SdkOptional<bool>,
-    client: identical(client, sdkOmittedValue) ? this.client : client as SdkOptional<LiveClientConfigParam>,
-  );
+  LiveSessionCreateParams _copyWith(
+          {Object? model = sdkOmittedValue,
+          Object? instructions = sdkOmittedValue,
+          Object? input = sdkOmittedValue,
+          Object? audio = sdkOmittedValue,
+          Object? delegation = sdkOmittedValue,
+          Object? triggers = sdkOmittedValue,
+          Object? store = sdkOmittedValue,
+          Object? client = sdkOmittedValue}) =>
+      LiveSessionCreateParams(
+        model: identical(model, sdkOmittedValue) ? this.model : model as String,
+        instructions: identical(instructions, sdkOmittedValue)
+            ? this.instructions
+            : instructions as SdkOptional<String?>,
+        input: identical(input, sdkOmittedValue)
+            ? this.input
+            : input as SdkOptional<List<LiveInitialItem>>,
+        audio: identical(audio, sdkOmittedValue)
+            ? this.audio
+            : audio as SdkOptional<LiveInitialSessionAudioParam>,
+        delegation: identical(delegation, sdkOmittedValue)
+            ? this.delegation
+            : delegation as SdkOptional<LiveSessionCreateParamsDelegation?>,
+        triggers: identical(triggers, sdkOmittedValue)
+            ? this.triggers
+            : triggers as SdkOptional<List<LiveDecisionTriggerInputParam2>>,
+        store: identical(store, sdkOmittedValue)
+            ? this.store
+            : store as SdkOptional<bool>,
+        client: identical(client, sdkOmittedValue)
+            ? this.client
+            : client as SdkOptional<LiveClientConfigParam>,
+      );
 
-  factory LiveSessionCreateParams.fromJson(Map<String, dynamic> json) => LiveSessionCreateParams(
-    model: (json['model'] as String?)!,
-    instructions: json.containsKey('instructions') ? SdkPresent(json['instructions'] as String?) : const SdkOmitted(),
-    input: json['input'] != null ? SdkPresent(((json['input'] as List?)?.map((e) => LiveInitialItem.fromJson(e)).toList())!) : const SdkOmitted(),
-    audio: json['audio'] != null ? SdkPresent((json['audio'] != null ? LiveInitialSessionAudioParam.fromJson(json['audio'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    delegation: json.containsKey('delegation') ? SdkPresent(json['delegation'] != null ? LiveSessionCreateParamsDelegation.fromJson(json['delegation']) : null) : const SdkOmitted(),
-    triggers: json['triggers'] != null ? SdkPresent(((json['triggers'] as List?)?.map((e) => LiveDecisionTriggerInputParam2.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    store: json['store'] != null ? SdkPresent((json['store'] as bool?)!) : const SdkOmitted(),
-    client: json['client'] != null ? SdkPresent((json['client'] != null ? LiveClientConfigParam.fromJson(json['client'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory LiveSessionCreateParams.fromJson(Map<String, dynamic> json) =>
+      LiveSessionCreateParams(
+        model: (json['model'] as String?)!,
+        instructions: json.containsKey('instructions')
+            ? SdkPresent(json['instructions'] as String?)
+            : const SdkOmitted(),
+        input: json['input'] != null
+            ? SdkPresent(((json['input'] as List?)
+                ?.map((e) => LiveInitialItem.fromJson(e))
+                .toList())!)
+            : const SdkOmitted(),
+        audio: json['audio'] != null
+            ? SdkPresent((json['audio'] != null
+                ? LiveInitialSessionAudioParam.fromJson(
+                    json['audio'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        delegation: json.containsKey('delegation')
+            ? SdkPresent(json['delegation'] != null
+                ? LiveSessionCreateParamsDelegation.fromJson(json['delegation'])
+                : null)
+            : const SdkOmitted(),
+        triggers: json['triggers'] != null
+            ? SdkPresent(((json['triggers'] as List?)
+                ?.map((e) => LiveDecisionTriggerInputParam2.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        store: json['store'] != null
+            ? SdkPresent((json['store'] as bool?)!)
+            : const SdkOmitted(),
+        client: json['client'] != null
+            ? SdkPresent((json['client'] != null
+                ? LiveClientConfigParam.fromJson(
+                    json['client'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'model': model,
-    ...switch (instructions) {
-      SdkPresent<String?>(value: final value) => {'instructions': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (input) {
-      SdkPresent<List<LiveInitialItem>>(value: final value) => {'input': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (audio) {
-      SdkPresent<LiveInitialSessionAudioParam>(value: final value) => {'audio': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (delegation) {
-      SdkPresent<LiveSessionCreateParamsDelegation?>(value: final value) => {'delegation': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (triggers) {
-      SdkPresent<List<LiveDecisionTriggerInputParam2>>(value: final value) => {'triggers': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (store) {
-      SdkPresent<bool>(value: final value) => {'store': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (client) {
-      SdkPresent<LiveClientConfigParam>(value: final value) => {'client': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'model': model,
+        ...switch (instructions) {
+          SdkPresent<String?>(value: final value) => {
+              'instructions': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (input) {
+          SdkPresent<List<LiveInitialItem>>(value: final value) => {
+              'input': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (audio) {
+          SdkPresent<LiveInitialSessionAudioParam>(value: final value) => {
+              'audio': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (delegation) {
+          SdkPresent<LiveSessionCreateParamsDelegation?>(value: final value) =>
+            {
+              'delegation': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (triggers) {
+          SdkPresent<List<LiveDecisionTriggerInputParam2>>(
+            value: final value
+          ) =>
+            {
+              'triggers': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (store) {
+          SdkPresent<bool>(value: final value) => {
+              'store': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (client) {
+          SdkPresent<LiveClientConfigParam>(value: final value) => {
+              'client': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class LiveSessionCreateParamsDelegation {
@@ -90,100 +183,180 @@ sealed class LiveSessionCreateParamsDelegation {
   const LiveSessionCreateParamsDelegation();
   factory LiveSessionCreateParamsDelegation.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = LiveClientDelegationParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSessionCreateParamsDelegationLiveClientDelegationParam(value); } } catch (_) {}
-      try { final value = LiveResponsesDelegationParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSessionCreateParamsDelegationLiveResponsesDelegationParam(value); } } catch (_) {}
-      try { final value = LiveDecisionsDelegationParam2.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSessionCreateParamsDelegationLiveDecisionsDelegationParam2(value); } } catch (_) {}
+      try {
+        final value = LiveClientDelegationParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSessionCreateParamsDelegationLiveClientDelegationParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveResponsesDelegationParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSessionCreateParamsDelegationLiveResponsesDelegationParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveDecisionsDelegationParam2.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSessionCreateParamsDelegationLiveDecisionsDelegationParam2(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return LiveSessionCreateParamsDelegationLiveClientDelegationParam(LiveClientDelegationParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSessionCreateParamsDelegationLiveResponsesDelegationParam(LiveResponsesDelegationParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSessionCreateParamsDelegationLiveDecisionsDelegationParam2(LiveDecisionsDelegationParam2.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"client", "responses", "decisions"}.contains(json["type"])) { return UnknownLiveSessionCreateParamsDelegation(json); }
-    throw FormatException("No variant matched for LiveSessionCreateParamsDelegation");
+    try {
+      return LiveSessionCreateParamsDelegationLiveClientDelegationParam(
+          LiveClientDelegationParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSessionCreateParamsDelegationLiveResponsesDelegationParam(
+          LiveResponsesDelegationParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSessionCreateParamsDelegationLiveDecisionsDelegationParam2(
+          LiveDecisionsDelegationParam2.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"client", "responses", "decisions"}.contains(json["type"])) {
+      return UnknownLiveSessionCreateParamsDelegation(json);
+    }
+    throw FormatException(
+        "No variant matched for LiveSessionCreateParamsDelegation");
   }
   Object? toJson();
 }
 
-final class LiveSessionCreateParamsDelegationLiveClientDelegationParam extends LiveSessionCreateParamsDelegation {
+final class LiveSessionCreateParamsDelegationLiveClientDelegationParam
+    extends LiveSessionCreateParamsDelegation {
   final LiveClientDelegationParam value;
   const LiveSessionCreateParamsDelegationLiveClientDelegationParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSessionCreateParamsDelegationLiveResponsesDelegationParam extends LiveSessionCreateParamsDelegation {
+final class LiveSessionCreateParamsDelegationLiveResponsesDelegationParam
+    extends LiveSessionCreateParamsDelegation {
   final LiveResponsesDelegationParam value;
-  const LiveSessionCreateParamsDelegationLiveResponsesDelegationParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const LiveSessionCreateParamsDelegationLiveResponsesDelegationParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSessionCreateParamsDelegationLiveDecisionsDelegationParam2 extends LiveSessionCreateParamsDelegation {
+final class LiveSessionCreateParamsDelegationLiveDecisionsDelegationParam2
+    extends LiveSessionCreateParamsDelegation {
   final LiveDecisionsDelegationParam2 value;
-  const LiveSessionCreateParamsDelegationLiveDecisionsDelegationParam2(this.value);
-  @override Object? toJson() => value.toJson();
+  const LiveSessionCreateParamsDelegationLiveDecisionsDelegationParam2(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [LiveSessionCreateParamsDelegation] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownLiveSessionCreateParamsDelegation extends LiveSessionCreateParamsDelegation {
+final class UnknownLiveSessionCreateParamsDelegation
+    extends LiveSessionCreateParamsDelegation {
   final Map<String, dynamic> raw;
   const UnknownLiveSessionCreateParamsDelegation(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// Create a Live session with a WebRTC SDP offer or place an outbound SIP call. Follow the [Live prompting guide](https://developers.openai.com/api/docs/guides/live-prompting) before choosing frontend and backend instructions. The request starts the session; do not send session.start again on the data channel or sideband.
 class LiveSessionCreateRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Startup configuration for the Live session.
   final LiveMediaSessionCreateParams session;
+
   /// WebRTC transport with an SDP offer, or SIP transport with a destination and per-call trunk credentials.
   final LiveSessionCreateRequestTransport transport;
 
-  const LiveSessionCreateRequest({required this.session, required this.transport});
+  const LiveSessionCreateRequest(
+      {required this.session, required this.transport});
 
-  LiveSessionCreateRequest Function({LiveMediaSessionCreateParams session, LiveSessionCreateRequestTransport transport}) get copyWith => _copyWith;
+  LiveSessionCreateRequest Function(
+      {LiveMediaSessionCreateParams session,
+      LiveSessionCreateRequestTransport transport}) get copyWith => _copyWith;
 
-  LiveSessionCreateRequest _copyWith({Object? session = sdkOmittedValue, Object? transport = sdkOmittedValue}) => LiveSessionCreateRequest(
-    session: identical(session, sdkOmittedValue) ? this.session : session as LiveMediaSessionCreateParams,
-    transport: identical(transport, sdkOmittedValue) ? this.transport : transport as LiveSessionCreateRequestTransport,
-  );
+  LiveSessionCreateRequest _copyWith(
+          {Object? session = sdkOmittedValue,
+          Object? transport = sdkOmittedValue}) =>
+      LiveSessionCreateRequest(
+        session: identical(session, sdkOmittedValue)
+            ? this.session
+            : session as LiveMediaSessionCreateParams,
+        transport: identical(transport, sdkOmittedValue)
+            ? this.transport
+            : transport as LiveSessionCreateRequestTransport,
+      );
 
-  factory LiveSessionCreateRequest.fromJson(Map<String, dynamic> json) => LiveSessionCreateRequest(
-    session: (json['session'] != null ? LiveMediaSessionCreateParams.fromJson(json['session'] as Map<String, dynamic>) : null)!,
-    transport: (json['transport'] != null ? LiveSessionCreateRequestTransport.fromJson(json['transport']) : null)!,
-  );
+  factory LiveSessionCreateRequest.fromJson(Map<String, dynamic> json) =>
+      LiveSessionCreateRequest(
+        session: (json['session'] != null
+            ? LiveMediaSessionCreateParams.fromJson(
+                json['session'] as Map<String, dynamic>)
+            : null)!,
+        transport: (json['transport'] != null
+            ? LiveSessionCreateRequestTransport.fromJson(json['transport'])
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'session': session.toJson(),
-    'transport': transport.toJson(),
-  };
+        'session': session.toJson(),
+        'transport': transport.toJson(),
+      };
 }
 
 /// Create a Live session with a WebRTC SDP offer or place an outbound SIP call. Follow the [Live prompting guide](https://developers.openai.com/api/docs/guides/live-prompting) before choosing frontend and backend instructions. The request starts the session; do not send session.start again on the data channel or sideband.
 class LiveSessionCreateRequestRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Startup configuration for the Live session.
   final LiveMediaSessionCreateParams session;
+
   /// WebRTC transport with an SDP offer, or SIP transport with a destination and per-call trunk credentials.
   final LiveSessionCreateRequestTransportRequest transport;
 
-  const LiveSessionCreateRequestRequest({required this.session, required this.transport});
+  const LiveSessionCreateRequestRequest(
+      {required this.session, required this.transport});
 
-  LiveSessionCreateRequestRequest Function({LiveMediaSessionCreateParams session, LiveSessionCreateRequestTransportRequest transport}) get copyWith => _copyWith;
+  LiveSessionCreateRequestRequest Function(
+          {LiveMediaSessionCreateParams session,
+          LiveSessionCreateRequestTransportRequest transport})
+      get copyWith => _copyWith;
 
-  LiveSessionCreateRequestRequest _copyWith({Object? session = sdkOmittedValue, Object? transport = sdkOmittedValue}) => LiveSessionCreateRequestRequest(
-    session: identical(session, sdkOmittedValue) ? this.session : session as LiveMediaSessionCreateParams,
-    transport: identical(transport, sdkOmittedValue) ? this.transport : transport as LiveSessionCreateRequestTransportRequest,
-  );
+  LiveSessionCreateRequestRequest _copyWith(
+          {Object? session = sdkOmittedValue,
+          Object? transport = sdkOmittedValue}) =>
+      LiveSessionCreateRequestRequest(
+        session: identical(session, sdkOmittedValue)
+            ? this.session
+            : session as LiveMediaSessionCreateParams,
+        transport: identical(transport, sdkOmittedValue)
+            ? this.transport
+            : transport as LiveSessionCreateRequestTransportRequest,
+      );
 
-  factory LiveSessionCreateRequestRequest.fromJson(Map<String, dynamic> json) => LiveSessionCreateRequestRequest(
-    session: (json['session'] != null ? LiveMediaSessionCreateParams.fromJson(json['session'] as Map<String, dynamic>) : null)!,
-    transport: (json['transport'] != null ? LiveSessionCreateRequestTransportRequest.fromJson(json['transport']) : null)!,
-  );
+  factory LiveSessionCreateRequestRequest.fromJson(Map<String, dynamic> json) =>
+      LiveSessionCreateRequestRequest(
+        session: (json['session'] != null
+            ? LiveMediaSessionCreateParams.fromJson(
+                json['session'] as Map<String, dynamic>)
+            : null)!,
+        transport: (json['transport'] != null
+            ? LiveSessionCreateRequestTransportRequest.fromJson(
+                json['transport'])
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'session': session.toJson(),
-    'transport': transport.toJson(),
-  };
+        'session': session.toJson(),
+        'transport': transport.toJson(),
+      };
 }
 
 sealed class LiveSessionCreateRequestTransport {
@@ -192,34 +365,61 @@ sealed class LiveSessionCreateRequestTransport {
   const LiveSessionCreateRequestTransport();
   factory LiveSessionCreateRequestTransport.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = LiveWebRTCTransport.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSessionCreateRequestTransportLiveWebRTCTransport(value); } } catch (_) {}
-      try { final value = LiveSIPTransport.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSessionCreateRequestTransportLiveSIPTransport(value); } } catch (_) {}
+      try {
+        final value = LiveWebRTCTransport.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSessionCreateRequestTransportLiveWebRTCTransport(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSIPTransport.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSessionCreateRequestTransportLiveSIPTransport(value);
+        }
+      } catch (_) {}
     }
-    try { return LiveSessionCreateRequestTransportLiveWebRTCTransport(LiveWebRTCTransport.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSessionCreateRequestTransportLiveSIPTransport(LiveSIPTransport.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"webrtc", "sip"}.contains(json["type"])) { return UnknownLiveSessionCreateRequestTransport(json); }
-    throw FormatException("No variant matched for LiveSessionCreateRequestTransport");
+    try {
+      return LiveSessionCreateRequestTransportLiveWebRTCTransport(
+          LiveWebRTCTransport.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSessionCreateRequestTransportLiveSIPTransport(
+          LiveSIPTransport.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"webrtc", "sip"}.contains(json["type"])) {
+      return UnknownLiveSessionCreateRequestTransport(json);
+    }
+    throw FormatException(
+        "No variant matched for LiveSessionCreateRequestTransport");
   }
   Object? toJson();
 }
 
-final class LiveSessionCreateRequestTransportLiveWebRTCTransport extends LiveSessionCreateRequestTransport {
+final class LiveSessionCreateRequestTransportLiveWebRTCTransport
+    extends LiveSessionCreateRequestTransport {
   final LiveWebRTCTransport value;
   const LiveSessionCreateRequestTransportLiveWebRTCTransport(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSessionCreateRequestTransportLiveSIPTransport extends LiveSessionCreateRequestTransport {
+final class LiveSessionCreateRequestTransportLiveSIPTransport
+    extends LiveSessionCreateRequestTransport {
   final LiveSIPTransport value;
   const LiveSessionCreateRequestTransportLiveSIPTransport(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [LiveSessionCreateRequestTransport] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownLiveSessionCreateRequestTransport extends LiveSessionCreateRequestTransport {
+final class UnknownLiveSessionCreateRequestTransport
+    extends LiveSessionCreateRequestTransport {
   final Map<String, dynamic> raw;
   const UnknownLiveSessionCreateRequestTransport(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 sealed class LiveSessionCreateRequestTransportRequest {
@@ -228,61 +428,108 @@ sealed class LiveSessionCreateRequestTransportRequest {
   const LiveSessionCreateRequestTransportRequest();
   factory LiveSessionCreateRequestTransportRequest.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = LiveWebRTCTransport.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSessionCreateRequestTransportRequestLiveWebRTCTransport(value); } } catch (_) {}
-      try { final value = LiveSIPTransportRequest.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSessionCreateRequestTransportRequestLiveSIPTransportRequest(value); } } catch (_) {}
+      try {
+        final value = LiveWebRTCTransport.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSessionCreateRequestTransportRequestLiveWebRTCTransport(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSIPTransportRequest.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSessionCreateRequestTransportRequestLiveSIPTransportRequest(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return LiveSessionCreateRequestTransportRequestLiveWebRTCTransport(LiveWebRTCTransport.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSessionCreateRequestTransportRequestLiveSIPTransportRequest(LiveSIPTransportRequest.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"webrtc", "sip"}.contains(json["type"])) { return UnknownLiveSessionCreateRequestTransportRequest(json); }
-    throw FormatException("No variant matched for LiveSessionCreateRequestTransportRequest");
+    try {
+      return LiveSessionCreateRequestTransportRequestLiveWebRTCTransport(
+          LiveWebRTCTransport.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSessionCreateRequestTransportRequestLiveSIPTransportRequest(
+          LiveSIPTransportRequest.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"webrtc", "sip"}.contains(json["type"])) {
+      return UnknownLiveSessionCreateRequestTransportRequest(json);
+    }
+    throw FormatException(
+        "No variant matched for LiveSessionCreateRequestTransportRequest");
   }
   Object? toJson();
 }
 
-final class LiveSessionCreateRequestTransportRequestLiveWebRTCTransport extends LiveSessionCreateRequestTransportRequest {
+final class LiveSessionCreateRequestTransportRequestLiveWebRTCTransport
+    extends LiveSessionCreateRequestTransportRequest {
   final LiveWebRTCTransport value;
   const LiveSessionCreateRequestTransportRequestLiveWebRTCTransport(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSessionCreateRequestTransportRequestLiveSIPTransportRequest extends LiveSessionCreateRequestTransportRequest {
+final class LiveSessionCreateRequestTransportRequestLiveSIPTransportRequest
+    extends LiveSessionCreateRequestTransportRequest {
   final LiveSIPTransportRequest value;
-  const LiveSessionCreateRequestTransportRequestLiveSIPTransportRequest(this.value);
-  @override Object? toJson() => value.toJson();
+  const LiveSessionCreateRequestTransportRequestLiveSIPTransportRequest(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [LiveSessionCreateRequestTransportRequest] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownLiveSessionCreateRequestTransportRequest extends LiveSessionCreateRequestTransportRequest {
+final class UnknownLiveSessionCreateRequestTransportRequest
+    extends LiveSessionCreateRequestTransportRequest {
   final Map<String, dynamic> raw;
   const UnknownLiveSessionCreateRequestTransportRequest(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// The created Live session and its transport. WebRTC creation returns 201 Created with an SDP answer. Outbound SIP creation returns 201 Created after initialization, before the callee necessarily answers, without SDP or trunk credentials.
 class LiveSessionCreateResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The newly created Live session. Use its ID for session controls and sideband connections.
   final Session session;
+
   /// WebRTC transport with an SDP answer, or SIP transport without SDP or trunk credentials. For SIP, attach a sideband using session.id to receive transport.ringing, transport.answered, and transport.failed notifications.
   final LiveSessionCreateResponseTransport transport;
 
-  const LiveSessionCreateResponse({required this.session, required this.transport});
+  const LiveSessionCreateResponse(
+      {required this.session, required this.transport});
 
-  LiveSessionCreateResponse Function({Session session, LiveSessionCreateResponseTransport transport}) get copyWith => _copyWith;
+  LiveSessionCreateResponse Function(
+      {Session session,
+      LiveSessionCreateResponseTransport transport}) get copyWith => _copyWith;
 
-  LiveSessionCreateResponse _copyWith({Object? session = sdkOmittedValue, Object? transport = sdkOmittedValue}) => LiveSessionCreateResponse(
-    session: identical(session, sdkOmittedValue) ? this.session : session as Session,
-    transport: identical(transport, sdkOmittedValue) ? this.transport : transport as LiveSessionCreateResponseTransport,
-  );
+  LiveSessionCreateResponse _copyWith(
+          {Object? session = sdkOmittedValue,
+          Object? transport = sdkOmittedValue}) =>
+      LiveSessionCreateResponse(
+        session: identical(session, sdkOmittedValue)
+            ? this.session
+            : session as Session,
+        transport: identical(transport, sdkOmittedValue)
+            ? this.transport
+            : transport as LiveSessionCreateResponseTransport,
+      );
 
-  factory LiveSessionCreateResponse.fromJson(Map<String, dynamic> json) => LiveSessionCreateResponse(
-    session: (json['session'] != null ? Session.fromJson(json['session'] as Map<String, dynamic>) : null)!,
-    transport: (json['transport'] != null ? LiveSessionCreateResponseTransport.fromJson(json['transport']) : null)!,
-  );
+  factory LiveSessionCreateResponse.fromJson(Map<String, dynamic> json) =>
+      LiveSessionCreateResponse(
+        session: (json['session'] != null
+            ? Session.fromJson(json['session'] as Map<String, dynamic>)
+            : null)!,
+        transport: (json['transport'] != null
+            ? LiveSessionCreateResponseTransport.fromJson(json['transport'])
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'session': session.toJson(),
-    'transport': transport.toJson(),
-  };
+        'session': session.toJson(),
+        'transport': transport.toJson(),
+      };
 }

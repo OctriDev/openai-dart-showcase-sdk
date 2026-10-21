@@ -8,22 +8,34 @@ part of 'shared_container.dart';
 class ContainerNetworkPolicyDisabledParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Disable outbound network access. Always `disabled`.
   final ContainerNetworkPolicyDisabledParamType type_;
 
   const ContainerNetworkPolicyDisabledParam({required this.type_});
 
-  ContainerNetworkPolicyDisabledParam Function({ContainerNetworkPolicyDisabledParamType type_}) get copyWith => _copyWith;
+  ContainerNetworkPolicyDisabledParam Function(
+          {ContainerNetworkPolicyDisabledParamType type_})
+      get copyWith => _copyWith;
 
-  ContainerNetworkPolicyDisabledParam _copyWith({Object? type_ = sdkOmittedValue}) => ContainerNetworkPolicyDisabledParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ContainerNetworkPolicyDisabledParamType,
-  );
+  ContainerNetworkPolicyDisabledParam _copyWith(
+          {Object? type_ = sdkOmittedValue}) =>
+      ContainerNetworkPolicyDisabledParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ContainerNetworkPolicyDisabledParamType,
+      );
 
-  factory ContainerNetworkPolicyDisabledParam.fromJson(Map<String, dynamic> json) => ContainerNetworkPolicyDisabledParam(
-    type_: (json['type'] != null ? ContainerNetworkPolicyDisabledParamType.fromJson(json['type'] as String) : null)!,
-  );
+  factory ContainerNetworkPolicyDisabledParam.fromJson(
+          Map<String, dynamic> json) =>
+      ContainerNetworkPolicyDisabledParam(
+        type_: (json['type'] != null
+            ? ContainerNetworkPolicyDisabledParamType.fromJson(
+                json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }

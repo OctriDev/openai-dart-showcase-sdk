@@ -8,32 +8,52 @@ part of 'fine_tuning.dart';
 class DeleteFineTuningCheckpointPermissionResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the fine-tuned model checkpoint permission that was deleted.
   final String id;
+
   /// The object type, which is always "checkpoint.permission".
   final DeleteFineTuningCheckpointPermissionResponseObject object;
+
   /// Whether the fine-tuned model checkpoint permission was successfully deleted.
   final bool deleted;
 
-  const DeleteFineTuningCheckpointPermissionResponse({required this.id, required this.object, required this.deleted});
+  const DeleteFineTuningCheckpointPermissionResponse(
+      {required this.id, required this.object, required this.deleted});
 
-  DeleteFineTuningCheckpointPermissionResponse Function({String id, DeleteFineTuningCheckpointPermissionResponseObject object, bool deleted}) get copyWith => _copyWith;
+  DeleteFineTuningCheckpointPermissionResponse Function(
+      {String id,
+      DeleteFineTuningCheckpointPermissionResponseObject object,
+      bool deleted}) get copyWith => _copyWith;
 
-  DeleteFineTuningCheckpointPermissionResponse _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => DeleteFineTuningCheckpointPermissionResponse(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as DeleteFineTuningCheckpointPermissionResponseObject,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
-  );
+  DeleteFineTuningCheckpointPermissionResponse _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue}) =>
+      DeleteFineTuningCheckpointPermissionResponse(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as DeleteFineTuningCheckpointPermissionResponseObject,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as bool,
+      );
 
-  factory DeleteFineTuningCheckpointPermissionResponse.fromJson(Map<String, dynamic> json) => DeleteFineTuningCheckpointPermissionResponse(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? DeleteFineTuningCheckpointPermissionResponseObject.fromJson(json['object'] as String) : null)!,
-    deleted: (json['deleted'] as bool?)!,
-  );
+  factory DeleteFineTuningCheckpointPermissionResponse.fromJson(
+          Map<String, dynamic> json) =>
+      DeleteFineTuningCheckpointPermissionResponse(
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? DeleteFineTuningCheckpointPermissionResponseObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        deleted: (json['deleted'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'deleted': deleted,
-  };
+        'id': id,
+        'object': object.toJson(),
+        'deleted': deleted,
+      };
 }

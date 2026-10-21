@@ -4,219 +4,309 @@
 part of 'responses_beta_response_stream.dart';
 
 // responses_beta_response_stream domain models
-final class BetaResponseStreamEventBetaResponseShellCallOutputContentDoneStreamingEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseShellCallOutputContentDoneStreamingEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseShellCallOutputContentDoneStreamingEvent value;
-  const BetaResponseStreamEventBetaResponseShellCallOutputContentDoneStreamingEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaResponseStreamEventBetaResponseShellCallOutputContentDoneStreamingEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseInProgressEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseInProgressEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseInProgressEvent value;
   const BetaResponseStreamEventBetaResponseInProgressEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseFailedEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseFailedEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseFailedEvent value;
   const BetaResponseStreamEventBetaResponseFailedEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseIncompleteEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseIncompleteEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseIncompleteEvent value;
   const BetaResponseStreamEventBetaResponseIncompleteEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseOutputItemAddedEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseOutputItemAddedEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseOutputItemAddedEvent value;
   const BetaResponseStreamEventBetaResponseOutputItemAddedEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseOutputItemDoneEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseOutputItemDoneEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseOutputItemDoneEvent value;
   const BetaResponseStreamEventBetaResponseOutputItemDoneEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseReasoningSummaryPartAddedEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseReasoningSummaryPartAddedEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseReasoningSummaryPartAddedEvent value;
-  const BetaResponseStreamEventBetaResponseReasoningSummaryPartAddedEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaResponseStreamEventBetaResponseReasoningSummaryPartAddedEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseReasoningSummaryPartDoneEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseReasoningSummaryPartDoneEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseReasoningSummaryPartDoneEvent value;
-  const BetaResponseStreamEventBetaResponseReasoningSummaryPartDoneEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaResponseStreamEventBetaResponseReasoningSummaryPartDoneEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseReasoningSummaryTextDeltaEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseReasoningSummaryTextDeltaEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseReasoningSummaryTextDeltaEvent value;
-  const BetaResponseStreamEventBetaResponseReasoningSummaryTextDeltaEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaResponseStreamEventBetaResponseReasoningSummaryTextDeltaEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseReasoningSummaryTextDoneEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseReasoningSummaryTextDoneEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseReasoningSummaryTextDoneEvent value;
-  const BetaResponseStreamEventBetaResponseReasoningSummaryTextDoneEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaResponseStreamEventBetaResponseReasoningSummaryTextDoneEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseReasoningTextDeltaEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseReasoningTextDeltaEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseReasoningTextDeltaEvent value;
   const BetaResponseStreamEventBetaResponseReasoningTextDeltaEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseReasoningTextDoneEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseReasoningTextDoneEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseReasoningTextDoneEvent value;
   const BetaResponseStreamEventBetaResponseReasoningTextDoneEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseRefusalDeltaEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseRefusalDeltaEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseRefusalDeltaEvent value;
   const BetaResponseStreamEventBetaResponseRefusalDeltaEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseRefusalDoneEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseRefusalDoneEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseRefusalDoneEvent value;
   const BetaResponseStreamEventBetaResponseRefusalDoneEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseTextDeltaEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseTextDeltaEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseTextDeltaEvent value;
   const BetaResponseStreamEventBetaResponseTextDeltaEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseTextDoneEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseTextDoneEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseTextDoneEvent value;
   const BetaResponseStreamEventBetaResponseTextDoneEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseWebSearchCallCompletedEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseWebSearchCallCompletedEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseWebSearchCallCompletedEvent value;
-  const BetaResponseStreamEventBetaResponseWebSearchCallCompletedEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaResponseStreamEventBetaResponseWebSearchCallCompletedEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseWebSearchCallInProgressEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseWebSearchCallInProgressEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseWebSearchCallInProgressEvent value;
-  const BetaResponseStreamEventBetaResponseWebSearchCallInProgressEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaResponseStreamEventBetaResponseWebSearchCallInProgressEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseWebSearchCallSearchingEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseWebSearchCallSearchingEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseWebSearchCallSearchingEvent value;
-  const BetaResponseStreamEventBetaResponseWebSearchCallSearchingEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaResponseStreamEventBetaResponseWebSearchCallSearchingEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseImageGenCallCompletedEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseImageGenCallCompletedEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseImageGenCallCompletedEvent value;
-  const BetaResponseStreamEventBetaResponseImageGenCallCompletedEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaResponseStreamEventBetaResponseImageGenCallCompletedEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseImageGenCallGeneratingEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseImageGenCallGeneratingEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseImageGenCallGeneratingEvent value;
-  const BetaResponseStreamEventBetaResponseImageGenCallGeneratingEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaResponseStreamEventBetaResponseImageGenCallGeneratingEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseImageGenCallInProgressEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseImageGenCallInProgressEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseImageGenCallInProgressEvent value;
-  const BetaResponseStreamEventBetaResponseImageGenCallInProgressEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaResponseStreamEventBetaResponseImageGenCallInProgressEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseImageGenCallPartialImageEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseImageGenCallPartialImageEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseImageGenCallPartialImageEvent value;
-  const BetaResponseStreamEventBetaResponseImageGenCallPartialImageEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaResponseStreamEventBetaResponseImageGenCallPartialImageEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseMCPCallArgumentsDeltaEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseMCPCallArgumentsDeltaEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseMCPCallArgumentsDeltaEvent value;
-  const BetaResponseStreamEventBetaResponseMCPCallArgumentsDeltaEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaResponseStreamEventBetaResponseMCPCallArgumentsDeltaEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseMCPCallArgumentsDoneEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseMCPCallArgumentsDoneEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseMCPCallArgumentsDoneEvent value;
-  const BetaResponseStreamEventBetaResponseMCPCallArgumentsDoneEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaResponseStreamEventBetaResponseMCPCallArgumentsDoneEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseMCPCallCompletedEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseMCPCallCompletedEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseMCPCallCompletedEvent value;
   const BetaResponseStreamEventBetaResponseMCPCallCompletedEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseMCPCallFailedEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseMCPCallFailedEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseMCPCallFailedEvent value;
   const BetaResponseStreamEventBetaResponseMCPCallFailedEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseMCPCallInProgressEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseMCPCallInProgressEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseMCPCallInProgressEvent value;
   const BetaResponseStreamEventBetaResponseMCPCallInProgressEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseMCPListToolsCompletedEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseMCPListToolsCompletedEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseMCPListToolsCompletedEvent value;
-  const BetaResponseStreamEventBetaResponseMCPListToolsCompletedEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaResponseStreamEventBetaResponseMCPListToolsCompletedEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseMCPListToolsFailedEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseMCPListToolsFailedEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseMCPListToolsFailedEvent value;
   const BetaResponseStreamEventBetaResponseMCPListToolsFailedEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseMCPListToolsInProgressEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseMCPListToolsInProgressEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseMCPListToolsInProgressEvent value;
-  const BetaResponseStreamEventBetaResponseMCPListToolsInProgressEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaResponseStreamEventBetaResponseMCPListToolsInProgressEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseOutputTextAnnotationAddedEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseOutputTextAnnotationAddedEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseOutputTextAnnotationAddedEvent value;
-  const BetaResponseStreamEventBetaResponseOutputTextAnnotationAddedEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaResponseStreamEventBetaResponseOutputTextAnnotationAddedEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseQueuedEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseQueuedEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseQueuedEvent value;
   const BetaResponseStreamEventBetaResponseQueuedEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseCustomToolCallInputDeltaEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseCustomToolCallInputDeltaEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseCustomToolCallInputDeltaEvent value;
-  const BetaResponseStreamEventBetaResponseCustomToolCallInputDeltaEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaResponseStreamEventBetaResponseCustomToolCallInputDeltaEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaResponseStreamEventBetaResponseCustomToolCallInputDoneEvent extends BetaResponseStreamEvent {
+final class BetaResponseStreamEventBetaResponseCustomToolCallInputDoneEvent
+    extends BetaResponseStreamEvent {
   final BetaResponseCustomToolCallInputDoneEvent value;
-  const BetaResponseStreamEventBetaResponseCustomToolCallInputDoneEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaResponseStreamEventBetaResponseCustomToolCallInputDoneEvent(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [BetaResponseStreamEvent] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownBetaResponseStreamEvent extends BetaResponseStreamEvent {
   final Map<String, dynamic> raw;
   const UnknownBetaResponseStreamEvent(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

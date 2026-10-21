@@ -10,14 +10,17 @@ enum RealtimeMCPApprovalRequestType {
 
   static RealtimeMCPApprovalRequestType fromJson(String value) {
     switch (value) {
-      case 'mcp_approval_request': return RealtimeMCPApprovalRequestType.mcpApprovalRequest;
-      default: throw ArgumentError('Unknown RealtimeMCPApprovalRequestType: $value');
+      case 'mcp_approval_request':
+        return RealtimeMCPApprovalRequestType.mcpApprovalRequest;
+      default:
+        throw ArgumentError('Unknown RealtimeMCPApprovalRequestType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeMCPApprovalRequestType.mcpApprovalRequest: return 'mcp_approval_request';
+      case RealtimeMCPApprovalRequestType.mcpApprovalRequest:
+        return 'mcp_approval_request';
     }
   }
 
@@ -31,14 +34,17 @@ enum RealtimeMCPApprovalResponseType {
 
   static RealtimeMCPApprovalResponseType fromJson(String value) {
     switch (value) {
-      case 'mcp_approval_response': return RealtimeMCPApprovalResponseType.mcpApprovalResponse;
-      default: throw ArgumentError('Unknown RealtimeMCPApprovalResponseType: $value');
+      case 'mcp_approval_response':
+        return RealtimeMCPApprovalResponseType.mcpApprovalResponse;
+      default:
+        throw ArgumentError('Unknown RealtimeMCPApprovalResponseType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeMCPApprovalResponseType.mcpApprovalResponse: return 'mcp_approval_response';
+      case RealtimeMCPApprovalResponseType.mcpApprovalResponse:
+        return 'mcp_approval_response';
     }
   }
 
@@ -52,14 +58,17 @@ enum RealtimeMCPHTTPErrorType {
 
   static RealtimeMCPHTTPErrorType fromJson(String value) {
     switch (value) {
-      case 'http_error': return RealtimeMCPHTTPErrorType.httpError;
-      default: throw ArgumentError('Unknown RealtimeMCPHTTPErrorType: $value');
+      case 'http_error':
+        return RealtimeMCPHTTPErrorType.httpError;
+      default:
+        throw ArgumentError('Unknown RealtimeMCPHTTPErrorType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeMCPHTTPErrorType.httpError: return 'http_error';
+      case RealtimeMCPHTTPErrorType.httpError:
+        return 'http_error';
     }
   }
 
@@ -73,14 +82,17 @@ enum RealtimeMCPListToolsType {
 
   static RealtimeMCPListToolsType fromJson(String value) {
     switch (value) {
-      case 'mcp_list_tools': return RealtimeMCPListToolsType.mcpListTools;
-      default: throw ArgumentError('Unknown RealtimeMCPListToolsType: $value');
+      case 'mcp_list_tools':
+        return RealtimeMCPListToolsType.mcpListTools;
+      default:
+        throw ArgumentError('Unknown RealtimeMCPListToolsType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeMCPListToolsType.mcpListTools: return 'mcp_list_tools';
+      case RealtimeMCPListToolsType.mcpListTools:
+        return 'mcp_list_tools';
     }
   }
 
@@ -94,14 +106,17 @@ enum RealtimeMCPProtocolErrorType {
 
   static RealtimeMCPProtocolErrorType fromJson(String value) {
     switch (value) {
-      case 'protocol_error': return RealtimeMCPProtocolErrorType.protocolError;
-      default: throw ArgumentError('Unknown RealtimeMCPProtocolErrorType: $value');
+      case 'protocol_error':
+        return RealtimeMCPProtocolErrorType.protocolError;
+      default:
+        throw ArgumentError('Unknown RealtimeMCPProtocolErrorType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeMCPProtocolErrorType.protocolError: return 'protocol_error';
+      case RealtimeMCPProtocolErrorType.protocolError:
+        return 'protocol_error';
     }
   }
 
@@ -115,14 +130,17 @@ enum RealtimeMCPToolCallType {
 
   static RealtimeMCPToolCallType fromJson(String value) {
     switch (value) {
-      case 'mcp_call': return RealtimeMCPToolCallType.mcpCall;
-      default: throw ArgumentError('Unknown RealtimeMCPToolCallType: $value');
+      case 'mcp_call':
+        return RealtimeMCPToolCallType.mcpCall;
+      default:
+        throw ArgumentError('Unknown RealtimeMCPToolCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeMCPToolCallType.mcpCall: return 'mcp_call';
+      case RealtimeMCPToolCallType.mcpCall:
+        return 'mcp_call';
     }
   }
 
@@ -136,14 +154,18 @@ enum RealtimeMCPToolExecutionErrorType {
 
   static RealtimeMCPToolExecutionErrorType fromJson(String value) {
     switch (value) {
-      case 'tool_execution_error': return RealtimeMCPToolExecutionErrorType.toolExecutionError;
-      default: throw ArgumentError('Unknown RealtimeMCPToolExecutionErrorType: $value');
+      case 'tool_execution_error':
+        return RealtimeMCPToolExecutionErrorType.toolExecutionError;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeMCPToolExecutionErrorType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeMCPToolExecutionErrorType.toolExecutionError: return 'tool_execution_error';
+      case RealtimeMCPToolExecutionErrorType.toolExecutionError:
+        return 'tool_execution_error';
     }
   }
 
@@ -153,76 +175,85 @@ enum RealtimeMCPToolExecutionErrorType {
 
 /// Optional enumerated value serialized in the `max_output_tokens` wire field.
 final class RealtimeResponseMaxOutputTokensVariant1 {
-
   final String value;
 
   const RealtimeResponseMaxOutputTokensVariant1._(this.value);
 
-  factory RealtimeResponseMaxOutputTokensVariant1.fromJson(String value) => RealtimeResponseMaxOutputTokensVariant1._(value);
+  factory RealtimeResponseMaxOutputTokensVariant1.fromJson(String value) =>
+      RealtimeResponseMaxOutputTokensVariant1._(value);
 
   static const inf = RealtimeResponseMaxOutputTokensVariant1._('inf');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeResponseMaxOutputTokensVariant1 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeResponseMaxOutputTokensVariant1 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type, must be `realtime.response`.
 final class RealtimeResponseObject {
-
   final String value;
 
   const RealtimeResponseObject._(this.value);
 
-  factory RealtimeResponseObject.fromJson(String value) => RealtimeResponseObject._(value);
+  factory RealtimeResponseObject.fromJson(String value) =>
+      RealtimeResponseObject._(value);
 
   static const realtimeResponse = RealtimeResponseObject._('realtime.response');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeResponseObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeResponseObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `output_modalities[]` wire field.
 final class RealtimeResponseOutputModalitiesItem {
-
   final String value;
 
   const RealtimeResponseOutputModalitiesItem._(this.value);
 
-  factory RealtimeResponseOutputModalitiesItem.fromJson(String value) => RealtimeResponseOutputModalitiesItem._(value);
+  factory RealtimeResponseOutputModalitiesItem.fromJson(String value) =>
+      RealtimeResponseOutputModalitiesItem._(value);
 
   static const text = RealtimeResponseOutputModalitiesItem._('text');
   static const audio = RealtimeResponseOutputModalitiesItem._('audio');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeResponseOutputModalitiesItem && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeResponseOutputModalitiesItem && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The final status of the response (`completed`, `cancelled`, `failed`, or `incomplete`, `in_progress`).
 final class RealtimeResponseStatus {
-
   final String value;
 
   const RealtimeResponseStatus._(this.value);
 
-  factory RealtimeResponseStatus.fromJson(String value) => RealtimeResponseStatus._(value);
+  factory RealtimeResponseStatus.fromJson(String value) =>
+      RealtimeResponseStatus._(value);
 
   static const completed = RealtimeResponseStatus._('completed');
   static const cancelled = RealtimeResponseStatus._('cancelled');
@@ -232,46 +263,56 @@ final class RealtimeResponseStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeResponseStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeResponseStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The reason the Response did not complete. For a `cancelled` Response, one of `turn_detected` (the server VAD detected a new start of speech) or `client_cancelled` (the client sent a cancel event). For an `incomplete` Response, one of `max_output_tokens` or `content_filter` (the server-side safety filter activated and cut off the response).
 final class RealtimeResponseStatusDetailsReason {
-
   final String value;
 
   const RealtimeResponseStatusDetailsReason._(this.value);
 
-  factory RealtimeResponseStatusDetailsReason.fromJson(String value) => RealtimeResponseStatusDetailsReason._(value);
+  factory RealtimeResponseStatusDetailsReason.fromJson(String value) =>
+      RealtimeResponseStatusDetailsReason._(value);
 
-  static const turnDetected = RealtimeResponseStatusDetailsReason._('turn_detected');
-  static const clientCancelled = RealtimeResponseStatusDetailsReason._('client_cancelled');
-  static const maxOutputTokens = RealtimeResponseStatusDetailsReason._('max_output_tokens');
-  static const contentFilter = RealtimeResponseStatusDetailsReason._('content_filter');
+  static const turnDetected =
+      RealtimeResponseStatusDetailsReason._('turn_detected');
+  static const clientCancelled =
+      RealtimeResponseStatusDetailsReason._('client_cancelled');
+  static const maxOutputTokens =
+      RealtimeResponseStatusDetailsReason._('max_output_tokens');
+  static const contentFilter =
+      RealtimeResponseStatusDetailsReason._('content_filter');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeResponseStatusDetailsReason && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeResponseStatusDetailsReason && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of error that caused the response to fail, corresponding with the `status` field (`completed`, `cancelled`, `incomplete`, `failed`).
 final class RealtimeResponseStatusDetailsType {
-
   final String value;
 
   const RealtimeResponseStatusDetailsType._(this.value);
 
-  factory RealtimeResponseStatusDetailsType.fromJson(String value) => RealtimeResponseStatusDetailsType._(value);
+  factory RealtimeResponseStatusDetailsType.fromJson(String value) =>
+      RealtimeResponseStatusDetailsType._(value);
 
   static const completed = RealtimeResponseStatusDetailsType._('completed');
   static const cancelled = RealtimeResponseStatusDetailsType._('cancelled');
@@ -280,10 +321,13 @@ final class RealtimeResponseStatusDetailsType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeResponseStatusDetailsType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeResponseStatusDetailsType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

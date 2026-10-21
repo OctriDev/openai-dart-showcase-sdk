@@ -8,32 +8,47 @@ part of 'shared.dart';
 class HTTPError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final HTTPErrorType type_;
+
   /// Required `integer` value serialized in the `code` wire field.
   final int code;
+
   /// Required `string` value serialized in the `message` wire field.
   final String message;
 
-  const HTTPError({required this.type_, required this.code, required this.message});
+  const HTTPError(
+      {required this.type_, required this.code, required this.message});
 
-  HTTPError Function({HTTPErrorType type_, int code, String message}) get copyWith => _copyWith;
+  HTTPError Function({HTTPErrorType type_, int code, String message})
+      get copyWith => _copyWith;
 
-  HTTPError _copyWith({Object? type_ = sdkOmittedValue, Object? code = sdkOmittedValue, Object? message = sdkOmittedValue}) => HTTPError(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as HTTPErrorType,
-    code: identical(code, sdkOmittedValue) ? this.code : code as int,
-    message: identical(message, sdkOmittedValue) ? this.message : message as String,
-  );
+  HTTPError _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? code = sdkOmittedValue,
+          Object? message = sdkOmittedValue}) =>
+      HTTPError(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as HTTPErrorType,
+        code: identical(code, sdkOmittedValue) ? this.code : code as int,
+        message: identical(message, sdkOmittedValue)
+            ? this.message
+            : message as String,
+      );
 
   factory HTTPError.fromJson(Map<String, dynamic> json) => HTTPError(
-    type_: (json['type'] != null ? HTTPErrorType.fromJson(json['type'] as String) : null)!,
-    code: ((json['code'] as num?)?.toInt())!,
-    message: (json['message'] as String?)!,
-  );
+        type_: (json['type'] != null
+            ? HTTPErrorType.fromJson(json['type'] as String)
+            : null)!,
+        code: ((json['code'] as num?)?.toInt())!,
+        message: (json['message'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'code': code,
-    'message': message,
-  };
+        'type': type_.toJson(),
+        'code': code,
+        'message': message,
+      };
 }

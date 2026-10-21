@@ -8,42 +8,72 @@ part of 'shared.dart';
 class UrlCitationBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the URL citation. Always `url_citation`.
   final UrlCitationBodyType type_;
+
   /// The URL of the web resource.
   final String url;
+
   /// The index of the first character of the URL citation in the message.
   final int startIndex;
+
   /// The index of the last character of the URL citation in the message.
   final int endIndex;
+
   /// The title of the web resource.
   final String title;
 
-  const UrlCitationBody({required this.type_, required this.url, required this.startIndex, required this.endIndex, required this.title});
+  const UrlCitationBody(
+      {required this.type_,
+      required this.url,
+      required this.startIndex,
+      required this.endIndex,
+      required this.title});
 
-  UrlCitationBody Function({UrlCitationBodyType type_, String url, int startIndex, int endIndex, String title}) get copyWith => _copyWith;
+  UrlCitationBody Function(
+      {UrlCitationBodyType type_,
+      String url,
+      int startIndex,
+      int endIndex,
+      String title}) get copyWith => _copyWith;
 
-  UrlCitationBody _copyWith({Object? type_ = sdkOmittedValue, Object? url = sdkOmittedValue, Object? startIndex = sdkOmittedValue, Object? endIndex = sdkOmittedValue, Object? title = sdkOmittedValue}) => UrlCitationBody(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as UrlCitationBodyType,
-    url: identical(url, sdkOmittedValue) ? this.url : url as String,
-    startIndex: identical(startIndex, sdkOmittedValue) ? this.startIndex : startIndex as int,
-    endIndex: identical(endIndex, sdkOmittedValue) ? this.endIndex : endIndex as int,
-    title: identical(title, sdkOmittedValue) ? this.title : title as String,
-  );
+  UrlCitationBody _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? url = sdkOmittedValue,
+          Object? startIndex = sdkOmittedValue,
+          Object? endIndex = sdkOmittedValue,
+          Object? title = sdkOmittedValue}) =>
+      UrlCitationBody(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as UrlCitationBodyType,
+        url: identical(url, sdkOmittedValue) ? this.url : url as String,
+        startIndex: identical(startIndex, sdkOmittedValue)
+            ? this.startIndex
+            : startIndex as int,
+        endIndex: identical(endIndex, sdkOmittedValue)
+            ? this.endIndex
+            : endIndex as int,
+        title: identical(title, sdkOmittedValue) ? this.title : title as String,
+      );
 
-  factory UrlCitationBody.fromJson(Map<String, dynamic> json) => UrlCitationBody(
-    type_: (json['type'] != null ? UrlCitationBodyType.fromJson(json['type'] as String) : null)!,
-    url: (json['url'] as String?)!,
-    startIndex: ((json['start_index'] as num?)?.toInt())!,
-    endIndex: ((json['end_index'] as num?)?.toInt())!,
-    title: (json['title'] as String?)!,
-  );
+  factory UrlCitationBody.fromJson(Map<String, dynamic> json) =>
+      UrlCitationBody(
+        type_: (json['type'] != null
+            ? UrlCitationBodyType.fromJson(json['type'] as String)
+            : null)!,
+        url: (json['url'] as String?)!,
+        startIndex: ((json['start_index'] as num?)?.toInt())!,
+        endIndex: ((json['end_index'] as num?)?.toInt())!,
+        title: (json['title'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'url': url,
-    'start_index': startIndex,
-    'end_index': endIndex,
-    'title': title,
-  };
+        'type': type_.toJson(),
+        'url': url,
+        'start_index': startIndex,
+        'end_index': endIndex,
+        'title': title,
+      };
 }

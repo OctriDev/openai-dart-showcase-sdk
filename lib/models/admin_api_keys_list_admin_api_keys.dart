@@ -8,48 +8,91 @@ part of 'admin_api_keys.dart';
 class ApiKeyList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `object` wire field.
   final ApiKeyListObject object;
+
   /// Required array value serialized in the `data` wire field.
   final List<AdminApiKey> data;
+
   /// Required `boolean` value serialized in the `has_more` wire field.
   final bool hasMore;
+
   /// Optional `string` value serialized in the `first_id` wire field.
   final SdkOptional<String?> firstId;
+
   /// Optional `string` value serialized in the `last_id` wire field.
   final SdkOptional<String?> lastId;
 
-  const ApiKeyList({required this.object, required this.data, required this.hasMore, this.firstId = const SdkOmitted(), this.lastId = const SdkOmitted()});
+  const ApiKeyList(
+      {required this.object,
+      required this.data,
+      required this.hasMore,
+      this.firstId = const SdkOmitted(),
+      this.lastId = const SdkOmitted()});
 
-  ApiKeyList Function({ApiKeyListObject object, List<AdminApiKey> data, bool hasMore, SdkOptional<String?> firstId, SdkOptional<String?> lastId}) get copyWith => _copyWith;
+  ApiKeyList Function(
+      {ApiKeyListObject object,
+      List<AdminApiKey> data,
+      bool hasMore,
+      SdkOptional<String?> firstId,
+      SdkOptional<String?> lastId}) get copyWith => _copyWith;
 
-  ApiKeyList _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? hasMore = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue}) => ApiKeyList(
-    object: identical(object, sdkOmittedValue) ? this.object : object as ApiKeyListObject,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<AdminApiKey>,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
-    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as SdkOptional<String?>,
-    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as SdkOptional<String?>,
-  );
+  ApiKeyList _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue,
+          Object? firstId = sdkOmittedValue,
+          Object? lastId = sdkOmittedValue}) =>
+      ApiKeyList(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ApiKeyListObject,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<AdminApiKey>,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as bool,
+        firstId: identical(firstId, sdkOmittedValue)
+            ? this.firstId
+            : firstId as SdkOptional<String?>,
+        lastId: identical(lastId, sdkOmittedValue)
+            ? this.lastId
+            : lastId as SdkOptional<String?>,
+      );
 
   factory ApiKeyList.fromJson(Map<String, dynamic> json) => ApiKeyList(
-    object: (json['object'] != null ? ApiKeyListObject.fromJson(json['object'] as String) : null)!,
-    data: ((json['data'] as List?)?.map((e) => AdminApiKey.fromJson(e as Map<String, dynamic>)).toList())!,
-    hasMore: (json['has_more'] as bool?)!,
-    firstId: json.containsKey('first_id') ? SdkPresent(json['first_id'] as String?) : const SdkOmitted(),
-    lastId: json.containsKey('last_id') ? SdkPresent(json['last_id'] as String?) : const SdkOmitted(),
-  );
+        object: (json['object'] != null
+            ? ApiKeyListObject.fromJson(json['object'] as String)
+            : null)!,
+        data: ((json['data'] as List?)
+            ?.map((e) => AdminApiKey.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        hasMore: (json['has_more'] as bool?)!,
+        firstId: json.containsKey('first_id')
+            ? SdkPresent(json['first_id'] as String?)
+            : const SdkOmitted(),
+        lastId: json.containsKey('last_id')
+            ? SdkPresent(json['last_id'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'data': data.map((item) => item.toJson()).toList(),
-    'has_more': hasMore,
-    ...switch (firstId) {
-      SdkPresent<String?>(value: final value) => {'first_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (lastId) {
-      SdkPresent<String?>(value: final value) => {'last_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'object': object.toJson(),
+        'data': data.map((item) => item.toJson()).toList(),
+        'has_more': hasMore,
+        ...switch (firstId) {
+          SdkPresent<String?>(value: final value) => {
+              'first_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (lastId) {
+          SdkPresent<String?>(value: final value) => {
+              'last_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

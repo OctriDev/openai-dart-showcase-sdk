@@ -10,32 +10,59 @@ sealed class ContainerAutoParamSkillsItem {
   const ContainerAutoParamSkillsItem();
   factory ContainerAutoParamSkillsItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = SkillReferenceParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ContainerAutoParamSkillsItemSkillReferenceParam(value); } } catch (_) {}
-      try { final value = InlineSkillParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ContainerAutoParamSkillsItemInlineSkillParam(value); } } catch (_) {}
+      try {
+        final value = SkillReferenceParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ContainerAutoParamSkillsItemSkillReferenceParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = InlineSkillParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ContainerAutoParamSkillsItemInlineSkillParam(value);
+        }
+      } catch (_) {}
     }
-    try { return ContainerAutoParamSkillsItemSkillReferenceParam(SkillReferenceParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ContainerAutoParamSkillsItemInlineSkillParam(InlineSkillParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"skill_reference", "inline"}.contains(json["type"])) { return UnknownContainerAutoParamSkillsItem(json); }
-    throw FormatException("No variant matched for ContainerAutoParamSkillsItem");
+    try {
+      return ContainerAutoParamSkillsItemSkillReferenceParam(
+          SkillReferenceParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ContainerAutoParamSkillsItemInlineSkillParam(
+          InlineSkillParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"skill_reference", "inline"}.contains(json["type"])) {
+      return UnknownContainerAutoParamSkillsItem(json);
+    }
+    throw FormatException(
+        "No variant matched for ContainerAutoParamSkillsItem");
   }
   Object? toJson();
 }
 
-final class ContainerAutoParamSkillsItemSkillReferenceParam extends ContainerAutoParamSkillsItem {
+final class ContainerAutoParamSkillsItemSkillReferenceParam
+    extends ContainerAutoParamSkillsItem {
   final SkillReferenceParam value;
   const ContainerAutoParamSkillsItemSkillReferenceParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ContainerAutoParamSkillsItemInlineSkillParam extends ContainerAutoParamSkillsItem {
+final class ContainerAutoParamSkillsItemInlineSkillParam
+    extends ContainerAutoParamSkillsItem {
   final InlineSkillParam value;
   const ContainerAutoParamSkillsItemInlineSkillParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [ContainerAutoParamSkillsItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownContainerAutoParamSkillsItem extends ContainerAutoParamSkillsItem {
+final class UnknownContainerAutoParamSkillsItem
+    extends ContainerAutoParamSkillsItem {
   final Map<String, dynamic> raw;
   const UnknownContainerAutoParamSkillsItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

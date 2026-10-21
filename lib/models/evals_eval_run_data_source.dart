@@ -10,40 +10,77 @@ sealed class EvalRunDataSource {
   const EvalRunDataSource();
   factory EvalRunDataSource.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = CreateEvalJsonlRunDataSource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EvalRunDataSourceCreateEvalJsonlRunDataSource(value); } } catch (_) {}
-      try { final value = CreateEvalCompletionsRunDataSource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EvalRunDataSourceCreateEvalCompletionsRunDataSource(value); } } catch (_) {}
-      try { final value = CreateEvalResponsesRunDataSource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EvalRunDataSourceCreateEvalResponsesRunDataSource(value); } } catch (_) {}
+      try {
+        final value = CreateEvalJsonlRunDataSource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EvalRunDataSourceCreateEvalJsonlRunDataSource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CreateEvalCompletionsRunDataSource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EvalRunDataSourceCreateEvalCompletionsRunDataSource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CreateEvalResponsesRunDataSource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EvalRunDataSourceCreateEvalResponsesRunDataSource(value);
+        }
+      } catch (_) {}
     }
-    try { return EvalRunDataSourceCreateEvalJsonlRunDataSource(CreateEvalJsonlRunDataSource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return EvalRunDataSourceCreateEvalCompletionsRunDataSource(CreateEvalCompletionsRunDataSource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return EvalRunDataSourceCreateEvalResponsesRunDataSource(CreateEvalResponsesRunDataSource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"jsonl", "completions", "responses"}.contains(json["type"])) { return UnknownEvalRunDataSource(json); }
+    try {
+      return EvalRunDataSourceCreateEvalJsonlRunDataSource(
+          CreateEvalJsonlRunDataSource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return EvalRunDataSourceCreateEvalCompletionsRunDataSource(
+          CreateEvalCompletionsRunDataSource.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return EvalRunDataSourceCreateEvalResponsesRunDataSource(
+          CreateEvalResponsesRunDataSource.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"jsonl", "completions", "responses"}.contains(json["type"])) {
+      return UnknownEvalRunDataSource(json);
+    }
     throw FormatException("No variant matched for EvalRunDataSource");
   }
   Object? toJson();
 }
 
-final class EvalRunDataSourceCreateEvalJsonlRunDataSource extends EvalRunDataSource {
+final class EvalRunDataSourceCreateEvalJsonlRunDataSource
+    extends EvalRunDataSource {
   final CreateEvalJsonlRunDataSource value;
   const EvalRunDataSourceCreateEvalJsonlRunDataSource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class EvalRunDataSourceCreateEvalCompletionsRunDataSource extends EvalRunDataSource {
+final class EvalRunDataSourceCreateEvalCompletionsRunDataSource
+    extends EvalRunDataSource {
   final CreateEvalCompletionsRunDataSource value;
   const EvalRunDataSourceCreateEvalCompletionsRunDataSource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class EvalRunDataSourceCreateEvalResponsesRunDataSource extends EvalRunDataSource {
+final class EvalRunDataSourceCreateEvalResponsesRunDataSource
+    extends EvalRunDataSource {
   final CreateEvalResponsesRunDataSource value;
   const EvalRunDataSourceCreateEvalResponsesRunDataSource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [EvalRunDataSource] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownEvalRunDataSource extends EvalRunDataSource {
   final Map<String, dynamic> raw;
   const UnknownEvalRunDataSource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

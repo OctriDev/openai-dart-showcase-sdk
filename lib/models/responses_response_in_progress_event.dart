@@ -8,32 +8,56 @@ part of 'responses_response.dart';
 class ResponseInProgressEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the event. Always `response.in_progress`.
   final ResponseInProgressEventType type_;
+
   /// The response that is in progress.
   final Response response;
+
   /// The sequence number of this event.
   final int sequenceNumber;
 
-  const ResponseInProgressEvent({required this.type_, required this.response, required this.sequenceNumber});
+  const ResponseInProgressEvent(
+      {required this.type_,
+      required this.response,
+      required this.sequenceNumber});
 
-  ResponseInProgressEvent Function({ResponseInProgressEventType type_, Response response, int sequenceNumber}) get copyWith => _copyWith;
+  ResponseInProgressEvent Function(
+      {ResponseInProgressEventType type_,
+      Response response,
+      int sequenceNumber}) get copyWith => _copyWith;
 
-  ResponseInProgressEvent _copyWith({Object? type_ = sdkOmittedValue, Object? response = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => ResponseInProgressEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseInProgressEventType,
-    response: identical(response, sdkOmittedValue) ? this.response : response as Response,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-  );
+  ResponseInProgressEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? response = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue}) =>
+      ResponseInProgressEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponseInProgressEventType,
+        response: identical(response, sdkOmittedValue)
+            ? this.response
+            : response as Response,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+      );
 
-  factory ResponseInProgressEvent.fromJson(Map<String, dynamic> json) => ResponseInProgressEvent(
-    type_: (json['type'] != null ? ResponseInProgressEventType.fromJson(json['type'] as String) : null)!,
-    response: (json['response'] != null ? Response.fromJson(json['response'] as Map<String, dynamic>) : null)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-  );
+  factory ResponseInProgressEvent.fromJson(Map<String, dynamic> json) =>
+      ResponseInProgressEvent(
+        type_: (json['type'] != null
+            ? ResponseInProgressEventType.fromJson(json['type'] as String)
+            : null)!,
+        response: (json['response'] != null
+            ? Response.fromJson(json['response'] as Map<String, dynamic>)
+            : null)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'response': response.toJson(),
-    'sequence_number': sequenceNumber,
-  };
+        'type': type_.toJson(),
+        'response': response.toJson(),
+        'sequence_number': sequenceNumber,
+      };
 }

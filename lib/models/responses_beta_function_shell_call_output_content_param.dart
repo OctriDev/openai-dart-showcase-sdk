@@ -8,32 +8,52 @@ part of 'responses_beta_function.dart';
 class BetaFunctionShellCallOutputContentParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Captured stdout output for the shell call.
   final String stdout;
+
   /// Captured stderr output for the shell call.
   final String stderr;
+
   /// The exit or timeout outcome associated with this shell call.
   final BetaFunctionShellCallOutputOutcomeParam outcome;
 
-  const BetaFunctionShellCallOutputContentParam({required this.stdout, required this.stderr, required this.outcome});
+  const BetaFunctionShellCallOutputContentParam(
+      {required this.stdout, required this.stderr, required this.outcome});
 
-  BetaFunctionShellCallOutputContentParam Function({String stdout, String stderr, BetaFunctionShellCallOutputOutcomeParam outcome}) get copyWith => _copyWith;
+  BetaFunctionShellCallOutputContentParam Function(
+          {String stdout,
+          String stderr,
+          BetaFunctionShellCallOutputOutcomeParam outcome})
+      get copyWith => _copyWith;
 
-  BetaFunctionShellCallOutputContentParam _copyWith({Object? stdout = sdkOmittedValue, Object? stderr = sdkOmittedValue, Object? outcome = sdkOmittedValue}) => BetaFunctionShellCallOutputContentParam(
-    stdout: identical(stdout, sdkOmittedValue) ? this.stdout : stdout as String,
-    stderr: identical(stderr, sdkOmittedValue) ? this.stderr : stderr as String,
-    outcome: identical(outcome, sdkOmittedValue) ? this.outcome : outcome as BetaFunctionShellCallOutputOutcomeParam,
-  );
+  BetaFunctionShellCallOutputContentParam _copyWith(
+          {Object? stdout = sdkOmittedValue,
+          Object? stderr = sdkOmittedValue,
+          Object? outcome = sdkOmittedValue}) =>
+      BetaFunctionShellCallOutputContentParam(
+        stdout:
+            identical(stdout, sdkOmittedValue) ? this.stdout : stdout as String,
+        stderr:
+            identical(stderr, sdkOmittedValue) ? this.stderr : stderr as String,
+        outcome: identical(outcome, sdkOmittedValue)
+            ? this.outcome
+            : outcome as BetaFunctionShellCallOutputOutcomeParam,
+      );
 
-  factory BetaFunctionShellCallOutputContentParam.fromJson(Map<String, dynamic> json) => BetaFunctionShellCallOutputContentParam(
-    stdout: (json['stdout'] as String?)!,
-    stderr: (json['stderr'] as String?)!,
-    outcome: (json['outcome'] != null ? BetaFunctionShellCallOutputOutcomeParam.fromJson(json['outcome']) : null)!,
-  );
+  factory BetaFunctionShellCallOutputContentParam.fromJson(
+          Map<String, dynamic> json) =>
+      BetaFunctionShellCallOutputContentParam(
+        stdout: (json['stdout'] as String?)!,
+        stderr: (json['stderr'] as String?)!,
+        outcome: (json['outcome'] != null
+            ? BetaFunctionShellCallOutputOutcomeParam.fromJson(json['outcome'])
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'stdout': stdout,
-    'stderr': stderr,
-    'outcome': outcome.toJson(),
-  };
+        'stdout': stdout,
+        'stderr': stderr,
+        'outcome': outcome.toJson(),
+      };
 }

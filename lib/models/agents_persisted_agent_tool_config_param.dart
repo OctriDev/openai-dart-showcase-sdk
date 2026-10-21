@@ -10,64 +10,157 @@ sealed class PersistedAgentToolConfigParam {
   const PersistedAgentToolConfigParam();
   factory PersistedAgentToolConfigParam.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = PersistedAgentToolConfigParamFunction.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PersistedAgentToolConfigParamPersistedAgentToolConfigParamFunction(value); } } catch (_) {}
-      try { final value = PersistedAgentToolConfigParamToolSearch.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PersistedAgentToolConfigParamPersistedAgentToolConfigParamToolSearch(value); } } catch (_) {}
-      try { final value = PersistedAgentToolConfigParamProgrammaticToolCalling.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PersistedAgentToolConfigParamPersistedAgentToolConfigParamProgrammaticToolCalling(value); } } catch (_) {}
-      try { final value = PersistedAgentToolConfigParamMcp.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PersistedAgentToolConfigParamPersistedAgentToolConfigParamMcp(value); } } catch (_) {}
-      try { final value = PersistedAgentToolConfigParamWebSearch.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PersistedAgentToolConfigParamPersistedAgentToolConfigParamWebSearch(value); } } catch (_) {}
-      try { final value = PersistedAgentToolConfigParamComputerUse.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PersistedAgentToolConfigParamPersistedAgentToolConfigParamComputerUse(value); } } catch (_) {}
+      try {
+        final value = PersistedAgentToolConfigParamFunction.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return PersistedAgentToolConfigParamPersistedAgentToolConfigParamFunction(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = PersistedAgentToolConfigParamToolSearch.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return PersistedAgentToolConfigParamPersistedAgentToolConfigParamToolSearch(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            PersistedAgentToolConfigParamProgrammaticToolCalling.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return PersistedAgentToolConfigParamPersistedAgentToolConfigParamProgrammaticToolCalling(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = PersistedAgentToolConfigParamMcp.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return PersistedAgentToolConfigParamPersistedAgentToolConfigParamMcp(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = PersistedAgentToolConfigParamWebSearch.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return PersistedAgentToolConfigParamPersistedAgentToolConfigParamWebSearch(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = PersistedAgentToolConfigParamComputerUse.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return PersistedAgentToolConfigParamPersistedAgentToolConfigParamComputerUse(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return PersistedAgentToolConfigParamPersistedAgentToolConfigParamFunction(PersistedAgentToolConfigParamFunction.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return PersistedAgentToolConfigParamPersistedAgentToolConfigParamToolSearch(PersistedAgentToolConfigParamToolSearch.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return PersistedAgentToolConfigParamPersistedAgentToolConfigParamProgrammaticToolCalling(PersistedAgentToolConfigParamProgrammaticToolCalling.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return PersistedAgentToolConfigParamPersistedAgentToolConfigParamMcp(PersistedAgentToolConfigParamMcp.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return PersistedAgentToolConfigParamPersistedAgentToolConfigParamWebSearch(PersistedAgentToolConfigParamWebSearch.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return PersistedAgentToolConfigParamPersistedAgentToolConfigParamComputerUse(PersistedAgentToolConfigParamComputerUse.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"function", "tool_search", "programmatic_tool_calling", "mcp", "web_search", "computer_use"}.contains(json["type"])) { return UnknownPersistedAgentToolConfigParam(json); }
-    throw FormatException("No variant matched for PersistedAgentToolConfigParam");
+    try {
+      return PersistedAgentToolConfigParamPersistedAgentToolConfigParamFunction(
+          PersistedAgentToolConfigParamFunction.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return PersistedAgentToolConfigParamPersistedAgentToolConfigParamToolSearch(
+          PersistedAgentToolConfigParamToolSearch.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return PersistedAgentToolConfigParamPersistedAgentToolConfigParamProgrammaticToolCalling(
+          PersistedAgentToolConfigParamProgrammaticToolCalling.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return PersistedAgentToolConfigParamPersistedAgentToolConfigParamMcp(
+          PersistedAgentToolConfigParamMcp.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return PersistedAgentToolConfigParamPersistedAgentToolConfigParamWebSearch(
+          PersistedAgentToolConfigParamWebSearch.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return PersistedAgentToolConfigParamPersistedAgentToolConfigParamComputerUse(
+          PersistedAgentToolConfigParamComputerUse.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {
+          "function",
+          "tool_search",
+          "programmatic_tool_calling",
+          "mcp",
+          "web_search",
+          "computer_use"
+        }.contains(json["type"])) {
+      return UnknownPersistedAgentToolConfigParam(json);
+    }
+    throw FormatException(
+        "No variant matched for PersistedAgentToolConfigParam");
   }
   Object? toJson();
 }
 
-final class PersistedAgentToolConfigParamPersistedAgentToolConfigParamFunction extends PersistedAgentToolConfigParam {
+final class PersistedAgentToolConfigParamPersistedAgentToolConfigParamFunction
+    extends PersistedAgentToolConfigParam {
   final PersistedAgentToolConfigParamFunction value;
-  const PersistedAgentToolConfigParamPersistedAgentToolConfigParamFunction(this.value);
-  @override Object? toJson() => value.toJson();
+  const PersistedAgentToolConfigParamPersistedAgentToolConfigParamFunction(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class PersistedAgentToolConfigParamPersistedAgentToolConfigParamToolSearch extends PersistedAgentToolConfigParam {
+final class PersistedAgentToolConfigParamPersistedAgentToolConfigParamToolSearch
+    extends PersistedAgentToolConfigParam {
   final PersistedAgentToolConfigParamToolSearch value;
-  const PersistedAgentToolConfigParamPersistedAgentToolConfigParamToolSearch(this.value);
-  @override Object? toJson() => value.toJson();
+  const PersistedAgentToolConfigParamPersistedAgentToolConfigParamToolSearch(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class PersistedAgentToolConfigParamPersistedAgentToolConfigParamProgrammaticToolCalling extends PersistedAgentToolConfigParam {
+final class PersistedAgentToolConfigParamPersistedAgentToolConfigParamProgrammaticToolCalling
+    extends PersistedAgentToolConfigParam {
   final PersistedAgentToolConfigParamProgrammaticToolCalling value;
-  const PersistedAgentToolConfigParamPersistedAgentToolConfigParamProgrammaticToolCalling(this.value);
-  @override Object? toJson() => value.toJson();
+  const PersistedAgentToolConfigParamPersistedAgentToolConfigParamProgrammaticToolCalling(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class PersistedAgentToolConfigParamPersistedAgentToolConfigParamMcp extends PersistedAgentToolConfigParam {
+final class PersistedAgentToolConfigParamPersistedAgentToolConfigParamMcp
+    extends PersistedAgentToolConfigParam {
   final PersistedAgentToolConfigParamMcp value;
-  const PersistedAgentToolConfigParamPersistedAgentToolConfigParamMcp(this.value);
-  @override Object? toJson() => value.toJson();
+  const PersistedAgentToolConfigParamPersistedAgentToolConfigParamMcp(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class PersistedAgentToolConfigParamPersistedAgentToolConfigParamWebSearch extends PersistedAgentToolConfigParam {
+final class PersistedAgentToolConfigParamPersistedAgentToolConfigParamWebSearch
+    extends PersistedAgentToolConfigParam {
   final PersistedAgentToolConfigParamWebSearch value;
-  const PersistedAgentToolConfigParamPersistedAgentToolConfigParamWebSearch(this.value);
-  @override Object? toJson() => value.toJson();
+  const PersistedAgentToolConfigParamPersistedAgentToolConfigParamWebSearch(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class PersistedAgentToolConfigParamPersistedAgentToolConfigParamComputerUse extends PersistedAgentToolConfigParam {
+final class PersistedAgentToolConfigParamPersistedAgentToolConfigParamComputerUse
+    extends PersistedAgentToolConfigParam {
   final PersistedAgentToolConfigParamComputerUse value;
-  const PersistedAgentToolConfigParamPersistedAgentToolConfigParamComputerUse(this.value);
-  @override Object? toJson() => value.toJson();
+  const PersistedAgentToolConfigParamPersistedAgentToolConfigParamComputerUse(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [PersistedAgentToolConfigParam] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownPersistedAgentToolConfigParam extends PersistedAgentToolConfigParam {
+final class UnknownPersistedAgentToolConfigParam
+    extends PersistedAgentToolConfigParam {
   final Map<String, dynamic> raw;
   const UnknownPersistedAgentToolConfigParam(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

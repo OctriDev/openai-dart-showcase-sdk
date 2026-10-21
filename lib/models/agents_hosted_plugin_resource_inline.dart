@@ -8,32 +8,50 @@ part of 'agents_hosted.dart';
 class HostedPluginResourceInline {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `inline`.
   final HostedPluginResourceInlineType type_;
+
   /// The installed plugin name.
   final String name;
+
   /// The installed plugin description.
   final String description;
 
-  const HostedPluginResourceInline({required this.type_, required this.name, required this.description});
+  const HostedPluginResourceInline(
+      {required this.type_, required this.name, required this.description});
 
-  HostedPluginResourceInline Function({HostedPluginResourceInlineType type_, String name, String description}) get copyWith => _copyWith;
+  HostedPluginResourceInline Function(
+      {HostedPluginResourceInlineType type_,
+      String name,
+      String description}) get copyWith => _copyWith;
 
-  HostedPluginResourceInline _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue}) => HostedPluginResourceInline(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as HostedPluginResourceInlineType,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as String,
-  );
+  HostedPluginResourceInline _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue}) =>
+      HostedPluginResourceInline(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as HostedPluginResourceInlineType,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as String,
+      );
 
-  factory HostedPluginResourceInline.fromJson(Map<String, dynamic> json) => HostedPluginResourceInline(
-    type_: (json['type'] != null ? HostedPluginResourceInlineType.fromJson(json['type'] as String) : null)!,
-    name: (json['name'] as String?)!,
-    description: (json['description'] as String?)!,
-  );
+  factory HostedPluginResourceInline.fromJson(Map<String, dynamic> json) =>
+      HostedPluginResourceInline(
+        type_: (json['type'] != null
+            ? HostedPluginResourceInlineType.fromJson(json['type'] as String)
+            : null)!,
+        name: (json['name'] as String?)!,
+        description: (json['description'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'name': name,
-    'description': description,
-  };
+        'type': type_.toJson(),
+        'name': name,
+        'description': description,
+      };
 }

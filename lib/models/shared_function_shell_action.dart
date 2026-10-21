@@ -8,32 +8,59 @@ part of 'shared_function.dart';
 class FunctionShellAction {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required array value serialized in the `commands` wire field.
   final List<String> commands;
+
   /// Required `integer` value serialized in the `timeout_ms` wire field.
   final int? timeoutMs;
+
   /// Required `integer` value serialized in the `max_output_length` wire field.
   final int? maxOutputLength;
 
-  const FunctionShellAction({required this.commands, required this.timeoutMs, required this.maxOutputLength});
+  const FunctionShellAction(
+      {required this.commands,
+      required this.timeoutMs,
+      required this.maxOutputLength});
 
-  FunctionShellAction Function({List<String> commands, int? timeoutMs, int? maxOutputLength}) get copyWith => _copyWith;
+  FunctionShellAction Function(
+      {List<String> commands,
+      int? timeoutMs,
+      int? maxOutputLength}) get copyWith => _copyWith;
 
-  FunctionShellAction _copyWith({Object? commands = sdkOmittedValue, Object? timeoutMs = sdkOmittedValue, Object? maxOutputLength = sdkOmittedValue}) => FunctionShellAction(
-    commands: identical(commands, sdkOmittedValue) ? this.commands : commands as List<String>,
-    timeoutMs: identical(timeoutMs, sdkOmittedValue) ? this.timeoutMs : timeoutMs as int?,
-    maxOutputLength: identical(maxOutputLength, sdkOmittedValue) ? this.maxOutputLength : maxOutputLength as int?,
-  );
+  FunctionShellAction _copyWith(
+          {Object? commands = sdkOmittedValue,
+          Object? timeoutMs = sdkOmittedValue,
+          Object? maxOutputLength = sdkOmittedValue}) =>
+      FunctionShellAction(
+        commands: identical(commands, sdkOmittedValue)
+            ? this.commands
+            : commands as List<String>,
+        timeoutMs: identical(timeoutMs, sdkOmittedValue)
+            ? this.timeoutMs
+            : timeoutMs as int?,
+        maxOutputLength: identical(maxOutputLength, sdkOmittedValue)
+            ? this.maxOutputLength
+            : maxOutputLength as int?,
+      );
 
-  factory FunctionShellAction.fromJson(Map<String, dynamic> json) => FunctionShellAction(
-    commands: ((json['commands'] as List?)?.map((e) => e as String).toList())!,
-    timeoutMs: json.containsKey('timeout_ms') ? (json['timeout_ms'] as num?)?.toInt() : throw ArgumentError.value(null, 'timeout_ms', 'Required property is missing'),
-    maxOutputLength: json.containsKey('max_output_length') ? (json['max_output_length'] as num?)?.toInt() : throw ArgumentError.value(null, 'max_output_length', 'Required property is missing'),
-  );
+  factory FunctionShellAction.fromJson(Map<String, dynamic> json) =>
+      FunctionShellAction(
+        commands:
+            ((json['commands'] as List?)?.map((e) => e as String).toList())!,
+        timeoutMs: json.containsKey('timeout_ms')
+            ? (json['timeout_ms'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'timeout_ms', 'Required property is missing'),
+        maxOutputLength: json.containsKey('max_output_length')
+            ? (json['max_output_length'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'max_output_length', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'commands': commands,
-    'timeout_ms': timeoutMs,
-    'max_output_length': maxOutputLength,
-  };
+        'commands': commands,
+        'timeout_ms': timeoutMs,
+        'max_output_length': maxOutputLength,
+      };
 }

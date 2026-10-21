@@ -6,22 +6,25 @@ part of 'shared_apply.dart';
 // shared_apply domain models
 /// Outcome values reported for apply_patch tool call outputs.
 final class ApplyPatchCallOutputStatusParam {
-
   final String value;
 
   const ApplyPatchCallOutputStatusParam._(this.value);
 
-  factory ApplyPatchCallOutputStatusParam.fromJson(String value) => ApplyPatchCallOutputStatusParam._(value);
+  factory ApplyPatchCallOutputStatusParam.fromJson(String value) =>
+      ApplyPatchCallOutputStatusParam._(value);
 
   static const completed = ApplyPatchCallOutputStatusParam._('completed');
   static const failed = ApplyPatchCallOutputStatusParam._('failed');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApplyPatchCallOutputStatusParam && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApplyPatchCallOutputStatusParam && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

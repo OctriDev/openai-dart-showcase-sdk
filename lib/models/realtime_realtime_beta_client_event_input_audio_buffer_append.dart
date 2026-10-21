@@ -8,35 +8,61 @@ part of 'realtime_realtime_beta_client.dart';
 class RealtimeBetaClientEventInputAudioBufferAppend {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional client-generated ID used to identify this event.
   final SdkOptional<String> eventId;
+
   /// The event type, must be `input_audio_buffer.append`.
   final RealtimeBetaClientEventInputAudioBufferAppendType type_;
+
   /// Base64-encoded audio bytes. This must be in the format specified by the `input_audio_format` field in the session configuration.
   final String audio;
 
-  const RealtimeBetaClientEventInputAudioBufferAppend({this.eventId = const SdkOmitted(), required this.type_, required this.audio});
+  const RealtimeBetaClientEventInputAudioBufferAppend(
+      {this.eventId = const SdkOmitted(),
+      required this.type_,
+      required this.audio});
 
-  RealtimeBetaClientEventInputAudioBufferAppend Function({SdkOptional<String> eventId, RealtimeBetaClientEventInputAudioBufferAppendType type_, String audio}) get copyWith => _copyWith;
+  RealtimeBetaClientEventInputAudioBufferAppend Function(
+      {SdkOptional<String> eventId,
+      RealtimeBetaClientEventInputAudioBufferAppendType type_,
+      String audio}) get copyWith => _copyWith;
 
-  RealtimeBetaClientEventInputAudioBufferAppend _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? audio = sdkOmittedValue}) => RealtimeBetaClientEventInputAudioBufferAppend(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaClientEventInputAudioBufferAppendType,
-    audio: identical(audio, sdkOmittedValue) ? this.audio : audio as String,
-  );
+  RealtimeBetaClientEventInputAudioBufferAppend _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? audio = sdkOmittedValue}) =>
+      RealtimeBetaClientEventInputAudioBufferAppend(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeBetaClientEventInputAudioBufferAppendType,
+        audio: identical(audio, sdkOmittedValue) ? this.audio : audio as String,
+      );
 
-  factory RealtimeBetaClientEventInputAudioBufferAppend.fromJson(Map<String, dynamic> json) => RealtimeBetaClientEventInputAudioBufferAppend(
-    eventId: json['event_id'] != null ? SdkPresent((json['event_id'] as String?)!) : const SdkOmitted(),
-    type_: (json['type'] != null ? RealtimeBetaClientEventInputAudioBufferAppendType.fromJson(json['type'] as String) : null)!,
-    audio: (json['audio'] as String?)!,
-  );
+  factory RealtimeBetaClientEventInputAudioBufferAppend.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeBetaClientEventInputAudioBufferAppend(
+        eventId: json['event_id'] != null
+            ? SdkPresent((json['event_id'] as String?)!)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? RealtimeBetaClientEventInputAudioBufferAppendType.fromJson(
+                json['type'] as String)
+            : null)!,
+        audio: (json['audio'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (eventId) {
-      SdkPresent<String>(value: final value) => {'event_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'audio': audio,
-  };
+        ...switch (eventId) {
+          SdkPresent<String>(value: final value) => {
+              'event_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'audio': audio,
+      };
 }

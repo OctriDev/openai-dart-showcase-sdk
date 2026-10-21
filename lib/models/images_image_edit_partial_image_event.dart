@@ -8,57 +8,116 @@ part of 'images.dart';
 class ImageEditPartialImageEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the event. Always `image_edit.partial_image`.
   final ImageEditPartialImageEventType type_;
+
   /// Base64-encoded partial image data, suitable for rendering as an image.
   final String b64Json;
+
   /// The Unix timestamp when the event was created.
   final int createdAt;
+
   /// The image dimensions as a `WIDTHxHEIGHT` string, for example `1536x864`.
   final String size;
+
   /// The quality setting for the requested edited image.
   final ImageEditPartialImageEventQuality quality;
+
   /// The background setting for the requested edited image.
   final ImageEditPartialImageEventBackground background;
+
   /// The output format for the requested edited image.
   final ImageEditPartialImageEventOutputFormat outputFormat;
+
   /// 0-based index for the partial image (streaming).
   final int partialImageIndex;
 
-  const ImageEditPartialImageEvent({required this.type_, required this.b64Json, required this.createdAt, required this.size, required this.quality, required this.background, required this.outputFormat, required this.partialImageIndex});
+  const ImageEditPartialImageEvent(
+      {required this.type_,
+      required this.b64Json,
+      required this.createdAt,
+      required this.size,
+      required this.quality,
+      required this.background,
+      required this.outputFormat,
+      required this.partialImageIndex});
 
-  ImageEditPartialImageEvent Function({ImageEditPartialImageEventType type_, String b64Json, int createdAt, String size, ImageEditPartialImageEventQuality quality, ImageEditPartialImageEventBackground background, ImageEditPartialImageEventOutputFormat outputFormat, int partialImageIndex}) get copyWith => _copyWith;
+  ImageEditPartialImageEvent Function(
+      {ImageEditPartialImageEventType type_,
+      String b64Json,
+      int createdAt,
+      String size,
+      ImageEditPartialImageEventQuality quality,
+      ImageEditPartialImageEventBackground background,
+      ImageEditPartialImageEventOutputFormat outputFormat,
+      int partialImageIndex}) get copyWith => _copyWith;
 
-  ImageEditPartialImageEvent _copyWith({Object? type_ = sdkOmittedValue, Object? b64Json = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? size = sdkOmittedValue, Object? quality = sdkOmittedValue, Object? background = sdkOmittedValue, Object? outputFormat = sdkOmittedValue, Object? partialImageIndex = sdkOmittedValue}) => ImageEditPartialImageEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ImageEditPartialImageEventType,
-    b64Json: identical(b64Json, sdkOmittedValue) ? this.b64Json : b64Json as String,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    size: identical(size, sdkOmittedValue) ? this.size : size as String,
-    quality: identical(quality, sdkOmittedValue) ? this.quality : quality as ImageEditPartialImageEventQuality,
-    background: identical(background, sdkOmittedValue) ? this.background : background as ImageEditPartialImageEventBackground,
-    outputFormat: identical(outputFormat, sdkOmittedValue) ? this.outputFormat : outputFormat as ImageEditPartialImageEventOutputFormat,
-    partialImageIndex: identical(partialImageIndex, sdkOmittedValue) ? this.partialImageIndex : partialImageIndex as int,
-  );
+  ImageEditPartialImageEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? b64Json = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? size = sdkOmittedValue,
+          Object? quality = sdkOmittedValue,
+          Object? background = sdkOmittedValue,
+          Object? outputFormat = sdkOmittedValue,
+          Object? partialImageIndex = sdkOmittedValue}) =>
+      ImageEditPartialImageEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ImageEditPartialImageEventType,
+        b64Json: identical(b64Json, sdkOmittedValue)
+            ? this.b64Json
+            : b64Json as String,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        size: identical(size, sdkOmittedValue) ? this.size : size as String,
+        quality: identical(quality, sdkOmittedValue)
+            ? this.quality
+            : quality as ImageEditPartialImageEventQuality,
+        background: identical(background, sdkOmittedValue)
+            ? this.background
+            : background as ImageEditPartialImageEventBackground,
+        outputFormat: identical(outputFormat, sdkOmittedValue)
+            ? this.outputFormat
+            : outputFormat as ImageEditPartialImageEventOutputFormat,
+        partialImageIndex: identical(partialImageIndex, sdkOmittedValue)
+            ? this.partialImageIndex
+            : partialImageIndex as int,
+      );
 
-  factory ImageEditPartialImageEvent.fromJson(Map<String, dynamic> json) => ImageEditPartialImageEvent(
-    type_: (json['type'] != null ? ImageEditPartialImageEventType.fromJson(json['type'] as String) : null)!,
-    b64Json: (json['b64_json'] as String?)!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    size: (json['size'] as String?)!,
-    quality: (json['quality'] != null ? ImageEditPartialImageEventQuality.fromJson(json['quality'] as String) : null)!,
-    background: (json['background'] != null ? ImageEditPartialImageEventBackground.fromJson(json['background'] as String) : null)!,
-    outputFormat: (json['output_format'] != null ? ImageEditPartialImageEventOutputFormat.fromJson(json['output_format'] as String) : null)!,
-    partialImageIndex: ((json['partial_image_index'] as num?)?.toInt())!,
-  );
+  factory ImageEditPartialImageEvent.fromJson(Map<String, dynamic> json) =>
+      ImageEditPartialImageEvent(
+        type_: (json['type'] != null
+            ? ImageEditPartialImageEventType.fromJson(json['type'] as String)
+            : null)!,
+        b64Json: (json['b64_json'] as String?)!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        size: (json['size'] as String?)!,
+        quality: (json['quality'] != null
+            ? ImageEditPartialImageEventQuality.fromJson(
+                json['quality'] as String)
+            : null)!,
+        background: (json['background'] != null
+            ? ImageEditPartialImageEventBackground.fromJson(
+                json['background'] as String)
+            : null)!,
+        outputFormat: (json['output_format'] != null
+            ? ImageEditPartialImageEventOutputFormat.fromJson(
+                json['output_format'] as String)
+            : null)!,
+        partialImageIndex: ((json['partial_image_index'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'b64_json': b64Json,
-    'created_at': createdAt,
-    'size': size,
-    'quality': quality.toJson(),
-    'background': background.toJson(),
-    'output_format': outputFormat.toJson(),
-    'partial_image_index': partialImageIndex,
-  };
+        'type': type_.toJson(),
+        'b64_json': b64Json,
+        'created_at': createdAt,
+        'size': size,
+        'quality': quality.toJson(),
+        'background': background.toJson(),
+        'output_format': outputFormat.toJson(),
+        'partial_image_index': partialImageIndex,
+      };
 }

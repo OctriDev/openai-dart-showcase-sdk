@@ -10,40 +10,88 @@ sealed class RotateVaultCredentialAuthParam {
   const RotateVaultCredentialAuthParam();
   factory RotateVaultCredentialAuthParam.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = RotateVaultCredentialAuthParamMcpOauth.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamMcpOauth(value); } } catch (_) {}
-      try { final value = RotateVaultCredentialAuthParamStaticBearer.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamStaticBearer(value); } } catch (_) {}
-      try { final value = RotateVaultCredentialAuthParamEnvironmentVariable.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamEnvironmentVariable(value); } } catch (_) {}
+      try {
+        final value = RotateVaultCredentialAuthParamMcpOauth.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamMcpOauth(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RotateVaultCredentialAuthParamStaticBearer.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamStaticBearer(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RotateVaultCredentialAuthParamEnvironmentVariable.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamEnvironmentVariable(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamMcpOauth(RotateVaultCredentialAuthParamMcpOauth.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamStaticBearer(RotateVaultCredentialAuthParamStaticBearer.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamEnvironmentVariable(RotateVaultCredentialAuthParamEnvironmentVariable.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"mcp_oauth", "static_bearer", "environment_variable"}.contains(json["type"])) { return UnknownRotateVaultCredentialAuthParam(json); }
-    throw FormatException("No variant matched for RotateVaultCredentialAuthParam");
+    try {
+      return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamMcpOauth(
+          RotateVaultCredentialAuthParamMcpOauth.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamStaticBearer(
+          RotateVaultCredentialAuthParamStaticBearer.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamEnvironmentVariable(
+          RotateVaultCredentialAuthParamEnvironmentVariable.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"mcp_oauth", "static_bearer", "environment_variable"}
+            .contains(json["type"])) {
+      return UnknownRotateVaultCredentialAuthParam(json);
+    }
+    throw FormatException(
+        "No variant matched for RotateVaultCredentialAuthParam");
   }
   Object? toJson();
 }
 
-final class RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamMcpOauth extends RotateVaultCredentialAuthParam {
+final class RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamMcpOauth
+    extends RotateVaultCredentialAuthParam {
   final RotateVaultCredentialAuthParamMcpOauth value;
-  const RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamMcpOauth(this.value);
-  @override Object? toJson() => value.toJson();
+  const RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamMcpOauth(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamStaticBearer extends RotateVaultCredentialAuthParam {
+final class RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamStaticBearer
+    extends RotateVaultCredentialAuthParam {
   final RotateVaultCredentialAuthParamStaticBearer value;
-  const RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamStaticBearer(this.value);
-  @override Object? toJson() => value.toJson();
+  const RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamStaticBearer(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamEnvironmentVariable extends RotateVaultCredentialAuthParam {
+final class RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamEnvironmentVariable
+    extends RotateVaultCredentialAuthParam {
   final RotateVaultCredentialAuthParamEnvironmentVariable value;
-  const RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamEnvironmentVariable(this.value);
-  @override Object? toJson() => value.toJson();
+  const RotateVaultCredentialAuthParamRotateVaultCredentialAuthParamEnvironmentVariable(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [RotateVaultCredentialAuthParam] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownRotateVaultCredentialAuthParam extends RotateVaultCredentialAuthParam {
+final class UnknownRotateVaultCredentialAuthParam
+    extends RotateVaultCredentialAuthParam {
   final Map<String, dynamic> raw;
   const UnknownRotateVaultCredentialAuthParam(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

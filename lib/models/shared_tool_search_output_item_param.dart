@@ -9,75 +9,142 @@ sealed class ToolSearchOutputItemParamCallId {
   static const String constructionSurface = 'named';
   const ToolSearchOutputItemParamCallId();
   factory ToolSearchOutputItemParamCallId.fromJson(Object? json) {
-    if (json is String) { return ToolSearchOutputItemParamCallIdString(json); }
-    throw FormatException("No variant matched for ToolSearchOutputItemParamCallId");
+    if (json is String) {
+      return ToolSearchOutputItemParamCallIdString(json);
+    }
+    throw FormatException(
+        "No variant matched for ToolSearchOutputItemParamCallId");
   }
   Object? toJson();
 }
 
-final class ToolSearchOutputItemParamCallIdString extends ToolSearchOutputItemParamCallId {
+final class ToolSearchOutputItemParamCallIdString
+    extends ToolSearchOutputItemParamCallId {
   final String value;
   const ToolSearchOutputItemParamCallIdString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// Typed representation of the `ToolSearchOutputItemParam` API schema.
 class ToolSearchOutputItemParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `string` value serialized in the `id` wire field.
   final SdkOptional<String?> id;
+
   /// Optional API value serialized in the `call_id` wire field.
   final SdkOptional<String?> callId;
+
   /// The item type. Always `tool_search_output`.
   final ToolSearchOutputItemParamType type_;
+
   /// Whether tool search was executed by the server or by the client.
   final SdkOptional<ToolSearchExecutionType> execution;
+
   /// The loaded tool definitions returned by the tool search output.
   final List<ToolSearchOutputTool> tools;
+
   /// Optional API value serialized in the `status` wire field.
   final SdkOptional<FunctionCallItemStatus?> status;
 
-  const ToolSearchOutputItemParam({this.id = const SdkOmitted(), this.callId = const SdkOmitted(), required this.type_, this.execution = const SdkOmitted(), required this.tools, this.status = const SdkOmitted()});
+  const ToolSearchOutputItemParam(
+      {this.id = const SdkOmitted(),
+      this.callId = const SdkOmitted(),
+      required this.type_,
+      this.execution = const SdkOmitted(),
+      required this.tools,
+      this.status = const SdkOmitted()});
 
-  ToolSearchOutputItemParam Function({SdkOptional<String?> id, SdkOptional<String?> callId, ToolSearchOutputItemParamType type_, SdkOptional<ToolSearchExecutionType> execution, List<ToolSearchOutputTool> tools, SdkOptional<FunctionCallItemStatus?> status}) get copyWith => _copyWith;
+  ToolSearchOutputItemParam Function(
+      {SdkOptional<String?> id,
+      SdkOptional<String?> callId,
+      ToolSearchOutputItemParamType type_,
+      SdkOptional<ToolSearchExecutionType> execution,
+      List<ToolSearchOutputTool> tools,
+      SdkOptional<FunctionCallItemStatus?> status}) get copyWith => _copyWith;
 
-  ToolSearchOutputItemParam _copyWith({Object? id = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? execution = sdkOmittedValue, Object? tools = sdkOmittedValue, Object? status = sdkOmittedValue}) => ToolSearchOutputItemParam(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String?>,
-    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as SdkOptional<String?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ToolSearchOutputItemParamType,
-    execution: identical(execution, sdkOmittedValue) ? this.execution : execution as SdkOptional<ToolSearchExecutionType>,
-    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as List<ToolSearchOutputTool>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<FunctionCallItemStatus?>,
-  );
+  ToolSearchOutputItemParam _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? callId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? execution = sdkOmittedValue,
+          Object? tools = sdkOmittedValue,
+          Object? status = sdkOmittedValue}) =>
+      ToolSearchOutputItemParam(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String?>,
+        callId: identical(callId, sdkOmittedValue)
+            ? this.callId
+            : callId as SdkOptional<String?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ToolSearchOutputItemParamType,
+        execution: identical(execution, sdkOmittedValue)
+            ? this.execution
+            : execution as SdkOptional<ToolSearchExecutionType>,
+        tools: identical(tools, sdkOmittedValue)
+            ? this.tools
+            : tools as List<ToolSearchOutputTool>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<FunctionCallItemStatus?>,
+      );
 
-  factory ToolSearchOutputItemParam.fromJson(Map<String, dynamic> json) => ToolSearchOutputItemParam(
-    id: json.containsKey('id') ? SdkPresent(json['id'] as String?) : const SdkOmitted(),
-    callId: json.containsKey('call_id') ? SdkPresent(json['call_id'] as String?) : const SdkOmitted(),
-    type_: (json['type'] != null ? ToolSearchOutputItemParamType.fromJson(json['type'] as String) : null)!,
-    execution: json['execution'] != null ? SdkPresent((json['execution'] != null ? ToolSearchExecutionType.fromJson(json['execution'] as String) : null)!) : const SdkOmitted(),
-    tools: ((json['tools'] as List?)?.map((e) => ToolSearchOutputTool.fromJson(e)).toList())!,
-    status: json.containsKey('status') ? SdkPresent(json['status'] != null ? FunctionCallItemStatus.fromJson(json['status'] as String) : null) : const SdkOmitted(),
-  );
+  factory ToolSearchOutputItemParam.fromJson(Map<String, dynamic> json) =>
+      ToolSearchOutputItemParam(
+        id: json.containsKey('id')
+            ? SdkPresent(json['id'] as String?)
+            : const SdkOmitted(),
+        callId: json.containsKey('call_id')
+            ? SdkPresent(json['call_id'] as String?)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? ToolSearchOutputItemParamType.fromJson(json['type'] as String)
+            : null)!,
+        execution: json['execution'] != null
+            ? SdkPresent((json['execution'] != null
+                ? ToolSearchExecutionType.fromJson(json['execution'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        tools: ((json['tools'] as List?)
+            ?.map((e) => ToolSearchOutputTool.fromJson(e))
+            .toList())!,
+        status: json.containsKey('status')
+            ? SdkPresent(json['status'] != null
+                ? FunctionCallItemStatus.fromJson(json['status'] as String)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String?>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (callId) {
-      SdkPresent<String?>(value: final value) => {'call_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    ...switch (execution) {
-      SdkPresent<ToolSearchExecutionType>(value: final value) => {'execution': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'tools': tools.map((item) => item.toJson()).toList(),
-    ...switch (status) {
-      SdkPresent<FunctionCallItemStatus?>(value: final value) => {'status': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String?>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (callId) {
+          SdkPresent<String?>(value: final value) => {
+              'call_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        ...switch (execution) {
+          SdkPresent<ToolSearchExecutionType>(value: final value) => {
+              'execution': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'tools': tools.map((item) => item.toJson()).toList(),
+        ...switch (status) {
+          SdkPresent<FunctionCallItemStatus?>(value: final value) => {
+              'status': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -7,30 +7,51 @@ part of 'responses_responses.dart';
 class ResponsesClientEventResponseCreateVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the client event. Always `response.create`.
   final ResponsesClientEventResponseCreateVariant0Type type_;
+
   /// The WebSocket lane for this response. Requests with the same `stream_id` are processed FIFO, and events for the response echo the same `stream_id`. `stream_id` controls routing; `previous_response_id` controls conversation lineage, so a new lane can fork from a response created on another lane.
   final SdkOptional<String> streamId;
 
-  const ResponsesClientEventResponseCreateVariant0({required this.type_, this.streamId = const SdkOmitted()});
+  const ResponsesClientEventResponseCreateVariant0(
+      {required this.type_, this.streamId = const SdkOmitted()});
 
-  ResponsesClientEventResponseCreateVariant0 Function({ResponsesClientEventResponseCreateVariant0Type type_, SdkOptional<String> streamId}) get copyWith => _copyWith;
+  ResponsesClientEventResponseCreateVariant0 Function(
+      {ResponsesClientEventResponseCreateVariant0Type type_,
+      SdkOptional<String> streamId}) get copyWith => _copyWith;
 
-  ResponsesClientEventResponseCreateVariant0 _copyWith({Object? type_ = sdkOmittedValue, Object? streamId = sdkOmittedValue}) => ResponsesClientEventResponseCreateVariant0(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponsesClientEventResponseCreateVariant0Type,
-    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
-  );
+  ResponsesClientEventResponseCreateVariant0 _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? streamId = sdkOmittedValue}) =>
+      ResponsesClientEventResponseCreateVariant0(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponsesClientEventResponseCreateVariant0Type,
+        streamId: identical(streamId, sdkOmittedValue)
+            ? this.streamId
+            : streamId as SdkOptional<String>,
+      );
 
-  factory ResponsesClientEventResponseCreateVariant0.fromJson(Map<String, dynamic> json) => ResponsesClientEventResponseCreateVariant0(
-    type_: (json['type'] != null ? ResponsesClientEventResponseCreateVariant0Type.fromJson(json['type'] as String) : null)!,
-    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory ResponsesClientEventResponseCreateVariant0.fromJson(
+          Map<String, dynamic> json) =>
+      ResponsesClientEventResponseCreateVariant0(
+        type_: (json['type'] != null
+            ? ResponsesClientEventResponseCreateVariant0Type.fromJson(
+                json['type'] as String)
+            : null)!,
+        streamId: json['stream_id'] != null
+            ? SdkPresent((json['stream_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (streamId) {
-      SdkPresent<String>(value: final value) => {'stream_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (streamId) {
+          SdkPresent<String>(value: final value) => {
+              'stream_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,32 +8,53 @@ part of 'items.dart';
 class ResponseOutputText {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type discriminator that is always `output_text`.
   final ResponseOutputTextType type_;
+
   /// Assistant generated text.
   final String text;
+
   /// Ordered list of annotations attached to the response text.
   final List<ResponseOutputTextAnnotationsItem> annotations;
 
-  const ResponseOutputText({required this.type_, required this.text, required this.annotations});
+  const ResponseOutputText(
+      {required this.type_, required this.text, required this.annotations});
 
-  ResponseOutputText Function({ResponseOutputTextType type_, String text, List<ResponseOutputTextAnnotationsItem> annotations}) get copyWith => _copyWith;
+  ResponseOutputText Function(
+          {ResponseOutputTextType type_,
+          String text,
+          List<ResponseOutputTextAnnotationsItem> annotations})
+      get copyWith => _copyWith;
 
-  ResponseOutputText _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue, Object? annotations = sdkOmittedValue}) => ResponseOutputText(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseOutputTextType,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-    annotations: identical(annotations, sdkOmittedValue) ? this.annotations : annotations as List<ResponseOutputTextAnnotationsItem>,
-  );
+  ResponseOutputText _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? text = sdkOmittedValue,
+          Object? annotations = sdkOmittedValue}) =>
+      ResponseOutputText(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponseOutputTextType,
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+        annotations: identical(annotations, sdkOmittedValue)
+            ? this.annotations
+            : annotations as List<ResponseOutputTextAnnotationsItem>,
+      );
 
-  factory ResponseOutputText.fromJson(Map<String, dynamic> json) => ResponseOutputText(
-    type_: (json['type'] != null ? ResponseOutputTextType.fromJson(json['type'] as String) : null)!,
-    text: (json['text'] as String?)!,
-    annotations: ((json['annotations'] as List?)?.map((e) => ResponseOutputTextAnnotationsItem.fromJson(e)).toList())!,
-  );
+  factory ResponseOutputText.fromJson(Map<String, dynamic> json) =>
+      ResponseOutputText(
+        type_: (json['type'] != null
+            ? ResponseOutputTextType.fromJson(json['type'] as String)
+            : null)!,
+        text: (json['text'] as String?)!,
+        annotations: ((json['annotations'] as List?)
+            ?.map((e) => ResponseOutputTextAnnotationsItem.fromJson(e))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'text': text,
-    'annotations': annotations.map((item) => item.toJson()).toList(),
-  };
+        'type': type_.toJson(),
+        'text': text,
+        'annotations': annotations.map((item) => item.toJson()).toList(),
+      };
 }

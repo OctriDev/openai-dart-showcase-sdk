@@ -8,30 +8,46 @@ part of 'certificates.dart';
 class UploadCertificateRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An optional name for the certificate
   final SdkOptional<String> name;
+
   /// The certificate content in PEM format
   final String certificate;
 
-  const UploadCertificateRequest({this.name = const SdkOmitted(), required this.certificate});
+  const UploadCertificateRequest(
+      {this.name = const SdkOmitted(), required this.certificate});
 
-  UploadCertificateRequest Function({SdkOptional<String> name, String certificate}) get copyWith => _copyWith;
+  UploadCertificateRequest Function(
+      {SdkOptional<String> name, String certificate}) get copyWith => _copyWith;
 
-  UploadCertificateRequest _copyWith({Object? name = sdkOmittedValue, Object? certificate = sdkOmittedValue}) => UploadCertificateRequest(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    certificate: identical(certificate, sdkOmittedValue) ? this.certificate : certificate as String,
-  );
+  UploadCertificateRequest _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? certificate = sdkOmittedValue}) =>
+      UploadCertificateRequest(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        certificate: identical(certificate, sdkOmittedValue)
+            ? this.certificate
+            : certificate as String,
+      );
 
-  factory UploadCertificateRequest.fromJson(Map<String, dynamic> json) => UploadCertificateRequest(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    certificate: (json['certificate'] as String?)!,
-  );
+  factory UploadCertificateRequest.fromJson(Map<String, dynamic> json) =>
+      UploadCertificateRequest(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        certificate: (json['certificate'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    'certificate': certificate,
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'certificate': certificate,
+      };
 }

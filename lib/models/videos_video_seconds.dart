@@ -6,7 +6,6 @@ part of 'videos.dart';
 // videos domain models
 /// Typed representation of the `VideoSeconds` API schema.
 final class VideoSeconds {
-
   final String value;
 
   const VideoSeconds._(this.value);
@@ -19,10 +18,13 @@ final class VideoSeconds {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is VideoSeconds && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is VideoSeconds && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

@@ -8,80 +8,161 @@ part of 'usage.dart';
 class UsageImagesResult {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `object` wire field.
   final UsageImagesResultObject object;
+
   /// The number of images processed.
   final int images;
+
   /// The count of requests made to the model.
   final int numModelRequests;
+
   /// Optional `string` value serialized in the `source` wire field.
   final SdkOptional<String?> source;
+
   /// Optional `string` value serialized in the `size` wire field.
   final SdkOptional<String?> size;
+
   /// Optional `string` value serialized in the `project_id` wire field.
   final SdkOptional<String?> projectId;
+
   /// Optional `string` value serialized in the `user_id` wire field.
   final SdkOptional<String?> userId;
+
   /// Optional `string` value serialized in the `api_key_id` wire field.
   final SdkOptional<String?> apiKeyId;
+
   /// Optional `string` value serialized in the `model` wire field.
   final SdkOptional<String?> model;
 
-  const UsageImagesResult({required this.object, required this.images, required this.numModelRequests, this.source = const SdkOmitted(), this.size = const SdkOmitted(), this.projectId = const SdkOmitted(), this.userId = const SdkOmitted(), this.apiKeyId = const SdkOmitted(), this.model = const SdkOmitted()});
+  const UsageImagesResult(
+      {required this.object,
+      required this.images,
+      required this.numModelRequests,
+      this.source = const SdkOmitted(),
+      this.size = const SdkOmitted(),
+      this.projectId = const SdkOmitted(),
+      this.userId = const SdkOmitted(),
+      this.apiKeyId = const SdkOmitted(),
+      this.model = const SdkOmitted()});
 
-  UsageImagesResult Function({UsageImagesResultObject object, int images, int numModelRequests, SdkOptional<String?> source, SdkOptional<String?> size, SdkOptional<String?> projectId, SdkOptional<String?> userId, SdkOptional<String?> apiKeyId, SdkOptional<String?> model}) get copyWith => _copyWith;
+  UsageImagesResult Function(
+      {UsageImagesResultObject object,
+      int images,
+      int numModelRequests,
+      SdkOptional<String?> source,
+      SdkOptional<String?> size,
+      SdkOptional<String?> projectId,
+      SdkOptional<String?> userId,
+      SdkOptional<String?> apiKeyId,
+      SdkOptional<String?> model}) get copyWith => _copyWith;
 
-  UsageImagesResult _copyWith({Object? object = sdkOmittedValue, Object? images = sdkOmittedValue, Object? numModelRequests = sdkOmittedValue, Object? source = sdkOmittedValue, Object? size = sdkOmittedValue, Object? projectId = sdkOmittedValue, Object? userId = sdkOmittedValue, Object? apiKeyId = sdkOmittedValue, Object? model = sdkOmittedValue}) => UsageImagesResult(
-    object: identical(object, sdkOmittedValue) ? this.object : object as UsageImagesResultObject,
-    images: identical(images, sdkOmittedValue) ? this.images : images as int,
-    numModelRequests: identical(numModelRequests, sdkOmittedValue) ? this.numModelRequests : numModelRequests as int,
-    source: identical(source, sdkOmittedValue) ? this.source : source as SdkOptional<String?>,
-    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<String?>,
-    projectId: identical(projectId, sdkOmittedValue) ? this.projectId : projectId as SdkOptional<String?>,
-    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as SdkOptional<String?>,
-    apiKeyId: identical(apiKeyId, sdkOmittedValue) ? this.apiKeyId : apiKeyId as SdkOptional<String?>,
-    model: identical(model, sdkOmittedValue) ? this.model : model as SdkOptional<String?>,
-  );
+  UsageImagesResult _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? images = sdkOmittedValue,
+          Object? numModelRequests = sdkOmittedValue,
+          Object? source = sdkOmittedValue,
+          Object? size = sdkOmittedValue,
+          Object? projectId = sdkOmittedValue,
+          Object? userId = sdkOmittedValue,
+          Object? apiKeyId = sdkOmittedValue,
+          Object? model = sdkOmittedValue}) =>
+      UsageImagesResult(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as UsageImagesResultObject,
+        images:
+            identical(images, sdkOmittedValue) ? this.images : images as int,
+        numModelRequests: identical(numModelRequests, sdkOmittedValue)
+            ? this.numModelRequests
+            : numModelRequests as int,
+        source: identical(source, sdkOmittedValue)
+            ? this.source
+            : source as SdkOptional<String?>,
+        size: identical(size, sdkOmittedValue)
+            ? this.size
+            : size as SdkOptional<String?>,
+        projectId: identical(projectId, sdkOmittedValue)
+            ? this.projectId
+            : projectId as SdkOptional<String?>,
+        userId: identical(userId, sdkOmittedValue)
+            ? this.userId
+            : userId as SdkOptional<String?>,
+        apiKeyId: identical(apiKeyId, sdkOmittedValue)
+            ? this.apiKeyId
+            : apiKeyId as SdkOptional<String?>,
+        model: identical(model, sdkOmittedValue)
+            ? this.model
+            : model as SdkOptional<String?>,
+      );
 
-  factory UsageImagesResult.fromJson(Map<String, dynamic> json) => UsageImagesResult(
-    object: (json['object'] != null ? UsageImagesResultObject.fromJson(json['object'] as String) : null)!,
-    images: ((json['images'] as num?)?.toInt())!,
-    numModelRequests: ((json['num_model_requests'] as num?)?.toInt())!,
-    source: json.containsKey('source') ? SdkPresent(json['source'] as String?) : const SdkOmitted(),
-    size: json.containsKey('size') ? SdkPresent(json['size'] as String?) : const SdkOmitted(),
-    projectId: json.containsKey('project_id') ? SdkPresent(json['project_id'] as String?) : const SdkOmitted(),
-    userId: json.containsKey('user_id') ? SdkPresent(json['user_id'] as String?) : const SdkOmitted(),
-    apiKeyId: json.containsKey('api_key_id') ? SdkPresent(json['api_key_id'] as String?) : const SdkOmitted(),
-    model: json.containsKey('model') ? SdkPresent(json['model'] as String?) : const SdkOmitted(),
-  );
+  factory UsageImagesResult.fromJson(Map<String, dynamic> json) =>
+      UsageImagesResult(
+        object: (json['object'] != null
+            ? UsageImagesResultObject.fromJson(json['object'] as String)
+            : null)!,
+        images: ((json['images'] as num?)?.toInt())!,
+        numModelRequests: ((json['num_model_requests'] as num?)?.toInt())!,
+        source: json.containsKey('source')
+            ? SdkPresent(json['source'] as String?)
+            : const SdkOmitted(),
+        size: json.containsKey('size')
+            ? SdkPresent(json['size'] as String?)
+            : const SdkOmitted(),
+        projectId: json.containsKey('project_id')
+            ? SdkPresent(json['project_id'] as String?)
+            : const SdkOmitted(),
+        userId: json.containsKey('user_id')
+            ? SdkPresent(json['user_id'] as String?)
+            : const SdkOmitted(),
+        apiKeyId: json.containsKey('api_key_id')
+            ? SdkPresent(json['api_key_id'] as String?)
+            : const SdkOmitted(),
+        model: json.containsKey('model')
+            ? SdkPresent(json['model'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'images': images,
-    'num_model_requests': numModelRequests,
-    ...switch (source) {
-      SdkPresent<String?>(value: final value) => {'source': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (size) {
-      SdkPresent<String?>(value: final value) => {'size': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (projectId) {
-      SdkPresent<String?>(value: final value) => {'project_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (userId) {
-      SdkPresent<String?>(value: final value) => {'user_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (apiKeyId) {
-      SdkPresent<String?>(value: final value) => {'api_key_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (model) {
-      SdkPresent<String?>(value: final value) => {'model': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'object': object.toJson(),
+        'images': images,
+        'num_model_requests': numModelRequests,
+        ...switch (source) {
+          SdkPresent<String?>(value: final value) => {
+              'source': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (size) {
+          SdkPresent<String?>(value: final value) => {
+              'size': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (projectId) {
+          SdkPresent<String?>(value: final value) => {
+              'project_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (userId) {
+          SdkPresent<String?>(value: final value) => {
+              'user_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (apiKeyId) {
+          SdkPresent<String?>(value: final value) => {
+              'api_key_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (model) {
+          SdkPresent<String?>(value: final value) => {
+              'model': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

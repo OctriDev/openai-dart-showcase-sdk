@@ -8,37 +8,66 @@ part of 'realtime_realtime_server_event.dart';
 class RealtimeServerEventResponseMCPCallInProgress {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the server event.
   final String eventId;
+
   /// The event type, must be `response.mcp_call.in_progress`.
   final RealtimeServerEventResponseMCPCallInProgressType type_;
+
   /// The index of the output item in the response.
   final int outputIndex;
+
   /// The ID of the MCP tool call item.
   final String itemId;
 
-  const RealtimeServerEventResponseMCPCallInProgress({required this.eventId, required this.type_, required this.outputIndex, required this.itemId});
+  const RealtimeServerEventResponseMCPCallInProgress(
+      {required this.eventId,
+      required this.type_,
+      required this.outputIndex,
+      required this.itemId});
 
-  RealtimeServerEventResponseMCPCallInProgress Function({String eventId, RealtimeServerEventResponseMCPCallInProgressType type_, int outputIndex, String itemId}) get copyWith => _copyWith;
+  RealtimeServerEventResponseMCPCallInProgress Function(
+      {String eventId,
+      RealtimeServerEventResponseMCPCallInProgressType type_,
+      int outputIndex,
+      String itemId}) get copyWith => _copyWith;
 
-  RealtimeServerEventResponseMCPCallInProgress _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? itemId = sdkOmittedValue}) => RealtimeServerEventResponseMCPCallInProgress(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeServerEventResponseMCPCallInProgressType,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-  );
+  RealtimeServerEventResponseMCPCallInProgress _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue}) =>
+      RealtimeServerEventResponseMCPCallInProgress(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeServerEventResponseMCPCallInProgressType,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+      );
 
-  factory RealtimeServerEventResponseMCPCallInProgress.fromJson(Map<String, dynamic> json) => RealtimeServerEventResponseMCPCallInProgress(
-    eventId: (json['event_id'] as String?)!,
-    type_: (json['type'] != null ? RealtimeServerEventResponseMCPCallInProgressType.fromJson(json['type'] as String) : null)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    itemId: (json['item_id'] as String?)!,
-  );
+  factory RealtimeServerEventResponseMCPCallInProgress.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeServerEventResponseMCPCallInProgress(
+        eventId: (json['event_id'] as String?)!,
+        type_: (json['type'] != null
+            ? RealtimeServerEventResponseMCPCallInProgressType.fromJson(
+                json['type'] as String)
+            : null)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        itemId: (json['item_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    'type': type_.toJson(),
-    'output_index': outputIndex,
-    'item_id': itemId,
-  };
+        'event_id': eventId,
+        'type': type_.toJson(),
+        'output_index': outputIndex,
+        'item_id': itemId,
+      };
 }

@@ -8,27 +8,44 @@ part of 'agents_persisted.dart';
 class PersistedAgentToolResourceComputerUse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `computer_use`.
   final PersistedAgentToolResourceComputerUseType type_;
+
   /// Whether computer tool outputs include screenshots.
   final bool includeScreenshots;
 
-  const PersistedAgentToolResourceComputerUse({required this.type_, required this.includeScreenshots});
+  const PersistedAgentToolResourceComputerUse(
+      {required this.type_, required this.includeScreenshots});
 
-  PersistedAgentToolResourceComputerUse Function({PersistedAgentToolResourceComputerUseType type_, bool includeScreenshots}) get copyWith => _copyWith;
+  PersistedAgentToolResourceComputerUse Function(
+      {PersistedAgentToolResourceComputerUseType type_,
+      bool includeScreenshots}) get copyWith => _copyWith;
 
-  PersistedAgentToolResourceComputerUse _copyWith({Object? type_ = sdkOmittedValue, Object? includeScreenshots = sdkOmittedValue}) => PersistedAgentToolResourceComputerUse(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as PersistedAgentToolResourceComputerUseType,
-    includeScreenshots: identical(includeScreenshots, sdkOmittedValue) ? this.includeScreenshots : includeScreenshots as bool,
-  );
+  PersistedAgentToolResourceComputerUse _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? includeScreenshots = sdkOmittedValue}) =>
+      PersistedAgentToolResourceComputerUse(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as PersistedAgentToolResourceComputerUseType,
+        includeScreenshots: identical(includeScreenshots, sdkOmittedValue)
+            ? this.includeScreenshots
+            : includeScreenshots as bool,
+      );
 
-  factory PersistedAgentToolResourceComputerUse.fromJson(Map<String, dynamic> json) => PersistedAgentToolResourceComputerUse(
-    type_: (json['type'] != null ? PersistedAgentToolResourceComputerUseType.fromJson(json['type'] as String) : null)!,
-    includeScreenshots: (json['include_screenshots'] as bool?)!,
-  );
+  factory PersistedAgentToolResourceComputerUse.fromJson(
+          Map<String, dynamic> json) =>
+      PersistedAgentToolResourceComputerUse(
+        type_: (json['type'] != null
+            ? PersistedAgentToolResourceComputerUseType.fromJson(
+                json['type'] as String)
+            : null)!,
+        includeScreenshots: (json['include_screenshots'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'include_screenshots': includeScreenshots,
-  };
+        'type': type_.toJson(),
+        'include_screenshots': includeScreenshots,
+      };
 }

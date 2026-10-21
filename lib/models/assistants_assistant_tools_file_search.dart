@@ -8,65 +8,116 @@ part of 'assistants_assistant.dart';
 class AssistantToolsFileSearchFileSearch {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The maximum number of results the file search tool should output. The default is 20 for `gpt-4*` models and 5 for `gpt-3.5-turbo`. This number should be between 1 and 50 inclusive. Note that the file search tool may output fewer than `max_num_results` results. See the [file search tool documentation](https://developers.openai.com/api/docs/guides/tools-file-search#retrieval-customization) for more information.
   final SdkOptional<int> maxNumResults;
+
   /// The ranking options for the file search. If not specified, the file search tool will use the `auto` ranker and a score_threshold of 0. See the [file search tool documentation](https://developers.openai.com/api/docs/guides/tools-file-search#retrieval-customization) for more information.
   final SdkOptional<FileSearchRankingOptions> rankingOptions;
 
-  const AssistantToolsFileSearchFileSearch({this.maxNumResults = const SdkOmitted(), this.rankingOptions = const SdkOmitted()});
+  const AssistantToolsFileSearchFileSearch(
+      {this.maxNumResults = const SdkOmitted(),
+      this.rankingOptions = const SdkOmitted()});
 
-  AssistantToolsFileSearchFileSearch Function({SdkOptional<int> maxNumResults, SdkOptional<FileSearchRankingOptions> rankingOptions}) get copyWith => _copyWith;
+  AssistantToolsFileSearchFileSearch Function(
+          {SdkOptional<int> maxNumResults,
+          SdkOptional<FileSearchRankingOptions> rankingOptions})
+      get copyWith => _copyWith;
 
-  AssistantToolsFileSearchFileSearch _copyWith({Object? maxNumResults = sdkOmittedValue, Object? rankingOptions = sdkOmittedValue}) => AssistantToolsFileSearchFileSearch(
-    maxNumResults: identical(maxNumResults, sdkOmittedValue) ? this.maxNumResults : maxNumResults as SdkOptional<int>,
-    rankingOptions: identical(rankingOptions, sdkOmittedValue) ? this.rankingOptions : rankingOptions as SdkOptional<FileSearchRankingOptions>,
-  );
+  AssistantToolsFileSearchFileSearch _copyWith(
+          {Object? maxNumResults = sdkOmittedValue,
+          Object? rankingOptions = sdkOmittedValue}) =>
+      AssistantToolsFileSearchFileSearch(
+        maxNumResults: identical(maxNumResults, sdkOmittedValue)
+            ? this.maxNumResults
+            : maxNumResults as SdkOptional<int>,
+        rankingOptions: identical(rankingOptions, sdkOmittedValue)
+            ? this.rankingOptions
+            : rankingOptions as SdkOptional<FileSearchRankingOptions>,
+      );
 
-  factory AssistantToolsFileSearchFileSearch.fromJson(Map<String, dynamic> json) => AssistantToolsFileSearchFileSearch(
-    maxNumResults: json['max_num_results'] != null ? SdkPresent(((json['max_num_results'] as num?)?.toInt())!) : const SdkOmitted(),
-    rankingOptions: json['ranking_options'] != null ? SdkPresent((json['ranking_options'] != null ? FileSearchRankingOptions.fromJson(json['ranking_options'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory AssistantToolsFileSearchFileSearch.fromJson(
+          Map<String, dynamic> json) =>
+      AssistantToolsFileSearchFileSearch(
+        maxNumResults: json['max_num_results'] != null
+            ? SdkPresent(((json['max_num_results'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        rankingOptions: json['ranking_options'] != null
+            ? SdkPresent((json['ranking_options'] != null
+                ? FileSearchRankingOptions.fromJson(
+                    json['ranking_options'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (maxNumResults) {
-      SdkPresent<int>(value: final value) => {'max_num_results': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (rankingOptions) {
-      SdkPresent<FileSearchRankingOptions>(value: final value) => {'ranking_options': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (maxNumResults) {
+          SdkPresent<int>(value: final value) => {
+              'max_num_results': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (rankingOptions) {
+          SdkPresent<FileSearchRankingOptions>(value: final value) => {
+              'ranking_options': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AssistantToolsFileSearch` API schema.
 class AssistantToolsFileSearch {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of tool being defined: `file_search`
   final AssistantToolsFileSearchType type_;
+
   /// Overrides for the file search tool.
   final SdkOptional<AssistantToolsFileSearchFileSearch> fileSearch;
 
-  const AssistantToolsFileSearch({required this.type_, this.fileSearch = const SdkOmitted()});
+  const AssistantToolsFileSearch(
+      {required this.type_, this.fileSearch = const SdkOmitted()});
 
-  AssistantToolsFileSearch Function({AssistantToolsFileSearchType type_, SdkOptional<AssistantToolsFileSearchFileSearch> fileSearch}) get copyWith => _copyWith;
+  AssistantToolsFileSearch Function(
+          {AssistantToolsFileSearchType type_,
+          SdkOptional<AssistantToolsFileSearchFileSearch> fileSearch})
+      get copyWith => _copyWith;
 
-  AssistantToolsFileSearch _copyWith({Object? type_ = sdkOmittedValue, Object? fileSearch = sdkOmittedValue}) => AssistantToolsFileSearch(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AssistantToolsFileSearchType,
-    fileSearch: identical(fileSearch, sdkOmittedValue) ? this.fileSearch : fileSearch as SdkOptional<AssistantToolsFileSearchFileSearch>,
-  );
+  AssistantToolsFileSearch _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? fileSearch = sdkOmittedValue}) =>
+      AssistantToolsFileSearch(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as AssistantToolsFileSearchType,
+        fileSearch: identical(fileSearch, sdkOmittedValue)
+            ? this.fileSearch
+            : fileSearch as SdkOptional<AssistantToolsFileSearchFileSearch>,
+      );
 
-  factory AssistantToolsFileSearch.fromJson(Map<String, dynamic> json) => AssistantToolsFileSearch(
-    type_: (json['type'] != null ? AssistantToolsFileSearchType.fromJson(json['type'] as String) : null)!,
-    fileSearch: json['file_search'] != null ? SdkPresent((json['file_search'] != null ? AssistantToolsFileSearchFileSearch.fromJson(json['file_search'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory AssistantToolsFileSearch.fromJson(Map<String, dynamic> json) =>
+      AssistantToolsFileSearch(
+        type_: (json['type'] != null
+            ? AssistantToolsFileSearchType.fromJson(json['type'] as String)
+            : null)!,
+        fileSearch: json['file_search'] != null
+            ? SdkPresent((json['file_search'] != null
+                ? AssistantToolsFileSearchFileSearch.fromJson(
+                    json['file_search'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (fileSearch) {
-      SdkPresent<AssistantToolsFileSearchFileSearch>(value: final value) => {'file_search': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (fileSearch) {
+          SdkPresent<AssistantToolsFileSearchFileSearch>(value: final value) =>
+            {
+              'file_search': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

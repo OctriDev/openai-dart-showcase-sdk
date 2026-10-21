@@ -8,45 +8,85 @@ part of 'agents_persisted.dart';
 class PersistedAgentToolConfigParamFunction {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `function`.
   final PersistedAgentToolConfigParamFunctionType type_;
+
   /// The name of the function.
   final String name;
+
   /// A description of what the function does.
   final String description;
+
   /// A JSON Schema object describing the function's arguments.
   final Map<String, dynamic> parameters;
+
   /// Whether this function is deferred and discovered through tool search. Defaults to `false`.
   final SdkOptional<bool> deferLoading;
 
-  const PersistedAgentToolConfigParamFunction({required this.type_, required this.name, required this.description, required this.parameters, this.deferLoading = const SdkOmitted()});
+  const PersistedAgentToolConfigParamFunction(
+      {required this.type_,
+      required this.name,
+      required this.description,
+      required this.parameters,
+      this.deferLoading = const SdkOmitted()});
 
-  PersistedAgentToolConfigParamFunction Function({PersistedAgentToolConfigParamFunctionType type_, String name, String description, Map<String, dynamic> parameters, SdkOptional<bool> deferLoading}) get copyWith => _copyWith;
+  PersistedAgentToolConfigParamFunction Function(
+      {PersistedAgentToolConfigParamFunctionType type_,
+      String name,
+      String description,
+      Map<String, dynamic> parameters,
+      SdkOptional<bool> deferLoading}) get copyWith => _copyWith;
 
-  PersistedAgentToolConfigParamFunction _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? parameters = sdkOmittedValue, Object? deferLoading = sdkOmittedValue}) => PersistedAgentToolConfigParamFunction(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as PersistedAgentToolConfigParamFunctionType,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as String,
-    parameters: identical(parameters, sdkOmittedValue) ? this.parameters : parameters as Map<String, dynamic>,
-    deferLoading: identical(deferLoading, sdkOmittedValue) ? this.deferLoading : deferLoading as SdkOptional<bool>,
-  );
+  PersistedAgentToolConfigParamFunction _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? parameters = sdkOmittedValue,
+          Object? deferLoading = sdkOmittedValue}) =>
+      PersistedAgentToolConfigParamFunction(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as PersistedAgentToolConfigParamFunctionType,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as String,
+        parameters: identical(parameters, sdkOmittedValue)
+            ? this.parameters
+            : parameters as Map<String, dynamic>,
+        deferLoading: identical(deferLoading, sdkOmittedValue)
+            ? this.deferLoading
+            : deferLoading as SdkOptional<bool>,
+      );
 
-  factory PersistedAgentToolConfigParamFunction.fromJson(Map<String, dynamic> json) => PersistedAgentToolConfigParamFunction(
-    type_: (json['type'] != null ? PersistedAgentToolConfigParamFunctionType.fromJson(json['type'] as String) : null)!,
-    name: (json['name'] as String?)!,
-    description: (json['description'] as String?)!,
-    parameters: (json['parameters'] == null ? null : json['parameters'] as Map<String, dynamic>)!,
-    deferLoading: json['defer_loading'] != null ? SdkPresent((json['defer_loading'] as bool?)!) : const SdkOmitted(),
-  );
+  factory PersistedAgentToolConfigParamFunction.fromJson(
+          Map<String, dynamic> json) =>
+      PersistedAgentToolConfigParamFunction(
+        type_: (json['type'] != null
+            ? PersistedAgentToolConfigParamFunctionType.fromJson(
+                json['type'] as String)
+            : null)!,
+        name: (json['name'] as String?)!,
+        description: (json['description'] as String?)!,
+        parameters: (json['parameters'] == null
+            ? null
+            : json['parameters'] as Map<String, dynamic>)!,
+        deferLoading: json['defer_loading'] != null
+            ? SdkPresent((json['defer_loading'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'name': name,
-    'description': description,
-    'parameters': parameters,
-    ...switch (deferLoading) {
-      SdkPresent<bool>(value: final value) => {'defer_loading': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'name': name,
+        'description': description,
+        'parameters': parameters,
+        ...switch (deferLoading) {
+          SdkPresent<bool>(value: final value) => {
+              'defer_loading': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,27 +8,44 @@ part of 'shared_mcptool.dart';
 class MCPToolExecutionError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final MCPToolExecutionErrorType type_;
+
   /// Required API value serialized in the `content` wire field.
   final dynamic content;
 
   const MCPToolExecutionError({required this.type_, required this.content});
 
-  MCPToolExecutionError Function({MCPToolExecutionErrorType type_, dynamic content}) get copyWith => _copyWith;
+  MCPToolExecutionError Function(
+      {MCPToolExecutionErrorType type_,
+      dynamic content}) get copyWith => _copyWith;
 
-  MCPToolExecutionError _copyWith({Object? type_ = sdkOmittedValue, Object? content = sdkOmittedValue}) => MCPToolExecutionError(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MCPToolExecutionErrorType,
-    content: identical(content, sdkOmittedValue) ? this.content : content as dynamic,
-  );
+  MCPToolExecutionError _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? content = sdkOmittedValue}) =>
+      MCPToolExecutionError(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as MCPToolExecutionErrorType,
+        content: identical(content, sdkOmittedValue)
+            ? this.content
+            : content as dynamic,
+      );
 
-  factory MCPToolExecutionError.fromJson(Map<String, dynamic> json) => MCPToolExecutionError(
-    type_: (json['type'] != null ? MCPToolExecutionErrorType.fromJson(json['type'] as String) : null)!,
-    content: json.containsKey('content') ? json['content'] : throw ArgumentError.value(null, 'content', 'Required property is missing'),
-  );
+  factory MCPToolExecutionError.fromJson(Map<String, dynamic> json) =>
+      MCPToolExecutionError(
+        type_: (json['type'] != null
+            ? MCPToolExecutionErrorType.fromJson(json['type'] as String)
+            : null)!,
+        content: json.containsKey('content')
+            ? json['content']
+            : throw ArgumentError.value(
+                null, 'content', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'content': content,
-  };
+        'type': type_.toJson(),
+        'content': content,
+      };
 }

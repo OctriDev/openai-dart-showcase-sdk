@@ -8,53 +8,102 @@ part of 'audio.dart';
 class CreateTranslationRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The audio file object (not file name) translate, in one of these formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm. The request must include enough format metadata for the file to be identified. We recommend an extension-bearing filename and an appropriate content type.
   final List<int> file;
+
   /// ID of the model to use. Only `whisper-1` (which is powered by our open source Whisper V2 model) is currently available.
   final String model;
+
   /// An optional text to guide the model's style or continue a previous audio segment. The [prompt](https://developers.openai.com/api/docs/guides/speech-to-text#prompting) should be in English.
   final SdkOptional<String> prompt;
+
   /// The format of the output, in one of these options: `json`, `text`, `srt`, `verbose_json`, or `vtt`.
   final SdkOptional<CreateTranslationRequestResponseFormat> responseFormat;
+
   /// The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. If set to 0, the model will use [log probability](https://en.wikipedia.org/wiki/Log_probability) to automatically increase the temperature until certain thresholds are hit.
   final SdkOptional<double> temperature;
 
-  const CreateTranslationRequest({required this.file, required this.model, this.prompt = const SdkOmitted(), this.responseFormat = const SdkOmitted(), this.temperature = const SdkOmitted()});
+  const CreateTranslationRequest(
+      {required this.file,
+      required this.model,
+      this.prompt = const SdkOmitted(),
+      this.responseFormat = const SdkOmitted(),
+      this.temperature = const SdkOmitted()});
 
-  CreateTranslationRequest Function({List<int> file, String model, SdkOptional<String> prompt, SdkOptional<CreateTranslationRequestResponseFormat> responseFormat, SdkOptional<double> temperature}) get copyWith => _copyWith;
+  CreateTranslationRequest Function(
+      {List<int> file,
+      String model,
+      SdkOptional<String> prompt,
+      SdkOptional<CreateTranslationRequestResponseFormat> responseFormat,
+      SdkOptional<double> temperature}) get copyWith => _copyWith;
 
-  CreateTranslationRequest _copyWith({Object? file = sdkOmittedValue, Object? model = sdkOmittedValue, Object? prompt = sdkOmittedValue, Object? responseFormat = sdkOmittedValue, Object? temperature = sdkOmittedValue}) => CreateTranslationRequest(
-    file: identical(file, sdkOmittedValue) ? this.file : file as List<int>,
-    model: identical(model, sdkOmittedValue) ? this.model : model as String,
-    prompt: identical(prompt, sdkOmittedValue) ? this.prompt : prompt as SdkOptional<String>,
-    responseFormat: identical(responseFormat, sdkOmittedValue) ? this.responseFormat : responseFormat as SdkOptional<CreateTranslationRequestResponseFormat>,
-    temperature: identical(temperature, sdkOmittedValue) ? this.temperature : temperature as SdkOptional<double>,
-  );
+  CreateTranslationRequest _copyWith(
+          {Object? file = sdkOmittedValue,
+          Object? model = sdkOmittedValue,
+          Object? prompt = sdkOmittedValue,
+          Object? responseFormat = sdkOmittedValue,
+          Object? temperature = sdkOmittedValue}) =>
+      CreateTranslationRequest(
+        file: identical(file, sdkOmittedValue) ? this.file : file as List<int>,
+        model: identical(model, sdkOmittedValue) ? this.model : model as String,
+        prompt: identical(prompt, sdkOmittedValue)
+            ? this.prompt
+            : prompt as SdkOptional<String>,
+        responseFormat: identical(responseFormat, sdkOmittedValue)
+            ? this.responseFormat
+            : responseFormat
+                as SdkOptional<CreateTranslationRequestResponseFormat>,
+        temperature: identical(temperature, sdkOmittedValue)
+            ? this.temperature
+            : temperature as SdkOptional<double>,
+      );
 
-  factory CreateTranslationRequest.fromJson(Map<String, dynamic> json) => CreateTranslationRequest(
-    file: (json['file'] != null ? base64Decode(json['file'] as String) : null)!,
-    model: (json['model'] as String?)!,
-    prompt: json['prompt'] != null ? SdkPresent((json['prompt'] as String?)!) : const SdkOmitted(),
-    responseFormat: json['response_format'] != null ? SdkPresent((json['response_format'] != null ? CreateTranslationRequestResponseFormat.fromJson(json['response_format'] as String) : null)!) : const SdkOmitted(),
-    temperature: json['temperature'] != null ? SdkPresent(((json['temperature'] as num?)?.toDouble())!) : const SdkOmitted(),
-  );
+  factory CreateTranslationRequest.fromJson(Map<String, dynamic> json) =>
+      CreateTranslationRequest(
+        file: (json['file'] != null
+            ? base64Decode(json['file'] as String)
+            : null)!,
+        model: (json['model'] as String?)!,
+        prompt: json['prompt'] != null
+            ? SdkPresent((json['prompt'] as String?)!)
+            : const SdkOmitted(),
+        responseFormat: json['response_format'] != null
+            ? SdkPresent((json['response_format'] != null
+                ? CreateTranslationRequestResponseFormat.fromJson(
+                    json['response_format'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        temperature: json['temperature'] != null
+            ? SdkPresent(((json['temperature'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'file': base64Encode(file),
-    'model': model,
-    ...switch (prompt) {
-      SdkPresent<String>(value: final value) => {'prompt': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (responseFormat) {
-      SdkPresent<CreateTranslationRequestResponseFormat>(value: final value) => {'response_format': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (temperature) {
-      SdkPresent<double>(value: final value) => {'temperature': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'file': base64Encode(file),
+        'model': model,
+        ...switch (prompt) {
+          SdkPresent<String>(value: final value) => {
+              'prompt': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (responseFormat) {
+          SdkPresent<CreateTranslationRequestResponseFormat>(
+            value: final value
+          ) =>
+            {
+              'response_format': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (temperature) {
+          SdkPresent<double>(value: final value) => {
+              'temperature': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class CreateTranslationResponse {
@@ -63,90 +112,150 @@ sealed class CreateTranslationResponse {
   const CreateTranslationResponse();
   factory CreateTranslationResponse.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = CreateTranslationResponseJson.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateTranslationResponseCreateTranslationResponseJson(value); } } catch (_) {}
-      try { final value = CreateTranslationResponseVerboseJson.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateTranslationResponseCreateTranslationResponseVerboseJson(value); } } catch (_) {}
+      try {
+        final value = CreateTranslationResponseJson.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateTranslationResponseCreateTranslationResponseJson(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CreateTranslationResponseVerboseJson.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateTranslationResponseCreateTranslationResponseVerboseJson(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return CreateTranslationResponseCreateTranslationResponseJson(CreateTranslationResponseJson.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateTranslationResponseCreateTranslationResponseVerboseJson(CreateTranslationResponseVerboseJson.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try {
+      return CreateTranslationResponseCreateTranslationResponseJson(
+          CreateTranslationResponseJson.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateTranslationResponseCreateTranslationResponseVerboseJson(
+          CreateTranslationResponseVerboseJson.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
     throw FormatException("No variant matched for CreateTranslationResponse");
   }
   Object? toJson();
 }
 
-final class CreateTranslationResponseCreateTranslationResponseJson extends CreateTranslationResponse {
+final class CreateTranslationResponseCreateTranslationResponseJson
+    extends CreateTranslationResponse {
   final CreateTranslationResponseJson value;
   const CreateTranslationResponseCreateTranslationResponseJson(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateTranslationResponseCreateTranslationResponseVerboseJson extends CreateTranslationResponse {
+final class CreateTranslationResponseCreateTranslationResponseVerboseJson
+    extends CreateTranslationResponse {
   final CreateTranslationResponseVerboseJson value;
-  const CreateTranslationResponseCreateTranslationResponseVerboseJson(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateTranslationResponseCreateTranslationResponseVerboseJson(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// Typed representation of the `CreateTranslationResponseJson` API schema.
 class CreateTranslationResponseJson {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required `string` value serialized in the `text` wire field.
   final String text;
 
   const CreateTranslationResponseJson({required this.text});
 
-  CreateTranslationResponseJson Function({String text}) get copyWith => _copyWith;
+  CreateTranslationResponseJson Function({String text}) get copyWith =>
+      _copyWith;
 
-  CreateTranslationResponseJson _copyWith({Object? text = sdkOmittedValue}) => CreateTranslationResponseJson(
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-  );
+  CreateTranslationResponseJson _copyWith({Object? text = sdkOmittedValue}) =>
+      CreateTranslationResponseJson(
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+      );
 
-  factory CreateTranslationResponseJson.fromJson(Map<String, dynamic> json) => CreateTranslationResponseJson(
-    text: (json['text'] as String?)!,
-  );
+  factory CreateTranslationResponseJson.fromJson(Map<String, dynamic> json) =>
+      CreateTranslationResponseJson(
+        text: (json['text'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'text': text,
-  };
+        'text': text,
+      };
 }
 
 /// Typed representation of the `CreateTranslationResponseVerboseJson` API schema.
 class CreateTranslationResponseVerboseJson {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The language of the output translation (always `english`).
   final String language;
+
   /// The duration of the input audio.
   final double duration;
+
   /// The translated text.
   final String text;
+
   /// Segments of the translated text and their corresponding details.
   final SdkOptional<List<TranscriptionSegment>> segments;
 
-  const CreateTranslationResponseVerboseJson({required this.language, required this.duration, required this.text, this.segments = const SdkOmitted()});
+  const CreateTranslationResponseVerboseJson(
+      {required this.language,
+      required this.duration,
+      required this.text,
+      this.segments = const SdkOmitted()});
 
-  CreateTranslationResponseVerboseJson Function({String language, double duration, String text, SdkOptional<List<TranscriptionSegment>> segments}) get copyWith => _copyWith;
+  CreateTranslationResponseVerboseJson Function(
+          {String language,
+          double duration,
+          String text,
+          SdkOptional<List<TranscriptionSegment>> segments})
+      get copyWith => _copyWith;
 
-  CreateTranslationResponseVerboseJson _copyWith({Object? language = sdkOmittedValue, Object? duration = sdkOmittedValue, Object? text = sdkOmittedValue, Object? segments = sdkOmittedValue}) => CreateTranslationResponseVerboseJson(
-    language: identical(language, sdkOmittedValue) ? this.language : language as String,
-    duration: identical(duration, sdkOmittedValue) ? this.duration : duration as double,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-    segments: identical(segments, sdkOmittedValue) ? this.segments : segments as SdkOptional<List<TranscriptionSegment>>,
-  );
+  CreateTranslationResponseVerboseJson _copyWith(
+          {Object? language = sdkOmittedValue,
+          Object? duration = sdkOmittedValue,
+          Object? text = sdkOmittedValue,
+          Object? segments = sdkOmittedValue}) =>
+      CreateTranslationResponseVerboseJson(
+        language: identical(language, sdkOmittedValue)
+            ? this.language
+            : language as String,
+        duration: identical(duration, sdkOmittedValue)
+            ? this.duration
+            : duration as double,
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+        segments: identical(segments, sdkOmittedValue)
+            ? this.segments
+            : segments as SdkOptional<List<TranscriptionSegment>>,
+      );
 
-  factory CreateTranslationResponseVerboseJson.fromJson(Map<String, dynamic> json) => CreateTranslationResponseVerboseJson(
-    language: (json['language'] as String?)!,
-    duration: ((json['duration'] as num?)?.toDouble())!,
-    text: (json['text'] as String?)!,
-    segments: json['segments'] != null ? SdkPresent(((json['segments'] as List?)?.map((e) => TranscriptionSegment.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory CreateTranslationResponseVerboseJson.fromJson(
+          Map<String, dynamic> json) =>
+      CreateTranslationResponseVerboseJson(
+        language: (json['language'] as String?)!,
+        duration: ((json['duration'] as num?)?.toDouble())!,
+        text: (json['text'] as String?)!,
+        segments: json['segments'] != null
+            ? SdkPresent(((json['segments'] as List?)
+                ?.map((e) =>
+                    TranscriptionSegment.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'language': language,
-    'duration': duration,
-    'text': text,
-    ...switch (segments) {
-      SdkPresent<List<TranscriptionSegment>>(value: final value) => {'segments': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'language': language,
+        'duration': duration,
+        'text': text,
+        ...switch (segments) {
+          SdkPresent<List<TranscriptionSegment>>(value: final value) => {
+              'segments': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

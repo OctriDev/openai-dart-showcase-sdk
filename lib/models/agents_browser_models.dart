@@ -8,225 +8,379 @@ part of 'agents_browser.dart';
 class BrowserAuthenticationFieldResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The field ID to submit as field_id in a fields entry.
   final String id;
+
   /// The label to display beside the control.
   final String label;
+
   /// The rendering type, such as email, password, or text.
   final String type_;
+
   /// Whether this control requires a nonempty value.
   final bool required_;
 
-  const BrowserAuthenticationFieldResource({required this.id, required this.label, required this.type_, required this.required_});
+  const BrowserAuthenticationFieldResource(
+      {required this.id,
+      required this.label,
+      required this.type_,
+      required this.required_});
 
-  BrowserAuthenticationFieldResource Function({String id, String label, String type_, bool required_}) get copyWith => _copyWith;
+  BrowserAuthenticationFieldResource Function(
+      {String id,
+      String label,
+      String type_,
+      bool required_}) get copyWith => _copyWith;
 
-  BrowserAuthenticationFieldResource _copyWith({Object? id = sdkOmittedValue, Object? label = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? required_ = sdkOmittedValue}) => BrowserAuthenticationFieldResource(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    label: identical(label, sdkOmittedValue) ? this.label : label as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
-    required_: identical(required_, sdkOmittedValue) ? this.required_ : required_ as bool,
-  );
+  BrowserAuthenticationFieldResource _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? label = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? required_ = sdkOmittedValue}) =>
+      BrowserAuthenticationFieldResource(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        label: identical(label, sdkOmittedValue) ? this.label : label as String,
+        type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+        required_: identical(required_, sdkOmittedValue)
+            ? this.required_
+            : required_ as bool,
+      );
 
-  factory BrowserAuthenticationFieldResource.fromJson(Map<String, dynamic> json) => BrowserAuthenticationFieldResource(
-    id: (json['id'] as String?)!,
-    label: (json['label'] as String?)!,
-    type_: (json['type'] as String?)!,
-    required_: (json['required'] as bool?)!,
-  );
+  factory BrowserAuthenticationFieldResource.fromJson(
+          Map<String, dynamic> json) =>
+      BrowserAuthenticationFieldResource(
+        id: (json['id'] as String?)!,
+        label: (json['label'] as String?)!,
+        type_: (json['type'] as String?)!,
+        required_: (json['required'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'label': label,
-    'type': type_,
-    'required': required_,
-  };
+        'id': id,
+        'label': label,
+        'type': type_,
+        'required': required_,
+      };
 }
 
 /// One user-entered value, including non-password fields such as an email address.
 class BrowserAuthenticationFieldValueParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The field ID from the required action.
   final String fieldId;
+
   /// The value to enter into the registered control.
   final String value;
 
-  const BrowserAuthenticationFieldValueParam({required this.fieldId, required this.value});
+  const BrowserAuthenticationFieldValueParam(
+      {required this.fieldId, required this.value});
 
-  BrowserAuthenticationFieldValueParam Function({String fieldId, String value}) get copyWith => _copyWith;
+  BrowserAuthenticationFieldValueParam Function({String fieldId, String value})
+      get copyWith => _copyWith;
 
-  BrowserAuthenticationFieldValueParam _copyWith({Object? fieldId = sdkOmittedValue, Object? value = sdkOmittedValue}) => BrowserAuthenticationFieldValueParam(
-    fieldId: identical(fieldId, sdkOmittedValue) ? this.fieldId : fieldId as String,
-    value: identical(value, sdkOmittedValue) ? this.value : value as String,
-  );
+  BrowserAuthenticationFieldValueParam _copyWith(
+          {Object? fieldId = sdkOmittedValue,
+          Object? value = sdkOmittedValue}) =>
+      BrowserAuthenticationFieldValueParam(
+        fieldId: identical(fieldId, sdkOmittedValue)
+            ? this.fieldId
+            : fieldId as String,
+        value: identical(value, sdkOmittedValue) ? this.value : value as String,
+      );
 
-  factory BrowserAuthenticationFieldValueParam.fromJson(Map<String, dynamic> json) => BrowserAuthenticationFieldValueParam(
-    fieldId: (json['field_id'] as String?)!,
-    value: (json['value'] as String?)!,
-  );
+  factory BrowserAuthenticationFieldValueParam.fromJson(
+          Map<String, dynamic> json) =>
+      BrowserAuthenticationFieldValueParam(
+        fieldId: (json['field_id'] as String?)!,
+        value: (json['value'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'field_id': fieldId,
-    'value': value,
-  };
+        'field_id': fieldId,
+        'value': value,
+      };
 }
 
 sealed class BrowserAuthenticationHistoryRequestKindResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const BrowserAuthenticationHistoryRequestKindResource();
-  factory BrowserAuthenticationHistoryRequestKindResource.fromJson(Object? json) {
-    try { return BrowserAuthenticationHistoryRequestKindResourceBrowserAuthenticationHistoryRequestKindResourceBrowserAuthentication(BrowserAuthenticationHistoryRequestKindResourceBrowserAuthentication.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"browser_authentication"}.contains(json["type"])) { return UnknownBrowserAuthenticationHistoryRequestKindResource(json); }
-    throw FormatException("No variant matched for BrowserAuthenticationHistoryRequestKindResource");
+  factory BrowserAuthenticationHistoryRequestKindResource.fromJson(
+      Object? json) {
+    try {
+      return BrowserAuthenticationHistoryRequestKindResourceBrowserAuthenticationHistoryRequestKindResourceBrowserAuthentication(
+          BrowserAuthenticationHistoryRequestKindResourceBrowserAuthentication
+              .fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"browser_authentication"}.contains(json["type"])) {
+      return UnknownBrowserAuthenticationHistoryRequestKindResource(json);
+    }
+    throw FormatException(
+        "No variant matched for BrowserAuthenticationHistoryRequestKindResource");
   }
   Object? toJson();
 }
 
-final class BrowserAuthenticationHistoryRequestKindResourceBrowserAuthenticationHistoryRequestKindResourceBrowserAuthentication extends BrowserAuthenticationHistoryRequestKindResource {
-  final BrowserAuthenticationHistoryRequestKindResourceBrowserAuthentication value;
-  const BrowserAuthenticationHistoryRequestKindResourceBrowserAuthenticationHistoryRequestKindResourceBrowserAuthentication(this.value);
-  @override Object? toJson() => value.toJson();
+final class BrowserAuthenticationHistoryRequestKindResourceBrowserAuthenticationHistoryRequestKindResourceBrowserAuthentication
+    extends BrowserAuthenticationHistoryRequestKindResource {
+  final BrowserAuthenticationHistoryRequestKindResourceBrowserAuthentication
+      value;
+  const BrowserAuthenticationHistoryRequestKindResourceBrowserAuthenticationHistoryRequestKindResourceBrowserAuthentication(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [BrowserAuthenticationHistoryRequestKindResource] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownBrowserAuthenticationHistoryRequestKindResource extends BrowserAuthenticationHistoryRequestKindResource {
+final class UnknownBrowserAuthenticationHistoryRequestKindResource
+    extends BrowserAuthenticationHistoryRequestKindResource {
   final Map<String, dynamic> raw;
   const UnknownBrowserAuthenticationHistoryRequestKindResource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// A registered form awaiting the application's response.
 class BrowserAuthenticationHistoryRequestKindResourceBrowserAuthentication {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `browser_authentication`.
-  final BrowserAuthenticationHistoryRequestKindResourceBrowserAuthenticationType type_;
+  final BrowserAuthenticationHistoryRequestKindResourceBrowserAuthenticationType
+      type_;
+
   /// Why the agent needs the user to sign in.
   final String? reason;
+
   /// The registered form or frame origin where values will be entered.
   final String? credentialOrigin;
+
   /// Controls to render. All submitted values are sensitive.
   final List<BrowserAuthenticationFieldResource> fields;
+
   /// Sign-in methods. Empty for a plain form.
   final List<BrowserAuthenticationOptionResource> options;
 
-  const BrowserAuthenticationHistoryRequestKindResourceBrowserAuthentication({required this.type_, required this.reason, required this.credentialOrigin, required this.fields, required this.options});
+  const BrowserAuthenticationHistoryRequestKindResourceBrowserAuthentication(
+      {required this.type_,
+      required this.reason,
+      required this.credentialOrigin,
+      required this.fields,
+      required this.options});
 
-  BrowserAuthenticationHistoryRequestKindResourceBrowserAuthentication Function({BrowserAuthenticationHistoryRequestKindResourceBrowserAuthenticationType type_, String? reason, String? credentialOrigin, List<BrowserAuthenticationFieldResource> fields, List<BrowserAuthenticationOptionResource> options}) get copyWith => _copyWith;
+  BrowserAuthenticationHistoryRequestKindResourceBrowserAuthentication Function(
+      {BrowserAuthenticationHistoryRequestKindResourceBrowserAuthenticationType
+          type_,
+      String? reason,
+      String? credentialOrigin,
+      List<BrowserAuthenticationFieldResource> fields,
+      List<BrowserAuthenticationOptionResource>
+          options}) get copyWith => _copyWith;
 
-  BrowserAuthenticationHistoryRequestKindResourceBrowserAuthentication _copyWith({Object? type_ = sdkOmittedValue, Object? reason = sdkOmittedValue, Object? credentialOrigin = sdkOmittedValue, Object? fields = sdkOmittedValue, Object? options = sdkOmittedValue}) => BrowserAuthenticationHistoryRequestKindResourceBrowserAuthentication(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BrowserAuthenticationHistoryRequestKindResourceBrowserAuthenticationType,
-    reason: identical(reason, sdkOmittedValue) ? this.reason : reason as String?,
-    credentialOrigin: identical(credentialOrigin, sdkOmittedValue) ? this.credentialOrigin : credentialOrigin as String?,
-    fields: identical(fields, sdkOmittedValue) ? this.fields : fields as List<BrowserAuthenticationFieldResource>,
-    options: identical(options, sdkOmittedValue) ? this.options : options as List<BrowserAuthenticationOptionResource>,
-  );
+  BrowserAuthenticationHistoryRequestKindResourceBrowserAuthentication
+      _copyWith(
+              {Object? type_ = sdkOmittedValue,
+              Object? reason = sdkOmittedValue,
+              Object? credentialOrigin = sdkOmittedValue,
+              Object? fields = sdkOmittedValue,
+              Object? options = sdkOmittedValue}) =>
+          BrowserAuthenticationHistoryRequestKindResourceBrowserAuthentication(
+            type_: identical(type_, sdkOmittedValue)
+                ? this.type_
+                : type_
+                    as BrowserAuthenticationHistoryRequestKindResourceBrowserAuthenticationType,
+            reason: identical(reason, sdkOmittedValue)
+                ? this.reason
+                : reason as String?,
+            credentialOrigin: identical(credentialOrigin, sdkOmittedValue)
+                ? this.credentialOrigin
+                : credentialOrigin as String?,
+            fields: identical(fields, sdkOmittedValue)
+                ? this.fields
+                : fields as List<BrowserAuthenticationFieldResource>,
+            options: identical(options, sdkOmittedValue)
+                ? this.options
+                : options as List<BrowserAuthenticationOptionResource>,
+          );
 
-  factory BrowserAuthenticationHistoryRequestKindResourceBrowserAuthentication.fromJson(Map<String, dynamic> json) => BrowserAuthenticationHistoryRequestKindResourceBrowserAuthentication(
-    type_: (json['type'] != null ? BrowserAuthenticationHistoryRequestKindResourceBrowserAuthenticationType.fromJson(json['type'] as String) : null)!,
-    reason: json.containsKey('reason') ? json['reason'] as String? : throw ArgumentError.value(null, 'reason', 'Required property is missing'),
-    credentialOrigin: json.containsKey('credential_origin') ? json['credential_origin'] as String? : throw ArgumentError.value(null, 'credential_origin', 'Required property is missing'),
-    fields: ((json['fields'] as List?)?.map((e) => BrowserAuthenticationFieldResource.fromJson(e as Map<String, dynamic>)).toList())!,
-    options: ((json['options'] as List?)?.map((e) => BrowserAuthenticationOptionResource.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+  factory BrowserAuthenticationHistoryRequestKindResourceBrowserAuthentication.fromJson(
+          Map<String, dynamic> json) =>
+      BrowserAuthenticationHistoryRequestKindResourceBrowserAuthentication(
+        type_: (json['type'] != null
+            ? BrowserAuthenticationHistoryRequestKindResourceBrowserAuthenticationType
+                .fromJson(json['type'] as String)
+            : null)!,
+        reason: json.containsKey('reason')
+            ? json['reason'] as String?
+            : throw ArgumentError.value(
+                null, 'reason', 'Required property is missing'),
+        credentialOrigin: json.containsKey('credential_origin')
+            ? json['credential_origin'] as String?
+            : throw ArgumentError.value(
+                null, 'credential_origin', 'Required property is missing'),
+        fields: ((json['fields'] as List?)
+            ?.map((e) => BrowserAuthenticationFieldResource.fromJson(
+                e as Map<String, dynamic>))
+            .toList())!,
+        options: ((json['options'] as List?)
+            ?.map((e) => BrowserAuthenticationOptionResource.fromJson(
+                e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'reason': reason,
-    'credential_origin': credentialOrigin,
-    'fields': fields.map((item) => item.toJson()).toList(),
-    'options': options.map((item) => item.toJson()).toList(),
-  };
+        'type': type_.toJson(),
+        'reason': reason,
+        'credential_origin': credentialOrigin,
+        'fields': fields.map((item) => item.toJson()).toList(),
+        'options': options.map((item) => item.toJson()).toList(),
+      };
 }
 
 /// A sign-in method and the fields that belong to it.
 class BrowserAuthenticationOptionResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The option ID to submit as selected_option.
   final String id;
+
   /// The method label to display.
   final String label;
+
   /// IDs from the registered fields that this method accepts.
   final List<String> fieldIds;
 
-  const BrowserAuthenticationOptionResource({required this.id, required this.label, required this.fieldIds});
+  const BrowserAuthenticationOptionResource(
+      {required this.id, required this.label, required this.fieldIds});
 
-  BrowserAuthenticationOptionResource Function({String id, String label, List<String> fieldIds}) get copyWith => _copyWith;
+  BrowserAuthenticationOptionResource Function(
+      {String id,
+      String label,
+      List<String> fieldIds}) get copyWith => _copyWith;
 
-  BrowserAuthenticationOptionResource _copyWith({Object? id = sdkOmittedValue, Object? label = sdkOmittedValue, Object? fieldIds = sdkOmittedValue}) => BrowserAuthenticationOptionResource(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    label: identical(label, sdkOmittedValue) ? this.label : label as String,
-    fieldIds: identical(fieldIds, sdkOmittedValue) ? this.fieldIds : fieldIds as List<String>,
-  );
+  BrowserAuthenticationOptionResource _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? label = sdkOmittedValue,
+          Object? fieldIds = sdkOmittedValue}) =>
+      BrowserAuthenticationOptionResource(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        label: identical(label, sdkOmittedValue) ? this.label : label as String,
+        fieldIds: identical(fieldIds, sdkOmittedValue)
+            ? this.fieldIds
+            : fieldIds as List<String>,
+      );
 
-  factory BrowserAuthenticationOptionResource.fromJson(Map<String, dynamic> json) => BrowserAuthenticationOptionResource(
-    id: (json['id'] as String?)!,
-    label: (json['label'] as String?)!,
-    fieldIds: ((json['field_ids'] as List?)?.map((e) => e as String).toList())!,
-  );
+  factory BrowserAuthenticationOptionResource.fromJson(
+          Map<String, dynamic> json) =>
+      BrowserAuthenticationOptionResource(
+        id: (json['id'] as String?)!,
+        label: (json['label'] as String?)!,
+        fieldIds:
+            ((json['field_ids'] as List?)?.map((e) => e as String).toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'label': label,
-    'field_ids': fieldIds,
-  };
+        'id': id,
+        'label': label,
+        'field_ids': fieldIds,
+      };
 }
 
 /// A credential-free history record of the emitted login request.
 class BrowserAuthenticationRequestItemResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required `string` value serialized in the `turn_id` wire field.
   final String turnId;
+
   /// Required `string` value serialized in the `request_id` wire field.
   final String requestId;
+
   /// Required API value serialized in the `request` wire field.
   final BrowserAuthenticationHistoryRequestKindResource request;
+
   /// The stable history item ID.
   final String id;
+
   /// The item type. Always computer_use_approval_request.
   final BrowserAuthenticationRequestItemResourceType type_;
 
-  const BrowserAuthenticationRequestItemResource({required this.turnId, required this.requestId, required this.request, required this.id, required this.type_});
+  const BrowserAuthenticationRequestItemResource(
+      {required this.turnId,
+      required this.requestId,
+      required this.request,
+      required this.id,
+      required this.type_});
 
-  BrowserAuthenticationRequestItemResource Function({String turnId, String requestId, BrowserAuthenticationHistoryRequestKindResource request, String id, BrowserAuthenticationRequestItemResourceType type_}) get copyWith => _copyWith;
+  BrowserAuthenticationRequestItemResource Function(
+          {String turnId,
+          String requestId,
+          BrowserAuthenticationHistoryRequestKindResource request,
+          String id,
+          BrowserAuthenticationRequestItemResourceType type_})
+      get copyWith => _copyWith;
 
-  BrowserAuthenticationRequestItemResource _copyWith({Object? turnId = sdkOmittedValue, Object? requestId = sdkOmittedValue, Object? request = sdkOmittedValue, Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => BrowserAuthenticationRequestItemResource(
-    turnId: identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
-    requestId: identical(requestId, sdkOmittedValue) ? this.requestId : requestId as String,
-    request: identical(request, sdkOmittedValue) ? this.request : request as BrowserAuthenticationHistoryRequestKindResource,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BrowserAuthenticationRequestItemResourceType,
-  );
+  BrowserAuthenticationRequestItemResource _copyWith(
+          {Object? turnId = sdkOmittedValue,
+          Object? requestId = sdkOmittedValue,
+          Object? request = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue}) =>
+      BrowserAuthenticationRequestItemResource(
+        turnId:
+            identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
+        requestId: identical(requestId, sdkOmittedValue)
+            ? this.requestId
+            : requestId as String,
+        request: identical(request, sdkOmittedValue)
+            ? this.request
+            : request as BrowserAuthenticationHistoryRequestKindResource,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BrowserAuthenticationRequestItemResourceType,
+      );
 
-  factory BrowserAuthenticationRequestItemResource.fromJson(Map<String, dynamic> json) => BrowserAuthenticationRequestItemResource(
-    turnId: (json['turn_id'] as String?)!,
-    requestId: (json['request_id'] as String?)!,
-    request: (json['request'] != null ? BrowserAuthenticationHistoryRequestKindResource.fromJson(json['request']) : null)!,
-    id: (json['id'] as String?)!,
-    type_: (json['type'] != null ? BrowserAuthenticationRequestItemResourceType.fromJson(json['type'] as String) : null)!,
-  );
+  factory BrowserAuthenticationRequestItemResource.fromJson(
+          Map<String, dynamic> json) =>
+      BrowserAuthenticationRequestItemResource(
+        turnId: (json['turn_id'] as String?)!,
+        requestId: (json['request_id'] as String?)!,
+        request: (json['request'] != null
+            ? BrowserAuthenticationHistoryRequestKindResource.fromJson(
+                json['request'])
+            : null)!,
+        id: (json['id'] as String?)!,
+        type_: (json['type'] != null
+            ? BrowserAuthenticationRequestItemResourceType.fromJson(
+                json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'turn_id': turnId,
-    'request_id': requestId,
-    'request': request.toJson(),
-    'id': id,
-    'type': type_.toJson(),
-  };
+        'turn_id': turnId,
+        'request_id': requestId,
+        'request': request.toJson(),
+        'id': id,
+        'type': type_.toJson(),
+      };
 }
 
 /// The user's decision for a browser origin access request.
 final class BrowserOriginAccessDecisionParam {
-
   final String value;
 
   const BrowserOriginAccessDecisionParam._(this.value);
 
-  factory BrowserOriginAccessDecisionParam.fromJson(String value) => BrowserOriginAccessDecisionParam._(value);
+  factory BrowserOriginAccessDecisionParam.fromJson(String value) =>
+      BrowserOriginAccessDecisionParam._(value);
 
   static const approve = BrowserOriginAccessDecisionParam._('approve');
   static const deny = BrowserOriginAccessDecisionParam._('deny');
@@ -234,10 +388,13 @@ final class BrowserOriginAccessDecisionParam {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BrowserOriginAccessDecisionParam && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BrowserOriginAccessDecisionParam && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

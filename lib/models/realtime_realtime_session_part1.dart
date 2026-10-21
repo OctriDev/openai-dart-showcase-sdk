@@ -8,27 +8,42 @@ part of 'realtime_realtime_session.dart';
 class RealtimeSessionInputAudioNoiseReduction {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type of noise reduction. `near_field` is for close-talking microphones such as headphones, `far_field` is for far-field microphones such as laptop or conference room microphones.
   final SdkOptional<NoiseReductionType> type_;
 
-  const RealtimeSessionInputAudioNoiseReduction({this.type_ = const SdkOmitted()});
+  const RealtimeSessionInputAudioNoiseReduction(
+      {this.type_ = const SdkOmitted()});
 
-  RealtimeSessionInputAudioNoiseReduction Function({SdkOptional<NoiseReductionType> type_}) get copyWith => _copyWith;
+  RealtimeSessionInputAudioNoiseReduction Function(
+      {SdkOptional<NoiseReductionType> type_}) get copyWith => _copyWith;
 
-  RealtimeSessionInputAudioNoiseReduction _copyWith({Object? type_ = sdkOmittedValue}) => RealtimeSessionInputAudioNoiseReduction(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<NoiseReductionType>,
-  );
+  RealtimeSessionInputAudioNoiseReduction _copyWith(
+          {Object? type_ = sdkOmittedValue}) =>
+      RealtimeSessionInputAudioNoiseReduction(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<NoiseReductionType>,
+      );
 
-  factory RealtimeSessionInputAudioNoiseReduction.fromJson(Map<String, dynamic> json) => RealtimeSessionInputAudioNoiseReduction(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? NoiseReductionType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory RealtimeSessionInputAudioNoiseReduction.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeSessionInputAudioNoiseReduction(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? NoiseReductionType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<NoiseReductionType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<NoiseReductionType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class RealtimeSessionMaxResponseOutputTokens {
@@ -36,21 +51,33 @@ sealed class RealtimeSessionMaxResponseOutputTokens {
   static const String constructionSurface = 'named';
   const RealtimeSessionMaxResponseOutputTokens();
   factory RealtimeSessionMaxResponseOutputTokens.fromJson(Object? json) {
-    if (json is num) { return RealtimeSessionMaxResponseOutputTokensInt(json.toInt()); }
-    try { return RealtimeSessionMaxResponseOutputTokensRealtimeSessionMaxResponseOutputTokensVariant1(RealtimeSessionMaxResponseOutputTokensVariant1.fromJson(json as String)); } catch (_) {}
-    throw FormatException("No variant matched for RealtimeSessionMaxResponseOutputTokens");
+    if (json is num) {
+      return RealtimeSessionMaxResponseOutputTokensInt(json.toInt());
+    }
+    try {
+      return RealtimeSessionMaxResponseOutputTokensRealtimeSessionMaxResponseOutputTokensVariant1(
+          RealtimeSessionMaxResponseOutputTokensVariant1.fromJson(
+              json as String));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for RealtimeSessionMaxResponseOutputTokens");
   }
   Object? toJson();
 }
 
-final class RealtimeSessionMaxResponseOutputTokensInt extends RealtimeSessionMaxResponseOutputTokens {
+final class RealtimeSessionMaxResponseOutputTokensInt
+    extends RealtimeSessionMaxResponseOutputTokens {
   final int value;
   const RealtimeSessionMaxResponseOutputTokensInt(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class RealtimeSessionMaxResponseOutputTokensRealtimeSessionMaxResponseOutputTokensVariant1 extends RealtimeSessionMaxResponseOutputTokens {
+final class RealtimeSessionMaxResponseOutputTokensRealtimeSessionMaxResponseOutputTokensVariant1
+    extends RealtimeSessionMaxResponseOutputTokens {
   final RealtimeSessionMaxResponseOutputTokensVariant1 value;
-  const RealtimeSessionMaxResponseOutputTokensRealtimeSessionMaxResponseOutputTokensVariant1(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeSessionMaxResponseOutputTokensRealtimeSessionMaxResponseOutputTokensVariant1(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }

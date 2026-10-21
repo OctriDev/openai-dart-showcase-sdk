@@ -8,32 +8,56 @@ part of 'responses_response.dart';
 class ResponseCreatedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the event. Always `response.created`.
   final ResponseCreatedEventType type_;
+
   /// The response that was created.
   final Response response;
+
   /// The sequence number for this event.
   final int sequenceNumber;
 
-  const ResponseCreatedEvent({required this.type_, required this.response, required this.sequenceNumber});
+  const ResponseCreatedEvent(
+      {required this.type_,
+      required this.response,
+      required this.sequenceNumber});
 
-  ResponseCreatedEvent Function({ResponseCreatedEventType type_, Response response, int sequenceNumber}) get copyWith => _copyWith;
+  ResponseCreatedEvent Function(
+      {ResponseCreatedEventType type_,
+      Response response,
+      int sequenceNumber}) get copyWith => _copyWith;
 
-  ResponseCreatedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? response = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => ResponseCreatedEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseCreatedEventType,
-    response: identical(response, sdkOmittedValue) ? this.response : response as Response,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-  );
+  ResponseCreatedEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? response = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue}) =>
+      ResponseCreatedEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponseCreatedEventType,
+        response: identical(response, sdkOmittedValue)
+            ? this.response
+            : response as Response,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+      );
 
-  factory ResponseCreatedEvent.fromJson(Map<String, dynamic> json) => ResponseCreatedEvent(
-    type_: (json['type'] != null ? ResponseCreatedEventType.fromJson(json['type'] as String) : null)!,
-    response: (json['response'] != null ? Response.fromJson(json['response'] as Map<String, dynamic>) : null)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-  );
+  factory ResponseCreatedEvent.fromJson(Map<String, dynamic> json) =>
+      ResponseCreatedEvent(
+        type_: (json['type'] != null
+            ? ResponseCreatedEventType.fromJson(json['type'] as String)
+            : null)!,
+        response: (json['response'] != null
+            ? Response.fromJson(json['response'] as Map<String, dynamic>)
+            : null)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'response': response.toJson(),
-    'sequence_number': sequenceNumber,
-  };
+        'type': type_.toJson(),
+        'response': response.toJson(),
+        'sequence_number': sequenceNumber,
+      };
 }

@@ -10,32 +10,65 @@ sealed class ContainerAutoParamNetworkPolicy {
   const ContainerAutoParamNetworkPolicy();
   factory ContainerAutoParamNetworkPolicy.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = ContainerNetworkPolicyDisabledParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ContainerAutoParamNetworkPolicyContainerNetworkPolicyDisabledParam(value); } } catch (_) {}
-      try { final value = ContainerNetworkPolicyAllowlistParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ContainerAutoParamNetworkPolicyContainerNetworkPolicyAllowlistParam(value); } } catch (_) {}
+      try {
+        final value = ContainerNetworkPolicyDisabledParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ContainerAutoParamNetworkPolicyContainerNetworkPolicyDisabledParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ContainerNetworkPolicyAllowlistParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ContainerAutoParamNetworkPolicyContainerNetworkPolicyAllowlistParam(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return ContainerAutoParamNetworkPolicyContainerNetworkPolicyDisabledParam(ContainerNetworkPolicyDisabledParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ContainerAutoParamNetworkPolicyContainerNetworkPolicyAllowlistParam(ContainerNetworkPolicyAllowlistParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"disabled", "allowlist"}.contains(json["type"])) { return UnknownContainerAutoParamNetworkPolicy(json); }
-    throw FormatException("No variant matched for ContainerAutoParamNetworkPolicy");
+    try {
+      return ContainerAutoParamNetworkPolicyContainerNetworkPolicyDisabledParam(
+          ContainerNetworkPolicyDisabledParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ContainerAutoParamNetworkPolicyContainerNetworkPolicyAllowlistParam(
+          ContainerNetworkPolicyAllowlistParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"disabled", "allowlist"}.contains(json["type"])) {
+      return UnknownContainerAutoParamNetworkPolicy(json);
+    }
+    throw FormatException(
+        "No variant matched for ContainerAutoParamNetworkPolicy");
   }
   Object? toJson();
 }
 
-final class ContainerAutoParamNetworkPolicyContainerNetworkPolicyDisabledParam extends ContainerAutoParamNetworkPolicy {
+final class ContainerAutoParamNetworkPolicyContainerNetworkPolicyDisabledParam
+    extends ContainerAutoParamNetworkPolicy {
   final ContainerNetworkPolicyDisabledParam value;
-  const ContainerAutoParamNetworkPolicyContainerNetworkPolicyDisabledParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const ContainerAutoParamNetworkPolicyContainerNetworkPolicyDisabledParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ContainerAutoParamNetworkPolicyContainerNetworkPolicyAllowlistParam extends ContainerAutoParamNetworkPolicy {
+final class ContainerAutoParamNetworkPolicyContainerNetworkPolicyAllowlistParam
+    extends ContainerAutoParamNetworkPolicy {
   final ContainerNetworkPolicyAllowlistParam value;
-  const ContainerAutoParamNetworkPolicyContainerNetworkPolicyAllowlistParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const ContainerAutoParamNetworkPolicyContainerNetworkPolicyAllowlistParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [ContainerAutoParamNetworkPolicy] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownContainerAutoParamNetworkPolicy extends ContainerAutoParamNetworkPolicy {
+final class UnknownContainerAutoParamNetworkPolicy
+    extends ContainerAutoParamNetworkPolicy {
   final Map<String, dynamic> raw;
   const UnknownContainerAutoParamNetworkPolicy(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

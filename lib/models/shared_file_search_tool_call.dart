@@ -8,104 +8,204 @@ part of 'shared_file.dart';
 class FileSearchToolCallResultsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the file.
   final SdkOptional<String> fileId;
+
   /// The text that was retrieved from the file.
   final SdkOptional<String> text;
+
   /// The name of the file.
   final SdkOptional<String> filename;
+
   /// Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard. Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters, booleans, or numbers.
   final SdkOptional<Map<String, dynamic>?> attributes;
+
   /// The relevance score of the file - a value between 0 and 1.
   final SdkOptional<double> score;
 
-  const FileSearchToolCallResultsItem({this.fileId = const SdkOmitted(), this.text = const SdkOmitted(), this.filename = const SdkOmitted(), this.attributes = const SdkOmitted(), this.score = const SdkOmitted()});
+  const FileSearchToolCallResultsItem(
+      {this.fileId = const SdkOmitted(),
+      this.text = const SdkOmitted(),
+      this.filename = const SdkOmitted(),
+      this.attributes = const SdkOmitted(),
+      this.score = const SdkOmitted()});
 
-  FileSearchToolCallResultsItem Function({SdkOptional<String> fileId, SdkOptional<String> text, SdkOptional<String> filename, SdkOptional<Map<String, dynamic>?> attributes, SdkOptional<double> score}) get copyWith => _copyWith;
+  FileSearchToolCallResultsItem Function(
+      {SdkOptional<String> fileId,
+      SdkOptional<String> text,
+      SdkOptional<String> filename,
+      SdkOptional<Map<String, dynamic>?> attributes,
+      SdkOptional<double> score}) get copyWith => _copyWith;
 
-  FileSearchToolCallResultsItem _copyWith({Object? fileId = sdkOmittedValue, Object? text = sdkOmittedValue, Object? filename = sdkOmittedValue, Object? attributes = sdkOmittedValue, Object? score = sdkOmittedValue}) => FileSearchToolCallResultsItem(
-    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as SdkOptional<String>,
-    text: identical(text, sdkOmittedValue) ? this.text : text as SdkOptional<String>,
-    filename: identical(filename, sdkOmittedValue) ? this.filename : filename as SdkOptional<String>,
-    attributes: identical(attributes, sdkOmittedValue) ? this.attributes : attributes as SdkOptional<Map<String, dynamic>?>,
-    score: identical(score, sdkOmittedValue) ? this.score : score as SdkOptional<double>,
-  );
+  FileSearchToolCallResultsItem _copyWith(
+          {Object? fileId = sdkOmittedValue,
+          Object? text = sdkOmittedValue,
+          Object? filename = sdkOmittedValue,
+          Object? attributes = sdkOmittedValue,
+          Object? score = sdkOmittedValue}) =>
+      FileSearchToolCallResultsItem(
+        fileId: identical(fileId, sdkOmittedValue)
+            ? this.fileId
+            : fileId as SdkOptional<String>,
+        text: identical(text, sdkOmittedValue)
+            ? this.text
+            : text as SdkOptional<String>,
+        filename: identical(filename, sdkOmittedValue)
+            ? this.filename
+            : filename as SdkOptional<String>,
+        attributes: identical(attributes, sdkOmittedValue)
+            ? this.attributes
+            : attributes as SdkOptional<Map<String, dynamic>?>,
+        score: identical(score, sdkOmittedValue)
+            ? this.score
+            : score as SdkOptional<double>,
+      );
 
-  factory FileSearchToolCallResultsItem.fromJson(Map<String, dynamic> json) => FileSearchToolCallResultsItem(
-    fileId: json['file_id'] != null ? SdkPresent((json['file_id'] as String?)!) : const SdkOmitted(),
-    text: json['text'] != null ? SdkPresent((json['text'] as String?)!) : const SdkOmitted(),
-    filename: json['filename'] != null ? SdkPresent((json['filename'] as String?)!) : const SdkOmitted(),
-    attributes: json.containsKey('attributes') ? SdkPresent(json['attributes'] == null ? null : json['attributes'] as Map<String, dynamic>) : const SdkOmitted(),
-    score: json['score'] != null ? SdkPresent(((json['score'] as num?)?.toDouble())!) : const SdkOmitted(),
-  );
+  factory FileSearchToolCallResultsItem.fromJson(Map<String, dynamic> json) =>
+      FileSearchToolCallResultsItem(
+        fileId: json['file_id'] != null
+            ? SdkPresent((json['file_id'] as String?)!)
+            : const SdkOmitted(),
+        text: json['text'] != null
+            ? SdkPresent((json['text'] as String?)!)
+            : const SdkOmitted(),
+        filename: json['filename'] != null
+            ? SdkPresent((json['filename'] as String?)!)
+            : const SdkOmitted(),
+        attributes: json.containsKey('attributes')
+            ? SdkPresent(json['attributes'] == null
+                ? null
+                : json['attributes'] as Map<String, dynamic>)
+            : const SdkOmitted(),
+        score: json['score'] != null
+            ? SdkPresent(((json['score'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (fileId) {
-      SdkPresent<String>(value: final value) => {'file_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (text) {
-      SdkPresent<String>(value: final value) => {'text': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (filename) {
-      SdkPresent<String>(value: final value) => {'filename': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (attributes) {
-      SdkPresent<Map<String, dynamic>?>(value: final value) => {'attributes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (score) {
-      SdkPresent<double>(value: final value) => {'score': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (fileId) {
+          SdkPresent<String>(value: final value) => {
+              'file_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (text) {
+          SdkPresent<String>(value: final value) => {
+              'text': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (filename) {
+          SdkPresent<String>(value: final value) => {
+              'filename': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (attributes) {
+          SdkPresent<Map<String, dynamic>?>(value: final value) => {
+              'attributes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (score) {
+          SdkPresent<double>(value: final value) => {
+              'score': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The results of a file search tool call. See the [file search guide](https://developers.openai.com/api/docs/guides/tools-file-search) for more information.
 class FileSearchToolCall {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the file search tool call.
   final String id;
+
   /// The type of the file search tool call. Always `file_search_call`.
   final FileSearchToolCallType type_;
+
   /// The status of the file search tool call. One of `in_progress`, `searching`, `incomplete` or `failed`,
   final FileSearchToolCallStatus status;
+
   /// The queries used to search for files.
   final List<String> queries;
+
   /// The results of the file search tool call.
   final SdkOptional<List<FileSearchToolCallResultsItem>?> results;
 
-  const FileSearchToolCall({required this.id, required this.type_, required this.status, required this.queries, this.results = const SdkOmitted()});
+  const FileSearchToolCall(
+      {required this.id,
+      required this.type_,
+      required this.status,
+      required this.queries,
+      this.results = const SdkOmitted()});
 
-  FileSearchToolCall Function({String id, FileSearchToolCallType type_, FileSearchToolCallStatus status, List<String> queries, SdkOptional<List<FileSearchToolCallResultsItem>?> results}) get copyWith => _copyWith;
+  FileSearchToolCall Function(
+          {String id,
+          FileSearchToolCallType type_,
+          FileSearchToolCallStatus status,
+          List<String> queries,
+          SdkOptional<List<FileSearchToolCallResultsItem>?> results})
+      get copyWith => _copyWith;
 
-  FileSearchToolCall _copyWith({Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? status = sdkOmittedValue, Object? queries = sdkOmittedValue, Object? results = sdkOmittedValue}) => FileSearchToolCall(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as FileSearchToolCallType,
-    status: identical(status, sdkOmittedValue) ? this.status : status as FileSearchToolCallStatus,
-    queries: identical(queries, sdkOmittedValue) ? this.queries : queries as List<String>,
-    results: identical(results, sdkOmittedValue) ? this.results : results as SdkOptional<List<FileSearchToolCallResultsItem>?>,
-  );
+  FileSearchToolCall _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? queries = sdkOmittedValue,
+          Object? results = sdkOmittedValue}) =>
+      FileSearchToolCall(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as FileSearchToolCallType,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as FileSearchToolCallStatus,
+        queries: identical(queries, sdkOmittedValue)
+            ? this.queries
+            : queries as List<String>,
+        results: identical(results, sdkOmittedValue)
+            ? this.results
+            : results as SdkOptional<List<FileSearchToolCallResultsItem>?>,
+      );
 
-  factory FileSearchToolCall.fromJson(Map<String, dynamic> json) => FileSearchToolCall(
-    id: (json['id'] as String?)!,
-    type_: (json['type'] != null ? FileSearchToolCallType.fromJson(json['type'] as String) : null)!,
-    status: (json['status'] != null ? FileSearchToolCallStatus.fromJson(json['status'] as String) : null)!,
-    queries: ((json['queries'] as List?)?.map((e) => e as String).toList())!,
-    results: json.containsKey('results') ? SdkPresent((json['results'] as List?)?.map((e) => FileSearchToolCallResultsItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
-  );
+  factory FileSearchToolCall.fromJson(Map<String, dynamic> json) =>
+      FileSearchToolCall(
+        id: (json['id'] as String?)!,
+        type_: (json['type'] != null
+            ? FileSearchToolCallType.fromJson(json['type'] as String)
+            : null)!,
+        status: (json['status'] != null
+            ? FileSearchToolCallStatus.fromJson(json['status'] as String)
+            : null)!,
+        queries:
+            ((json['queries'] as List?)?.map((e) => e as String).toList())!,
+        results: json.containsKey('results')
+            ? SdkPresent((json['results'] as List?)
+                ?.map((e) => FileSearchToolCallResultsItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'type': type_.toJson(),
-    'status': status.toJson(),
-    'queries': queries,
-    ...switch (results) {
-      SdkPresent<List<FileSearchToolCallResultsItem>?>(value: final value) => {'results': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'id': id,
+        'type': type_.toJson(),
+        'status': status.toJson(),
+        'queries': queries,
+        ...switch (results) {
+          SdkPresent<List<FileSearchToolCallResultsItem>?>(
+            value: final value
+          ) =>
+            {
+              'results': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

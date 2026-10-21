@@ -8,22 +8,33 @@ part of 'vector_stores.dart';
 class OtherChunkingStrategyResponseParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Always `other`.
   final OtherChunkingStrategyResponseParamType type_;
 
   const OtherChunkingStrategyResponseParam({required this.type_});
 
-  OtherChunkingStrategyResponseParam Function({OtherChunkingStrategyResponseParamType type_}) get copyWith => _copyWith;
+  OtherChunkingStrategyResponseParam Function(
+      {OtherChunkingStrategyResponseParamType type_}) get copyWith => _copyWith;
 
-  OtherChunkingStrategyResponseParam _copyWith({Object? type_ = sdkOmittedValue}) => OtherChunkingStrategyResponseParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as OtherChunkingStrategyResponseParamType,
-  );
+  OtherChunkingStrategyResponseParam _copyWith(
+          {Object? type_ = sdkOmittedValue}) =>
+      OtherChunkingStrategyResponseParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as OtherChunkingStrategyResponseParamType,
+      );
 
-  factory OtherChunkingStrategyResponseParam.fromJson(Map<String, dynamic> json) => OtherChunkingStrategyResponseParam(
-    type_: (json['type'] != null ? OtherChunkingStrategyResponseParamType.fromJson(json['type'] as String) : null)!,
-  );
+  factory OtherChunkingStrategyResponseParam.fromJson(
+          Map<String, dynamic> json) =>
+      OtherChunkingStrategyResponseParam(
+        type_: (json['type'] != null
+            ? OtherChunkingStrategyResponseParamType.fromJson(
+                json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }

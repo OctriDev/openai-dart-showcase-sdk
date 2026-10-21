@@ -8,32 +8,50 @@ part of 'chat_chat_completion.dart';
 class ChatCompletionDeleted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of object being deleted.
   final ChatCompletionDeletedObject object;
+
   /// The ID of the chat completion that was deleted.
   final String id;
+
   /// Whether the chat completion was deleted.
   final bool deleted;
 
-  const ChatCompletionDeleted({required this.object, required this.id, required this.deleted});
+  const ChatCompletionDeleted(
+      {required this.object, required this.id, required this.deleted});
 
-  ChatCompletionDeleted Function({ChatCompletionDeletedObject object, String id, bool deleted}) get copyWith => _copyWith;
+  ChatCompletionDeleted Function(
+      {ChatCompletionDeletedObject object,
+      String id,
+      bool deleted}) get copyWith => _copyWith;
 
-  ChatCompletionDeleted _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => ChatCompletionDeleted(
-    object: identical(object, sdkOmittedValue) ? this.object : object as ChatCompletionDeletedObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
-  );
+  ChatCompletionDeleted _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue}) =>
+      ChatCompletionDeleted(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ChatCompletionDeletedObject,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as bool,
+      );
 
-  factory ChatCompletionDeleted.fromJson(Map<String, dynamic> json) => ChatCompletionDeleted(
-    object: (json['object'] != null ? ChatCompletionDeletedObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    deleted: (json['deleted'] as bool?)!,
-  );
+  factory ChatCompletionDeleted.fromJson(Map<String, dynamic> json) =>
+      ChatCompletionDeleted(
+        object: (json['object'] != null
+            ? ChatCompletionDeletedObject.fromJson(json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        deleted: (json['deleted'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'deleted': deleted,
-  };
+        'object': object.toJson(),
+        'id': id,
+        'deleted': deleted,
+      };
 }

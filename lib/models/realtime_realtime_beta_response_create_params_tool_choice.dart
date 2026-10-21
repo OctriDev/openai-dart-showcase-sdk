@@ -10,39 +10,73 @@ sealed class RealtimeBetaResponseCreateParamsToolChoice {
   const RealtimeBetaResponseCreateParamsToolChoice();
   factory RealtimeBetaResponseCreateParamsToolChoice.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = ToolChoiceFunction.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeBetaResponseCreateParamsToolChoiceToolChoiceFunction(value); } } catch (_) {}
-      try { final value = ToolChoiceMCP.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeBetaResponseCreateParamsToolChoiceToolChoiceMCP(value); } } catch (_) {}
+      try {
+        final value = ToolChoiceFunction.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeBetaResponseCreateParamsToolChoiceToolChoiceFunction(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ToolChoiceMCP.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeBetaResponseCreateParamsToolChoiceToolChoiceMCP(value);
+        }
+      } catch (_) {}
     }
-    try { return RealtimeBetaResponseCreateParamsToolChoiceToolChoiceOptions(ToolChoiceOptions.fromJson(json as String)); } catch (_) {}
-    try { return RealtimeBetaResponseCreateParamsToolChoiceToolChoiceFunction(ToolChoiceFunction.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeBetaResponseCreateParamsToolChoiceToolChoiceMCP(ToolChoiceMCP.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"function", "mcp"}.contains(json["type"])) { return UnknownRealtimeBetaResponseCreateParamsToolChoice(json); }
-    throw FormatException("No variant matched for RealtimeBetaResponseCreateParamsToolChoice");
+    try {
+      return RealtimeBetaResponseCreateParamsToolChoiceToolChoiceOptions(
+          ToolChoiceOptions.fromJson(json as String));
+    } catch (_) {}
+    try {
+      return RealtimeBetaResponseCreateParamsToolChoiceToolChoiceFunction(
+          ToolChoiceFunction.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeBetaResponseCreateParamsToolChoiceToolChoiceMCP(
+          ToolChoiceMCP.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"function", "mcp"}.contains(json["type"])) {
+      return UnknownRealtimeBetaResponseCreateParamsToolChoice(json);
+    }
+    throw FormatException(
+        "No variant matched for RealtimeBetaResponseCreateParamsToolChoice");
   }
   Object? toJson();
 }
 
-final class RealtimeBetaResponseCreateParamsToolChoiceToolChoiceOptions extends RealtimeBetaResponseCreateParamsToolChoice {
+final class RealtimeBetaResponseCreateParamsToolChoiceToolChoiceOptions
+    extends RealtimeBetaResponseCreateParamsToolChoice {
   final ToolChoiceOptions value;
   const RealtimeBetaResponseCreateParamsToolChoiceToolChoiceOptions(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeBetaResponseCreateParamsToolChoiceToolChoiceFunction extends RealtimeBetaResponseCreateParamsToolChoice {
+final class RealtimeBetaResponseCreateParamsToolChoiceToolChoiceFunction
+    extends RealtimeBetaResponseCreateParamsToolChoice {
   final ToolChoiceFunction value;
-  const RealtimeBetaResponseCreateParamsToolChoiceToolChoiceFunction(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeBetaResponseCreateParamsToolChoiceToolChoiceFunction(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeBetaResponseCreateParamsToolChoiceToolChoiceMCP extends RealtimeBetaResponseCreateParamsToolChoice {
+final class RealtimeBetaResponseCreateParamsToolChoiceToolChoiceMCP
+    extends RealtimeBetaResponseCreateParamsToolChoice {
   final ToolChoiceMCP value;
   const RealtimeBetaResponseCreateParamsToolChoiceToolChoiceMCP(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [RealtimeBetaResponseCreateParamsToolChoice] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownRealtimeBetaResponseCreateParamsToolChoice extends RealtimeBetaResponseCreateParamsToolChoice {
+final class UnknownRealtimeBetaResponseCreateParamsToolChoice
+    extends RealtimeBetaResponseCreateParamsToolChoice {
   final Map<String, dynamic> raw;
   const UnknownRealtimeBetaResponseCreateParamsToolChoice(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

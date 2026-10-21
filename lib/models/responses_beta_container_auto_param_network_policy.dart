@@ -10,32 +10,65 @@ sealed class BetaContainerAutoParamNetworkPolicy {
   const BetaContainerAutoParamNetworkPolicy();
   factory BetaContainerAutoParamNetworkPolicy.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = BetaContainerNetworkPolicyDisabledParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaContainerAutoParamNetworkPolicyBetaContainerNetworkPolicyDisabledParam(value); } } catch (_) {}
-      try { final value = BetaContainerNetworkPolicyAllowlistParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaContainerAutoParamNetworkPolicyBetaContainerNetworkPolicyAllowlistParam(value); } } catch (_) {}
+      try {
+        final value = BetaContainerNetworkPolicyDisabledParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaContainerAutoParamNetworkPolicyBetaContainerNetworkPolicyDisabledParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaContainerNetworkPolicyAllowlistParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaContainerAutoParamNetworkPolicyBetaContainerNetworkPolicyAllowlistParam(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return BetaContainerAutoParamNetworkPolicyBetaContainerNetworkPolicyDisabledParam(BetaContainerNetworkPolicyDisabledParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaContainerAutoParamNetworkPolicyBetaContainerNetworkPolicyAllowlistParam(BetaContainerNetworkPolicyAllowlistParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"disabled", "allowlist"}.contains(json["type"])) { return UnknownBetaContainerAutoParamNetworkPolicy(json); }
-    throw FormatException("No variant matched for BetaContainerAutoParamNetworkPolicy");
+    try {
+      return BetaContainerAutoParamNetworkPolicyBetaContainerNetworkPolicyDisabledParam(
+          BetaContainerNetworkPolicyDisabledParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaContainerAutoParamNetworkPolicyBetaContainerNetworkPolicyAllowlistParam(
+          BetaContainerNetworkPolicyAllowlistParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"disabled", "allowlist"}.contains(json["type"])) {
+      return UnknownBetaContainerAutoParamNetworkPolicy(json);
+    }
+    throw FormatException(
+        "No variant matched for BetaContainerAutoParamNetworkPolicy");
   }
   Object? toJson();
 }
 
-final class BetaContainerAutoParamNetworkPolicyBetaContainerNetworkPolicyDisabledParam extends BetaContainerAutoParamNetworkPolicy {
+final class BetaContainerAutoParamNetworkPolicyBetaContainerNetworkPolicyDisabledParam
+    extends BetaContainerAutoParamNetworkPolicy {
   final BetaContainerNetworkPolicyDisabledParam value;
-  const BetaContainerAutoParamNetworkPolicyBetaContainerNetworkPolicyDisabledParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaContainerAutoParamNetworkPolicyBetaContainerNetworkPolicyDisabledParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaContainerAutoParamNetworkPolicyBetaContainerNetworkPolicyAllowlistParam extends BetaContainerAutoParamNetworkPolicy {
+final class BetaContainerAutoParamNetworkPolicyBetaContainerNetworkPolicyAllowlistParam
+    extends BetaContainerAutoParamNetworkPolicy {
   final BetaContainerNetworkPolicyAllowlistParam value;
-  const BetaContainerAutoParamNetworkPolicyBetaContainerNetworkPolicyAllowlistParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaContainerAutoParamNetworkPolicyBetaContainerNetworkPolicyAllowlistParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [BetaContainerAutoParamNetworkPolicy] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownBetaContainerAutoParamNetworkPolicy extends BetaContainerAutoParamNetworkPolicy {
+final class UnknownBetaContainerAutoParamNetworkPolicy
+    extends BetaContainerAutoParamNetworkPolicy {
   final Map<String, dynamic> raw;
   const UnknownBetaContainerAutoParamNetworkPolicy(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

@@ -6,233 +6,304 @@ part of 'inline.dart';
 // Inline operation models
 /// The event type, must be `response.mcp_call.completed`.
 final class RealtimeBetaServerEventResponseMCPCallCompletedType {
-
   final String value;
 
   const RealtimeBetaServerEventResponseMCPCallCompletedType._(this.value);
 
-  factory RealtimeBetaServerEventResponseMCPCallCompletedType.fromJson(String value) => RealtimeBetaServerEventResponseMCPCallCompletedType._(value);
+  factory RealtimeBetaServerEventResponseMCPCallCompletedType.fromJson(
+          String value) =>
+      RealtimeBetaServerEventResponseMCPCallCompletedType._(value);
 
-  static const responseMcpCallCompleted = RealtimeBetaServerEventResponseMCPCallCompletedType._('response.mcp_call.completed');
+  static const responseMcpCallCompleted =
+      RealtimeBetaServerEventResponseMCPCallCompletedType._(
+          'response.mcp_call.completed');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeBetaServerEventResponseMCPCallCompletedType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeBetaServerEventResponseMCPCallCompletedType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The event type, must be `response.mcp_call.failed`.
 final class RealtimeBetaServerEventResponseMCPCallFailedType {
-
   final String value;
 
   const RealtimeBetaServerEventResponseMCPCallFailedType._(this.value);
 
-  factory RealtimeBetaServerEventResponseMCPCallFailedType.fromJson(String value) => RealtimeBetaServerEventResponseMCPCallFailedType._(value);
+  factory RealtimeBetaServerEventResponseMCPCallFailedType.fromJson(
+          String value) =>
+      RealtimeBetaServerEventResponseMCPCallFailedType._(value);
 
-  static const responseMcpCallFailed = RealtimeBetaServerEventResponseMCPCallFailedType._('response.mcp_call.failed');
+  static const responseMcpCallFailed =
+      RealtimeBetaServerEventResponseMCPCallFailedType._(
+          'response.mcp_call.failed');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeBetaServerEventResponseMCPCallFailedType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeBetaServerEventResponseMCPCallFailedType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The event type, must be `response.mcp_call.in_progress`.
 final class RealtimeBetaServerEventResponseMCPCallInProgressType {
-
   final String value;
 
   const RealtimeBetaServerEventResponseMCPCallInProgressType._(this.value);
 
-  factory RealtimeBetaServerEventResponseMCPCallInProgressType.fromJson(String value) => RealtimeBetaServerEventResponseMCPCallInProgressType._(value);
+  factory RealtimeBetaServerEventResponseMCPCallInProgressType.fromJson(
+          String value) =>
+      RealtimeBetaServerEventResponseMCPCallInProgressType._(value);
 
-  static const responseMcpCallInProgress = RealtimeBetaServerEventResponseMCPCallInProgressType._('response.mcp_call.in_progress');
+  static const responseMcpCallInProgress =
+      RealtimeBetaServerEventResponseMCPCallInProgressType._(
+          'response.mcp_call.in_progress');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeBetaServerEventResponseMCPCallInProgressType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeBetaServerEventResponseMCPCallInProgressType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The event type, must be `response.output_item.added`.
 final class RealtimeBetaServerEventResponseOutputItemAddedType {
-
   final String value;
 
   const RealtimeBetaServerEventResponseOutputItemAddedType._(this.value);
 
-  factory RealtimeBetaServerEventResponseOutputItemAddedType.fromJson(String value) => RealtimeBetaServerEventResponseOutputItemAddedType._(value);
+  factory RealtimeBetaServerEventResponseOutputItemAddedType.fromJson(
+          String value) =>
+      RealtimeBetaServerEventResponseOutputItemAddedType._(value);
 
-  static const responseOutputItemAdded = RealtimeBetaServerEventResponseOutputItemAddedType._('response.output_item.added');
+  static const responseOutputItemAdded =
+      RealtimeBetaServerEventResponseOutputItemAddedType._(
+          'response.output_item.added');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeBetaServerEventResponseOutputItemAddedType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeBetaServerEventResponseOutputItemAddedType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The event type, must be `response.output_item.done`.
 final class RealtimeBetaServerEventResponseOutputItemDoneType {
-
   final String value;
 
   const RealtimeBetaServerEventResponseOutputItemDoneType._(this.value);
 
-  factory RealtimeBetaServerEventResponseOutputItemDoneType.fromJson(String value) => RealtimeBetaServerEventResponseOutputItemDoneType._(value);
+  factory RealtimeBetaServerEventResponseOutputItemDoneType.fromJson(
+          String value) =>
+      RealtimeBetaServerEventResponseOutputItemDoneType._(value);
 
-  static const responseOutputItemDone = RealtimeBetaServerEventResponseOutputItemDoneType._('response.output_item.done');
+  static const responseOutputItemDone =
+      RealtimeBetaServerEventResponseOutputItemDoneType._(
+          'response.output_item.done');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeBetaServerEventResponseOutputItemDoneType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeBetaServerEventResponseOutputItemDoneType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The event type, must be `response.output_text.delta`.
 final class RealtimeBetaServerEventResponseTextDeltaType {
-
   final String value;
 
   const RealtimeBetaServerEventResponseTextDeltaType._(this.value);
 
-  factory RealtimeBetaServerEventResponseTextDeltaType.fromJson(String value) => RealtimeBetaServerEventResponseTextDeltaType._(value);
+  factory RealtimeBetaServerEventResponseTextDeltaType.fromJson(String value) =>
+      RealtimeBetaServerEventResponseTextDeltaType._(value);
 
-  static const responseOutputTextDelta = RealtimeBetaServerEventResponseTextDeltaType._('response.output_text.delta');
+  static const responseOutputTextDelta =
+      RealtimeBetaServerEventResponseTextDeltaType._(
+          'response.output_text.delta');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeBetaServerEventResponseTextDeltaType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeBetaServerEventResponseTextDeltaType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The event type, must be `response.output_text.done`.
 final class RealtimeBetaServerEventResponseTextDoneType {
-
   final String value;
 
   const RealtimeBetaServerEventResponseTextDoneType._(this.value);
 
-  factory RealtimeBetaServerEventResponseTextDoneType.fromJson(String value) => RealtimeBetaServerEventResponseTextDoneType._(value);
+  factory RealtimeBetaServerEventResponseTextDoneType.fromJson(String value) =>
+      RealtimeBetaServerEventResponseTextDoneType._(value);
 
-  static const responseOutputTextDone = RealtimeBetaServerEventResponseTextDoneType._('response.output_text.done');
+  static const responseOutputTextDone =
+      RealtimeBetaServerEventResponseTextDoneType._(
+          'response.output_text.done');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeBetaServerEventResponseTextDoneType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeBetaServerEventResponseTextDoneType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The event type, must be `session.created`.
 final class RealtimeBetaServerEventSessionCreatedType {
-
   final String value;
 
   const RealtimeBetaServerEventSessionCreatedType._(this.value);
 
-  factory RealtimeBetaServerEventSessionCreatedType.fromJson(String value) => RealtimeBetaServerEventSessionCreatedType._(value);
+  factory RealtimeBetaServerEventSessionCreatedType.fromJson(String value) =>
+      RealtimeBetaServerEventSessionCreatedType._(value);
 
-  static const sessionCreated = RealtimeBetaServerEventSessionCreatedType._('session.created');
+  static const sessionCreated =
+      RealtimeBetaServerEventSessionCreatedType._('session.created');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeBetaServerEventSessionCreatedType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeBetaServerEventSessionCreatedType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The event type, must be `session.updated`.
 final class RealtimeBetaServerEventSessionUpdatedType {
-
   final String value;
 
   const RealtimeBetaServerEventSessionUpdatedType._(this.value);
 
-  factory RealtimeBetaServerEventSessionUpdatedType.fromJson(String value) => RealtimeBetaServerEventSessionUpdatedType._(value);
+  factory RealtimeBetaServerEventSessionUpdatedType.fromJson(String value) =>
+      RealtimeBetaServerEventSessionUpdatedType._(value);
 
-  static const sessionUpdated = RealtimeBetaServerEventSessionUpdatedType._('session.updated');
+  static const sessionUpdated =
+      RealtimeBetaServerEventSessionUpdatedType._('session.updated');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeBetaServerEventSessionUpdatedType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeBetaServerEventSessionUpdatedType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The event type, must be `transcription_session.created`.
 final class RealtimeBetaServerEventTranscriptionSessionCreatedType {
-
   final String value;
 
   const RealtimeBetaServerEventTranscriptionSessionCreatedType._(this.value);
 
-  factory RealtimeBetaServerEventTranscriptionSessionCreatedType.fromJson(String value) => RealtimeBetaServerEventTranscriptionSessionCreatedType._(value);
+  factory RealtimeBetaServerEventTranscriptionSessionCreatedType.fromJson(
+          String value) =>
+      RealtimeBetaServerEventTranscriptionSessionCreatedType._(value);
 
-  static const transcriptionSessionCreated = RealtimeBetaServerEventTranscriptionSessionCreatedType._('transcription_session.created');
+  static const transcriptionSessionCreated =
+      RealtimeBetaServerEventTranscriptionSessionCreatedType._(
+          'transcription_session.created');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeBetaServerEventTranscriptionSessionCreatedType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeBetaServerEventTranscriptionSessionCreatedType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The event type, must be `transcription_session.updated`.
 final class RealtimeBetaServerEventTranscriptionSessionUpdatedType {
-
   final String value;
 
   const RealtimeBetaServerEventTranscriptionSessionUpdatedType._(this.value);
 
-  factory RealtimeBetaServerEventTranscriptionSessionUpdatedType.fromJson(String value) => RealtimeBetaServerEventTranscriptionSessionUpdatedType._(value);
+  factory RealtimeBetaServerEventTranscriptionSessionUpdatedType.fromJson(
+          String value) =>
+      RealtimeBetaServerEventTranscriptionSessionUpdatedType._(value);
 
-  static const transcriptionSessionUpdated = RealtimeBetaServerEventTranscriptionSessionUpdatedType._('transcription_session.updated');
+  static const transcriptionSessionUpdated =
+      RealtimeBetaServerEventTranscriptionSessionUpdatedType._(
+          'transcription_session.updated');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeBetaServerEventTranscriptionSessionUpdatedType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeBetaServerEventTranscriptionSessionUpdatedType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The event type, must be `conversation.item.create`.
@@ -241,14 +312,19 @@ enum RealtimeClientEventConversationItemCreateType {
 
   static RealtimeClientEventConversationItemCreateType fromJson(String value) {
     switch (value) {
-      case 'conversation.item.create': return RealtimeClientEventConversationItemCreateType.conversationItemCreate;
-      default: throw ArgumentError('Unknown RealtimeClientEventConversationItemCreateType: $value');
+      case 'conversation.item.create':
+        return RealtimeClientEventConversationItemCreateType
+            .conversationItemCreate;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeClientEventConversationItemCreateType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeClientEventConversationItemCreateType.conversationItemCreate: return 'conversation.item.create';
+      case RealtimeClientEventConversationItemCreateType.conversationItemCreate:
+        return 'conversation.item.create';
     }
   }
 
@@ -262,14 +338,19 @@ enum RealtimeClientEventConversationItemDeleteType {
 
   static RealtimeClientEventConversationItemDeleteType fromJson(String value) {
     switch (value) {
-      case 'conversation.item.delete': return RealtimeClientEventConversationItemDeleteType.conversationItemDelete;
-      default: throw ArgumentError('Unknown RealtimeClientEventConversationItemDeleteType: $value');
+      case 'conversation.item.delete':
+        return RealtimeClientEventConversationItemDeleteType
+            .conversationItemDelete;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeClientEventConversationItemDeleteType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeClientEventConversationItemDeleteType.conversationItemDelete: return 'conversation.item.delete';
+      case RealtimeClientEventConversationItemDeleteType.conversationItemDelete:
+        return 'conversation.item.delete';
     }
   }
 

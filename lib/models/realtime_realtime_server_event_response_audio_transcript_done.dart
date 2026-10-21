@@ -8,52 +8,99 @@ part of 'realtime_realtime_server_event.dart';
 class RealtimeServerEventResponseAudioTranscriptDone {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the server event.
   final String eventId;
+
   /// The event type, must be `response.output_audio_transcript.done`.
   final RealtimeServerEventResponseAudioTranscriptDoneType type_;
+
   /// The ID of the response.
   final String responseId;
+
   /// The ID of the item.
   final String itemId;
+
   /// The index of the output item in the response.
   final int outputIndex;
+
   /// The index of the content part in the item's content array.
   final int contentIndex;
+
   /// The final transcript of the audio.
   final String transcript;
 
-  const RealtimeServerEventResponseAudioTranscriptDone({required this.eventId, required this.type_, required this.responseId, required this.itemId, required this.outputIndex, required this.contentIndex, required this.transcript});
+  const RealtimeServerEventResponseAudioTranscriptDone(
+      {required this.eventId,
+      required this.type_,
+      required this.responseId,
+      required this.itemId,
+      required this.outputIndex,
+      required this.contentIndex,
+      required this.transcript});
 
-  RealtimeServerEventResponseAudioTranscriptDone Function({String eventId, RealtimeServerEventResponseAudioTranscriptDoneType type_, String responseId, String itemId, int outputIndex, int contentIndex, String transcript}) get copyWith => _copyWith;
+  RealtimeServerEventResponseAudioTranscriptDone Function(
+      {String eventId,
+      RealtimeServerEventResponseAudioTranscriptDoneType type_,
+      String responseId,
+      String itemId,
+      int outputIndex,
+      int contentIndex,
+      String transcript}) get copyWith => _copyWith;
 
-  RealtimeServerEventResponseAudioTranscriptDone _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? responseId = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? contentIndex = sdkOmittedValue, Object? transcript = sdkOmittedValue}) => RealtimeServerEventResponseAudioTranscriptDone(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeServerEventResponseAudioTranscriptDoneType,
-    responseId: identical(responseId, sdkOmittedValue) ? this.responseId : responseId as String,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    contentIndex: identical(contentIndex, sdkOmittedValue) ? this.contentIndex : contentIndex as int,
-    transcript: identical(transcript, sdkOmittedValue) ? this.transcript : transcript as String,
-  );
+  RealtimeServerEventResponseAudioTranscriptDone _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? responseId = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? contentIndex = sdkOmittedValue,
+          Object? transcript = sdkOmittedValue}) =>
+      RealtimeServerEventResponseAudioTranscriptDone(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeServerEventResponseAudioTranscriptDoneType,
+        responseId: identical(responseId, sdkOmittedValue)
+            ? this.responseId
+            : responseId as String,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        contentIndex: identical(contentIndex, sdkOmittedValue)
+            ? this.contentIndex
+            : contentIndex as int,
+        transcript: identical(transcript, sdkOmittedValue)
+            ? this.transcript
+            : transcript as String,
+      );
 
-  factory RealtimeServerEventResponseAudioTranscriptDone.fromJson(Map<String, dynamic> json) => RealtimeServerEventResponseAudioTranscriptDone(
-    eventId: (json['event_id'] as String?)!,
-    type_: (json['type'] != null ? RealtimeServerEventResponseAudioTranscriptDoneType.fromJson(json['type'] as String) : null)!,
-    responseId: (json['response_id'] as String?)!,
-    itemId: (json['item_id'] as String?)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    contentIndex: ((json['content_index'] as num?)?.toInt())!,
-    transcript: (json['transcript'] as String?)!,
-  );
+  factory RealtimeServerEventResponseAudioTranscriptDone.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeServerEventResponseAudioTranscriptDone(
+        eventId: (json['event_id'] as String?)!,
+        type_: (json['type'] != null
+            ? RealtimeServerEventResponseAudioTranscriptDoneType.fromJson(
+                json['type'] as String)
+            : null)!,
+        responseId: (json['response_id'] as String?)!,
+        itemId: (json['item_id'] as String?)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        contentIndex: ((json['content_index'] as num?)?.toInt())!,
+        transcript: (json['transcript'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    'type': type_.toJson(),
-    'response_id': responseId,
-    'item_id': itemId,
-    'output_index': outputIndex,
-    'content_index': contentIndex,
-    'transcript': transcript,
-  };
+        'event_id': eventId,
+        'type': type_.toJson(),
+        'response_id': responseId,
+        'item_id': itemId,
+        'output_index': outputIndex,
+        'content_index': contentIndex,
+        'transcript': transcript,
+      };
 }

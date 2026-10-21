@@ -8,22 +8,34 @@ part of 'responses_beta_function.dart';
 class BetaFunctionShellCallOutputTimeoutOutcomeParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The outcome type. Always `timeout`.
   final BetaFunctionShellCallOutputTimeoutOutcomeParamType type_;
 
   const BetaFunctionShellCallOutputTimeoutOutcomeParam({required this.type_});
 
-  BetaFunctionShellCallOutputTimeoutOutcomeParam Function({BetaFunctionShellCallOutputTimeoutOutcomeParamType type_}) get copyWith => _copyWith;
+  BetaFunctionShellCallOutputTimeoutOutcomeParam Function(
+          {BetaFunctionShellCallOutputTimeoutOutcomeParamType type_})
+      get copyWith => _copyWith;
 
-  BetaFunctionShellCallOutputTimeoutOutcomeParam _copyWith({Object? type_ = sdkOmittedValue}) => BetaFunctionShellCallOutputTimeoutOutcomeParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaFunctionShellCallOutputTimeoutOutcomeParamType,
-  );
+  BetaFunctionShellCallOutputTimeoutOutcomeParam _copyWith(
+          {Object? type_ = sdkOmittedValue}) =>
+      BetaFunctionShellCallOutputTimeoutOutcomeParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaFunctionShellCallOutputTimeoutOutcomeParamType,
+      );
 
-  factory BetaFunctionShellCallOutputTimeoutOutcomeParam.fromJson(Map<String, dynamic> json) => BetaFunctionShellCallOutputTimeoutOutcomeParam(
-    type_: (json['type'] != null ? BetaFunctionShellCallOutputTimeoutOutcomeParamType.fromJson(json['type'] as String) : null)!,
-  );
+  factory BetaFunctionShellCallOutputTimeoutOutcomeParam.fromJson(
+          Map<String, dynamic> json) =>
+      BetaFunctionShellCallOutputTimeoutOutcomeParam(
+        type_: (json['type'] != null
+            ? BetaFunctionShellCallOutputTimeoutOutcomeParamType.fromJson(
+                json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }

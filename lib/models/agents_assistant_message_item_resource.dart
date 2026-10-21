@@ -8,52 +8,106 @@ part of 'agents.dart';
 class AssistantMessageItemResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The item type. Always `message`.
   final AssistantMessageItemResourceType type_;
+
   /// The ID of the message.
   final String id;
+
   /// The ID of the turn that contains this item.
   final String turnId;
+
   /// The role of the message author. Always `assistant`.
   final AssistantMessageItemResourceRole role;
+
   /// The status of the message.
   final OutputItemStatusResource status;
+
   /// The content of the message.
   final List<OutputTextResource> content;
+
   /// The phase of the assistant message.
   final MessagePhaseResource? phase;
 
-  const AssistantMessageItemResource({required this.type_, required this.id, required this.turnId, required this.role, required this.status, required this.content, required this.phase});
+  const AssistantMessageItemResource(
+      {required this.type_,
+      required this.id,
+      required this.turnId,
+      required this.role,
+      required this.status,
+      required this.content,
+      required this.phase});
 
-  AssistantMessageItemResource Function({AssistantMessageItemResourceType type_, String id, String turnId, AssistantMessageItemResourceRole role, OutputItemStatusResource status, List<OutputTextResource> content, MessagePhaseResource? phase}) get copyWith => _copyWith;
+  AssistantMessageItemResource Function(
+      {AssistantMessageItemResourceType type_,
+      String id,
+      String turnId,
+      AssistantMessageItemResourceRole role,
+      OutputItemStatusResource status,
+      List<OutputTextResource> content,
+      MessagePhaseResource? phase}) get copyWith => _copyWith;
 
-  AssistantMessageItemResource _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? turnId = sdkOmittedValue, Object? role = sdkOmittedValue, Object? status = sdkOmittedValue, Object? content = sdkOmittedValue, Object? phase = sdkOmittedValue}) => AssistantMessageItemResource(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AssistantMessageItemResourceType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    turnId: identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
-    role: identical(role, sdkOmittedValue) ? this.role : role as AssistantMessageItemResourceRole,
-    status: identical(status, sdkOmittedValue) ? this.status : status as OutputItemStatusResource,
-    content: identical(content, sdkOmittedValue) ? this.content : content as List<OutputTextResource>,
-    phase: identical(phase, sdkOmittedValue) ? this.phase : phase as MessagePhaseResource?,
-  );
+  AssistantMessageItemResource _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? turnId = sdkOmittedValue,
+          Object? role = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? content = sdkOmittedValue,
+          Object? phase = sdkOmittedValue}) =>
+      AssistantMessageItemResource(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as AssistantMessageItemResourceType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        turnId:
+            identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String,
+        role: identical(role, sdkOmittedValue)
+            ? this.role
+            : role as AssistantMessageItemResourceRole,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as OutputItemStatusResource,
+        content: identical(content, sdkOmittedValue)
+            ? this.content
+            : content as List<OutputTextResource>,
+        phase: identical(phase, sdkOmittedValue)
+            ? this.phase
+            : phase as MessagePhaseResource?,
+      );
 
-  factory AssistantMessageItemResource.fromJson(Map<String, dynamic> json) => AssistantMessageItemResource(
-    type_: (json['type'] != null ? AssistantMessageItemResourceType.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    turnId: (json['turn_id'] as String?)!,
-    role: (json['role'] != null ? AssistantMessageItemResourceRole.fromJson(json['role'] as String) : null)!,
-    status: (json['status'] != null ? OutputItemStatusResource.fromJson(json['status'] as String) : null)!,
-    content: ((json['content'] as List?)?.map((e) => OutputTextResource.fromJson(e as Map<String, dynamic>)).toList())!,
-    phase: json.containsKey('phase') ? json['phase'] != null ? MessagePhaseResource.fromJson(json['phase'] as String) : null : throw ArgumentError.value(null, 'phase', 'Required property is missing'),
-  );
+  factory AssistantMessageItemResource.fromJson(Map<String, dynamic> json) =>
+      AssistantMessageItemResource(
+        type_: (json['type'] != null
+            ? AssistantMessageItemResourceType.fromJson(json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        turnId: (json['turn_id'] as String?)!,
+        role: (json['role'] != null
+            ? AssistantMessageItemResourceRole.fromJson(json['role'] as String)
+            : null)!,
+        status: (json['status'] != null
+            ? OutputItemStatusResource.fromJson(json['status'] as String)
+            : null)!,
+        content: ((json['content'] as List?)
+            ?.map((e) => OutputTextResource.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        phase: json.containsKey('phase')
+            ? json['phase'] != null
+                ? MessagePhaseResource.fromJson(json['phase'] as String)
+                : null
+            : throw ArgumentError.value(
+                null, 'phase', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'id': id,
-    'turn_id': turnId,
-    'role': role.toJson(),
-    'status': status.toJson(),
-    'content': content.map((item) => item.toJson()).toList(),
-    'phase': phase?.toJson(),
-  };
+        'type': type_.toJson(),
+        'id': id,
+        'turn_id': turnId,
+        'role': role.toJson(),
+        'status': status.toJson(),
+        'content': content.map((item) => item.toJson()).toList(),
+        'phase': phase?.toJson(),
+      };
 }

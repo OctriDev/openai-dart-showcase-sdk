@@ -8,35 +8,61 @@ part of 'responses_beta_tool.dart';
 class BetaToolChoiceMCP {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// For MCP tools, the type is always `mcp`.
   final BetaToolChoiceMCPType type_;
+
   /// The label of the MCP server to use.
   final String serverLabel;
+
   /// Optional `string` value serialized in the `name` wire field.
   final SdkOptional<String?> name;
 
-  const BetaToolChoiceMCP({required this.type_, required this.serverLabel, this.name = const SdkOmitted()});
+  const BetaToolChoiceMCP(
+      {required this.type_,
+      required this.serverLabel,
+      this.name = const SdkOmitted()});
 
-  BetaToolChoiceMCP Function({BetaToolChoiceMCPType type_, String serverLabel, SdkOptional<String?> name}) get copyWith => _copyWith;
+  BetaToolChoiceMCP Function(
+      {BetaToolChoiceMCPType type_,
+      String serverLabel,
+      SdkOptional<String?> name}) get copyWith => _copyWith;
 
-  BetaToolChoiceMCP _copyWith({Object? type_ = sdkOmittedValue, Object? serverLabel = sdkOmittedValue, Object? name = sdkOmittedValue}) => BetaToolChoiceMCP(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaToolChoiceMCPType,
-    serverLabel: identical(serverLabel, sdkOmittedValue) ? this.serverLabel : serverLabel as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String?>,
-  );
+  BetaToolChoiceMCP _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? serverLabel = sdkOmittedValue,
+          Object? name = sdkOmittedValue}) =>
+      BetaToolChoiceMCP(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaToolChoiceMCPType,
+        serverLabel: identical(serverLabel, sdkOmittedValue)
+            ? this.serverLabel
+            : serverLabel as String,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String?>,
+      );
 
-  factory BetaToolChoiceMCP.fromJson(Map<String, dynamic> json) => BetaToolChoiceMCP(
-    type_: (json['type'] != null ? BetaToolChoiceMCPType.fromJson(json['type'] as String) : null)!,
-    serverLabel: (json['server_label'] as String?)!,
-    name: json.containsKey('name') ? SdkPresent(json['name'] as String?) : const SdkOmitted(),
-  );
+  factory BetaToolChoiceMCP.fromJson(Map<String, dynamic> json) =>
+      BetaToolChoiceMCP(
+        type_: (json['type'] != null
+            ? BetaToolChoiceMCPType.fromJson(json['type'] as String)
+            : null)!,
+        serverLabel: (json['server_label'] as String?)!,
+        name: json.containsKey('name')
+            ? SdkPresent(json['name'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'server_label': serverLabel,
-    ...switch (name) {
-      SdkPresent<String?>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'server_label': serverLabel,
+        ...switch (name) {
+          SdkPresent<String?>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

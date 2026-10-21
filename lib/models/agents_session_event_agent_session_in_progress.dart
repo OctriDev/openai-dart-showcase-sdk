@@ -8,32 +8,56 @@ part of 'agents_session_event.dart';
 class SessionEventAgentSessionInProgress {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `agent.session.in_progress`.
   final SessionEventAgentSessionInProgressType type_;
+
   /// The unique ID of the event.
   final String eventId;
+
   /// The session that started processing.
   final SessionResource session;
 
-  const SessionEventAgentSessionInProgress({required this.type_, required this.eventId, required this.session});
+  const SessionEventAgentSessionInProgress(
+      {required this.type_, required this.eventId, required this.session});
 
-  SessionEventAgentSessionInProgress Function({SessionEventAgentSessionInProgressType type_, String eventId, SessionResource session}) get copyWith => _copyWith;
+  SessionEventAgentSessionInProgress Function(
+      {SessionEventAgentSessionInProgressType type_,
+      String eventId,
+      SessionResource session}) get copyWith => _copyWith;
 
-  SessionEventAgentSessionInProgress _copyWith({Object? type_ = sdkOmittedValue, Object? eventId = sdkOmittedValue, Object? session = sdkOmittedValue}) => SessionEventAgentSessionInProgress(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SessionEventAgentSessionInProgressType,
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    session: identical(session, sdkOmittedValue) ? this.session : session as SessionResource,
-  );
+  SessionEventAgentSessionInProgress _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? eventId = sdkOmittedValue,
+          Object? session = sdkOmittedValue}) =>
+      SessionEventAgentSessionInProgress(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SessionEventAgentSessionInProgressType,
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        session: identical(session, sdkOmittedValue)
+            ? this.session
+            : session as SessionResource,
+      );
 
-  factory SessionEventAgentSessionInProgress.fromJson(Map<String, dynamic> json) => SessionEventAgentSessionInProgress(
-    type_: (json['type'] != null ? SessionEventAgentSessionInProgressType.fromJson(json['type'] as String) : null)!,
-    eventId: (json['event_id'] as String?)!,
-    session: (json['session'] != null ? SessionResource.fromJson(json['session'] as Map<String, dynamic>) : null)!,
-  );
+  factory SessionEventAgentSessionInProgress.fromJson(
+          Map<String, dynamic> json) =>
+      SessionEventAgentSessionInProgress(
+        type_: (json['type'] != null
+            ? SessionEventAgentSessionInProgressType.fromJson(
+                json['type'] as String)
+            : null)!,
+        eventId: (json['event_id'] as String?)!,
+        session: (json['session'] != null
+            ? SessionResource.fromJson(json['session'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'event_id': eventId,
-    'session': session.toJson(),
-  };
+        'type': type_.toJson(),
+        'event_id': eventId,
+        'session': session.toJson(),
+      };
 }

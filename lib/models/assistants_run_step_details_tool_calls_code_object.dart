@@ -8,61 +8,105 @@ part of 'assistants_run.dart';
 class RunStepDetailsToolCallsCodeObjectCodeInterpreter {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The input to the Code Interpreter tool call.
   final String input;
+
   /// The outputs from the Code Interpreter tool call. Code Interpreter can output one or more items, including text (`logs`) or images (`image`). Each of these are represented by a different object type.
-  final List<RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem> outputs;
+  final List<RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem>
+      outputs;
 
-  const RunStepDetailsToolCallsCodeObjectCodeInterpreter({required this.input, required this.outputs});
+  const RunStepDetailsToolCallsCodeObjectCodeInterpreter(
+      {required this.input, required this.outputs});
 
-  RunStepDetailsToolCallsCodeObjectCodeInterpreter Function({String input, List<RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem> outputs}) get copyWith => _copyWith;
+  RunStepDetailsToolCallsCodeObjectCodeInterpreter Function(
+      {String input,
+      List<RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem>
+          outputs}) get copyWith => _copyWith;
 
-  RunStepDetailsToolCallsCodeObjectCodeInterpreter _copyWith({Object? input = sdkOmittedValue, Object? outputs = sdkOmittedValue}) => RunStepDetailsToolCallsCodeObjectCodeInterpreter(
-    input: identical(input, sdkOmittedValue) ? this.input : input as String,
-    outputs: identical(outputs, sdkOmittedValue) ? this.outputs : outputs as List<RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem>,
-  );
+  RunStepDetailsToolCallsCodeObjectCodeInterpreter _copyWith(
+          {Object? input = sdkOmittedValue,
+          Object? outputs = sdkOmittedValue}) =>
+      RunStepDetailsToolCallsCodeObjectCodeInterpreter(
+        input: identical(input, sdkOmittedValue) ? this.input : input as String,
+        outputs: identical(outputs, sdkOmittedValue)
+            ? this.outputs
+            : outputs as List<
+                RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem>,
+      );
 
-  factory RunStepDetailsToolCallsCodeObjectCodeInterpreter.fromJson(Map<String, dynamic> json) => RunStepDetailsToolCallsCodeObjectCodeInterpreter(
-    input: (json['input'] as String?)!,
-    outputs: ((json['outputs'] as List?)?.map((e) => RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem.fromJson(e)).toList())!,
-  );
+  factory RunStepDetailsToolCallsCodeObjectCodeInterpreter.fromJson(
+          Map<String, dynamic> json) =>
+      RunStepDetailsToolCallsCodeObjectCodeInterpreter(
+        input: (json['input'] as String?)!,
+        outputs: ((json['outputs'] as List?)
+            ?.map((e) =>
+                RunStepDetailsToolCallsCodeObjectCodeInterpreterOutputsItem
+                    .fromJson(e))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'input': input,
-    'outputs': outputs.map((item) => item.toJson()).toList(),
-  };
+        'input': input,
+        'outputs': outputs.map((item) => item.toJson()).toList(),
+      };
 }
 
 /// Details of the Code Interpreter tool call the run step was involved in.
 class RunStepDetailsToolCallsCodeObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the tool call.
   final String id;
+
   /// The type of tool call. This is always going to be `code_interpreter` for this type of tool call.
   final RunStepDetailsToolCallsCodeObjectType type_;
+
   /// The Code Interpreter tool call definition.
   final RunStepDetailsToolCallsCodeObjectCodeInterpreter codeInterpreter;
 
-  const RunStepDetailsToolCallsCodeObject({required this.id, required this.type_, required this.codeInterpreter});
+  const RunStepDetailsToolCallsCodeObject(
+      {required this.id, required this.type_, required this.codeInterpreter});
 
-  RunStepDetailsToolCallsCodeObject Function({String id, RunStepDetailsToolCallsCodeObjectType type_, RunStepDetailsToolCallsCodeObjectCodeInterpreter codeInterpreter}) get copyWith => _copyWith;
+  RunStepDetailsToolCallsCodeObject Function(
+          {String id,
+          RunStepDetailsToolCallsCodeObjectType type_,
+          RunStepDetailsToolCallsCodeObjectCodeInterpreter codeInterpreter})
+      get copyWith => _copyWith;
 
-  RunStepDetailsToolCallsCodeObject _copyWith({Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? codeInterpreter = sdkOmittedValue}) => RunStepDetailsToolCallsCodeObject(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RunStepDetailsToolCallsCodeObjectType,
-    codeInterpreter: identical(codeInterpreter, sdkOmittedValue) ? this.codeInterpreter : codeInterpreter as RunStepDetailsToolCallsCodeObjectCodeInterpreter,
-  );
+  RunStepDetailsToolCallsCodeObject _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? codeInterpreter = sdkOmittedValue}) =>
+      RunStepDetailsToolCallsCodeObject(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RunStepDetailsToolCallsCodeObjectType,
+        codeInterpreter: identical(codeInterpreter, sdkOmittedValue)
+            ? this.codeInterpreter
+            : codeInterpreter
+                as RunStepDetailsToolCallsCodeObjectCodeInterpreter,
+      );
 
-  factory RunStepDetailsToolCallsCodeObject.fromJson(Map<String, dynamic> json) => RunStepDetailsToolCallsCodeObject(
-    id: (json['id'] as String?)!,
-    type_: (json['type'] != null ? RunStepDetailsToolCallsCodeObjectType.fromJson(json['type'] as String) : null)!,
-    codeInterpreter: (json['code_interpreter'] != null ? RunStepDetailsToolCallsCodeObjectCodeInterpreter.fromJson(json['code_interpreter'] as Map<String, dynamic>) : null)!,
-  );
+  factory RunStepDetailsToolCallsCodeObject.fromJson(
+          Map<String, dynamic> json) =>
+      RunStepDetailsToolCallsCodeObject(
+        id: (json['id'] as String?)!,
+        type_: (json['type'] != null
+            ? RunStepDetailsToolCallsCodeObjectType.fromJson(
+                json['type'] as String)
+            : null)!,
+        codeInterpreter: (json['code_interpreter'] != null
+            ? RunStepDetailsToolCallsCodeObjectCodeInterpreter.fromJson(
+                json['code_interpreter'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'type': type_.toJson(),
-    'code_interpreter': codeInterpreter.toJson(),
-  };
+        'id': id,
+        'type': type_.toJson(),
+        'code_interpreter': codeInterpreter.toJson(),
+      };
 }

@@ -8,30 +8,52 @@ part of 'realtime_realtime_client.dart';
 class RealtimeClientEventInputAudioBufferClear {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional client-generated ID used to identify this event.
   final SdkOptional<String> eventId;
+
   /// The event type, must be `input_audio_buffer.clear`.
   final RealtimeClientEventInputAudioBufferClearType type_;
 
-  const RealtimeClientEventInputAudioBufferClear({this.eventId = const SdkOmitted(), required this.type_});
+  const RealtimeClientEventInputAudioBufferClear(
+      {this.eventId = const SdkOmitted(), required this.type_});
 
-  RealtimeClientEventInputAudioBufferClear Function({SdkOptional<String> eventId, RealtimeClientEventInputAudioBufferClearType type_}) get copyWith => _copyWith;
+  RealtimeClientEventInputAudioBufferClear Function(
+          {SdkOptional<String> eventId,
+          RealtimeClientEventInputAudioBufferClearType type_})
+      get copyWith => _copyWith;
 
-  RealtimeClientEventInputAudioBufferClear _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => RealtimeClientEventInputAudioBufferClear(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeClientEventInputAudioBufferClearType,
-  );
+  RealtimeClientEventInputAudioBufferClear _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue}) =>
+      RealtimeClientEventInputAudioBufferClear(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeClientEventInputAudioBufferClearType,
+      );
 
-  factory RealtimeClientEventInputAudioBufferClear.fromJson(Map<String, dynamic> json) => RealtimeClientEventInputAudioBufferClear(
-    eventId: json['event_id'] != null ? SdkPresent((json['event_id'] as String?)!) : const SdkOmitted(),
-    type_: (json['type'] != null ? RealtimeClientEventInputAudioBufferClearType.fromJson(json['type'] as String) : null)!,
-  );
+  factory RealtimeClientEventInputAudioBufferClear.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeClientEventInputAudioBufferClear(
+        eventId: json['event_id'] != null
+            ? SdkPresent((json['event_id'] as String?)!)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? RealtimeClientEventInputAudioBufferClearType.fromJson(
+                json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (eventId) {
-      SdkPresent<String>(value: final value) => {'event_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-  };
+        ...switch (eventId) {
+          SdkPresent<String>(value: final value) => {
+              'event_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+      };
 }

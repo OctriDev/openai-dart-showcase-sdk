@@ -10,40 +10,83 @@ sealed class BetaFunctionShellToolParamEnvironment {
   const BetaFunctionShellToolParamEnvironment();
   factory BetaFunctionShellToolParamEnvironment.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = BetaContainerAutoParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaFunctionShellToolParamEnvironmentBetaContainerAutoParam(value); } } catch (_) {}
-      try { final value = BetaLocalEnvironmentParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaFunctionShellToolParamEnvironmentBetaLocalEnvironmentParam(value); } } catch (_) {}
-      try { final value = BetaContainerReferenceParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaFunctionShellToolParamEnvironmentBetaContainerReferenceParam(value); } } catch (_) {}
+      try {
+        final value = BetaContainerAutoParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaFunctionShellToolParamEnvironmentBetaContainerAutoParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaLocalEnvironmentParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaFunctionShellToolParamEnvironmentBetaLocalEnvironmentParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaContainerReferenceParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaFunctionShellToolParamEnvironmentBetaContainerReferenceParam(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return BetaFunctionShellToolParamEnvironmentBetaContainerAutoParam(BetaContainerAutoParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaFunctionShellToolParamEnvironmentBetaLocalEnvironmentParam(BetaLocalEnvironmentParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaFunctionShellToolParamEnvironmentBetaContainerReferenceParam(BetaContainerReferenceParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"container_auto", "local", "container_reference"}.contains(json["type"])) { return UnknownBetaFunctionShellToolParamEnvironment(json); }
-    throw FormatException("No variant matched for BetaFunctionShellToolParamEnvironment");
+    try {
+      return BetaFunctionShellToolParamEnvironmentBetaContainerAutoParam(
+          BetaContainerAutoParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaFunctionShellToolParamEnvironmentBetaLocalEnvironmentParam(
+          BetaLocalEnvironmentParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaFunctionShellToolParamEnvironmentBetaContainerReferenceParam(
+          BetaContainerReferenceParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"container_auto", "local", "container_reference"}
+            .contains(json["type"])) {
+      return UnknownBetaFunctionShellToolParamEnvironment(json);
+    }
+    throw FormatException(
+        "No variant matched for BetaFunctionShellToolParamEnvironment");
   }
   Object? toJson();
 }
 
-final class BetaFunctionShellToolParamEnvironmentBetaContainerAutoParam extends BetaFunctionShellToolParamEnvironment {
+final class BetaFunctionShellToolParamEnvironmentBetaContainerAutoParam
+    extends BetaFunctionShellToolParamEnvironment {
   final BetaContainerAutoParam value;
   const BetaFunctionShellToolParamEnvironmentBetaContainerAutoParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaFunctionShellToolParamEnvironmentBetaLocalEnvironmentParam extends BetaFunctionShellToolParamEnvironment {
+final class BetaFunctionShellToolParamEnvironmentBetaLocalEnvironmentParam
+    extends BetaFunctionShellToolParamEnvironment {
   final BetaLocalEnvironmentParam value;
-  const BetaFunctionShellToolParamEnvironmentBetaLocalEnvironmentParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaFunctionShellToolParamEnvironmentBetaLocalEnvironmentParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaFunctionShellToolParamEnvironmentBetaContainerReferenceParam extends BetaFunctionShellToolParamEnvironment {
+final class BetaFunctionShellToolParamEnvironmentBetaContainerReferenceParam
+    extends BetaFunctionShellToolParamEnvironment {
   final BetaContainerReferenceParam value;
-  const BetaFunctionShellToolParamEnvironmentBetaContainerReferenceParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaFunctionShellToolParamEnvironmentBetaContainerReferenceParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [BetaFunctionShellToolParamEnvironment] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownBetaFunctionShellToolParamEnvironment extends BetaFunctionShellToolParamEnvironment {
+final class UnknownBetaFunctionShellToolParamEnvironment
+    extends BetaFunctionShellToolParamEnvironment {
   final Map<String, dynamic> raw;
   const UnknownBetaFunctionShellToolParamEnvironment(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

@@ -8,22 +8,30 @@ part of 'shared_chat.dart';
 class ChatSessionRateLimits {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Maximum allowed requests per one-minute window.
   final int maxRequestsPer1Minute;
 
   const ChatSessionRateLimits({required this.maxRequestsPer1Minute});
 
-  ChatSessionRateLimits Function({int maxRequestsPer1Minute}) get copyWith => _copyWith;
+  ChatSessionRateLimits Function({int maxRequestsPer1Minute}) get copyWith =>
+      _copyWith;
 
-  ChatSessionRateLimits _copyWith({Object? maxRequestsPer1Minute = sdkOmittedValue}) => ChatSessionRateLimits(
-    maxRequestsPer1Minute: identical(maxRequestsPer1Minute, sdkOmittedValue) ? this.maxRequestsPer1Minute : maxRequestsPer1Minute as int,
-  );
+  ChatSessionRateLimits _copyWith(
+          {Object? maxRequestsPer1Minute = sdkOmittedValue}) =>
+      ChatSessionRateLimits(
+        maxRequestsPer1Minute: identical(maxRequestsPer1Minute, sdkOmittedValue)
+            ? this.maxRequestsPer1Minute
+            : maxRequestsPer1Minute as int,
+      );
 
-  factory ChatSessionRateLimits.fromJson(Map<String, dynamic> json) => ChatSessionRateLimits(
-    maxRequestsPer1Minute: ((json['max_requests_per_1_minute'] as num?)?.toInt())!,
-  );
+  factory ChatSessionRateLimits.fromJson(Map<String, dynamic> json) =>
+      ChatSessionRateLimits(
+        maxRequestsPer1Minute:
+            ((json['max_requests_per_1_minute'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'max_requests_per_1_minute': maxRequestsPer1Minute,
-  };
+        'max_requests_per_1_minute': maxRequestsPer1Minute,
+      };
 }

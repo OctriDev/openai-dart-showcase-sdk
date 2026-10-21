@@ -8,35 +8,54 @@ part of 'live_live_create.dart';
 class LiveCreateRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Startup configuration for the Live session.
   final LiveMediaSessionCreateParams session;
+
   /// WebRTC transport with the browser's SDP offer.
   final LiveWebRTCTransport transport;
 
   const LiveCreateRequest({required this.session, required this.transport});
 
-  LiveCreateRequest Function({LiveMediaSessionCreateParams session, LiveWebRTCTransport transport}) get copyWith => _copyWith;
+  LiveCreateRequest Function(
+      {LiveMediaSessionCreateParams session,
+      LiveWebRTCTransport transport}) get copyWith => _copyWith;
 
-  LiveCreateRequest _copyWith({Object? session = sdkOmittedValue, Object? transport = sdkOmittedValue}) => LiveCreateRequest(
-    session: identical(session, sdkOmittedValue) ? this.session : session as LiveMediaSessionCreateParams,
-    transport: identical(transport, sdkOmittedValue) ? this.transport : transport as LiveWebRTCTransport,
-  );
+  LiveCreateRequest _copyWith(
+          {Object? session = sdkOmittedValue,
+          Object? transport = sdkOmittedValue}) =>
+      LiveCreateRequest(
+        session: identical(session, sdkOmittedValue)
+            ? this.session
+            : session as LiveMediaSessionCreateParams,
+        transport: identical(transport, sdkOmittedValue)
+            ? this.transport
+            : transport as LiveWebRTCTransport,
+      );
 
-  factory LiveCreateRequest.fromJson(Map<String, dynamic> json) => LiveCreateRequest(
-    session: (json['session'] != null ? LiveMediaSessionCreateParams.fromJson(json['session'] as Map<String, dynamic>) : null)!,
-    transport: (json['transport'] != null ? LiveWebRTCTransport.fromJson(json['transport'] as Map<String, dynamic>) : null)!,
-  );
+  factory LiveCreateRequest.fromJson(Map<String, dynamic> json) =>
+      LiveCreateRequest(
+        session: (json['session'] != null
+            ? LiveMediaSessionCreateParams.fromJson(
+                json['session'] as Map<String, dynamic>)
+            : null)!,
+        transport: (json['transport'] != null
+            ? LiveWebRTCTransport.fromJson(
+                json['transport'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'session': session.toJson(),
-    'transport': transport.toJson(),
-  };
+        'session': session.toJson(),
+        'transport': transport.toJson(),
+      };
 }
 
 /// The newly created Live session. Use its ID for session controls and sideband connections.
 class LiveCreateResponseSession {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Opaque session identifier. Preserve the returned value unchanged, including its prefix.
   final String id;
 
@@ -44,44 +63,64 @@ class LiveCreateResponseSession {
 
   LiveCreateResponseSession Function({String id}) get copyWith => _copyWith;
 
-  LiveCreateResponseSession _copyWith({Object? id = sdkOmittedValue}) => LiveCreateResponseSession(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
+  LiveCreateResponseSession _copyWith({Object? id = sdkOmittedValue}) =>
+      LiveCreateResponseSession(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
 
-  factory LiveCreateResponseSession.fromJson(Map<String, dynamic> json) => LiveCreateResponseSession(
-    id: (json['id'] as String?)!,
-  );
+  factory LiveCreateResponseSession.fromJson(Map<String, dynamic> json) =>
+      LiveCreateResponseSession(
+        id: (json['id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-  };
+        'id': id,
+      };
 }
 
 /// The created Live session identifier and WebRTC answer. Apply transport.sdp as the peer's remote answer and wait for session.started on the data channel before sending commands.
 class LiveCreateResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The newly created Live session. Use its ID for session controls and sideband connections.
   final LiveCreateResponseSession session;
+
   /// WebRTC transport with the SDP answer.
   final LiveWebRTCTransport transport;
 
   const LiveCreateResponse({required this.session, required this.transport});
 
-  LiveCreateResponse Function({LiveCreateResponseSession session, LiveWebRTCTransport transport}) get copyWith => _copyWith;
+  LiveCreateResponse Function(
+      {LiveCreateResponseSession session,
+      LiveWebRTCTransport transport}) get copyWith => _copyWith;
 
-  LiveCreateResponse _copyWith({Object? session = sdkOmittedValue, Object? transport = sdkOmittedValue}) => LiveCreateResponse(
-    session: identical(session, sdkOmittedValue) ? this.session : session as LiveCreateResponseSession,
-    transport: identical(transport, sdkOmittedValue) ? this.transport : transport as LiveWebRTCTransport,
-  );
+  LiveCreateResponse _copyWith(
+          {Object? session = sdkOmittedValue,
+          Object? transport = sdkOmittedValue}) =>
+      LiveCreateResponse(
+        session: identical(session, sdkOmittedValue)
+            ? this.session
+            : session as LiveCreateResponseSession,
+        transport: identical(transport, sdkOmittedValue)
+            ? this.transport
+            : transport as LiveWebRTCTransport,
+      );
 
-  factory LiveCreateResponse.fromJson(Map<String, dynamic> json) => LiveCreateResponse(
-    session: (json['session'] != null ? LiveCreateResponseSession.fromJson(json['session'] as Map<String, dynamic>) : null)!,
-    transport: (json['transport'] != null ? LiveWebRTCTransport.fromJson(json['transport'] as Map<String, dynamic>) : null)!,
-  );
+  factory LiveCreateResponse.fromJson(Map<String, dynamic> json) =>
+      LiveCreateResponse(
+        session: (json['session'] != null
+            ? LiveCreateResponseSession.fromJson(
+                json['session'] as Map<String, dynamic>)
+            : null)!,
+        transport: (json['transport'] != null
+            ? LiveWebRTCTransport.fromJson(
+                json['transport'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'session': session.toJson(),
-    'transport': transport.toJson(),
-  };
+        'session': session.toJson(),
+        'transport': transport.toJson(),
+      };
 }

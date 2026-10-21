@@ -10,14 +10,20 @@ enum BetaResponseReasoningSummaryPartAddedEventType {
 
   static BetaResponseReasoningSummaryPartAddedEventType fromJson(String value) {
     switch (value) {
-      case 'response.reasoning_summary_part.added': return BetaResponseReasoningSummaryPartAddedEventType.responseReasoningSummaryPartAdded;
-      default: throw ArgumentError('Unknown BetaResponseReasoningSummaryPartAddedEventType: $value');
+      case 'response.reasoning_summary_part.added':
+        return BetaResponseReasoningSummaryPartAddedEventType
+            .responseReasoningSummaryPartAdded;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseReasoningSummaryPartAddedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseReasoningSummaryPartAddedEventType.responseReasoningSummaryPartAdded: return 'response.reasoning_summary_part.added';
+      case BetaResponseReasoningSummaryPartAddedEventType
+            .responseReasoningSummaryPartAdded:
+        return 'response.reasoning_summary_part.added';
     }
   }
 
@@ -27,44 +33,56 @@ enum BetaResponseReasoningSummaryPartAddedEventType {
 
 /// The type of the summary part. Always `summary_text`.
 final class BetaResponseReasoningSummaryPartDoneEventPartType {
-
   final String value;
 
   const BetaResponseReasoningSummaryPartDoneEventPartType._(this.value);
 
-  factory BetaResponseReasoningSummaryPartDoneEventPartType.fromJson(String value) => BetaResponseReasoningSummaryPartDoneEventPartType._(value);
+  factory BetaResponseReasoningSummaryPartDoneEventPartType.fromJson(
+          String value) =>
+      BetaResponseReasoningSummaryPartDoneEventPartType._(value);
 
-  static const summaryText = BetaResponseReasoningSummaryPartDoneEventPartType._('summary_text');
+  static const summaryText =
+      BetaResponseReasoningSummaryPartDoneEventPartType._('summary_text');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaResponseReasoningSummaryPartDoneEventPartType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaResponseReasoningSummaryPartDoneEventPartType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The completion status of the summary part. Omitted when the part completed normally and set to `incomplete` when generation was interrupted.
 final class BetaResponseReasoningSummaryPartDoneEventStatus {
-
   final String value;
 
   const BetaResponseReasoningSummaryPartDoneEventStatus._(this.value);
 
-  factory BetaResponseReasoningSummaryPartDoneEventStatus.fromJson(String value) => BetaResponseReasoningSummaryPartDoneEventStatus._(value);
+  factory BetaResponseReasoningSummaryPartDoneEventStatus.fromJson(
+          String value) =>
+      BetaResponseReasoningSummaryPartDoneEventStatus._(value);
 
-  static const incomplete = BetaResponseReasoningSummaryPartDoneEventStatus._('incomplete');
+  static const incomplete =
+      BetaResponseReasoningSummaryPartDoneEventStatus._('incomplete');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaResponseReasoningSummaryPartDoneEventStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaResponseReasoningSummaryPartDoneEventStatus &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the event. Always `response.reasoning_summary_part.done`.
@@ -73,14 +91,20 @@ enum BetaResponseReasoningSummaryPartDoneEventType {
 
   static BetaResponseReasoningSummaryPartDoneEventType fromJson(String value) {
     switch (value) {
-      case 'response.reasoning_summary_part.done': return BetaResponseReasoningSummaryPartDoneEventType.responseReasoningSummaryPartDone;
-      default: throw ArgumentError('Unknown BetaResponseReasoningSummaryPartDoneEventType: $value');
+      case 'response.reasoning_summary_part.done':
+        return BetaResponseReasoningSummaryPartDoneEventType
+            .responseReasoningSummaryPartDone;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseReasoningSummaryPartDoneEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseReasoningSummaryPartDoneEventType.responseReasoningSummaryPartDone: return 'response.reasoning_summary_part.done';
+      case BetaResponseReasoningSummaryPartDoneEventType
+            .responseReasoningSummaryPartDone:
+        return 'response.reasoning_summary_part.done';
     }
   }
 
@@ -94,14 +118,20 @@ enum BetaResponseReasoningSummaryTextDeltaEventType {
 
   static BetaResponseReasoningSummaryTextDeltaEventType fromJson(String value) {
     switch (value) {
-      case 'response.reasoning_summary_text.delta': return BetaResponseReasoningSummaryTextDeltaEventType.responseReasoningSummaryTextDelta;
-      default: throw ArgumentError('Unknown BetaResponseReasoningSummaryTextDeltaEventType: $value');
+      case 'response.reasoning_summary_text.delta':
+        return BetaResponseReasoningSummaryTextDeltaEventType
+            .responseReasoningSummaryTextDelta;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseReasoningSummaryTextDeltaEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseReasoningSummaryTextDeltaEventType.responseReasoningSummaryTextDelta: return 'response.reasoning_summary_text.delta';
+      case BetaResponseReasoningSummaryTextDeltaEventType
+            .responseReasoningSummaryTextDelta:
+        return 'response.reasoning_summary_text.delta';
     }
   }
 
@@ -115,14 +145,20 @@ enum BetaResponseReasoningSummaryTextDoneEventType {
 
   static BetaResponseReasoningSummaryTextDoneEventType fromJson(String value) {
     switch (value) {
-      case 'response.reasoning_summary_text.done': return BetaResponseReasoningSummaryTextDoneEventType.responseReasoningSummaryTextDone;
-      default: throw ArgumentError('Unknown BetaResponseReasoningSummaryTextDoneEventType: $value');
+      case 'response.reasoning_summary_text.done':
+        return BetaResponseReasoningSummaryTextDoneEventType
+            .responseReasoningSummaryTextDone;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseReasoningSummaryTextDoneEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseReasoningSummaryTextDoneEventType.responseReasoningSummaryTextDone: return 'response.reasoning_summary_text.done';
+      case BetaResponseReasoningSummaryTextDoneEventType
+            .responseReasoningSummaryTextDone:
+        return 'response.reasoning_summary_text.done';
     }
   }
 
@@ -136,14 +172,19 @@ enum BetaResponseReasoningTextDeltaEventType {
 
   static BetaResponseReasoningTextDeltaEventType fromJson(String value) {
     switch (value) {
-      case 'response.reasoning_text.delta': return BetaResponseReasoningTextDeltaEventType.responseReasoningTextDelta;
-      default: throw ArgumentError('Unknown BetaResponseReasoningTextDeltaEventType: $value');
+      case 'response.reasoning_text.delta':
+        return BetaResponseReasoningTextDeltaEventType
+            .responseReasoningTextDelta;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseReasoningTextDeltaEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseReasoningTextDeltaEventType.responseReasoningTextDelta: return 'response.reasoning_text.delta';
+      case BetaResponseReasoningTextDeltaEventType.responseReasoningTextDelta:
+        return 'response.reasoning_text.delta';
     }
   }
 
@@ -157,14 +198,18 @@ enum BetaResponseReasoningTextDoneEventType {
 
   static BetaResponseReasoningTextDoneEventType fromJson(String value) {
     switch (value) {
-      case 'response.reasoning_text.done': return BetaResponseReasoningTextDoneEventType.responseReasoningTextDone;
-      default: throw ArgumentError('Unknown BetaResponseReasoningTextDoneEventType: $value');
+      case 'response.reasoning_text.done':
+        return BetaResponseReasoningTextDoneEventType.responseReasoningTextDone;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseReasoningTextDoneEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseReasoningTextDoneEventType.responseReasoningTextDone: return 'response.reasoning_text.done';
+      case BetaResponseReasoningTextDoneEventType.responseReasoningTextDone:
+        return 'response.reasoning_text.done';
     }
   }
 
@@ -178,14 +223,18 @@ enum BetaResponseRefusalDeltaEventType {
 
   static BetaResponseRefusalDeltaEventType fromJson(String value) {
     switch (value) {
-      case 'response.refusal.delta': return BetaResponseRefusalDeltaEventType.responseRefusalDelta;
-      default: throw ArgumentError('Unknown BetaResponseRefusalDeltaEventType: $value');
+      case 'response.refusal.delta':
+        return BetaResponseRefusalDeltaEventType.responseRefusalDelta;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseRefusalDeltaEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseRefusalDeltaEventType.responseRefusalDelta: return 'response.refusal.delta';
+      case BetaResponseRefusalDeltaEventType.responseRefusalDelta:
+        return 'response.refusal.delta';
     }
   }
 
@@ -199,14 +248,17 @@ enum BetaResponseRefusalDoneEventType {
 
   static BetaResponseRefusalDoneEventType fromJson(String value) {
     switch (value) {
-      case 'response.refusal.done': return BetaResponseRefusalDoneEventType.responseRefusalDone;
-      default: throw ArgumentError('Unknown BetaResponseRefusalDoneEventType: $value');
+      case 'response.refusal.done':
+        return BetaResponseRefusalDoneEventType.responseRefusalDone;
+      default:
+        throw ArgumentError('Unknown BetaResponseRefusalDoneEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseRefusalDoneEventType.responseRefusalDone: return 'response.refusal.done';
+      case BetaResponseRefusalDoneEventType.responseRefusalDone:
+        return 'response.refusal.done';
     }
   }
 
@@ -218,16 +270,22 @@ enum BetaResponseRefusalDoneEventType {
 enum BetaResponsesClientEventResponseCreateVariant0Type {
   responseCreate;
 
-  static BetaResponsesClientEventResponseCreateVariant0Type fromJson(String value) {
+  static BetaResponsesClientEventResponseCreateVariant0Type fromJson(
+      String value) {
     switch (value) {
-      case 'response.create': return BetaResponsesClientEventResponseCreateVariant0Type.responseCreate;
-      default: throw ArgumentError('Unknown BetaResponsesClientEventResponseCreateVariant0Type: $value');
+      case 'response.create':
+        return BetaResponsesClientEventResponseCreateVariant0Type
+            .responseCreate;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponsesClientEventResponseCreateVariant0Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponsesClientEventResponseCreateVariant0Type.responseCreate: return 'response.create';
+      case BetaResponsesClientEventResponseCreateVariant0Type.responseCreate:
+        return 'response.create';
     }
   }
 
@@ -239,16 +297,23 @@ enum BetaResponsesClientEventResponseCreateVariant0Type {
 enum BetaResponseShellCallCommandAddedStreamingEventType {
   responseShellCallCommandAdded;
 
-  static BetaResponseShellCallCommandAddedStreamingEventType fromJson(String value) {
+  static BetaResponseShellCallCommandAddedStreamingEventType fromJson(
+      String value) {
     switch (value) {
-      case 'response.shell_call_command.added': return BetaResponseShellCallCommandAddedStreamingEventType.responseShellCallCommandAdded;
-      default: throw ArgumentError('Unknown BetaResponseShellCallCommandAddedStreamingEventType: $value');
+      case 'response.shell_call_command.added':
+        return BetaResponseShellCallCommandAddedStreamingEventType
+            .responseShellCallCommandAdded;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseShellCallCommandAddedStreamingEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseShellCallCommandAddedStreamingEventType.responseShellCallCommandAdded: return 'response.shell_call_command.added';
+      case BetaResponseShellCallCommandAddedStreamingEventType
+            .responseShellCallCommandAdded:
+        return 'response.shell_call_command.added';
     }
   }
 
@@ -260,16 +325,23 @@ enum BetaResponseShellCallCommandAddedStreamingEventType {
 enum BetaResponseShellCallCommandDeltaStreamingEventType {
   responseShellCallCommandDelta;
 
-  static BetaResponseShellCallCommandDeltaStreamingEventType fromJson(String value) {
+  static BetaResponseShellCallCommandDeltaStreamingEventType fromJson(
+      String value) {
     switch (value) {
-      case 'response.shell_call_command.delta': return BetaResponseShellCallCommandDeltaStreamingEventType.responseShellCallCommandDelta;
-      default: throw ArgumentError('Unknown BetaResponseShellCallCommandDeltaStreamingEventType: $value');
+      case 'response.shell_call_command.delta':
+        return BetaResponseShellCallCommandDeltaStreamingEventType
+            .responseShellCallCommandDelta;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseShellCallCommandDeltaStreamingEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseShellCallCommandDeltaStreamingEventType.responseShellCallCommandDelta: return 'response.shell_call_command.delta';
+      case BetaResponseShellCallCommandDeltaStreamingEventType
+            .responseShellCallCommandDelta:
+        return 'response.shell_call_command.delta';
     }
   }
 

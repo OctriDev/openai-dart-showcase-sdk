@@ -8,37 +8,73 @@ part of 'agents_web.dart';
 class WebSearchLocationResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The two-letter ISO country code, such as `US`.
   final String? country;
+
   /// The region or state name.
   final String? region;
+
   /// The city name.
   final String? city;
+
   /// The IANA timezone, such as `America/Los_Angeles`.
   final String? timezone;
 
-  const WebSearchLocationResource({required this.country, required this.region, required this.city, required this.timezone});
+  const WebSearchLocationResource(
+      {required this.country,
+      required this.region,
+      required this.city,
+      required this.timezone});
 
-  WebSearchLocationResource Function({String? country, String? region, String? city, String? timezone}) get copyWith => _copyWith;
+  WebSearchLocationResource Function(
+      {String? country,
+      String? region,
+      String? city,
+      String? timezone}) get copyWith => _copyWith;
 
-  WebSearchLocationResource _copyWith({Object? country = sdkOmittedValue, Object? region = sdkOmittedValue, Object? city = sdkOmittedValue, Object? timezone = sdkOmittedValue}) => WebSearchLocationResource(
-    country: identical(country, sdkOmittedValue) ? this.country : country as String?,
-    region: identical(region, sdkOmittedValue) ? this.region : region as String?,
-    city: identical(city, sdkOmittedValue) ? this.city : city as String?,
-    timezone: identical(timezone, sdkOmittedValue) ? this.timezone : timezone as String?,
-  );
+  WebSearchLocationResource _copyWith(
+          {Object? country = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? city = sdkOmittedValue,
+          Object? timezone = sdkOmittedValue}) =>
+      WebSearchLocationResource(
+        country: identical(country, sdkOmittedValue)
+            ? this.country
+            : country as String?,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as String?,
+        city: identical(city, sdkOmittedValue) ? this.city : city as String?,
+        timezone: identical(timezone, sdkOmittedValue)
+            ? this.timezone
+            : timezone as String?,
+      );
 
-  factory WebSearchLocationResource.fromJson(Map<String, dynamic> json) => WebSearchLocationResource(
-    country: json.containsKey('country') ? json['country'] as String? : throw ArgumentError.value(null, 'country', 'Required property is missing'),
-    region: json.containsKey('region') ? json['region'] as String? : throw ArgumentError.value(null, 'region', 'Required property is missing'),
-    city: json.containsKey('city') ? json['city'] as String? : throw ArgumentError.value(null, 'city', 'Required property is missing'),
-    timezone: json.containsKey('timezone') ? json['timezone'] as String? : throw ArgumentError.value(null, 'timezone', 'Required property is missing'),
-  );
+  factory WebSearchLocationResource.fromJson(Map<String, dynamic> json) =>
+      WebSearchLocationResource(
+        country: json.containsKey('country')
+            ? json['country'] as String?
+            : throw ArgumentError.value(
+                null, 'country', 'Required property is missing'),
+        region: json.containsKey('region')
+            ? json['region'] as String?
+            : throw ArgumentError.value(
+                null, 'region', 'Required property is missing'),
+        city: json.containsKey('city')
+            ? json['city'] as String?
+            : throw ArgumentError.value(
+                null, 'city', 'Required property is missing'),
+        timezone: json.containsKey('timezone')
+            ? json['timezone'] as String?
+            : throw ArgumentError.value(
+                null, 'timezone', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'country': country,
-    'region': region,
-    'city': city,
-    'timezone': timezone,
-  };
+        'country': country,
+        'region': region,
+        'city': city,
+        'timezone': timezone,
+      };
 }

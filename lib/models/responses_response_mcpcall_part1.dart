@@ -8,203 +8,353 @@ part of 'responses_response_mcpcall.dart';
 class ResponseMCPCallArgumentsDeltaEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the event. Always 'response.mcp_call_arguments.delta'.
   final ResponseMCPCallArgumentsDeltaEventType type_;
+
   /// The index of the output item in the response's output array.
   final int outputIndex;
+
   /// The unique identifier of the MCP tool call item being processed.
   final String itemId;
+
   /// A JSON string containing the partial update to the arguments for the MCP tool call.
   final String delta;
+
   /// The sequence number of this event.
   final int sequenceNumber;
 
-  const ResponseMCPCallArgumentsDeltaEvent({required this.type_, required this.outputIndex, required this.itemId, required this.delta, required this.sequenceNumber});
+  const ResponseMCPCallArgumentsDeltaEvent(
+      {required this.type_,
+      required this.outputIndex,
+      required this.itemId,
+      required this.delta,
+      required this.sequenceNumber});
 
-  ResponseMCPCallArgumentsDeltaEvent Function({ResponseMCPCallArgumentsDeltaEventType type_, int outputIndex, String itemId, String delta, int sequenceNumber}) get copyWith => _copyWith;
+  ResponseMCPCallArgumentsDeltaEvent Function(
+      {ResponseMCPCallArgumentsDeltaEventType type_,
+      int outputIndex,
+      String itemId,
+      String delta,
+      int sequenceNumber}) get copyWith => _copyWith;
 
-  ResponseMCPCallArgumentsDeltaEvent _copyWith({Object? type_ = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? delta = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => ResponseMCPCallArgumentsDeltaEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseMCPCallArgumentsDeltaEventType,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-  );
+  ResponseMCPCallArgumentsDeltaEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? delta = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue}) =>
+      ResponseMCPCallArgumentsDeltaEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponseMCPCallArgumentsDeltaEventType,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+      );
 
-  factory ResponseMCPCallArgumentsDeltaEvent.fromJson(Map<String, dynamic> json) => ResponseMCPCallArgumentsDeltaEvent(
-    type_: (json['type'] != null ? ResponseMCPCallArgumentsDeltaEventType.fromJson(json['type'] as String) : null)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    itemId: (json['item_id'] as String?)!,
-    delta: (json['delta'] as String?)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-  );
+  factory ResponseMCPCallArgumentsDeltaEvent.fromJson(
+          Map<String, dynamic> json) =>
+      ResponseMCPCallArgumentsDeltaEvent(
+        type_: (json['type'] != null
+            ? ResponseMCPCallArgumentsDeltaEventType.fromJson(
+                json['type'] as String)
+            : null)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        itemId: (json['item_id'] as String?)!,
+        delta: (json['delta'] as String?)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'output_index': outputIndex,
-    'item_id': itemId,
-    'delta': delta,
-    'sequence_number': sequenceNumber,
-  };
+        'type': type_.toJson(),
+        'output_index': outputIndex,
+        'item_id': itemId,
+        'delta': delta,
+        'sequence_number': sequenceNumber,
+      };
 }
 
 /// Emitted when the arguments for an MCP tool call are finalized.
 class ResponseMCPCallArgumentsDoneEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the event. Always 'response.mcp_call_arguments.done'.
   final ResponseMCPCallArgumentsDoneEventType type_;
+
   /// The index of the output item in the response's output array.
   final int outputIndex;
+
   /// The unique identifier of the MCP tool call item being processed.
   final String itemId;
+
   /// A JSON string containing the finalized arguments for the MCP tool call.
   final String arguments;
+
   /// The sequence number of this event.
   final int sequenceNumber;
 
-  const ResponseMCPCallArgumentsDoneEvent({required this.type_, required this.outputIndex, required this.itemId, required this.arguments, required this.sequenceNumber});
+  const ResponseMCPCallArgumentsDoneEvent(
+      {required this.type_,
+      required this.outputIndex,
+      required this.itemId,
+      required this.arguments,
+      required this.sequenceNumber});
 
-  ResponseMCPCallArgumentsDoneEvent Function({ResponseMCPCallArgumentsDoneEventType type_, int outputIndex, String itemId, String arguments, int sequenceNumber}) get copyWith => _copyWith;
+  ResponseMCPCallArgumentsDoneEvent Function(
+      {ResponseMCPCallArgumentsDoneEventType type_,
+      int outputIndex,
+      String itemId,
+      String arguments,
+      int sequenceNumber}) get copyWith => _copyWith;
 
-  ResponseMCPCallArgumentsDoneEvent _copyWith({Object? type_ = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? arguments = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => ResponseMCPCallArgumentsDoneEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseMCPCallArgumentsDoneEventType,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    arguments: identical(arguments, sdkOmittedValue) ? this.arguments : arguments as String,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-  );
+  ResponseMCPCallArgumentsDoneEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? arguments = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue}) =>
+      ResponseMCPCallArgumentsDoneEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponseMCPCallArgumentsDoneEventType,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        arguments: identical(arguments, sdkOmittedValue)
+            ? this.arguments
+            : arguments as String,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+      );
 
-  factory ResponseMCPCallArgumentsDoneEvent.fromJson(Map<String, dynamic> json) => ResponseMCPCallArgumentsDoneEvent(
-    type_: (json['type'] != null ? ResponseMCPCallArgumentsDoneEventType.fromJson(json['type'] as String) : null)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    itemId: (json['item_id'] as String?)!,
-    arguments: (json['arguments'] as String?)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-  );
+  factory ResponseMCPCallArgumentsDoneEvent.fromJson(
+          Map<String, dynamic> json) =>
+      ResponseMCPCallArgumentsDoneEvent(
+        type_: (json['type'] != null
+            ? ResponseMCPCallArgumentsDoneEventType.fromJson(
+                json['type'] as String)
+            : null)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        itemId: (json['item_id'] as String?)!,
+        arguments: (json['arguments'] as String?)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'output_index': outputIndex,
-    'item_id': itemId,
-    'arguments': arguments,
-    'sequence_number': sequenceNumber,
-  };
+        'type': type_.toJson(),
+        'output_index': outputIndex,
+        'item_id': itemId,
+        'arguments': arguments,
+        'sequence_number': sequenceNumber,
+      };
 }
 
 /// Emitted when an MCP tool call has completed successfully.
 class ResponseMCPCallCompletedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the event. Always 'response.mcp_call.completed'.
   final ResponseMCPCallCompletedEventType type_;
+
   /// The ID of the MCP tool call item that completed.
   final String itemId;
+
   /// The index of the output item that completed.
   final int outputIndex;
+
   /// The sequence number of this event.
   final int sequenceNumber;
 
-  const ResponseMCPCallCompletedEvent({required this.type_, required this.itemId, required this.outputIndex, required this.sequenceNumber});
+  const ResponseMCPCallCompletedEvent(
+      {required this.type_,
+      required this.itemId,
+      required this.outputIndex,
+      required this.sequenceNumber});
 
-  ResponseMCPCallCompletedEvent Function({ResponseMCPCallCompletedEventType type_, String itemId, int outputIndex, int sequenceNumber}) get copyWith => _copyWith;
+  ResponseMCPCallCompletedEvent Function(
+      {ResponseMCPCallCompletedEventType type_,
+      String itemId,
+      int outputIndex,
+      int sequenceNumber}) get copyWith => _copyWith;
 
-  ResponseMCPCallCompletedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => ResponseMCPCallCompletedEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseMCPCallCompletedEventType,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-  );
+  ResponseMCPCallCompletedEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue}) =>
+      ResponseMCPCallCompletedEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponseMCPCallCompletedEventType,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+      );
 
-  factory ResponseMCPCallCompletedEvent.fromJson(Map<String, dynamic> json) => ResponseMCPCallCompletedEvent(
-    type_: (json['type'] != null ? ResponseMCPCallCompletedEventType.fromJson(json['type'] as String) : null)!,
-    itemId: (json['item_id'] as String?)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-  );
+  factory ResponseMCPCallCompletedEvent.fromJson(Map<String, dynamic> json) =>
+      ResponseMCPCallCompletedEvent(
+        type_: (json['type'] != null
+            ? ResponseMCPCallCompletedEventType.fromJson(json['type'] as String)
+            : null)!,
+        itemId: (json['item_id'] as String?)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'item_id': itemId,
-    'output_index': outputIndex,
-    'sequence_number': sequenceNumber,
-  };
+        'type': type_.toJson(),
+        'item_id': itemId,
+        'output_index': outputIndex,
+        'sequence_number': sequenceNumber,
+      };
 }
 
 /// Emitted when an MCP tool call has failed.
 class ResponseMCPCallFailedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the event. Always 'response.mcp_call.failed'.
   final ResponseMCPCallFailedEventType type_;
+
   /// The ID of the MCP tool call item that failed.
   final String itemId;
+
   /// The index of the output item that failed.
   final int outputIndex;
+
   /// The sequence number of this event.
   final int sequenceNumber;
 
-  const ResponseMCPCallFailedEvent({required this.type_, required this.itemId, required this.outputIndex, required this.sequenceNumber});
+  const ResponseMCPCallFailedEvent(
+      {required this.type_,
+      required this.itemId,
+      required this.outputIndex,
+      required this.sequenceNumber});
 
-  ResponseMCPCallFailedEvent Function({ResponseMCPCallFailedEventType type_, String itemId, int outputIndex, int sequenceNumber}) get copyWith => _copyWith;
+  ResponseMCPCallFailedEvent Function(
+      {ResponseMCPCallFailedEventType type_,
+      String itemId,
+      int outputIndex,
+      int sequenceNumber}) get copyWith => _copyWith;
 
-  ResponseMCPCallFailedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => ResponseMCPCallFailedEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseMCPCallFailedEventType,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-  );
+  ResponseMCPCallFailedEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue}) =>
+      ResponseMCPCallFailedEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponseMCPCallFailedEventType,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+      );
 
-  factory ResponseMCPCallFailedEvent.fromJson(Map<String, dynamic> json) => ResponseMCPCallFailedEvent(
-    type_: (json['type'] != null ? ResponseMCPCallFailedEventType.fromJson(json['type'] as String) : null)!,
-    itemId: (json['item_id'] as String?)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-  );
+  factory ResponseMCPCallFailedEvent.fromJson(Map<String, dynamic> json) =>
+      ResponseMCPCallFailedEvent(
+        type_: (json['type'] != null
+            ? ResponseMCPCallFailedEventType.fromJson(json['type'] as String)
+            : null)!,
+        itemId: (json['item_id'] as String?)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'item_id': itemId,
-    'output_index': outputIndex,
-    'sequence_number': sequenceNumber,
-  };
+        'type': type_.toJson(),
+        'item_id': itemId,
+        'output_index': outputIndex,
+        'sequence_number': sequenceNumber,
+      };
 }
 
 /// Emitted when an MCP tool call is in progress.
 class ResponseMCPCallInProgressEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the event. Always 'response.mcp_call.in_progress'.
   final ResponseMCPCallInProgressEventType type_;
+
   /// The sequence number of this event.
   final int sequenceNumber;
+
   /// The index of the output item in the response's output array.
   final int outputIndex;
+
   /// The unique identifier of the MCP tool call item being processed.
   final String itemId;
 
-  const ResponseMCPCallInProgressEvent({required this.type_, required this.sequenceNumber, required this.outputIndex, required this.itemId});
+  const ResponseMCPCallInProgressEvent(
+      {required this.type_,
+      required this.sequenceNumber,
+      required this.outputIndex,
+      required this.itemId});
 
-  ResponseMCPCallInProgressEvent Function({ResponseMCPCallInProgressEventType type_, int sequenceNumber, int outputIndex, String itemId}) get copyWith => _copyWith;
+  ResponseMCPCallInProgressEvent Function(
+      {ResponseMCPCallInProgressEventType type_,
+      int sequenceNumber,
+      int outputIndex,
+      String itemId}) get copyWith => _copyWith;
 
-  ResponseMCPCallInProgressEvent _copyWith({Object? type_ = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? itemId = sdkOmittedValue}) => ResponseMCPCallInProgressEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseMCPCallInProgressEventType,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-  );
+  ResponseMCPCallInProgressEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue}) =>
+      ResponseMCPCallInProgressEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponseMCPCallInProgressEventType,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+      );
 
-  factory ResponseMCPCallInProgressEvent.fromJson(Map<String, dynamic> json) => ResponseMCPCallInProgressEvent(
-    type_: (json['type'] != null ? ResponseMCPCallInProgressEventType.fromJson(json['type'] as String) : null)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    itemId: (json['item_id'] as String?)!,
-  );
+  factory ResponseMCPCallInProgressEvent.fromJson(Map<String, dynamic> json) =>
+      ResponseMCPCallInProgressEvent(
+        type_: (json['type'] != null
+            ? ResponseMCPCallInProgressEventType.fromJson(
+                json['type'] as String)
+            : null)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        itemId: (json['item_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'sequence_number': sequenceNumber,
-    'output_index': outputIndex,
-    'item_id': itemId,
-  };
+        'type': type_.toJson(),
+        'sequence_number': sequenceNumber,
+        'output_index': outputIndex,
+        'item_id': itemId,
+      };
 }

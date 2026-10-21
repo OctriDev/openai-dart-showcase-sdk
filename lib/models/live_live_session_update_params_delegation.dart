@@ -10,40 +10,84 @@ sealed class LiveSessionUpdateParamsDelegation {
   const LiveSessionUpdateParamsDelegation();
   factory LiveSessionUpdateParamsDelegation.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = LiveClientDelegationParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSessionUpdateParamsDelegationLiveClientDelegationParam(value); } } catch (_) {}
-      try { final value = LiveResponsesDelegationUpdateParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSessionUpdateParamsDelegationLiveResponsesDelegationUpdateParam(value); } } catch (_) {}
-      try { final value = LiveDecisionsDelegationUpdateParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSessionUpdateParamsDelegationLiveDecisionsDelegationUpdateParam(value); } } catch (_) {}
+      try {
+        final value = LiveClientDelegationParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSessionUpdateParamsDelegationLiveClientDelegationParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveResponsesDelegationUpdateParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSessionUpdateParamsDelegationLiveResponsesDelegationUpdateParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveDecisionsDelegationUpdateParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSessionUpdateParamsDelegationLiveDecisionsDelegationUpdateParam(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return LiveSessionUpdateParamsDelegationLiveClientDelegationParam(LiveClientDelegationParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSessionUpdateParamsDelegationLiveResponsesDelegationUpdateParam(LiveResponsesDelegationUpdateParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSessionUpdateParamsDelegationLiveDecisionsDelegationUpdateParam(LiveDecisionsDelegationUpdateParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"client", "responses", "decisions"}.contains(json["type"])) { return UnknownLiveSessionUpdateParamsDelegation(json); }
-    throw FormatException("No variant matched for LiveSessionUpdateParamsDelegation");
+    try {
+      return LiveSessionUpdateParamsDelegationLiveClientDelegationParam(
+          LiveClientDelegationParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSessionUpdateParamsDelegationLiveResponsesDelegationUpdateParam(
+          LiveResponsesDelegationUpdateParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSessionUpdateParamsDelegationLiveDecisionsDelegationUpdateParam(
+          LiveDecisionsDelegationUpdateParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"client", "responses", "decisions"}.contains(json["type"])) {
+      return UnknownLiveSessionUpdateParamsDelegation(json);
+    }
+    throw FormatException(
+        "No variant matched for LiveSessionUpdateParamsDelegation");
   }
   Object? toJson();
 }
 
-final class LiveSessionUpdateParamsDelegationLiveClientDelegationParam extends LiveSessionUpdateParamsDelegation {
+final class LiveSessionUpdateParamsDelegationLiveClientDelegationParam
+    extends LiveSessionUpdateParamsDelegation {
   final LiveClientDelegationParam value;
   const LiveSessionUpdateParamsDelegationLiveClientDelegationParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSessionUpdateParamsDelegationLiveResponsesDelegationUpdateParam extends LiveSessionUpdateParamsDelegation {
+final class LiveSessionUpdateParamsDelegationLiveResponsesDelegationUpdateParam
+    extends LiveSessionUpdateParamsDelegation {
   final LiveResponsesDelegationUpdateParam value;
-  const LiveSessionUpdateParamsDelegationLiveResponsesDelegationUpdateParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const LiveSessionUpdateParamsDelegationLiveResponsesDelegationUpdateParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSessionUpdateParamsDelegationLiveDecisionsDelegationUpdateParam extends LiveSessionUpdateParamsDelegation {
+final class LiveSessionUpdateParamsDelegationLiveDecisionsDelegationUpdateParam
+    extends LiveSessionUpdateParamsDelegation {
   final LiveDecisionsDelegationUpdateParam value;
-  const LiveSessionUpdateParamsDelegationLiveDecisionsDelegationUpdateParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const LiveSessionUpdateParamsDelegationLiveDecisionsDelegationUpdateParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [LiveSessionUpdateParamsDelegation] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownLiveSessionUpdateParamsDelegation extends LiveSessionUpdateParamsDelegation {
+final class UnknownLiveSessionUpdateParamsDelegation
+    extends LiveSessionUpdateParamsDelegation {
   final Map<String, dynamic> raw;
   const UnknownLiveSessionUpdateParamsDelegation(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

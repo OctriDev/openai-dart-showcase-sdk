@@ -8,57 +8,111 @@ part of 'agents_session_event.dart';
 class SessionEventAgentSessionTurnOutputTextDelta {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `agent.session.turn.output_text.delta`.
   final SessionEventAgentSessionTurnOutputTextDeltaType type_;
+
   /// The unique ID of the event.
   final String eventId;
+
   /// The ID of the session associated with the event.
   final String sessionId;
+
   /// The ID of the turn associated with the event, when applicable.
   final String? turnId;
+
   /// The ID of the message item.
   final String itemId;
+
   /// The index of the item in the turn output.
   final int outputIndex;
+
   /// The index of the content part in the message.
   final int contentIndex;
+
   /// The text that was appended.
   final String delta;
 
-  const SessionEventAgentSessionTurnOutputTextDelta({required this.type_, required this.eventId, required this.sessionId, required this.turnId, required this.itemId, required this.outputIndex, required this.contentIndex, required this.delta});
+  const SessionEventAgentSessionTurnOutputTextDelta(
+      {required this.type_,
+      required this.eventId,
+      required this.sessionId,
+      required this.turnId,
+      required this.itemId,
+      required this.outputIndex,
+      required this.contentIndex,
+      required this.delta});
 
-  SessionEventAgentSessionTurnOutputTextDelta Function({SessionEventAgentSessionTurnOutputTextDeltaType type_, String eventId, String sessionId, String? turnId, String itemId, int outputIndex, int contentIndex, String delta}) get copyWith => _copyWith;
+  SessionEventAgentSessionTurnOutputTextDelta Function(
+      {SessionEventAgentSessionTurnOutputTextDeltaType type_,
+      String eventId,
+      String sessionId,
+      String? turnId,
+      String itemId,
+      int outputIndex,
+      int contentIndex,
+      String delta}) get copyWith => _copyWith;
 
-  SessionEventAgentSessionTurnOutputTextDelta _copyWith({Object? type_ = sdkOmittedValue, Object? eventId = sdkOmittedValue, Object? sessionId = sdkOmittedValue, Object? turnId = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? contentIndex = sdkOmittedValue, Object? delta = sdkOmittedValue}) => SessionEventAgentSessionTurnOutputTextDelta(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SessionEventAgentSessionTurnOutputTextDeltaType,
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    sessionId: identical(sessionId, sdkOmittedValue) ? this.sessionId : sessionId as String,
-    turnId: identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String?,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    contentIndex: identical(contentIndex, sdkOmittedValue) ? this.contentIndex : contentIndex as int,
-    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
-  );
+  SessionEventAgentSessionTurnOutputTextDelta _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? eventId = sdkOmittedValue,
+          Object? sessionId = sdkOmittedValue,
+          Object? turnId = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? contentIndex = sdkOmittedValue,
+          Object? delta = sdkOmittedValue}) =>
+      SessionEventAgentSessionTurnOutputTextDelta(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SessionEventAgentSessionTurnOutputTextDeltaType,
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        sessionId: identical(sessionId, sdkOmittedValue)
+            ? this.sessionId
+            : sessionId as String,
+        turnId: identical(turnId, sdkOmittedValue)
+            ? this.turnId
+            : turnId as String?,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        contentIndex: identical(contentIndex, sdkOmittedValue)
+            ? this.contentIndex
+            : contentIndex as int,
+        delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
+      );
 
-  factory SessionEventAgentSessionTurnOutputTextDelta.fromJson(Map<String, dynamic> json) => SessionEventAgentSessionTurnOutputTextDelta(
-    type_: (json['type'] != null ? SessionEventAgentSessionTurnOutputTextDeltaType.fromJson(json['type'] as String) : null)!,
-    eventId: (json['event_id'] as String?)!,
-    sessionId: (json['session_id'] as String?)!,
-    turnId: json.containsKey('turn_id') ? json['turn_id'] as String? : throw ArgumentError.value(null, 'turn_id', 'Required property is missing'),
-    itemId: (json['item_id'] as String?)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    contentIndex: ((json['content_index'] as num?)?.toInt())!,
-    delta: (json['delta'] as String?)!,
-  );
+  factory SessionEventAgentSessionTurnOutputTextDelta.fromJson(
+          Map<String, dynamic> json) =>
+      SessionEventAgentSessionTurnOutputTextDelta(
+        type_: (json['type'] != null
+            ? SessionEventAgentSessionTurnOutputTextDeltaType.fromJson(
+                json['type'] as String)
+            : null)!,
+        eventId: (json['event_id'] as String?)!,
+        sessionId: (json['session_id'] as String?)!,
+        turnId: json.containsKey('turn_id')
+            ? json['turn_id'] as String?
+            : throw ArgumentError.value(
+                null, 'turn_id', 'Required property is missing'),
+        itemId: (json['item_id'] as String?)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        contentIndex: ((json['content_index'] as num?)?.toInt())!,
+        delta: (json['delta'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'event_id': eventId,
-    'session_id': sessionId,
-    'turn_id': turnId,
-    'item_id': itemId,
-    'output_index': outputIndex,
-    'content_index': contentIndex,
-    'delta': delta,
-  };
+        'type': type_.toJson(),
+        'event_id': eventId,
+        'session_id': sessionId,
+        'turn_id': turnId,
+        'item_id': itemId,
+        'output_index': outputIndex,
+        'content_index': contentIndex,
+        'delta': delta,
+      };
 }

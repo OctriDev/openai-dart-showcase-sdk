@@ -9,22 +9,32 @@ sealed class HostedPluginResource {
   static const String constructionSurface = 'named';
   const HostedPluginResource();
   factory HostedPluginResource.fromJson(Object? json) {
-    try { return HostedPluginResourceHostedPluginResourceInline(HostedPluginResourceInline.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"inline"}.contains(json["type"])) { return UnknownHostedPluginResource(json); }
+    try {
+      return HostedPluginResourceHostedPluginResourceInline(
+          HostedPluginResourceInline.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"inline"}.contains(json["type"])) {
+      return UnknownHostedPluginResource(json);
+    }
     throw FormatException("No variant matched for HostedPluginResource");
   }
   Object? toJson();
 }
 
-final class HostedPluginResourceHostedPluginResourceInline extends HostedPluginResource {
+final class HostedPluginResourceHostedPluginResourceInline
+    extends HostedPluginResource {
   final HostedPluginResourceInline value;
   const HostedPluginResourceHostedPluginResourceInline(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [HostedPluginResource] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownHostedPluginResource extends HostedPluginResource {
   final Map<String, dynamic> raw;
   const UnknownHostedPluginResource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

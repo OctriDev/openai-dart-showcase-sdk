@@ -8,32 +8,50 @@ part of 'shared.dart';
 class MCPProtocolError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final MCPProtocolErrorType type_;
+
   /// Required `integer` value serialized in the `code` wire field.
   final int code;
+
   /// Required `string` value serialized in the `message` wire field.
   final String message;
 
-  const MCPProtocolError({required this.type_, required this.code, required this.message});
+  const MCPProtocolError(
+      {required this.type_, required this.code, required this.message});
 
-  MCPProtocolError Function({MCPProtocolErrorType type_, int code, String message}) get copyWith => _copyWith;
+  MCPProtocolError Function(
+      {MCPProtocolErrorType type_,
+      int code,
+      String message}) get copyWith => _copyWith;
 
-  MCPProtocolError _copyWith({Object? type_ = sdkOmittedValue, Object? code = sdkOmittedValue, Object? message = sdkOmittedValue}) => MCPProtocolError(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MCPProtocolErrorType,
-    code: identical(code, sdkOmittedValue) ? this.code : code as int,
-    message: identical(message, sdkOmittedValue) ? this.message : message as String,
-  );
+  MCPProtocolError _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? code = sdkOmittedValue,
+          Object? message = sdkOmittedValue}) =>
+      MCPProtocolError(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as MCPProtocolErrorType,
+        code: identical(code, sdkOmittedValue) ? this.code : code as int,
+        message: identical(message, sdkOmittedValue)
+            ? this.message
+            : message as String,
+      );
 
-  factory MCPProtocolError.fromJson(Map<String, dynamic> json) => MCPProtocolError(
-    type_: (json['type'] != null ? MCPProtocolErrorType.fromJson(json['type'] as String) : null)!,
-    code: ((json['code'] as num?)?.toInt())!,
-    message: (json['message'] as String?)!,
-  );
+  factory MCPProtocolError.fromJson(Map<String, dynamic> json) =>
+      MCPProtocolError(
+        type_: (json['type'] != null
+            ? MCPProtocolErrorType.fromJson(json['type'] as String)
+            : null)!,
+        code: ((json['code'] as num?)?.toInt())!,
+        message: (json['message'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'code': code,
-    'message': message,
-  };
+        'type': type_.toJson(),
+        'code': code,
+        'message': message,
+      };
 }

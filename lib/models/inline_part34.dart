@@ -10,14 +10,17 @@ enum ComputerToolCallOutputType {
 
   static ComputerToolCallOutputType fromJson(String value) {
     switch (value) {
-      case 'computer_call_output': return ComputerToolCallOutputType.computerCallOutput;
-      default: throw ArgumentError('Unknown ComputerToolCallOutputType: $value');
+      case 'computer_call_output':
+        return ComputerToolCallOutputType.computerCallOutput;
+      default:
+        throw ArgumentError('Unknown ComputerToolCallOutputType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ComputerToolCallOutputType.computerCallOutput: return 'computer_call_output';
+      case ComputerToolCallOutputType.computerCallOutput:
+        return 'computer_call_output';
     }
   }
 
@@ -29,16 +32,23 @@ enum ComputerToolCallOutputType {
 enum ComputerUseApprovalRequestKindResourceBrowserAuthenticationType {
   browserAuthentication;
 
-  static ComputerUseApprovalRequestKindResourceBrowserAuthenticationType fromJson(String value) {
+  static ComputerUseApprovalRequestKindResourceBrowserAuthenticationType
+      fromJson(String value) {
     switch (value) {
-      case 'browser_authentication': return ComputerUseApprovalRequestKindResourceBrowserAuthenticationType.browserAuthentication;
-      default: throw ArgumentError('Unknown ComputerUseApprovalRequestKindResourceBrowserAuthenticationType: $value');
+      case 'browser_authentication':
+        return ComputerUseApprovalRequestKindResourceBrowserAuthenticationType
+            .browserAuthentication;
+      default:
+        throw ArgumentError(
+            'Unknown ComputerUseApprovalRequestKindResourceBrowserAuthenticationType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ComputerUseApprovalRequestKindResourceBrowserAuthenticationType.browserAuthentication: return 'browser_authentication';
+      case ComputerUseApprovalRequestKindResourceBrowserAuthenticationType
+            .browserAuthentication:
+        return 'browser_authentication';
     }
   }
 
@@ -50,16 +60,23 @@ enum ComputerUseApprovalRequestKindResourceBrowserAuthenticationType {
 enum ComputerUseApprovalRequestKindResourceBrowserOriginAccessType {
   browserOriginAccess;
 
-  static ComputerUseApprovalRequestKindResourceBrowserOriginAccessType fromJson(String value) {
+  static ComputerUseApprovalRequestKindResourceBrowserOriginAccessType fromJson(
+      String value) {
     switch (value) {
-      case 'browser_origin_access': return ComputerUseApprovalRequestKindResourceBrowserOriginAccessType.browserOriginAccess;
-      default: throw ArgumentError('Unknown ComputerUseApprovalRequestKindResourceBrowserOriginAccessType: $value');
+      case 'browser_origin_access':
+        return ComputerUseApprovalRequestKindResourceBrowserOriginAccessType
+            .browserOriginAccess;
+      default:
+        throw ArgumentError(
+            'Unknown ComputerUseApprovalRequestKindResourceBrowserOriginAccessType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ComputerUseApprovalRequestKindResourceBrowserOriginAccessType.browserOriginAccess: return 'browser_origin_access';
+      case ComputerUseApprovalRequestKindResourceBrowserOriginAccessType
+            .browserOriginAccess:
+        return 'browser_origin_access';
     }
   }
 
@@ -71,16 +88,23 @@ enum ComputerUseApprovalRequestKindResourceBrowserOriginAccessType {
 enum ComputerUseApprovalRequestResultItemResourceType {
   computerUseApprovalRequestResult;
 
-  static ComputerUseApprovalRequestResultItemResourceType fromJson(String value) {
+  static ComputerUseApprovalRequestResultItemResourceType fromJson(
+      String value) {
     switch (value) {
-      case 'computer_use_approval_request_result': return ComputerUseApprovalRequestResultItemResourceType.computerUseApprovalRequestResult;
-      default: throw ArgumentError('Unknown ComputerUseApprovalRequestResultItemResourceType: $value');
+      case 'computer_use_approval_request_result':
+        return ComputerUseApprovalRequestResultItemResourceType
+            .computerUseApprovalRequestResult;
+      default:
+        throw ArgumentError(
+            'Unknown ComputerUseApprovalRequestResultItemResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ComputerUseApprovalRequestResultItemResourceType.computerUseApprovalRequestResult: return 'computer_use_approval_request_result';
+      case ComputerUseApprovalRequestResultItemResourceType
+            .computerUseApprovalRequestResult:
+        return 'computer_use_approval_request_result';
     }
   }
 
@@ -92,16 +116,23 @@ enum ComputerUseApprovalRequestResultItemResourceType {
 enum ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceAction {
   cancel;
 
-  static ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceAction fromJson(String value) {
+  static ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceAction
+      fromJson(String value) {
     switch (value) {
-      case 'cancel': return ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceAction.cancel;
-      default: throw ArgumentError('Unknown ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceAction: $value');
+      case 'cancel':
+        return ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceAction
+            .cancel;
+      default:
+        throw ArgumentError(
+            'Unknown ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceAction: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceAction.cancel: return 'cancel';
+      case ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceAction
+            .cancel:
+        return 'cancel';
     }
   }
 
@@ -111,39 +142,56 @@ enum ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceA
 
 /// Required enumerated value serialized in the `type` wire field.
 final class ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType {
-
   final String value;
 
-  const ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType._(this.value);
+  const ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType._(
+      this.value);
 
-  factory ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType.fromJson(String value) => ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType._(value);
+  factory ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType.fromJson(
+          String value) =>
+      ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType
+          ._(value);
 
-  static const browserAuthentication = ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType._('browser_authentication');
+  static const browserAuthentication =
+      ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType
+          ._('browser_authentication');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other
+          is ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `action` wire field.
 enum ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceAction {
   submit;
 
-  static ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceAction fromJson(String value) {
+  static ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceAction
+      fromJson(String value) {
     switch (value) {
-      case 'submit': return ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceAction.submit;
-      default: throw ArgumentError('Unknown ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceAction: $value');
+      case 'submit':
+        return ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceAction
+            .submit;
+      default:
+        throw ArgumentError(
+            'Unknown ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceAction: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceAction.submit: return 'submit';
+      case ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceAction
+            .submit:
+        return 'submit';
     }
   }
 
@@ -153,39 +201,56 @@ enum ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceA
 
 /// Required enumerated value serialized in the `type` wire field.
 final class ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType {
-
   final String value;
 
-  const ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType._(this.value);
+  const ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType._(
+      this.value);
 
-  factory ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType.fromJson(String value) => ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType._(value);
+  factory ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType.fromJson(
+          String value) =>
+      ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType
+          ._(value);
 
-  static const browserAuthentication = ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType._('browser_authentication');
+  static const browserAuthentication =
+      ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType
+          ._('browser_authentication');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other
+          is ComputerUseApprovalResponseKindResourceBrowserAuthenticationSubmitResourceType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `type` wire field.
 enum ComputerUseApprovalResponseParamBrowserAuthenticationType {
   browserAuthentication;
 
-  static ComputerUseApprovalResponseParamBrowserAuthenticationType fromJson(String value) {
+  static ComputerUseApprovalResponseParamBrowserAuthenticationType fromJson(
+      String value) {
     switch (value) {
-      case 'browser_authentication': return ComputerUseApprovalResponseParamBrowserAuthenticationType.browserAuthentication;
-      default: throw ArgumentError('Unknown ComputerUseApprovalResponseParamBrowserAuthenticationType: $value');
+      case 'browser_authentication':
+        return ComputerUseApprovalResponseParamBrowserAuthenticationType
+            .browserAuthentication;
+      default:
+        throw ArgumentError(
+            'Unknown ComputerUseApprovalResponseParamBrowserAuthenticationType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ComputerUseApprovalResponseParamBrowserAuthenticationType.browserAuthentication: return 'browser_authentication';
+      case ComputerUseApprovalResponseParamBrowserAuthenticationType
+            .browserAuthentication:
+        return 'browser_authentication';
     }
   }
 
@@ -197,16 +262,23 @@ enum ComputerUseApprovalResponseParamBrowserAuthenticationType {
 enum ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamAction {
   cancel;
 
-  static ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamAction fromJson(String value) {
+  static ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamAction
+      fromJson(String value) {
     switch (value) {
-      case 'cancel': return ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamAction.cancel;
-      default: throw ArgumentError('Unknown ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamAction: $value');
+      case 'cancel':
+        return ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamAction
+            .cancel;
+      default:
+        throw ArgumentError(
+            'Unknown ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamAction: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamAction.cancel: return 'cancel';
+      case ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamAction
+            .cancel:
+        return 'cancel';
     }
   }
 
@@ -218,16 +290,23 @@ enum ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamAction {
 enum ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamType {
   browserAuthentication;
 
-  static ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamType fromJson(String value) {
+  static ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamType
+      fromJson(String value) {
     switch (value) {
-      case 'browser_authentication': return ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamType.browserAuthentication;
-      default: throw ArgumentError('Unknown ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamType: $value');
+      case 'browser_authentication':
+        return ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamType
+            .browserAuthentication;
+      default:
+        throw ArgumentError(
+            'Unknown ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamType.browserAuthentication: return 'browser_authentication';
+      case ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamType
+            .browserAuthentication:
+        return 'browser_authentication';
     }
   }
 
@@ -239,16 +318,23 @@ enum ComputerUseApprovalResponseParamBrowserAuthenticationCancelParamType {
 enum ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamAction {
   submit;
 
-  static ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamAction fromJson(String value) {
+  static ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamAction
+      fromJson(String value) {
     switch (value) {
-      case 'submit': return ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamAction.submit;
-      default: throw ArgumentError('Unknown ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamAction: $value');
+      case 'submit':
+        return ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamAction
+            .submit;
+      default:
+        throw ArgumentError(
+            'Unknown ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamAction: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamAction.submit: return 'submit';
+      case ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamAction
+            .submit:
+        return 'submit';
     }
   }
 
@@ -260,16 +346,23 @@ enum ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamAction {
 enum ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamType {
   browserAuthentication;
 
-  static ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamType fromJson(String value) {
+  static ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamType
+      fromJson(String value) {
     switch (value) {
-      case 'browser_authentication': return ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamType.browserAuthentication;
-      default: throw ArgumentError('Unknown ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamType: $value');
+      case 'browser_authentication':
+        return ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamType
+            .browserAuthentication;
+      default:
+        throw ArgumentError(
+            'Unknown ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamType.browserAuthentication: return 'browser_authentication';
+      case ComputerUseApprovalResponseParamBrowserAuthenticationSubmitParamType
+            .browserAuthentication:
+        return 'browser_authentication';
     }
   }
 

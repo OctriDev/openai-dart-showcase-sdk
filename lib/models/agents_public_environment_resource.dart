@@ -8,52 +8,106 @@ part of 'agents.dart';
 class PublicEnvironmentResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Whether the environment is hosted by OpenAI or by the application.
   final EnvironmentTypeResource type_;
+
   /// The ID of the environment.
   final String id;
+
   /// The object type. Always `agent.environment`.
   final PublicEnvironmentResourceObject object;
+
   /// The current environment connection status.
   final EnvironmentStatusResource status;
+
   /// Files installed in the environment, without their contents.
   final List<HostedEnvironmentFileResource> files;
+
   /// Skills installed in the environment, without their archive contents.
   final List<HostedSkillResource> skills;
+
   /// Plugins installed in the environment, without their archive contents.
   final List<HostedPluginResource> plugins;
 
-  const PublicEnvironmentResource({required this.type_, required this.id, required this.object, required this.status, required this.files, required this.skills, required this.plugins});
+  const PublicEnvironmentResource(
+      {required this.type_,
+      required this.id,
+      required this.object,
+      required this.status,
+      required this.files,
+      required this.skills,
+      required this.plugins});
 
-  PublicEnvironmentResource Function({EnvironmentTypeResource type_, String id, PublicEnvironmentResourceObject object, EnvironmentStatusResource status, List<HostedEnvironmentFileResource> files, List<HostedSkillResource> skills, List<HostedPluginResource> plugins}) get copyWith => _copyWith;
+  PublicEnvironmentResource Function(
+      {EnvironmentTypeResource type_,
+      String id,
+      PublicEnvironmentResourceObject object,
+      EnvironmentStatusResource status,
+      List<HostedEnvironmentFileResource> files,
+      List<HostedSkillResource> skills,
+      List<HostedPluginResource> plugins}) get copyWith => _copyWith;
 
-  PublicEnvironmentResource _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? status = sdkOmittedValue, Object? files = sdkOmittedValue, Object? skills = sdkOmittedValue, Object? plugins = sdkOmittedValue}) => PublicEnvironmentResource(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as EnvironmentTypeResource,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as PublicEnvironmentResourceObject,
-    status: identical(status, sdkOmittedValue) ? this.status : status as EnvironmentStatusResource,
-    files: identical(files, sdkOmittedValue) ? this.files : files as List<HostedEnvironmentFileResource>,
-    skills: identical(skills, sdkOmittedValue) ? this.skills : skills as List<HostedSkillResource>,
-    plugins: identical(plugins, sdkOmittedValue) ? this.plugins : plugins as List<HostedPluginResource>,
-  );
+  PublicEnvironmentResource _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? files = sdkOmittedValue,
+          Object? skills = sdkOmittedValue,
+          Object? plugins = sdkOmittedValue}) =>
+      PublicEnvironmentResource(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as EnvironmentTypeResource,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as PublicEnvironmentResourceObject,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as EnvironmentStatusResource,
+        files: identical(files, sdkOmittedValue)
+            ? this.files
+            : files as List<HostedEnvironmentFileResource>,
+        skills: identical(skills, sdkOmittedValue)
+            ? this.skills
+            : skills as List<HostedSkillResource>,
+        plugins: identical(plugins, sdkOmittedValue)
+            ? this.plugins
+            : plugins as List<HostedPluginResource>,
+      );
 
-  factory PublicEnvironmentResource.fromJson(Map<String, dynamic> json) => PublicEnvironmentResource(
-    type_: (json['type'] != null ? EnvironmentTypeResource.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? PublicEnvironmentResourceObject.fromJson(json['object'] as String) : null)!,
-    status: (json['status'] != null ? EnvironmentStatusResource.fromJson(json['status'] as String) : null)!,
-    files: ((json['files'] as List?)?.map((e) => HostedEnvironmentFileResource.fromJson(e)).toList())!,
-    skills: ((json['skills'] as List?)?.map((e) => HostedSkillResource.fromJson(e)).toList())!,
-    plugins: ((json['plugins'] as List?)?.map((e) => HostedPluginResource.fromJson(e)).toList())!,
-  );
+  factory PublicEnvironmentResource.fromJson(Map<String, dynamic> json) =>
+      PublicEnvironmentResource(
+        type_: (json['type'] != null
+            ? EnvironmentTypeResource.fromJson(json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? PublicEnvironmentResourceObject.fromJson(json['object'] as String)
+            : null)!,
+        status: (json['status'] != null
+            ? EnvironmentStatusResource.fromJson(json['status'] as String)
+            : null)!,
+        files: ((json['files'] as List?)
+            ?.map((e) => HostedEnvironmentFileResource.fromJson(e))
+            .toList())!,
+        skills: ((json['skills'] as List?)
+            ?.map((e) => HostedSkillResource.fromJson(e))
+            .toList())!,
+        plugins: ((json['plugins'] as List?)
+            ?.map((e) => HostedPluginResource.fromJson(e))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'id': id,
-    'object': object.toJson(),
-    'status': status.toJson(),
-    'files': files.map((item) => item.toJson()).toList(),
-    'skills': skills.map((item) => item.toJson()).toList(),
-    'plugins': plugins.map((item) => item.toJson()).toList(),
-  };
+        'type': type_.toJson(),
+        'id': id,
+        'object': object.toJson(),
+        'status': status.toJson(),
+        'files': files.map((item) => item.toJson()).toList(),
+        'skills': skills.map((item) => item.toJson()).toList(),
+        'plugins': plugins.map((item) => item.toJson()).toList(),
+      };
 }

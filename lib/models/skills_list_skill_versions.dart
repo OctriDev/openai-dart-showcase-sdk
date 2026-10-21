@@ -8,42 +8,85 @@ part of 'skills.dart';
 class SkillVersionListResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of object returned, must be `list`.
   final SkillVersionListResourceObject object;
+
   /// A list of items
   final List<SkillVersionResource> data;
+
   /// Required `string` value serialized in the `first_id` wire field.
   final String? firstId;
+
   /// Required `string` value serialized in the `last_id` wire field.
   final String? lastId;
+
   /// Whether there are more items available.
   final bool hasMore;
 
-  const SkillVersionListResource({required this.object, required this.data, required this.firstId, required this.lastId, required this.hasMore});
+  const SkillVersionListResource(
+      {required this.object,
+      required this.data,
+      required this.firstId,
+      required this.lastId,
+      required this.hasMore});
 
-  SkillVersionListResource Function({SkillVersionListResourceObject object, List<SkillVersionResource> data, String? firstId, String? lastId, bool hasMore}) get copyWith => _copyWith;
+  SkillVersionListResource Function(
+      {SkillVersionListResourceObject object,
+      List<SkillVersionResource> data,
+      String? firstId,
+      String? lastId,
+      bool hasMore}) get copyWith => _copyWith;
 
-  SkillVersionListResource _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => SkillVersionListResource(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SkillVersionListResourceObject,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<SkillVersionResource>,
-    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String?,
-    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String?,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
-  );
+  SkillVersionListResource _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? firstId = sdkOmittedValue,
+          Object? lastId = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue}) =>
+      SkillVersionListResource(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SkillVersionListResourceObject,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<SkillVersionResource>,
+        firstId: identical(firstId, sdkOmittedValue)
+            ? this.firstId
+            : firstId as String?,
+        lastId: identical(lastId, sdkOmittedValue)
+            ? this.lastId
+            : lastId as String?,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as bool,
+      );
 
-  factory SkillVersionListResource.fromJson(Map<String, dynamic> json) => SkillVersionListResource(
-    object: (json['object'] != null ? SkillVersionListResourceObject.fromJson(json['object'] as String) : null)!,
-    data: ((json['data'] as List?)?.map((e) => SkillVersionResource.fromJson(e as Map<String, dynamic>)).toList())!,
-    firstId: json.containsKey('first_id') ? json['first_id'] as String? : throw ArgumentError.value(null, 'first_id', 'Required property is missing'),
-    lastId: json.containsKey('last_id') ? json['last_id'] as String? : throw ArgumentError.value(null, 'last_id', 'Required property is missing'),
-    hasMore: (json['has_more'] as bool?)!,
-  );
+  factory SkillVersionListResource.fromJson(Map<String, dynamic> json) =>
+      SkillVersionListResource(
+        object: (json['object'] != null
+            ? SkillVersionListResourceObject.fromJson(json['object'] as String)
+            : null)!,
+        data: ((json['data'] as List?)
+            ?.map(
+                (e) => SkillVersionResource.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        firstId: json.containsKey('first_id')
+            ? json['first_id'] as String?
+            : throw ArgumentError.value(
+                null, 'first_id', 'Required property is missing'),
+        lastId: json.containsKey('last_id')
+            ? json['last_id'] as String?
+            : throw ArgumentError.value(
+                null, 'last_id', 'Required property is missing'),
+        hasMore: (json['has_more'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'data': data.map((item) => item.toJson()).toList(),
-    'first_id': firstId,
-    'last_id': lastId,
-    'has_more': hasMore,
-  };
+        'object': object.toJson(),
+        'data': data.map((item) => item.toJson()).toList(),
+        'first_id': firstId,
+        'last_id': lastId,
+        'has_more': hasMore,
+      };
 }

@@ -10,32 +10,57 @@ sealed class AgentContentResource {
   const AgentContentResource();
   factory AgentContentResource.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = OutputTextResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentContentResourceOutputTextResource(value); } } catch (_) {}
-      try { final value = EncryptedContentResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentContentResourceEncryptedContentResource(value); } } catch (_) {}
+      try {
+        final value = OutputTextResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentContentResourceOutputTextResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = EncryptedContentResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentContentResourceEncryptedContentResource(value);
+        }
+      } catch (_) {}
     }
-    try { return AgentContentResourceOutputTextResource(OutputTextResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentContentResourceEncryptedContentResource(EncryptedContentResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"output_text", "encrypted_content"}.contains(json["type"])) { return UnknownAgentContentResource(json); }
+    try {
+      return AgentContentResourceOutputTextResource(
+          OutputTextResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentContentResourceEncryptedContentResource(
+          EncryptedContentResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"output_text", "encrypted_content"}.contains(json["type"])) {
+      return UnknownAgentContentResource(json);
+    }
     throw FormatException("No variant matched for AgentContentResource");
   }
   Object? toJson();
 }
 
-final class AgentContentResourceOutputTextResource extends AgentContentResource {
+final class AgentContentResourceOutputTextResource
+    extends AgentContentResource {
   final OutputTextResource value;
   const AgentContentResourceOutputTextResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentContentResourceEncryptedContentResource extends AgentContentResource {
+final class AgentContentResourceEncryptedContentResource
+    extends AgentContentResource {
   final EncryptedContentResource value;
   const AgentContentResourceEncryptedContentResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [AgentContentResource] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownAgentContentResource extends AgentContentResource {
   final Map<String, dynamic> raw;
   const UnknownAgentContentResource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

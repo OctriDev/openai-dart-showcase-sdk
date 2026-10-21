@@ -8,22 +8,30 @@ part of 'shared.dart';
 class ProgrammaticToolCallingParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the tool. Always `programmatic_tool_calling`.
   final ProgrammaticToolCallingParamType type_;
 
   const ProgrammaticToolCallingParam({required this.type_});
 
-  ProgrammaticToolCallingParam Function({ProgrammaticToolCallingParamType type_}) get copyWith => _copyWith;
+  ProgrammaticToolCallingParam Function(
+      {ProgrammaticToolCallingParamType type_}) get copyWith => _copyWith;
 
-  ProgrammaticToolCallingParam _copyWith({Object? type_ = sdkOmittedValue}) => ProgrammaticToolCallingParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ProgrammaticToolCallingParamType,
-  );
+  ProgrammaticToolCallingParam _copyWith({Object? type_ = sdkOmittedValue}) =>
+      ProgrammaticToolCallingParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ProgrammaticToolCallingParamType,
+      );
 
-  factory ProgrammaticToolCallingParam.fromJson(Map<String, dynamic> json) => ProgrammaticToolCallingParam(
-    type_: (json['type'] != null ? ProgrammaticToolCallingParamType.fromJson(json['type'] as String) : null)!,
-  );
+  factory ProgrammaticToolCallingParam.fromJson(Map<String, dynamic> json) =>
+      ProgrammaticToolCallingParam(
+        type_: (json['type'] != null
+            ? ProgrammaticToolCallingParamType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }

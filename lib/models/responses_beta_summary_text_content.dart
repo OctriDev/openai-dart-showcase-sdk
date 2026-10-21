@@ -8,27 +8,38 @@ part of 'responses_beta.dart';
 class BetaSummaryTextContent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `summary_text`.
   final BetaSummaryTextContentType type_;
+
   /// A summary of the reasoning output from the model so far.
   final String text;
 
   const BetaSummaryTextContent({required this.type_, required this.text});
 
-  BetaSummaryTextContent Function({BetaSummaryTextContentType type_, String text}) get copyWith => _copyWith;
+  BetaSummaryTextContent Function(
+      {BetaSummaryTextContentType type_,
+      String text}) get copyWith => _copyWith;
 
-  BetaSummaryTextContent _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => BetaSummaryTextContent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaSummaryTextContentType,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-  );
+  BetaSummaryTextContent _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
+      BetaSummaryTextContent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaSummaryTextContentType,
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+      );
 
-  factory BetaSummaryTextContent.fromJson(Map<String, dynamic> json) => BetaSummaryTextContent(
-    type_: (json['type'] != null ? BetaSummaryTextContentType.fromJson(json['type'] as String) : null)!,
-    text: (json['text'] as String?)!,
-  );
+  factory BetaSummaryTextContent.fromJson(Map<String, dynamic> json) =>
+      BetaSummaryTextContent(
+        type_: (json['type'] != null
+            ? BetaSummaryTextContentType.fromJson(json['type'] as String)
+            : null)!,
+        text: (json['text'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'text': text,
-  };
+        'type': type_.toJson(),
+        'text': text,
+      };
 }

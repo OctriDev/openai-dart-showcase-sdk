@@ -8,112 +8,190 @@ part of 'external_storage.dart';
 class AwsExternalStorageProviderParams {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final AwsExternalStorageProviderParamsType type_;
+
   /// Required `string` value serialized in the `bucket` wire field.
   final String bucket;
+
   /// Required `string` value serialized in the `role_arn` wire field.
   final String roleArn;
 
-  const AwsExternalStorageProviderParams({required this.type_, required this.bucket, required this.roleArn});
+  const AwsExternalStorageProviderParams(
+      {required this.type_, required this.bucket, required this.roleArn});
 
-  AwsExternalStorageProviderParams Function({AwsExternalStorageProviderParamsType type_, String bucket, String roleArn}) get copyWith => _copyWith;
+  AwsExternalStorageProviderParams Function(
+      {AwsExternalStorageProviderParamsType type_,
+      String bucket,
+      String roleArn}) get copyWith => _copyWith;
 
-  AwsExternalStorageProviderParams _copyWith({Object? type_ = sdkOmittedValue, Object? bucket = sdkOmittedValue, Object? roleArn = sdkOmittedValue}) => AwsExternalStorageProviderParams(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AwsExternalStorageProviderParamsType,
-    bucket: identical(bucket, sdkOmittedValue) ? this.bucket : bucket as String,
-    roleArn: identical(roleArn, sdkOmittedValue) ? this.roleArn : roleArn as String,
-  );
+  AwsExternalStorageProviderParams _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? bucket = sdkOmittedValue,
+          Object? roleArn = sdkOmittedValue}) =>
+      AwsExternalStorageProviderParams(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as AwsExternalStorageProviderParamsType,
+        bucket:
+            identical(bucket, sdkOmittedValue) ? this.bucket : bucket as String,
+        roleArn: identical(roleArn, sdkOmittedValue)
+            ? this.roleArn
+            : roleArn as String,
+      );
 
-  factory AwsExternalStorageProviderParams.fromJson(Map<String, dynamic> json) => AwsExternalStorageProviderParams(
-    type_: (json['type'] != null ? AwsExternalStorageProviderParamsType.fromJson(json['type'] as String) : null)!,
-    bucket: (json['bucket'] as String?)!,
-    roleArn: (json['role_arn'] as String?)!,
-  );
+  factory AwsExternalStorageProviderParams.fromJson(
+          Map<String, dynamic> json) =>
+      AwsExternalStorageProviderParams(
+        type_: (json['type'] != null
+            ? AwsExternalStorageProviderParamsType.fromJson(
+                json['type'] as String)
+            : null)!,
+        bucket: (json['bucket'] as String?)!,
+        roleArn: (json['role_arn'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'bucket': bucket,
-    'role_arn': roleArn,
-  };
+        'type': type_.toJson(),
+        'bucket': bucket,
+        'role_arn': roleArn,
+      };
 }
 
 /// Typed representation of the `AzureExternalStorageProviderParams` API schema.
 class AzureExternalStorageProviderParams {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final AzureExternalStorageProviderParamsType type_;
+
   /// Required `string` value serialized in the `tenant_id` wire field.
   final String tenantId;
+
   /// Required `string` value serialized in the `subscription_id` wire field.
   final String subscriptionId;
+
   /// Required `string` value serialized in the `resource_group` wire field.
   final String resourceGroup;
+
   /// Required `string` value serialized in the `account_name` wire field.
   final String accountName;
+
   /// Required `string` value serialized in the `container` wire field.
   final String container;
 
-  const AzureExternalStorageProviderParams({required this.type_, required this.tenantId, required this.subscriptionId, required this.resourceGroup, required this.accountName, required this.container});
+  const AzureExternalStorageProviderParams(
+      {required this.type_,
+      required this.tenantId,
+      required this.subscriptionId,
+      required this.resourceGroup,
+      required this.accountName,
+      required this.container});
 
-  AzureExternalStorageProviderParams Function({AzureExternalStorageProviderParamsType type_, String tenantId, String subscriptionId, String resourceGroup, String accountName, String container}) get copyWith => _copyWith;
+  AzureExternalStorageProviderParams Function(
+      {AzureExternalStorageProviderParamsType type_,
+      String tenantId,
+      String subscriptionId,
+      String resourceGroup,
+      String accountName,
+      String container}) get copyWith => _copyWith;
 
-  AzureExternalStorageProviderParams _copyWith({Object? type_ = sdkOmittedValue, Object? tenantId = sdkOmittedValue, Object? subscriptionId = sdkOmittedValue, Object? resourceGroup = sdkOmittedValue, Object? accountName = sdkOmittedValue, Object? container = sdkOmittedValue}) => AzureExternalStorageProviderParams(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AzureExternalStorageProviderParamsType,
-    tenantId: identical(tenantId, sdkOmittedValue) ? this.tenantId : tenantId as String,
-    subscriptionId: identical(subscriptionId, sdkOmittedValue) ? this.subscriptionId : subscriptionId as String,
-    resourceGroup: identical(resourceGroup, sdkOmittedValue) ? this.resourceGroup : resourceGroup as String,
-    accountName: identical(accountName, sdkOmittedValue) ? this.accountName : accountName as String,
-    container: identical(container, sdkOmittedValue) ? this.container : container as String,
-  );
+  AzureExternalStorageProviderParams _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? tenantId = sdkOmittedValue,
+          Object? subscriptionId = sdkOmittedValue,
+          Object? resourceGroup = sdkOmittedValue,
+          Object? accountName = sdkOmittedValue,
+          Object? container = sdkOmittedValue}) =>
+      AzureExternalStorageProviderParams(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as AzureExternalStorageProviderParamsType,
+        tenantId: identical(tenantId, sdkOmittedValue)
+            ? this.tenantId
+            : tenantId as String,
+        subscriptionId: identical(subscriptionId, sdkOmittedValue)
+            ? this.subscriptionId
+            : subscriptionId as String,
+        resourceGroup: identical(resourceGroup, sdkOmittedValue)
+            ? this.resourceGroup
+            : resourceGroup as String,
+        accountName: identical(accountName, sdkOmittedValue)
+            ? this.accountName
+            : accountName as String,
+        container: identical(container, sdkOmittedValue)
+            ? this.container
+            : container as String,
+      );
 
-  factory AzureExternalStorageProviderParams.fromJson(Map<String, dynamic> json) => AzureExternalStorageProviderParams(
-    type_: (json['type'] != null ? AzureExternalStorageProviderParamsType.fromJson(json['type'] as String) : null)!,
-    tenantId: (json['tenant_id'] as String?)!,
-    subscriptionId: (json['subscription_id'] as String?)!,
-    resourceGroup: (json['resource_group'] as String?)!,
-    accountName: (json['account_name'] as String?)!,
-    container: (json['container'] as String?)!,
-  );
+  factory AzureExternalStorageProviderParams.fromJson(
+          Map<String, dynamic> json) =>
+      AzureExternalStorageProviderParams(
+        type_: (json['type'] != null
+            ? AzureExternalStorageProviderParamsType.fromJson(
+                json['type'] as String)
+            : null)!,
+        tenantId: (json['tenant_id'] as String?)!,
+        subscriptionId: (json['subscription_id'] as String?)!,
+        resourceGroup: (json['resource_group'] as String?)!,
+        accountName: (json['account_name'] as String?)!,
+        container: (json['container'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'tenant_id': tenantId,
-    'subscription_id': subscriptionId,
-    'resource_group': resourceGroup,
-    'account_name': accountName,
-    'container': container,
-  };
+        'type': type_.toJson(),
+        'tenant_id': tenantId,
+        'subscription_id': subscriptionId,
+        'resource_group': resourceGroup,
+        'account_name': accountName,
+        'container': container,
+      };
 }
 
 /// Typed representation of the `CreateExternalStorageBody` API schema.
 class CreateExternalStorageBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required `string` value serialized in the `project_id` wire field.
   final String projectId;
+
   /// Required API value serialized in the `provider` wire field.
   final CreateExternalStorageBodyProvider provider;
 
-  const CreateExternalStorageBody({required this.projectId, required this.provider});
+  const CreateExternalStorageBody(
+      {required this.projectId, required this.provider});
 
-  CreateExternalStorageBody Function({String projectId, CreateExternalStorageBodyProvider provider}) get copyWith => _copyWith;
+  CreateExternalStorageBody Function(
+      {String projectId,
+      CreateExternalStorageBodyProvider provider}) get copyWith => _copyWith;
 
-  CreateExternalStorageBody _copyWith({Object? projectId = sdkOmittedValue, Object? provider = sdkOmittedValue}) => CreateExternalStorageBody(
-    projectId: identical(projectId, sdkOmittedValue) ? this.projectId : projectId as String,
-    provider: identical(provider, sdkOmittedValue) ? this.provider : provider as CreateExternalStorageBodyProvider,
-  );
+  CreateExternalStorageBody _copyWith(
+          {Object? projectId = sdkOmittedValue,
+          Object? provider = sdkOmittedValue}) =>
+      CreateExternalStorageBody(
+        projectId: identical(projectId, sdkOmittedValue)
+            ? this.projectId
+            : projectId as String,
+        provider: identical(provider, sdkOmittedValue)
+            ? this.provider
+            : provider as CreateExternalStorageBodyProvider,
+      );
 
-  factory CreateExternalStorageBody.fromJson(Map<String, dynamic> json) => CreateExternalStorageBody(
-    projectId: (json['project_id'] as String?)!,
-    provider: (json['provider'] != null ? CreateExternalStorageBodyProvider.fromJson(json['provider']) : null)!,
-  );
+  factory CreateExternalStorageBody.fromJson(Map<String, dynamic> json) =>
+      CreateExternalStorageBody(
+        projectId: (json['project_id'] as String?)!,
+        provider: (json['provider'] != null
+            ? CreateExternalStorageBodyProvider.fromJson(json['provider'])
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'project_id': projectId,
-    'provider': provider.toJson(),
-  };
+        'project_id': projectId,
+        'provider': provider.toJson(),
+      };
 }
 
 sealed class CreateExternalStorageBodyProvider {
@@ -122,131 +200,258 @@ sealed class CreateExternalStorageBodyProvider {
   const CreateExternalStorageBodyProvider();
   factory CreateExternalStorageBodyProvider.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = AwsExternalStorageProviderParams.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateExternalStorageBodyProviderAwsExternalStorageProviderParams(value); } } catch (_) {}
-      try { final value = AzureExternalStorageProviderParams.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateExternalStorageBodyProviderAzureExternalStorageProviderParams(value); } } catch (_) {}
-      try { final value = GcpExternalStorageProviderParams.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateExternalStorageBodyProviderGcpExternalStorageProviderParams(value); } } catch (_) {}
-      try { final value = OciExternalStorageProviderParams.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateExternalStorageBodyProviderOciExternalStorageProviderParams(value); } } catch (_) {}
+      try {
+        final value = AwsExternalStorageProviderParams.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateExternalStorageBodyProviderAwsExternalStorageProviderParams(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = AzureExternalStorageProviderParams.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateExternalStorageBodyProviderAzureExternalStorageProviderParams(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = GcpExternalStorageProviderParams.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateExternalStorageBodyProviderGcpExternalStorageProviderParams(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = OciExternalStorageProviderParams.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateExternalStorageBodyProviderOciExternalStorageProviderParams(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return CreateExternalStorageBodyProviderAwsExternalStorageProviderParams(AwsExternalStorageProviderParams.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateExternalStorageBodyProviderAzureExternalStorageProviderParams(AzureExternalStorageProviderParams.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateExternalStorageBodyProviderGcpExternalStorageProviderParams(GcpExternalStorageProviderParams.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateExternalStorageBodyProviderOciExternalStorageProviderParams(OciExternalStorageProviderParams.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"aws", "azure", "gcp", "oci"}.contains(json["type"])) { return UnknownCreateExternalStorageBodyProvider(json); }
-    throw FormatException("No variant matched for CreateExternalStorageBodyProvider");
+    try {
+      return CreateExternalStorageBodyProviderAwsExternalStorageProviderParams(
+          AwsExternalStorageProviderParams.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateExternalStorageBodyProviderAzureExternalStorageProviderParams(
+          AzureExternalStorageProviderParams.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateExternalStorageBodyProviderGcpExternalStorageProviderParams(
+          GcpExternalStorageProviderParams.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateExternalStorageBodyProviderOciExternalStorageProviderParams(
+          OciExternalStorageProviderParams.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"aws", "azure", "gcp", "oci"}.contains(json["type"])) {
+      return UnknownCreateExternalStorageBodyProvider(json);
+    }
+    throw FormatException(
+        "No variant matched for CreateExternalStorageBodyProvider");
   }
   Object? toJson();
 }
 
-final class CreateExternalStorageBodyProviderAwsExternalStorageProviderParams extends CreateExternalStorageBodyProvider {
+final class CreateExternalStorageBodyProviderAwsExternalStorageProviderParams
+    extends CreateExternalStorageBodyProvider {
   final AwsExternalStorageProviderParams value;
-  const CreateExternalStorageBodyProviderAwsExternalStorageProviderParams(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateExternalStorageBodyProviderAwsExternalStorageProviderParams(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateExternalStorageBodyProviderAzureExternalStorageProviderParams extends CreateExternalStorageBodyProvider {
+final class CreateExternalStorageBodyProviderAzureExternalStorageProviderParams
+    extends CreateExternalStorageBodyProvider {
   final AzureExternalStorageProviderParams value;
-  const CreateExternalStorageBodyProviderAzureExternalStorageProviderParams(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateExternalStorageBodyProviderAzureExternalStorageProviderParams(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateExternalStorageBodyProviderGcpExternalStorageProviderParams extends CreateExternalStorageBodyProvider {
+final class CreateExternalStorageBodyProviderGcpExternalStorageProviderParams
+    extends CreateExternalStorageBodyProvider {
   final GcpExternalStorageProviderParams value;
-  const CreateExternalStorageBodyProviderGcpExternalStorageProviderParams(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateExternalStorageBodyProviderGcpExternalStorageProviderParams(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateExternalStorageBodyProviderOciExternalStorageProviderParams extends CreateExternalStorageBodyProvider {
+final class CreateExternalStorageBodyProviderOciExternalStorageProviderParams
+    extends CreateExternalStorageBodyProvider {
   final OciExternalStorageProviderParams value;
-  const CreateExternalStorageBodyProviderOciExternalStorageProviderParams(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateExternalStorageBodyProviderOciExternalStorageProviderParams(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [CreateExternalStorageBodyProvider] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownCreateExternalStorageBodyProvider extends CreateExternalStorageBodyProvider {
+final class UnknownCreateExternalStorageBodyProvider
+    extends CreateExternalStorageBodyProvider {
   final Map<String, dynamic> raw;
   const UnknownCreateExternalStorageBodyProvider(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
 
 /// Typed representation of the `GcpExternalStorageProviderParams` API schema.
 class GcpExternalStorageProviderParams {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final GcpExternalStorageProviderParamsType type_;
+
   /// Required `string` value serialized in the `bucket` wire field.
   final String bucket;
+
   /// Required `string` value serialized in the `workload_identity_project_number` wire field.
   final String workloadIdentityProjectNumber;
+
   /// Required `string` value serialized in the `workload_identity_pool_id` wire field.
   final String workloadIdentityPoolId;
+
   /// Required `string` value serialized in the `workload_identity_provider_id` wire field.
   final String workloadIdentityProviderId;
 
-  const GcpExternalStorageProviderParams({required this.type_, required this.bucket, required this.workloadIdentityProjectNumber, required this.workloadIdentityPoolId, required this.workloadIdentityProviderId});
+  const GcpExternalStorageProviderParams(
+      {required this.type_,
+      required this.bucket,
+      required this.workloadIdentityProjectNumber,
+      required this.workloadIdentityPoolId,
+      required this.workloadIdentityProviderId});
 
-  GcpExternalStorageProviderParams Function({GcpExternalStorageProviderParamsType type_, String bucket, String workloadIdentityProjectNumber, String workloadIdentityPoolId, String workloadIdentityProviderId}) get copyWith => _copyWith;
+  GcpExternalStorageProviderParams Function(
+      {GcpExternalStorageProviderParamsType type_,
+      String bucket,
+      String workloadIdentityProjectNumber,
+      String workloadIdentityPoolId,
+      String workloadIdentityProviderId}) get copyWith => _copyWith;
 
-  GcpExternalStorageProviderParams _copyWith({Object? type_ = sdkOmittedValue, Object? bucket = sdkOmittedValue, Object? workloadIdentityProjectNumber = sdkOmittedValue, Object? workloadIdentityPoolId = sdkOmittedValue, Object? workloadIdentityProviderId = sdkOmittedValue}) => GcpExternalStorageProviderParams(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as GcpExternalStorageProviderParamsType,
-    bucket: identical(bucket, sdkOmittedValue) ? this.bucket : bucket as String,
-    workloadIdentityProjectNumber: identical(workloadIdentityProjectNumber, sdkOmittedValue) ? this.workloadIdentityProjectNumber : workloadIdentityProjectNumber as String,
-    workloadIdentityPoolId: identical(workloadIdentityPoolId, sdkOmittedValue) ? this.workloadIdentityPoolId : workloadIdentityPoolId as String,
-    workloadIdentityProviderId: identical(workloadIdentityProviderId, sdkOmittedValue) ? this.workloadIdentityProviderId : workloadIdentityProviderId as String,
-  );
+  GcpExternalStorageProviderParams _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? bucket = sdkOmittedValue,
+          Object? workloadIdentityProjectNumber = sdkOmittedValue,
+          Object? workloadIdentityPoolId = sdkOmittedValue,
+          Object? workloadIdentityProviderId = sdkOmittedValue}) =>
+      GcpExternalStorageProviderParams(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as GcpExternalStorageProviderParamsType,
+        bucket:
+            identical(bucket, sdkOmittedValue) ? this.bucket : bucket as String,
+        workloadIdentityProjectNumber:
+            identical(workloadIdentityProjectNumber, sdkOmittedValue)
+                ? this.workloadIdentityProjectNumber
+                : workloadIdentityProjectNumber as String,
+        workloadIdentityPoolId:
+            identical(workloadIdentityPoolId, sdkOmittedValue)
+                ? this.workloadIdentityPoolId
+                : workloadIdentityPoolId as String,
+        workloadIdentityProviderId:
+            identical(workloadIdentityProviderId, sdkOmittedValue)
+                ? this.workloadIdentityProviderId
+                : workloadIdentityProviderId as String,
+      );
 
-  factory GcpExternalStorageProviderParams.fromJson(Map<String, dynamic> json) => GcpExternalStorageProviderParams(
-    type_: (json['type'] != null ? GcpExternalStorageProviderParamsType.fromJson(json['type'] as String) : null)!,
-    bucket: (json['bucket'] as String?)!,
-    workloadIdentityProjectNumber: (json['workload_identity_project_number'] as String?)!,
-    workloadIdentityPoolId: (json['workload_identity_pool_id'] as String?)!,
-    workloadIdentityProviderId: (json['workload_identity_provider_id'] as String?)!,
-  );
+  factory GcpExternalStorageProviderParams.fromJson(
+          Map<String, dynamic> json) =>
+      GcpExternalStorageProviderParams(
+        type_: (json['type'] != null
+            ? GcpExternalStorageProviderParamsType.fromJson(
+                json['type'] as String)
+            : null)!,
+        bucket: (json['bucket'] as String?)!,
+        workloadIdentityProjectNumber:
+            (json['workload_identity_project_number'] as String?)!,
+        workloadIdentityPoolId: (json['workload_identity_pool_id'] as String?)!,
+        workloadIdentityProviderId:
+            (json['workload_identity_provider_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'bucket': bucket,
-    'workload_identity_project_number': workloadIdentityProjectNumber,
-    'workload_identity_pool_id': workloadIdentityPoolId,
-    'workload_identity_provider_id': workloadIdentityProviderId,
-  };
+        'type': type_.toJson(),
+        'bucket': bucket,
+        'workload_identity_project_number': workloadIdentityProjectNumber,
+        'workload_identity_pool_id': workloadIdentityPoolId,
+        'workload_identity_provider_id': workloadIdentityProviderId,
+      };
 }
 
 /// Typed representation of the `OciExternalStorageProviderParams` API schema.
 class OciExternalStorageProviderParams {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final OciExternalStorageProviderParamsType type_;
+
   /// Required `string` value serialized in the `tenancy_ocid` wire field.
   final String tenancyOcid;
+
   /// Required `string` value serialized in the `region` wire field.
   final String region;
+
   /// Required `string` value serialized in the `bucket` wire field.
   final String bucket;
 
-  const OciExternalStorageProviderParams({required this.type_, required this.tenancyOcid, required this.region, required this.bucket});
+  const OciExternalStorageProviderParams(
+      {required this.type_,
+      required this.tenancyOcid,
+      required this.region,
+      required this.bucket});
 
-  OciExternalStorageProviderParams Function({OciExternalStorageProviderParamsType type_, String tenancyOcid, String region, String bucket}) get copyWith => _copyWith;
+  OciExternalStorageProviderParams Function(
+      {OciExternalStorageProviderParamsType type_,
+      String tenancyOcid,
+      String region,
+      String bucket}) get copyWith => _copyWith;
 
-  OciExternalStorageProviderParams _copyWith({Object? type_ = sdkOmittedValue, Object? tenancyOcid = sdkOmittedValue, Object? region = sdkOmittedValue, Object? bucket = sdkOmittedValue}) => OciExternalStorageProviderParams(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as OciExternalStorageProviderParamsType,
-    tenancyOcid: identical(tenancyOcid, sdkOmittedValue) ? this.tenancyOcid : tenancyOcid as String,
-    region: identical(region, sdkOmittedValue) ? this.region : region as String,
-    bucket: identical(bucket, sdkOmittedValue) ? this.bucket : bucket as String,
-  );
+  OciExternalStorageProviderParams _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? tenancyOcid = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? bucket = sdkOmittedValue}) =>
+      OciExternalStorageProviderParams(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as OciExternalStorageProviderParamsType,
+        tenancyOcid: identical(tenancyOcid, sdkOmittedValue)
+            ? this.tenancyOcid
+            : tenancyOcid as String,
+        region:
+            identical(region, sdkOmittedValue) ? this.region : region as String,
+        bucket:
+            identical(bucket, sdkOmittedValue) ? this.bucket : bucket as String,
+      );
 
-  factory OciExternalStorageProviderParams.fromJson(Map<String, dynamic> json) => OciExternalStorageProviderParams(
-    type_: (json['type'] != null ? OciExternalStorageProviderParamsType.fromJson(json['type'] as String) : null)!,
-    tenancyOcid: (json['tenancy_ocid'] as String?)!,
-    region: (json['region'] as String?)!,
-    bucket: (json['bucket'] as String?)!,
-  );
+  factory OciExternalStorageProviderParams.fromJson(
+          Map<String, dynamic> json) =>
+      OciExternalStorageProviderParams(
+        type_: (json['type'] != null
+            ? OciExternalStorageProviderParamsType.fromJson(
+                json['type'] as String)
+            : null)!,
+        tenancyOcid: (json['tenancy_ocid'] as String?)!,
+        region: (json['region'] as String?)!,
+        bucket: (json['bucket'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'tenancy_ocid': tenancyOcid,
-    'region': region,
-    'bucket': bucket,
-  };
+        'type': type_.toJson(),
+        'tenancy_ocid': tenancyOcid,
+        'region': region,
+        'bucket': bucket,
+      };
 }

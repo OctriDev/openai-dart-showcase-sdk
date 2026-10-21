@@ -8,165 +8,317 @@ sealed class CreateCompletionResponseChoicesItemFinishReason {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   const CreateCompletionResponseChoicesItemFinishReason();
-  factory CreateCompletionResponseChoicesItemFinishReason.fromJson(Object? json) {
-    try { return CreateCompletionResponseChoicesItemFinishReasonCreateCompletionResponseChoicesItemFinishReasonVariant0(CreateCompletionResponseChoicesItemFinishReasonVariant0.fromJson(json as String)); } catch (_) {}
-    throw FormatException("No variant matched for CreateCompletionResponseChoicesItemFinishReason");
+  factory CreateCompletionResponseChoicesItemFinishReason.fromJson(
+      Object? json) {
+    try {
+      return CreateCompletionResponseChoicesItemFinishReasonCreateCompletionResponseChoicesItemFinishReasonVariant0(
+          CreateCompletionResponseChoicesItemFinishReasonVariant0.fromJson(
+              json as String));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for CreateCompletionResponseChoicesItemFinishReason");
   }
   Object? toJson();
 }
 
-final class CreateCompletionResponseChoicesItemFinishReasonCreateCompletionResponseChoicesItemFinishReasonVariant0 extends CreateCompletionResponseChoicesItemFinishReason {
+final class CreateCompletionResponseChoicesItemFinishReasonCreateCompletionResponseChoicesItemFinishReasonVariant0
+    extends CreateCompletionResponseChoicesItemFinishReason {
   final CreateCompletionResponseChoicesItemFinishReasonVariant0 value;
-  const CreateCompletionResponseChoicesItemFinishReasonCreateCompletionResponseChoicesItemFinishReasonVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateCompletionResponseChoicesItemFinishReasonCreateCompletionResponseChoicesItemFinishReasonVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// Required object value serialized in the `logprobs` wire field.
 class CreateCompletionResponseChoicesItemLogprobs {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `text_offset` wire field.
   final SdkOptional<List<int>> textOffset;
+
   /// Optional array value serialized in the `token_logprobs` wire field.
   final SdkOptional<List<double>> tokenLogprobs;
+
   /// Optional array value serialized in the `tokens` wire field.
   final SdkOptional<List<String>> tokens;
+
   /// Optional array value serialized in the `top_logprobs` wire field.
   final SdkOptional<List<Map<String, double>>> topLogprobs;
 
-  const CreateCompletionResponseChoicesItemLogprobs({this.textOffset = const SdkOmitted(), this.tokenLogprobs = const SdkOmitted(), this.tokens = const SdkOmitted(), this.topLogprobs = const SdkOmitted()});
+  const CreateCompletionResponseChoicesItemLogprobs(
+      {this.textOffset = const SdkOmitted(),
+      this.tokenLogprobs = const SdkOmitted(),
+      this.tokens = const SdkOmitted(),
+      this.topLogprobs = const SdkOmitted()});
 
-  CreateCompletionResponseChoicesItemLogprobs Function({SdkOptional<List<int>> textOffset, SdkOptional<List<double>> tokenLogprobs, SdkOptional<List<String>> tokens, SdkOptional<List<Map<String, double>>> topLogprobs}) get copyWith => _copyWith;
+  CreateCompletionResponseChoicesItemLogprobs Function(
+          {SdkOptional<List<int>> textOffset,
+          SdkOptional<List<double>> tokenLogprobs,
+          SdkOptional<List<String>> tokens,
+          SdkOptional<List<Map<String, double>>> topLogprobs})
+      get copyWith => _copyWith;
 
-  CreateCompletionResponseChoicesItemLogprobs _copyWith({Object? textOffset = sdkOmittedValue, Object? tokenLogprobs = sdkOmittedValue, Object? tokens = sdkOmittedValue, Object? topLogprobs = sdkOmittedValue}) => CreateCompletionResponseChoicesItemLogprobs(
-    textOffset: identical(textOffset, sdkOmittedValue) ? this.textOffset : textOffset as SdkOptional<List<int>>,
-    tokenLogprobs: identical(tokenLogprobs, sdkOmittedValue) ? this.tokenLogprobs : tokenLogprobs as SdkOptional<List<double>>,
-    tokens: identical(tokens, sdkOmittedValue) ? this.tokens : tokens as SdkOptional<List<String>>,
-    topLogprobs: identical(topLogprobs, sdkOmittedValue) ? this.topLogprobs : topLogprobs as SdkOptional<List<Map<String, double>>>,
-  );
+  CreateCompletionResponseChoicesItemLogprobs _copyWith(
+          {Object? textOffset = sdkOmittedValue,
+          Object? tokenLogprobs = sdkOmittedValue,
+          Object? tokens = sdkOmittedValue,
+          Object? topLogprobs = sdkOmittedValue}) =>
+      CreateCompletionResponseChoicesItemLogprobs(
+        textOffset: identical(textOffset, sdkOmittedValue)
+            ? this.textOffset
+            : textOffset as SdkOptional<List<int>>,
+        tokenLogprobs: identical(tokenLogprobs, sdkOmittedValue)
+            ? this.tokenLogprobs
+            : tokenLogprobs as SdkOptional<List<double>>,
+        tokens: identical(tokens, sdkOmittedValue)
+            ? this.tokens
+            : tokens as SdkOptional<List<String>>,
+        topLogprobs: identical(topLogprobs, sdkOmittedValue)
+            ? this.topLogprobs
+            : topLogprobs as SdkOptional<List<Map<String, double>>>,
+      );
 
-  factory CreateCompletionResponseChoicesItemLogprobs.fromJson(Map<String, dynamic> json) => CreateCompletionResponseChoicesItemLogprobs(
-    textOffset: json['text_offset'] != null ? SdkPresent(((json['text_offset'] as List?)?.map((e) => (e as num).toInt()).toList())!) : const SdkOmitted(),
-    tokenLogprobs: json['token_logprobs'] != null ? SdkPresent(((json['token_logprobs'] as List?)?.map((e) => (e as num).toDouble()).toList())!) : const SdkOmitted(),
-    tokens: json['tokens'] != null ? SdkPresent(((json['tokens'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    topLogprobs: json['top_logprobs'] != null ? SdkPresent(((json['top_logprobs'] as List?)?.map((e) => Map<String, dynamic>.from(e as Map).map((key, value) => MapEntry(key, (value as num).toDouble()))).toList())!) : const SdkOmitted(),
-  );
+  factory CreateCompletionResponseChoicesItemLogprobs.fromJson(
+          Map<String, dynamic> json) =>
+      CreateCompletionResponseChoicesItemLogprobs(
+        textOffset: json['text_offset'] != null
+            ? SdkPresent(((json['text_offset'] as List?)
+                ?.map((e) => (e as num).toInt())
+                .toList())!)
+            : const SdkOmitted(),
+        tokenLogprobs: json['token_logprobs'] != null
+            ? SdkPresent(((json['token_logprobs'] as List?)
+                ?.map((e) => (e as num).toDouble())
+                .toList())!)
+            : const SdkOmitted(),
+        tokens: json['tokens'] != null
+            ? SdkPresent(
+                ((json['tokens'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        topLogprobs: json['top_logprobs'] != null
+            ? SdkPresent(((json['top_logprobs'] as List?)
+                ?.map((e) => Map<String, dynamic>.from(e as Map).map(
+                    (key, value) => MapEntry(key, (value as num).toDouble())))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (textOffset) {
-      SdkPresent<List<int>>(value: final value) => {'text_offset': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tokenLogprobs) {
-      SdkPresent<List<double>>(value: final value) => {'token_logprobs': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tokens) {
-      SdkPresent<List<String>>(value: final value) => {'tokens': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (topLogprobs) {
-      SdkPresent<List<Map<String, double>>>(value: final value) => {'top_logprobs': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (textOffset) {
+          SdkPresent<List<int>>(value: final value) => {
+              'text_offset': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tokenLogprobs) {
+          SdkPresent<List<double>>(value: final value) => {
+              'token_logprobs': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tokens) {
+          SdkPresent<List<String>>(value: final value) => {
+              'tokens': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (topLogprobs) {
+          SdkPresent<List<Map<String, double>>>(value: final value) => {
+              'top_logprobs': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Required object value serialized in the `choices[]` wire field.
 class CreateCompletionResponseChoicesItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The reason the model stopped generating tokens. This will be `stop` if the model hit a natural stop point or a provided stop sequence, `length` if the maximum number of tokens specified in the request was reached, or `content_filter` if content was omitted due to a flag from our content filters. The value is null while a streamed completion is unfinished.
   final CreateCompletionResponseChoicesItemFinishReasonVariant0? finishReason;
+
   /// Required `integer` value serialized in the `index` wire field.
   final int index;
+
   /// Required object value serialized in the `logprobs` wire field.
   final CreateCompletionResponseChoicesItemLogprobs? logprobs;
+
   /// Required `string` value serialized in the `text` wire field.
   final String text;
 
-  const CreateCompletionResponseChoicesItem({required this.finishReason, required this.index, required this.logprobs, required this.text});
+  const CreateCompletionResponseChoicesItem(
+      {required this.finishReason,
+      required this.index,
+      required this.logprobs,
+      required this.text});
 
-  CreateCompletionResponseChoicesItem Function({CreateCompletionResponseChoicesItemFinishReasonVariant0? finishReason, int index, CreateCompletionResponseChoicesItemLogprobs? logprobs, String text}) get copyWith => _copyWith;
+  CreateCompletionResponseChoicesItem Function(
+      {CreateCompletionResponseChoicesItemFinishReasonVariant0? finishReason,
+      int index,
+      CreateCompletionResponseChoicesItemLogprobs? logprobs,
+      String text}) get copyWith => _copyWith;
 
-  CreateCompletionResponseChoicesItem _copyWith({Object? finishReason = sdkOmittedValue, Object? index = sdkOmittedValue, Object? logprobs = sdkOmittedValue, Object? text = sdkOmittedValue}) => CreateCompletionResponseChoicesItem(
-    finishReason: identical(finishReason, sdkOmittedValue) ? this.finishReason : finishReason as CreateCompletionResponseChoicesItemFinishReasonVariant0?,
-    index: identical(index, sdkOmittedValue) ? this.index : index as int,
-    logprobs: identical(logprobs, sdkOmittedValue) ? this.logprobs : logprobs as CreateCompletionResponseChoicesItemLogprobs?,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-  );
+  CreateCompletionResponseChoicesItem _copyWith(
+          {Object? finishReason = sdkOmittedValue,
+          Object? index = sdkOmittedValue,
+          Object? logprobs = sdkOmittedValue,
+          Object? text = sdkOmittedValue}) =>
+      CreateCompletionResponseChoicesItem(
+        finishReason: identical(finishReason, sdkOmittedValue)
+            ? this.finishReason
+            : finishReason
+                as CreateCompletionResponseChoicesItemFinishReasonVariant0?,
+        index: identical(index, sdkOmittedValue) ? this.index : index as int,
+        logprobs: identical(logprobs, sdkOmittedValue)
+            ? this.logprobs
+            : logprobs as CreateCompletionResponseChoicesItemLogprobs?,
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+      );
 
-  factory CreateCompletionResponseChoicesItem.fromJson(Map<String, dynamic> json) => CreateCompletionResponseChoicesItem(
-    finishReason: json.containsKey('finish_reason') ? json['finish_reason'] != null ? CreateCompletionResponseChoicesItemFinishReasonVariant0.fromJson(json['finish_reason'] as String) : null : throw ArgumentError.value(null, 'finish_reason', 'Required property is missing'),
-    index: ((json['index'] as num?)?.toInt())!,
-    logprobs: json.containsKey('logprobs') ? json['logprobs'] != null ? CreateCompletionResponseChoicesItemLogprobs.fromJson(json['logprobs'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'logprobs', 'Required property is missing'),
-    text: (json['text'] as String?)!,
-  );
+  factory CreateCompletionResponseChoicesItem.fromJson(
+          Map<String, dynamic> json) =>
+      CreateCompletionResponseChoicesItem(
+        finishReason: json.containsKey('finish_reason')
+            ? json['finish_reason'] != null
+                ? CreateCompletionResponseChoicesItemFinishReasonVariant0
+                    .fromJson(json['finish_reason'] as String)
+                : null
+            : throw ArgumentError.value(
+                null, 'finish_reason', 'Required property is missing'),
+        index: ((json['index'] as num?)?.toInt())!,
+        logprobs: json.containsKey('logprobs')
+            ? json['logprobs'] != null
+                ? CreateCompletionResponseChoicesItemLogprobs.fromJson(
+                    json['logprobs'] as Map<String, dynamic>)
+                : null
+            : throw ArgumentError.value(
+                null, 'logprobs', 'Required property is missing'),
+        text: (json['text'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'finish_reason': finishReason?.toJson(),
-    'index': index,
-    'logprobs': logprobs?.toJson(),
-    'text': text,
-  };
+        'finish_reason': finishReason?.toJson(),
+        'index': index,
+        'logprobs': logprobs?.toJson(),
+        'text': text,
+      };
 }
 
 /// Represents a completion response from the API. Note: both the streamed and non-streamed response objects share the same shape (unlike the chat endpoint).
 class CreateCompletionResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A unique identifier for the completion.
   final String id;
+
   /// The list of completion choices the model generated for the input prompt.
   final List<CreateCompletionResponseChoicesItem> choices;
+
   /// The Unix timestamp (in seconds) of when the completion was created.
   final int created;
+
   /// The model used for completion.
   final String model;
+
   /// This fingerprint represents the backend configuration that the model runs with. Can be used in conjunction with the `seed` request parameter to understand when backend changes have been made that might impact determinism.
   final SdkOptional<String> systemFingerprint;
+
   /// The object type, which is always "text_completion"
   final CreateCompletionResponseObject object;
+
   /// Usage statistics for the completion request.
   final SdkOptional<CompletionUsage> usage;
 
-  const CreateCompletionResponse({required this.id, required this.choices, required this.created, required this.model, this.systemFingerprint = const SdkOmitted(), required this.object, this.usage = const SdkOmitted()});
+  const CreateCompletionResponse(
+      {required this.id,
+      required this.choices,
+      required this.created,
+      required this.model,
+      this.systemFingerprint = const SdkOmitted(),
+      required this.object,
+      this.usage = const SdkOmitted()});
 
-  CreateCompletionResponse Function({String id, List<CreateCompletionResponseChoicesItem> choices, int created, String model, SdkOptional<String> systemFingerprint, CreateCompletionResponseObject object, SdkOptional<CompletionUsage> usage}) get copyWith => _copyWith;
+  CreateCompletionResponse Function(
+      {String id,
+      List<CreateCompletionResponseChoicesItem> choices,
+      int created,
+      String model,
+      SdkOptional<String> systemFingerprint,
+      CreateCompletionResponseObject object,
+      SdkOptional<CompletionUsage> usage}) get copyWith => _copyWith;
 
-  CreateCompletionResponse _copyWith({Object? id = sdkOmittedValue, Object? choices = sdkOmittedValue, Object? created = sdkOmittedValue, Object? model = sdkOmittedValue, Object? systemFingerprint = sdkOmittedValue, Object? object = sdkOmittedValue, Object? usage = sdkOmittedValue}) => CreateCompletionResponse(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    choices: identical(choices, sdkOmittedValue) ? this.choices : choices as List<CreateCompletionResponseChoicesItem>,
-    created: identical(created, sdkOmittedValue) ? this.created : created as int,
-    model: identical(model, sdkOmittedValue) ? this.model : model as String,
-    systemFingerprint: identical(systemFingerprint, sdkOmittedValue) ? this.systemFingerprint : systemFingerprint as SdkOptional<String>,
-    object: identical(object, sdkOmittedValue) ? this.object : object as CreateCompletionResponseObject,
-    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as SdkOptional<CompletionUsage>,
-  );
+  CreateCompletionResponse _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? choices = sdkOmittedValue,
+          Object? created = sdkOmittedValue,
+          Object? model = sdkOmittedValue,
+          Object? systemFingerprint = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? usage = sdkOmittedValue}) =>
+      CreateCompletionResponse(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        choices: identical(choices, sdkOmittedValue)
+            ? this.choices
+            : choices as List<CreateCompletionResponseChoicesItem>,
+        created:
+            identical(created, sdkOmittedValue) ? this.created : created as int,
+        model: identical(model, sdkOmittedValue) ? this.model : model as String,
+        systemFingerprint: identical(systemFingerprint, sdkOmittedValue)
+            ? this.systemFingerprint
+            : systemFingerprint as SdkOptional<String>,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as CreateCompletionResponseObject,
+        usage: identical(usage, sdkOmittedValue)
+            ? this.usage
+            : usage as SdkOptional<CompletionUsage>,
+      );
 
-  factory CreateCompletionResponse.fromJson(Map<String, dynamic> json) => CreateCompletionResponse(
-    id: (json['id'] as String?)!,
-    choices: ((json['choices'] as List?)?.map((e) => CreateCompletionResponseChoicesItem.fromJson(e as Map<String, dynamic>)).toList())!,
-    created: ((json['created'] as num?)?.toInt())!,
-    model: (json['model'] as String?)!,
-    systemFingerprint: json['system_fingerprint'] != null ? SdkPresent((json['system_fingerprint'] as String?)!) : const SdkOmitted(),
-    object: (json['object'] != null ? CreateCompletionResponseObject.fromJson(json['object'] as String) : null)!,
-    usage: json['usage'] != null ? SdkPresent((json['usage'] != null ? CompletionUsage.fromJson(json['usage'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory CreateCompletionResponse.fromJson(Map<String, dynamic> json) =>
+      CreateCompletionResponse(
+        id: (json['id'] as String?)!,
+        choices: ((json['choices'] as List?)
+            ?.map((e) => CreateCompletionResponseChoicesItem.fromJson(
+                e as Map<String, dynamic>))
+            .toList())!,
+        created: ((json['created'] as num?)?.toInt())!,
+        model: (json['model'] as String?)!,
+        systemFingerprint: json['system_fingerprint'] != null
+            ? SdkPresent((json['system_fingerprint'] as String?)!)
+            : const SdkOmitted(),
+        object: (json['object'] != null
+            ? CreateCompletionResponseObject.fromJson(json['object'] as String)
+            : null)!,
+        usage: json['usage'] != null
+            ? SdkPresent((json['usage'] != null
+                ? CompletionUsage.fromJson(
+                    json['usage'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'choices': choices.map((item) => item.toJson()).toList(),
-    'created': created,
-    'model': model,
-    ...switch (systemFingerprint) {
-      SdkPresent<String>(value: final value) => {'system_fingerprint': value,},
-      _ => const <String, dynamic>{},
-    },
-    'object': object.toJson(),
-    ...switch (usage) {
-      SdkPresent<CompletionUsage>(value: final value) => {'usage': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'id': id,
+        'choices': choices.map((item) => item.toJson()).toList(),
+        'created': created,
+        'model': model,
+        ...switch (systemFingerprint) {
+          SdkPresent<String>(value: final value) => {
+              'system_fingerprint': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'object': object.toJson(),
+        ...switch (usage) {
+          SdkPresent<CompletionUsage>(value: final value) => {
+              'usage': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

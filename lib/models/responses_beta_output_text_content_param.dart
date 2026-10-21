@@ -8,35 +8,68 @@ part of 'responses_beta_output.dart';
 class BetaOutputTextContentParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The content type. Always `output_text`.
   final BetaOutputTextContentParamType type_;
+
   /// The text content.
   final String text;
+
   /// Citations associated with the text content.
-  final SdkOptional<List<BetaOutputTextContentParamAnnotationsItem>> annotations;
+  final SdkOptional<List<BetaOutputTextContentParamAnnotationsItem>>
+      annotations;
 
-  const BetaOutputTextContentParam({required this.type_, required this.text, this.annotations = const SdkOmitted()});
+  const BetaOutputTextContentParam(
+      {required this.type_,
+      required this.text,
+      this.annotations = const SdkOmitted()});
 
-  BetaOutputTextContentParam Function({BetaOutputTextContentParamType type_, String text, SdkOptional<List<BetaOutputTextContentParamAnnotationsItem>> annotations}) get copyWith => _copyWith;
+  BetaOutputTextContentParam Function(
+      {BetaOutputTextContentParamType type_,
+      String text,
+      SdkOptional<List<BetaOutputTextContentParamAnnotationsItem>>
+          annotations}) get copyWith => _copyWith;
 
-  BetaOutputTextContentParam _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue, Object? annotations = sdkOmittedValue}) => BetaOutputTextContentParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaOutputTextContentParamType,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-    annotations: identical(annotations, sdkOmittedValue) ? this.annotations : annotations as SdkOptional<List<BetaOutputTextContentParamAnnotationsItem>>,
-  );
+  BetaOutputTextContentParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? text = sdkOmittedValue,
+          Object? annotations = sdkOmittedValue}) =>
+      BetaOutputTextContentParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaOutputTextContentParamType,
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+        annotations: identical(annotations, sdkOmittedValue)
+            ? this.annotations
+            : annotations
+                as SdkOptional<List<BetaOutputTextContentParamAnnotationsItem>>,
+      );
 
-  factory BetaOutputTextContentParam.fromJson(Map<String, dynamic> json) => BetaOutputTextContentParam(
-    type_: (json['type'] != null ? BetaOutputTextContentParamType.fromJson(json['type'] as String) : null)!,
-    text: (json['text'] as String?)!,
-    annotations: json['annotations'] != null ? SdkPresent(((json['annotations'] as List?)?.map((e) => BetaOutputTextContentParamAnnotationsItem.fromJson(e)).toList())!) : const SdkOmitted(),
-  );
+  factory BetaOutputTextContentParam.fromJson(Map<String, dynamic> json) =>
+      BetaOutputTextContentParam(
+        type_: (json['type'] != null
+            ? BetaOutputTextContentParamType.fromJson(json['type'] as String)
+            : null)!,
+        text: (json['text'] as String?)!,
+        annotations: json['annotations'] != null
+            ? SdkPresent(((json['annotations'] as List?)
+                ?.map((e) =>
+                    BetaOutputTextContentParamAnnotationsItem.fromJson(e))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'text': text,
-    ...switch (annotations) {
-      SdkPresent<List<BetaOutputTextContentParamAnnotationsItem>>(value: final value) => {'annotations': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'text': text,
+        ...switch (annotations) {
+          SdkPresent<List<BetaOutputTextContentParamAnnotationsItem>>(
+            value: final value
+          ) =>
+            {
+              'annotations': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

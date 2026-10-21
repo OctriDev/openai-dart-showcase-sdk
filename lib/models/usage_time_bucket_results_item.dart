@@ -10,104 +10,237 @@ sealed class UsageTimeBucketResultsItem {
   const UsageTimeBucketResultsItem();
   factory UsageTimeBucketResultsItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = UsageCompletionsResult.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UsageTimeBucketResultsItemUsageCompletionsResult(value); } } catch (_) {}
-      try { final value = UsageEmbeddingsResult.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UsageTimeBucketResultsItemUsageEmbeddingsResult(value); } } catch (_) {}
-      try { final value = UsageModerationsResult.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UsageTimeBucketResultsItemUsageModerationsResult(value); } } catch (_) {}
-      try { final value = UsageImagesResult.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UsageTimeBucketResultsItemUsageImagesResult(value); } } catch (_) {}
-      try { final value = UsageAudioSpeechesResult.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UsageTimeBucketResultsItemUsageAudioSpeechesResult(value); } } catch (_) {}
-      try { final value = UsageAudioTranscriptionsResult.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UsageTimeBucketResultsItemUsageAudioTranscriptionsResult(value); } } catch (_) {}
-      try { final value = UsageVectorStoresResult.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UsageTimeBucketResultsItemUsageVectorStoresResult(value); } } catch (_) {}
-      try { final value = UsageCodeInterpreterSessionsResult.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UsageTimeBucketResultsItemUsageCodeInterpreterSessionsResult(value); } } catch (_) {}
-      try { final value = UsageFileSearchCallsResult.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UsageTimeBucketResultsItemUsageFileSearchCallsResult(value); } } catch (_) {}
-      try { final value = UsageWebSearchCallsResult.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UsageTimeBucketResultsItemUsageWebSearchCallsResult(value); } } catch (_) {}
-      try { final value = CostsResult.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return UsageTimeBucketResultsItemCostsResult(value); } } catch (_) {}
+      try {
+        final value = UsageCompletionsResult.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return UsageTimeBucketResultsItemUsageCompletionsResult(value);
+        }
+      } catch (_) {}
+      try {
+        final value = UsageEmbeddingsResult.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return UsageTimeBucketResultsItemUsageEmbeddingsResult(value);
+        }
+      } catch (_) {}
+      try {
+        final value = UsageModerationsResult.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return UsageTimeBucketResultsItemUsageModerationsResult(value);
+        }
+      } catch (_) {}
+      try {
+        final value = UsageImagesResult.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return UsageTimeBucketResultsItemUsageImagesResult(value);
+        }
+      } catch (_) {}
+      try {
+        final value = UsageAudioSpeechesResult.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return UsageTimeBucketResultsItemUsageAudioSpeechesResult(value);
+        }
+      } catch (_) {}
+      try {
+        final value = UsageAudioTranscriptionsResult.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return UsageTimeBucketResultsItemUsageAudioTranscriptionsResult(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = UsageVectorStoresResult.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return UsageTimeBucketResultsItemUsageVectorStoresResult(value);
+        }
+      } catch (_) {}
+      try {
+        final value = UsageCodeInterpreterSessionsResult.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return UsageTimeBucketResultsItemUsageCodeInterpreterSessionsResult(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = UsageFileSearchCallsResult.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return UsageTimeBucketResultsItemUsageFileSearchCallsResult(value);
+        }
+      } catch (_) {}
+      try {
+        final value = UsageWebSearchCallsResult.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return UsageTimeBucketResultsItemUsageWebSearchCallsResult(value);
+        }
+      } catch (_) {}
+      try {
+        final value = CostsResult.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return UsageTimeBucketResultsItemCostsResult(value);
+        }
+      } catch (_) {}
     }
-    try { return UsageTimeBucketResultsItemUsageCompletionsResult(UsageCompletionsResult.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return UsageTimeBucketResultsItemUsageEmbeddingsResult(UsageEmbeddingsResult.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return UsageTimeBucketResultsItemUsageModerationsResult(UsageModerationsResult.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return UsageTimeBucketResultsItemUsageImagesResult(UsageImagesResult.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return UsageTimeBucketResultsItemUsageAudioSpeechesResult(UsageAudioSpeechesResult.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return UsageTimeBucketResultsItemUsageAudioTranscriptionsResult(UsageAudioTranscriptionsResult.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return UsageTimeBucketResultsItemUsageVectorStoresResult(UsageVectorStoresResult.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return UsageTimeBucketResultsItemUsageCodeInterpreterSessionsResult(UsageCodeInterpreterSessionsResult.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return UsageTimeBucketResultsItemUsageFileSearchCallsResult(UsageFileSearchCallsResult.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return UsageTimeBucketResultsItemUsageWebSearchCallsResult(UsageWebSearchCallsResult.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return UsageTimeBucketResultsItemCostsResult(CostsResult.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["object"] is String && !const {"organization.usage.completions.result", "organization.usage.embeddings.result", "organization.usage.moderations.result", "organization.usage.images.result", "organization.usage.audio_speeches.result", "organization.usage.audio_transcriptions.result", "organization.usage.vector_stores.result", "organization.usage.code_interpreter_sessions.result", "organization.usage.file_searches.result", "organization.usage.web_searches.result", "organization.costs.result"}.contains(json["object"])) { return UnknownUsageTimeBucketResultsItem(json); }
+    try {
+      return UsageTimeBucketResultsItemUsageCompletionsResult(
+          UsageCompletionsResult.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return UsageTimeBucketResultsItemUsageEmbeddingsResult(
+          UsageEmbeddingsResult.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return UsageTimeBucketResultsItemUsageModerationsResult(
+          UsageModerationsResult.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return UsageTimeBucketResultsItemUsageImagesResult(
+          UsageImagesResult.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return UsageTimeBucketResultsItemUsageAudioSpeechesResult(
+          UsageAudioSpeechesResult.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return UsageTimeBucketResultsItemUsageAudioTranscriptionsResult(
+          UsageAudioTranscriptionsResult.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return UsageTimeBucketResultsItemUsageVectorStoresResult(
+          UsageVectorStoresResult.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return UsageTimeBucketResultsItemUsageCodeInterpreterSessionsResult(
+          UsageCodeInterpreterSessionsResult.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return UsageTimeBucketResultsItemUsageFileSearchCallsResult(
+          UsageFileSearchCallsResult.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return UsageTimeBucketResultsItemUsageWebSearchCallsResult(
+          UsageWebSearchCallsResult.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return UsageTimeBucketResultsItemCostsResult(
+          CostsResult.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["object"] is String &&
+        !const {
+          "organization.usage.completions.result",
+          "organization.usage.embeddings.result",
+          "organization.usage.moderations.result",
+          "organization.usage.images.result",
+          "organization.usage.audio_speeches.result",
+          "organization.usage.audio_transcriptions.result",
+          "organization.usage.vector_stores.result",
+          "organization.usage.code_interpreter_sessions.result",
+          "organization.usage.file_searches.result",
+          "organization.usage.web_searches.result",
+          "organization.costs.result"
+        }.contains(json["object"])) {
+      return UnknownUsageTimeBucketResultsItem(json);
+    }
     throw FormatException("No variant matched for UsageTimeBucketResultsItem");
   }
   Object? toJson();
 }
 
-final class UsageTimeBucketResultsItemUsageCompletionsResult extends UsageTimeBucketResultsItem {
+final class UsageTimeBucketResultsItemUsageCompletionsResult
+    extends UsageTimeBucketResultsItem {
   final UsageCompletionsResult value;
   const UsageTimeBucketResultsItemUsageCompletionsResult(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class UsageTimeBucketResultsItemUsageEmbeddingsResult extends UsageTimeBucketResultsItem {
+final class UsageTimeBucketResultsItemUsageEmbeddingsResult
+    extends UsageTimeBucketResultsItem {
   final UsageEmbeddingsResult value;
   const UsageTimeBucketResultsItemUsageEmbeddingsResult(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class UsageTimeBucketResultsItemUsageModerationsResult extends UsageTimeBucketResultsItem {
+final class UsageTimeBucketResultsItemUsageModerationsResult
+    extends UsageTimeBucketResultsItem {
   final UsageModerationsResult value;
   const UsageTimeBucketResultsItemUsageModerationsResult(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class UsageTimeBucketResultsItemUsageImagesResult extends UsageTimeBucketResultsItem {
+final class UsageTimeBucketResultsItemUsageImagesResult
+    extends UsageTimeBucketResultsItem {
   final UsageImagesResult value;
   const UsageTimeBucketResultsItemUsageImagesResult(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class UsageTimeBucketResultsItemUsageAudioSpeechesResult extends UsageTimeBucketResultsItem {
+final class UsageTimeBucketResultsItemUsageAudioSpeechesResult
+    extends UsageTimeBucketResultsItem {
   final UsageAudioSpeechesResult value;
   const UsageTimeBucketResultsItemUsageAudioSpeechesResult(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class UsageTimeBucketResultsItemUsageAudioTranscriptionsResult extends UsageTimeBucketResultsItem {
+final class UsageTimeBucketResultsItemUsageAudioTranscriptionsResult
+    extends UsageTimeBucketResultsItem {
   final UsageAudioTranscriptionsResult value;
   const UsageTimeBucketResultsItemUsageAudioTranscriptionsResult(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class UsageTimeBucketResultsItemUsageVectorStoresResult extends UsageTimeBucketResultsItem {
+final class UsageTimeBucketResultsItemUsageVectorStoresResult
+    extends UsageTimeBucketResultsItem {
   final UsageVectorStoresResult value;
   const UsageTimeBucketResultsItemUsageVectorStoresResult(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class UsageTimeBucketResultsItemUsageCodeInterpreterSessionsResult extends UsageTimeBucketResultsItem {
+final class UsageTimeBucketResultsItemUsageCodeInterpreterSessionsResult
+    extends UsageTimeBucketResultsItem {
   final UsageCodeInterpreterSessionsResult value;
-  const UsageTimeBucketResultsItemUsageCodeInterpreterSessionsResult(this.value);
-  @override Object? toJson() => value.toJson();
+  const UsageTimeBucketResultsItemUsageCodeInterpreterSessionsResult(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class UsageTimeBucketResultsItemUsageFileSearchCallsResult extends UsageTimeBucketResultsItem {
+final class UsageTimeBucketResultsItemUsageFileSearchCallsResult
+    extends UsageTimeBucketResultsItem {
   final UsageFileSearchCallsResult value;
   const UsageTimeBucketResultsItemUsageFileSearchCallsResult(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class UsageTimeBucketResultsItemUsageWebSearchCallsResult extends UsageTimeBucketResultsItem {
+final class UsageTimeBucketResultsItemUsageWebSearchCallsResult
+    extends UsageTimeBucketResultsItem {
   final UsageWebSearchCallsResult value;
   const UsageTimeBucketResultsItemUsageWebSearchCallsResult(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class UsageTimeBucketResultsItemCostsResult extends UsageTimeBucketResultsItem {
+final class UsageTimeBucketResultsItemCostsResult
+    extends UsageTimeBucketResultsItem {
   final CostsResult value;
   const UsageTimeBucketResultsItemCostsResult(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [UsageTimeBucketResultsItem] whose `object` names no branch this SDK knows, kept as received.
-final class UnknownUsageTimeBucketResultsItem extends UsageTimeBucketResultsItem {
+final class UnknownUsageTimeBucketResultsItem
+    extends UsageTimeBucketResultsItem {
   final Map<String, dynamic> raw;
   const UnknownUsageTimeBucketResultsItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

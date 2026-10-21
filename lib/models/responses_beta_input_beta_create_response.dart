@@ -9,8 +9,12 @@ sealed class BetaInputParam {
   static const String constructionSurface = 'named';
   const BetaInputParam();
   factory BetaInputParam.fromJson(Object? json) {
-    if (json is String) { return BetaInputParamString(json); }
-    try { return BetaInputParamBetaInputItem(BetaInputItem.fromJson(json)); } catch (_) {}
+    if (json is String) {
+      return BetaInputParamString(json);
+    }
+    try {
+      return BetaInputParamBetaInputItem(BetaInputItem.fromJson(json));
+    } catch (_) {}
     throw FormatException("No variant matched for BetaInputParam");
   }
   Object? toJson();
@@ -19,11 +23,13 @@ sealed class BetaInputParam {
 final class BetaInputParamString extends BetaInputParam {
   final String value;
   const BetaInputParamString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 final class BetaInputParamBetaInputItem extends BetaInputParam {
   final BetaInputItem value;
   const BetaInputParamBetaInputItem(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }

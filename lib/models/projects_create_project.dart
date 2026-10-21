@@ -8,46 +8,84 @@ part of 'projects.dart';
 class ProjectCreateRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The friendly name of the project, this name appears in reports.
   final String name;
+
   /// Create the project with the specified data residency region. Your organization must have access to Data residency functionality in order to use. See [data residency controls](https://developers.openai.com/api/docs/guides/your-data#data-residency-controls) to review the functionality and limitations of setting this field. Deprecated: use `residency` instead. Do not provide both `geography` and `residency`.
   final SdkOptional<String?> geography;
+
   /// Create the project with the specified residency configuration. Your organization must have access to the requested residency configuration in order to use it. See [data residency controls](https://developers.openai.com/api/docs/guides/your-data#data-residency-controls) to review the functionality and limitations of setting this field.
   final SdkOptional<PublicProjectResidency?> residency;
+
   /// External key ID to associate with the project.
   final SdkOptional<String?> externalKeyId;
 
-  const ProjectCreateRequest({required this.name, this.geography = const SdkOmitted(), this.residency = const SdkOmitted(), this.externalKeyId = const SdkOmitted()});
+  const ProjectCreateRequest(
+      {required this.name,
+      this.geography = const SdkOmitted(),
+      this.residency = const SdkOmitted(),
+      this.externalKeyId = const SdkOmitted()});
 
-  ProjectCreateRequest Function({String name, SdkOptional<String?> geography, SdkOptional<PublicProjectResidency?> residency, SdkOptional<String?> externalKeyId}) get copyWith => _copyWith;
+  ProjectCreateRequest Function(
+      {String name,
+      SdkOptional<String?> geography,
+      SdkOptional<PublicProjectResidency?> residency,
+      SdkOptional<String?> externalKeyId}) get copyWith => _copyWith;
 
-  ProjectCreateRequest _copyWith({Object? name = sdkOmittedValue, Object? geography = sdkOmittedValue, Object? residency = sdkOmittedValue, Object? externalKeyId = sdkOmittedValue}) => ProjectCreateRequest(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    geography: identical(geography, sdkOmittedValue) ? this.geography : geography as SdkOptional<String?>,
-    residency: identical(residency, sdkOmittedValue) ? this.residency : residency as SdkOptional<PublicProjectResidency?>,
-    externalKeyId: identical(externalKeyId, sdkOmittedValue) ? this.externalKeyId : externalKeyId as SdkOptional<String?>,
-  );
+  ProjectCreateRequest _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? geography = sdkOmittedValue,
+          Object? residency = sdkOmittedValue,
+          Object? externalKeyId = sdkOmittedValue}) =>
+      ProjectCreateRequest(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        geography: identical(geography, sdkOmittedValue)
+            ? this.geography
+            : geography as SdkOptional<String?>,
+        residency: identical(residency, sdkOmittedValue)
+            ? this.residency
+            : residency as SdkOptional<PublicProjectResidency?>,
+        externalKeyId: identical(externalKeyId, sdkOmittedValue)
+            ? this.externalKeyId
+            : externalKeyId as SdkOptional<String?>,
+      );
 
-  factory ProjectCreateRequest.fromJson(Map<String, dynamic> json) => ProjectCreateRequest(
-    name: (json['name'] as String?)!,
-    geography: json.containsKey('geography') ? SdkPresent(json['geography'] as String?) : const SdkOmitted(),
-    residency: json.containsKey('residency') ? SdkPresent(json['residency'] != null ? PublicProjectResidency.fromJson(json['residency'] as String) : null) : const SdkOmitted(),
-    externalKeyId: json.containsKey('external_key_id') ? SdkPresent(json['external_key_id'] as String?) : const SdkOmitted(),
-  );
+  factory ProjectCreateRequest.fromJson(Map<String, dynamic> json) =>
+      ProjectCreateRequest(
+        name: (json['name'] as String?)!,
+        geography: json.containsKey('geography')
+            ? SdkPresent(json['geography'] as String?)
+            : const SdkOmitted(),
+        residency: json.containsKey('residency')
+            ? SdkPresent(json['residency'] != null
+                ? PublicProjectResidency.fromJson(json['residency'] as String)
+                : null)
+            : const SdkOmitted(),
+        externalKeyId: json.containsKey('external_key_id')
+            ? SdkPresent(json['external_key_id'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    ...switch (geography) {
-      SdkPresent<String?>(value: final value) => {'geography': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (residency) {
-      SdkPresent<PublicProjectResidency?>(value: final value) => {'residency': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (externalKeyId) {
-      SdkPresent<String?>(value: final value) => {'external_key_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        ...switch (geography) {
+          SdkPresent<String?>(value: final value) => {
+              'geography': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (residency) {
+          SdkPresent<PublicProjectResidency?>(value: final value) => {
+              'residency': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (externalKeyId) {
+          SdkPresent<String?>(value: final value) => {
+              'external_key_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

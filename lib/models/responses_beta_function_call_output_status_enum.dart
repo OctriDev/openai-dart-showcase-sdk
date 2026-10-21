@@ -6,12 +6,12 @@ part of 'responses_beta_function.dart';
 // responses_beta_function domain models
 /// Typed representation of the `BetaFunctionCallOutputStatusEnum` API schema.
 final class BetaFunctionCallOutputStatusEnum {
-
   final String value;
 
   const BetaFunctionCallOutputStatusEnum._(this.value);
 
-  factory BetaFunctionCallOutputStatusEnum.fromJson(String value) => BetaFunctionCallOutputStatusEnum._(value);
+  factory BetaFunctionCallOutputStatusEnum.fromJson(String value) =>
+      BetaFunctionCallOutputStatusEnum._(value);
 
   static const inProgress = BetaFunctionCallOutputStatusEnum._('in_progress');
   static const completed = BetaFunctionCallOutputStatusEnum._('completed');
@@ -19,10 +19,13 @@ final class BetaFunctionCallOutputStatusEnum {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaFunctionCallOutputStatusEnum && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaFunctionCallOutputStatusEnum && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

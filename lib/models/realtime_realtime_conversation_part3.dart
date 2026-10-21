@@ -8,156 +8,355 @@ part of 'realtime_realtime_conversation.dart';
 class RealtimeConversationItemWithReferenceContentItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The content type (`input_text`, `input_audio`, `item_reference`, `text`).
   final SdkOptional<RealtimeConversationItemWithReferenceContentItemType> type_;
+
   /// The text content, used for `input_text` and `text` content types.
   final SdkOptional<String> text;
+
   /// ID of a previous conversation item to reference (for `item_reference` content types in `response.create` events). These can reference both client and server created items.
   final SdkOptional<String> id;
+
   /// Base64-encoded audio bytes, used for `input_audio` content type.
   final SdkOptional<String> audio;
+
   /// The transcript of the audio, used for `input_audio` content type.
   final SdkOptional<String> transcript;
 
-  const RealtimeConversationItemWithReferenceContentItem({this.type_ = const SdkOmitted(), this.text = const SdkOmitted(), this.id = const SdkOmitted(), this.audio = const SdkOmitted(), this.transcript = const SdkOmitted()});
+  const RealtimeConversationItemWithReferenceContentItem(
+      {this.type_ = const SdkOmitted(),
+      this.text = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.audio = const SdkOmitted(),
+      this.transcript = const SdkOmitted()});
 
-  RealtimeConversationItemWithReferenceContentItem Function({SdkOptional<RealtimeConversationItemWithReferenceContentItemType> type_, SdkOptional<String> text, SdkOptional<String> id, SdkOptional<String> audio, SdkOptional<String> transcript}) get copyWith => _copyWith;
+  RealtimeConversationItemWithReferenceContentItem Function(
+      {SdkOptional<RealtimeConversationItemWithReferenceContentItemType> type_,
+      SdkOptional<String> text,
+      SdkOptional<String> id,
+      SdkOptional<String> audio,
+      SdkOptional<String> transcript}) get copyWith => _copyWith;
 
-  RealtimeConversationItemWithReferenceContentItem _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue, Object? id = sdkOmittedValue, Object? audio = sdkOmittedValue, Object? transcript = sdkOmittedValue}) => RealtimeConversationItemWithReferenceContentItem(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<RealtimeConversationItemWithReferenceContentItemType>,
-    text: identical(text, sdkOmittedValue) ? this.text : text as SdkOptional<String>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    audio: identical(audio, sdkOmittedValue) ? this.audio : audio as SdkOptional<String>,
-    transcript: identical(transcript, sdkOmittedValue) ? this.transcript : transcript as SdkOptional<String>,
-  );
+  RealtimeConversationItemWithReferenceContentItem _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? text = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? audio = sdkOmittedValue,
+          Object? transcript = sdkOmittedValue}) =>
+      RealtimeConversationItemWithReferenceContentItem(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<
+                RealtimeConversationItemWithReferenceContentItemType>,
+        text: identical(text, sdkOmittedValue)
+            ? this.text
+            : text as SdkOptional<String>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        audio: identical(audio, sdkOmittedValue)
+            ? this.audio
+            : audio as SdkOptional<String>,
+        transcript: identical(transcript, sdkOmittedValue)
+            ? this.transcript
+            : transcript as SdkOptional<String>,
+      );
 
-  factory RealtimeConversationItemWithReferenceContentItem.fromJson(Map<String, dynamic> json) => RealtimeConversationItemWithReferenceContentItem(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? RealtimeConversationItemWithReferenceContentItemType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    text: json['text'] != null ? SdkPresent((json['text'] as String?)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    audio: json['audio'] != null ? SdkPresent((json['audio'] as String?)!) : const SdkOmitted(),
-    transcript: json['transcript'] != null ? SdkPresent((json['transcript'] as String?)!) : const SdkOmitted(),
-  );
+  factory RealtimeConversationItemWithReferenceContentItem.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeConversationItemWithReferenceContentItem(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? RealtimeConversationItemWithReferenceContentItemType.fromJson(
+                    json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        text: json['text'] != null
+            ? SdkPresent((json['text'] as String?)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        audio: json['audio'] != null
+            ? SdkPresent((json['audio'] as String?)!)
+            : const SdkOmitted(),
+        transcript: json['transcript'] != null
+            ? SdkPresent((json['transcript'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<RealtimeConversationItemWithReferenceContentItemType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (text) {
-      SdkPresent<String>(value: final value) => {'text': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (audio) {
-      SdkPresent<String>(value: final value) => {'audio': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (transcript) {
-      SdkPresent<String>(value: final value) => {'transcript': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<RealtimeConversationItemWithReferenceContentItemType>(
+            value: final value
+          ) =>
+            {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (text) {
+          SdkPresent<String>(value: final value) => {
+              'text': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (audio) {
+          SdkPresent<String>(value: final value) => {
+              'audio': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (transcript) {
+          SdkPresent<String>(value: final value) => {
+              'transcript': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The item to add to the conversation.
 class RealtimeConversationItemWithReference {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// For an item of type (`message` | `function_call` | `function_call_output`) this field allows the client to assign the unique ID of the item. It is not required because the server will generate one if not provided. For an item of type `item_reference`, this field is required and is a reference to any item that has previously existed in the conversation.
   final SdkOptional<String> id;
+
   /// The type of the item (`message`, `function_call`, `function_call_output`, `item_reference`).
   final SdkOptional<RealtimeConversationItemWithReferenceType> type_;
+
   /// Identifier for the API object being returned - always `realtime.item`.
   final SdkOptional<RealtimeConversationItemWithReferenceObject> object;
+
   /// The status of the item (`completed`, `incomplete`, `in_progress`). These have no effect on the conversation, but are accepted for consistency with the `conversation.item.created` event.
   final SdkOptional<RealtimeConversationItemWithReferenceStatus> status;
+
   /// The role of the message sender (`user`, `assistant`, `system`), only applicable for `message` items.
   final SdkOptional<RealtimeConversationItemWithReferenceRole> role;
+
   /// The content of the message, applicable for `message` items. - Message items of role `system` support only `input_text` content - Message items of role `user` support `input_text` and `input_audio` content - Message items of role `assistant` support `text` content.
-  final SdkOptional<List<RealtimeConversationItemWithReferenceContentItem>> content;
+  final SdkOptional<List<RealtimeConversationItemWithReferenceContentItem>>
+      content;
+
   /// The ID of the function call (for `function_call` and `function_call_output` items). If passed on a `function_call_output` item, the server will check that a `function_call` item with the same ID exists in the conversation history.
   final SdkOptional<String> callId;
+
   /// The name of the function being called (for `function_call` items).
   final SdkOptional<String> name;
+
   /// The arguments of the function call (for `function_call` items).
   final SdkOptional<String> arguments;
+
   /// The output of the function call (for `function_call_output` items).
   final SdkOptional<String> output;
 
-  const RealtimeConversationItemWithReference({this.id = const SdkOmitted(), this.type_ = const SdkOmitted(), this.object = const SdkOmitted(), this.status = const SdkOmitted(), this.role = const SdkOmitted(), this.content = const SdkOmitted(), this.callId = const SdkOmitted(), this.name = const SdkOmitted(), this.arguments = const SdkOmitted(), this.output = const SdkOmitted()});
+  const RealtimeConversationItemWithReference(
+      {this.id = const SdkOmitted(),
+      this.type_ = const SdkOmitted(),
+      this.object = const SdkOmitted(),
+      this.status = const SdkOmitted(),
+      this.role = const SdkOmitted(),
+      this.content = const SdkOmitted(),
+      this.callId = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.arguments = const SdkOmitted(),
+      this.output = const SdkOmitted()});
 
-  RealtimeConversationItemWithReference Function({SdkOptional<String> id, SdkOptional<RealtimeConversationItemWithReferenceType> type_, SdkOptional<RealtimeConversationItemWithReferenceObject> object, SdkOptional<RealtimeConversationItemWithReferenceStatus> status, SdkOptional<RealtimeConversationItemWithReferenceRole> role, SdkOptional<List<RealtimeConversationItemWithReferenceContentItem>> content, SdkOptional<String> callId, SdkOptional<String> name, SdkOptional<String> arguments, SdkOptional<String> output}) get copyWith => _copyWith;
+  RealtimeConversationItemWithReference Function(
+      {SdkOptional<String> id,
+      SdkOptional<RealtimeConversationItemWithReferenceType> type_,
+      SdkOptional<RealtimeConversationItemWithReferenceObject> object,
+      SdkOptional<RealtimeConversationItemWithReferenceStatus> status,
+      SdkOptional<RealtimeConversationItemWithReferenceRole> role,
+      SdkOptional<List<RealtimeConversationItemWithReferenceContentItem>>
+          content,
+      SdkOptional<String> callId,
+      SdkOptional<String> name,
+      SdkOptional<String> arguments,
+      SdkOptional<String> output}) get copyWith => _copyWith;
 
-  RealtimeConversationItemWithReference _copyWith({Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? object = sdkOmittedValue, Object? status = sdkOmittedValue, Object? role = sdkOmittedValue, Object? content = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? name = sdkOmittedValue, Object? arguments = sdkOmittedValue, Object? output = sdkOmittedValue}) => RealtimeConversationItemWithReference(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<RealtimeConversationItemWithReferenceType>,
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<RealtimeConversationItemWithReferenceObject>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<RealtimeConversationItemWithReferenceStatus>,
-    role: identical(role, sdkOmittedValue) ? this.role : role as SdkOptional<RealtimeConversationItemWithReferenceRole>,
-    content: identical(content, sdkOmittedValue) ? this.content : content as SdkOptional<List<RealtimeConversationItemWithReferenceContentItem>>,
-    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    arguments: identical(arguments, sdkOmittedValue) ? this.arguments : arguments as SdkOptional<String>,
-    output: identical(output, sdkOmittedValue) ? this.output : output as SdkOptional<String>,
-  );
+  RealtimeConversationItemWithReference _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? role = sdkOmittedValue,
+          Object? content = sdkOmittedValue,
+          Object? callId = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? arguments = sdkOmittedValue,
+          Object? output = sdkOmittedValue}) =>
+      RealtimeConversationItemWithReference(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<RealtimeConversationItemWithReferenceType>,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object
+                as SdkOptional<RealtimeConversationItemWithReferenceObject>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status
+                as SdkOptional<RealtimeConversationItemWithReferenceStatus>,
+        role: identical(role, sdkOmittedValue)
+            ? this.role
+            : role as SdkOptional<RealtimeConversationItemWithReferenceRole>,
+        content: identical(content, sdkOmittedValue)
+            ? this.content
+            : content as SdkOptional<
+                List<RealtimeConversationItemWithReferenceContentItem>>,
+        callId: identical(callId, sdkOmittedValue)
+            ? this.callId
+            : callId as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        arguments: identical(arguments, sdkOmittedValue)
+            ? this.arguments
+            : arguments as SdkOptional<String>,
+        output: identical(output, sdkOmittedValue)
+            ? this.output
+            : output as SdkOptional<String>,
+      );
 
-  factory RealtimeConversationItemWithReference.fromJson(Map<String, dynamic> json) => RealtimeConversationItemWithReference(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? RealtimeConversationItemWithReferenceType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    object: json['object'] != null ? SdkPresent((json['object'] != null ? RealtimeConversationItemWithReferenceObject.fromJson(json['object'] as String) : null)!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? RealtimeConversationItemWithReferenceStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    role: json['role'] != null ? SdkPresent((json['role'] != null ? RealtimeConversationItemWithReferenceRole.fromJson(json['role'] as String) : null)!) : const SdkOmitted(),
-    content: json['content'] != null ? SdkPresent(((json['content'] as List?)?.map((e) => RealtimeConversationItemWithReferenceContentItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    callId: json['call_id'] != null ? SdkPresent((json['call_id'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    arguments: json['arguments'] != null ? SdkPresent((json['arguments'] as String?)!) : const SdkOmitted(),
-    output: json['output'] != null ? SdkPresent((json['output'] as String?)!) : const SdkOmitted(),
-  );
+  factory RealtimeConversationItemWithReference.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeConversationItemWithReference(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? RealtimeConversationItemWithReferenceType.fromJson(
+                    json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        object: json['object'] != null
+            ? SdkPresent((json['object'] != null
+                ? RealtimeConversationItemWithReferenceObject.fromJson(
+                    json['object'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? RealtimeConversationItemWithReferenceStatus.fromJson(
+                    json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        role: json['role'] != null
+            ? SdkPresent((json['role'] != null
+                ? RealtimeConversationItemWithReferenceRole.fromJson(
+                    json['role'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        content: json['content'] != null
+            ? SdkPresent(((json['content'] as List?)
+                ?.map((e) =>
+                    RealtimeConversationItemWithReferenceContentItem.fromJson(
+                        e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        callId: json['call_id'] != null
+            ? SdkPresent((json['call_id'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        arguments: json['arguments'] != null
+            ? SdkPresent((json['arguments'] as String?)!)
+            : const SdkOmitted(),
+        output: json['output'] != null
+            ? SdkPresent((json['output'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (type_) {
-      SdkPresent<RealtimeConversationItemWithReferenceType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (object) {
-      SdkPresent<RealtimeConversationItemWithReferenceObject>(value: final value) => {'object': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<RealtimeConversationItemWithReferenceStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (role) {
-      SdkPresent<RealtimeConversationItemWithReferenceRole>(value: final value) => {'role': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (content) {
-      SdkPresent<List<RealtimeConversationItemWithReferenceContentItem>>(value: final value) => {'content': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (callId) {
-      SdkPresent<String>(value: final value) => {'call_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (arguments) {
-      SdkPresent<String>(value: final value) => {'arguments': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (output) {
-      SdkPresent<String>(value: final value) => {'output': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (type_) {
+          SdkPresent<RealtimeConversationItemWithReferenceType>(
+            value: final value
+          ) =>
+            {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (object) {
+          SdkPresent<RealtimeConversationItemWithReferenceObject>(
+            value: final value
+          ) =>
+            {
+              'object': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<RealtimeConversationItemWithReferenceStatus>(
+            value: final value
+          ) =>
+            {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (role) {
+          SdkPresent<RealtimeConversationItemWithReferenceRole>(
+            value: final value
+          ) =>
+            {
+              'role': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (content) {
+          SdkPresent<List<RealtimeConversationItemWithReferenceContentItem>>(
+            value: final value
+          ) =>
+            {
+              'content': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (callId) {
+          SdkPresent<String>(value: final value) => {
+              'call_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (arguments) {
+          SdkPresent<String>(value: final value) => {
+              'arguments': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (output) {
+          SdkPresent<String>(value: final value) => {
+              'output': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

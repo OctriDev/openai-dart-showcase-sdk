@@ -9,8 +9,13 @@ sealed class ConversationParam {
   static const String constructionSurface = 'named';
   const ConversationParam();
   factory ConversationParam.fromJson(Object? json) {
-    if (json is String) { return ConversationParamString(json); }
-    try { return ConversationParamConversationParam2(ConversationParam2.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is String) {
+      return ConversationParamString(json);
+    }
+    try {
+      return ConversationParamConversationParam2(
+          ConversationParam2.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
     throw FormatException("No variant matched for ConversationParam");
   }
   Object? toJson();
@@ -19,19 +24,22 @@ sealed class ConversationParam {
 final class ConversationParamString extends ConversationParam {
   final String value;
   const ConversationParamString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 final class ConversationParamConversationParam2 extends ConversationParam {
   final ConversationParam2 value;
   const ConversationParamConversationParam2(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// The conversation that this response belongs to.
 class ConversationParam2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the conversation.
   final String id;
 
@@ -39,15 +47,17 @@ class ConversationParam2 {
 
   ConversationParam2 Function({String id}) get copyWith => _copyWith;
 
-  ConversationParam2 _copyWith({Object? id = sdkOmittedValue}) => ConversationParam2(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
+  ConversationParam2 _copyWith({Object? id = sdkOmittedValue}) =>
+      ConversationParam2(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
 
-  factory ConversationParam2.fromJson(Map<String, dynamic> json) => ConversationParam2(
-    id: (json['id'] as String?)!,
-  );
+  factory ConversationParam2.fromJson(Map<String, dynamic> json) =>
+      ConversationParam2(
+        id: (json['id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-  };
+        'id': id,
+      };
 }

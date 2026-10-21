@@ -8,27 +8,39 @@ part of 'shared.dart';
 class RefusalContent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the refusal. Always `refusal`.
   final RefusalContentType type_;
+
   /// The refusal explanation from the model.
   final String refusal;
 
   const RefusalContent({required this.type_, required this.refusal});
 
-  RefusalContent Function({RefusalContentType type_, String refusal}) get copyWith => _copyWith;
+  RefusalContent Function({RefusalContentType type_, String refusal})
+      get copyWith => _copyWith;
 
-  RefusalContent _copyWith({Object? type_ = sdkOmittedValue, Object? refusal = sdkOmittedValue}) => RefusalContent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RefusalContentType,
-    refusal: identical(refusal, sdkOmittedValue) ? this.refusal : refusal as String,
-  );
+  RefusalContent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? refusal = sdkOmittedValue}) =>
+      RefusalContent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RefusalContentType,
+        refusal: identical(refusal, sdkOmittedValue)
+            ? this.refusal
+            : refusal as String,
+      );
 
   factory RefusalContent.fromJson(Map<String, dynamic> json) => RefusalContent(
-    type_: (json['type'] != null ? RefusalContentType.fromJson(json['type'] as String) : null)!,
-    refusal: (json['refusal'] as String?)!,
-  );
+        type_: (json['type'] != null
+            ? RefusalContentType.fromJson(json['type'] as String)
+            : null)!,
+        refusal: (json['refusal'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'refusal': refusal,
-  };
+        'type': type_.toJson(),
+        'refusal': refusal,
+      };
 }

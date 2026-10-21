@@ -8,35 +8,66 @@ part of 'realtime_realtime_beta_client.dart';
 class RealtimeBetaClientEventSessionUpdate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional client-generated ID used to identify this event.
   final SdkOptional<String> eventId;
+
   /// The event type, must be `session.update`.
   final RealtimeBetaClientEventSessionUpdateType type_;
+
   /// A new Realtime session configuration, with an ephemeral key. Default TTL for keys is one minute.
   final RealtimeSessionCreateRequest session;
 
-  const RealtimeBetaClientEventSessionUpdate({this.eventId = const SdkOmitted(), required this.type_, required this.session});
+  const RealtimeBetaClientEventSessionUpdate(
+      {this.eventId = const SdkOmitted(),
+      required this.type_,
+      required this.session});
 
-  RealtimeBetaClientEventSessionUpdate Function({SdkOptional<String> eventId, RealtimeBetaClientEventSessionUpdateType type_, RealtimeSessionCreateRequest session}) get copyWith => _copyWith;
+  RealtimeBetaClientEventSessionUpdate Function(
+      {SdkOptional<String> eventId,
+      RealtimeBetaClientEventSessionUpdateType type_,
+      RealtimeSessionCreateRequest session}) get copyWith => _copyWith;
 
-  RealtimeBetaClientEventSessionUpdate _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? session = sdkOmittedValue}) => RealtimeBetaClientEventSessionUpdate(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaClientEventSessionUpdateType,
-    session: identical(session, sdkOmittedValue) ? this.session : session as RealtimeSessionCreateRequest,
-  );
+  RealtimeBetaClientEventSessionUpdate _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? session = sdkOmittedValue}) =>
+      RealtimeBetaClientEventSessionUpdate(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeBetaClientEventSessionUpdateType,
+        session: identical(session, sdkOmittedValue)
+            ? this.session
+            : session as RealtimeSessionCreateRequest,
+      );
 
-  factory RealtimeBetaClientEventSessionUpdate.fromJson(Map<String, dynamic> json) => RealtimeBetaClientEventSessionUpdate(
-    eventId: json['event_id'] != null ? SdkPresent((json['event_id'] as String?)!) : const SdkOmitted(),
-    type_: (json['type'] != null ? RealtimeBetaClientEventSessionUpdateType.fromJson(json['type'] as String) : null)!,
-    session: (json['session'] != null ? RealtimeSessionCreateRequest.fromJson(json['session'] as Map<String, dynamic>) : null)!,
-  );
+  factory RealtimeBetaClientEventSessionUpdate.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeBetaClientEventSessionUpdate(
+        eventId: json['event_id'] != null
+            ? SdkPresent((json['event_id'] as String?)!)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? RealtimeBetaClientEventSessionUpdateType.fromJson(
+                json['type'] as String)
+            : null)!,
+        session: (json['session'] != null
+            ? RealtimeSessionCreateRequest.fromJson(
+                json['session'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (eventId) {
-      SdkPresent<String>(value: final value) => {'event_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'session': session.toJson(),
-  };
+        ...switch (eventId) {
+          SdkPresent<String>(value: final value) => {
+              'event_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'session': session.toJson(),
+      };
 }

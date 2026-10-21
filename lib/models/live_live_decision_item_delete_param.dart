@@ -9,51 +9,81 @@ sealed class LiveDecisionItemDeleteParamEventId {
   static const String constructionSurface = 'named';
   const LiveDecisionItemDeleteParamEventId();
   factory LiveDecisionItemDeleteParamEventId.fromJson(Object? json) {
-    if (json is String) { return LiveDecisionItemDeleteParamEventIdString(json); }
-    throw FormatException("No variant matched for LiveDecisionItemDeleteParamEventId");
+    if (json is String) {
+      return LiveDecisionItemDeleteParamEventIdString(json);
+    }
+    throw FormatException(
+        "No variant matched for LiveDecisionItemDeleteParamEventId");
   }
   Object? toJson();
 }
 
-final class LiveDecisionItemDeleteParamEventIdString extends LiveDecisionItemDeleteParamEventId {
+final class LiveDecisionItemDeleteParamEventIdString
+    extends LiveDecisionItemDeleteParamEventId {
   final String value;
   const LiveDecisionItemDeleteParamEventIdString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// Delete an input item from future decisions without starting an evaluation or changing Live voice context.
 class LiveDecisionItemDeleteParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional API value serialized in the `event_id` wire field.
   final SdkOptional<String?> eventId;
+
   /// Required enumerated value serialized in the `type` wire field.
   final LiveDecisionItemDeleteParamType type_;
+
   /// Required `string` value serialized in the `item_id` wire field.
   final String itemId;
 
-  const LiveDecisionItemDeleteParam({this.eventId = const SdkOmitted(), required this.type_, required this.itemId});
+  const LiveDecisionItemDeleteParam(
+      {this.eventId = const SdkOmitted(),
+      required this.type_,
+      required this.itemId});
 
-  LiveDecisionItemDeleteParam Function({SdkOptional<String?> eventId, LiveDecisionItemDeleteParamType type_, String itemId}) get copyWith => _copyWith;
+  LiveDecisionItemDeleteParam Function(
+      {SdkOptional<String?> eventId,
+      LiveDecisionItemDeleteParamType type_,
+      String itemId}) get copyWith => _copyWith;
 
-  LiveDecisionItemDeleteParam _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue}) => LiveDecisionItemDeleteParam(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveDecisionItemDeleteParamType,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-  );
+  LiveDecisionItemDeleteParam _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue}) =>
+      LiveDecisionItemDeleteParam(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as SdkOptional<String?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveDecisionItemDeleteParamType,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+      );
 
-  factory LiveDecisionItemDeleteParam.fromJson(Map<String, dynamic> json) => LiveDecisionItemDeleteParam(
-    eventId: json.containsKey('event_id') ? SdkPresent(json['event_id'] as String?) : const SdkOmitted(),
-    type_: (json['type'] != null ? LiveDecisionItemDeleteParamType.fromJson(json['type'] as String) : null)!,
-    itemId: (json['item_id'] as String?)!,
-  );
+  factory LiveDecisionItemDeleteParam.fromJson(Map<String, dynamic> json) =>
+      LiveDecisionItemDeleteParam(
+        eventId: json.containsKey('event_id')
+            ? SdkPresent(json['event_id'] as String?)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? LiveDecisionItemDeleteParamType.fromJson(json['type'] as String)
+            : null)!,
+        itemId: (json['item_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (eventId) {
-      SdkPresent<String?>(value: final value) => {'event_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'item_id': itemId,
-  };
+        ...switch (eventId) {
+          SdkPresent<String?>(value: final value) => {
+              'event_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'item_id': itemId,
+      };
 }

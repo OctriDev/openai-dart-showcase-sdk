@@ -8,42 +8,92 @@ part of 'agents_agent.dart';
 class AgentToolResourceWebSearch {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `web_search`.
   final AgentToolResourceWebSearchType type_;
+
   /// The source used for web search results.
   final WebSearchModeResource mode;
+
   /// The amount of search context made available to the model. Defaults to `medium`.
   final WebSearchContextSizeResource contextSize;
+
   /// Allowed search domains, or `null` when the search is unrestricted.
   final List<String>? allowedDomains;
+
   /// Approximate location used to localize search results, if provided.
   final WebSearchLocationResource? location;
 
-  const AgentToolResourceWebSearch({required this.type_, required this.mode, required this.contextSize, required this.allowedDomains, required this.location});
+  const AgentToolResourceWebSearch(
+      {required this.type_,
+      required this.mode,
+      required this.contextSize,
+      required this.allowedDomains,
+      required this.location});
 
-  AgentToolResourceWebSearch Function({AgentToolResourceWebSearchType type_, WebSearchModeResource mode, WebSearchContextSizeResource contextSize, List<String>? allowedDomains, WebSearchLocationResource? location}) get copyWith => _copyWith;
+  AgentToolResourceWebSearch Function(
+      {AgentToolResourceWebSearchType type_,
+      WebSearchModeResource mode,
+      WebSearchContextSizeResource contextSize,
+      List<String>? allowedDomains,
+      WebSearchLocationResource? location}) get copyWith => _copyWith;
 
-  AgentToolResourceWebSearch _copyWith({Object? type_ = sdkOmittedValue, Object? mode = sdkOmittedValue, Object? contextSize = sdkOmittedValue, Object? allowedDomains = sdkOmittedValue, Object? location = sdkOmittedValue}) => AgentToolResourceWebSearch(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AgentToolResourceWebSearchType,
-    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as WebSearchModeResource,
-    contextSize: identical(contextSize, sdkOmittedValue) ? this.contextSize : contextSize as WebSearchContextSizeResource,
-    allowedDomains: identical(allowedDomains, sdkOmittedValue) ? this.allowedDomains : allowedDomains as List<String>?,
-    location: identical(location, sdkOmittedValue) ? this.location : location as WebSearchLocationResource?,
-  );
+  AgentToolResourceWebSearch _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? mode = sdkOmittedValue,
+          Object? contextSize = sdkOmittedValue,
+          Object? allowedDomains = sdkOmittedValue,
+          Object? location = sdkOmittedValue}) =>
+      AgentToolResourceWebSearch(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as AgentToolResourceWebSearchType,
+        mode: identical(mode, sdkOmittedValue)
+            ? this.mode
+            : mode as WebSearchModeResource,
+        contextSize: identical(contextSize, sdkOmittedValue)
+            ? this.contextSize
+            : contextSize as WebSearchContextSizeResource,
+        allowedDomains: identical(allowedDomains, sdkOmittedValue)
+            ? this.allowedDomains
+            : allowedDomains as List<String>?,
+        location: identical(location, sdkOmittedValue)
+            ? this.location
+            : location as WebSearchLocationResource?,
+      );
 
-  factory AgentToolResourceWebSearch.fromJson(Map<String, dynamic> json) => AgentToolResourceWebSearch(
-    type_: (json['type'] != null ? AgentToolResourceWebSearchType.fromJson(json['type'] as String) : null)!,
-    mode: (json['mode'] != null ? WebSearchModeResource.fromJson(json['mode'] as String) : null)!,
-    contextSize: (json['context_size'] != null ? WebSearchContextSizeResource.fromJson(json['context_size'] as String) : null)!,
-    allowedDomains: json.containsKey('allowed_domains') ? (json['allowed_domains'] as List?)?.map((e) => e as String).toList() : throw ArgumentError.value(null, 'allowed_domains', 'Required property is missing'),
-    location: json.containsKey('location') ? json['location'] != null ? WebSearchLocationResource.fromJson(json['location'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'location', 'Required property is missing'),
-  );
+  factory AgentToolResourceWebSearch.fromJson(Map<String, dynamic> json) =>
+      AgentToolResourceWebSearch(
+        type_: (json['type'] != null
+            ? AgentToolResourceWebSearchType.fromJson(json['type'] as String)
+            : null)!,
+        mode: (json['mode'] != null
+            ? WebSearchModeResource.fromJson(json['mode'] as String)
+            : null)!,
+        contextSize: (json['context_size'] != null
+            ? WebSearchContextSizeResource.fromJson(
+                json['context_size'] as String)
+            : null)!,
+        allowedDomains: json.containsKey('allowed_domains')
+            ? (json['allowed_domains'] as List?)
+                ?.map((e) => e as String)
+                .toList()
+            : throw ArgumentError.value(
+                null, 'allowed_domains', 'Required property is missing'),
+        location: json.containsKey('location')
+            ? json['location'] != null
+                ? WebSearchLocationResource.fromJson(
+                    json['location'] as Map<String, dynamic>)
+                : null
+            : throw ArgumentError.value(
+                null, 'location', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'mode': mode.toJson(),
-    'context_size': contextSize.toJson(),
-    'allowed_domains': allowedDomains,
-    'location': location?.toJson(),
-  };
+        'type': type_.toJson(),
+        'mode': mode.toJson(),
+        'context_size': contextSize.toJson(),
+        'allowed_domains': allowedDomains,
+        'location': location?.toJson(),
+      };
 }

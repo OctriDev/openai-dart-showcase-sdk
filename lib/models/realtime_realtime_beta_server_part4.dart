@@ -8,294 +8,553 @@ part of 'realtime_realtime_beta_server.dart';
 class RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the rate limit (`requests`, `tokens`).
-  final SdkOptional<RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItemName> name;
+  final SdkOptional<RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItemName>
+      name;
+
   /// The maximum allowed value for the rate limit.
   final SdkOptional<int> limit;
+
   /// The remaining value before the limit is reached.
   final SdkOptional<int> remaining;
+
   /// Seconds until the rate limit resets.
   final SdkOptional<double> resetSeconds;
 
-  const RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItem({this.name = const SdkOmitted(), this.limit = const SdkOmitted(), this.remaining = const SdkOmitted(), this.resetSeconds = const SdkOmitted()});
+  const RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItem(
+      {this.name = const SdkOmitted(),
+      this.limit = const SdkOmitted(),
+      this.remaining = const SdkOmitted(),
+      this.resetSeconds = const SdkOmitted()});
 
-  RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItem Function({SdkOptional<RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItemName> name, SdkOptional<int> limit, SdkOptional<int> remaining, SdkOptional<double> resetSeconds}) get copyWith => _copyWith;
+  RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItem Function(
+      {SdkOptional<RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItemName>
+          name,
+      SdkOptional<int> limit,
+      SdkOptional<int> remaining,
+      SdkOptional<double> resetSeconds}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItem _copyWith({Object? name = sdkOmittedValue, Object? limit = sdkOmittedValue, Object? remaining = sdkOmittedValue, Object? resetSeconds = sdkOmittedValue}) => RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItem(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItemName>,
-    limit: identical(limit, sdkOmittedValue) ? this.limit : limit as SdkOptional<int>,
-    remaining: identical(remaining, sdkOmittedValue) ? this.remaining : remaining as SdkOptional<int>,
-    resetSeconds: identical(resetSeconds, sdkOmittedValue) ? this.resetSeconds : resetSeconds as SdkOptional<double>,
-  );
+  RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItem _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? limit = sdkOmittedValue,
+          Object? remaining = sdkOmittedValue,
+          Object? resetSeconds = sdkOmittedValue}) =>
+      RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItem(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<
+                RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItemName>,
+        limit: identical(limit, sdkOmittedValue)
+            ? this.limit
+            : limit as SdkOptional<int>,
+        remaining: identical(remaining, sdkOmittedValue)
+            ? this.remaining
+            : remaining as SdkOptional<int>,
+        resetSeconds: identical(resetSeconds, sdkOmittedValue)
+            ? this.resetSeconds
+            : resetSeconds as SdkOptional<double>,
+      );
 
-  factory RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItem.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItem(
-    name: json['name'] != null ? SdkPresent((json['name'] != null ? RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItemName.fromJson(json['name'] as String) : null)!) : const SdkOmitted(),
-    limit: json['limit'] != null ? SdkPresent(((json['limit'] as num?)?.toInt())!) : const SdkOmitted(),
-    remaining: json['remaining'] != null ? SdkPresent(((json['remaining'] as num?)?.toInt())!) : const SdkOmitted(),
-    resetSeconds: json['reset_seconds'] != null ? SdkPresent(((json['reset_seconds'] as num?)?.toDouble())!) : const SdkOmitted(),
-  );
+  factory RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItem.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItem(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] != null
+                ? RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItemName
+                    .fromJson(json['name'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        limit: json['limit'] != null
+            ? SdkPresent(((json['limit'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        remaining: json['remaining'] != null
+            ? SdkPresent(((json['remaining'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        resetSeconds: json['reset_seconds'] != null
+            ? SdkPresent(((json['reset_seconds'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItemName>(value: final value) => {'name': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (limit) {
-      SdkPresent<int>(value: final value) => {'limit': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (remaining) {
-      SdkPresent<int>(value: final value) => {'remaining': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (resetSeconds) {
-      SdkPresent<double>(value: final value) => {'reset_seconds': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<
+                RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItemName>(
+            value: final value
+          ) =>
+            {
+              'name': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (limit) {
+          SdkPresent<int>(value: final value) => {
+              'limit': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (remaining) {
+          SdkPresent<int>(value: final value) => {
+              'remaining': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (resetSeconds) {
+          SdkPresent<double>(value: final value) => {
+              'reset_seconds': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Emitted at the beginning of a Response to indicate the updated rate limits. When a Response is created some tokens will be "reserved" for the output tokens, the rate limits shown here reflect that reservation, which is then adjusted accordingly once the Response is completed.
 class RealtimeBetaServerEventRateLimitsUpdated {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the server event.
   final String eventId;
+
   /// The event type, must be `rate_limits.updated`.
   final RealtimeBetaServerEventRateLimitsUpdatedType type_;
+
   /// List of rate limit information.
   final List<RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItem> rateLimits;
 
-  const RealtimeBetaServerEventRateLimitsUpdated({required this.eventId, required this.type_, required this.rateLimits});
+  const RealtimeBetaServerEventRateLimitsUpdated(
+      {required this.eventId, required this.type_, required this.rateLimits});
 
-  RealtimeBetaServerEventRateLimitsUpdated Function({String eventId, RealtimeBetaServerEventRateLimitsUpdatedType type_, List<RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItem> rateLimits}) get copyWith => _copyWith;
+  RealtimeBetaServerEventRateLimitsUpdated Function(
+      {String eventId,
+      RealtimeBetaServerEventRateLimitsUpdatedType type_,
+      List<RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItem>
+          rateLimits}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventRateLimitsUpdated _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? rateLimits = sdkOmittedValue}) => RealtimeBetaServerEventRateLimitsUpdated(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventRateLimitsUpdatedType,
-    rateLimits: identical(rateLimits, sdkOmittedValue) ? this.rateLimits : rateLimits as List<RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItem>,
-  );
+  RealtimeBetaServerEventRateLimitsUpdated _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? rateLimits = sdkOmittedValue}) =>
+      RealtimeBetaServerEventRateLimitsUpdated(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeBetaServerEventRateLimitsUpdatedType,
+        rateLimits: identical(rateLimits, sdkOmittedValue)
+            ? this.rateLimits
+            : rateLimits
+                as List<RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItem>,
+      );
 
-  factory RealtimeBetaServerEventRateLimitsUpdated.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventRateLimitsUpdated(
-    eventId: (json['event_id'] as String?)!,
-    type_: (json['type'] != null ? RealtimeBetaServerEventRateLimitsUpdatedType.fromJson(json['type'] as String) : null)!,
-    rateLimits: ((json['rate_limits'] as List?)?.map((e) => RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItem.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+  factory RealtimeBetaServerEventRateLimitsUpdated.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeBetaServerEventRateLimitsUpdated(
+        eventId: (json['event_id'] as String?)!,
+        type_: (json['type'] != null
+            ? RealtimeBetaServerEventRateLimitsUpdatedType.fromJson(
+                json['type'] as String)
+            : null)!,
+        rateLimits: ((json['rate_limits'] as List?)
+            ?.map((e) =>
+                RealtimeBetaServerEventRateLimitsUpdatedRateLimitsItem.fromJson(
+                    e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    'type': type_.toJson(),
-    'rate_limits': rateLimits.map((item) => item.toJson()).toList(),
-  };
+        'event_id': eventId,
+        'type': type_.toJson(),
+        'rate_limits': rateLimits.map((item) => item.toJson()).toList(),
+      };
 }
 
 /// Returned when the model-generated audio is updated.
 class RealtimeBetaServerEventResponseAudioDelta {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the server event.
   final String eventId;
+
   /// The event type, must be `response.output_audio.delta`.
   final RealtimeBetaServerEventResponseAudioDeltaType type_;
+
   /// The ID of the response.
   final String responseId;
+
   /// The ID of the item.
   final String itemId;
+
   /// The index of the output item in the response.
   final int outputIndex;
+
   /// The index of the content part in the item's content array.
   final int contentIndex;
+
   /// Base64-encoded audio data delta.
   final String delta;
 
-  const RealtimeBetaServerEventResponseAudioDelta({required this.eventId, required this.type_, required this.responseId, required this.itemId, required this.outputIndex, required this.contentIndex, required this.delta});
+  const RealtimeBetaServerEventResponseAudioDelta(
+      {required this.eventId,
+      required this.type_,
+      required this.responseId,
+      required this.itemId,
+      required this.outputIndex,
+      required this.contentIndex,
+      required this.delta});
 
-  RealtimeBetaServerEventResponseAudioDelta Function({String eventId, RealtimeBetaServerEventResponseAudioDeltaType type_, String responseId, String itemId, int outputIndex, int contentIndex, String delta}) get copyWith => _copyWith;
+  RealtimeBetaServerEventResponseAudioDelta Function(
+      {String eventId,
+      RealtimeBetaServerEventResponseAudioDeltaType type_,
+      String responseId,
+      String itemId,
+      int outputIndex,
+      int contentIndex,
+      String delta}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventResponseAudioDelta _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? responseId = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? contentIndex = sdkOmittedValue, Object? delta = sdkOmittedValue}) => RealtimeBetaServerEventResponseAudioDelta(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventResponseAudioDeltaType,
-    responseId: identical(responseId, sdkOmittedValue) ? this.responseId : responseId as String,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    contentIndex: identical(contentIndex, sdkOmittedValue) ? this.contentIndex : contentIndex as int,
-    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
-  );
+  RealtimeBetaServerEventResponseAudioDelta _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? responseId = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? contentIndex = sdkOmittedValue,
+          Object? delta = sdkOmittedValue}) =>
+      RealtimeBetaServerEventResponseAudioDelta(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeBetaServerEventResponseAudioDeltaType,
+        responseId: identical(responseId, sdkOmittedValue)
+            ? this.responseId
+            : responseId as String,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        contentIndex: identical(contentIndex, sdkOmittedValue)
+            ? this.contentIndex
+            : contentIndex as int,
+        delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
+      );
 
-  factory RealtimeBetaServerEventResponseAudioDelta.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventResponseAudioDelta(
-    eventId: (json['event_id'] as String?)!,
-    type_: (json['type'] != null ? RealtimeBetaServerEventResponseAudioDeltaType.fromJson(json['type'] as String) : null)!,
-    responseId: (json['response_id'] as String?)!,
-    itemId: (json['item_id'] as String?)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    contentIndex: ((json['content_index'] as num?)?.toInt())!,
-    delta: (json['delta'] as String?)!,
-  );
+  factory RealtimeBetaServerEventResponseAudioDelta.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeBetaServerEventResponseAudioDelta(
+        eventId: (json['event_id'] as String?)!,
+        type_: (json['type'] != null
+            ? RealtimeBetaServerEventResponseAudioDeltaType.fromJson(
+                json['type'] as String)
+            : null)!,
+        responseId: (json['response_id'] as String?)!,
+        itemId: (json['item_id'] as String?)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        contentIndex: ((json['content_index'] as num?)?.toInt())!,
+        delta: (json['delta'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    'type': type_.toJson(),
-    'response_id': responseId,
-    'item_id': itemId,
-    'output_index': outputIndex,
-    'content_index': contentIndex,
-    'delta': delta,
-  };
+        'event_id': eventId,
+        'type': type_.toJson(),
+        'response_id': responseId,
+        'item_id': itemId,
+        'output_index': outputIndex,
+        'content_index': contentIndex,
+        'delta': delta,
+      };
 }
 
 /// Returned when the model-generated audio is done. Also emitted when a Response is interrupted, incomplete, or cancelled.
 class RealtimeBetaServerEventResponseAudioDone {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the server event.
   final String eventId;
+
   /// The event type, must be `response.output_audio.done`.
   final RealtimeBetaServerEventResponseAudioDoneType type_;
+
   /// The ID of the response.
   final String responseId;
+
   /// The ID of the item.
   final String itemId;
+
   /// The index of the output item in the response.
   final int outputIndex;
+
   /// The index of the content part in the item's content array.
   final int contentIndex;
 
-  const RealtimeBetaServerEventResponseAudioDone({required this.eventId, required this.type_, required this.responseId, required this.itemId, required this.outputIndex, required this.contentIndex});
+  const RealtimeBetaServerEventResponseAudioDone(
+      {required this.eventId,
+      required this.type_,
+      required this.responseId,
+      required this.itemId,
+      required this.outputIndex,
+      required this.contentIndex});
 
-  RealtimeBetaServerEventResponseAudioDone Function({String eventId, RealtimeBetaServerEventResponseAudioDoneType type_, String responseId, String itemId, int outputIndex, int contentIndex}) get copyWith => _copyWith;
+  RealtimeBetaServerEventResponseAudioDone Function(
+      {String eventId,
+      RealtimeBetaServerEventResponseAudioDoneType type_,
+      String responseId,
+      String itemId,
+      int outputIndex,
+      int contentIndex}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventResponseAudioDone _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? responseId = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? contentIndex = sdkOmittedValue}) => RealtimeBetaServerEventResponseAudioDone(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventResponseAudioDoneType,
-    responseId: identical(responseId, sdkOmittedValue) ? this.responseId : responseId as String,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    contentIndex: identical(contentIndex, sdkOmittedValue) ? this.contentIndex : contentIndex as int,
-  );
+  RealtimeBetaServerEventResponseAudioDone _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? responseId = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? contentIndex = sdkOmittedValue}) =>
+      RealtimeBetaServerEventResponseAudioDone(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeBetaServerEventResponseAudioDoneType,
+        responseId: identical(responseId, sdkOmittedValue)
+            ? this.responseId
+            : responseId as String,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        contentIndex: identical(contentIndex, sdkOmittedValue)
+            ? this.contentIndex
+            : contentIndex as int,
+      );
 
-  factory RealtimeBetaServerEventResponseAudioDone.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventResponseAudioDone(
-    eventId: (json['event_id'] as String?)!,
-    type_: (json['type'] != null ? RealtimeBetaServerEventResponseAudioDoneType.fromJson(json['type'] as String) : null)!,
-    responseId: (json['response_id'] as String?)!,
-    itemId: (json['item_id'] as String?)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    contentIndex: ((json['content_index'] as num?)?.toInt())!,
-  );
+  factory RealtimeBetaServerEventResponseAudioDone.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeBetaServerEventResponseAudioDone(
+        eventId: (json['event_id'] as String?)!,
+        type_: (json['type'] != null
+            ? RealtimeBetaServerEventResponseAudioDoneType.fromJson(
+                json['type'] as String)
+            : null)!,
+        responseId: (json['response_id'] as String?)!,
+        itemId: (json['item_id'] as String?)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        contentIndex: ((json['content_index'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    'type': type_.toJson(),
-    'response_id': responseId,
-    'item_id': itemId,
-    'output_index': outputIndex,
-    'content_index': contentIndex,
-  };
+        'event_id': eventId,
+        'type': type_.toJson(),
+        'response_id': responseId,
+        'item_id': itemId,
+        'output_index': outputIndex,
+        'content_index': contentIndex,
+      };
 }
 
 /// Returned when the model-generated transcription of audio output is updated.
 class RealtimeBetaServerEventResponseAudioTranscriptDelta {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the server event.
   final String eventId;
+
   /// The event type, must be `response.output_audio_transcript.delta`.
   final RealtimeBetaServerEventResponseAudioTranscriptDeltaType type_;
+
   /// The ID of the response.
   final String responseId;
+
   /// The ID of the item.
   final String itemId;
+
   /// The index of the output item in the response.
   final int outputIndex;
+
   /// The index of the content part in the item's content array.
   final int contentIndex;
+
   /// The transcript delta.
   final String delta;
 
-  const RealtimeBetaServerEventResponseAudioTranscriptDelta({required this.eventId, required this.type_, required this.responseId, required this.itemId, required this.outputIndex, required this.contentIndex, required this.delta});
+  const RealtimeBetaServerEventResponseAudioTranscriptDelta(
+      {required this.eventId,
+      required this.type_,
+      required this.responseId,
+      required this.itemId,
+      required this.outputIndex,
+      required this.contentIndex,
+      required this.delta});
 
-  RealtimeBetaServerEventResponseAudioTranscriptDelta Function({String eventId, RealtimeBetaServerEventResponseAudioTranscriptDeltaType type_, String responseId, String itemId, int outputIndex, int contentIndex, String delta}) get copyWith => _copyWith;
+  RealtimeBetaServerEventResponseAudioTranscriptDelta Function(
+      {String eventId,
+      RealtimeBetaServerEventResponseAudioTranscriptDeltaType type_,
+      String responseId,
+      String itemId,
+      int outputIndex,
+      int contentIndex,
+      String delta}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventResponseAudioTranscriptDelta _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? responseId = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? contentIndex = sdkOmittedValue, Object? delta = sdkOmittedValue}) => RealtimeBetaServerEventResponseAudioTranscriptDelta(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventResponseAudioTranscriptDeltaType,
-    responseId: identical(responseId, sdkOmittedValue) ? this.responseId : responseId as String,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    contentIndex: identical(contentIndex, sdkOmittedValue) ? this.contentIndex : contentIndex as int,
-    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
-  );
+  RealtimeBetaServerEventResponseAudioTranscriptDelta _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? responseId = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? contentIndex = sdkOmittedValue,
+          Object? delta = sdkOmittedValue}) =>
+      RealtimeBetaServerEventResponseAudioTranscriptDelta(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeBetaServerEventResponseAudioTranscriptDeltaType,
+        responseId: identical(responseId, sdkOmittedValue)
+            ? this.responseId
+            : responseId as String,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        contentIndex: identical(contentIndex, sdkOmittedValue)
+            ? this.contentIndex
+            : contentIndex as int,
+        delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
+      );
 
-  factory RealtimeBetaServerEventResponseAudioTranscriptDelta.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventResponseAudioTranscriptDelta(
-    eventId: (json['event_id'] as String?)!,
-    type_: (json['type'] != null ? RealtimeBetaServerEventResponseAudioTranscriptDeltaType.fromJson(json['type'] as String) : null)!,
-    responseId: (json['response_id'] as String?)!,
-    itemId: (json['item_id'] as String?)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    contentIndex: ((json['content_index'] as num?)?.toInt())!,
-    delta: (json['delta'] as String?)!,
-  );
+  factory RealtimeBetaServerEventResponseAudioTranscriptDelta.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeBetaServerEventResponseAudioTranscriptDelta(
+        eventId: (json['event_id'] as String?)!,
+        type_: (json['type'] != null
+            ? RealtimeBetaServerEventResponseAudioTranscriptDeltaType.fromJson(
+                json['type'] as String)
+            : null)!,
+        responseId: (json['response_id'] as String?)!,
+        itemId: (json['item_id'] as String?)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        contentIndex: ((json['content_index'] as num?)?.toInt())!,
+        delta: (json['delta'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    'type': type_.toJson(),
-    'response_id': responseId,
-    'item_id': itemId,
-    'output_index': outputIndex,
-    'content_index': contentIndex,
-    'delta': delta,
-  };
+        'event_id': eventId,
+        'type': type_.toJson(),
+        'response_id': responseId,
+        'item_id': itemId,
+        'output_index': outputIndex,
+        'content_index': contentIndex,
+        'delta': delta,
+      };
 }
 
 /// Returned when the model-generated transcription of audio output is done streaming. Also emitted when a Response is interrupted, incomplete, or cancelled.
 class RealtimeBetaServerEventResponseAudioTranscriptDone {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the server event.
   final String eventId;
+
   /// The event type, must be `response.output_audio_transcript.done`.
   final RealtimeBetaServerEventResponseAudioTranscriptDoneType type_;
+
   /// The ID of the response.
   final String responseId;
+
   /// The ID of the item.
   final String itemId;
+
   /// The index of the output item in the response.
   final int outputIndex;
+
   /// The index of the content part in the item's content array.
   final int contentIndex;
+
   /// The final transcript of the audio.
   final String transcript;
 
-  const RealtimeBetaServerEventResponseAudioTranscriptDone({required this.eventId, required this.type_, required this.responseId, required this.itemId, required this.outputIndex, required this.contentIndex, required this.transcript});
+  const RealtimeBetaServerEventResponseAudioTranscriptDone(
+      {required this.eventId,
+      required this.type_,
+      required this.responseId,
+      required this.itemId,
+      required this.outputIndex,
+      required this.contentIndex,
+      required this.transcript});
 
-  RealtimeBetaServerEventResponseAudioTranscriptDone Function({String eventId, RealtimeBetaServerEventResponseAudioTranscriptDoneType type_, String responseId, String itemId, int outputIndex, int contentIndex, String transcript}) get copyWith => _copyWith;
+  RealtimeBetaServerEventResponseAudioTranscriptDone Function(
+      {String eventId,
+      RealtimeBetaServerEventResponseAudioTranscriptDoneType type_,
+      String responseId,
+      String itemId,
+      int outputIndex,
+      int contentIndex,
+      String transcript}) get copyWith => _copyWith;
 
-  RealtimeBetaServerEventResponseAudioTranscriptDone _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? responseId = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? contentIndex = sdkOmittedValue, Object? transcript = sdkOmittedValue}) => RealtimeBetaServerEventResponseAudioTranscriptDone(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeBetaServerEventResponseAudioTranscriptDoneType,
-    responseId: identical(responseId, sdkOmittedValue) ? this.responseId : responseId as String,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    contentIndex: identical(contentIndex, sdkOmittedValue) ? this.contentIndex : contentIndex as int,
-    transcript: identical(transcript, sdkOmittedValue) ? this.transcript : transcript as String,
-  );
+  RealtimeBetaServerEventResponseAudioTranscriptDone _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? responseId = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? contentIndex = sdkOmittedValue,
+          Object? transcript = sdkOmittedValue}) =>
+      RealtimeBetaServerEventResponseAudioTranscriptDone(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeBetaServerEventResponseAudioTranscriptDoneType,
+        responseId: identical(responseId, sdkOmittedValue)
+            ? this.responseId
+            : responseId as String,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        contentIndex: identical(contentIndex, sdkOmittedValue)
+            ? this.contentIndex
+            : contentIndex as int,
+        transcript: identical(transcript, sdkOmittedValue)
+            ? this.transcript
+            : transcript as String,
+      );
 
-  factory RealtimeBetaServerEventResponseAudioTranscriptDone.fromJson(Map<String, dynamic> json) => RealtimeBetaServerEventResponseAudioTranscriptDone(
-    eventId: (json['event_id'] as String?)!,
-    type_: (json['type'] != null ? RealtimeBetaServerEventResponseAudioTranscriptDoneType.fromJson(json['type'] as String) : null)!,
-    responseId: (json['response_id'] as String?)!,
-    itemId: (json['item_id'] as String?)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    contentIndex: ((json['content_index'] as num?)?.toInt())!,
-    transcript: (json['transcript'] as String?)!,
-  );
+  factory RealtimeBetaServerEventResponseAudioTranscriptDone.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeBetaServerEventResponseAudioTranscriptDone(
+        eventId: (json['event_id'] as String?)!,
+        type_: (json['type'] != null
+            ? RealtimeBetaServerEventResponseAudioTranscriptDoneType.fromJson(
+                json['type'] as String)
+            : null)!,
+        responseId: (json['response_id'] as String?)!,
+        itemId: (json['item_id'] as String?)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        contentIndex: ((json['content_index'] as num?)?.toInt())!,
+        transcript: (json['transcript'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    'type': type_.toJson(),
-    'response_id': responseId,
-    'item_id': itemId,
-    'output_index': outputIndex,
-    'content_index': contentIndex,
-    'transcript': transcript,
-  };
+        'event_id': eventId,
+        'type': type_.toJson(),
+        'response_id': responseId,
+        'item_id': itemId,
+        'output_index': outputIndex,
+        'content_index': contentIndex,
+        'transcript': transcript,
+      };
 }

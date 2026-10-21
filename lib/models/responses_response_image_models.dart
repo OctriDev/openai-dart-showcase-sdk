@@ -8,196 +8,364 @@ part of 'responses_response_image.dart';
 class ResponseImageGenCallCompletedEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the event. Always 'response.image_generation_call.completed'.
   final ResponseImageGenCallCompletedEventType type_;
+
   /// The index of the output item in the response's output array.
   final int outputIndex;
+
   /// The sequence number of this event.
   final int sequenceNumber;
+
   /// The unique identifier of the image generation item being processed.
   final String itemId;
 
-  const ResponseImageGenCallCompletedEvent({required this.type_, required this.outputIndex, required this.sequenceNumber, required this.itemId});
+  const ResponseImageGenCallCompletedEvent(
+      {required this.type_,
+      required this.outputIndex,
+      required this.sequenceNumber,
+      required this.itemId});
 
-  ResponseImageGenCallCompletedEvent Function({ResponseImageGenCallCompletedEventType type_, int outputIndex, int sequenceNumber, String itemId}) get copyWith => _copyWith;
+  ResponseImageGenCallCompletedEvent Function(
+      {ResponseImageGenCallCompletedEventType type_,
+      int outputIndex,
+      int sequenceNumber,
+      String itemId}) get copyWith => _copyWith;
 
-  ResponseImageGenCallCompletedEvent _copyWith({Object? type_ = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? itemId = sdkOmittedValue}) => ResponseImageGenCallCompletedEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseImageGenCallCompletedEventType,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-  );
+  ResponseImageGenCallCompletedEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue}) =>
+      ResponseImageGenCallCompletedEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponseImageGenCallCompletedEventType,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+      );
 
-  factory ResponseImageGenCallCompletedEvent.fromJson(Map<String, dynamic> json) => ResponseImageGenCallCompletedEvent(
-    type_: (json['type'] != null ? ResponseImageGenCallCompletedEventType.fromJson(json['type'] as String) : null)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-    itemId: (json['item_id'] as String?)!,
-  );
+  factory ResponseImageGenCallCompletedEvent.fromJson(
+          Map<String, dynamic> json) =>
+      ResponseImageGenCallCompletedEvent(
+        type_: (json['type'] != null
+            ? ResponseImageGenCallCompletedEventType.fromJson(
+                json['type'] as String)
+            : null)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+        itemId: (json['item_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'output_index': outputIndex,
-    'sequence_number': sequenceNumber,
-    'item_id': itemId,
-  };
+        'type': type_.toJson(),
+        'output_index': outputIndex,
+        'sequence_number': sequenceNumber,
+        'item_id': itemId,
+      };
 }
 
 /// Emitted when an image generation tool call is actively generating an image (intermediate state).
 class ResponseImageGenCallGeneratingEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the event. Always 'response.image_generation_call.generating'.
   final ResponseImageGenCallGeneratingEventType type_;
+
   /// The index of the output item in the response's output array.
   final int outputIndex;
+
   /// The unique identifier of the image generation item being processed.
   final String itemId;
+
   /// The sequence number of the image generation item being processed.
   final int sequenceNumber;
 
-  const ResponseImageGenCallGeneratingEvent({required this.type_, required this.outputIndex, required this.itemId, required this.sequenceNumber});
+  const ResponseImageGenCallGeneratingEvent(
+      {required this.type_,
+      required this.outputIndex,
+      required this.itemId,
+      required this.sequenceNumber});
 
-  ResponseImageGenCallGeneratingEvent Function({ResponseImageGenCallGeneratingEventType type_, int outputIndex, String itemId, int sequenceNumber}) get copyWith => _copyWith;
+  ResponseImageGenCallGeneratingEvent Function(
+      {ResponseImageGenCallGeneratingEventType type_,
+      int outputIndex,
+      String itemId,
+      int sequenceNumber}) get copyWith => _copyWith;
 
-  ResponseImageGenCallGeneratingEvent _copyWith({Object? type_ = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => ResponseImageGenCallGeneratingEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseImageGenCallGeneratingEventType,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-  );
+  ResponseImageGenCallGeneratingEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue}) =>
+      ResponseImageGenCallGeneratingEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponseImageGenCallGeneratingEventType,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+      );
 
-  factory ResponseImageGenCallGeneratingEvent.fromJson(Map<String, dynamic> json) => ResponseImageGenCallGeneratingEvent(
-    type_: (json['type'] != null ? ResponseImageGenCallGeneratingEventType.fromJson(json['type'] as String) : null)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    itemId: (json['item_id'] as String?)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-  );
+  factory ResponseImageGenCallGeneratingEvent.fromJson(
+          Map<String, dynamic> json) =>
+      ResponseImageGenCallGeneratingEvent(
+        type_: (json['type'] != null
+            ? ResponseImageGenCallGeneratingEventType.fromJson(
+                json['type'] as String)
+            : null)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        itemId: (json['item_id'] as String?)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'output_index': outputIndex,
-    'item_id': itemId,
-    'sequence_number': sequenceNumber,
-  };
+        'type': type_.toJson(),
+        'output_index': outputIndex,
+        'item_id': itemId,
+        'sequence_number': sequenceNumber,
+      };
 }
 
 /// Emitted when an image generation tool call is in progress.
 class ResponseImageGenCallInProgressEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the event. Always 'response.image_generation_call.in_progress'.
   final ResponseImageGenCallInProgressEventType type_;
+
   /// The index of the output item in the response's output array.
   final int outputIndex;
+
   /// The unique identifier of the image generation item being processed.
   final String itemId;
+
   /// The sequence number of the image generation item being processed.
   final int sequenceNumber;
 
-  const ResponseImageGenCallInProgressEvent({required this.type_, required this.outputIndex, required this.itemId, required this.sequenceNumber});
+  const ResponseImageGenCallInProgressEvent(
+      {required this.type_,
+      required this.outputIndex,
+      required this.itemId,
+      required this.sequenceNumber});
 
-  ResponseImageGenCallInProgressEvent Function({ResponseImageGenCallInProgressEventType type_, int outputIndex, String itemId, int sequenceNumber}) get copyWith => _copyWith;
+  ResponseImageGenCallInProgressEvent Function(
+      {ResponseImageGenCallInProgressEventType type_,
+      int outputIndex,
+      String itemId,
+      int sequenceNumber}) get copyWith => _copyWith;
 
-  ResponseImageGenCallInProgressEvent _copyWith({Object? type_ = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue}) => ResponseImageGenCallInProgressEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseImageGenCallInProgressEventType,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-  );
+  ResponseImageGenCallInProgressEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue}) =>
+      ResponseImageGenCallInProgressEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponseImageGenCallInProgressEventType,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+      );
 
-  factory ResponseImageGenCallInProgressEvent.fromJson(Map<String, dynamic> json) => ResponseImageGenCallInProgressEvent(
-    type_: (json['type'] != null ? ResponseImageGenCallInProgressEventType.fromJson(json['type'] as String) : null)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    itemId: (json['item_id'] as String?)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-  );
+  factory ResponseImageGenCallInProgressEvent.fromJson(
+          Map<String, dynamic> json) =>
+      ResponseImageGenCallInProgressEvent(
+        type_: (json['type'] != null
+            ? ResponseImageGenCallInProgressEventType.fromJson(
+                json['type'] as String)
+            : null)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        itemId: (json['item_id'] as String?)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'output_index': outputIndex,
-    'item_id': itemId,
-    'sequence_number': sequenceNumber,
-  };
+        'type': type_.toJson(),
+        'output_index': outputIndex,
+        'item_id': itemId,
+        'sequence_number': sequenceNumber,
+      };
 }
 
 /// Emitted when a partial image is available during image generation streaming.
 class ResponseImageGenCallPartialImageEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the event. Always 'response.image_generation_call.partial_image'.
   final ResponseImageGenCallPartialImageEventType type_;
+
   /// The index of the output item in the response's output array.
   final int outputIndex;
+
   /// The unique identifier of the image generation item being processed.
   final String itemId;
+
   /// The sequence number of the image generation item being processed.
   final int sequenceNumber;
+
   /// 0-based index for the partial image (backend is 1-based, but this is 0-based for the user).
   final int partialImageIndex;
+
   /// Base64-encoded partial image data, suitable for rendering as an image.
   final String partialImageB64;
+
   /// The image size that was used.
   final SdkOptional<String> size;
+
   /// The image quality that was used.
   final SdkOptional<String> quality;
+
   /// The background setting that was used.
   final SdkOptional<String> background;
+
   /// The output format that was used.
   final SdkOptional<String> outputFormat;
 
-  const ResponseImageGenCallPartialImageEvent({required this.type_, required this.outputIndex, required this.itemId, required this.sequenceNumber, required this.partialImageIndex, required this.partialImageB64, this.size = const SdkOmitted(), this.quality = const SdkOmitted(), this.background = const SdkOmitted(), this.outputFormat = const SdkOmitted()});
+  const ResponseImageGenCallPartialImageEvent(
+      {required this.type_,
+      required this.outputIndex,
+      required this.itemId,
+      required this.sequenceNumber,
+      required this.partialImageIndex,
+      required this.partialImageB64,
+      this.size = const SdkOmitted(),
+      this.quality = const SdkOmitted(),
+      this.background = const SdkOmitted(),
+      this.outputFormat = const SdkOmitted()});
 
-  ResponseImageGenCallPartialImageEvent Function({ResponseImageGenCallPartialImageEventType type_, int outputIndex, String itemId, int sequenceNumber, int partialImageIndex, String partialImageB64, SdkOptional<String> size, SdkOptional<String> quality, SdkOptional<String> background, SdkOptional<String> outputFormat}) get copyWith => _copyWith;
+  ResponseImageGenCallPartialImageEvent Function(
+      {ResponseImageGenCallPartialImageEventType type_,
+      int outputIndex,
+      String itemId,
+      int sequenceNumber,
+      int partialImageIndex,
+      String partialImageB64,
+      SdkOptional<String> size,
+      SdkOptional<String> quality,
+      SdkOptional<String> background,
+      SdkOptional<String> outputFormat}) get copyWith => _copyWith;
 
-  ResponseImageGenCallPartialImageEvent _copyWith({Object? type_ = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? partialImageIndex = sdkOmittedValue, Object? partialImageB64 = sdkOmittedValue, Object? size = sdkOmittedValue, Object? quality = sdkOmittedValue, Object? background = sdkOmittedValue, Object? outputFormat = sdkOmittedValue}) => ResponseImageGenCallPartialImageEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseImageGenCallPartialImageEventType,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-    partialImageIndex: identical(partialImageIndex, sdkOmittedValue) ? this.partialImageIndex : partialImageIndex as int,
-    partialImageB64: identical(partialImageB64, sdkOmittedValue) ? this.partialImageB64 : partialImageB64 as String,
-    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<String>,
-    quality: identical(quality, sdkOmittedValue) ? this.quality : quality as SdkOptional<String>,
-    background: identical(background, sdkOmittedValue) ? this.background : background as SdkOptional<String>,
-    outputFormat: identical(outputFormat, sdkOmittedValue) ? this.outputFormat : outputFormat as SdkOptional<String>,
-  );
+  ResponseImageGenCallPartialImageEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue,
+          Object? partialImageIndex = sdkOmittedValue,
+          Object? partialImageB64 = sdkOmittedValue,
+          Object? size = sdkOmittedValue,
+          Object? quality = sdkOmittedValue,
+          Object? background = sdkOmittedValue,
+          Object? outputFormat = sdkOmittedValue}) =>
+      ResponseImageGenCallPartialImageEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponseImageGenCallPartialImageEventType,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+        partialImageIndex: identical(partialImageIndex, sdkOmittedValue)
+            ? this.partialImageIndex
+            : partialImageIndex as int,
+        partialImageB64: identical(partialImageB64, sdkOmittedValue)
+            ? this.partialImageB64
+            : partialImageB64 as String,
+        size: identical(size, sdkOmittedValue)
+            ? this.size
+            : size as SdkOptional<String>,
+        quality: identical(quality, sdkOmittedValue)
+            ? this.quality
+            : quality as SdkOptional<String>,
+        background: identical(background, sdkOmittedValue)
+            ? this.background
+            : background as SdkOptional<String>,
+        outputFormat: identical(outputFormat, sdkOmittedValue)
+            ? this.outputFormat
+            : outputFormat as SdkOptional<String>,
+      );
 
-  factory ResponseImageGenCallPartialImageEvent.fromJson(Map<String, dynamic> json) => ResponseImageGenCallPartialImageEvent(
-    type_: (json['type'] != null ? ResponseImageGenCallPartialImageEventType.fromJson(json['type'] as String) : null)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    itemId: (json['item_id'] as String?)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-    partialImageIndex: ((json['partial_image_index'] as num?)?.toInt())!,
-    partialImageB64: (json['partial_image_b64'] as String?)!,
-    size: json['size'] != null ? SdkPresent((json['size'] as String?)!) : const SdkOmitted(),
-    quality: json['quality'] != null ? SdkPresent((json['quality'] as String?)!) : const SdkOmitted(),
-    background: json['background'] != null ? SdkPresent((json['background'] as String?)!) : const SdkOmitted(),
-    outputFormat: json['output_format'] != null ? SdkPresent((json['output_format'] as String?)!) : const SdkOmitted(),
-  );
+  factory ResponseImageGenCallPartialImageEvent.fromJson(
+          Map<String, dynamic> json) =>
+      ResponseImageGenCallPartialImageEvent(
+        type_: (json['type'] != null
+            ? ResponseImageGenCallPartialImageEventType.fromJson(
+                json['type'] as String)
+            : null)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        itemId: (json['item_id'] as String?)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+        partialImageIndex: ((json['partial_image_index'] as num?)?.toInt())!,
+        partialImageB64: (json['partial_image_b64'] as String?)!,
+        size: json['size'] != null
+            ? SdkPresent((json['size'] as String?)!)
+            : const SdkOmitted(),
+        quality: json['quality'] != null
+            ? SdkPresent((json['quality'] as String?)!)
+            : const SdkOmitted(),
+        background: json['background'] != null
+            ? SdkPresent((json['background'] as String?)!)
+            : const SdkOmitted(),
+        outputFormat: json['output_format'] != null
+            ? SdkPresent((json['output_format'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'output_index': outputIndex,
-    'item_id': itemId,
-    'sequence_number': sequenceNumber,
-    'partial_image_index': partialImageIndex,
-    'partial_image_b64': partialImageB64,
-    ...switch (size) {
-      SdkPresent<String>(value: final value) => {'size': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (quality) {
-      SdkPresent<String>(value: final value) => {'quality': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (background) {
-      SdkPresent<String>(value: final value) => {'background': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (outputFormat) {
-      SdkPresent<String>(value: final value) => {'output_format': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'output_index': outputIndex,
+        'item_id': itemId,
+        'sequence_number': sequenceNumber,
+        'partial_image_index': partialImageIndex,
+        'partial_image_b64': partialImageB64,
+        ...switch (size) {
+          SdkPresent<String>(value: final value) => {
+              'size': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (quality) {
+          SdkPresent<String>(value: final value) => {
+              'quality': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (background) {
+          SdkPresent<String>(value: final value) => {
+              'background': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (outputFormat) {
+          SdkPresent<String>(value: final value) => {
+              'output_format': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

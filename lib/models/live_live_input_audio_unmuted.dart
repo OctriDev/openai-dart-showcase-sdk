@@ -8,35 +8,61 @@ part of 'live_live_input.dart';
 class LiveInputAudioUnmuted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the Live server event.
   final String eventId;
+
   /// The event_id of the client command associated with this server event, when supplied.
   final SdkOptional<String> clientEventId;
+
   /// The event type, always `session.input_audio.unmuted`.
   final LiveInputAudioUnmutedType type_;
 
-  const LiveInputAudioUnmuted({required this.eventId, this.clientEventId = const SdkOmitted(), required this.type_});
+  const LiveInputAudioUnmuted(
+      {required this.eventId,
+      this.clientEventId = const SdkOmitted(),
+      required this.type_});
 
-  LiveInputAudioUnmuted Function({String eventId, SdkOptional<String> clientEventId, LiveInputAudioUnmutedType type_}) get copyWith => _copyWith;
+  LiveInputAudioUnmuted Function(
+      {String eventId,
+      SdkOptional<String> clientEventId,
+      LiveInputAudioUnmutedType type_}) get copyWith => _copyWith;
 
-  LiveInputAudioUnmuted _copyWith({Object? eventId = sdkOmittedValue, Object? clientEventId = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => LiveInputAudioUnmuted(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    clientEventId: identical(clientEventId, sdkOmittedValue) ? this.clientEventId : clientEventId as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveInputAudioUnmutedType,
-  );
+  LiveInputAudioUnmuted _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? clientEventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue}) =>
+      LiveInputAudioUnmuted(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        clientEventId: identical(clientEventId, sdkOmittedValue)
+            ? this.clientEventId
+            : clientEventId as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveInputAudioUnmutedType,
+      );
 
-  factory LiveInputAudioUnmuted.fromJson(Map<String, dynamic> json) => LiveInputAudioUnmuted(
-    eventId: (json['event_id'] as String?)!,
-    clientEventId: json['client_event_id'] != null ? SdkPresent((json['client_event_id'] as String?)!) : const SdkOmitted(),
-    type_: (json['type'] != null ? LiveInputAudioUnmutedType.fromJson(json['type'] as String) : null)!,
-  );
+  factory LiveInputAudioUnmuted.fromJson(Map<String, dynamic> json) =>
+      LiveInputAudioUnmuted(
+        eventId: (json['event_id'] as String?)!,
+        clientEventId: json['client_event_id'] != null
+            ? SdkPresent((json['client_event_id'] as String?)!)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? LiveInputAudioUnmutedType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    ...switch (clientEventId) {
-      SdkPresent<String>(value: final value) => {'client_event_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-  };
+        'event_id': eventId,
+        ...switch (clientEventId) {
+          SdkPresent<String>(value: final value) => {
+              'client_event_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+      };
 }

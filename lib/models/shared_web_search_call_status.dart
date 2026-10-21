@@ -6,12 +6,12 @@ part of 'shared_web.dart';
 // shared_web domain models
 /// Typed representation of the `WebSearchCallStatus` API schema.
 final class WebSearchCallStatus {
-
   final String value;
 
   const WebSearchCallStatus._(this.value);
 
-  factory WebSearchCallStatus.fromJson(String value) => WebSearchCallStatus._(value);
+  factory WebSearchCallStatus.fromJson(String value) =>
+      WebSearchCallStatus._(value);
 
   static const inProgress = WebSearchCallStatus._('in_progress');
   static const searching = WebSearchCallStatus._('searching');
@@ -21,10 +21,13 @@ final class WebSearchCallStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is WebSearchCallStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is WebSearchCallStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

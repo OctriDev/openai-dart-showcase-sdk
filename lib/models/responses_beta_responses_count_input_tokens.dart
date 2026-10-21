@@ -8,22 +8,25 @@ part of 'responses_beta.dart';
 
 /// Typed representation of the `BetaTruncationEnum` API schema.
 final class BetaTruncationEnum {
-
   final String value;
 
   const BetaTruncationEnum._(this.value);
 
-  factory BetaTruncationEnum.fromJson(String value) => BetaTruncationEnum._(value);
+  factory BetaTruncationEnum.fromJson(String value) =>
+      BetaTruncationEnum._(value);
 
   static const auto = BetaTruncationEnum._('auto');
   static const disabled = BetaTruncationEnum._('disabled');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaTruncationEnum && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaTruncationEnum && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

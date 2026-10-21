@@ -8,35 +8,63 @@ part of 'fine_tuning.dart';
 class RunGraderRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The grader used for the fine-tuning job.
   final RunGraderRequestGrader grader;
+
   /// The dataset item provided to the grader. This will be used to populate the `item` namespace. See [the guide](https://developers.openai.com/api/docs/guides/graders) for more details.
   final SdkOptional<Map<String, dynamic>> item;
+
   /// The model sample to be evaluated. This value will be used to populate the `sample` namespace. See [the guide](https://developers.openai.com/api/docs/guides/graders) for more details. The `output_json` variable will be populated if the model sample is a valid JSON string.
   final String modelSample;
 
-  const RunGraderRequest({required this.grader, this.item = const SdkOmitted(), required this.modelSample});
+  const RunGraderRequest(
+      {required this.grader,
+      this.item = const SdkOmitted(),
+      required this.modelSample});
 
-  RunGraderRequest Function({RunGraderRequestGrader grader, SdkOptional<Map<String, dynamic>> item, String modelSample}) get copyWith => _copyWith;
+  RunGraderRequest Function(
+      {RunGraderRequestGrader grader,
+      SdkOptional<Map<String, dynamic>> item,
+      String modelSample}) get copyWith => _copyWith;
 
-  RunGraderRequest _copyWith({Object? grader = sdkOmittedValue, Object? item = sdkOmittedValue, Object? modelSample = sdkOmittedValue}) => RunGraderRequest(
-    grader: identical(grader, sdkOmittedValue) ? this.grader : grader as RunGraderRequestGrader,
-    item: identical(item, sdkOmittedValue) ? this.item : item as SdkOptional<Map<String, dynamic>>,
-    modelSample: identical(modelSample, sdkOmittedValue) ? this.modelSample : modelSample as String,
-  );
+  RunGraderRequest _copyWith(
+          {Object? grader = sdkOmittedValue,
+          Object? item = sdkOmittedValue,
+          Object? modelSample = sdkOmittedValue}) =>
+      RunGraderRequest(
+        grader: identical(grader, sdkOmittedValue)
+            ? this.grader
+            : grader as RunGraderRequestGrader,
+        item: identical(item, sdkOmittedValue)
+            ? this.item
+            : item as SdkOptional<Map<String, dynamic>>,
+        modelSample: identical(modelSample, sdkOmittedValue)
+            ? this.modelSample
+            : modelSample as String,
+      );
 
-  factory RunGraderRequest.fromJson(Map<String, dynamic> json) => RunGraderRequest(
-    grader: (json['grader'] != null ? RunGraderRequestGrader.fromJson(json['grader']) : null)!,
-    item: json['item'] != null ? SdkPresent((json['item'] == null ? null : json['item'] as Map<String, dynamic>)!) : const SdkOmitted(),
-    modelSample: (json['model_sample'] as String?)!,
-  );
+  factory RunGraderRequest.fromJson(Map<String, dynamic> json) =>
+      RunGraderRequest(
+        grader: (json['grader'] != null
+            ? RunGraderRequestGrader.fromJson(json['grader'])
+            : null)!,
+        item: json['item'] != null
+            ? SdkPresent((json['item'] == null
+                ? null
+                : json['item'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+        modelSample: (json['model_sample'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'grader': grader.toJson(),
-    ...switch (item) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'item': value,},
-      _ => const <String, dynamic>{},
-    },
-    'model_sample': modelSample,
-  };
+        'grader': grader.toJson(),
+        ...switch (item) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'item': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'model_sample': modelSample,
+      };
 }

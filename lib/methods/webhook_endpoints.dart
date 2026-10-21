@@ -23,30 +23,44 @@ Future<WebhookEndpointListResource> listWebhookEndpoints(ClientConfig config,
           'GET', '/webhook_endpoints',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listWebhookEndpoints',
-          fromJsonRaw: (value) => WebhookEndpointListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => WebhookEndpointListResource.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Returns webhook endpoints for the authenticated project in newest-first order.
 ///
 /// [limit] Maximum number of webhook endpoints to return. Defaults to 20.
 /// [after] ID of the last webhook endpoint from the previous page.
-Stream<WebhookEndpointBody> listWebhookEndpointsPaginated(ClientConfig config, {int? limit, String? after, RequestOptions? requestOptions}) async* {
+Stream<WebhookEndpointBody> listWebhookEndpointsPaginated(ClientConfig config,
+    {int? limit, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listWebhookEndpoints(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String?>() : SdkPresent<String?>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await listWebhookEndpoints(config,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        after: sdkCursor == null
+            ? const SdkOmitted<String?>()
+            : SdkPresent<String?>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -54,10 +68,17 @@ Stream<WebhookEndpointBody> listWebhookEndpointsPaginated(ClientConfig config, {
   }
 }
 
-Stream<SdkPage<WebhookEndpointListResource, WebhookEndpointBody>> listWebhookEndpointsPages(ClientConfig config, {int? limit, String? after, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<WebhookEndpointListResource, WebhookEndpointBody>>
+    listWebhookEndpointsPages(ClientConfig config,
+        {int? limit, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listWebhookEndpoints(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String?>() : SdkPresent<String?>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await listWebhookEndpoints(config,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        after: sdkCursor == null
+            ? const SdkOmitted<String?>()
+            : SdkPresent<String?>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -68,18 +89,17 @@ Stream<SdkPage<WebhookEndpointListResource, WebhookEndpointBody>> listWebhookEnd
   }
 }
 
-
 /// Creates a webhook endpoint for the authenticated project.
 ///
 /// [name] A human-readable name for the webhook endpoint.
 /// [url] The HTTPS URL that receives webhook deliveries.
 /// [eventTypes] The event types that trigger deliveries to this endpoint.
-Future<WebhookEndpointWithSecretResource>
-    createWebhookEndpoint(ClientConfig config,
-        {required String name,
-        required String url,
-        required List<ProjectEventTypeEnum> eventTypes,
-        RequestOptions? requestOptions}) async {
+Future<WebhookEndpointWithSecretResource> createWebhookEndpoint(
+    ClientConfig config,
+    {required String name,
+    required String url,
+    required List<ProjectEventTypeEnum> eventTypes,
+    RequestOptions? requestOptions}) async {
   validateLength('name', name, min: 1, max: 256);
   validateLength('url', url, max: 2048);
   sdkValidatePattern('url', url, '^https://');
@@ -91,12 +111,15 @@ Future<WebhookEndpointWithSecretResource>
           body: {'name': name, 'url': url, 'event_types': eventTypes},
           decoder: SdkResponseDecoder.json,
           operationId: 'createWebhookEndpoint',
-          fromJsonRaw: (value) => WebhookEndpointWithSecretResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => WebhookEndpointWithSecretResource.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves a webhook endpoint for the authenticated project.
 ///
@@ -108,12 +131,15 @@ Future<WebhookEndpointBody> retrieveWebhookEndpoint(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveWebhookEndpoint',
-          fromJsonRaw: (value) => WebhookEndpointBody.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              WebhookEndpointBody.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates a webhook endpoint for the authenticated project.
 ///
@@ -148,29 +174,39 @@ Future<WebhookEndpointBody> updateWebhookEndpoint(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateWebhookEndpoint',
-          fromJsonRaw: (value) => WebhookEndpointBody.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              WebhookEndpointBody.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a webhook endpoint for the authenticated project.
 ///
 /// [webhookEndpointId] The ID of the webhook endpoint to delete.
-Future<DeletedWebhookEndpointResource> deleteWebhookEndpoint(ClientConfig config,
-    {required String webhookEndpointId, RequestOptions? requestOptions}) async {
+Future<DeletedWebhookEndpointResource> deleteWebhookEndpoint(
+    ClientConfig config,
+    {required String webhookEndpointId,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<DeletedWebhookEndpointResource>('DELETE',
           '/webhook_endpoints/${Uri.encodeComponent(webhookEndpointId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteWebhookEndpoint',
-          fromJsonRaw: (value) => DeletedWebhookEndpointResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeletedWebhookEndpointResource.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Rotates the signing secret for a webhook endpoint in the authenticated project.
 ///
@@ -179,43 +215,57 @@ Future<DeletedWebhookEndpointResource> deleteWebhookEndpoint(ClientConfig config
 /// [keepOldSecretActiveFor24Hours] Whether to keep the previous signing secret
 ///   valid for 24 hours after rotation. Defaults to false, which invalidates the
 ///   previous secret immediately.
-Future<WebhookEndpointWithSecretResource>
-    rotateWebhookEndpointSigningSecret(ClientConfig config,
-        {required String webhookEndpointId,
-        SdkOptional<bool> keepOldSecretActiveFor24Hours = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<WebhookEndpointWithSecretResource> rotateWebhookEndpointSigningSecret(
+    ClientConfig config,
+    {required String webhookEndpointId,
+    SdkOptional<bool> keepOldSecretActiveFor24Hours = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<WebhookEndpointWithSecretResource>('POST',
           '/webhook_endpoints/${Uri.encodeComponent(webhookEndpointId.toString())}/rotate_secret',
           config: config,
           body: {
-            'keep_old_secret_active_for_24_hours': SdkUtils.unwrapOptional(keepOldSecretActiveFor24Hours)
+            'keep_old_secret_active_for_24_hours':
+                SdkUtils.unwrapOptional(keepOldSecretActiveFor24Hours)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'rotateWebhookEndpointSigningSecret',
-          fromJsonRaw: (value) => WebhookEndpointWithSecretResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => WebhookEndpointWithSecretResource.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Sends a sample event to a webhook endpoint for the authenticated project.
 ///
 /// [webhookEndpointId] The ID of the webhook endpoint to test.
 /// [eventType] The event type to send as a sample delivery.
-Future<WebhookEndpointTestResultResource>
-    testWebhookEndpoint(ClientConfig config,
-        {required String webhookEndpointId,
-        required ProjectEventTypeEnum eventType,
-        RequestOptions? requestOptions}) async {
+Future<WebhookEndpointTestResultResource> testWebhookEndpoint(
+    ClientConfig config,
+    {required String webhookEndpointId,
+    required ProjectEventTypeEnum eventType,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<WebhookEndpointTestResultResource>('POST',
           '/webhook_endpoints/${Uri.encodeComponent(webhookEndpointId.toString())}/test',
           config: config,
           body: {'event_type': eventType},
           decoder: SdkResponseDecoder.json,
           operationId: 'testWebhookEndpoint',
-          fromJsonRaw: (value) => WebhookEndpointTestResultResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => WebhookEndpointTestResultResource.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

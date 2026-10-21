@@ -8,42 +8,77 @@ part of 'vaults_vault.dart';
 class VaultResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the vault.
   final String id;
+
   /// The object type. Always `vault`.
   final VaultResourceObject object;
+
   /// The human-readable name of the vault, if set.
   final String? name;
+
   /// Key-value pairs associated with the vault, such as an application or team identifier.
   final Map<String, String> metadata;
+
   /// The Unix timestamp, in seconds, when the vault was created.
   final int createdAt;
 
-  const VaultResource({required this.id, required this.object, required this.name, required this.metadata, required this.createdAt});
+  const VaultResource(
+      {required this.id,
+      required this.object,
+      required this.name,
+      required this.metadata,
+      required this.createdAt});
 
-  VaultResource Function({String id, VaultResourceObject object, String? name, Map<String, String> metadata, int createdAt}) get copyWith => _copyWith;
+  VaultResource Function(
+      {String id,
+      VaultResourceObject object,
+      String? name,
+      Map<String, String> metadata,
+      int createdAt}) get copyWith => _copyWith;
 
-  VaultResource _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? name = sdkOmittedValue, Object? metadata = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => VaultResource(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as VaultResourceObject,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String?,
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as Map<String, String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-  );
+  VaultResource _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? metadata = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue}) =>
+      VaultResource(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as VaultResourceObject,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String?,
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as Map<String, String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+      );
 
   factory VaultResource.fromJson(Map<String, dynamic> json) => VaultResource(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? VaultResourceObject.fromJson(json['object'] as String) : null)!,
-    name: json.containsKey('name') ? json['name'] as String? : throw ArgumentError.value(null, 'name', 'Required property is missing'),
-    metadata: (json['metadata'] == null ? null : Map<String, dynamic>.from(json['metadata'] as Map).map((key, value) => MapEntry(key, value as String)))!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-  );
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? VaultResourceObject.fromJson(json['object'] as String)
+            : null)!,
+        name: json.containsKey('name')
+            ? json['name'] as String?
+            : throw ArgumentError.value(
+                null, 'name', 'Required property is missing'),
+        metadata: (json['metadata'] == null
+            ? null
+            : Map<String, dynamic>.from(json['metadata'] as Map)
+                .map((key, value) => MapEntry(key, value as String)))!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'name': name,
-    'metadata': metadata,
-    'created_at': createdAt,
-  };
+        'id': id,
+        'object': object.toJson(),
+        'name': name,
+        'metadata': metadata,
+        'created_at': createdAt,
+      };
 }

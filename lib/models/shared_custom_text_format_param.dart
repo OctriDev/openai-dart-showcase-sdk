@@ -8,22 +8,30 @@ part of 'shared_custom.dart';
 class CustomTextFormatParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Unconstrained text format. Always `text`.
   final CustomTextFormatParamType type_;
 
   const CustomTextFormatParam({required this.type_});
 
-  CustomTextFormatParam Function({CustomTextFormatParamType type_}) get copyWith => _copyWith;
+  CustomTextFormatParam Function({CustomTextFormatParamType type_})
+      get copyWith => _copyWith;
 
-  CustomTextFormatParam _copyWith({Object? type_ = sdkOmittedValue}) => CustomTextFormatParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CustomTextFormatParamType,
-  );
+  CustomTextFormatParam _copyWith({Object? type_ = sdkOmittedValue}) =>
+      CustomTextFormatParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as CustomTextFormatParamType,
+      );
 
-  factory CustomTextFormatParam.fromJson(Map<String, dynamic> json) => CustomTextFormatParam(
-    type_: (json['type'] != null ? CustomTextFormatParamType.fromJson(json['type'] as String) : null)!,
-  );
+  factory CustomTextFormatParam.fromJson(Map<String, dynamic> json) =>
+      CustomTextFormatParam(
+        type_: (json['type'] != null
+            ? CustomTextFormatParamType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }

@@ -8,25 +8,44 @@ part of 'live_live_initial.dart';
 class LiveInitialSessionAudioOutputParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The voice used for Live speech, as a built-in voice name or a custom voice object containing its ID. Defaults to `marin` and cannot change after startup.
   final SdkOptional<LiveInitialSessionAudioOutputParamVoice> voice;
 
   const LiveInitialSessionAudioOutputParam({this.voice = const SdkOmitted()});
 
-  LiveInitialSessionAudioOutputParam Function({SdkOptional<LiveInitialSessionAudioOutputParamVoice> voice}) get copyWith => _copyWith;
+  LiveInitialSessionAudioOutputParam Function(
+          {SdkOptional<LiveInitialSessionAudioOutputParamVoice> voice})
+      get copyWith => _copyWith;
 
-  LiveInitialSessionAudioOutputParam _copyWith({Object? voice = sdkOmittedValue}) => LiveInitialSessionAudioOutputParam(
-    voice: identical(voice, sdkOmittedValue) ? this.voice : voice as SdkOptional<LiveInitialSessionAudioOutputParamVoice>,
-  );
+  LiveInitialSessionAudioOutputParam _copyWith(
+          {Object? voice = sdkOmittedValue}) =>
+      LiveInitialSessionAudioOutputParam(
+        voice: identical(voice, sdkOmittedValue)
+            ? this.voice
+            : voice as SdkOptional<LiveInitialSessionAudioOutputParamVoice>,
+      );
 
-  factory LiveInitialSessionAudioOutputParam.fromJson(Map<String, dynamic> json) => LiveInitialSessionAudioOutputParam(
-    voice: json['voice'] != null ? SdkPresent((json['voice'] != null ? LiveInitialSessionAudioOutputParamVoice.fromJson(json['voice']) : null)!) : const SdkOmitted(),
-  );
+  factory LiveInitialSessionAudioOutputParam.fromJson(
+          Map<String, dynamic> json) =>
+      LiveInitialSessionAudioOutputParam(
+        voice: json['voice'] != null
+            ? SdkPresent((json['voice'] != null
+                ? LiveInitialSessionAudioOutputParamVoice.fromJson(
+                    json['voice'])
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (voice) {
-      SdkPresent<LiveInitialSessionAudioOutputParamVoice>(value: final value) => {'voice': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (voice) {
+          SdkPresent<LiveInitialSessionAudioOutputParamVoice>(
+            value: final value
+          ) =>
+            {
+              'voice': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

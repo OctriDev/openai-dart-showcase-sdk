@@ -10,74 +10,379 @@ sealed class BetaItemResource {
   const BetaItemResource();
   factory BetaItemResource.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = BetaInputMessageResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaInputMessageResource(value); } } catch (_) {}
-      try { final value = BetaOutputMessage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaOutputMessage(value); } } catch (_) {}
-      try { final value = BetaFileSearchToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaFileSearchToolCall(value); } } catch (_) {}
-      try { final value = BetaComputerToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaComputerToolCall(value); } } catch (_) {}
-      try { final value = BetaComputerToolCallOutputResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaComputerToolCallOutputResource(value); } } catch (_) {}
-      try { final value = BetaWebSearchToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaWebSearchToolCall(value); } } catch (_) {}
-      try { final value = BetaFunctionToolCallResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaFunctionToolCallResource(value); } } catch (_) {}
-      try { final value = BetaFunctionToolCallOutputResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaFunctionToolCallOutputResource(value); } } catch (_) {}
-      try { final value = BetaAgentMessage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaAgentMessage(value); } } catch (_) {}
-      try { final value = BetaMultiAgentCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaMultiAgentCall(value); } } catch (_) {}
-      try { final value = BetaMultiAgentCallOutput.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaMultiAgentCallOutput(value); } } catch (_) {}
-      try { final value = BetaToolSearchCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaToolSearchCall(value); } } catch (_) {}
-      try { final value = BetaToolSearchOutput.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaToolSearchOutput(value); } } catch (_) {}
-      try { final value = BetaAdditionalTools.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaAdditionalTools(value); } } catch (_) {}
-      try { final value = BetaResponseConfigurationUpdate.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaResponseConfigurationUpdate(value); } } catch (_) {}
-      try { final value = BetaReasoningItem.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaReasoningItem(value); } } catch (_) {}
-      try { final value = BetaProgram.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaProgram(value); } } catch (_) {}
-      try { final value = BetaProgramOutput.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaProgramOutput(value); } } catch (_) {}
-      try { final value = BetaCompactionBody.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaCompactionBody(value); } } catch (_) {}
-      try { final value = BetaImageGenToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaImageGenToolCall(value); } } catch (_) {}
-      try { final value = BetaCodeInterpreterToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaCodeInterpreterToolCall(value); } } catch (_) {}
-      try { final value = BetaLocalShellToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaLocalShellToolCall(value); } } catch (_) {}
-      try { final value = BetaLocalShellToolCallOutput.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaLocalShellToolCallOutput(value); } } catch (_) {}
-      try { final value = BetaFunctionShellCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaFunctionShellCall(value); } } catch (_) {}
-      try { final value = BetaFunctionShellCallOutput.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaFunctionShellCallOutput(value); } } catch (_) {}
-      try { final value = BetaApplyPatchToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaApplyPatchToolCall(value); } } catch (_) {}
-      try { final value = BetaApplyPatchToolCallOutput.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaApplyPatchToolCallOutput(value); } } catch (_) {}
-      try { final value = BetaMCPListTools.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaMCPListTools(value); } } catch (_) {}
-      try { final value = BetaMCPApprovalRequest.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaMCPApprovalRequest(value); } } catch (_) {}
-      try { final value = BetaMCPApprovalResponseResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaMCPApprovalResponseResource(value); } } catch (_) {}
-      try { final value = BetaMCPToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaMCPToolCall(value); } } catch (_) {}
-      try { final value = BetaCustomToolCallResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaCustomToolCallResource(value); } } catch (_) {}
-      try { final value = BetaCustomToolCallOutputResource.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaItemResourceBetaCustomToolCallOutputResource(value); } } catch (_) {}
+      try {
+        final value = BetaInputMessageResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaInputMessageResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaOutputMessage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaOutputMessage(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaFileSearchToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaFileSearchToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaComputerToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaComputerToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaComputerToolCallOutputResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaComputerToolCallOutputResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaWebSearchToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaWebSearchToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaFunctionToolCallResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaFunctionToolCallResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaFunctionToolCallOutputResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaFunctionToolCallOutputResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaAgentMessage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaAgentMessage(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaMultiAgentCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaMultiAgentCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaMultiAgentCallOutput.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaMultiAgentCallOutput(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaToolSearchCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaToolSearchCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaToolSearchOutput.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaToolSearchOutput(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaAdditionalTools.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaAdditionalTools(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaResponseConfigurationUpdate.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaResponseConfigurationUpdate(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaReasoningItem.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaReasoningItem(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaProgram.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaProgram(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaProgramOutput.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaProgramOutput(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaCompactionBody.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaCompactionBody(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaImageGenToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaImageGenToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaCodeInterpreterToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaCodeInterpreterToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaLocalShellToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaLocalShellToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaLocalShellToolCallOutput.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaLocalShellToolCallOutput(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaFunctionShellCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaFunctionShellCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaFunctionShellCallOutput.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaFunctionShellCallOutput(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaApplyPatchToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaApplyPatchToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaApplyPatchToolCallOutput.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaApplyPatchToolCallOutput(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaMCPListTools.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaMCPListTools(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaMCPApprovalRequest.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaMCPApprovalRequest(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaMCPApprovalResponseResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaMCPApprovalResponseResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaMCPToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaMCPToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaCustomToolCallResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaCustomToolCallResource(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaCustomToolCallOutputResource.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaItemResourceBetaCustomToolCallOutputResource(value);
+        }
+      } catch (_) {}
     }
-    try { return BetaItemResourceBetaInputMessageResource(BetaInputMessageResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaOutputMessage(BetaOutputMessage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaFileSearchToolCall(BetaFileSearchToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaComputerToolCall(BetaComputerToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaComputerToolCallOutputResource(BetaComputerToolCallOutputResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaWebSearchToolCall(BetaWebSearchToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaFunctionToolCallResource(BetaFunctionToolCallResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaFunctionToolCallOutputResource(BetaFunctionToolCallOutputResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaAgentMessage(BetaAgentMessage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaMultiAgentCall(BetaMultiAgentCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaMultiAgentCallOutput(BetaMultiAgentCallOutput.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaToolSearchCall(BetaToolSearchCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaToolSearchOutput(BetaToolSearchOutput.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaAdditionalTools(BetaAdditionalTools.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaResponseConfigurationUpdate(BetaResponseConfigurationUpdate.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaReasoningItem(BetaReasoningItem.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaProgram(BetaProgram.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaProgramOutput(BetaProgramOutput.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaCompactionBody(BetaCompactionBody.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaImageGenToolCall(BetaImageGenToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaCodeInterpreterToolCall(BetaCodeInterpreterToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaLocalShellToolCall(BetaLocalShellToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaLocalShellToolCallOutput(BetaLocalShellToolCallOutput.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaFunctionShellCall(BetaFunctionShellCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaFunctionShellCallOutput(BetaFunctionShellCallOutput.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaApplyPatchToolCall(BetaApplyPatchToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaApplyPatchToolCallOutput(BetaApplyPatchToolCallOutput.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaMCPListTools(BetaMCPListTools.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaMCPApprovalRequest(BetaMCPApprovalRequest.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaMCPApprovalResponseResource(BetaMCPApprovalResponseResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaMCPToolCall(BetaMCPToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaCustomToolCallResource(BetaCustomToolCallResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaItemResourceBetaCustomToolCallOutputResource(BetaCustomToolCallOutputResource.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"file_search_call", "computer_call", "computer_call_output", "web_search_call", "function_call", "function_call_output", "agent_message", "multi_agent_call", "multi_agent_call_output", "tool_search_call", "tool_search_output", "additional_tools", "configuration_update", "reasoning", "program", "program_output", "compaction", "image_generation_call", "code_interpreter_call", "local_shell_call", "local_shell_call_output", "shell_call", "shell_call_output", "apply_patch_call", "apply_patch_call_output", "mcp_list_tools", "mcp_approval_request", "mcp_approval_response", "mcp_call", "custom_tool_call", "custom_tool_call_output"}.contains(json["type"])) { return UnknownBetaItemResource(json); }
+    try {
+      return BetaItemResourceBetaInputMessageResource(
+          BetaInputMessageResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaOutputMessage(
+          BetaOutputMessage.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaFileSearchToolCall(
+          BetaFileSearchToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaComputerToolCall(
+          BetaComputerToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaComputerToolCallOutputResource(
+          BetaComputerToolCallOutputResource.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaWebSearchToolCall(
+          BetaWebSearchToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaFunctionToolCallResource(
+          BetaFunctionToolCallResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaFunctionToolCallOutputResource(
+          BetaFunctionToolCallOutputResource.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaAgentMessage(
+          BetaAgentMessage.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaMultiAgentCall(
+          BetaMultiAgentCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaMultiAgentCallOutput(
+          BetaMultiAgentCallOutput.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaToolSearchCall(
+          BetaToolSearchCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaToolSearchOutput(
+          BetaToolSearchOutput.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaAdditionalTools(
+          BetaAdditionalTools.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaResponseConfigurationUpdate(
+          BetaResponseConfigurationUpdate.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaReasoningItem(
+          BetaReasoningItem.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaProgram(
+          BetaProgram.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaProgramOutput(
+          BetaProgramOutput.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaCompactionBody(
+          BetaCompactionBody.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaImageGenToolCall(
+          BetaImageGenToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaCodeInterpreterToolCall(
+          BetaCodeInterpreterToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaLocalShellToolCall(
+          BetaLocalShellToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaLocalShellToolCallOutput(
+          BetaLocalShellToolCallOutput.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaFunctionShellCall(
+          BetaFunctionShellCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaFunctionShellCallOutput(
+          BetaFunctionShellCallOutput.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaApplyPatchToolCall(
+          BetaApplyPatchToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaApplyPatchToolCallOutput(
+          BetaApplyPatchToolCallOutput.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaMCPListTools(
+          BetaMCPListTools.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaMCPApprovalRequest(
+          BetaMCPApprovalRequest.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaMCPApprovalResponseResource(
+          BetaMCPApprovalResponseResource.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaMCPToolCall(
+          BetaMCPToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaCustomToolCallResource(
+          BetaCustomToolCallResource.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaItemResourceBetaCustomToolCallOutputResource(
+          BetaCustomToolCallOutputResource.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {
+          "file_search_call",
+          "computer_call",
+          "computer_call_output",
+          "web_search_call",
+          "function_call",
+          "function_call_output",
+          "agent_message",
+          "multi_agent_call",
+          "multi_agent_call_output",
+          "tool_search_call",
+          "tool_search_output",
+          "additional_tools",
+          "configuration_update",
+          "reasoning",
+          "program",
+          "program_output",
+          "compaction",
+          "image_generation_call",
+          "code_interpreter_call",
+          "local_shell_call",
+          "local_shell_call_output",
+          "shell_call",
+          "shell_call_output",
+          "apply_patch_call",
+          "apply_patch_call_output",
+          "mcp_list_tools",
+          "mcp_approval_request",
+          "mcp_approval_response",
+          "mcp_call",
+          "custom_tool_call",
+          "custom_tool_call_output"
+        }.contains(json["type"])) {
+      return UnknownBetaItemResource(json);
+    }
     throw FormatException("No variant matched for BetaItemResource");
   }
   Object? toJson();
@@ -86,185 +391,225 @@ sealed class BetaItemResource {
 final class BetaItemResourceBetaInputMessageResource extends BetaItemResource {
   final BetaInputMessageResource value;
   const BetaItemResourceBetaInputMessageResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaItemResourceBetaOutputMessage extends BetaItemResource {
   final BetaOutputMessage value;
   const BetaItemResourceBetaOutputMessage(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaItemResourceBetaFileSearchToolCall extends BetaItemResource {
   final BetaFileSearchToolCall value;
   const BetaItemResourceBetaFileSearchToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaItemResourceBetaComputerToolCall extends BetaItemResource {
   final BetaComputerToolCall value;
   const BetaItemResourceBetaComputerToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaItemResourceBetaComputerToolCallOutputResource extends BetaItemResource {
+final class BetaItemResourceBetaComputerToolCallOutputResource
+    extends BetaItemResource {
   final BetaComputerToolCallOutputResource value;
   const BetaItemResourceBetaComputerToolCallOutputResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaItemResourceBetaWebSearchToolCall extends BetaItemResource {
   final BetaWebSearchToolCall value;
   const BetaItemResourceBetaWebSearchToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaItemResourceBetaFunctionToolCallResource extends BetaItemResource {
+final class BetaItemResourceBetaFunctionToolCallResource
+    extends BetaItemResource {
   final BetaFunctionToolCallResource value;
   const BetaItemResourceBetaFunctionToolCallResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaItemResourceBetaFunctionToolCallOutputResource extends BetaItemResource {
+final class BetaItemResourceBetaFunctionToolCallOutputResource
+    extends BetaItemResource {
   final BetaFunctionToolCallOutputResource value;
   const BetaItemResourceBetaFunctionToolCallOutputResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaItemResourceBetaAgentMessage extends BetaItemResource {
   final BetaAgentMessage value;
   const BetaItemResourceBetaAgentMessage(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaItemResourceBetaMultiAgentCall extends BetaItemResource {
   final BetaMultiAgentCall value;
   const BetaItemResourceBetaMultiAgentCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaItemResourceBetaMultiAgentCallOutput extends BetaItemResource {
   final BetaMultiAgentCallOutput value;
   const BetaItemResourceBetaMultiAgentCallOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaItemResourceBetaToolSearchCall extends BetaItemResource {
   final BetaToolSearchCall value;
   const BetaItemResourceBetaToolSearchCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaItemResourceBetaToolSearchOutput extends BetaItemResource {
   final BetaToolSearchOutput value;
   const BetaItemResourceBetaToolSearchOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaItemResourceBetaAdditionalTools extends BetaItemResource {
   final BetaAdditionalTools value;
   const BetaItemResourceBetaAdditionalTools(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaItemResourceBetaResponseConfigurationUpdate extends BetaItemResource {
+final class BetaItemResourceBetaResponseConfigurationUpdate
+    extends BetaItemResource {
   final BetaResponseConfigurationUpdate value;
   const BetaItemResourceBetaResponseConfigurationUpdate(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaItemResourceBetaReasoningItem extends BetaItemResource {
   final BetaReasoningItem value;
   const BetaItemResourceBetaReasoningItem(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaItemResourceBetaProgram extends BetaItemResource {
   final BetaProgram value;
   const BetaItemResourceBetaProgram(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaItemResourceBetaProgramOutput extends BetaItemResource {
   final BetaProgramOutput value;
   const BetaItemResourceBetaProgramOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaItemResourceBetaCompactionBody extends BetaItemResource {
   final BetaCompactionBody value;
   const BetaItemResourceBetaCompactionBody(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaItemResourceBetaImageGenToolCall extends BetaItemResource {
   final BetaImageGenToolCall value;
   const BetaItemResourceBetaImageGenToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaItemResourceBetaCodeInterpreterToolCall extends BetaItemResource {
+final class BetaItemResourceBetaCodeInterpreterToolCall
+    extends BetaItemResource {
   final BetaCodeInterpreterToolCall value;
   const BetaItemResourceBetaCodeInterpreterToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaItemResourceBetaLocalShellToolCall extends BetaItemResource {
   final BetaLocalShellToolCall value;
   const BetaItemResourceBetaLocalShellToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaItemResourceBetaLocalShellToolCallOutput extends BetaItemResource {
+final class BetaItemResourceBetaLocalShellToolCallOutput
+    extends BetaItemResource {
   final BetaLocalShellToolCallOutput value;
   const BetaItemResourceBetaLocalShellToolCallOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaItemResourceBetaFunctionShellCall extends BetaItemResource {
   final BetaFunctionShellCall value;
   const BetaItemResourceBetaFunctionShellCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaItemResourceBetaFunctionShellCallOutput extends BetaItemResource {
+final class BetaItemResourceBetaFunctionShellCallOutput
+    extends BetaItemResource {
   final BetaFunctionShellCallOutput value;
   const BetaItemResourceBetaFunctionShellCallOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaItemResourceBetaApplyPatchToolCall extends BetaItemResource {
   final BetaApplyPatchToolCall value;
   const BetaItemResourceBetaApplyPatchToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaItemResourceBetaApplyPatchToolCallOutput extends BetaItemResource {
+final class BetaItemResourceBetaApplyPatchToolCallOutput
+    extends BetaItemResource {
   final BetaApplyPatchToolCallOutput value;
   const BetaItemResourceBetaApplyPatchToolCallOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaItemResourceBetaMCPListTools extends BetaItemResource {
   final BetaMCPListTools value;
   const BetaItemResourceBetaMCPListTools(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaItemResourceBetaMCPApprovalRequest extends BetaItemResource {
   final BetaMCPApprovalRequest value;
   const BetaItemResourceBetaMCPApprovalRequest(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaItemResourceBetaMCPApprovalResponseResource extends BetaItemResource {
+final class BetaItemResourceBetaMCPApprovalResponseResource
+    extends BetaItemResource {
   final BetaMCPApprovalResponseResource value;
   const BetaItemResourceBetaMCPApprovalResponseResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaItemResourceBetaMCPToolCall extends BetaItemResource {
   final BetaMCPToolCall value;
   const BetaItemResourceBetaMCPToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }

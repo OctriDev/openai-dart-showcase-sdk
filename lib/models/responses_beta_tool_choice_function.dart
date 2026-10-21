@@ -8,27 +8,38 @@ part of 'responses_beta_tool.dart';
 class BetaToolChoiceFunction {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// For function calling, the type is always `function`.
   final BetaToolChoiceFunctionType type_;
+
   /// The name of the function to call.
   final String name;
 
   const BetaToolChoiceFunction({required this.type_, required this.name});
 
-  BetaToolChoiceFunction Function({BetaToolChoiceFunctionType type_, String name}) get copyWith => _copyWith;
+  BetaToolChoiceFunction Function(
+      {BetaToolChoiceFunctionType type_,
+      String name}) get copyWith => _copyWith;
 
-  BetaToolChoiceFunction _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue}) => BetaToolChoiceFunction(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaToolChoiceFunctionType,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-  );
+  BetaToolChoiceFunction _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue}) =>
+      BetaToolChoiceFunction(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaToolChoiceFunctionType,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+      );
 
-  factory BetaToolChoiceFunction.fromJson(Map<String, dynamic> json) => BetaToolChoiceFunction(
-    type_: (json['type'] != null ? BetaToolChoiceFunctionType.fromJson(json['type'] as String) : null)!,
-    name: (json['name'] as String?)!,
-  );
+  factory BetaToolChoiceFunction.fromJson(Map<String, dynamic> json) =>
+      BetaToolChoiceFunction(
+        type_: (json['type'] != null
+            ? BetaToolChoiceFunctionType.fromJson(json['type'] as String)
+            : null)!,
+        name: (json['name'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'name': name,
-  };
+        'type': type_.toJson(),
+        'name': name,
+      };
 }

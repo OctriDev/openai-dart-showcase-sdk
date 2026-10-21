@@ -6,12 +6,12 @@ part of 'live_live.dart';
 // live_live domain models
 /// Typed representation of the `LiveTextVerbosity` API schema.
 final class LiveTextVerbosity {
-
   final String value;
 
   const LiveTextVerbosity._(this.value);
 
-  factory LiveTextVerbosity.fromJson(String value) => LiveTextVerbosity._(value);
+  factory LiveTextVerbosity.fromJson(String value) =>
+      LiveTextVerbosity._(value);
 
   static const low = LiveTextVerbosity._('low');
   static const medium = LiveTextVerbosity._('medium');
@@ -19,10 +19,13 @@ final class LiveTextVerbosity {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveTextVerbosity && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveTextVerbosity && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

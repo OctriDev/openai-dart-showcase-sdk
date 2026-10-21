@@ -8,32 +8,52 @@ part of 'agents_hosted.dart';
 class HostedTemplateSkillResourceInline {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `inline`.
   final HostedTemplateSkillResourceInlineType type_;
+
   /// The skill name declared in `SKILL.md`.
   final String name;
+
   /// The skill description declared in `SKILL.md`.
   final String description;
 
-  const HostedTemplateSkillResourceInline({required this.type_, required this.name, required this.description});
+  const HostedTemplateSkillResourceInline(
+      {required this.type_, required this.name, required this.description});
 
-  HostedTemplateSkillResourceInline Function({HostedTemplateSkillResourceInlineType type_, String name, String description}) get copyWith => _copyWith;
+  HostedTemplateSkillResourceInline Function(
+      {HostedTemplateSkillResourceInlineType type_,
+      String name,
+      String description}) get copyWith => _copyWith;
 
-  HostedTemplateSkillResourceInline _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue}) => HostedTemplateSkillResourceInline(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as HostedTemplateSkillResourceInlineType,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as String,
-  );
+  HostedTemplateSkillResourceInline _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue}) =>
+      HostedTemplateSkillResourceInline(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as HostedTemplateSkillResourceInlineType,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as String,
+      );
 
-  factory HostedTemplateSkillResourceInline.fromJson(Map<String, dynamic> json) => HostedTemplateSkillResourceInline(
-    type_: (json['type'] != null ? HostedTemplateSkillResourceInlineType.fromJson(json['type'] as String) : null)!,
-    name: (json['name'] as String?)!,
-    description: (json['description'] as String?)!,
-  );
+  factory HostedTemplateSkillResourceInline.fromJson(
+          Map<String, dynamic> json) =>
+      HostedTemplateSkillResourceInline(
+        type_: (json['type'] != null
+            ? HostedTemplateSkillResourceInlineType.fromJson(
+                json['type'] as String)
+            : null)!,
+        name: (json['name'] as String?)!,
+        description: (json['description'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'name': name,
-    'description': description,
-  };
+        'type': type_.toJson(),
+        'name': name,
+        'description': description,
+      };
 }

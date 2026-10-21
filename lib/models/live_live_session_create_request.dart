@@ -8,27 +8,45 @@ part of 'live_live_session.dart';
 class LiveSessionCreateRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Startup configuration for the Live session.
   final LiveMediaSessionCreateParams session;
+
   /// WebRTC transport with an SDP offer, or SIP transport with a destination and per-call trunk credentials.
   final LiveSessionCreateRequestTransport transport;
 
-  const LiveSessionCreateRequest({required this.session, required this.transport});
+  const LiveSessionCreateRequest(
+      {required this.session, required this.transport});
 
-  LiveSessionCreateRequest Function({LiveMediaSessionCreateParams session, LiveSessionCreateRequestTransport transport}) get copyWith => _copyWith;
+  LiveSessionCreateRequest Function(
+      {LiveMediaSessionCreateParams session,
+      LiveSessionCreateRequestTransport transport}) get copyWith => _copyWith;
 
-  LiveSessionCreateRequest _copyWith({Object? session = sdkOmittedValue, Object? transport = sdkOmittedValue}) => LiveSessionCreateRequest(
-    session: identical(session, sdkOmittedValue) ? this.session : session as LiveMediaSessionCreateParams,
-    transport: identical(transport, sdkOmittedValue) ? this.transport : transport as LiveSessionCreateRequestTransport,
-  );
+  LiveSessionCreateRequest _copyWith(
+          {Object? session = sdkOmittedValue,
+          Object? transport = sdkOmittedValue}) =>
+      LiveSessionCreateRequest(
+        session: identical(session, sdkOmittedValue)
+            ? this.session
+            : session as LiveMediaSessionCreateParams,
+        transport: identical(transport, sdkOmittedValue)
+            ? this.transport
+            : transport as LiveSessionCreateRequestTransport,
+      );
 
-  factory LiveSessionCreateRequest.fromJson(Map<String, dynamic> json) => LiveSessionCreateRequest(
-    session: (json['session'] != null ? LiveMediaSessionCreateParams.fromJson(json['session'] as Map<String, dynamic>) : null)!,
-    transport: (json['transport'] != null ? LiveSessionCreateRequestTransport.fromJson(json['transport']) : null)!,
-  );
+  factory LiveSessionCreateRequest.fromJson(Map<String, dynamic> json) =>
+      LiveSessionCreateRequest(
+        session: (json['session'] != null
+            ? LiveMediaSessionCreateParams.fromJson(
+                json['session'] as Map<String, dynamic>)
+            : null)!,
+        transport: (json['transport'] != null
+            ? LiveSessionCreateRequestTransport.fromJson(json['transport'])
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'session': session.toJson(),
-    'transport': transport.toJson(),
-  };
+        'session': session.toJson(),
+        'transport': transport.toJson(),
+      };
 }

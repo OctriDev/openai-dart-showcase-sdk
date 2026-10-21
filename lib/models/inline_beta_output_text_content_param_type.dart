@@ -6,23 +6,26 @@ part of 'inline.dart';
 // Inline operation models
 /// The content type. Always `output_text`.
 final class BetaOutputTextContentParamType {
-
   final String value;
 
   const BetaOutputTextContentParamType._(this.value);
 
-  factory BetaOutputTextContentParamType.fromJson(String value) => BetaOutputTextContentParamType._(value);
+  factory BetaOutputTextContentParamType.fromJson(String value) =>
+      BetaOutputTextContentParamType._(value);
 
   static const outputText = BetaOutputTextContentParamType._('output_text');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaOutputTextContentParamType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaOutputTextContentParamType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the item. Always `program`.
@@ -31,14 +34,17 @@ enum BetaProgramType {
 
   static BetaProgramType fromJson(String value) {
     switch (value) {
-      case 'program': return BetaProgramType.program;
-      default: throw ArgumentError('Unknown BetaProgramType: $value');
+      case 'program':
+        return BetaProgramType.program;
+      default:
+        throw ArgumentError('Unknown BetaProgramType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaProgramType.program: return 'program';
+      case BetaProgramType.program:
+        return 'program';
     }
   }
 
@@ -52,14 +58,17 @@ enum BetaProgramItemParamType {
 
   static BetaProgramItemParamType fromJson(String value) {
     switch (value) {
-      case 'program': return BetaProgramItemParamType.program;
-      default: throw ArgumentError('Unknown BetaProgramItemParamType: $value');
+      case 'program':
+        return BetaProgramItemParamType.program;
+      default:
+        throw ArgumentError('Unknown BetaProgramItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaProgramItemParamType.program: return 'program';
+      case BetaProgramItemParamType.program:
+        return 'program';
     }
   }
 
@@ -73,14 +82,18 @@ enum BetaProgrammaticToolCallingParamType {
 
   static BetaProgrammaticToolCallingParamType fromJson(String value) {
     switch (value) {
-      case 'programmatic_tool_calling': return BetaProgrammaticToolCallingParamType.programmaticToolCalling;
-      default: throw ArgumentError('Unknown BetaProgrammaticToolCallingParamType: $value');
+      case 'programmatic_tool_calling':
+        return BetaProgrammaticToolCallingParamType.programmaticToolCalling;
+      default:
+        throw ArgumentError(
+            'Unknown BetaProgrammaticToolCallingParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaProgrammaticToolCallingParamType.programmaticToolCalling: return 'programmatic_tool_calling';
+      case BetaProgrammaticToolCallingParamType.programmaticToolCalling:
+        return 'programmatic_tool_calling';
     }
   }
 
@@ -94,14 +107,17 @@ enum BetaProgramOutputType {
 
   static BetaProgramOutputType fromJson(String value) {
     switch (value) {
-      case 'program_output': return BetaProgramOutputType.programOutput;
-      default: throw ArgumentError('Unknown BetaProgramOutputType: $value');
+      case 'program_output':
+        return BetaProgramOutputType.programOutput;
+      default:
+        throw ArgumentError('Unknown BetaProgramOutputType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaProgramOutputType.programOutput: return 'program_output';
+      case BetaProgramOutputType.programOutput:
+        return 'program_output';
     }
   }
 
@@ -115,14 +131,17 @@ enum BetaProgramOutputItemParamType {
 
   static BetaProgramOutputItemParamType fromJson(String value) {
     switch (value) {
-      case 'program_output': return BetaProgramOutputItemParamType.programOutput;
-      default: throw ArgumentError('Unknown BetaProgramOutputItemParamType: $value');
+      case 'program_output':
+        return BetaProgramOutputItemParamType.programOutput;
+      default:
+        throw ArgumentError('Unknown BetaProgramOutputItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaProgramOutputItemParamType.programOutput: return 'program_output';
+      case BetaProgramOutputItemParamType.programOutput:
+        return 'program_output';
     }
   }
 
@@ -136,14 +155,17 @@ enum BetaProgramToolCallCallerType {
 
   static BetaProgramToolCallCallerType fromJson(String value) {
     switch (value) {
-      case 'program': return BetaProgramToolCallCallerType.program;
-      default: throw ArgumentError('Unknown BetaProgramToolCallCallerType: $value');
+      case 'program':
+        return BetaProgramToolCallCallerType.program;
+      default:
+        throw ArgumentError('Unknown BetaProgramToolCallCallerType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaProgramToolCallCallerType.program: return 'program';
+      case BetaProgramToolCallCallerType.program:
+        return 'program';
     }
   }
 
@@ -157,14 +179,18 @@ enum BetaProgramToolCallCallerParamType {
 
   static BetaProgramToolCallCallerParamType fromJson(String value) {
     switch (value) {
-      case 'program': return BetaProgramToolCallCallerParamType.program;
-      default: throw ArgumentError('Unknown BetaProgramToolCallCallerParamType: $value');
+      case 'program':
+        return BetaProgramToolCallCallerParamType.program;
+      default:
+        throw ArgumentError(
+            'Unknown BetaProgramToolCallCallerParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaProgramToolCallCallerParamType.program: return 'program';
+      case BetaProgramToolCallCallerParamType.program:
+        return 'program';
     }
   }
 
@@ -174,60 +200,73 @@ enum BetaProgramToolCallCallerParamType {
 
 /// The breakpoint mode. Always `explicit`.
 final class BetaPromptCacheBreakpointConfigMode {
-
   final String value;
 
   const BetaPromptCacheBreakpointConfigMode._(this.value);
 
-  factory BetaPromptCacheBreakpointConfigMode.fromJson(String value) => BetaPromptCacheBreakpointConfigMode._(value);
+  factory BetaPromptCacheBreakpointConfigMode.fromJson(String value) =>
+      BetaPromptCacheBreakpointConfigMode._(value);
 
   static const explicit = BetaPromptCacheBreakpointConfigMode._('explicit');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaPromptCacheBreakpointConfigMode && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaPromptCacheBreakpointConfigMode && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The breakpoint mode. Always `explicit`.
 final class BetaPromptCacheBreakpointParamMode {
-
   final String value;
 
   const BetaPromptCacheBreakpointParamMode._(this.value);
 
-  factory BetaPromptCacheBreakpointParamMode.fromJson(String value) => BetaPromptCacheBreakpointParamMode._(value);
+  factory BetaPromptCacheBreakpointParamMode.fromJson(String value) =>
+      BetaPromptCacheBreakpointParamMode._(value);
 
   static const explicit = BetaPromptCacheBreakpointParamMode._('explicit');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaPromptCacheBreakpointParamMode && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaPromptCacheBreakpointParamMode && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `type` wire field.
 enum BetaPromptCacheComparisonResponseNotFoundDiagnosticsBodyType {
   comparisonResponseNotFound;
 
-  static BetaPromptCacheComparisonResponseNotFoundDiagnosticsBodyType fromJson(String value) {
+  static BetaPromptCacheComparisonResponseNotFoundDiagnosticsBodyType fromJson(
+      String value) {
     switch (value) {
-      case 'comparison_response_not_found': return BetaPromptCacheComparisonResponseNotFoundDiagnosticsBodyType.comparisonResponseNotFound;
-      default: throw ArgumentError('Unknown BetaPromptCacheComparisonResponseNotFoundDiagnosticsBodyType: $value');
+      case 'comparison_response_not_found':
+        return BetaPromptCacheComparisonResponseNotFoundDiagnosticsBodyType
+            .comparisonResponseNotFound;
+      default:
+        throw ArgumentError(
+            'Unknown BetaPromptCacheComparisonResponseNotFoundDiagnosticsBodyType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaPromptCacheComparisonResponseNotFoundDiagnosticsBodyType.comparisonResponseNotFound: return 'comparison_response_not_found';
+      case BetaPromptCacheComparisonResponseNotFoundDiagnosticsBodyType
+            .comparisonResponseNotFound:
+        return 'comparison_response_not_found';
     }
   }
 
@@ -241,14 +280,18 @@ enum BetaPromptCacheHitDiagnosticsBodyType {
 
   static BetaPromptCacheHitDiagnosticsBodyType fromJson(String value) {
     switch (value) {
-      case 'cache_hit': return BetaPromptCacheHitDiagnosticsBodyType.cacheHit;
-      default: throw ArgumentError('Unknown BetaPromptCacheHitDiagnosticsBodyType: $value');
+      case 'cache_hit':
+        return BetaPromptCacheHitDiagnosticsBodyType.cacheHit;
+      default:
+        throw ArgumentError(
+            'Unknown BetaPromptCacheHitDiagnosticsBodyType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaPromptCacheHitDiagnosticsBodyType.cacheHit: return 'cache_hit';
+      case BetaPromptCacheHitDiagnosticsBodyType.cacheHit:
+        return 'cache_hit';
     }
   }
 
@@ -262,14 +305,18 @@ enum BetaPromptCacheMissDiagnosticsBodyType {
 
   static BetaPromptCacheMissDiagnosticsBodyType fromJson(String value) {
     switch (value) {
-      case 'cache_miss': return BetaPromptCacheMissDiagnosticsBodyType.cacheMiss;
-      default: throw ArgumentError('Unknown BetaPromptCacheMissDiagnosticsBodyType: $value');
+      case 'cache_miss':
+        return BetaPromptCacheMissDiagnosticsBodyType.cacheMiss;
+      default:
+        throw ArgumentError(
+            'Unknown BetaPromptCacheMissDiagnosticsBodyType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaPromptCacheMissDiagnosticsBodyType.cacheMiss: return 'cache_miss';
+      case BetaPromptCacheMissDiagnosticsBodyType.cacheMiss:
+        return 'cache_miss';
     }
   }
 

@@ -8,42 +8,77 @@ part of 'realtime_realtime_server_event.dart';
 class RealtimeServerEventInputAudioBufferTimeoutTriggered {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the server event.
   final String eventId;
+
   /// The event type, must be `input_audio_buffer.timeout_triggered`.
   final RealtimeServerEventInputAudioBufferTimeoutTriggeredType type_;
+
   /// Millisecond offset of audio written to the input audio buffer that was after the playback time of the last model response.
   final int audioStartMs;
+
   /// Millisecond offset of audio written to the input audio buffer at the time the timeout was triggered.
   final int audioEndMs;
+
   /// The ID of the item associated with this segment.
   final String itemId;
 
-  const RealtimeServerEventInputAudioBufferTimeoutTriggered({required this.eventId, required this.type_, required this.audioStartMs, required this.audioEndMs, required this.itemId});
+  const RealtimeServerEventInputAudioBufferTimeoutTriggered(
+      {required this.eventId,
+      required this.type_,
+      required this.audioStartMs,
+      required this.audioEndMs,
+      required this.itemId});
 
-  RealtimeServerEventInputAudioBufferTimeoutTriggered Function({String eventId, RealtimeServerEventInputAudioBufferTimeoutTriggeredType type_, int audioStartMs, int audioEndMs, String itemId}) get copyWith => _copyWith;
+  RealtimeServerEventInputAudioBufferTimeoutTriggered Function(
+      {String eventId,
+      RealtimeServerEventInputAudioBufferTimeoutTriggeredType type_,
+      int audioStartMs,
+      int audioEndMs,
+      String itemId}) get copyWith => _copyWith;
 
-  RealtimeServerEventInputAudioBufferTimeoutTriggered _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? audioStartMs = sdkOmittedValue, Object? audioEndMs = sdkOmittedValue, Object? itemId = sdkOmittedValue}) => RealtimeServerEventInputAudioBufferTimeoutTriggered(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeServerEventInputAudioBufferTimeoutTriggeredType,
-    audioStartMs: identical(audioStartMs, sdkOmittedValue) ? this.audioStartMs : audioStartMs as int,
-    audioEndMs: identical(audioEndMs, sdkOmittedValue) ? this.audioEndMs : audioEndMs as int,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-  );
+  RealtimeServerEventInputAudioBufferTimeoutTriggered _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? audioStartMs = sdkOmittedValue,
+          Object? audioEndMs = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue}) =>
+      RealtimeServerEventInputAudioBufferTimeoutTriggered(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeServerEventInputAudioBufferTimeoutTriggeredType,
+        audioStartMs: identical(audioStartMs, sdkOmittedValue)
+            ? this.audioStartMs
+            : audioStartMs as int,
+        audioEndMs: identical(audioEndMs, sdkOmittedValue)
+            ? this.audioEndMs
+            : audioEndMs as int,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+      );
 
-  factory RealtimeServerEventInputAudioBufferTimeoutTriggered.fromJson(Map<String, dynamic> json) => RealtimeServerEventInputAudioBufferTimeoutTriggered(
-    eventId: (json['event_id'] as String?)!,
-    type_: (json['type'] != null ? RealtimeServerEventInputAudioBufferTimeoutTriggeredType.fromJson(json['type'] as String) : null)!,
-    audioStartMs: ((json['audio_start_ms'] as num?)?.toInt())!,
-    audioEndMs: ((json['audio_end_ms'] as num?)?.toInt())!,
-    itemId: (json['item_id'] as String?)!,
-  );
+  factory RealtimeServerEventInputAudioBufferTimeoutTriggered.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeServerEventInputAudioBufferTimeoutTriggered(
+        eventId: (json['event_id'] as String?)!,
+        type_: (json['type'] != null
+            ? RealtimeServerEventInputAudioBufferTimeoutTriggeredType.fromJson(
+                json['type'] as String)
+            : null)!,
+        audioStartMs: ((json['audio_start_ms'] as num?)?.toInt())!,
+        audioEndMs: ((json['audio_end_ms'] as num?)?.toInt())!,
+        itemId: (json['item_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'event_id': eventId,
-    'type': type_.toJson(),
-    'audio_start_ms': audioStartMs,
-    'audio_end_ms': audioEndMs,
-    'item_id': itemId,
-  };
+        'event_id': eventId,
+        'type': type_.toJson(),
+        'audio_start_ms': audioStartMs,
+        'audio_end_ms': audioEndMs,
+        'item_id': itemId,
+      };
 }

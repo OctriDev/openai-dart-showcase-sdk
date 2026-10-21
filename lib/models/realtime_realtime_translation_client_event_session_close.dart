@@ -8,30 +8,52 @@ part of 'realtime_realtime_translation.dart';
 class RealtimeTranslationClientEventSessionClose {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional client-generated ID used to identify this event.
   final SdkOptional<String> eventId;
+
   /// The event type, must be `session.close`.
   final RealtimeTranslationClientEventSessionCloseType type_;
 
-  const RealtimeTranslationClientEventSessionClose({this.eventId = const SdkOmitted(), required this.type_});
+  const RealtimeTranslationClientEventSessionClose(
+      {this.eventId = const SdkOmitted(), required this.type_});
 
-  RealtimeTranslationClientEventSessionClose Function({SdkOptional<String> eventId, RealtimeTranslationClientEventSessionCloseType type_}) get copyWith => _copyWith;
+  RealtimeTranslationClientEventSessionClose Function(
+          {SdkOptional<String> eventId,
+          RealtimeTranslationClientEventSessionCloseType type_})
+      get copyWith => _copyWith;
 
-  RealtimeTranslationClientEventSessionClose _copyWith({Object? eventId = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => RealtimeTranslationClientEventSessionClose(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeTranslationClientEventSessionCloseType,
-  );
+  RealtimeTranslationClientEventSessionClose _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue}) =>
+      RealtimeTranslationClientEventSessionClose(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeTranslationClientEventSessionCloseType,
+      );
 
-  factory RealtimeTranslationClientEventSessionClose.fromJson(Map<String, dynamic> json) => RealtimeTranslationClientEventSessionClose(
-    eventId: json['event_id'] != null ? SdkPresent((json['event_id'] as String?)!) : const SdkOmitted(),
-    type_: (json['type'] != null ? RealtimeTranslationClientEventSessionCloseType.fromJson(json['type'] as String) : null)!,
-  );
+  factory RealtimeTranslationClientEventSessionClose.fromJson(
+          Map<String, dynamic> json) =>
+      RealtimeTranslationClientEventSessionClose(
+        eventId: json['event_id'] != null
+            ? SdkPresent((json['event_id'] as String?)!)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? RealtimeTranslationClientEventSessionCloseType.fromJson(
+                json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (eventId) {
-      SdkPresent<String>(value: final value) => {'event_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-  };
+        ...switch (eventId) {
+          SdkPresent<String>(value: final value) => {
+              'event_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+      };
 }

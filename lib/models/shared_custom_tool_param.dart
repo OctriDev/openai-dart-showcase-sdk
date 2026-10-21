@@ -8,67 +8,136 @@ part of 'shared_custom.dart';
 class CustomToolParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the custom tool. Always `custom`.
   final CustomToolParamType type_;
+
   /// The name of the custom tool, used to identify it in tool calls.
   final String name;
+
   /// Whether the tool response can be returned asynchronously versus immediately returned on next response creation.
   final SdkOptional<bool> async_;
+
   /// Optional description of the custom tool, used to provide more context.
   final SdkOptional<String> description;
+
   /// The input format for the custom tool. Default is unconstrained text.
   final SdkOptional<CustomToolParamFormat> format;
+
   /// Whether this tool should be deferred and discovered via tool search.
   final SdkOptional<bool> deferLoading;
+
   /// The tool invocation context(s).
   final SdkOptional<List<CallableToolAllowedCaller>?> allowedCallers;
 
-  const CustomToolParam({required this.type_, required this.name, this.async_ = const SdkOmitted(), this.description = const SdkOmitted(), this.format = const SdkOmitted(), this.deferLoading = const SdkOmitted(), this.allowedCallers = const SdkOmitted()});
+  const CustomToolParam(
+      {required this.type_,
+      required this.name,
+      this.async_ = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      this.format = const SdkOmitted(),
+      this.deferLoading = const SdkOmitted(),
+      this.allowedCallers = const SdkOmitted()});
 
-  CustomToolParam Function({CustomToolParamType type_, String name, SdkOptional<bool> async_, SdkOptional<String> description, SdkOptional<CustomToolParamFormat> format, SdkOptional<bool> deferLoading, SdkOptional<List<CallableToolAllowedCaller>?> allowedCallers}) get copyWith => _copyWith;
+  CustomToolParam Function(
+          {CustomToolParamType type_,
+          String name,
+          SdkOptional<bool> async_,
+          SdkOptional<String> description,
+          SdkOptional<CustomToolParamFormat> format,
+          SdkOptional<bool> deferLoading,
+          SdkOptional<List<CallableToolAllowedCaller>?> allowedCallers})
+      get copyWith => _copyWith;
 
-  CustomToolParam _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? async_ = sdkOmittedValue, Object? description = sdkOmittedValue, Object? format = sdkOmittedValue, Object? deferLoading = sdkOmittedValue, Object? allowedCallers = sdkOmittedValue}) => CustomToolParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CustomToolParamType,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    async_: identical(async_, sdkOmittedValue) ? this.async_ : async_ as SdkOptional<bool>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    format: identical(format, sdkOmittedValue) ? this.format : format as SdkOptional<CustomToolParamFormat>,
-    deferLoading: identical(deferLoading, sdkOmittedValue) ? this.deferLoading : deferLoading as SdkOptional<bool>,
-    allowedCallers: identical(allowedCallers, sdkOmittedValue) ? this.allowedCallers : allowedCallers as SdkOptional<List<CallableToolAllowedCaller>?>,
-  );
+  CustomToolParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? async_ = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? format = sdkOmittedValue,
+          Object? deferLoading = sdkOmittedValue,
+          Object? allowedCallers = sdkOmittedValue}) =>
+      CustomToolParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as CustomToolParamType,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        async_: identical(async_, sdkOmittedValue)
+            ? this.async_
+            : async_ as SdkOptional<bool>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        format: identical(format, sdkOmittedValue)
+            ? this.format
+            : format as SdkOptional<CustomToolParamFormat>,
+        deferLoading: identical(deferLoading, sdkOmittedValue)
+            ? this.deferLoading
+            : deferLoading as SdkOptional<bool>,
+        allowedCallers: identical(allowedCallers, sdkOmittedValue)
+            ? this.allowedCallers
+            : allowedCallers as SdkOptional<List<CallableToolAllowedCaller>?>,
+      );
 
-  factory CustomToolParam.fromJson(Map<String, dynamic> json) => CustomToolParam(
-    type_: (json['type'] != null ? CustomToolParamType.fromJson(json['type'] as String) : null)!,
-    name: (json['name'] as String?)!,
-    async_: json['async'] != null ? SdkPresent((json['async'] as bool?)!) : const SdkOmitted(),
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    format: json['format'] != null ? SdkPresent((json['format'] != null ? CustomToolParamFormat.fromJson(json['format']) : null)!) : const SdkOmitted(),
-    deferLoading: json['defer_loading'] != null ? SdkPresent((json['defer_loading'] as bool?)!) : const SdkOmitted(),
-    allowedCallers: json.containsKey('allowed_callers') ? SdkPresent((json['allowed_callers'] as List?)?.map((e) => CallableToolAllowedCaller.fromJson(e as String)).toList()) : const SdkOmitted(),
-  );
+  factory CustomToolParam.fromJson(Map<String, dynamic> json) =>
+      CustomToolParam(
+        type_: (json['type'] != null
+            ? CustomToolParamType.fromJson(json['type'] as String)
+            : null)!,
+        name: (json['name'] as String?)!,
+        async_: json['async'] != null
+            ? SdkPresent((json['async'] as bool?)!)
+            : const SdkOmitted(),
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        format: json['format'] != null
+            ? SdkPresent((json['format'] != null
+                ? CustomToolParamFormat.fromJson(json['format'])
+                : null)!)
+            : const SdkOmitted(),
+        deferLoading: json['defer_loading'] != null
+            ? SdkPresent((json['defer_loading'] as bool?)!)
+            : const SdkOmitted(),
+        allowedCallers: json.containsKey('allowed_callers')
+            ? SdkPresent((json['allowed_callers'] as List?)
+                ?.map((e) => CallableToolAllowedCaller.fromJson(e as String))
+                .toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'name': name,
-    ...switch (async_) {
-      SdkPresent<bool>(value: final value) => {'async': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (format) {
-      SdkPresent<CustomToolParamFormat>(value: final value) => {'format': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (deferLoading) {
-      SdkPresent<bool>(value: final value) => {'defer_loading': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (allowedCallers) {
-      SdkPresent<List<CallableToolAllowedCaller>?>(value: final value) => {'allowed_callers': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'name': name,
+        ...switch (async_) {
+          SdkPresent<bool>(value: final value) => {
+              'async': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (format) {
+          SdkPresent<CustomToolParamFormat>(value: final value) => {
+              'format': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (deferLoading) {
+          SdkPresent<bool>(value: final value) => {
+              'defer_loading': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (allowedCallers) {
+          SdkPresent<List<CallableToolAllowedCaller>?>(value: final value) => {
+              'allowed_callers': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

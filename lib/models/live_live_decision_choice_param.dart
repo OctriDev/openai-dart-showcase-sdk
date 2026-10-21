@@ -9,53 +9,78 @@ sealed class LiveDecisionChoiceParamValue {
   static const String constructionSurface = 'named';
   const LiveDecisionChoiceParamValue();
   factory LiveDecisionChoiceParamValue.fromJson(Object? json) {
-    if (json is String) { return LiveDecisionChoiceParamValueString(json); }
-    if (json is bool) { return LiveDecisionChoiceParamValueBool(json); }
-    throw FormatException("No variant matched for LiveDecisionChoiceParamValue");
+    if (json is String) {
+      return LiveDecisionChoiceParamValueString(json);
+    }
+    if (json is bool) {
+      return LiveDecisionChoiceParamValueBool(json);
+    }
+    throw FormatException(
+        "No variant matched for LiveDecisionChoiceParamValue");
   }
   Object? toJson();
 }
 
-final class LiveDecisionChoiceParamValueString extends LiveDecisionChoiceParamValue {
+final class LiveDecisionChoiceParamValueString
+    extends LiveDecisionChoiceParamValue {
   final String value;
   const LiveDecisionChoiceParamValueString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class LiveDecisionChoiceParamValueBool extends LiveDecisionChoiceParamValue {
+final class LiveDecisionChoiceParamValueBool
+    extends LiveDecisionChoiceParamValue {
   final bool value;
   const LiveDecisionChoiceParamValueBool(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// Typed representation of the `LiveDecisionChoiceParam` API schema.
 class LiveDecisionChoiceParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required API value serialized in the `value` wire field.
   final dynamic value;
+
   /// Optional `string` value serialized in the `description` wire field.
   final SdkOptional<String> description;
 
-  const LiveDecisionChoiceParam({required this.value, this.description = const SdkOmitted()});
+  const LiveDecisionChoiceParam(
+      {required this.value, this.description = const SdkOmitted()});
 
-  LiveDecisionChoiceParam Function({dynamic value, SdkOptional<String> description}) get copyWith => _copyWith;
+  LiveDecisionChoiceParam Function(
+      {dynamic value,
+      SdkOptional<String> description}) get copyWith => _copyWith;
 
-  LiveDecisionChoiceParam _copyWith({Object? value = sdkOmittedValue, Object? description = sdkOmittedValue}) => LiveDecisionChoiceParam(
-    value: identical(value, sdkOmittedValue) ? this.value : value as dynamic,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-  );
+  LiveDecisionChoiceParam _copyWith(
+          {Object? value = sdkOmittedValue,
+          Object? description = sdkOmittedValue}) =>
+      LiveDecisionChoiceParam(
+        value:
+            identical(value, sdkOmittedValue) ? this.value : value as dynamic,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+      );
 
-  factory LiveDecisionChoiceParam.fromJson(Map<String, dynamic> json) => LiveDecisionChoiceParam(
-    value: (json['value'])!,
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-  );
+  factory LiveDecisionChoiceParam.fromJson(Map<String, dynamic> json) =>
+      LiveDecisionChoiceParam(
+        value: (json['value'])!,
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'value': value,
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'value': value,
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

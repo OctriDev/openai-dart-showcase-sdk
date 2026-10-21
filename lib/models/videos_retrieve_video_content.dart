@@ -6,12 +6,12 @@ part of 'videos.dart';
 // videos domain models
 /// Typed representation of the `VideoContentVariant` API schema.
 final class VideoContentVariant {
-
   final String value;
 
   const VideoContentVariant._(this.value);
 
-  factory VideoContentVariant.fromJson(String value) => VideoContentVariant._(value);
+  factory VideoContentVariant.fromJson(String value) =>
+      VideoContentVariant._(value);
 
   static const video = VideoContentVariant._('video');
   static const thumbnail = VideoContentVariant._('thumbnail');
@@ -19,10 +19,13 @@ final class VideoContentVariant {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is VideoContentVariant && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is VideoContentVariant && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

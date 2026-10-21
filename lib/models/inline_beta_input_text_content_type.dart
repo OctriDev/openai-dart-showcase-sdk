@@ -10,14 +10,17 @@ enum BetaInputTextContentType {
 
   static BetaInputTextContentType fromJson(String value) {
     switch (value) {
-      case 'input_text': return BetaInputTextContentType.inputText;
-      default: throw ArgumentError('Unknown BetaInputTextContentType: $value');
+      case 'input_text':
+        return BetaInputTextContentType.inputText;
+      default:
+        throw ArgumentError('Unknown BetaInputTextContentType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaInputTextContentType.inputText: return 'input_text';
+      case BetaInputTextContentType.inputText:
+        return 'input_text';
     }
   }
 
@@ -31,14 +34,17 @@ enum BetaInputTextContentParamType {
 
   static BetaInputTextContentParamType fromJson(String value) {
     switch (value) {
-      case 'input_text': return BetaInputTextContentParamType.inputText;
-      default: throw ArgumentError('Unknown BetaInputTextContentParamType: $value');
+      case 'input_text':
+        return BetaInputTextContentParamType.inputText;
+      default:
+        throw ArgumentError('Unknown BetaInputTextContentParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaInputTextContentParamType.inputText: return 'input_text';
+      case BetaInputTextContentParamType.inputText:
+        return 'input_text';
     }
   }
 
@@ -48,23 +54,27 @@ enum BetaInputTextContentParamType {
 
 /// The type of item to reference. Always `item_reference`.
 final class BetaItemReferenceParamTypeVariant0 {
-
   final String value;
 
   const BetaItemReferenceParamTypeVariant0._(this.value);
 
-  factory BetaItemReferenceParamTypeVariant0.fromJson(String value) => BetaItemReferenceParamTypeVariant0._(value);
+  factory BetaItemReferenceParamTypeVariant0.fromJson(String value) =>
+      BetaItemReferenceParamTypeVariant0._(value);
 
-  static const itemReference = BetaItemReferenceParamTypeVariant0._('item_reference');
+  static const itemReference =
+      BetaItemReferenceParamTypeVariant0._('item_reference');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaItemReferenceParamTypeVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaItemReferenceParamTypeVariant0 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Specifies the event type. For a keypress action, this property is always set to `keypress`.
@@ -73,14 +83,17 @@ enum BetaKeyPressActionType {
 
   static BetaKeyPressActionType fromJson(String value) {
     switch (value) {
-      case 'keypress': return BetaKeyPressActionType.keypress;
-      default: throw ArgumentError('Unknown BetaKeyPressActionType: $value');
+      case 'keypress':
+        return BetaKeyPressActionType.keypress;
+      default:
+        throw ArgumentError('Unknown BetaKeyPressActionType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaKeyPressActionType.keypress: return 'keypress';
+      case BetaKeyPressActionType.keypress:
+        return 'keypress';
     }
   }
 
@@ -94,14 +107,17 @@ enum BetaLocalEnvironmentParamType {
 
   static BetaLocalEnvironmentParamType fromJson(String value) {
     switch (value) {
-      case 'local': return BetaLocalEnvironmentParamType.local;
-      default: throw ArgumentError('Unknown BetaLocalEnvironmentParamType: $value');
+      case 'local':
+        return BetaLocalEnvironmentParamType.local;
+      default:
+        throw ArgumentError('Unknown BetaLocalEnvironmentParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaLocalEnvironmentParamType.local: return 'local';
+      case BetaLocalEnvironmentParamType.local:
+        return 'local';
     }
   }
 
@@ -115,14 +131,17 @@ enum BetaLocalEnvironmentResourceType {
 
   static BetaLocalEnvironmentResourceType fromJson(String value) {
     switch (value) {
-      case 'local': return BetaLocalEnvironmentResourceType.local;
-      default: throw ArgumentError('Unknown BetaLocalEnvironmentResourceType: $value');
+      case 'local':
+        return BetaLocalEnvironmentResourceType.local;
+      default:
+        throw ArgumentError('Unknown BetaLocalEnvironmentResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaLocalEnvironmentResourceType.local: return 'local';
+      case BetaLocalEnvironmentResourceType.local:
+        return 'local';
     }
   }
 
@@ -132,33 +151,36 @@ enum BetaLocalEnvironmentResourceType {
 
 /// The type of the local shell action. Always `exec`.
 final class BetaLocalShellExecActionType {
-
   final String value;
 
   const BetaLocalShellExecActionType._(this.value);
 
-  factory BetaLocalShellExecActionType.fromJson(String value) => BetaLocalShellExecActionType._(value);
+  factory BetaLocalShellExecActionType.fromJson(String value) =>
+      BetaLocalShellExecActionType._(value);
 
   static const exec = BetaLocalShellExecActionType._('exec');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaLocalShellExecActionType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaLocalShellExecActionType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The status of the local shell call.
 final class BetaLocalShellToolCallStatus {
-
   final String value;
 
   const BetaLocalShellToolCallStatus._(this.value);
 
-  factory BetaLocalShellToolCallStatus.fromJson(String value) => BetaLocalShellToolCallStatus._(value);
+  factory BetaLocalShellToolCallStatus.fromJson(String value) =>
+      BetaLocalShellToolCallStatus._(value);
 
   static const inProgress = BetaLocalShellToolCallStatus._('in_progress');
   static const completed = BetaLocalShellToolCallStatus._('completed');
@@ -166,12 +188,15 @@ final class BetaLocalShellToolCallStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaLocalShellToolCallStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaLocalShellToolCallStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the local shell call. Always `local_shell_call`.
@@ -180,14 +205,17 @@ enum BetaLocalShellToolCallType {
 
   static BetaLocalShellToolCallType fromJson(String value) {
     switch (value) {
-      case 'local_shell_call': return BetaLocalShellToolCallType.localShellCall;
-      default: throw ArgumentError('Unknown BetaLocalShellToolCallType: $value');
+      case 'local_shell_call':
+        return BetaLocalShellToolCallType.localShellCall;
+      default:
+        throw ArgumentError('Unknown BetaLocalShellToolCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaLocalShellToolCallType.localShellCall: return 'local_shell_call';
+      case BetaLocalShellToolCallType.localShellCall:
+        return 'local_shell_call';
     }
   }
 
@@ -197,25 +225,32 @@ enum BetaLocalShellToolCallType {
 
 /// The status of the item. One of `in_progress`, `completed`, or `incomplete`.
 final class BetaLocalShellToolCallOutputStatusVariant0 {
-
   final String value;
 
   const BetaLocalShellToolCallOutputStatusVariant0._(this.value);
 
-  factory BetaLocalShellToolCallOutputStatusVariant0.fromJson(String value) => BetaLocalShellToolCallOutputStatusVariant0._(value);
+  factory BetaLocalShellToolCallOutputStatusVariant0.fromJson(String value) =>
+      BetaLocalShellToolCallOutputStatusVariant0._(value);
 
-  static const inProgress = BetaLocalShellToolCallOutputStatusVariant0._('in_progress');
-  static const completed = BetaLocalShellToolCallOutputStatusVariant0._('completed');
-  static const incomplete = BetaLocalShellToolCallOutputStatusVariant0._('incomplete');
+  static const inProgress =
+      BetaLocalShellToolCallOutputStatusVariant0._('in_progress');
+  static const completed =
+      BetaLocalShellToolCallOutputStatusVariant0._('completed');
+  static const incomplete =
+      BetaLocalShellToolCallOutputStatusVariant0._('incomplete');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaLocalShellToolCallOutputStatusVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaLocalShellToolCallOutputStatusVariant0 &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the local shell tool call output. Always `local_shell_call_output`.
@@ -224,14 +259,17 @@ enum BetaLocalShellToolCallOutputType {
 
   static BetaLocalShellToolCallOutputType fromJson(String value) {
     switch (value) {
-      case 'local_shell_call_output': return BetaLocalShellToolCallOutputType.localShellCallOutput;
-      default: throw ArgumentError('Unknown BetaLocalShellToolCallOutputType: $value');
+      case 'local_shell_call_output':
+        return BetaLocalShellToolCallOutputType.localShellCallOutput;
+      default:
+        throw ArgumentError('Unknown BetaLocalShellToolCallOutputType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaLocalShellToolCallOutputType.localShellCallOutput: return 'local_shell_call_output';
+      case BetaLocalShellToolCallOutputType.localShellCallOutput:
+        return 'local_shell_call_output';
     }
   }
 
@@ -245,14 +283,17 @@ enum BetaLocalShellToolParamType {
 
   static BetaLocalShellToolParamType fromJson(String value) {
     switch (value) {
-      case 'local_shell': return BetaLocalShellToolParamType.localShell;
-      default: throw ArgumentError('Unknown BetaLocalShellToolParamType: $value');
+      case 'local_shell':
+        return BetaLocalShellToolParamType.localShell;
+      default:
+        throw ArgumentError('Unknown BetaLocalShellToolParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaLocalShellToolParamType.localShell: return 'local_shell';
+      case BetaLocalShellToolParamType.localShell:
+        return 'local_shell';
     }
   }
 
@@ -266,14 +307,17 @@ enum BetaMCPApprovalRequestType {
 
   static BetaMCPApprovalRequestType fromJson(String value) {
     switch (value) {
-      case 'mcp_approval_request': return BetaMCPApprovalRequestType.mcpApprovalRequest;
-      default: throw ArgumentError('Unknown BetaMCPApprovalRequestType: $value');
+      case 'mcp_approval_request':
+        return BetaMCPApprovalRequestType.mcpApprovalRequest;
+      default:
+        throw ArgumentError('Unknown BetaMCPApprovalRequestType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaMCPApprovalRequestType.mcpApprovalRequest: return 'mcp_approval_request';
+      case BetaMCPApprovalRequestType.mcpApprovalRequest:
+        return 'mcp_approval_request';
     }
   }
 

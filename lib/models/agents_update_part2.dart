@@ -8,25 +8,37 @@ part of 'agents_update.dart';
 class UpdateSessionReasoningParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Omit to keep the current effort. Null selects the model's default effort.
   final SdkOptional<ReasoningEffortParam?> effort;
 
   const UpdateSessionReasoningParam({this.effort = const SdkOmitted()});
 
-  UpdateSessionReasoningParam Function({SdkOptional<ReasoningEffortParam?> effort}) get copyWith => _copyWith;
+  UpdateSessionReasoningParam Function(
+      {SdkOptional<ReasoningEffortParam?> effort}) get copyWith => _copyWith;
 
-  UpdateSessionReasoningParam _copyWith({Object? effort = sdkOmittedValue}) => UpdateSessionReasoningParam(
-    effort: identical(effort, sdkOmittedValue) ? this.effort : effort as SdkOptional<ReasoningEffortParam?>,
-  );
+  UpdateSessionReasoningParam _copyWith({Object? effort = sdkOmittedValue}) =>
+      UpdateSessionReasoningParam(
+        effort: identical(effort, sdkOmittedValue)
+            ? this.effort
+            : effort as SdkOptional<ReasoningEffortParam?>,
+      );
 
-  factory UpdateSessionReasoningParam.fromJson(Map<String, dynamic> json) => UpdateSessionReasoningParam(
-    effort: json.containsKey('effort') ? SdkPresent(json['effort'] != null ? ReasoningEffortParam.fromJson(json['effort'] as String) : null) : const SdkOmitted(),
-  );
+  factory UpdateSessionReasoningParam.fromJson(Map<String, dynamic> json) =>
+      UpdateSessionReasoningParam(
+        effort: json.containsKey('effort')
+            ? SdkPresent(json['effort'] != null
+                ? ReasoningEffortParam.fromJson(json['effort'] as String)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (effort) {
-      SdkPresent<ReasoningEffortParam?>(value: final value) => {'effort': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (effort) {
+          SdkPresent<ReasoningEffortParam?>(value: final value) => {
+              'effort': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

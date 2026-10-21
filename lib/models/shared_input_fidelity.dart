@@ -6,7 +6,6 @@ part of 'shared_input.dart';
 // shared_input domain models
 /// Control how much effort the model will exert to match the style and features, especially facial features, of input images. Supports `high` and `low` on `gpt-image-1` and `gpt-image-1.5`; `gpt-image-1-mini` supports only `low`. For `gpt-image-2`, omit this parameter. Defaults to `low` on supported models.
 final class InputFidelity {
-
   final String value;
 
   const InputFidelity._(this.value);
@@ -18,10 +17,13 @@ final class InputFidelity {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is InputFidelity && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is InputFidelity && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

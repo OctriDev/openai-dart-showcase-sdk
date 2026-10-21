@@ -8,47 +8,88 @@ part of 'items.dart';
 class TaskGroupItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Identifier of the thread item.
   final String id;
+
   /// Type discriminator that is always `chatkit.thread_item`.
   final TaskGroupItemObject object;
+
   /// Unix timestamp (in seconds) for when the item was created.
   final int createdAt;
+
   /// Identifier of the parent thread.
   final String threadId;
+
   /// Type discriminator that is always `chatkit.task_group`.
   final TaskGroupItemType type_;
+
   /// Tasks included in the group.
   final List<TaskGroupTask> tasks;
 
-  const TaskGroupItem({required this.id, required this.object, required this.createdAt, required this.threadId, required this.type_, required this.tasks});
+  const TaskGroupItem(
+      {required this.id,
+      required this.object,
+      required this.createdAt,
+      required this.threadId,
+      required this.type_,
+      required this.tasks});
 
-  TaskGroupItem Function({String id, TaskGroupItemObject object, int createdAt, String threadId, TaskGroupItemType type_, List<TaskGroupTask> tasks}) get copyWith => _copyWith;
+  TaskGroupItem Function(
+      {String id,
+      TaskGroupItemObject object,
+      int createdAt,
+      String threadId,
+      TaskGroupItemType type_,
+      List<TaskGroupTask> tasks}) get copyWith => _copyWith;
 
-  TaskGroupItem _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? threadId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? tasks = sdkOmittedValue}) => TaskGroupItem(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as TaskGroupItemObject,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    threadId: identical(threadId, sdkOmittedValue) ? this.threadId : threadId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as TaskGroupItemType,
-    tasks: identical(tasks, sdkOmittedValue) ? this.tasks : tasks as List<TaskGroupTask>,
-  );
+  TaskGroupItem _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? threadId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? tasks = sdkOmittedValue}) =>
+      TaskGroupItem(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as TaskGroupItemObject,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        threadId: identical(threadId, sdkOmittedValue)
+            ? this.threadId
+            : threadId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as TaskGroupItemType,
+        tasks: identical(tasks, sdkOmittedValue)
+            ? this.tasks
+            : tasks as List<TaskGroupTask>,
+      );
 
   factory TaskGroupItem.fromJson(Map<String, dynamic> json) => TaskGroupItem(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? TaskGroupItemObject.fromJson(json['object'] as String) : null)!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    threadId: (json['thread_id'] as String?)!,
-    type_: (json['type'] != null ? TaskGroupItemType.fromJson(json['type'] as String) : null)!,
-    tasks: ((json['tasks'] as List?)?.map((e) => TaskGroupTask.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? TaskGroupItemObject.fromJson(json['object'] as String)
+            : null)!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        threadId: (json['thread_id'] as String?)!,
+        type_: (json['type'] != null
+            ? TaskGroupItemType.fromJson(json['type'] as String)
+            : null)!,
+        tasks: ((json['tasks'] as List?)
+            ?.map((e) => TaskGroupTask.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'created_at': createdAt,
-    'thread_id': threadId,
-    'type': type_.toJson(),
-    'tasks': tasks.map((item) => item.toJson()).toList(),
-  };
+        'id': id,
+        'object': object.toJson(),
+        'created_at': createdAt,
+        'thread_id': threadId,
+        'type': type_.toJson(),
+        'tasks': tasks.map((item) => item.toJson()).toList(),
+      };
 }

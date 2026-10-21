@@ -8,29 +8,38 @@ part of 'evals_create.dart';
 class CreateEvalItemVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The role of the message (e.g. "system", "assistant", "user").
   final String role;
+
   /// The content of the message.
   final String content;
 
   const CreateEvalItemVariant0({required this.role, required this.content});
 
-  CreateEvalItemVariant0 Function({String role, String content}) get copyWith => _copyWith;
+  CreateEvalItemVariant0 Function({String role, String content}) get copyWith =>
+      _copyWith;
 
-  CreateEvalItemVariant0 _copyWith({Object? role = sdkOmittedValue, Object? content = sdkOmittedValue}) => CreateEvalItemVariant0(
-    role: identical(role, sdkOmittedValue) ? this.role : role as String,
-    content: identical(content, sdkOmittedValue) ? this.content : content as String,
-  );
+  CreateEvalItemVariant0 _copyWith(
+          {Object? role = sdkOmittedValue,
+          Object? content = sdkOmittedValue}) =>
+      CreateEvalItemVariant0(
+        role: identical(role, sdkOmittedValue) ? this.role : role as String,
+        content: identical(content, sdkOmittedValue)
+            ? this.content
+            : content as String,
+      );
 
-  factory CreateEvalItemVariant0.fromJson(Map<String, dynamic> json) => CreateEvalItemVariant0(
-    role: (json['role'] as String?)!,
-    content: (json['content'] as String?)!,
-  );
+  factory CreateEvalItemVariant0.fromJson(Map<String, dynamic> json) =>
+      CreateEvalItemVariant0(
+        role: (json['role'] as String?)!,
+        content: (json['content'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'role': role,
-    'content': content,
-  };
+        'role': role,
+        'content': content,
+      };
 }
 
 sealed class CreateEvalItem {
@@ -39,11 +48,27 @@ sealed class CreateEvalItem {
   const CreateEvalItem();
   factory CreateEvalItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = CreateEvalItemVariant0.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateEvalItemCreateEvalItemVariant0(value); } } catch (_) {}
-      try { final value = EvalItem.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateEvalItemEvalItem(value); } } catch (_) {}
+      try {
+        final value = CreateEvalItemVariant0.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateEvalItemCreateEvalItemVariant0(value);
+        }
+      } catch (_) {}
+      try {
+        final value = EvalItem.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateEvalItemEvalItem(value);
+        }
+      } catch (_) {}
     }
-    try { return CreateEvalItemCreateEvalItemVariant0(CreateEvalItemVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateEvalItemEvalItem(EvalItem.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try {
+      return CreateEvalItemCreateEvalItemVariant0(
+          CreateEvalItemVariant0.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateEvalItemEvalItem(
+          EvalItem.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
     throw FormatException("No variant matched for CreateEvalItem");
   }
   Object? toJson();
@@ -52,11 +77,13 @@ sealed class CreateEvalItem {
 final class CreateEvalItemCreateEvalItemVariant0 extends CreateEvalItem {
   final CreateEvalItemVariant0 value;
   const CreateEvalItemCreateEvalItemVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class CreateEvalItemEvalItem extends CreateEvalItem {
   final EvalItem value;
   const CreateEvalItemEvalItem(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }

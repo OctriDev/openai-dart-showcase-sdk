@@ -8,72 +8,128 @@ part of 'vector_stores.dart';
 class VectorStoreFileContentResponseDataItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The content type (currently only `"text"`)
   final SdkOptional<String> type_;
+
   /// The text content
   final SdkOptional<String> text;
 
-  const VectorStoreFileContentResponseDataItem({this.type_ = const SdkOmitted(), this.text = const SdkOmitted()});
+  const VectorStoreFileContentResponseDataItem(
+      {this.type_ = const SdkOmitted(), this.text = const SdkOmitted()});
 
-  VectorStoreFileContentResponseDataItem Function({SdkOptional<String> type_, SdkOptional<String> text}) get copyWith => _copyWith;
+  VectorStoreFileContentResponseDataItem Function(
+      {SdkOptional<String> type_,
+      SdkOptional<String> text}) get copyWith => _copyWith;
 
-  VectorStoreFileContentResponseDataItem _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => VectorStoreFileContentResponseDataItem(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    text: identical(text, sdkOmittedValue) ? this.text : text as SdkOptional<String>,
-  );
+  VectorStoreFileContentResponseDataItem _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
+      VectorStoreFileContentResponseDataItem(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        text: identical(text, sdkOmittedValue)
+            ? this.text
+            : text as SdkOptional<String>,
+      );
 
-  factory VectorStoreFileContentResponseDataItem.fromJson(Map<String, dynamic> json) => VectorStoreFileContentResponseDataItem(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    text: json['text'] != null ? SdkPresent((json['text'] as String?)!) : const SdkOmitted(),
-  );
+  factory VectorStoreFileContentResponseDataItem.fromJson(
+          Map<String, dynamic> json) =>
+      VectorStoreFileContentResponseDataItem(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        text: json['text'] != null
+            ? SdkPresent((json['text'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (text) {
-      SdkPresent<String>(value: final value) => {'text': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (text) {
+          SdkPresent<String>(value: final value) => {
+              'text': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Represents the parsed content of a vector store file.
 class VectorStoreFileContentResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The object type, which is always `vector_store.file_content.page`
   final VectorStoreFileContentResponseObject object;
+
   /// Parsed content of the file.
   final List<VectorStoreFileContentResponseDataItem> data;
+
   /// Indicates if there are more content pages to fetch.
   final bool hasMore;
+
   /// Required `string` value serialized in the `next_page` wire field.
   final String? nextPage;
 
-  const VectorStoreFileContentResponse({required this.object, required this.data, required this.hasMore, required this.nextPage});
+  const VectorStoreFileContentResponse(
+      {required this.object,
+      required this.data,
+      required this.hasMore,
+      required this.nextPage});
 
-  VectorStoreFileContentResponse Function({VectorStoreFileContentResponseObject object, List<VectorStoreFileContentResponseDataItem> data, bool hasMore, String? nextPage}) get copyWith => _copyWith;
+  VectorStoreFileContentResponse Function(
+      {VectorStoreFileContentResponseObject object,
+      List<VectorStoreFileContentResponseDataItem> data,
+      bool hasMore,
+      String? nextPage}) get copyWith => _copyWith;
 
-  VectorStoreFileContentResponse _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? hasMore = sdkOmittedValue, Object? nextPage = sdkOmittedValue}) => VectorStoreFileContentResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as VectorStoreFileContentResponseObject,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<VectorStoreFileContentResponseDataItem>,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
-    nextPage: identical(nextPage, sdkOmittedValue) ? this.nextPage : nextPage as String?,
-  );
+  VectorStoreFileContentResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue,
+          Object? nextPage = sdkOmittedValue}) =>
+      VectorStoreFileContentResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as VectorStoreFileContentResponseObject,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<VectorStoreFileContentResponseDataItem>,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as bool,
+        nextPage: identical(nextPage, sdkOmittedValue)
+            ? this.nextPage
+            : nextPage as String?,
+      );
 
-  factory VectorStoreFileContentResponse.fromJson(Map<String, dynamic> json) => VectorStoreFileContentResponse(
-    object: (json['object'] != null ? VectorStoreFileContentResponseObject.fromJson(json['object'] as String) : null)!,
-    data: ((json['data'] as List?)?.map((e) => VectorStoreFileContentResponseDataItem.fromJson(e as Map<String, dynamic>)).toList())!,
-    hasMore: (json['has_more'] as bool?)!,
-    nextPage: json.containsKey('next_page') ? json['next_page'] as String? : throw ArgumentError.value(null, 'next_page', 'Required property is missing'),
-  );
+  factory VectorStoreFileContentResponse.fromJson(Map<String, dynamic> json) =>
+      VectorStoreFileContentResponse(
+        object: (json['object'] != null
+            ? VectorStoreFileContentResponseObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        data: ((json['data'] as List?)
+            ?.map((e) => VectorStoreFileContentResponseDataItem.fromJson(
+                e as Map<String, dynamic>))
+            .toList())!,
+        hasMore: (json['has_more'] as bool?)!,
+        nextPage: json.containsKey('next_page')
+            ? json['next_page'] as String?
+            : throw ArgumentError.value(
+                null, 'next_page', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'data': data.map((item) => item.toJson()).toList(),
-    'has_more': hasMore,
-    'next_page': nextPage,
-  };
+        'object': object.toJson(),
+        'data': data.map((item) => item.toJson()).toList(),
+        'has_more': hasMore,
+        'next_page': nextPage,
+      };
 }

@@ -8,32 +8,52 @@ part of 'assistants_run.dart';
 class RunStepCompletionUsage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Number of completion tokens used over the course of the run step.
   final int completionTokens;
+
   /// Number of prompt tokens used over the course of the run step.
   final int promptTokens;
+
   /// Total number of tokens used (prompt + completion).
   final int totalTokens;
 
-  const RunStepCompletionUsage({required this.completionTokens, required this.promptTokens, required this.totalTokens});
+  const RunStepCompletionUsage(
+      {required this.completionTokens,
+      required this.promptTokens,
+      required this.totalTokens});
 
-  RunStepCompletionUsage Function({int completionTokens, int promptTokens, int totalTokens}) get copyWith => _copyWith;
+  RunStepCompletionUsage Function(
+      {int completionTokens,
+      int promptTokens,
+      int totalTokens}) get copyWith => _copyWith;
 
-  RunStepCompletionUsage _copyWith({Object? completionTokens = sdkOmittedValue, Object? promptTokens = sdkOmittedValue, Object? totalTokens = sdkOmittedValue}) => RunStepCompletionUsage(
-    completionTokens: identical(completionTokens, sdkOmittedValue) ? this.completionTokens : completionTokens as int,
-    promptTokens: identical(promptTokens, sdkOmittedValue) ? this.promptTokens : promptTokens as int,
-    totalTokens: identical(totalTokens, sdkOmittedValue) ? this.totalTokens : totalTokens as int,
-  );
+  RunStepCompletionUsage _copyWith(
+          {Object? completionTokens = sdkOmittedValue,
+          Object? promptTokens = sdkOmittedValue,
+          Object? totalTokens = sdkOmittedValue}) =>
+      RunStepCompletionUsage(
+        completionTokens: identical(completionTokens, sdkOmittedValue)
+            ? this.completionTokens
+            : completionTokens as int,
+        promptTokens: identical(promptTokens, sdkOmittedValue)
+            ? this.promptTokens
+            : promptTokens as int,
+        totalTokens: identical(totalTokens, sdkOmittedValue)
+            ? this.totalTokens
+            : totalTokens as int,
+      );
 
-  factory RunStepCompletionUsage.fromJson(Map<String, dynamic> json) => RunStepCompletionUsage(
-    completionTokens: ((json['completion_tokens'] as num?)?.toInt())!,
-    promptTokens: ((json['prompt_tokens'] as num?)?.toInt())!,
-    totalTokens: ((json['total_tokens'] as num?)?.toInt())!,
-  );
+  factory RunStepCompletionUsage.fromJson(Map<String, dynamic> json) =>
+      RunStepCompletionUsage(
+        completionTokens: ((json['completion_tokens'] as num?)?.toInt())!,
+        promptTokens: ((json['prompt_tokens'] as num?)?.toInt())!,
+        totalTokens: ((json['total_tokens'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'completion_tokens': completionTokens,
-    'prompt_tokens': promptTokens,
-    'total_tokens': totalTokens,
-  };
+        'completion_tokens': completionTokens,
+        'prompt_tokens': promptTokens,
+        'total_tokens': totalTokens,
+      };
 }

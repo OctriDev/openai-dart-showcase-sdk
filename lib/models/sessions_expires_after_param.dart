@@ -8,27 +8,39 @@ part of 'sessions.dart';
 class ExpiresAfterParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Base timestamp used to calculate expiration. Currently fixed to `created_at`.
   final ExpiresAfterParamAnchor anchor;
+
   /// Number of seconds after the anchor when the session expires.
   final int seconds;
 
   const ExpiresAfterParam({required this.anchor, required this.seconds});
 
-  ExpiresAfterParam Function({ExpiresAfterParamAnchor anchor, int seconds}) get copyWith => _copyWith;
+  ExpiresAfterParam Function({ExpiresAfterParamAnchor anchor, int seconds})
+      get copyWith => _copyWith;
 
-  ExpiresAfterParam _copyWith({Object? anchor = sdkOmittedValue, Object? seconds = sdkOmittedValue}) => ExpiresAfterParam(
-    anchor: identical(anchor, sdkOmittedValue) ? this.anchor : anchor as ExpiresAfterParamAnchor,
-    seconds: identical(seconds, sdkOmittedValue) ? this.seconds : seconds as int,
-  );
+  ExpiresAfterParam _copyWith(
+          {Object? anchor = sdkOmittedValue,
+          Object? seconds = sdkOmittedValue}) =>
+      ExpiresAfterParam(
+        anchor: identical(anchor, sdkOmittedValue)
+            ? this.anchor
+            : anchor as ExpiresAfterParamAnchor,
+        seconds:
+            identical(seconds, sdkOmittedValue) ? this.seconds : seconds as int,
+      );
 
-  factory ExpiresAfterParam.fromJson(Map<String, dynamic> json) => ExpiresAfterParam(
-    anchor: (json['anchor'] != null ? ExpiresAfterParamAnchor.fromJson(json['anchor'] as String) : null)!,
-    seconds: ((json['seconds'] as num?)?.toInt())!,
-  );
+  factory ExpiresAfterParam.fromJson(Map<String, dynamic> json) =>
+      ExpiresAfterParam(
+        anchor: (json['anchor'] != null
+            ? ExpiresAfterParamAnchor.fromJson(json['anchor'] as String)
+            : null)!,
+        seconds: ((json['seconds'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'anchor': anchor.toJson(),
-    'seconds': seconds,
-  };
+        'anchor': anchor.toJson(),
+        'seconds': seconds,
+      };
 }

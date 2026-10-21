@@ -8,35 +8,61 @@ part of 'assistants_run.dart';
 class RunStepDeltaStepDetailsToolCallsCodeOutputLogsObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The index of the output in the outputs array.
   final int index;
+
   /// Always `logs`.
   final RunStepDeltaStepDetailsToolCallsCodeOutputLogsObjectType type_;
+
   /// The text output from the Code Interpreter tool call.
   final SdkOptional<String> logs;
 
-  const RunStepDeltaStepDetailsToolCallsCodeOutputLogsObject({required this.index, required this.type_, this.logs = const SdkOmitted()});
+  const RunStepDeltaStepDetailsToolCallsCodeOutputLogsObject(
+      {required this.index,
+      required this.type_,
+      this.logs = const SdkOmitted()});
 
-  RunStepDeltaStepDetailsToolCallsCodeOutputLogsObject Function({int index, RunStepDeltaStepDetailsToolCallsCodeOutputLogsObjectType type_, SdkOptional<String> logs}) get copyWith => _copyWith;
+  RunStepDeltaStepDetailsToolCallsCodeOutputLogsObject Function(
+      {int index,
+      RunStepDeltaStepDetailsToolCallsCodeOutputLogsObjectType type_,
+      SdkOptional<String> logs}) get copyWith => _copyWith;
 
-  RunStepDeltaStepDetailsToolCallsCodeOutputLogsObject _copyWith({Object? index = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? logs = sdkOmittedValue}) => RunStepDeltaStepDetailsToolCallsCodeOutputLogsObject(
-    index: identical(index, sdkOmittedValue) ? this.index : index as int,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RunStepDeltaStepDetailsToolCallsCodeOutputLogsObjectType,
-    logs: identical(logs, sdkOmittedValue) ? this.logs : logs as SdkOptional<String>,
-  );
+  RunStepDeltaStepDetailsToolCallsCodeOutputLogsObject _copyWith(
+          {Object? index = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? logs = sdkOmittedValue}) =>
+      RunStepDeltaStepDetailsToolCallsCodeOutputLogsObject(
+        index: identical(index, sdkOmittedValue) ? this.index : index as int,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RunStepDeltaStepDetailsToolCallsCodeOutputLogsObjectType,
+        logs: identical(logs, sdkOmittedValue)
+            ? this.logs
+            : logs as SdkOptional<String>,
+      );
 
-  factory RunStepDeltaStepDetailsToolCallsCodeOutputLogsObject.fromJson(Map<String, dynamic> json) => RunStepDeltaStepDetailsToolCallsCodeOutputLogsObject(
-    index: ((json['index'] as num?)?.toInt())!,
-    type_: (json['type'] != null ? RunStepDeltaStepDetailsToolCallsCodeOutputLogsObjectType.fromJson(json['type'] as String) : null)!,
-    logs: json['logs'] != null ? SdkPresent((json['logs'] as String?)!) : const SdkOmitted(),
-  );
+  factory RunStepDeltaStepDetailsToolCallsCodeOutputLogsObject.fromJson(
+          Map<String, dynamic> json) =>
+      RunStepDeltaStepDetailsToolCallsCodeOutputLogsObject(
+        index: ((json['index'] as num?)?.toInt())!,
+        type_: (json['type'] != null
+            ? RunStepDeltaStepDetailsToolCallsCodeOutputLogsObjectType.fromJson(
+                json['type'] as String)
+            : null)!,
+        logs: json['logs'] != null
+            ? SdkPresent((json['logs'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'index': index,
-    'type': type_.toJson(),
-    ...switch (logs) {
-      SdkPresent<String>(value: final value) => {'logs': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'index': index,
+        'type': type_.toJson(),
+        ...switch (logs) {
+          SdkPresent<String>(value: final value) => {
+              'logs': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

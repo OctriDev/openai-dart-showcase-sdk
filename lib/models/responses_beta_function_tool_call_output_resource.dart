@@ -8,37 +8,63 @@ part of 'responses_beta_function.dart';
 class BetaFunctionToolCallOutputResourceVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the function call tool output.
   final String id;
+
   /// The status of the item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
   final BetaFunctionCallOutputStatusEnum status;
+
   /// The identifier of the actor that created the item.
   final SdkOptional<String> createdBy;
 
-  const BetaFunctionToolCallOutputResourceVariant1({required this.id, required this.status, this.createdBy = const SdkOmitted()});
+  const BetaFunctionToolCallOutputResourceVariant1(
+      {required this.id,
+      required this.status,
+      this.createdBy = const SdkOmitted()});
 
-  BetaFunctionToolCallOutputResourceVariant1 Function({String id, BetaFunctionCallOutputStatusEnum status, SdkOptional<String> createdBy}) get copyWith => _copyWith;
+  BetaFunctionToolCallOutputResourceVariant1 Function(
+      {String id,
+      BetaFunctionCallOutputStatusEnum status,
+      SdkOptional<String> createdBy}) get copyWith => _copyWith;
 
-  BetaFunctionToolCallOutputResourceVariant1 _copyWith({Object? id = sdkOmittedValue, Object? status = sdkOmittedValue, Object? createdBy = sdkOmittedValue}) => BetaFunctionToolCallOutputResourceVariant1(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    status: identical(status, sdkOmittedValue) ? this.status : status as BetaFunctionCallOutputStatusEnum,
-    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as SdkOptional<String>,
-  );
+  BetaFunctionToolCallOutputResourceVariant1 _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? createdBy = sdkOmittedValue}) =>
+      BetaFunctionToolCallOutputResourceVariant1(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as BetaFunctionCallOutputStatusEnum,
+        createdBy: identical(createdBy, sdkOmittedValue)
+            ? this.createdBy
+            : createdBy as SdkOptional<String>,
+      );
 
-  factory BetaFunctionToolCallOutputResourceVariant1.fromJson(Map<String, dynamic> json) => BetaFunctionToolCallOutputResourceVariant1(
-    id: (json['id'] as String?)!,
-    status: (json['status'] != null ? BetaFunctionCallOutputStatusEnum.fromJson(json['status'] as String) : null)!,
-    createdBy: json['created_by'] != null ? SdkPresent((json['created_by'] as String?)!) : const SdkOmitted(),
-  );
+  factory BetaFunctionToolCallOutputResourceVariant1.fromJson(
+          Map<String, dynamic> json) =>
+      BetaFunctionToolCallOutputResourceVariant1(
+        id: (json['id'] as String?)!,
+        status: (json['status'] != null
+            ? BetaFunctionCallOutputStatusEnum.fromJson(
+                json['status'] as String)
+            : null)!,
+        createdBy: json['created_by'] != null
+            ? SdkPresent((json['created_by'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'status': status.toJson(),
-    ...switch (createdBy) {
-      SdkPresent<String>(value: final value) => {'created_by': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'id': id,
+        'status': status.toJson(),
+        ...switch (createdBy) {
+          SdkPresent<String>(value: final value) => {
+              'created_by': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class BetaFunctionToolCallOutputOutput {
@@ -46,108 +72,213 @@ sealed class BetaFunctionToolCallOutputOutput {
   static const String constructionSurface = 'named';
   const BetaFunctionToolCallOutputOutput();
   factory BetaFunctionToolCallOutputOutput.fromJson(Object? json) {
-    if (json is String) { return BetaFunctionToolCallOutputOutputString(json); }
-    try { return BetaFunctionToolCallOutputOutputBetaFunctionAndCustomToolCallOutput(BetaFunctionAndCustomToolCallOutput.fromJson(json)); } catch (_) {}
-    throw FormatException("No variant matched for BetaFunctionToolCallOutputOutput");
+    if (json is String) {
+      return BetaFunctionToolCallOutputOutputString(json);
+    }
+    try {
+      return BetaFunctionToolCallOutputOutputBetaFunctionAndCustomToolCallOutput(
+          BetaFunctionAndCustomToolCallOutput.fromJson(json));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for BetaFunctionToolCallOutputOutput");
   }
   Object? toJson();
 }
 
-final class BetaFunctionToolCallOutputOutputString extends BetaFunctionToolCallOutputOutput {
+final class BetaFunctionToolCallOutputOutputString
+    extends BetaFunctionToolCallOutputOutput {
   final String value;
   const BetaFunctionToolCallOutputOutputString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class BetaFunctionToolCallOutputOutputBetaFunctionAndCustomToolCallOutput extends BetaFunctionToolCallOutputOutput {
+final class BetaFunctionToolCallOutputOutputBetaFunctionAndCustomToolCallOutput
+    extends BetaFunctionToolCallOutputOutput {
   final BetaFunctionAndCustomToolCallOutput value;
-  const BetaFunctionToolCallOutputOutputBetaFunctionAndCustomToolCallOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  const BetaFunctionToolCallOutputOutputBetaFunctionAndCustomToolCallOutput(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// Typed representation of the `BetaFunctionToolCallOutputResource` API schema.
 class BetaFunctionToolCallOutputResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that produced this item.
   final SdkOptional<BetaAgentTag?> agent;
+
   /// The unique ID of the function call tool output.
   final String id;
+
   /// The type of the function tool call output. Always `function_call_output`.
   final BetaFunctionToolCallOutputType type_;
+
   /// The unique ID of the function tool call generated by the model.
   final SdkOptional<String> callId;
+
   /// The name of the tool that produced the output.
   final SdkOptional<String> name;
+
   /// The namespace of the tool that produced the output.
   final SdkOptional<String> namespace;
+
   /// Optional API value serialized in the `caller` wire field.
   final SdkOptional<BetaToolCallCallerParam?> caller;
+
   /// The output from the function call generated by your code. Can be a string or an list of output content.
   final dynamic output;
+
   /// The status of the item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
   final BetaFunctionCallOutputStatusEnum status;
+
   /// The identifier of the actor that created the item.
   final SdkOptional<String> createdBy;
 
-  const BetaFunctionToolCallOutputResource({this.agent = const SdkOmitted(), required this.id, required this.type_, this.callId = const SdkOmitted(), this.name = const SdkOmitted(), this.namespace = const SdkOmitted(), this.caller = const SdkOmitted(), required this.output, required this.status, this.createdBy = const SdkOmitted()});
+  const BetaFunctionToolCallOutputResource(
+      {this.agent = const SdkOmitted(),
+      required this.id,
+      required this.type_,
+      this.callId = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.namespace = const SdkOmitted(),
+      this.caller = const SdkOmitted(),
+      required this.output,
+      required this.status,
+      this.createdBy = const SdkOmitted()});
 
-  BetaFunctionToolCallOutputResource Function({SdkOptional<BetaAgentTag?> agent, String id, BetaFunctionToolCallOutputType type_, SdkOptional<String> callId, SdkOptional<String> name, SdkOptional<String> namespace, SdkOptional<BetaToolCallCallerParam?> caller, dynamic output, BetaFunctionCallOutputStatusEnum status, SdkOptional<String> createdBy}) get copyWith => _copyWith;
+  BetaFunctionToolCallOutputResource Function(
+      {SdkOptional<BetaAgentTag?> agent,
+      String id,
+      BetaFunctionToolCallOutputType type_,
+      SdkOptional<String> callId,
+      SdkOptional<String> name,
+      SdkOptional<String> namespace,
+      SdkOptional<BetaToolCallCallerParam?> caller,
+      dynamic output,
+      BetaFunctionCallOutputStatusEnum status,
+      SdkOptional<String> createdBy}) get copyWith => _copyWith;
 
-  BetaFunctionToolCallOutputResource _copyWith({Object? agent = sdkOmittedValue, Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? name = sdkOmittedValue, Object? namespace = sdkOmittedValue, Object? caller = sdkOmittedValue, Object? output = sdkOmittedValue, Object? status = sdkOmittedValue, Object? createdBy = sdkOmittedValue}) => BetaFunctionToolCallOutputResource(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaFunctionToolCallOutputType,
-    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    namespace: identical(namespace, sdkOmittedValue) ? this.namespace : namespace as SdkOptional<String>,
-    caller: identical(caller, sdkOmittedValue) ? this.caller : caller as SdkOptional<BetaToolCallCallerParam?>,
-    output: identical(output, sdkOmittedValue) ? this.output : output as dynamic,
-    status: identical(status, sdkOmittedValue) ? this.status : status as BetaFunctionCallOutputStatusEnum,
-    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as SdkOptional<String>,
-  );
+  BetaFunctionToolCallOutputResource _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? callId = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? namespace = sdkOmittedValue,
+          Object? caller = sdkOmittedValue,
+          Object? output = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? createdBy = sdkOmittedValue}) =>
+      BetaFunctionToolCallOutputResource(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag?>,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaFunctionToolCallOutputType,
+        callId: identical(callId, sdkOmittedValue)
+            ? this.callId
+            : callId as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        namespace: identical(namespace, sdkOmittedValue)
+            ? this.namespace
+            : namespace as SdkOptional<String>,
+        caller: identical(caller, sdkOmittedValue)
+            ? this.caller
+            : caller as SdkOptional<BetaToolCallCallerParam?>,
+        output: identical(output, sdkOmittedValue)
+            ? this.output
+            : output as dynamic,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as BetaFunctionCallOutputStatusEnum,
+        createdBy: identical(createdBy, sdkOmittedValue)
+            ? this.createdBy
+            : createdBy as SdkOptional<String>,
+      );
 
-  factory BetaFunctionToolCallOutputResource.fromJson(Map<String, dynamic> json) => BetaFunctionToolCallOutputResource(
-    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    id: (json['id'] as String?)!,
-    type_: (json['type'] != null ? BetaFunctionToolCallOutputType.fromJson(json['type'] as String) : null)!,
-    callId: json['call_id'] != null ? SdkPresent((json['call_id'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    namespace: json['namespace'] != null ? SdkPresent((json['namespace'] as String?)!) : const SdkOmitted(),
-    caller: json.containsKey('caller') ? SdkPresent(json['caller'] != null ? BetaToolCallCallerParam.fromJson(json['caller']) : null) : const SdkOmitted(),
-    output: (json['output'])!,
-    status: (json['status'] != null ? BetaFunctionCallOutputStatusEnum.fromJson(json['status'] as String) : null)!,
-    createdBy: json['created_by'] != null ? SdkPresent((json['created_by'] as String?)!) : const SdkOmitted(),
-  );
+  factory BetaFunctionToolCallOutputResource.fromJson(
+          Map<String, dynamic> json) =>
+      BetaFunctionToolCallOutputResource(
+        agent: json.containsKey('agent')
+            ? SdkPresent(json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        id: (json['id'] as String?)!,
+        type_: (json['type'] != null
+            ? BetaFunctionToolCallOutputType.fromJson(json['type'] as String)
+            : null)!,
+        callId: json['call_id'] != null
+            ? SdkPresent((json['call_id'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        namespace: json['namespace'] != null
+            ? SdkPresent((json['namespace'] as String?)!)
+            : const SdkOmitted(),
+        caller: json.containsKey('caller')
+            ? SdkPresent(json['caller'] != null
+                ? BetaToolCallCallerParam.fromJson(json['caller'])
+                : null)
+            : const SdkOmitted(),
+        output: (json['output'])!,
+        status: (json['status'] != null
+            ? BetaFunctionCallOutputStatusEnum.fromJson(
+                json['status'] as String)
+            : null)!,
+        createdBy: json['created_by'] != null
+            ? SdkPresent((json['created_by'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'id': id,
-    'type': type_.toJson(),
-    ...switch (callId) {
-      SdkPresent<String>(value: final value) => {'call_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (namespace) {
-      SdkPresent<String>(value: final value) => {'namespace': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (caller) {
-      SdkPresent<BetaToolCallCallerParam?>(value: final value) => {'caller': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'output': output,
-    'status': status.toJson(),
-    ...switch (createdBy) {
-      SdkPresent<String>(value: final value) => {'created_by': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag?>(value: final value) => {
+              'agent': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'id': id,
+        'type': type_.toJson(),
+        ...switch (callId) {
+          SdkPresent<String>(value: final value) => {
+              'call_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (namespace) {
+          SdkPresent<String>(value: final value) => {
+              'namespace': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (caller) {
+          SdkPresent<BetaToolCallCallerParam?>(value: final value) => {
+              'caller': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'output': output,
+        'status': status.toJson(),
+        ...switch (createdBy) {
+          SdkPresent<String>(value: final value) => {
+              'created_by': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

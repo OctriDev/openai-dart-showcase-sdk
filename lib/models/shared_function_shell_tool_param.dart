@@ -8,38 +8,75 @@ part of 'shared_function.dart';
 class FunctionShellToolParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the shell tool. Always `shell`.
   final FunctionShellToolParamType type_;
+
   /// Optional API value serialized in the `environment` wire field.
   final SdkOptional<FunctionShellToolParamEnvironment?> environment;
+
   /// The tool invocation context(s).
   final SdkOptional<List<CallableToolAllowedCaller>?> allowedCallers;
 
-  const FunctionShellToolParam({required this.type_, this.environment = const SdkOmitted(), this.allowedCallers = const SdkOmitted()});
+  const FunctionShellToolParam(
+      {required this.type_,
+      this.environment = const SdkOmitted(),
+      this.allowedCallers = const SdkOmitted()});
 
-  FunctionShellToolParam Function({FunctionShellToolParamType type_, SdkOptional<FunctionShellToolParamEnvironment?> environment, SdkOptional<List<CallableToolAllowedCaller>?> allowedCallers}) get copyWith => _copyWith;
+  FunctionShellToolParam Function(
+          {FunctionShellToolParamType type_,
+          SdkOptional<FunctionShellToolParamEnvironment?> environment,
+          SdkOptional<List<CallableToolAllowedCaller>?> allowedCallers})
+      get copyWith => _copyWith;
 
-  FunctionShellToolParam _copyWith({Object? type_ = sdkOmittedValue, Object? environment = sdkOmittedValue, Object? allowedCallers = sdkOmittedValue}) => FunctionShellToolParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as FunctionShellToolParamType,
-    environment: identical(environment, sdkOmittedValue) ? this.environment : environment as SdkOptional<FunctionShellToolParamEnvironment?>,
-    allowedCallers: identical(allowedCallers, sdkOmittedValue) ? this.allowedCallers : allowedCallers as SdkOptional<List<CallableToolAllowedCaller>?>,
-  );
+  FunctionShellToolParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? environment = sdkOmittedValue,
+          Object? allowedCallers = sdkOmittedValue}) =>
+      FunctionShellToolParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as FunctionShellToolParamType,
+        environment: identical(environment, sdkOmittedValue)
+            ? this.environment
+            : environment as SdkOptional<FunctionShellToolParamEnvironment?>,
+        allowedCallers: identical(allowedCallers, sdkOmittedValue)
+            ? this.allowedCallers
+            : allowedCallers as SdkOptional<List<CallableToolAllowedCaller>?>,
+      );
 
-  factory FunctionShellToolParam.fromJson(Map<String, dynamic> json) => FunctionShellToolParam(
-    type_: (json['type'] != null ? FunctionShellToolParamType.fromJson(json['type'] as String) : null)!,
-    environment: json.containsKey('environment') ? SdkPresent(json['environment'] != null ? FunctionShellToolParamEnvironment.fromJson(json['environment']) : null) : const SdkOmitted(),
-    allowedCallers: json.containsKey('allowed_callers') ? SdkPresent((json['allowed_callers'] as List?)?.map((e) => CallableToolAllowedCaller.fromJson(e as String)).toList()) : const SdkOmitted(),
-  );
+  factory FunctionShellToolParam.fromJson(Map<String, dynamic> json) =>
+      FunctionShellToolParam(
+        type_: (json['type'] != null
+            ? FunctionShellToolParamType.fromJson(json['type'] as String)
+            : null)!,
+        environment: json.containsKey('environment')
+            ? SdkPresent(json['environment'] != null
+                ? FunctionShellToolParamEnvironment.fromJson(
+                    json['environment'])
+                : null)
+            : const SdkOmitted(),
+        allowedCallers: json.containsKey('allowed_callers')
+            ? SdkPresent((json['allowed_callers'] as List?)
+                ?.map((e) => CallableToolAllowedCaller.fromJson(e as String))
+                .toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (environment) {
-      SdkPresent<FunctionShellToolParamEnvironment?>(value: final value) => {'environment': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (allowedCallers) {
-      SdkPresent<List<CallableToolAllowedCaller>?>(value: final value) => {'allowed_callers': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (environment) {
+          SdkPresent<FunctionShellToolParamEnvironment?>(value: final value) =>
+            {
+              'environment': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (allowedCallers) {
+          SdkPresent<List<CallableToolAllowedCaller>?>(value: final value) => {
+              'allowed_callers': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

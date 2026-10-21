@@ -8,57 +8,116 @@ part of 'responses_beta_web.dart';
 class BetaWebSearchApproximateLocation {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of location approximation. Always `approximate`.
   final SdkOptional<BetaWebSearchApproximateLocationType> type_;
+
   /// Optional `string` value serialized in the `country` wire field.
   final SdkOptional<String?> country;
+
   /// Optional `string` value serialized in the `region` wire field.
   final SdkOptional<String?> region;
+
   /// Optional `string` value serialized in the `city` wire field.
   final SdkOptional<String?> city;
+
   /// Optional `string` value serialized in the `timezone` wire field.
   final SdkOptional<String?> timezone;
 
-  const BetaWebSearchApproximateLocation({this.type_ = const SdkOmitted(), this.country = const SdkOmitted(), this.region = const SdkOmitted(), this.city = const SdkOmitted(), this.timezone = const SdkOmitted()});
+  const BetaWebSearchApproximateLocation(
+      {this.type_ = const SdkOmitted(),
+      this.country = const SdkOmitted(),
+      this.region = const SdkOmitted(),
+      this.city = const SdkOmitted(),
+      this.timezone = const SdkOmitted()});
 
-  BetaWebSearchApproximateLocation Function({SdkOptional<BetaWebSearchApproximateLocationType> type_, SdkOptional<String?> country, SdkOptional<String?> region, SdkOptional<String?> city, SdkOptional<String?> timezone}) get copyWith => _copyWith;
+  BetaWebSearchApproximateLocation Function(
+      {SdkOptional<BetaWebSearchApproximateLocationType> type_,
+      SdkOptional<String?> country,
+      SdkOptional<String?> region,
+      SdkOptional<String?> city,
+      SdkOptional<String?> timezone}) get copyWith => _copyWith;
 
-  BetaWebSearchApproximateLocation _copyWith({Object? type_ = sdkOmittedValue, Object? country = sdkOmittedValue, Object? region = sdkOmittedValue, Object? city = sdkOmittedValue, Object? timezone = sdkOmittedValue}) => BetaWebSearchApproximateLocation(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<BetaWebSearchApproximateLocationType>,
-    country: identical(country, sdkOmittedValue) ? this.country : country as SdkOptional<String?>,
-    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String?>,
-    city: identical(city, sdkOmittedValue) ? this.city : city as SdkOptional<String?>,
-    timezone: identical(timezone, sdkOmittedValue) ? this.timezone : timezone as SdkOptional<String?>,
-  );
+  BetaWebSearchApproximateLocation _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? country = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? city = sdkOmittedValue,
+          Object? timezone = sdkOmittedValue}) =>
+      BetaWebSearchApproximateLocation(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<BetaWebSearchApproximateLocationType>,
+        country: identical(country, sdkOmittedValue)
+            ? this.country
+            : country as SdkOptional<String?>,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as SdkOptional<String?>,
+        city: identical(city, sdkOmittedValue)
+            ? this.city
+            : city as SdkOptional<String?>,
+        timezone: identical(timezone, sdkOmittedValue)
+            ? this.timezone
+            : timezone as SdkOptional<String?>,
+      );
 
-  factory BetaWebSearchApproximateLocation.fromJson(Map<String, dynamic> json) => BetaWebSearchApproximateLocation(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? BetaWebSearchApproximateLocationType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    country: json.containsKey('country') ? SdkPresent(json['country'] as String?) : const SdkOmitted(),
-    region: json.containsKey('region') ? SdkPresent(json['region'] as String?) : const SdkOmitted(),
-    city: json.containsKey('city') ? SdkPresent(json['city'] as String?) : const SdkOmitted(),
-    timezone: json.containsKey('timezone') ? SdkPresent(json['timezone'] as String?) : const SdkOmitted(),
-  );
+  factory BetaWebSearchApproximateLocation.fromJson(
+          Map<String, dynamic> json) =>
+      BetaWebSearchApproximateLocation(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? BetaWebSearchApproximateLocationType.fromJson(
+                    json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        country: json.containsKey('country')
+            ? SdkPresent(json['country'] as String?)
+            : const SdkOmitted(),
+        region: json.containsKey('region')
+            ? SdkPresent(json['region'] as String?)
+            : const SdkOmitted(),
+        city: json.containsKey('city')
+            ? SdkPresent(json['city'] as String?)
+            : const SdkOmitted(),
+        timezone: json.containsKey('timezone')
+            ? SdkPresent(json['timezone'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<BetaWebSearchApproximateLocationType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (country) {
-      SdkPresent<String?>(value: final value) => {'country': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (region) {
-      SdkPresent<String?>(value: final value) => {'region': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (city) {
-      SdkPresent<String?>(value: final value) => {'city': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (timezone) {
-      SdkPresent<String?>(value: final value) => {'timezone': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<BetaWebSearchApproximateLocationType>(
+            value: final value
+          ) =>
+            {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (country) {
+          SdkPresent<String?>(value: final value) => {
+              'country': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (region) {
+          SdkPresent<String?>(value: final value) => {
+              'region': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (city) {
+          SdkPresent<String?>(value: final value) => {
+              'city': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (timezone) {
+          SdkPresent<String?>(value: final value) => {
+              'timezone': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

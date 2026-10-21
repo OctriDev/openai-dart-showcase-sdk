@@ -10,32 +10,57 @@ sealed class ResponseSteerInputItem {
   const ResponseSteerInputItem();
   factory ResponseSteerInputItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = UserMessageItemParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponseSteerInputItemUserMessageItemParam(value); } } catch (_) {}
-      try { final value = FunctionCallOutputItemParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponseSteerInputItemFunctionCallOutputItemParam(value); } } catch (_) {}
+      try {
+        final value = UserMessageItemParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponseSteerInputItemUserMessageItemParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = FunctionCallOutputItemParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponseSteerInputItemFunctionCallOutputItemParam(value);
+        }
+      } catch (_) {}
     }
-    try { return ResponseSteerInputItemUserMessageItemParam(UserMessageItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponseSteerInputItemFunctionCallOutputItemParam(FunctionCallOutputItemParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"message", "function_call_output"}.contains(json["type"])) { return UnknownResponseSteerInputItem(json); }
+    try {
+      return ResponseSteerInputItemUserMessageItemParam(
+          UserMessageItemParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponseSteerInputItemFunctionCallOutputItemParam(
+          FunctionCallOutputItemParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"message", "function_call_output"}.contains(json["type"])) {
+      return UnknownResponseSteerInputItem(json);
+    }
     throw FormatException("No variant matched for ResponseSteerInputItem");
   }
   Object? toJson();
 }
 
-final class ResponseSteerInputItemUserMessageItemParam extends ResponseSteerInputItem {
+final class ResponseSteerInputItemUserMessageItemParam
+    extends ResponseSteerInputItem {
   final UserMessageItemParam value;
   const ResponseSteerInputItemUserMessageItemParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponseSteerInputItemFunctionCallOutputItemParam extends ResponseSteerInputItem {
+final class ResponseSteerInputItemFunctionCallOutputItemParam
+    extends ResponseSteerInputItem {
   final FunctionCallOutputItemParam value;
   const ResponseSteerInputItemFunctionCallOutputItemParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [ResponseSteerInputItem] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownResponseSteerInputItem extends ResponseSteerInputItem {
   final Map<String, dynamic> raw;
   const UnknownResponseSteerInputItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

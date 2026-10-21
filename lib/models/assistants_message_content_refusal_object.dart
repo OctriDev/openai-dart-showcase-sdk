@@ -8,27 +8,42 @@ part of 'assistants_message.dart';
 class MessageContentRefusalObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Always `refusal`.
   final MessageContentRefusalObjectType type_;
+
   /// Required `string` value serialized in the `refusal` wire field.
   final String refusal;
 
-  const MessageContentRefusalObject({required this.type_, required this.refusal});
+  const MessageContentRefusalObject(
+      {required this.type_, required this.refusal});
 
-  MessageContentRefusalObject Function({MessageContentRefusalObjectType type_, String refusal}) get copyWith => _copyWith;
+  MessageContentRefusalObject Function(
+      {MessageContentRefusalObjectType type_,
+      String refusal}) get copyWith => _copyWith;
 
-  MessageContentRefusalObject _copyWith({Object? type_ = sdkOmittedValue, Object? refusal = sdkOmittedValue}) => MessageContentRefusalObject(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessageContentRefusalObjectType,
-    refusal: identical(refusal, sdkOmittedValue) ? this.refusal : refusal as String,
-  );
+  MessageContentRefusalObject _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? refusal = sdkOmittedValue}) =>
+      MessageContentRefusalObject(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as MessageContentRefusalObjectType,
+        refusal: identical(refusal, sdkOmittedValue)
+            ? this.refusal
+            : refusal as String,
+      );
 
-  factory MessageContentRefusalObject.fromJson(Map<String, dynamic> json) => MessageContentRefusalObject(
-    type_: (json['type'] != null ? MessageContentRefusalObjectType.fromJson(json['type'] as String) : null)!,
-    refusal: (json['refusal'] as String?)!,
-  );
+  factory MessageContentRefusalObject.fromJson(Map<String, dynamic> json) =>
+      MessageContentRefusalObject(
+        type_: (json['type'] != null
+            ? MessageContentRefusalObjectType.fromJson(json['type'] as String)
+            : null)!,
+        refusal: (json['refusal'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'refusal': refusal,
-  };
+        'type': type_.toJson(),
+        'refusal': refusal,
+      };
 }

@@ -8,102 +8,194 @@ part of 'responses_beta_response_function.dart';
 class BetaResponseFunctionCallArgumentsDeltaEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that owns this multi-agent streaming event.
   final SdkOptional<BetaAgentTag?> agent;
+
   /// The type of the event. Always `response.function_call_arguments.delta`.
   final BetaResponseFunctionCallArgumentsDeltaEventType type_;
+
   /// The ID of the output item that the function-call arguments delta is added to.
   final String itemId;
+
   /// The index of the output item that the function-call arguments delta is added to.
   final int outputIndex;
+
   /// The sequence number of this event.
   final int sequenceNumber;
+
   /// The function-call arguments delta that is added.
   final String delta;
 
-  const BetaResponseFunctionCallArgumentsDeltaEvent({this.agent = const SdkOmitted(), required this.type_, required this.itemId, required this.outputIndex, required this.sequenceNumber, required this.delta});
+  const BetaResponseFunctionCallArgumentsDeltaEvent(
+      {this.agent = const SdkOmitted(),
+      required this.type_,
+      required this.itemId,
+      required this.outputIndex,
+      required this.sequenceNumber,
+      required this.delta});
 
-  BetaResponseFunctionCallArgumentsDeltaEvent Function({SdkOptional<BetaAgentTag?> agent, BetaResponseFunctionCallArgumentsDeltaEventType type_, String itemId, int outputIndex, int sequenceNumber, String delta}) get copyWith => _copyWith;
+  BetaResponseFunctionCallArgumentsDeltaEvent Function(
+      {SdkOptional<BetaAgentTag?> agent,
+      BetaResponseFunctionCallArgumentsDeltaEventType type_,
+      String itemId,
+      int outputIndex,
+      int sequenceNumber,
+      String delta}) get copyWith => _copyWith;
 
-  BetaResponseFunctionCallArgumentsDeltaEvent _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? delta = sdkOmittedValue}) => BetaResponseFunctionCallArgumentsDeltaEvent(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseFunctionCallArgumentsDeltaEventType,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
-  );
+  BetaResponseFunctionCallArgumentsDeltaEvent _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue,
+          Object? delta = sdkOmittedValue}) =>
+      BetaResponseFunctionCallArgumentsDeltaEvent(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaResponseFunctionCallArgumentsDeltaEventType,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+        delta: identical(delta, sdkOmittedValue) ? this.delta : delta as String,
+      );
 
-  factory BetaResponseFunctionCallArgumentsDeltaEvent.fromJson(Map<String, dynamic> json) => BetaResponseFunctionCallArgumentsDeltaEvent(
-    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    type_: (json['type'] != null ? BetaResponseFunctionCallArgumentsDeltaEventType.fromJson(json['type'] as String) : null)!,
-    itemId: (json['item_id'] as String?)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-    delta: (json['delta'] as String?)!,
-  );
+  factory BetaResponseFunctionCallArgumentsDeltaEvent.fromJson(
+          Map<String, dynamic> json) =>
+      BetaResponseFunctionCallArgumentsDeltaEvent(
+        agent: json.containsKey('agent')
+            ? SdkPresent(json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? BetaResponseFunctionCallArgumentsDeltaEventType.fromJson(
+                json['type'] as String)
+            : null)!,
+        itemId: (json['item_id'] as String?)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+        delta: (json['delta'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'item_id': itemId,
-    'output_index': outputIndex,
-    'sequence_number': sequenceNumber,
-    'delta': delta,
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag?>(value: final value) => {
+              'agent': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'item_id': itemId,
+        'output_index': outputIndex,
+        'sequence_number': sequenceNumber,
+        'delta': delta,
+      };
 }
 
 /// Emitted when function-call arguments are finalized.
 class BetaResponseFunctionCallArgumentsDoneEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that owns this multi-agent streaming event.
   final SdkOptional<BetaAgentTag?> agent;
+
   /// Required enumerated value serialized in the `type` wire field.
   final BetaResponseFunctionCallArgumentsDoneEventType type_;
+
   /// The ID of the item.
   final String itemId;
+
   /// The index of the output item.
   final int outputIndex;
+
   /// The sequence number of this event.
   final int sequenceNumber;
+
   /// The function-call arguments.
   final String arguments;
 
-  const BetaResponseFunctionCallArgumentsDoneEvent({this.agent = const SdkOmitted(), required this.type_, required this.itemId, required this.outputIndex, required this.sequenceNumber, required this.arguments});
+  const BetaResponseFunctionCallArgumentsDoneEvent(
+      {this.agent = const SdkOmitted(),
+      required this.type_,
+      required this.itemId,
+      required this.outputIndex,
+      required this.sequenceNumber,
+      required this.arguments});
 
-  BetaResponseFunctionCallArgumentsDoneEvent Function({SdkOptional<BetaAgentTag?> agent, BetaResponseFunctionCallArgumentsDoneEventType type_, String itemId, int outputIndex, int sequenceNumber, String arguments}) get copyWith => _copyWith;
+  BetaResponseFunctionCallArgumentsDoneEvent Function(
+      {SdkOptional<BetaAgentTag?> agent,
+      BetaResponseFunctionCallArgumentsDoneEventType type_,
+      String itemId,
+      int outputIndex,
+      int sequenceNumber,
+      String arguments}) get copyWith => _copyWith;
 
-  BetaResponseFunctionCallArgumentsDoneEvent _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? arguments = sdkOmittedValue}) => BetaResponseFunctionCallArgumentsDoneEvent(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseFunctionCallArgumentsDoneEventType,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-    arguments: identical(arguments, sdkOmittedValue) ? this.arguments : arguments as String,
-  );
+  BetaResponseFunctionCallArgumentsDoneEvent _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue,
+          Object? arguments = sdkOmittedValue}) =>
+      BetaResponseFunctionCallArgumentsDoneEvent(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaResponseFunctionCallArgumentsDoneEventType,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+        arguments: identical(arguments, sdkOmittedValue)
+            ? this.arguments
+            : arguments as String,
+      );
 
-  factory BetaResponseFunctionCallArgumentsDoneEvent.fromJson(Map<String, dynamic> json) => BetaResponseFunctionCallArgumentsDoneEvent(
-    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    type_: (json['type'] != null ? BetaResponseFunctionCallArgumentsDoneEventType.fromJson(json['type'] as String) : null)!,
-    itemId: (json['item_id'] as String?)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-    arguments: (json['arguments'] as String?)!,
-  );
+  factory BetaResponseFunctionCallArgumentsDoneEvent.fromJson(
+          Map<String, dynamic> json) =>
+      BetaResponseFunctionCallArgumentsDoneEvent(
+        agent: json.containsKey('agent')
+            ? SdkPresent(json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? BetaResponseFunctionCallArgumentsDoneEventType.fromJson(
+                json['type'] as String)
+            : null)!,
+        itemId: (json['item_id'] as String?)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+        arguments: (json['arguments'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'item_id': itemId,
-    'output_index': outputIndex,
-    'sequence_number': sequenceNumber,
-    'arguments': arguments,
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag?>(value: final value) => {
+              'agent': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'item_id': itemId,
+        'output_index': outputIndex,
+        'sequence_number': sequenceNumber,
+        'arguments': arguments,
+      };
 }

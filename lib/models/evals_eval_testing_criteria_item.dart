@@ -10,56 +10,117 @@ sealed class EvalTestingCriteriaItem {
   const EvalTestingCriteriaItem();
   factory EvalTestingCriteriaItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = EvalGraderLabelModel.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EvalTestingCriteriaItemEvalGraderLabelModel(value); } } catch (_) {}
-      try { final value = EvalGraderStringCheck.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EvalTestingCriteriaItemEvalGraderStringCheck(value); } } catch (_) {}
-      try { final value = EvalGraderTextSimilarity.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EvalTestingCriteriaItemEvalGraderTextSimilarity(value); } } catch (_) {}
-      try { final value = EvalGraderPython.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EvalTestingCriteriaItemEvalGraderPython(value); } } catch (_) {}
-      try { final value = EvalGraderScoreModel.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EvalTestingCriteriaItemEvalGraderScoreModel(value); } } catch (_) {}
+      try {
+        final value = EvalGraderLabelModel.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EvalTestingCriteriaItemEvalGraderLabelModel(value);
+        }
+      } catch (_) {}
+      try {
+        final value = EvalGraderStringCheck.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EvalTestingCriteriaItemEvalGraderStringCheck(value);
+        }
+      } catch (_) {}
+      try {
+        final value = EvalGraderTextSimilarity.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EvalTestingCriteriaItemEvalGraderTextSimilarity(value);
+        }
+      } catch (_) {}
+      try {
+        final value = EvalGraderPython.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EvalTestingCriteriaItemEvalGraderPython(value);
+        }
+      } catch (_) {}
+      try {
+        final value = EvalGraderScoreModel.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EvalTestingCriteriaItemEvalGraderScoreModel(value);
+        }
+      } catch (_) {}
     }
-    try { return EvalTestingCriteriaItemEvalGraderLabelModel(EvalGraderLabelModel.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return EvalTestingCriteriaItemEvalGraderStringCheck(EvalGraderStringCheck.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return EvalTestingCriteriaItemEvalGraderTextSimilarity(EvalGraderTextSimilarity.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return EvalTestingCriteriaItemEvalGraderPython(EvalGraderPython.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return EvalTestingCriteriaItemEvalGraderScoreModel(EvalGraderScoreModel.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"label_model", "string_check", "text_similarity", "python", "score_model"}.contains(json["type"])) { return UnknownEvalTestingCriteriaItem(json); }
+    try {
+      return EvalTestingCriteriaItemEvalGraderLabelModel(
+          EvalGraderLabelModel.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return EvalTestingCriteriaItemEvalGraderStringCheck(
+          EvalGraderStringCheck.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return EvalTestingCriteriaItemEvalGraderTextSimilarity(
+          EvalGraderTextSimilarity.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return EvalTestingCriteriaItemEvalGraderPython(
+          EvalGraderPython.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return EvalTestingCriteriaItemEvalGraderScoreModel(
+          EvalGraderScoreModel.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {
+          "label_model",
+          "string_check",
+          "text_similarity",
+          "python",
+          "score_model"
+        }.contains(json["type"])) {
+      return UnknownEvalTestingCriteriaItem(json);
+    }
     throw FormatException("No variant matched for EvalTestingCriteriaItem");
   }
   Object? toJson();
 }
 
-final class EvalTestingCriteriaItemEvalGraderLabelModel extends EvalTestingCriteriaItem {
+final class EvalTestingCriteriaItemEvalGraderLabelModel
+    extends EvalTestingCriteriaItem {
   final EvalGraderLabelModel value;
   const EvalTestingCriteriaItemEvalGraderLabelModel(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class EvalTestingCriteriaItemEvalGraderStringCheck extends EvalTestingCriteriaItem {
+final class EvalTestingCriteriaItemEvalGraderStringCheck
+    extends EvalTestingCriteriaItem {
   final EvalGraderStringCheck value;
   const EvalTestingCriteriaItemEvalGraderStringCheck(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class EvalTestingCriteriaItemEvalGraderTextSimilarity extends EvalTestingCriteriaItem {
+final class EvalTestingCriteriaItemEvalGraderTextSimilarity
+    extends EvalTestingCriteriaItem {
   final EvalGraderTextSimilarity value;
   const EvalTestingCriteriaItemEvalGraderTextSimilarity(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class EvalTestingCriteriaItemEvalGraderPython extends EvalTestingCriteriaItem {
+final class EvalTestingCriteriaItemEvalGraderPython
+    extends EvalTestingCriteriaItem {
   final EvalGraderPython value;
   const EvalTestingCriteriaItemEvalGraderPython(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class EvalTestingCriteriaItemEvalGraderScoreModel extends EvalTestingCriteriaItem {
+final class EvalTestingCriteriaItemEvalGraderScoreModel
+    extends EvalTestingCriteriaItem {
   final EvalGraderScoreModel value;
   const EvalTestingCriteriaItemEvalGraderScoreModel(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [EvalTestingCriteriaItem] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownEvalTestingCriteriaItem extends EvalTestingCriteriaItem {
   final Map<String, dynamic> raw;
   const UnknownEvalTestingCriteriaItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

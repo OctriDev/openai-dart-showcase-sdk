@@ -8,42 +8,87 @@ part of 'spend_alerts.dart';
 class OrganizationSpendAlertListResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Always `list`.
   final OrganizationSpendAlertListResourceObject object;
+
   /// Spend alerts returned in the current page.
   final List<OrganizationSpendAlert> data;
+
   /// The ID of the first spend alert in this page.
   final String? firstId;
+
   /// The ID of the last spend alert in this page.
   final String? lastId;
+
   /// Whether more spend alerts are available when paginating.
   final bool hasMore;
 
-  const OrganizationSpendAlertListResource({required this.object, required this.data, required this.firstId, required this.lastId, required this.hasMore});
+  const OrganizationSpendAlertListResource(
+      {required this.object,
+      required this.data,
+      required this.firstId,
+      required this.lastId,
+      required this.hasMore});
 
-  OrganizationSpendAlertListResource Function({OrganizationSpendAlertListResourceObject object, List<OrganizationSpendAlert> data, String? firstId, String? lastId, bool hasMore}) get copyWith => _copyWith;
+  OrganizationSpendAlertListResource Function(
+      {OrganizationSpendAlertListResourceObject object,
+      List<OrganizationSpendAlert> data,
+      String? firstId,
+      String? lastId,
+      bool hasMore}) get copyWith => _copyWith;
 
-  OrganizationSpendAlertListResource _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => OrganizationSpendAlertListResource(
-    object: identical(object, sdkOmittedValue) ? this.object : object as OrganizationSpendAlertListResourceObject,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<OrganizationSpendAlert>,
-    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as String?,
-    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as String?,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
-  );
+  OrganizationSpendAlertListResource _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? firstId = sdkOmittedValue,
+          Object? lastId = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue}) =>
+      OrganizationSpendAlertListResource(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as OrganizationSpendAlertListResourceObject,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<OrganizationSpendAlert>,
+        firstId: identical(firstId, sdkOmittedValue)
+            ? this.firstId
+            : firstId as String?,
+        lastId: identical(lastId, sdkOmittedValue)
+            ? this.lastId
+            : lastId as String?,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as bool,
+      );
 
-  factory OrganizationSpendAlertListResource.fromJson(Map<String, dynamic> json) => OrganizationSpendAlertListResource(
-    object: (json['object'] != null ? OrganizationSpendAlertListResourceObject.fromJson(json['object'] as String) : null)!,
-    data: ((json['data'] as List?)?.map((e) => OrganizationSpendAlert.fromJson(e as Map<String, dynamic>)).toList())!,
-    firstId: json.containsKey('first_id') ? json['first_id'] as String? : throw ArgumentError.value(null, 'first_id', 'Required property is missing'),
-    lastId: json.containsKey('last_id') ? json['last_id'] as String? : throw ArgumentError.value(null, 'last_id', 'Required property is missing'),
-    hasMore: (json['has_more'] as bool?)!,
-  );
+  factory OrganizationSpendAlertListResource.fromJson(
+          Map<String, dynamic> json) =>
+      OrganizationSpendAlertListResource(
+        object: (json['object'] != null
+            ? OrganizationSpendAlertListResourceObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        data: ((json['data'] as List?)
+            ?.map((e) =>
+                OrganizationSpendAlert.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        firstId: json.containsKey('first_id')
+            ? json['first_id'] as String?
+            : throw ArgumentError.value(
+                null, 'first_id', 'Required property is missing'),
+        lastId: json.containsKey('last_id')
+            ? json['last_id'] as String?
+            : throw ArgumentError.value(
+                null, 'last_id', 'Required property is missing'),
+        hasMore: (json['has_more'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'data': data.map((item) => item.toJson()).toList(),
-    'first_id': firstId,
-    'last_id': lastId,
-    'has_more': hasMore,
-  };
+        'object': object.toJson(),
+        'data': data.map((item) => item.toJson()).toList(),
+        'first_id': firstId,
+        'last_id': lastId,
+        'has_more': hasMore,
+      };
 }

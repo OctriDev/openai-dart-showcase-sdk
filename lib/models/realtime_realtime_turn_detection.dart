@@ -9,136 +9,257 @@ sealed class RealtimeTurnDetectionVariant0IdleTimeoutMs {
   static const String constructionSurface = 'named';
   const RealtimeTurnDetectionVariant0IdleTimeoutMs();
   factory RealtimeTurnDetectionVariant0IdleTimeoutMs.fromJson(Object? json) {
-    if (json is num) { return RealtimeTurnDetectionVariant0IdleTimeoutMsInt(json.toInt()); }
-    throw FormatException("No variant matched for RealtimeTurnDetectionVariant0IdleTimeoutMs");
+    if (json is num) {
+      return RealtimeTurnDetectionVariant0IdleTimeoutMsInt(json.toInt());
+    }
+    throw FormatException(
+        "No variant matched for RealtimeTurnDetectionVariant0IdleTimeoutMs");
   }
   Object? toJson();
 }
 
-final class RealtimeTurnDetectionVariant0IdleTimeoutMsInt extends RealtimeTurnDetectionVariant0IdleTimeoutMs {
+final class RealtimeTurnDetectionVariant0IdleTimeoutMsInt
+    extends RealtimeTurnDetectionVariant0IdleTimeoutMs {
   final int value;
   const RealtimeTurnDetectionVariant0IdleTimeoutMsInt(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// Server-side voice activity detection (VAD) which flips on when user speech is detected and off after a period of silence.
 class RealtimeTurnDetectionVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type of turn detection, `server_vad` to turn on simple Server VAD.
   final RealtimeTurnDetectionVariant0Type type_;
+
   /// Used only for `server_vad` mode. Activation threshold for VAD (0.0 to 1.0), this defaults to 0.5. A higher threshold will require louder audio to activate the model, and thus might perform better in noisy environments.
   final SdkOptional<double> threshold;
+
   /// Used only for `server_vad` mode. Amount of audio to include before the VAD detected speech (in milliseconds). Defaults to 300ms.
   final SdkOptional<int> prefixPaddingMs;
+
   /// Used only for `server_vad` mode. Duration of silence to detect speech stop (in milliseconds). Defaults to 500ms. With shorter values the model will respond more quickly, but may jump in on short pauses from the user.
   final SdkOptional<int> silenceDurationMs;
+
   /// Whether or not to automatically generate a response when a VAD stop event occurs. If `interrupt_response` is set to `false` this may fail to create a response if the model is already responding. If both `create_response` and `interrupt_response` are set to `false`, the model will never respond automatically but VAD events will still be emitted.
   final SdkOptional<bool> createResponse;
+
   /// Whether or not to automatically interrupt (cancel) any ongoing response with output to the default conversation (i.e. `conversation` of `auto`) when a VAD start event occurs. If `true` then the response will be cancelled, otherwise it will continue until complete. If both `create_response` and `interrupt_response` are set to `false`, the model will never respond automatically but VAD events will still be emitted.
   final SdkOptional<bool> interruptResponse;
+
   /// Optional API value serialized in the `idle_timeout_ms` wire field.
   final SdkOptional<int?> idleTimeoutMs;
 
-  const RealtimeTurnDetectionVariant0({required this.type_, this.threshold = const SdkOmitted(), this.prefixPaddingMs = const SdkOmitted(), this.silenceDurationMs = const SdkOmitted(), this.createResponse = const SdkOmitted(), this.interruptResponse = const SdkOmitted(), this.idleTimeoutMs = const SdkOmitted()});
+  const RealtimeTurnDetectionVariant0(
+      {required this.type_,
+      this.threshold = const SdkOmitted(),
+      this.prefixPaddingMs = const SdkOmitted(),
+      this.silenceDurationMs = const SdkOmitted(),
+      this.createResponse = const SdkOmitted(),
+      this.interruptResponse = const SdkOmitted(),
+      this.idleTimeoutMs = const SdkOmitted()});
 
-  RealtimeTurnDetectionVariant0 Function({RealtimeTurnDetectionVariant0Type type_, SdkOptional<double> threshold, SdkOptional<int> prefixPaddingMs, SdkOptional<int> silenceDurationMs, SdkOptional<bool> createResponse, SdkOptional<bool> interruptResponse, SdkOptional<int?> idleTimeoutMs}) get copyWith => _copyWith;
+  RealtimeTurnDetectionVariant0 Function(
+      {RealtimeTurnDetectionVariant0Type type_,
+      SdkOptional<double> threshold,
+      SdkOptional<int> prefixPaddingMs,
+      SdkOptional<int> silenceDurationMs,
+      SdkOptional<bool> createResponse,
+      SdkOptional<bool> interruptResponse,
+      SdkOptional<int?> idleTimeoutMs}) get copyWith => _copyWith;
 
-  RealtimeTurnDetectionVariant0 _copyWith({Object? type_ = sdkOmittedValue, Object? threshold = sdkOmittedValue, Object? prefixPaddingMs = sdkOmittedValue, Object? silenceDurationMs = sdkOmittedValue, Object? createResponse = sdkOmittedValue, Object? interruptResponse = sdkOmittedValue, Object? idleTimeoutMs = sdkOmittedValue}) => RealtimeTurnDetectionVariant0(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeTurnDetectionVariant0Type,
-    threshold: identical(threshold, sdkOmittedValue) ? this.threshold : threshold as SdkOptional<double>,
-    prefixPaddingMs: identical(prefixPaddingMs, sdkOmittedValue) ? this.prefixPaddingMs : prefixPaddingMs as SdkOptional<int>,
-    silenceDurationMs: identical(silenceDurationMs, sdkOmittedValue) ? this.silenceDurationMs : silenceDurationMs as SdkOptional<int>,
-    createResponse: identical(createResponse, sdkOmittedValue) ? this.createResponse : createResponse as SdkOptional<bool>,
-    interruptResponse: identical(interruptResponse, sdkOmittedValue) ? this.interruptResponse : interruptResponse as SdkOptional<bool>,
-    idleTimeoutMs: identical(idleTimeoutMs, sdkOmittedValue) ? this.idleTimeoutMs : idleTimeoutMs as SdkOptional<int?>,
-  );
+  RealtimeTurnDetectionVariant0 _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? threshold = sdkOmittedValue,
+          Object? prefixPaddingMs = sdkOmittedValue,
+          Object? silenceDurationMs = sdkOmittedValue,
+          Object? createResponse = sdkOmittedValue,
+          Object? interruptResponse = sdkOmittedValue,
+          Object? idleTimeoutMs = sdkOmittedValue}) =>
+      RealtimeTurnDetectionVariant0(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeTurnDetectionVariant0Type,
+        threshold: identical(threshold, sdkOmittedValue)
+            ? this.threshold
+            : threshold as SdkOptional<double>,
+        prefixPaddingMs: identical(prefixPaddingMs, sdkOmittedValue)
+            ? this.prefixPaddingMs
+            : prefixPaddingMs as SdkOptional<int>,
+        silenceDurationMs: identical(silenceDurationMs, sdkOmittedValue)
+            ? this.silenceDurationMs
+            : silenceDurationMs as SdkOptional<int>,
+        createResponse: identical(createResponse, sdkOmittedValue)
+            ? this.createResponse
+            : createResponse as SdkOptional<bool>,
+        interruptResponse: identical(interruptResponse, sdkOmittedValue)
+            ? this.interruptResponse
+            : interruptResponse as SdkOptional<bool>,
+        idleTimeoutMs: identical(idleTimeoutMs, sdkOmittedValue)
+            ? this.idleTimeoutMs
+            : idleTimeoutMs as SdkOptional<int?>,
+      );
 
-  factory RealtimeTurnDetectionVariant0.fromJson(Map<String, dynamic> json) => RealtimeTurnDetectionVariant0(
-    type_: (json['type'] != null ? RealtimeTurnDetectionVariant0Type.fromJson(json['type'] as String) : null)!,
-    threshold: json['threshold'] != null ? SdkPresent(((json['threshold'] as num?)?.toDouble())!) : const SdkOmitted(),
-    prefixPaddingMs: json['prefix_padding_ms'] != null ? SdkPresent(((json['prefix_padding_ms'] as num?)?.toInt())!) : const SdkOmitted(),
-    silenceDurationMs: json['silence_duration_ms'] != null ? SdkPresent(((json['silence_duration_ms'] as num?)?.toInt())!) : const SdkOmitted(),
-    createResponse: json['create_response'] != null ? SdkPresent((json['create_response'] as bool?)!) : const SdkOmitted(),
-    interruptResponse: json['interrupt_response'] != null ? SdkPresent((json['interrupt_response'] as bool?)!) : const SdkOmitted(),
-    idleTimeoutMs: json.containsKey('idle_timeout_ms') ? SdkPresent((json['idle_timeout_ms'] as num?)?.toInt()) : const SdkOmitted(),
-  );
+  factory RealtimeTurnDetectionVariant0.fromJson(Map<String, dynamic> json) =>
+      RealtimeTurnDetectionVariant0(
+        type_: (json['type'] != null
+            ? RealtimeTurnDetectionVariant0Type.fromJson(json['type'] as String)
+            : null)!,
+        threshold: json['threshold'] != null
+            ? SdkPresent(((json['threshold'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        prefixPaddingMs: json['prefix_padding_ms'] != null
+            ? SdkPresent(((json['prefix_padding_ms'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        silenceDurationMs: json['silence_duration_ms'] != null
+            ? SdkPresent(((json['silence_duration_ms'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        createResponse: json['create_response'] != null
+            ? SdkPresent((json['create_response'] as bool?)!)
+            : const SdkOmitted(),
+        interruptResponse: json['interrupt_response'] != null
+            ? SdkPresent((json['interrupt_response'] as bool?)!)
+            : const SdkOmitted(),
+        idleTimeoutMs: json.containsKey('idle_timeout_ms')
+            ? SdkPresent((json['idle_timeout_ms'] as num?)?.toInt())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (threshold) {
-      SdkPresent<double>(value: final value) => {'threshold': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (prefixPaddingMs) {
-      SdkPresent<int>(value: final value) => {'prefix_padding_ms': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (silenceDurationMs) {
-      SdkPresent<int>(value: final value) => {'silence_duration_ms': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createResponse) {
-      SdkPresent<bool>(value: final value) => {'create_response': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (interruptResponse) {
-      SdkPresent<bool>(value: final value) => {'interrupt_response': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (idleTimeoutMs) {
-      SdkPresent<int?>(value: final value) => {'idle_timeout_ms': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (threshold) {
+          SdkPresent<double>(value: final value) => {
+              'threshold': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (prefixPaddingMs) {
+          SdkPresent<int>(value: final value) => {
+              'prefix_padding_ms': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (silenceDurationMs) {
+          SdkPresent<int>(value: final value) => {
+              'silence_duration_ms': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createResponse) {
+          SdkPresent<bool>(value: final value) => {
+              'create_response': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (interruptResponse) {
+          SdkPresent<bool>(value: final value) => {
+              'interrupt_response': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (idleTimeoutMs) {
+          SdkPresent<int?>(value: final value) => {
+              'idle_timeout_ms': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Server-side semantic turn detection which uses a model to determine when the user has finished speaking.
 class RealtimeTurnDetectionVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type of turn detection, `semantic_vad` to turn on Semantic VAD.
   final RealtimeTurnDetectionVariant1Type type_;
+
   /// Used only for `semantic_vad` mode. The eagerness of the model to respond. `low` will wait longer for the user to continue speaking, `high` will respond more quickly. `auto` is the default and is equivalent to `medium`. `low`, `medium`, and `high` have max timeouts of 8s, 4s, and 2s respectively.
   final SdkOptional<RealtimeTurnDetectionVariant1Eagerness> eagerness;
+
   /// Whether or not to automatically generate a response when a VAD stop event occurs.
   final SdkOptional<bool> createResponse;
+
   /// Whether or not to automatically interrupt any ongoing response with output to the default conversation (i.e. `conversation` of `auto`) when a VAD start event occurs.
   final SdkOptional<bool> interruptResponse;
 
-  const RealtimeTurnDetectionVariant1({required this.type_, this.eagerness = const SdkOmitted(), this.createResponse = const SdkOmitted(), this.interruptResponse = const SdkOmitted()});
+  const RealtimeTurnDetectionVariant1(
+      {required this.type_,
+      this.eagerness = const SdkOmitted(),
+      this.createResponse = const SdkOmitted(),
+      this.interruptResponse = const SdkOmitted()});
 
-  RealtimeTurnDetectionVariant1 Function({RealtimeTurnDetectionVariant1Type type_, SdkOptional<RealtimeTurnDetectionVariant1Eagerness> eagerness, SdkOptional<bool> createResponse, SdkOptional<bool> interruptResponse}) get copyWith => _copyWith;
+  RealtimeTurnDetectionVariant1 Function(
+      {RealtimeTurnDetectionVariant1Type type_,
+      SdkOptional<RealtimeTurnDetectionVariant1Eagerness> eagerness,
+      SdkOptional<bool> createResponse,
+      SdkOptional<bool> interruptResponse}) get copyWith => _copyWith;
 
-  RealtimeTurnDetectionVariant1 _copyWith({Object? type_ = sdkOmittedValue, Object? eagerness = sdkOmittedValue, Object? createResponse = sdkOmittedValue, Object? interruptResponse = sdkOmittedValue}) => RealtimeTurnDetectionVariant1(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RealtimeTurnDetectionVariant1Type,
-    eagerness: identical(eagerness, sdkOmittedValue) ? this.eagerness : eagerness as SdkOptional<RealtimeTurnDetectionVariant1Eagerness>,
-    createResponse: identical(createResponse, sdkOmittedValue) ? this.createResponse : createResponse as SdkOptional<bool>,
-    interruptResponse: identical(interruptResponse, sdkOmittedValue) ? this.interruptResponse : interruptResponse as SdkOptional<bool>,
-  );
+  RealtimeTurnDetectionVariant1 _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? eagerness = sdkOmittedValue,
+          Object? createResponse = sdkOmittedValue,
+          Object? interruptResponse = sdkOmittedValue}) =>
+      RealtimeTurnDetectionVariant1(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as RealtimeTurnDetectionVariant1Type,
+        eagerness: identical(eagerness, sdkOmittedValue)
+            ? this.eagerness
+            : eagerness as SdkOptional<RealtimeTurnDetectionVariant1Eagerness>,
+        createResponse: identical(createResponse, sdkOmittedValue)
+            ? this.createResponse
+            : createResponse as SdkOptional<bool>,
+        interruptResponse: identical(interruptResponse, sdkOmittedValue)
+            ? this.interruptResponse
+            : interruptResponse as SdkOptional<bool>,
+      );
 
-  factory RealtimeTurnDetectionVariant1.fromJson(Map<String, dynamic> json) => RealtimeTurnDetectionVariant1(
-    type_: (json['type'] != null ? RealtimeTurnDetectionVariant1Type.fromJson(json['type'] as String) : null)!,
-    eagerness: json['eagerness'] != null ? SdkPresent((json['eagerness'] != null ? RealtimeTurnDetectionVariant1Eagerness.fromJson(json['eagerness'] as String) : null)!) : const SdkOmitted(),
-    createResponse: json['create_response'] != null ? SdkPresent((json['create_response'] as bool?)!) : const SdkOmitted(),
-    interruptResponse: json['interrupt_response'] != null ? SdkPresent((json['interrupt_response'] as bool?)!) : const SdkOmitted(),
-  );
+  factory RealtimeTurnDetectionVariant1.fromJson(Map<String, dynamic> json) =>
+      RealtimeTurnDetectionVariant1(
+        type_: (json['type'] != null
+            ? RealtimeTurnDetectionVariant1Type.fromJson(json['type'] as String)
+            : null)!,
+        eagerness: json['eagerness'] != null
+            ? SdkPresent((json['eagerness'] != null
+                ? RealtimeTurnDetectionVariant1Eagerness.fromJson(
+                    json['eagerness'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        createResponse: json['create_response'] != null
+            ? SdkPresent((json['create_response'] as bool?)!)
+            : const SdkOmitted(),
+        interruptResponse: json['interrupt_response'] != null
+            ? SdkPresent((json['interrupt_response'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (eagerness) {
-      SdkPresent<RealtimeTurnDetectionVariant1Eagerness>(value: final value) => {'eagerness': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createResponse) {
-      SdkPresent<bool>(value: final value) => {'create_response': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (interruptResponse) {
-      SdkPresent<bool>(value: final value) => {'interrupt_response': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (eagerness) {
+          SdkPresent<RealtimeTurnDetectionVariant1Eagerness>(
+            value: final value
+          ) =>
+            {
+              'eagerness': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createResponse) {
+          SdkPresent<bool>(value: final value) => {
+              'create_response': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (interruptResponse) {
+          SdkPresent<bool>(value: final value) => {
+              'interrupt_response': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class RealtimeTurnDetection {
@@ -147,32 +268,57 @@ sealed class RealtimeTurnDetection {
   const RealtimeTurnDetection();
   factory RealtimeTurnDetection.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = RealtimeTurnDetectionVariant0.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeTurnDetectionRealtimeTurnDetectionVariant0(value); } } catch (_) {}
-      try { final value = RealtimeTurnDetectionVariant1.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeTurnDetectionRealtimeTurnDetectionVariant1(value); } } catch (_) {}
+      try {
+        final value = RealtimeTurnDetectionVariant0.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeTurnDetectionRealtimeTurnDetectionVariant0(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeTurnDetectionVariant1.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeTurnDetectionRealtimeTurnDetectionVariant1(value);
+        }
+      } catch (_) {}
     }
-    try { return RealtimeTurnDetectionRealtimeTurnDetectionVariant0(RealtimeTurnDetectionVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeTurnDetectionRealtimeTurnDetectionVariant1(RealtimeTurnDetectionVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"server_vad", "semantic_vad"}.contains(json["type"])) { return UnknownRealtimeTurnDetection(json); }
+    try {
+      return RealtimeTurnDetectionRealtimeTurnDetectionVariant0(
+          RealtimeTurnDetectionVariant0.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeTurnDetectionRealtimeTurnDetectionVariant1(
+          RealtimeTurnDetectionVariant1.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"server_vad", "semantic_vad"}.contains(json["type"])) {
+      return UnknownRealtimeTurnDetection(json);
+    }
     throw FormatException("No variant matched for RealtimeTurnDetection");
   }
   Object? toJson();
 }
 
-final class RealtimeTurnDetectionRealtimeTurnDetectionVariant0 extends RealtimeTurnDetection {
+final class RealtimeTurnDetectionRealtimeTurnDetectionVariant0
+    extends RealtimeTurnDetection {
   final RealtimeTurnDetectionVariant0 value;
   const RealtimeTurnDetectionRealtimeTurnDetectionVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeTurnDetectionRealtimeTurnDetectionVariant1 extends RealtimeTurnDetection {
+final class RealtimeTurnDetectionRealtimeTurnDetectionVariant1
+    extends RealtimeTurnDetection {
   final RealtimeTurnDetectionVariant1 value;
   const RealtimeTurnDetectionRealtimeTurnDetectionVariant1(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [RealtimeTurnDetection] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownRealtimeTurnDetection extends RealtimeTurnDetection {
   final Map<String, dynamic> raw;
   const UnknownRealtimeTurnDetection(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

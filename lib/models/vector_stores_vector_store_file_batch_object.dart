@@ -8,91 +8,167 @@ part of 'vector_stores.dart';
 class VectorStoreFileBatchObjectFileCounts {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The number of files that are currently being processed.
   final int inProgress;
+
   /// The number of files that have been processed.
   final int completed;
+
   /// The number of files that have failed to process.
   final int failed;
+
   /// The number of files that where cancelled.
   final int cancelled;
+
   /// The total number of files.
   final int total;
 
-  const VectorStoreFileBatchObjectFileCounts({required this.inProgress, required this.completed, required this.failed, required this.cancelled, required this.total});
+  const VectorStoreFileBatchObjectFileCounts(
+      {required this.inProgress,
+      required this.completed,
+      required this.failed,
+      required this.cancelled,
+      required this.total});
 
-  VectorStoreFileBatchObjectFileCounts Function({int inProgress, int completed, int failed, int cancelled, int total}) get copyWith => _copyWith;
+  VectorStoreFileBatchObjectFileCounts Function(
+      {int inProgress,
+      int completed,
+      int failed,
+      int cancelled,
+      int total}) get copyWith => _copyWith;
 
-  VectorStoreFileBatchObjectFileCounts _copyWith({Object? inProgress = sdkOmittedValue, Object? completed = sdkOmittedValue, Object? failed = sdkOmittedValue, Object? cancelled = sdkOmittedValue, Object? total = sdkOmittedValue}) => VectorStoreFileBatchObjectFileCounts(
-    inProgress: identical(inProgress, sdkOmittedValue) ? this.inProgress : inProgress as int,
-    completed: identical(completed, sdkOmittedValue) ? this.completed : completed as int,
-    failed: identical(failed, sdkOmittedValue) ? this.failed : failed as int,
-    cancelled: identical(cancelled, sdkOmittedValue) ? this.cancelled : cancelled as int,
-    total: identical(total, sdkOmittedValue) ? this.total : total as int,
-  );
+  VectorStoreFileBatchObjectFileCounts _copyWith(
+          {Object? inProgress = sdkOmittedValue,
+          Object? completed = sdkOmittedValue,
+          Object? failed = sdkOmittedValue,
+          Object? cancelled = sdkOmittedValue,
+          Object? total = sdkOmittedValue}) =>
+      VectorStoreFileBatchObjectFileCounts(
+        inProgress: identical(inProgress, sdkOmittedValue)
+            ? this.inProgress
+            : inProgress as int,
+        completed: identical(completed, sdkOmittedValue)
+            ? this.completed
+            : completed as int,
+        failed:
+            identical(failed, sdkOmittedValue) ? this.failed : failed as int,
+        cancelled: identical(cancelled, sdkOmittedValue)
+            ? this.cancelled
+            : cancelled as int,
+        total: identical(total, sdkOmittedValue) ? this.total : total as int,
+      );
 
-  factory VectorStoreFileBatchObjectFileCounts.fromJson(Map<String, dynamic> json) => VectorStoreFileBatchObjectFileCounts(
-    inProgress: ((json['in_progress'] as num?)?.toInt())!,
-    completed: ((json['completed'] as num?)?.toInt())!,
-    failed: ((json['failed'] as num?)?.toInt())!,
-    cancelled: ((json['cancelled'] as num?)?.toInt())!,
-    total: ((json['total'] as num?)?.toInt())!,
-  );
+  factory VectorStoreFileBatchObjectFileCounts.fromJson(
+          Map<String, dynamic> json) =>
+      VectorStoreFileBatchObjectFileCounts(
+        inProgress: ((json['in_progress'] as num?)?.toInt())!,
+        completed: ((json['completed'] as num?)?.toInt())!,
+        failed: ((json['failed'] as num?)?.toInt())!,
+        cancelled: ((json['cancelled'] as num?)?.toInt())!,
+        total: ((json['total'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'in_progress': inProgress,
-    'completed': completed,
-    'failed': failed,
-    'cancelled': cancelled,
-    'total': total,
-  };
+        'in_progress': inProgress,
+        'completed': completed,
+        'failed': failed,
+        'cancelled': cancelled,
+        'total': total,
+      };
 }
 
 /// A batch of files attached to a vector store.
 class VectorStoreFileBatchObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The identifier, which can be referenced in API endpoints.
   final String id;
+
   /// The object type, which is always `vector_store.file_batch`.
   final VectorStoreFileBatchObjectObject object;
+
   /// The Unix timestamp (in seconds) for when the vector store files batch was created.
   final int createdAt;
+
   /// The ID of the [vector store](https://developers.openai.com/api/reference/resources/vector_stores) that the [File](https://developers.openai.com/api/reference/resources/files) is attached to.
   final String vectorStoreId;
+
   /// The status of the vector store files batch, which can be either `in_progress`, `completed`, `cancelled` or `failed`.
   final VectorStoreFileBatchObjectStatus status;
+
   /// Required object value serialized in the `file_counts` wire field.
   final VectorStoreFileBatchObjectFileCounts fileCounts;
 
-  const VectorStoreFileBatchObject({required this.id, required this.object, required this.createdAt, required this.vectorStoreId, required this.status, required this.fileCounts});
+  const VectorStoreFileBatchObject(
+      {required this.id,
+      required this.object,
+      required this.createdAt,
+      required this.vectorStoreId,
+      required this.status,
+      required this.fileCounts});
 
-  VectorStoreFileBatchObject Function({String id, VectorStoreFileBatchObjectObject object, int createdAt, String vectorStoreId, VectorStoreFileBatchObjectStatus status, VectorStoreFileBatchObjectFileCounts fileCounts}) get copyWith => _copyWith;
+  VectorStoreFileBatchObject Function(
+          {String id,
+          VectorStoreFileBatchObjectObject object,
+          int createdAt,
+          String vectorStoreId,
+          VectorStoreFileBatchObjectStatus status,
+          VectorStoreFileBatchObjectFileCounts fileCounts})
+      get copyWith => _copyWith;
 
-  VectorStoreFileBatchObject _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? vectorStoreId = sdkOmittedValue, Object? status = sdkOmittedValue, Object? fileCounts = sdkOmittedValue}) => VectorStoreFileBatchObject(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as VectorStoreFileBatchObjectObject,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    vectorStoreId: identical(vectorStoreId, sdkOmittedValue) ? this.vectorStoreId : vectorStoreId as String,
-    status: identical(status, sdkOmittedValue) ? this.status : status as VectorStoreFileBatchObjectStatus,
-    fileCounts: identical(fileCounts, sdkOmittedValue) ? this.fileCounts : fileCounts as VectorStoreFileBatchObjectFileCounts,
-  );
+  VectorStoreFileBatchObject _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? vectorStoreId = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? fileCounts = sdkOmittedValue}) =>
+      VectorStoreFileBatchObject(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as VectorStoreFileBatchObjectObject,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        vectorStoreId: identical(vectorStoreId, sdkOmittedValue)
+            ? this.vectorStoreId
+            : vectorStoreId as String,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as VectorStoreFileBatchObjectStatus,
+        fileCounts: identical(fileCounts, sdkOmittedValue)
+            ? this.fileCounts
+            : fileCounts as VectorStoreFileBatchObjectFileCounts,
+      );
 
-  factory VectorStoreFileBatchObject.fromJson(Map<String, dynamic> json) => VectorStoreFileBatchObject(
-    id: (json['id'] as String?)!,
-    object: (json['object'] != null ? VectorStoreFileBatchObjectObject.fromJson(json['object'] as String) : null)!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    vectorStoreId: (json['vector_store_id'] as String?)!,
-    status: (json['status'] != null ? VectorStoreFileBatchObjectStatus.fromJson(json['status'] as String) : null)!,
-    fileCounts: (json['file_counts'] != null ? VectorStoreFileBatchObjectFileCounts.fromJson(json['file_counts'] as Map<String, dynamic>) : null)!,
-  );
+  factory VectorStoreFileBatchObject.fromJson(Map<String, dynamic> json) =>
+      VectorStoreFileBatchObject(
+        id: (json['id'] as String?)!,
+        object: (json['object'] != null
+            ? VectorStoreFileBatchObjectObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        vectorStoreId: (json['vector_store_id'] as String?)!,
+        status: (json['status'] != null
+            ? VectorStoreFileBatchObjectStatus.fromJson(
+                json['status'] as String)
+            : null)!,
+        fileCounts: (json['file_counts'] != null
+            ? VectorStoreFileBatchObjectFileCounts.fromJson(
+                json['file_counts'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'object': object.toJson(),
-    'created_at': createdAt,
-    'vector_store_id': vectorStoreId,
-    'status': status.toJson(),
-    'file_counts': fileCounts.toJson(),
-  };
+        'id': id,
+        'object': object.toJson(),
+        'created_at': createdAt,
+        'vector_store_id': vectorStoreId,
+        'status': status.toJson(),
+        'file_counts': fileCounts.toJson(),
+      };
 }

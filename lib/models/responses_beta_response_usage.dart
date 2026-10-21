@@ -8,95 +8,154 @@ part of 'responses_beta_response.dart';
 class BetaResponseUsageInputTokensDetails {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The number of tokens that were retrieved from the cache. [More on prompt caching](https://developers.openai.com/api/docs/guides/prompt-caching).
   final int cachedTokens;
+
   /// The number of input tokens that were written to the cache.
   final int cacheWriteTokens;
 
-  const BetaResponseUsageInputTokensDetails({required this.cachedTokens, required this.cacheWriteTokens});
+  const BetaResponseUsageInputTokensDetails(
+      {required this.cachedTokens, required this.cacheWriteTokens});
 
-  BetaResponseUsageInputTokensDetails Function({int cachedTokens, int cacheWriteTokens}) get copyWith => _copyWith;
+  BetaResponseUsageInputTokensDetails Function(
+      {int cachedTokens, int cacheWriteTokens}) get copyWith => _copyWith;
 
-  BetaResponseUsageInputTokensDetails _copyWith({Object? cachedTokens = sdkOmittedValue, Object? cacheWriteTokens = sdkOmittedValue}) => BetaResponseUsageInputTokensDetails(
-    cachedTokens: identical(cachedTokens, sdkOmittedValue) ? this.cachedTokens : cachedTokens as int,
-    cacheWriteTokens: identical(cacheWriteTokens, sdkOmittedValue) ? this.cacheWriteTokens : cacheWriteTokens as int,
-  );
+  BetaResponseUsageInputTokensDetails _copyWith(
+          {Object? cachedTokens = sdkOmittedValue,
+          Object? cacheWriteTokens = sdkOmittedValue}) =>
+      BetaResponseUsageInputTokensDetails(
+        cachedTokens: identical(cachedTokens, sdkOmittedValue)
+            ? this.cachedTokens
+            : cachedTokens as int,
+        cacheWriteTokens: identical(cacheWriteTokens, sdkOmittedValue)
+            ? this.cacheWriteTokens
+            : cacheWriteTokens as int,
+      );
 
-  factory BetaResponseUsageInputTokensDetails.fromJson(Map<String, dynamic> json) => BetaResponseUsageInputTokensDetails(
-    cachedTokens: ((json['cached_tokens'] as num?)?.toInt())!,
-    cacheWriteTokens: ((json['cache_write_tokens'] as num?)?.toInt())!,
-  );
+  factory BetaResponseUsageInputTokensDetails.fromJson(
+          Map<String, dynamic> json) =>
+      BetaResponseUsageInputTokensDetails(
+        cachedTokens: ((json['cached_tokens'] as num?)?.toInt())!,
+        cacheWriteTokens: ((json['cache_write_tokens'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'cached_tokens': cachedTokens,
-    'cache_write_tokens': cacheWriteTokens,
-  };
+        'cached_tokens': cachedTokens,
+        'cache_write_tokens': cacheWriteTokens,
+      };
 }
 
 /// A detailed breakdown of the output tokens.
 class BetaResponseUsageOutputTokensDetails {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The number of reasoning tokens.
   final int reasoningTokens;
 
   const BetaResponseUsageOutputTokensDetails({required this.reasoningTokens});
 
-  BetaResponseUsageOutputTokensDetails Function({int reasoningTokens}) get copyWith => _copyWith;
+  BetaResponseUsageOutputTokensDetails Function({int reasoningTokens})
+      get copyWith => _copyWith;
 
-  BetaResponseUsageOutputTokensDetails _copyWith({Object? reasoningTokens = sdkOmittedValue}) => BetaResponseUsageOutputTokensDetails(
-    reasoningTokens: identical(reasoningTokens, sdkOmittedValue) ? this.reasoningTokens : reasoningTokens as int,
-  );
+  BetaResponseUsageOutputTokensDetails _copyWith(
+          {Object? reasoningTokens = sdkOmittedValue}) =>
+      BetaResponseUsageOutputTokensDetails(
+        reasoningTokens: identical(reasoningTokens, sdkOmittedValue)
+            ? this.reasoningTokens
+            : reasoningTokens as int,
+      );
 
-  factory BetaResponseUsageOutputTokensDetails.fromJson(Map<String, dynamic> json) => BetaResponseUsageOutputTokensDetails(
-    reasoningTokens: ((json['reasoning_tokens'] as num?)?.toInt())!,
-  );
+  factory BetaResponseUsageOutputTokensDetails.fromJson(
+          Map<String, dynamic> json) =>
+      BetaResponseUsageOutputTokensDetails(
+        reasoningTokens: ((json['reasoning_tokens'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'reasoning_tokens': reasoningTokens,
-  };
+        'reasoning_tokens': reasoningTokens,
+      };
 }
 
 /// Represents token usage details including input tokens, output tokens, a breakdown of output tokens, and the total tokens used.
 class BetaResponseUsage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The number of input tokens.
   final int inputTokens;
+
   /// A detailed breakdown of the input tokens.
   final BetaResponseUsageInputTokensDetails inputTokensDetails;
+
   /// The number of output tokens.
   final int outputTokens;
+
   /// A detailed breakdown of the output tokens.
   final BetaResponseUsageOutputTokensDetails outputTokensDetails;
+
   /// The total number of tokens used.
   final int totalTokens;
 
-  const BetaResponseUsage({required this.inputTokens, required this.inputTokensDetails, required this.outputTokens, required this.outputTokensDetails, required this.totalTokens});
+  const BetaResponseUsage(
+      {required this.inputTokens,
+      required this.inputTokensDetails,
+      required this.outputTokens,
+      required this.outputTokensDetails,
+      required this.totalTokens});
 
-  BetaResponseUsage Function({int inputTokens, BetaResponseUsageInputTokensDetails inputTokensDetails, int outputTokens, BetaResponseUsageOutputTokensDetails outputTokensDetails, int totalTokens}) get copyWith => _copyWith;
+  BetaResponseUsage Function(
+      {int inputTokens,
+      BetaResponseUsageInputTokensDetails inputTokensDetails,
+      int outputTokens,
+      BetaResponseUsageOutputTokensDetails outputTokensDetails,
+      int totalTokens}) get copyWith => _copyWith;
 
-  BetaResponseUsage _copyWith({Object? inputTokens = sdkOmittedValue, Object? inputTokensDetails = sdkOmittedValue, Object? outputTokens = sdkOmittedValue, Object? outputTokensDetails = sdkOmittedValue, Object? totalTokens = sdkOmittedValue}) => BetaResponseUsage(
-    inputTokens: identical(inputTokens, sdkOmittedValue) ? this.inputTokens : inputTokens as int,
-    inputTokensDetails: identical(inputTokensDetails, sdkOmittedValue) ? this.inputTokensDetails : inputTokensDetails as BetaResponseUsageInputTokensDetails,
-    outputTokens: identical(outputTokens, sdkOmittedValue) ? this.outputTokens : outputTokens as int,
-    outputTokensDetails: identical(outputTokensDetails, sdkOmittedValue) ? this.outputTokensDetails : outputTokensDetails as BetaResponseUsageOutputTokensDetails,
-    totalTokens: identical(totalTokens, sdkOmittedValue) ? this.totalTokens : totalTokens as int,
-  );
+  BetaResponseUsage _copyWith(
+          {Object? inputTokens = sdkOmittedValue,
+          Object? inputTokensDetails = sdkOmittedValue,
+          Object? outputTokens = sdkOmittedValue,
+          Object? outputTokensDetails = sdkOmittedValue,
+          Object? totalTokens = sdkOmittedValue}) =>
+      BetaResponseUsage(
+        inputTokens: identical(inputTokens, sdkOmittedValue)
+            ? this.inputTokens
+            : inputTokens as int,
+        inputTokensDetails: identical(inputTokensDetails, sdkOmittedValue)
+            ? this.inputTokensDetails
+            : inputTokensDetails as BetaResponseUsageInputTokensDetails,
+        outputTokens: identical(outputTokens, sdkOmittedValue)
+            ? this.outputTokens
+            : outputTokens as int,
+        outputTokensDetails: identical(outputTokensDetails, sdkOmittedValue)
+            ? this.outputTokensDetails
+            : outputTokensDetails as BetaResponseUsageOutputTokensDetails,
+        totalTokens: identical(totalTokens, sdkOmittedValue)
+            ? this.totalTokens
+            : totalTokens as int,
+      );
 
-  factory BetaResponseUsage.fromJson(Map<String, dynamic> json) => BetaResponseUsage(
-    inputTokens: ((json['input_tokens'] as num?)?.toInt())!,
-    inputTokensDetails: (json['input_tokens_details'] != null ? BetaResponseUsageInputTokensDetails.fromJson(json['input_tokens_details'] as Map<String, dynamic>) : null)!,
-    outputTokens: ((json['output_tokens'] as num?)?.toInt())!,
-    outputTokensDetails: (json['output_tokens_details'] != null ? BetaResponseUsageOutputTokensDetails.fromJson(json['output_tokens_details'] as Map<String, dynamic>) : null)!,
-    totalTokens: ((json['total_tokens'] as num?)?.toInt())!,
-  );
+  factory BetaResponseUsage.fromJson(Map<String, dynamic> json) =>
+      BetaResponseUsage(
+        inputTokens: ((json['input_tokens'] as num?)?.toInt())!,
+        inputTokensDetails: (json['input_tokens_details'] != null
+            ? BetaResponseUsageInputTokensDetails.fromJson(
+                json['input_tokens_details'] as Map<String, dynamic>)
+            : null)!,
+        outputTokens: ((json['output_tokens'] as num?)?.toInt())!,
+        outputTokensDetails: (json['output_tokens_details'] != null
+            ? BetaResponseUsageOutputTokensDetails.fromJson(
+                json['output_tokens_details'] as Map<String, dynamic>)
+            : null)!,
+        totalTokens: ((json['total_tokens'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'input_tokens': inputTokens,
-    'input_tokens_details': inputTokensDetails.toJson(),
-    'output_tokens': outputTokens,
-    'output_tokens_details': outputTokensDetails.toJson(),
-    'total_tokens': totalTokens,
-  };
+        'input_tokens': inputTokens,
+        'input_tokens_details': inputTokensDetails.toJson(),
+        'output_tokens': outputTokens,
+        'output_tokens_details': outputTokensDetails.toJson(),
+        'total_tokens': totalTokens,
+      };
 }

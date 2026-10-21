@@ -8,291 +8,537 @@ part of 'beta_responses.dart';
 class BetaResponsesServerEventVariant23 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the event, always `response.shell_call_output_content.done`.
   final BetaResponseShellCallOutputContentDoneStreamingEventType type_;
+
   /// The sequence number of the event that was emitted.
   final int sequenceNumber;
+
   /// The agent that owns this multi-agent streaming event.
   final SdkOptional<BetaAgentTag> agent;
+
   /// The ID of the output item that was updated.
   final String itemId;
+
   /// The index of the output item that was updated.
   final int outputIndex;
+
   /// The index of the shell command that produced output.
   final int commandIndex;
+
   /// The output contents emitted for the shell command.
   final List<BetaFunctionShellCallOutputContent> output;
+
   /// The WebSocket lane that emitted this event. This field is present when the originating `response.create` event supplied a `stream_id`.
   final SdkOptional<String> streamId;
 
-  const BetaResponsesServerEventVariant23({required this.type_, required this.sequenceNumber, this.agent = const SdkOmitted(), required this.itemId, required this.outputIndex, required this.commandIndex, required this.output, this.streamId = const SdkOmitted()});
+  const BetaResponsesServerEventVariant23(
+      {required this.type_,
+      required this.sequenceNumber,
+      this.agent = const SdkOmitted(),
+      required this.itemId,
+      required this.outputIndex,
+      required this.commandIndex,
+      required this.output,
+      this.streamId = const SdkOmitted()});
 
-  BetaResponsesServerEventVariant23 Function({BetaResponseShellCallOutputContentDoneStreamingEventType type_, int sequenceNumber, SdkOptional<BetaAgentTag> agent, String itemId, int outputIndex, int commandIndex, List<BetaFunctionShellCallOutputContent> output, SdkOptional<String> streamId}) get copyWith => _copyWith;
+  BetaResponsesServerEventVariant23 Function(
+      {BetaResponseShellCallOutputContentDoneStreamingEventType type_,
+      int sequenceNumber,
+      SdkOptional<BetaAgentTag> agent,
+      String itemId,
+      int outputIndex,
+      int commandIndex,
+      List<BetaFunctionShellCallOutputContent> output,
+      SdkOptional<String> streamId}) get copyWith => _copyWith;
 
-  BetaResponsesServerEventVariant23 _copyWith({Object? type_ = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? agent = sdkOmittedValue, Object? itemId = sdkOmittedValue, Object? outputIndex = sdkOmittedValue, Object? commandIndex = sdkOmittedValue, Object? output = sdkOmittedValue, Object? streamId = sdkOmittedValue}) => BetaResponsesServerEventVariant23(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseShellCallOutputContentDoneStreamingEventType,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag>,
-    itemId: identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
-    outputIndex: identical(outputIndex, sdkOmittedValue) ? this.outputIndex : outputIndex as int,
-    commandIndex: identical(commandIndex, sdkOmittedValue) ? this.commandIndex : commandIndex as int,
-    output: identical(output, sdkOmittedValue) ? this.output : output as List<BetaFunctionShellCallOutputContent>,
-    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
-  );
+  BetaResponsesServerEventVariant23 _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue,
+          Object? agent = sdkOmittedValue,
+          Object? itemId = sdkOmittedValue,
+          Object? outputIndex = sdkOmittedValue,
+          Object? commandIndex = sdkOmittedValue,
+          Object? output = sdkOmittedValue,
+          Object? streamId = sdkOmittedValue}) =>
+      BetaResponsesServerEventVariant23(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaResponseShellCallOutputContentDoneStreamingEventType,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag>,
+        itemId:
+            identical(itemId, sdkOmittedValue) ? this.itemId : itemId as String,
+        outputIndex: identical(outputIndex, sdkOmittedValue)
+            ? this.outputIndex
+            : outputIndex as int,
+        commandIndex: identical(commandIndex, sdkOmittedValue)
+            ? this.commandIndex
+            : commandIndex as int,
+        output: identical(output, sdkOmittedValue)
+            ? this.output
+            : output as List<BetaFunctionShellCallOutputContent>,
+        streamId: identical(streamId, sdkOmittedValue)
+            ? this.streamId
+            : streamId as SdkOptional<String>,
+      );
 
-  factory BetaResponsesServerEventVariant23.fromJson(Map<String, dynamic> json) => BetaResponsesServerEventVariant23(
-    type_: (json['type'] != null ? BetaResponseShellCallOutputContentDoneStreamingEventType.fromJson(json['type'] as String) : null)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-    agent: json['agent'] != null ? SdkPresent((json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    itemId: (json['item_id'] as String?)!,
-    outputIndex: ((json['output_index'] as num?)?.toInt())!,
-    commandIndex: ((json['command_index'] as num?)?.toInt())!,
-    output: ((json['output'] as List?)?.map((e) => BetaFunctionShellCallOutputContent.fromJson(e as Map<String, dynamic>)).toList())!,
-    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory BetaResponsesServerEventVariant23.fromJson(
+          Map<String, dynamic> json) =>
+      BetaResponsesServerEventVariant23(
+        type_: (json['type'] != null
+            ? BetaResponseShellCallOutputContentDoneStreamingEventType.fromJson(
+                json['type'] as String)
+            : null)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+        agent: json['agent'] != null
+            ? SdkPresent((json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        itemId: (json['item_id'] as String?)!,
+        outputIndex: ((json['output_index'] as num?)?.toInt())!,
+        commandIndex: ((json['command_index'] as num?)?.toInt())!,
+        output: ((json['output'] as List?)
+            ?.map((e) => BetaFunctionShellCallOutputContent.fromJson(
+                e as Map<String, dynamic>))
+            .toList())!,
+        streamId: json['stream_id'] != null
+            ? SdkPresent((json['stream_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'sequence_number': sequenceNumber,
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag>(value: final value) => {'agent': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'item_id': itemId,
-    'output_index': outputIndex,
-    'command_index': commandIndex,
-    'output': output.map((item) => item.toJson()).toList(),
-    ...switch (streamId) {
-      SdkPresent<String>(value: final value) => {'stream_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'sequence_number': sequenceNumber,
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag>(value: final value) => {
+              'agent': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'item_id': itemId,
+        'output_index': outputIndex,
+        'command_index': commandIndex,
+        'output': output.map((item) => item.toJson()).toList(),
+        ...switch (streamId) {
+          SdkPresent<String>(value: final value) => {
+              'stream_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class BetaResponsesServerEventVariant24Variant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The WebSocket lane that emitted this event. This field is present when the originating `response.create` event supplied a `stream_id`.
   final SdkOptional<String> streamId;
 
-  const BetaResponsesServerEventVariant24Variant1({this.streamId = const SdkOmitted()});
+  const BetaResponsesServerEventVariant24Variant1(
+      {this.streamId = const SdkOmitted()});
 
-  BetaResponsesServerEventVariant24Variant1 Function({SdkOptional<String> streamId}) get copyWith => _copyWith;
+  BetaResponsesServerEventVariant24Variant1 Function(
+      {SdkOptional<String> streamId}) get copyWith => _copyWith;
 
-  BetaResponsesServerEventVariant24Variant1 _copyWith({Object? streamId = sdkOmittedValue}) => BetaResponsesServerEventVariant24Variant1(
-    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
-  );
+  BetaResponsesServerEventVariant24Variant1 _copyWith(
+          {Object? streamId = sdkOmittedValue}) =>
+      BetaResponsesServerEventVariant24Variant1(
+        streamId: identical(streamId, sdkOmittedValue)
+            ? this.streamId
+            : streamId as SdkOptional<String>,
+      );
 
-  factory BetaResponsesServerEventVariant24Variant1.fromJson(Map<String, dynamic> json) => BetaResponsesServerEventVariant24Variant1(
-    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory BetaResponsesServerEventVariant24Variant1.fromJson(
+          Map<String, dynamic> json) =>
+      BetaResponsesServerEventVariant24Variant1(
+        streamId: json['stream_id'] != null
+            ? SdkPresent((json['stream_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (streamId) {
-      SdkPresent<String>(value: final value) => {'stream_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (streamId) {
+          SdkPresent<String>(value: final value) => {
+              'stream_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Emitted when the response is in progress.
 class BetaResponsesServerEventVariant24 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that owns this multi-agent streaming event.
   final SdkOptional<BetaAgentTag?> agent;
+
   /// The type of the event. Always `response.in_progress`.
   final BetaResponseInProgressEventType type_;
+
   /// The response that is in progress.
   final BetaResponse response;
+
   /// The sequence number of this event.
   final int sequenceNumber;
+
   /// The WebSocket lane that emitted this event. This field is present when the originating `response.create` event supplied a `stream_id`.
   final SdkOptional<String> streamId;
 
-  const BetaResponsesServerEventVariant24({this.agent = const SdkOmitted(), required this.type_, required this.response, required this.sequenceNumber, this.streamId = const SdkOmitted()});
+  const BetaResponsesServerEventVariant24(
+      {this.agent = const SdkOmitted(),
+      required this.type_,
+      required this.response,
+      required this.sequenceNumber,
+      this.streamId = const SdkOmitted()});
 
-  BetaResponsesServerEventVariant24 Function({SdkOptional<BetaAgentTag?> agent, BetaResponseInProgressEventType type_, BetaResponse response, int sequenceNumber, SdkOptional<String> streamId}) get copyWith => _copyWith;
+  BetaResponsesServerEventVariant24 Function(
+      {SdkOptional<BetaAgentTag?> agent,
+      BetaResponseInProgressEventType type_,
+      BetaResponse response,
+      int sequenceNumber,
+      SdkOptional<String> streamId}) get copyWith => _copyWith;
 
-  BetaResponsesServerEventVariant24 _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? response = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? streamId = sdkOmittedValue}) => BetaResponsesServerEventVariant24(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseInProgressEventType,
-    response: identical(response, sdkOmittedValue) ? this.response : response as BetaResponse,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
-  );
+  BetaResponsesServerEventVariant24 _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? response = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue,
+          Object? streamId = sdkOmittedValue}) =>
+      BetaResponsesServerEventVariant24(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaResponseInProgressEventType,
+        response: identical(response, sdkOmittedValue)
+            ? this.response
+            : response as BetaResponse,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+        streamId: identical(streamId, sdkOmittedValue)
+            ? this.streamId
+            : streamId as SdkOptional<String>,
+      );
 
-  factory BetaResponsesServerEventVariant24.fromJson(Map<String, dynamic> json) => BetaResponsesServerEventVariant24(
-    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    type_: (json['type'] != null ? BetaResponseInProgressEventType.fromJson(json['type'] as String) : null)!,
-    response: (json['response'] != null ? BetaResponse.fromJson(json['response'] as Map<String, dynamic>) : null)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory BetaResponsesServerEventVariant24.fromJson(
+          Map<String, dynamic> json) =>
+      BetaResponsesServerEventVariant24(
+        agent: json.containsKey('agent')
+            ? SdkPresent(json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? BetaResponseInProgressEventType.fromJson(json['type'] as String)
+            : null)!,
+        response: (json['response'] != null
+            ? BetaResponse.fromJson(json['response'] as Map<String, dynamic>)
+            : null)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+        streamId: json['stream_id'] != null
+            ? SdkPresent((json['stream_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'response': response.toJson(),
-    'sequence_number': sequenceNumber,
-    ...switch (streamId) {
-      SdkPresent<String>(value: final value) => {'stream_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag?>(value: final value) => {
+              'agent': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'response': response.toJson(),
+        'sequence_number': sequenceNumber,
+        ...switch (streamId) {
+          SdkPresent<String>(value: final value) => {
+              'stream_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class BetaResponsesServerEventVariant25Variant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The WebSocket lane that emitted this event. This field is present when the originating `response.create` event supplied a `stream_id`.
   final SdkOptional<String> streamId;
 
-  const BetaResponsesServerEventVariant25Variant1({this.streamId = const SdkOmitted()});
+  const BetaResponsesServerEventVariant25Variant1(
+      {this.streamId = const SdkOmitted()});
 
-  BetaResponsesServerEventVariant25Variant1 Function({SdkOptional<String> streamId}) get copyWith => _copyWith;
+  BetaResponsesServerEventVariant25Variant1 Function(
+      {SdkOptional<String> streamId}) get copyWith => _copyWith;
 
-  BetaResponsesServerEventVariant25Variant1 _copyWith({Object? streamId = sdkOmittedValue}) => BetaResponsesServerEventVariant25Variant1(
-    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
-  );
+  BetaResponsesServerEventVariant25Variant1 _copyWith(
+          {Object? streamId = sdkOmittedValue}) =>
+      BetaResponsesServerEventVariant25Variant1(
+        streamId: identical(streamId, sdkOmittedValue)
+            ? this.streamId
+            : streamId as SdkOptional<String>,
+      );
 
-  factory BetaResponsesServerEventVariant25Variant1.fromJson(Map<String, dynamic> json) => BetaResponsesServerEventVariant25Variant1(
-    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory BetaResponsesServerEventVariant25Variant1.fromJson(
+          Map<String, dynamic> json) =>
+      BetaResponsesServerEventVariant25Variant1(
+        streamId: json['stream_id'] != null
+            ? SdkPresent((json['stream_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (streamId) {
-      SdkPresent<String>(value: final value) => {'stream_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (streamId) {
+          SdkPresent<String>(value: final value) => {
+              'stream_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An event that is emitted when a response fails.
 class BetaResponsesServerEventVariant25 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that owns this multi-agent streaming event.
   final SdkOptional<BetaAgentTag?> agent;
+
   /// The type of the event. Always `response.failed`.
   final BetaResponseFailedEventType type_;
+
   /// The sequence number of this event.
   final int sequenceNumber;
+
   /// The response that failed.
   final BetaResponse response;
+
   /// The WebSocket lane that emitted this event. This field is present when the originating `response.create` event supplied a `stream_id`.
   final SdkOptional<String> streamId;
 
-  const BetaResponsesServerEventVariant25({this.agent = const SdkOmitted(), required this.type_, required this.sequenceNumber, required this.response, this.streamId = const SdkOmitted()});
+  const BetaResponsesServerEventVariant25(
+      {this.agent = const SdkOmitted(),
+      required this.type_,
+      required this.sequenceNumber,
+      required this.response,
+      this.streamId = const SdkOmitted()});
 
-  BetaResponsesServerEventVariant25 Function({SdkOptional<BetaAgentTag?> agent, BetaResponseFailedEventType type_, int sequenceNumber, BetaResponse response, SdkOptional<String> streamId}) get copyWith => _copyWith;
+  BetaResponsesServerEventVariant25 Function(
+      {SdkOptional<BetaAgentTag?> agent,
+      BetaResponseFailedEventType type_,
+      int sequenceNumber,
+      BetaResponse response,
+      SdkOptional<String> streamId}) get copyWith => _copyWith;
 
-  BetaResponsesServerEventVariant25 _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? response = sdkOmittedValue, Object? streamId = sdkOmittedValue}) => BetaResponsesServerEventVariant25(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseFailedEventType,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-    response: identical(response, sdkOmittedValue) ? this.response : response as BetaResponse,
-    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
-  );
+  BetaResponsesServerEventVariant25 _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue,
+          Object? response = sdkOmittedValue,
+          Object? streamId = sdkOmittedValue}) =>
+      BetaResponsesServerEventVariant25(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaResponseFailedEventType,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+        response: identical(response, sdkOmittedValue)
+            ? this.response
+            : response as BetaResponse,
+        streamId: identical(streamId, sdkOmittedValue)
+            ? this.streamId
+            : streamId as SdkOptional<String>,
+      );
 
-  factory BetaResponsesServerEventVariant25.fromJson(Map<String, dynamic> json) => BetaResponsesServerEventVariant25(
-    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    type_: (json['type'] != null ? BetaResponseFailedEventType.fromJson(json['type'] as String) : null)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-    response: (json['response'] != null ? BetaResponse.fromJson(json['response'] as Map<String, dynamic>) : null)!,
-    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory BetaResponsesServerEventVariant25.fromJson(
+          Map<String, dynamic> json) =>
+      BetaResponsesServerEventVariant25(
+        agent: json.containsKey('agent')
+            ? SdkPresent(json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? BetaResponseFailedEventType.fromJson(json['type'] as String)
+            : null)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+        response: (json['response'] != null
+            ? BetaResponse.fromJson(json['response'] as Map<String, dynamic>)
+            : null)!,
+        streamId: json['stream_id'] != null
+            ? SdkPresent((json['stream_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'sequence_number': sequenceNumber,
-    'response': response.toJson(),
-    ...switch (streamId) {
-      SdkPresent<String>(value: final value) => {'stream_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag?>(value: final value) => {
+              'agent': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'sequence_number': sequenceNumber,
+        'response': response.toJson(),
+        ...switch (streamId) {
+          SdkPresent<String>(value: final value) => {
+              'stream_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class BetaResponsesServerEventVariant26Variant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The WebSocket lane that emitted this event. This field is present when the originating `response.create` event supplied a `stream_id`.
   final SdkOptional<String> streamId;
 
-  const BetaResponsesServerEventVariant26Variant1({this.streamId = const SdkOmitted()});
+  const BetaResponsesServerEventVariant26Variant1(
+      {this.streamId = const SdkOmitted()});
 
-  BetaResponsesServerEventVariant26Variant1 Function({SdkOptional<String> streamId}) get copyWith => _copyWith;
+  BetaResponsesServerEventVariant26Variant1 Function(
+      {SdkOptional<String> streamId}) get copyWith => _copyWith;
 
-  BetaResponsesServerEventVariant26Variant1 _copyWith({Object? streamId = sdkOmittedValue}) => BetaResponsesServerEventVariant26Variant1(
-    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
-  );
+  BetaResponsesServerEventVariant26Variant1 _copyWith(
+          {Object? streamId = sdkOmittedValue}) =>
+      BetaResponsesServerEventVariant26Variant1(
+        streamId: identical(streamId, sdkOmittedValue)
+            ? this.streamId
+            : streamId as SdkOptional<String>,
+      );
 
-  factory BetaResponsesServerEventVariant26Variant1.fromJson(Map<String, dynamic> json) => BetaResponsesServerEventVariant26Variant1(
-    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory BetaResponsesServerEventVariant26Variant1.fromJson(
+          Map<String, dynamic> json) =>
+      BetaResponsesServerEventVariant26Variant1(
+        streamId: json['stream_id'] != null
+            ? SdkPresent((json['stream_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (streamId) {
-      SdkPresent<String>(value: final value) => {'stream_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (streamId) {
+          SdkPresent<String>(value: final value) => {
+              'stream_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An event that is emitted when a response finishes as incomplete. Over WebSocket, steering can finish a response with `response.incomplete_details.reason` set to `steered`, followed automatically by a successor `response.created` that commits the queued steering input.
 class BetaResponsesServerEventVariant26 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The agent that owns this multi-agent streaming event.
   final SdkOptional<BetaAgentTag?> agent;
+
   /// The type of the event. Always `response.incomplete`.
   final BetaResponseIncompleteEventType type_;
+
   /// The response that was incomplete.
   final BetaResponse response;
+
   /// The sequence number of this event.
   final int sequenceNumber;
+
   /// The WebSocket lane that emitted this event. This field is present when the originating `response.create` event supplied a `stream_id`.
   final SdkOptional<String> streamId;
 
-  const BetaResponsesServerEventVariant26({this.agent = const SdkOmitted(), required this.type_, required this.response, required this.sequenceNumber, this.streamId = const SdkOmitted()});
+  const BetaResponsesServerEventVariant26(
+      {this.agent = const SdkOmitted(),
+      required this.type_,
+      required this.response,
+      required this.sequenceNumber,
+      this.streamId = const SdkOmitted()});
 
-  BetaResponsesServerEventVariant26 Function({SdkOptional<BetaAgentTag?> agent, BetaResponseIncompleteEventType type_, BetaResponse response, int sequenceNumber, SdkOptional<String> streamId}) get copyWith => _copyWith;
+  BetaResponsesServerEventVariant26 Function(
+      {SdkOptional<BetaAgentTag?> agent,
+      BetaResponseIncompleteEventType type_,
+      BetaResponse response,
+      int sequenceNumber,
+      SdkOptional<String> streamId}) get copyWith => _copyWith;
 
-  BetaResponsesServerEventVariant26 _copyWith({Object? agent = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? response = sdkOmittedValue, Object? sequenceNumber = sdkOmittedValue, Object? streamId = sdkOmittedValue}) => BetaResponsesServerEventVariant26(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<BetaAgentTag?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaResponseIncompleteEventType,
-    response: identical(response, sdkOmittedValue) ? this.response : response as BetaResponse,
-    sequenceNumber: identical(sequenceNumber, sdkOmittedValue) ? this.sequenceNumber : sequenceNumber as int,
-    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
-  );
+  BetaResponsesServerEventVariant26 _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? response = sdkOmittedValue,
+          Object? sequenceNumber = sdkOmittedValue,
+          Object? streamId = sdkOmittedValue}) =>
+      BetaResponsesServerEventVariant26(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<BetaAgentTag?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaResponseIncompleteEventType,
+        response: identical(response, sdkOmittedValue)
+            ? this.response
+            : response as BetaResponse,
+        sequenceNumber: identical(sequenceNumber, sdkOmittedValue)
+            ? this.sequenceNumber
+            : sequenceNumber as int,
+        streamId: identical(streamId, sdkOmittedValue)
+            ? this.streamId
+            : streamId as SdkOptional<String>,
+      );
 
-  factory BetaResponsesServerEventVariant26.fromJson(Map<String, dynamic> json) => BetaResponsesServerEventVariant26(
-    agent: json.containsKey('agent') ? SdkPresent(json['agent'] != null ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    type_: (json['type'] != null ? BetaResponseIncompleteEventType.fromJson(json['type'] as String) : null)!,
-    response: (json['response'] != null ? BetaResponse.fromJson(json['response'] as Map<String, dynamic>) : null)!,
-    sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
-    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory BetaResponsesServerEventVariant26.fromJson(
+          Map<String, dynamic> json) =>
+      BetaResponsesServerEventVariant26(
+        agent: json.containsKey('agent')
+            ? SdkPresent(json['agent'] != null
+                ? BetaAgentTag.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        type_: (json['type'] != null
+            ? BetaResponseIncompleteEventType.fromJson(json['type'] as String)
+            : null)!,
+        response: (json['response'] != null
+            ? BetaResponse.fromJson(json['response'] as Map<String, dynamic>)
+            : null)!,
+        sequenceNumber: ((json['sequence_number'] as num?)?.toInt())!,
+        streamId: json['stream_id'] != null
+            ? SdkPresent((json['stream_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<BetaAgentTag?>(value: final value) => {'agent': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-    'response': response.toJson(),
-    'sequence_number': sequenceNumber,
-    ...switch (streamId) {
-      SdkPresent<String>(value: final value) => {'stream_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (agent) {
+          SdkPresent<BetaAgentTag?>(value: final value) => {
+              'agent': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+        'response': response.toJson(),
+        'sequence_number': sequenceNumber,
+        ...switch (streamId) {
+          SdkPresent<String>(value: final value) => {
+              'stream_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,47 +8,92 @@ part of 'agents_session_event.dart';
 class SessionEventAgentSessionEnvironmentReset {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `agent.session.environment.reset`.
   final SessionEventAgentSessionEnvironmentResetType type_;
+
   /// The unique ID of the event.
   final String eventId;
+
   /// The ID of the session associated with the event.
   final String sessionId;
+
   /// The associated turn, when applicable.
   final String? turnId;
+
   /// The stable environment ID, retained across sandbox replacements.
   final String environmentId;
+
   /// Monotonically increasing reset number. Repeated notifications share this number.
   final int resetCount;
 
-  const SessionEventAgentSessionEnvironmentReset({required this.type_, required this.eventId, required this.sessionId, required this.turnId, required this.environmentId, required this.resetCount});
+  const SessionEventAgentSessionEnvironmentReset(
+      {required this.type_,
+      required this.eventId,
+      required this.sessionId,
+      required this.turnId,
+      required this.environmentId,
+      required this.resetCount});
 
-  SessionEventAgentSessionEnvironmentReset Function({SessionEventAgentSessionEnvironmentResetType type_, String eventId, String sessionId, String? turnId, String environmentId, int resetCount}) get copyWith => _copyWith;
+  SessionEventAgentSessionEnvironmentReset Function(
+      {SessionEventAgentSessionEnvironmentResetType type_,
+      String eventId,
+      String sessionId,
+      String? turnId,
+      String environmentId,
+      int resetCount}) get copyWith => _copyWith;
 
-  SessionEventAgentSessionEnvironmentReset _copyWith({Object? type_ = sdkOmittedValue, Object? eventId = sdkOmittedValue, Object? sessionId = sdkOmittedValue, Object? turnId = sdkOmittedValue, Object? environmentId = sdkOmittedValue, Object? resetCount = sdkOmittedValue}) => SessionEventAgentSessionEnvironmentReset(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SessionEventAgentSessionEnvironmentResetType,
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as String,
-    sessionId: identical(sessionId, sdkOmittedValue) ? this.sessionId : sessionId as String,
-    turnId: identical(turnId, sdkOmittedValue) ? this.turnId : turnId as String?,
-    environmentId: identical(environmentId, sdkOmittedValue) ? this.environmentId : environmentId as String,
-    resetCount: identical(resetCount, sdkOmittedValue) ? this.resetCount : resetCount as int,
-  );
+  SessionEventAgentSessionEnvironmentReset _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? eventId = sdkOmittedValue,
+          Object? sessionId = sdkOmittedValue,
+          Object? turnId = sdkOmittedValue,
+          Object? environmentId = sdkOmittedValue,
+          Object? resetCount = sdkOmittedValue}) =>
+      SessionEventAgentSessionEnvironmentReset(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SessionEventAgentSessionEnvironmentResetType,
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as String,
+        sessionId: identical(sessionId, sdkOmittedValue)
+            ? this.sessionId
+            : sessionId as String,
+        turnId: identical(turnId, sdkOmittedValue)
+            ? this.turnId
+            : turnId as String?,
+        environmentId: identical(environmentId, sdkOmittedValue)
+            ? this.environmentId
+            : environmentId as String,
+        resetCount: identical(resetCount, sdkOmittedValue)
+            ? this.resetCount
+            : resetCount as int,
+      );
 
-  factory SessionEventAgentSessionEnvironmentReset.fromJson(Map<String, dynamic> json) => SessionEventAgentSessionEnvironmentReset(
-    type_: (json['type'] != null ? SessionEventAgentSessionEnvironmentResetType.fromJson(json['type'] as String) : null)!,
-    eventId: (json['event_id'] as String?)!,
-    sessionId: (json['session_id'] as String?)!,
-    turnId: json.containsKey('turn_id') ? json['turn_id'] as String? : throw ArgumentError.value(null, 'turn_id', 'Required property is missing'),
-    environmentId: (json['environment_id'] as String?)!,
-    resetCount: ((json['reset_count'] as num?)?.toInt())!,
-  );
+  factory SessionEventAgentSessionEnvironmentReset.fromJson(
+          Map<String, dynamic> json) =>
+      SessionEventAgentSessionEnvironmentReset(
+        type_: (json['type'] != null
+            ? SessionEventAgentSessionEnvironmentResetType.fromJson(
+                json['type'] as String)
+            : null)!,
+        eventId: (json['event_id'] as String?)!,
+        sessionId: (json['session_id'] as String?)!,
+        turnId: json.containsKey('turn_id')
+            ? json['turn_id'] as String?
+            : throw ArgumentError.value(
+                null, 'turn_id', 'Required property is missing'),
+        environmentId: (json['environment_id'] as String?)!,
+        resetCount: ((json['reset_count'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'event_id': eventId,
-    'session_id': sessionId,
-    'turn_id': turnId,
-    'environment_id': environmentId,
-    'reset_count': resetCount,
-  };
+        'type': type_.toJson(),
+        'event_id': eventId,
+        'session_id': sessionId,
+        'turn_id': turnId,
+        'environment_id': environmentId,
+        'reset_count': resetCount,
+      };
 }

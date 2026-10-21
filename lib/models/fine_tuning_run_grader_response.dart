@@ -8,225 +8,465 @@ part of 'fine_tuning.dart';
 class RunGraderResponseMetadataErrors {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required `boolean` value serialized in the `formula_parse_error` wire field.
   final bool formulaParseError;
+
   /// Required `boolean` value serialized in the `sample_parse_error` wire field.
   final bool sampleParseError;
+
   /// Required `boolean` value serialized in the `truncated_observation_error` wire field.
   final bool truncatedObservationError;
+
   /// Required `boolean` value serialized in the `unresponsive_reward_error` wire field.
   final bool unresponsiveRewardError;
+
   /// Required `boolean` value serialized in the `invalid_variable_error` wire field.
   final bool invalidVariableError;
+
   /// Required `boolean` value serialized in the `other_error` wire field.
   final bool otherError;
+
   /// Required `boolean` value serialized in the `python_grader_server_error` wire field.
   final bool pythonGraderServerError;
+
   /// Required `string` value serialized in the `python_grader_server_error_type` wire field.
   final String? pythonGraderServerErrorType;
+
   /// Required `boolean` value serialized in the `python_grader_runtime_error` wire field.
   final bool pythonGraderRuntimeError;
+
   /// Required `string` value serialized in the `python_grader_runtime_error_details` wire field.
   final String? pythonGraderRuntimeErrorDetails;
+
   /// Required `boolean` value serialized in the `model_grader_server_error` wire field.
   final bool modelGraderServerError;
+
   /// Required `boolean` value serialized in the `model_grader_refusal_error` wire field.
   final bool modelGraderRefusalError;
+
   /// Required `boolean` value serialized in the `model_grader_parse_error` wire field.
   final bool modelGraderParseError;
+
   /// Required `string` value serialized in the `model_grader_server_error_details` wire field.
   final String? modelGraderServerErrorDetails;
 
-  const RunGraderResponseMetadataErrors({required this.formulaParseError, required this.sampleParseError, required this.truncatedObservationError, required this.unresponsiveRewardError, required this.invalidVariableError, required this.otherError, required this.pythonGraderServerError, required this.pythonGraderServerErrorType, required this.pythonGraderRuntimeError, required this.pythonGraderRuntimeErrorDetails, required this.modelGraderServerError, required this.modelGraderRefusalError, required this.modelGraderParseError, required this.modelGraderServerErrorDetails});
+  const RunGraderResponseMetadataErrors(
+      {required this.formulaParseError,
+      required this.sampleParseError,
+      required this.truncatedObservationError,
+      required this.unresponsiveRewardError,
+      required this.invalidVariableError,
+      required this.otherError,
+      required this.pythonGraderServerError,
+      required this.pythonGraderServerErrorType,
+      required this.pythonGraderRuntimeError,
+      required this.pythonGraderRuntimeErrorDetails,
+      required this.modelGraderServerError,
+      required this.modelGraderRefusalError,
+      required this.modelGraderParseError,
+      required this.modelGraderServerErrorDetails});
 
-  RunGraderResponseMetadataErrors Function({bool formulaParseError, bool sampleParseError, bool truncatedObservationError, bool unresponsiveRewardError, bool invalidVariableError, bool otherError, bool pythonGraderServerError, String? pythonGraderServerErrorType, bool pythonGraderRuntimeError, String? pythonGraderRuntimeErrorDetails, bool modelGraderServerError, bool modelGraderRefusalError, bool modelGraderParseError, String? modelGraderServerErrorDetails}) get copyWith => _copyWith;
+  RunGraderResponseMetadataErrors Function(
+      {bool formulaParseError,
+      bool sampleParseError,
+      bool truncatedObservationError,
+      bool unresponsiveRewardError,
+      bool invalidVariableError,
+      bool otherError,
+      bool pythonGraderServerError,
+      String? pythonGraderServerErrorType,
+      bool pythonGraderRuntimeError,
+      String? pythonGraderRuntimeErrorDetails,
+      bool modelGraderServerError,
+      bool modelGraderRefusalError,
+      bool modelGraderParseError,
+      String? modelGraderServerErrorDetails}) get copyWith => _copyWith;
 
-  RunGraderResponseMetadataErrors _copyWith({Object? formulaParseError = sdkOmittedValue, Object? sampleParseError = sdkOmittedValue, Object? truncatedObservationError = sdkOmittedValue, Object? unresponsiveRewardError = sdkOmittedValue, Object? invalidVariableError = sdkOmittedValue, Object? otherError = sdkOmittedValue, Object? pythonGraderServerError = sdkOmittedValue, Object? pythonGraderServerErrorType = sdkOmittedValue, Object? pythonGraderRuntimeError = sdkOmittedValue, Object? pythonGraderRuntimeErrorDetails = sdkOmittedValue, Object? modelGraderServerError = sdkOmittedValue, Object? modelGraderRefusalError = sdkOmittedValue, Object? modelGraderParseError = sdkOmittedValue, Object? modelGraderServerErrorDetails = sdkOmittedValue}) => RunGraderResponseMetadataErrors(
-    formulaParseError: identical(formulaParseError, sdkOmittedValue) ? this.formulaParseError : formulaParseError as bool,
-    sampleParseError: identical(sampleParseError, sdkOmittedValue) ? this.sampleParseError : sampleParseError as bool,
-    truncatedObservationError: identical(truncatedObservationError, sdkOmittedValue) ? this.truncatedObservationError : truncatedObservationError as bool,
-    unresponsiveRewardError: identical(unresponsiveRewardError, sdkOmittedValue) ? this.unresponsiveRewardError : unresponsiveRewardError as bool,
-    invalidVariableError: identical(invalidVariableError, sdkOmittedValue) ? this.invalidVariableError : invalidVariableError as bool,
-    otherError: identical(otherError, sdkOmittedValue) ? this.otherError : otherError as bool,
-    pythonGraderServerError: identical(pythonGraderServerError, sdkOmittedValue) ? this.pythonGraderServerError : pythonGraderServerError as bool,
-    pythonGraderServerErrorType: identical(pythonGraderServerErrorType, sdkOmittedValue) ? this.pythonGraderServerErrorType : pythonGraderServerErrorType as String?,
-    pythonGraderRuntimeError: identical(pythonGraderRuntimeError, sdkOmittedValue) ? this.pythonGraderRuntimeError : pythonGraderRuntimeError as bool,
-    pythonGraderRuntimeErrorDetails: identical(pythonGraderRuntimeErrorDetails, sdkOmittedValue) ? this.pythonGraderRuntimeErrorDetails : pythonGraderRuntimeErrorDetails as String?,
-    modelGraderServerError: identical(modelGraderServerError, sdkOmittedValue) ? this.modelGraderServerError : modelGraderServerError as bool,
-    modelGraderRefusalError: identical(modelGraderRefusalError, sdkOmittedValue) ? this.modelGraderRefusalError : modelGraderRefusalError as bool,
-    modelGraderParseError: identical(modelGraderParseError, sdkOmittedValue) ? this.modelGraderParseError : modelGraderParseError as bool,
-    modelGraderServerErrorDetails: identical(modelGraderServerErrorDetails, sdkOmittedValue) ? this.modelGraderServerErrorDetails : modelGraderServerErrorDetails as String?,
-  );
+  RunGraderResponseMetadataErrors _copyWith(
+          {Object? formulaParseError = sdkOmittedValue,
+          Object? sampleParseError = sdkOmittedValue,
+          Object? truncatedObservationError = sdkOmittedValue,
+          Object? unresponsiveRewardError = sdkOmittedValue,
+          Object? invalidVariableError = sdkOmittedValue,
+          Object? otherError = sdkOmittedValue,
+          Object? pythonGraderServerError = sdkOmittedValue,
+          Object? pythonGraderServerErrorType = sdkOmittedValue,
+          Object? pythonGraderRuntimeError = sdkOmittedValue,
+          Object? pythonGraderRuntimeErrorDetails = sdkOmittedValue,
+          Object? modelGraderServerError = sdkOmittedValue,
+          Object? modelGraderRefusalError = sdkOmittedValue,
+          Object? modelGraderParseError = sdkOmittedValue,
+          Object? modelGraderServerErrorDetails = sdkOmittedValue}) =>
+      RunGraderResponseMetadataErrors(
+        formulaParseError: identical(formulaParseError, sdkOmittedValue)
+            ? this.formulaParseError
+            : formulaParseError as bool,
+        sampleParseError: identical(sampleParseError, sdkOmittedValue)
+            ? this.sampleParseError
+            : sampleParseError as bool,
+        truncatedObservationError:
+            identical(truncatedObservationError, sdkOmittedValue)
+                ? this.truncatedObservationError
+                : truncatedObservationError as bool,
+        unresponsiveRewardError:
+            identical(unresponsiveRewardError, sdkOmittedValue)
+                ? this.unresponsiveRewardError
+                : unresponsiveRewardError as bool,
+        invalidVariableError: identical(invalidVariableError, sdkOmittedValue)
+            ? this.invalidVariableError
+            : invalidVariableError as bool,
+        otherError: identical(otherError, sdkOmittedValue)
+            ? this.otherError
+            : otherError as bool,
+        pythonGraderServerError:
+            identical(pythonGraderServerError, sdkOmittedValue)
+                ? this.pythonGraderServerError
+                : pythonGraderServerError as bool,
+        pythonGraderServerErrorType:
+            identical(pythonGraderServerErrorType, sdkOmittedValue)
+                ? this.pythonGraderServerErrorType
+                : pythonGraderServerErrorType as String?,
+        pythonGraderRuntimeError:
+            identical(pythonGraderRuntimeError, sdkOmittedValue)
+                ? this.pythonGraderRuntimeError
+                : pythonGraderRuntimeError as bool,
+        pythonGraderRuntimeErrorDetails:
+            identical(pythonGraderRuntimeErrorDetails, sdkOmittedValue)
+                ? this.pythonGraderRuntimeErrorDetails
+                : pythonGraderRuntimeErrorDetails as String?,
+        modelGraderServerError:
+            identical(modelGraderServerError, sdkOmittedValue)
+                ? this.modelGraderServerError
+                : modelGraderServerError as bool,
+        modelGraderRefusalError:
+            identical(modelGraderRefusalError, sdkOmittedValue)
+                ? this.modelGraderRefusalError
+                : modelGraderRefusalError as bool,
+        modelGraderParseError: identical(modelGraderParseError, sdkOmittedValue)
+            ? this.modelGraderParseError
+            : modelGraderParseError as bool,
+        modelGraderServerErrorDetails:
+            identical(modelGraderServerErrorDetails, sdkOmittedValue)
+                ? this.modelGraderServerErrorDetails
+                : modelGraderServerErrorDetails as String?,
+      );
 
-  factory RunGraderResponseMetadataErrors.fromJson(Map<String, dynamic> json) => RunGraderResponseMetadataErrors(
-    formulaParseError: (json['formula_parse_error'] as bool?)!,
-    sampleParseError: (json['sample_parse_error'] as bool?)!,
-    truncatedObservationError: (json['truncated_observation_error'] as bool?)!,
-    unresponsiveRewardError: (json['unresponsive_reward_error'] as bool?)!,
-    invalidVariableError: (json['invalid_variable_error'] as bool?)!,
-    otherError: (json['other_error'] as bool?)!,
-    pythonGraderServerError: (json['python_grader_server_error'] as bool?)!,
-    pythonGraderServerErrorType: json.containsKey('python_grader_server_error_type') ? json['python_grader_server_error_type'] as String? : throw ArgumentError.value(null, 'python_grader_server_error_type', 'Required property is missing'),
-    pythonGraderRuntimeError: (json['python_grader_runtime_error'] as bool?)!,
-    pythonGraderRuntimeErrorDetails: json.containsKey('python_grader_runtime_error_details') ? json['python_grader_runtime_error_details'] as String? : throw ArgumentError.value(null, 'python_grader_runtime_error_details', 'Required property is missing'),
-    modelGraderServerError: (json['model_grader_server_error'] as bool?)!,
-    modelGraderRefusalError: (json['model_grader_refusal_error'] as bool?)!,
-    modelGraderParseError: (json['model_grader_parse_error'] as bool?)!,
-    modelGraderServerErrorDetails: json.containsKey('model_grader_server_error_details') ? json['model_grader_server_error_details'] as String? : throw ArgumentError.value(null, 'model_grader_server_error_details', 'Required property is missing'),
-  );
+  factory RunGraderResponseMetadataErrors.fromJson(Map<String, dynamic> json) =>
+      RunGraderResponseMetadataErrors(
+        formulaParseError: (json['formula_parse_error'] as bool?)!,
+        sampleParseError: (json['sample_parse_error'] as bool?)!,
+        truncatedObservationError:
+            (json['truncated_observation_error'] as bool?)!,
+        unresponsiveRewardError: (json['unresponsive_reward_error'] as bool?)!,
+        invalidVariableError: (json['invalid_variable_error'] as bool?)!,
+        otherError: (json['other_error'] as bool?)!,
+        pythonGraderServerError: (json['python_grader_server_error'] as bool?)!,
+        pythonGraderServerErrorType:
+            json.containsKey('python_grader_server_error_type')
+                ? json['python_grader_server_error_type'] as String?
+                : throw ArgumentError.value(
+                    null,
+                    'python_grader_server_error_type',
+                    'Required property is missing'),
+        pythonGraderRuntimeError:
+            (json['python_grader_runtime_error'] as bool?)!,
+        pythonGraderRuntimeErrorDetails:
+            json.containsKey('python_grader_runtime_error_details')
+                ? json['python_grader_runtime_error_details'] as String?
+                : throw ArgumentError.value(
+                    null,
+                    'python_grader_runtime_error_details',
+                    'Required property is missing'),
+        modelGraderServerError: (json['model_grader_server_error'] as bool?)!,
+        modelGraderRefusalError: (json['model_grader_refusal_error'] as bool?)!,
+        modelGraderParseError: (json['model_grader_parse_error'] as bool?)!,
+        modelGraderServerErrorDetails:
+            json.containsKey('model_grader_server_error_details')
+                ? json['model_grader_server_error_details'] as String?
+                : throw ArgumentError.value(
+                    null,
+                    'model_grader_server_error_details',
+                    'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'formula_parse_error': formulaParseError,
-    'sample_parse_error': sampleParseError,
-    'truncated_observation_error': truncatedObservationError,
-    'unresponsive_reward_error': unresponsiveRewardError,
-    'invalid_variable_error': invalidVariableError,
-    'other_error': otherError,
-    'python_grader_server_error': pythonGraderServerError,
-    'python_grader_server_error_type': pythonGraderServerErrorType,
-    'python_grader_runtime_error': pythonGraderRuntimeError,
-    'python_grader_runtime_error_details': pythonGraderRuntimeErrorDetails,
-    'model_grader_server_error': modelGraderServerError,
-    'model_grader_refusal_error': modelGraderRefusalError,
-    'model_grader_parse_error': modelGraderParseError,
-    'model_grader_server_error_details': modelGraderServerErrorDetails,
-  };
+        'formula_parse_error': formulaParseError,
+        'sample_parse_error': sampleParseError,
+        'truncated_observation_error': truncatedObservationError,
+        'unresponsive_reward_error': unresponsiveRewardError,
+        'invalid_variable_error': invalidVariableError,
+        'other_error': otherError,
+        'python_grader_server_error': pythonGraderServerError,
+        'python_grader_server_error_type': pythonGraderServerErrorType,
+        'python_grader_runtime_error': pythonGraderRuntimeError,
+        'python_grader_runtime_error_details': pythonGraderRuntimeErrorDetails,
+        'model_grader_server_error': modelGraderServerError,
+        'model_grader_refusal_error': modelGraderRefusalError,
+        'model_grader_parse_error': modelGraderParseError,
+        'model_grader_server_error_details': modelGraderServerErrorDetails,
+      };
 }
 
 /// Required object value serialized in the `token_usage` wire field.
 class RunGraderResponseMetadataTokenUsage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required `integer` value serialized in the `prompt_tokens` wire field.
   final int promptTokens;
+
   /// Required `integer` value serialized in the `total_tokens` wire field.
   final int totalTokens;
+
   /// Optional `integer` value serialized in the `completion_tokens` wire field.
   final SdkOptional<int?> completionTokens;
+
   /// Optional `integer` value serialized in the `cached_tokens` wire field.
   final SdkOptional<int?> cachedTokens;
 
-  const RunGraderResponseMetadataTokenUsage({required this.promptTokens, required this.totalTokens, this.completionTokens = const SdkOmitted(), this.cachedTokens = const SdkOmitted()});
+  const RunGraderResponseMetadataTokenUsage(
+      {required this.promptTokens,
+      required this.totalTokens,
+      this.completionTokens = const SdkOmitted(),
+      this.cachedTokens = const SdkOmitted()});
 
-  RunGraderResponseMetadataTokenUsage Function({int promptTokens, int totalTokens, SdkOptional<int?> completionTokens, SdkOptional<int?> cachedTokens}) get copyWith => _copyWith;
+  RunGraderResponseMetadataTokenUsage Function(
+      {int promptTokens,
+      int totalTokens,
+      SdkOptional<int?> completionTokens,
+      SdkOptional<int?> cachedTokens}) get copyWith => _copyWith;
 
-  RunGraderResponseMetadataTokenUsage _copyWith({Object? promptTokens = sdkOmittedValue, Object? totalTokens = sdkOmittedValue, Object? completionTokens = sdkOmittedValue, Object? cachedTokens = sdkOmittedValue}) => RunGraderResponseMetadataTokenUsage(
-    promptTokens: identical(promptTokens, sdkOmittedValue) ? this.promptTokens : promptTokens as int,
-    totalTokens: identical(totalTokens, sdkOmittedValue) ? this.totalTokens : totalTokens as int,
-    completionTokens: identical(completionTokens, sdkOmittedValue) ? this.completionTokens : completionTokens as SdkOptional<int?>,
-    cachedTokens: identical(cachedTokens, sdkOmittedValue) ? this.cachedTokens : cachedTokens as SdkOptional<int?>,
-  );
+  RunGraderResponseMetadataTokenUsage _copyWith(
+          {Object? promptTokens = sdkOmittedValue,
+          Object? totalTokens = sdkOmittedValue,
+          Object? completionTokens = sdkOmittedValue,
+          Object? cachedTokens = sdkOmittedValue}) =>
+      RunGraderResponseMetadataTokenUsage(
+        promptTokens: identical(promptTokens, sdkOmittedValue)
+            ? this.promptTokens
+            : promptTokens as int,
+        totalTokens: identical(totalTokens, sdkOmittedValue)
+            ? this.totalTokens
+            : totalTokens as int,
+        completionTokens: identical(completionTokens, sdkOmittedValue)
+            ? this.completionTokens
+            : completionTokens as SdkOptional<int?>,
+        cachedTokens: identical(cachedTokens, sdkOmittedValue)
+            ? this.cachedTokens
+            : cachedTokens as SdkOptional<int?>,
+      );
 
-  factory RunGraderResponseMetadataTokenUsage.fromJson(Map<String, dynamic> json) => RunGraderResponseMetadataTokenUsage(
-    promptTokens: ((json['prompt_tokens'] as num?)?.toInt())!,
-    totalTokens: ((json['total_tokens'] as num?)?.toInt())!,
-    completionTokens: json.containsKey('completion_tokens') ? SdkPresent((json['completion_tokens'] as num?)?.toInt()) : const SdkOmitted(),
-    cachedTokens: json.containsKey('cached_tokens') ? SdkPresent((json['cached_tokens'] as num?)?.toInt()) : const SdkOmitted(),
-  );
+  factory RunGraderResponseMetadataTokenUsage.fromJson(
+          Map<String, dynamic> json) =>
+      RunGraderResponseMetadataTokenUsage(
+        promptTokens: ((json['prompt_tokens'] as num?)?.toInt())!,
+        totalTokens: ((json['total_tokens'] as num?)?.toInt())!,
+        completionTokens: json.containsKey('completion_tokens')
+            ? SdkPresent((json['completion_tokens'] as num?)?.toInt())
+            : const SdkOmitted(),
+        cachedTokens: json.containsKey('cached_tokens')
+            ? SdkPresent((json['cached_tokens'] as num?)?.toInt())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'prompt_tokens': promptTokens,
-    'total_tokens': totalTokens,
-    ...switch (completionTokens) {
-      SdkPresent<int?>(value: final value) => {'completion_tokens': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (cachedTokens) {
-      SdkPresent<int?>(value: final value) => {'cached_tokens': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'prompt_tokens': promptTokens,
+        'total_tokens': totalTokens,
+        ...switch (completionTokens) {
+          SdkPresent<int?>(value: final value) => {
+              'completion_tokens': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (cachedTokens) {
+          SdkPresent<int?>(value: final value) => {
+              'cached_tokens': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Required object value serialized in the `metadata` wire field.
 class RunGraderResponseMetadata {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required `string` value serialized in the `name` wire field.
   final String name;
+
   /// Required `string` value serialized in the `type` wire field.
   final String type_;
+
   /// Required object value serialized in the `errors` wire field.
   final RunGraderResponseMetadataErrors errors;
+
   /// Required `number` value serialized in the `execution_time` wire field.
   final double executionTime;
+
   /// Required object value serialized in the `scores` wire field.
   final Map<String, dynamic> scores;
+
   /// Required object value serialized in the `token_usage` wire field.
   final RunGraderResponseMetadataTokenUsage? tokenUsage;
+
   /// Required `string` value serialized in the `sampled_model_name` wire field.
   final String? sampledModelName;
 
-  const RunGraderResponseMetadata({required this.name, required this.type_, required this.errors, required this.executionTime, required this.scores, required this.tokenUsage, required this.sampledModelName});
+  const RunGraderResponseMetadata(
+      {required this.name,
+      required this.type_,
+      required this.errors,
+      required this.executionTime,
+      required this.scores,
+      required this.tokenUsage,
+      required this.sampledModelName});
 
-  RunGraderResponseMetadata Function({String name, String type_, RunGraderResponseMetadataErrors errors, double executionTime, Map<String, dynamic> scores, RunGraderResponseMetadataTokenUsage? tokenUsage, String? sampledModelName}) get copyWith => _copyWith;
+  RunGraderResponseMetadata Function(
+      {String name,
+      String type_,
+      RunGraderResponseMetadataErrors errors,
+      double executionTime,
+      Map<String, dynamic> scores,
+      RunGraderResponseMetadataTokenUsage? tokenUsage,
+      String? sampledModelName}) get copyWith => _copyWith;
 
-  RunGraderResponseMetadata _copyWith({Object? name = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? errors = sdkOmittedValue, Object? executionTime = sdkOmittedValue, Object? scores = sdkOmittedValue, Object? tokenUsage = sdkOmittedValue, Object? sampledModelName = sdkOmittedValue}) => RunGraderResponseMetadata(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
-    errors: identical(errors, sdkOmittedValue) ? this.errors : errors as RunGraderResponseMetadataErrors,
-    executionTime: identical(executionTime, sdkOmittedValue) ? this.executionTime : executionTime as double,
-    scores: identical(scores, sdkOmittedValue) ? this.scores : scores as Map<String, dynamic>,
-    tokenUsage: identical(tokenUsage, sdkOmittedValue) ? this.tokenUsage : tokenUsage as RunGraderResponseMetadataTokenUsage?,
-    sampledModelName: identical(sampledModelName, sdkOmittedValue) ? this.sampledModelName : sampledModelName as String?,
-  );
+  RunGraderResponseMetadata _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? errors = sdkOmittedValue,
+          Object? executionTime = sdkOmittedValue,
+          Object? scores = sdkOmittedValue,
+          Object? tokenUsage = sdkOmittedValue,
+          Object? sampledModelName = sdkOmittedValue}) =>
+      RunGraderResponseMetadata(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+        errors: identical(errors, sdkOmittedValue)
+            ? this.errors
+            : errors as RunGraderResponseMetadataErrors,
+        executionTime: identical(executionTime, sdkOmittedValue)
+            ? this.executionTime
+            : executionTime as double,
+        scores: identical(scores, sdkOmittedValue)
+            ? this.scores
+            : scores as Map<String, dynamic>,
+        tokenUsage: identical(tokenUsage, sdkOmittedValue)
+            ? this.tokenUsage
+            : tokenUsage as RunGraderResponseMetadataTokenUsage?,
+        sampledModelName: identical(sampledModelName, sdkOmittedValue)
+            ? this.sampledModelName
+            : sampledModelName as String?,
+      );
 
-  factory RunGraderResponseMetadata.fromJson(Map<String, dynamic> json) => RunGraderResponseMetadata(
-    name: (json['name'] as String?)!,
-    type_: (json['type'] as String?)!,
-    errors: (json['errors'] != null ? RunGraderResponseMetadataErrors.fromJson(json['errors'] as Map<String, dynamic>) : null)!,
-    executionTime: ((json['execution_time'] as num?)?.toDouble())!,
-    scores: (json['scores'] == null ? null : json['scores'] as Map<String, dynamic>)!,
-    tokenUsage: json.containsKey('token_usage') ? json['token_usage'] != null ? RunGraderResponseMetadataTokenUsage.fromJson(json['token_usage'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'token_usage', 'Required property is missing'),
-    sampledModelName: json.containsKey('sampled_model_name') ? json['sampled_model_name'] as String? : throw ArgumentError.value(null, 'sampled_model_name', 'Required property is missing'),
-  );
+  factory RunGraderResponseMetadata.fromJson(Map<String, dynamic> json) =>
+      RunGraderResponseMetadata(
+        name: (json['name'] as String?)!,
+        type_: (json['type'] as String?)!,
+        errors: (json['errors'] != null
+            ? RunGraderResponseMetadataErrors.fromJson(
+                json['errors'] as Map<String, dynamic>)
+            : null)!,
+        executionTime: ((json['execution_time'] as num?)?.toDouble())!,
+        scores: (json['scores'] == null
+            ? null
+            : json['scores'] as Map<String, dynamic>)!,
+        tokenUsage: json.containsKey('token_usage')
+            ? json['token_usage'] != null
+                ? RunGraderResponseMetadataTokenUsage.fromJson(
+                    json['token_usage'] as Map<String, dynamic>)
+                : null
+            : throw ArgumentError.value(
+                null, 'token_usage', 'Required property is missing'),
+        sampledModelName: json.containsKey('sampled_model_name')
+            ? json['sampled_model_name'] as String?
+            : throw ArgumentError.value(
+                null, 'sampled_model_name', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'type': type_,
-    'errors': errors.toJson(),
-    'execution_time': executionTime,
-    'scores': scores,
-    'token_usage': tokenUsage?.toJson(),
-    'sampled_model_name': sampledModelName,
-  };
+        'name': name,
+        'type': type_,
+        'errors': errors.toJson(),
+        'execution_time': executionTime,
+        'scores': scores,
+        'token_usage': tokenUsage?.toJson(),
+        'sampled_model_name': sampledModelName,
+      };
 }
 
 /// Typed representation of the `RunGraderResponse` API schema.
 class RunGraderResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required `number` value serialized in the `reward` wire field.
   final double reward;
+
   /// Required object value serialized in the `metadata` wire field.
   final RunGraderResponseMetadata metadata;
+
   /// Required object value serialized in the `sub_rewards` wire field.
   final Map<String, dynamic> subRewards;
+
   /// Required object value serialized in the `model_grader_token_usage_per_model` wire field.
   final Map<String, dynamic> modelGraderTokenUsagePerModel;
 
-  const RunGraderResponse({required this.reward, required this.metadata, required this.subRewards, required this.modelGraderTokenUsagePerModel});
+  const RunGraderResponse(
+      {required this.reward,
+      required this.metadata,
+      required this.subRewards,
+      required this.modelGraderTokenUsagePerModel});
 
-  RunGraderResponse Function({double reward, RunGraderResponseMetadata metadata, Map<String, dynamic> subRewards, Map<String, dynamic> modelGraderTokenUsagePerModel}) get copyWith => _copyWith;
+  RunGraderResponse Function(
+          {double reward,
+          RunGraderResponseMetadata metadata,
+          Map<String, dynamic> subRewards,
+          Map<String, dynamic> modelGraderTokenUsagePerModel})
+      get copyWith => _copyWith;
 
-  RunGraderResponse _copyWith({Object? reward = sdkOmittedValue, Object? metadata = sdkOmittedValue, Object? subRewards = sdkOmittedValue, Object? modelGraderTokenUsagePerModel = sdkOmittedValue}) => RunGraderResponse(
-    reward: identical(reward, sdkOmittedValue) ? this.reward : reward as double,
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as RunGraderResponseMetadata,
-    subRewards: identical(subRewards, sdkOmittedValue) ? this.subRewards : subRewards as Map<String, dynamic>,
-    modelGraderTokenUsagePerModel: identical(modelGraderTokenUsagePerModel, sdkOmittedValue) ? this.modelGraderTokenUsagePerModel : modelGraderTokenUsagePerModel as Map<String, dynamic>,
-  );
+  RunGraderResponse _copyWith(
+          {Object? reward = sdkOmittedValue,
+          Object? metadata = sdkOmittedValue,
+          Object? subRewards = sdkOmittedValue,
+          Object? modelGraderTokenUsagePerModel = sdkOmittedValue}) =>
+      RunGraderResponse(
+        reward:
+            identical(reward, sdkOmittedValue) ? this.reward : reward as double,
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as RunGraderResponseMetadata,
+        subRewards: identical(subRewards, sdkOmittedValue)
+            ? this.subRewards
+            : subRewards as Map<String, dynamic>,
+        modelGraderTokenUsagePerModel:
+            identical(modelGraderTokenUsagePerModel, sdkOmittedValue)
+                ? this.modelGraderTokenUsagePerModel
+                : modelGraderTokenUsagePerModel as Map<String, dynamic>,
+      );
 
-  factory RunGraderResponse.fromJson(Map<String, dynamic> json) => RunGraderResponse(
-    reward: ((json['reward'] as num?)?.toDouble())!,
-    metadata: (json['metadata'] != null ? RunGraderResponseMetadata.fromJson(json['metadata'] as Map<String, dynamic>) : null)!,
-    subRewards: (json['sub_rewards'] == null ? null : json['sub_rewards'] as Map<String, dynamic>)!,
-    modelGraderTokenUsagePerModel: (json['model_grader_token_usage_per_model'] == null ? null : json['model_grader_token_usage_per_model'] as Map<String, dynamic>)!,
-  );
+  factory RunGraderResponse.fromJson(Map<String, dynamic> json) =>
+      RunGraderResponse(
+        reward: ((json['reward'] as num?)?.toDouble())!,
+        metadata: (json['metadata'] != null
+            ? RunGraderResponseMetadata.fromJson(
+                json['metadata'] as Map<String, dynamic>)
+            : null)!,
+        subRewards: (json['sub_rewards'] == null
+            ? null
+            : json['sub_rewards'] as Map<String, dynamic>)!,
+        modelGraderTokenUsagePerModel:
+            (json['model_grader_token_usage_per_model'] == null
+                ? null
+                : json['model_grader_token_usage_per_model']
+                    as Map<String, dynamic>)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'reward': reward,
-    'metadata': metadata.toJson(),
-    'sub_rewards': subRewards,
-    'model_grader_token_usage_per_model': modelGraderTokenUsagePerModel,
-  };
+        'reward': reward,
+        'metadata': metadata.toJson(),
+        'sub_rewards': subRewards,
+        'model_grader_token_usage_per_model': modelGraderTokenUsagePerModel,
+      };
 }

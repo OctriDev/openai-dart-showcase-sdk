@@ -7,66 +7,82 @@ part of 'responses_beta_item.dart';
 final class BetaItemResourceBetaFunctionShellCall extends BetaItemResource {
   final BetaFunctionShellCall value;
   const BetaItemResourceBetaFunctionShellCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaItemResourceBetaFunctionShellCallOutput extends BetaItemResource {
+final class BetaItemResourceBetaFunctionShellCallOutput
+    extends BetaItemResource {
   final BetaFunctionShellCallOutput value;
   const BetaItemResourceBetaFunctionShellCallOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaItemResourceBetaApplyPatchToolCall extends BetaItemResource {
   final BetaApplyPatchToolCall value;
   const BetaItemResourceBetaApplyPatchToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaItemResourceBetaApplyPatchToolCallOutput extends BetaItemResource {
+final class BetaItemResourceBetaApplyPatchToolCallOutput
+    extends BetaItemResource {
   final BetaApplyPatchToolCallOutput value;
   const BetaItemResourceBetaApplyPatchToolCallOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaItemResourceBetaMCPListTools extends BetaItemResource {
   final BetaMCPListTools value;
   const BetaItemResourceBetaMCPListTools(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaItemResourceBetaMCPApprovalRequest extends BetaItemResource {
   final BetaMCPApprovalRequest value;
   const BetaItemResourceBetaMCPApprovalRequest(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaItemResourceBetaMCPApprovalResponseResource extends BetaItemResource {
+final class BetaItemResourceBetaMCPApprovalResponseResource
+    extends BetaItemResource {
   final BetaMCPApprovalResponseResource value;
   const BetaItemResourceBetaMCPApprovalResponseResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaItemResourceBetaMCPToolCall extends BetaItemResource {
   final BetaMCPToolCall value;
   const BetaItemResourceBetaMCPToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaItemResourceBetaCustomToolCallResource extends BetaItemResource {
+final class BetaItemResourceBetaCustomToolCallResource
+    extends BetaItemResource {
   final BetaCustomToolCallResource value;
   const BetaItemResourceBetaCustomToolCallResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaItemResourceBetaCustomToolCallOutputResource extends BetaItemResource {
+final class BetaItemResourceBetaCustomToolCallOutputResource
+    extends BetaItemResource {
   final BetaCustomToolCallOutputResource value;
   const BetaItemResourceBetaCustomToolCallOutputResource(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [BetaItemResource] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownBetaItemResource extends BetaItemResource {
   final Map<String, dynamic> raw;
   const UnknownBetaItemResource(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

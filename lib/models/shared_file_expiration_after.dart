@@ -8,27 +8,39 @@ part of 'shared_file.dart';
 class FileExpirationAfter {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Anchor timestamp after which the expiration policy applies. Supported anchors: `created_at`.
   final FileExpirationAfterAnchor anchor;
+
   /// The number of seconds after the anchor time that the file will expire. Must be between 3600 (1 hour) and 2592000 (30 days).
   final int seconds;
 
   const FileExpirationAfter({required this.anchor, required this.seconds});
 
-  FileExpirationAfter Function({FileExpirationAfterAnchor anchor, int seconds}) get copyWith => _copyWith;
+  FileExpirationAfter Function({FileExpirationAfterAnchor anchor, int seconds})
+      get copyWith => _copyWith;
 
-  FileExpirationAfter _copyWith({Object? anchor = sdkOmittedValue, Object? seconds = sdkOmittedValue}) => FileExpirationAfter(
-    anchor: identical(anchor, sdkOmittedValue) ? this.anchor : anchor as FileExpirationAfterAnchor,
-    seconds: identical(seconds, sdkOmittedValue) ? this.seconds : seconds as int,
-  );
+  FileExpirationAfter _copyWith(
+          {Object? anchor = sdkOmittedValue,
+          Object? seconds = sdkOmittedValue}) =>
+      FileExpirationAfter(
+        anchor: identical(anchor, sdkOmittedValue)
+            ? this.anchor
+            : anchor as FileExpirationAfterAnchor,
+        seconds:
+            identical(seconds, sdkOmittedValue) ? this.seconds : seconds as int,
+      );
 
-  factory FileExpirationAfter.fromJson(Map<String, dynamic> json) => FileExpirationAfter(
-    anchor: (json['anchor'] != null ? FileExpirationAfterAnchor.fromJson(json['anchor'] as String) : null)!,
-    seconds: ((json['seconds'] as num?)?.toInt())!,
-  );
+  factory FileExpirationAfter.fromJson(Map<String, dynamic> json) =>
+      FileExpirationAfter(
+        anchor: (json['anchor'] != null
+            ? FileExpirationAfterAnchor.fromJson(json['anchor'] as String)
+            : null)!,
+        seconds: ((json['seconds'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'anchor': anchor.toJson(),
-    'seconds': seconds,
-  };
+        'anchor': anchor.toJson(),
+        'seconds': seconds,
+      };
 }
