@@ -10,32 +10,65 @@ sealed class ChunkingStrategyRequestParam {
   const ChunkingStrategyRequestParam();
   factory ChunkingStrategyRequestParam.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = AutoChunkingStrategyRequestParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChunkingStrategyRequestParamAutoChunkingStrategyRequestParam(value); } } catch (_) {}
-      try { final value = StaticChunkingStrategyRequestParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChunkingStrategyRequestParamStaticChunkingStrategyRequestParam(value); } } catch (_) {}
+      try {
+        final value = AutoChunkingStrategyRequestParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChunkingStrategyRequestParamAutoChunkingStrategyRequestParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = StaticChunkingStrategyRequestParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChunkingStrategyRequestParamStaticChunkingStrategyRequestParam(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return ChunkingStrategyRequestParamAutoChunkingStrategyRequestParam(AutoChunkingStrategyRequestParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ChunkingStrategyRequestParamStaticChunkingStrategyRequestParam(StaticChunkingStrategyRequestParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"auto", "static"}.contains(json["type"])) { return UnknownChunkingStrategyRequestParam(json); }
-    throw FormatException("No variant matched for ChunkingStrategyRequestParam");
+    try {
+      return ChunkingStrategyRequestParamAutoChunkingStrategyRequestParam(
+          AutoChunkingStrategyRequestParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ChunkingStrategyRequestParamStaticChunkingStrategyRequestParam(
+          StaticChunkingStrategyRequestParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"auto", "static"}.contains(json["type"])) {
+      return UnknownChunkingStrategyRequestParam(json);
+    }
+    throw FormatException(
+        "No variant matched for ChunkingStrategyRequestParam");
   }
   Object? toJson();
 }
 
-final class ChunkingStrategyRequestParamAutoChunkingStrategyRequestParam extends ChunkingStrategyRequestParam {
+final class ChunkingStrategyRequestParamAutoChunkingStrategyRequestParam
+    extends ChunkingStrategyRequestParam {
   final AutoChunkingStrategyRequestParam value;
-  const ChunkingStrategyRequestParamAutoChunkingStrategyRequestParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const ChunkingStrategyRequestParamAutoChunkingStrategyRequestParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ChunkingStrategyRequestParamStaticChunkingStrategyRequestParam extends ChunkingStrategyRequestParam {
+final class ChunkingStrategyRequestParamStaticChunkingStrategyRequestParam
+    extends ChunkingStrategyRequestParam {
   final StaticChunkingStrategyRequestParam value;
-  const ChunkingStrategyRequestParamStaticChunkingStrategyRequestParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const ChunkingStrategyRequestParamStaticChunkingStrategyRequestParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [ChunkingStrategyRequestParam] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownChunkingStrategyRequestParam extends ChunkingStrategyRequestParam {
+final class UnknownChunkingStrategyRequestParam
+    extends ChunkingStrategyRequestParam {
   final Map<String, dynamic> raw;
   const UnknownChunkingStrategyRequestParam(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

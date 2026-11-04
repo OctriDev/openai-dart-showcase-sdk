@@ -23,18 +23,28 @@ Future<InviteListResponse> listInvites(ClientConfig config,
   return (await sdkRequest<InviteListResponse>('GET', '/organization/invites',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listInvites',
-          fromJsonRaw: (value) => InviteListResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              InviteListResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists organization invites and their status, role, and project access details. Use `limit` to control the number of results and `after` to continue from an invite ID. The response includes `has_more` and cursor IDs to help you paginate.
 ///
@@ -46,13 +56,21 @@ Future<InviteListResponse> listInvites(ClientConfig config,
 ///   your place in the list. For instance, if you make a list request and receive
 ///   100 objects, ending with obj_foo, your subsequent call can include
 ///   after=obj_foo in order to fetch the next page of the list.
-Stream<Invite> listInvitesPaginated(ClientConfig config, {int? limit, String? after, RequestOptions? requestOptions}) async* {
+Stream<Invite> listInvitesPaginated(ClientConfig config,
+    {int? limit, String? after, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listInvites(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await listInvites(config,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
     if (sdkNext == null) return;
@@ -60,10 +78,19 @@ Stream<Invite> listInvitesPaginated(ClientConfig config, {int? limit, String? af
   }
 }
 
-Stream<SdkPage<InviteListResponse, Invite>> listInvitesPages(ClientConfig config, {int? limit, String? after, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<InviteListResponse, Invite>> listInvitesPages(
+    ClientConfig config,
+    {int? limit,
+    String? after,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listInvites(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await listInvites(config,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
@@ -73,7 +100,6 @@ Stream<SdkPage<InviteListResponse, Invite>> listInvitesPages(ClientConfig config
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Create an invite for a user to the organization. The invite must be accepted by the user before they have access to the organization.
 ///
@@ -98,12 +124,19 @@ Future<Invite> createInvites(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createInvites',
-          fromJsonRaw: (value) => Invite.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Invite.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves an organization invite by its identifier. Use `invite_id` to select the invite whose email address, role, status, and project access you need to inspect.
 ///
@@ -117,12 +150,19 @@ Future<Invite> retrieveInvite(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveInvite',
-          fromJsonRaw: (value) => Invite.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Invite.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '403': (value) =>
+            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Delete an invite. If the invite has already been accepted, it cannot be deleted.
 ///
@@ -134,8 +174,15 @@ Future<InviteDeleteResponse> deleteInvite(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteInvite',
-          fromJsonRaw: (value) => InviteDeleteResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              InviteDeleteResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '403': (value) =>
+            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

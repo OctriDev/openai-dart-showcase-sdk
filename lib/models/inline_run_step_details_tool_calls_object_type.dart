@@ -10,14 +10,18 @@ enum RunStepDetailsToolCallsObjectType {
 
   static RunStepDetailsToolCallsObjectType fromJson(String value) {
     switch (value) {
-      case 'tool_calls': return RunStepDetailsToolCallsObjectType.toolCalls;
-      default: throw ArgumentError('Unknown RunStepDetailsToolCallsObjectType: $value');
+      case 'tool_calls':
+        return RunStepDetailsToolCallsObjectType.toolCalls;
+      default:
+        throw ArgumentError(
+            'Unknown RunStepDetailsToolCallsObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStepDetailsToolCallsObjectType.toolCalls: return 'tool_calls';
+      case RunStepDetailsToolCallsObjectType.toolCalls:
+        return 'tool_calls';
     }
   }
 
@@ -27,55 +31,62 @@ enum RunStepDetailsToolCallsObjectType {
 
 /// One of `server_error` or `rate_limit_exceeded`.
 final class RunStepObjectLastErrorCode {
-
   final String value;
 
   const RunStepObjectLastErrorCode._(this.value);
 
-  factory RunStepObjectLastErrorCode.fromJson(String value) => RunStepObjectLastErrorCode._(value);
+  factory RunStepObjectLastErrorCode.fromJson(String value) =>
+      RunStepObjectLastErrorCode._(value);
 
   static const serverError = RunStepObjectLastErrorCode._('server_error');
-  static const rateLimitExceeded = RunStepObjectLastErrorCode._('rate_limit_exceeded');
+  static const rateLimitExceeded =
+      RunStepObjectLastErrorCode._('rate_limit_exceeded');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RunStepObjectLastErrorCode && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RunStepObjectLastErrorCode && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type, which is always `thread.run.step`.
 final class RunStepObjectObject {
-
   final String value;
 
   const RunStepObjectObject._(this.value);
 
-  factory RunStepObjectObject.fromJson(String value) => RunStepObjectObject._(value);
+  factory RunStepObjectObject.fromJson(String value) =>
+      RunStepObjectObject._(value);
 
   static const threadRunStep = RunStepObjectObject._('thread.run.step');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RunStepObjectObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RunStepObjectObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The status of the run step, which can be either `in_progress`, `cancelled`, `failed`, `completed`, or `expired`.
 final class RunStepObjectStatus {
-
   final String value;
 
   const RunStepObjectStatus._(this.value);
 
-  factory RunStepObjectStatus.fromJson(String value) => RunStepObjectStatus._(value);
+  factory RunStepObjectStatus.fromJson(String value) =>
+      RunStepObjectStatus._(value);
 
   static const inProgress = RunStepObjectStatus._('in_progress');
   static const cancelled = RunStepObjectStatus._('cancelled');
@@ -85,34 +96,40 @@ final class RunStepObjectStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RunStepObjectStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RunStepObjectStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of run step, which can be either `message_creation` or `tool_calls`.
 final class RunStepObjectType {
-
   final String value;
 
   const RunStepObjectType._(this.value);
 
-  factory RunStepObjectType.fromJson(String value) => RunStepObjectType._(value);
+  factory RunStepObjectType.fromJson(String value) =>
+      RunStepObjectType._(value);
 
   static const messageCreation = RunStepObjectType._('message_creation');
   static const toolCalls = RunStepObjectType._('tool_calls');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RunStepObjectType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RunStepObjectType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 enum RunStepStreamEventVariant0Event {
@@ -120,14 +137,17 @@ enum RunStepStreamEventVariant0Event {
 
   static RunStepStreamEventVariant0Event fromJson(String value) {
     switch (value) {
-      case 'thread.run.step.created': return RunStepStreamEventVariant0Event.threadRunStepCreated;
-      default: throw ArgumentError('Unknown RunStepStreamEventVariant0Event: $value');
+      case 'thread.run.step.created':
+        return RunStepStreamEventVariant0Event.threadRunStepCreated;
+      default:
+        throw ArgumentError('Unknown RunStepStreamEventVariant0Event: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStepStreamEventVariant0Event.threadRunStepCreated: return 'thread.run.step.created';
+      case RunStepStreamEventVariant0Event.threadRunStepCreated:
+        return 'thread.run.step.created';
     }
   }
 
@@ -140,14 +160,17 @@ enum RunStepStreamEventVariant1Event {
 
   static RunStepStreamEventVariant1Event fromJson(String value) {
     switch (value) {
-      case 'thread.run.step.in_progress': return RunStepStreamEventVariant1Event.threadRunStepInProgress;
-      default: throw ArgumentError('Unknown RunStepStreamEventVariant1Event: $value');
+      case 'thread.run.step.in_progress':
+        return RunStepStreamEventVariant1Event.threadRunStepInProgress;
+      default:
+        throw ArgumentError('Unknown RunStepStreamEventVariant1Event: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStepStreamEventVariant1Event.threadRunStepInProgress: return 'thread.run.step.in_progress';
+      case RunStepStreamEventVariant1Event.threadRunStepInProgress:
+        return 'thread.run.step.in_progress';
     }
   }
 
@@ -160,14 +183,17 @@ enum RunStepStreamEventVariant2Event {
 
   static RunStepStreamEventVariant2Event fromJson(String value) {
     switch (value) {
-      case 'thread.run.step.delta': return RunStepStreamEventVariant2Event.threadRunStepDelta;
-      default: throw ArgumentError('Unknown RunStepStreamEventVariant2Event: $value');
+      case 'thread.run.step.delta':
+        return RunStepStreamEventVariant2Event.threadRunStepDelta;
+      default:
+        throw ArgumentError('Unknown RunStepStreamEventVariant2Event: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStepStreamEventVariant2Event.threadRunStepDelta: return 'thread.run.step.delta';
+      case RunStepStreamEventVariant2Event.threadRunStepDelta:
+        return 'thread.run.step.delta';
     }
   }
 
@@ -180,14 +206,17 @@ enum RunStepStreamEventVariant3Event {
 
   static RunStepStreamEventVariant3Event fromJson(String value) {
     switch (value) {
-      case 'thread.run.step.completed': return RunStepStreamEventVariant3Event.threadRunStepCompleted;
-      default: throw ArgumentError('Unknown RunStepStreamEventVariant3Event: $value');
+      case 'thread.run.step.completed':
+        return RunStepStreamEventVariant3Event.threadRunStepCompleted;
+      default:
+        throw ArgumentError('Unknown RunStepStreamEventVariant3Event: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStepStreamEventVariant3Event.threadRunStepCompleted: return 'thread.run.step.completed';
+      case RunStepStreamEventVariant3Event.threadRunStepCompleted:
+        return 'thread.run.step.completed';
     }
   }
 
@@ -200,14 +229,17 @@ enum RunStepStreamEventVariant4Event {
 
   static RunStepStreamEventVariant4Event fromJson(String value) {
     switch (value) {
-      case 'thread.run.step.failed': return RunStepStreamEventVariant4Event.threadRunStepFailed;
-      default: throw ArgumentError('Unknown RunStepStreamEventVariant4Event: $value');
+      case 'thread.run.step.failed':
+        return RunStepStreamEventVariant4Event.threadRunStepFailed;
+      default:
+        throw ArgumentError('Unknown RunStepStreamEventVariant4Event: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStepStreamEventVariant4Event.threadRunStepFailed: return 'thread.run.step.failed';
+      case RunStepStreamEventVariant4Event.threadRunStepFailed:
+        return 'thread.run.step.failed';
     }
   }
 
@@ -220,14 +252,17 @@ enum RunStepStreamEventVariant5Event {
 
   static RunStepStreamEventVariant5Event fromJson(String value) {
     switch (value) {
-      case 'thread.run.step.cancelled': return RunStepStreamEventVariant5Event.threadRunStepCancelled;
-      default: throw ArgumentError('Unknown RunStepStreamEventVariant5Event: $value');
+      case 'thread.run.step.cancelled':
+        return RunStepStreamEventVariant5Event.threadRunStepCancelled;
+      default:
+        throw ArgumentError('Unknown RunStepStreamEventVariant5Event: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStepStreamEventVariant5Event.threadRunStepCancelled: return 'thread.run.step.cancelled';
+      case RunStepStreamEventVariant5Event.threadRunStepCancelled:
+        return 'thread.run.step.cancelled';
     }
   }
 
@@ -240,14 +275,17 @@ enum RunStepStreamEventVariant6Event {
 
   static RunStepStreamEventVariant6Event fromJson(String value) {
     switch (value) {
-      case 'thread.run.step.expired': return RunStepStreamEventVariant6Event.threadRunStepExpired;
-      default: throw ArgumentError('Unknown RunStepStreamEventVariant6Event: $value');
+      case 'thread.run.step.expired':
+        return RunStepStreamEventVariant6Event.threadRunStepExpired;
+      default:
+        throw ArgumentError('Unknown RunStepStreamEventVariant6Event: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStepStreamEventVariant6Event.threadRunStepExpired: return 'thread.run.step.expired';
+      case RunStepStreamEventVariant6Event.threadRunStepExpired:
+        return 'thread.run.step.expired';
     }
   }
 
@@ -260,14 +298,17 @@ enum RunStreamEventVariant0Event {
 
   static RunStreamEventVariant0Event fromJson(String value) {
     switch (value) {
-      case 'thread.run.created': return RunStreamEventVariant0Event.threadRunCreated;
-      default: throw ArgumentError('Unknown RunStreamEventVariant0Event: $value');
+      case 'thread.run.created':
+        return RunStreamEventVariant0Event.threadRunCreated;
+      default:
+        throw ArgumentError('Unknown RunStreamEventVariant0Event: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStreamEventVariant0Event.threadRunCreated: return 'thread.run.created';
+      case RunStreamEventVariant0Event.threadRunCreated:
+        return 'thread.run.created';
     }
   }
 

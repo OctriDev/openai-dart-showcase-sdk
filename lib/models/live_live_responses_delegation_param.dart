@@ -8,28 +8,50 @@ part of 'live_live_responses.dart';
 class LiveResponsesDelegationParam implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The delegation owner. Always `responses` for tasks handled by the Responses API.
   final LiveResponsesDelegationParamType type_;
+
   /// Backend model, prompt, and tools used when the Live session delegates a task to Responses.
   final LiveResponsesDelegationSettingsInputParam responses;
 
-  const LiveResponsesDelegationParam({required this.type_, required this.responses});
+  const LiveResponsesDelegationParam(
+      {required this.type_, required this.responses});
 
-  LiveResponsesDelegationParam Function({LiveResponsesDelegationParamType type_, LiveResponsesDelegationSettingsInputParam responses}) get copyWith => _copyWith;
+  LiveResponsesDelegationParam Function(
+          {LiveResponsesDelegationParamType type_,
+          LiveResponsesDelegationSettingsInputParam responses})
+      get copyWith => _copyWith;
 
-  LiveResponsesDelegationParam _copyWith({Object? type_ = sdkOmittedValue, Object? responses = sdkOmittedValue}) => LiveResponsesDelegationParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveResponsesDelegationParamType,
-    responses: identical(responses, sdkOmittedValue) ? this.responses : responses as LiveResponsesDelegationSettingsInputParam,
-  );
+  LiveResponsesDelegationParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? responses = sdkOmittedValue}) =>
+      LiveResponsesDelegationParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveResponsesDelegationParamType,
+        responses: identical(responses, sdkOmittedValue)
+            ? this.responses
+            : responses as LiveResponsesDelegationSettingsInputParam,
+      );
 
-  factory LiveResponsesDelegationParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(LiveResponsesDelegationParam(
-    type_: (json['type'] != null ? LiveResponsesDelegationParamType.fromJson(json['type'] as String) : null)!,
-    responses: (json['responses'] != null ? LiveResponsesDelegationSettingsInputParam.fromJson(json['responses'] as Map<String, dynamic>) : null)!,
-  ), json);
+  factory LiveResponsesDelegationParam.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          LiveResponsesDelegationParam(
+            type_: (json['type'] != null
+                ? LiveResponsesDelegationParamType.fromJson(
+                    json['type'] as String)
+                : null)!,
+            responses: (json['responses'] != null
+                ? LiveResponsesDelegationSettingsInputParam.fromJson(
+                    json['responses'] as Map<String, dynamic>)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'responses': responses.toJson(),
-  };
+        'type': type_.toJson(),
+        'responses': responses.toJson(),
+      };
 }

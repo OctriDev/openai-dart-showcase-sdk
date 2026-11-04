@@ -8,6 +8,7 @@ part of 'agents_session_spend.dart';
 class SessionSpendControlParam implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Positive USD cents, or null to remove the limit.
   final int? limit;
 
@@ -15,46 +16,68 @@ class SessionSpendControlParam implements SdkJsonModel {
 
   SessionSpendControlParam Function({int? limit}) get copyWith => _copyWith;
 
-  SessionSpendControlParam _copyWith({Object? limit = sdkOmittedValue}) => SessionSpendControlParam(
-    limit: identical(limit, sdkOmittedValue) ? this.limit : limit as int?,
-  );
+  SessionSpendControlParam _copyWith({Object? limit = sdkOmittedValue}) =>
+      SessionSpendControlParam(
+        limit: identical(limit, sdkOmittedValue) ? this.limit : limit as int?,
+      );
 
-  factory SessionSpendControlParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(SessionSpendControlParam(
-    limit: json.containsKey('limit') ? (json['limit'] as num?)?.toInt() : throw ArgumentError.value(null, 'limit', 'Required property is missing'),
-  ), json);
+  factory SessionSpendControlParam.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          SessionSpendControlParam(
+            limit: json.containsKey('limit')
+                ? (json['limit'] as num?)?.toInt()
+                : throw ArgumentError.value(
+                    null, 'limit', 'Required property is missing'),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'limit': limit,
-  };
+        'limit': limit,
+      };
 }
 
 /// Session-wide spending control, present only when a limit is configured.
 class SessionSpendControlResource implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The configured positive limit in USD cents.
   final int limit;
+
   /// Best-effort recorded spend floored to whole USD cents, or null when unavailable.
   final int? consumed;
 
-  const SessionSpendControlResource({required this.limit, required this.consumed});
+  const SessionSpendControlResource(
+      {required this.limit, required this.consumed});
 
-  SessionSpendControlResource Function({int limit, int? consumed}) get copyWith => _copyWith;
+  SessionSpendControlResource Function({int limit, int? consumed})
+      get copyWith => _copyWith;
 
-  SessionSpendControlResource _copyWith({Object? limit = sdkOmittedValue, Object? consumed = sdkOmittedValue}) => SessionSpendControlResource(
-    limit: identical(limit, sdkOmittedValue) ? this.limit : limit as int,
-    consumed: identical(consumed, sdkOmittedValue) ? this.consumed : consumed as int?,
-  );
+  SessionSpendControlResource _copyWith(
+          {Object? limit = sdkOmittedValue,
+          Object? consumed = sdkOmittedValue}) =>
+      SessionSpendControlResource(
+        limit: identical(limit, sdkOmittedValue) ? this.limit : limit as int,
+        consumed: identical(consumed, sdkOmittedValue)
+            ? this.consumed
+            : consumed as int?,
+      );
 
-  factory SessionSpendControlResource.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(SessionSpendControlResource(
-    limit: ((json['limit'] as num?)?.toInt())!,
-    consumed: json.containsKey('consumed') ? (json['consumed'] as num?)?.toInt() : throw ArgumentError.value(null, 'consumed', 'Required property is missing'),
-  ), json);
+  factory SessionSpendControlResource.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          SessionSpendControlResource(
+            limit: ((json['limit'] as num?)?.toInt())!,
+            consumed: json.containsKey('consumed')
+                ? (json['consumed'] as num?)?.toInt()
+                : throw ArgumentError.value(
+                    null, 'consumed', 'Required property is missing'),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'limit': limit,
-    'consumed': consumed,
-  };
+        'limit': limit,
+        'consumed': consumed,
+      };
 }

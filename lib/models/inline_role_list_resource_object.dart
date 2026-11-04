@@ -6,39 +6,49 @@ part of 'inline.dart';
 // Inline operation models
 /// Always `list`.
 final class RoleListResourceObject {
-
   final String value;
 
   const RoleListResourceObject._(this.value);
 
-  factory RoleListResourceObject.fromJson(String value) => RoleListResourceObject._(value);
+  factory RoleListResourceObject.fromJson(String value) =>
+      RoleListResourceObject._(value);
 
   static const list = RoleListResourceObject._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RoleListResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RoleListResourceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the object. Always `client_secret_basic`.
 enum RotateMcpOauthTokenEndpointAuthParamClientSecretBasicType {
   clientSecretBasic;
 
-  static RotateMcpOauthTokenEndpointAuthParamClientSecretBasicType fromJson(String value) {
+  static RotateMcpOauthTokenEndpointAuthParamClientSecretBasicType fromJson(
+      String value) {
     switch (value) {
-      case 'client_secret_basic': return RotateMcpOauthTokenEndpointAuthParamClientSecretBasicType.clientSecretBasic;
-      default: throw ArgumentError('Unknown RotateMcpOauthTokenEndpointAuthParamClientSecretBasicType: $value');
+      case 'client_secret_basic':
+        return RotateMcpOauthTokenEndpointAuthParamClientSecretBasicType
+            .clientSecretBasic;
+      default:
+        throw ArgumentError(
+            'Unknown RotateMcpOauthTokenEndpointAuthParamClientSecretBasicType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RotateMcpOauthTokenEndpointAuthParamClientSecretBasicType.clientSecretBasic: return 'client_secret_basic';
+      case RotateMcpOauthTokenEndpointAuthParamClientSecretBasicType
+            .clientSecretBasic:
+        return 'client_secret_basic';
     }
   }
 
@@ -50,16 +60,23 @@ enum RotateMcpOauthTokenEndpointAuthParamClientSecretBasicType {
 enum RotateMcpOauthTokenEndpointAuthParamClientSecretPostType {
   clientSecretPost;
 
-  static RotateMcpOauthTokenEndpointAuthParamClientSecretPostType fromJson(String value) {
+  static RotateMcpOauthTokenEndpointAuthParamClientSecretPostType fromJson(
+      String value) {
     switch (value) {
-      case 'client_secret_post': return RotateMcpOauthTokenEndpointAuthParamClientSecretPostType.clientSecretPost;
-      default: throw ArgumentError('Unknown RotateMcpOauthTokenEndpointAuthParamClientSecretPostType: $value');
+      case 'client_secret_post':
+        return RotateMcpOauthTokenEndpointAuthParamClientSecretPostType
+            .clientSecretPost;
+      default:
+        throw ArgumentError(
+            'Unknown RotateMcpOauthTokenEndpointAuthParamClientSecretPostType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RotateMcpOauthTokenEndpointAuthParamClientSecretPostType.clientSecretPost: return 'client_secret_post';
+      case RotateMcpOauthTokenEndpointAuthParamClientSecretPostType
+            .clientSecretPost:
+        return 'client_secret_post';
     }
   }
 
@@ -71,16 +88,23 @@ enum RotateMcpOauthTokenEndpointAuthParamClientSecretPostType {
 enum RotateVaultCredentialAuthParamEnvironmentVariableType {
   environmentVariable;
 
-  static RotateVaultCredentialAuthParamEnvironmentVariableType fromJson(String value) {
+  static RotateVaultCredentialAuthParamEnvironmentVariableType fromJson(
+      String value) {
     switch (value) {
-      case 'environment_variable': return RotateVaultCredentialAuthParamEnvironmentVariableType.environmentVariable;
-      default: throw ArgumentError('Unknown RotateVaultCredentialAuthParamEnvironmentVariableType: $value');
+      case 'environment_variable':
+        return RotateVaultCredentialAuthParamEnvironmentVariableType
+            .environmentVariable;
+      default:
+        throw ArgumentError(
+            'Unknown RotateVaultCredentialAuthParamEnvironmentVariableType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RotateVaultCredentialAuthParamEnvironmentVariableType.environmentVariable: return 'environment_variable';
+      case RotateVaultCredentialAuthParamEnvironmentVariableType
+            .environmentVariable:
+        return 'environment_variable';
     }
   }
 
@@ -94,14 +118,18 @@ enum RotateVaultCredentialAuthParamMcpOauthType {
 
   static RotateVaultCredentialAuthParamMcpOauthType fromJson(String value) {
     switch (value) {
-      case 'mcp_oauth': return RotateVaultCredentialAuthParamMcpOauthType.mcpOauth;
-      default: throw ArgumentError('Unknown RotateVaultCredentialAuthParamMcpOauthType: $value');
+      case 'mcp_oauth':
+        return RotateVaultCredentialAuthParamMcpOauthType.mcpOauth;
+      default:
+        throw ArgumentError(
+            'Unknown RotateVaultCredentialAuthParamMcpOauthType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RotateVaultCredentialAuthParamMcpOauthType.mcpOauth: return 'mcp_oauth';
+      case RotateVaultCredentialAuthParamMcpOauthType.mcpOauth:
+        return 'mcp_oauth';
     }
   }
 
@@ -115,14 +143,18 @@ enum RotateVaultCredentialAuthParamStaticBearerType {
 
   static RotateVaultCredentialAuthParamStaticBearerType fromJson(String value) {
     switch (value) {
-      case 'static_bearer': return RotateVaultCredentialAuthParamStaticBearerType.staticBearer;
-      default: throw ArgumentError('Unknown RotateVaultCredentialAuthParamStaticBearerType: $value');
+      case 'static_bearer':
+        return RotateVaultCredentialAuthParamStaticBearerType.staticBearer;
+      default:
+        throw ArgumentError(
+            'Unknown RotateVaultCredentialAuthParamStaticBearerType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RotateVaultCredentialAuthParamStaticBearerType.staticBearer: return 'static_bearer';
+      case RotateVaultCredentialAuthParamStaticBearerType.staticBearer:
+        return 'static_bearer';
     }
   }
 
@@ -132,52 +164,60 @@ enum RotateVaultCredentialAuthParamStaticBearerType {
 
 /// The reason why the run is incomplete. This will point to which specific token limit was reached over the course of the run.
 final class RunObjectIncompleteDetailsReason {
-
   final String value;
 
   const RunObjectIncompleteDetailsReason._(this.value);
 
-  factory RunObjectIncompleteDetailsReason.fromJson(String value) => RunObjectIncompleteDetailsReason._(value);
+  factory RunObjectIncompleteDetailsReason.fromJson(String value) =>
+      RunObjectIncompleteDetailsReason._(value);
 
-  static const maxCompletionTokens = RunObjectIncompleteDetailsReason._('max_completion_tokens');
-  static const maxPromptTokens = RunObjectIncompleteDetailsReason._('max_prompt_tokens');
+  static const maxCompletionTokens =
+      RunObjectIncompleteDetailsReason._('max_completion_tokens');
+  static const maxPromptTokens =
+      RunObjectIncompleteDetailsReason._('max_prompt_tokens');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RunObjectIncompleteDetailsReason && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RunObjectIncompleteDetailsReason && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// One of `server_error`, `rate_limit_exceeded`, or `invalid_prompt`.
 final class RunObjectLastErrorCode {
-
   final String value;
 
   const RunObjectLastErrorCode._(this.value);
 
-  factory RunObjectLastErrorCode.fromJson(String value) => RunObjectLastErrorCode._(value);
+  factory RunObjectLastErrorCode.fromJson(String value) =>
+      RunObjectLastErrorCode._(value);
 
   static const serverError = RunObjectLastErrorCode._('server_error');
-  static const rateLimitExceeded = RunObjectLastErrorCode._('rate_limit_exceeded');
+  static const rateLimitExceeded =
+      RunObjectLastErrorCode._('rate_limit_exceeded');
   static const invalidPrompt = RunObjectLastErrorCode._('invalid_prompt');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RunObjectLastErrorCode && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RunObjectLastErrorCode && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type, which is always `thread.run`.
 final class RunObjectObject {
-
   final String value;
 
   const RunObjectObject._(this.value);
@@ -188,38 +228,44 @@ final class RunObjectObject {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RunObjectObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RunObjectObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// For now, this is always `submit_tool_outputs`.
 final class RunObjectRequiredActionType {
-
   final String value;
 
   const RunObjectRequiredActionType._(this.value);
 
-  factory RunObjectRequiredActionType.fromJson(String value) => RunObjectRequiredActionType._(value);
+  factory RunObjectRequiredActionType.fromJson(String value) =>
+      RunObjectRequiredActionType._(value);
 
-  static const submitToolOutputs = RunObjectRequiredActionType._('submit_tool_outputs');
+  static const submitToolOutputs =
+      RunObjectRequiredActionType._('submit_tool_outputs');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RunObjectRequiredActionType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RunObjectRequiredActionType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The status of the run, which can be either `queued`, `in_progress`, `requires_action`, `cancelling`, `cancelled`, `failed`, `completed`, `incomplete`, or `expired`.
 final class RunObjectStatus {
-
   final String value;
 
   const RunObjectStatus._(this.value);
@@ -238,49 +284,61 @@ final class RunObjectStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RunObjectStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RunObjectStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type, which is always `thread.run.step.delta`.
 final class RunStepDeltaObjectObject {
-
   final String value;
 
   const RunStepDeltaObjectObject._(this.value);
 
-  factory RunStepDeltaObjectObject.fromJson(String value) => RunStepDeltaObjectObject._(value);
+  factory RunStepDeltaObjectObject.fromJson(String value) =>
+      RunStepDeltaObjectObject._(value);
 
-  static const threadRunStepDelta = RunStepDeltaObjectObject._('thread.run.step.delta');
+  static const threadRunStepDelta =
+      RunStepDeltaObjectObject._('thread.run.step.delta');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RunStepDeltaObjectObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RunStepDeltaObjectObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Always `message_creation`.
 enum RunStepDeltaStepDetailsMessageCreationObjectType {
   messageCreation;
 
-  static RunStepDeltaStepDetailsMessageCreationObjectType fromJson(String value) {
+  static RunStepDeltaStepDetailsMessageCreationObjectType fromJson(
+      String value) {
     switch (value) {
-      case 'message_creation': return RunStepDeltaStepDetailsMessageCreationObjectType.messageCreation;
-      default: throw ArgumentError('Unknown RunStepDeltaStepDetailsMessageCreationObjectType: $value');
+      case 'message_creation':
+        return RunStepDeltaStepDetailsMessageCreationObjectType.messageCreation;
+      default:
+        throw ArgumentError(
+            'Unknown RunStepDeltaStepDetailsMessageCreationObjectType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStepDeltaStepDetailsMessageCreationObjectType.messageCreation: return 'message_creation';
+      case RunStepDeltaStepDetailsMessageCreationObjectType.messageCreation:
+        return 'message_creation';
     }
   }
 

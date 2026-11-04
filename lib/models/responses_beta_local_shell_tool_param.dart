@@ -8,23 +8,33 @@ part of 'responses_beta_local.dart';
 class BetaLocalShellToolParam implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the local shell tool. Always `local_shell`.
   final BetaLocalShellToolParamType type_;
 
   const BetaLocalShellToolParam({required this.type_});
 
-  BetaLocalShellToolParam Function({BetaLocalShellToolParamType type_}) get copyWith => _copyWith;
+  BetaLocalShellToolParam Function({BetaLocalShellToolParamType type_})
+      get copyWith => _copyWith;
 
-  BetaLocalShellToolParam _copyWith({Object? type_ = sdkOmittedValue}) => BetaLocalShellToolParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaLocalShellToolParamType,
-  );
+  BetaLocalShellToolParam _copyWith({Object? type_ = sdkOmittedValue}) =>
+      BetaLocalShellToolParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaLocalShellToolParamType,
+      );
 
-  factory BetaLocalShellToolParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(BetaLocalShellToolParam(
-    type_: (json['type'] != null ? BetaLocalShellToolParamType.fromJson(json['type'] as String) : null)!,
-  ), json);
+  factory BetaLocalShellToolParam.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          BetaLocalShellToolParam(
+            type_: (json['type'] != null
+                ? BetaLocalShellToolParamType.fromJson(json['type'] as String)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }

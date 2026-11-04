@@ -8,6 +8,7 @@ part of 'skills.dart';
 class CreateSkillBody implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Skill files to upload (directory upload) or a single zip file.
   final List<List<int>> files;
 
@@ -15,16 +16,23 @@ class CreateSkillBody implements SdkJsonModel {
 
   CreateSkillBody Function({List<List<int>> files}) get copyWith => _copyWith;
 
-  CreateSkillBody _copyWith({Object? files = sdkOmittedValue}) => CreateSkillBody(
-    files: identical(files, sdkOmittedValue) ? this.files : files as List<List<int>>,
-  );
+  CreateSkillBody _copyWith({Object? files = sdkOmittedValue}) =>
+      CreateSkillBody(
+        files: identical(files, sdkOmittedValue)
+            ? this.files
+            : files as List<List<int>>,
+      );
 
-  factory CreateSkillBody.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(CreateSkillBody(
-    files: ((json['files'] as List?)?.map((e) => base64Decode(e as String)).toList())!,
-  ), json);
+  factory CreateSkillBody.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      CreateSkillBody(
+        files: ((json['files'] as List?)
+            ?.map((e) => base64Decode(e as String))
+            .toList())!,
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'files': files.map(base64Encode).toList(),
-  };
+        'files': files.map(base64Encode).toList(),
+      };
 }

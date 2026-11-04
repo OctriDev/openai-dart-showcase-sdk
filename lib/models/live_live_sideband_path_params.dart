@@ -8,6 +8,7 @@ part of 'live_live_sideband.dart';
 class LiveSidebandPathParams implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the existing Live session to attach to.
   final String sessionId;
 
@@ -15,16 +16,22 @@ class LiveSidebandPathParams implements SdkJsonModel {
 
   LiveSidebandPathParams Function({String sessionId}) get copyWith => _copyWith;
 
-  LiveSidebandPathParams _copyWith({Object? sessionId = sdkOmittedValue}) => LiveSidebandPathParams(
-    sessionId: identical(sessionId, sdkOmittedValue) ? this.sessionId : sessionId as String,
-  );
+  LiveSidebandPathParams _copyWith({Object? sessionId = sdkOmittedValue}) =>
+      LiveSidebandPathParams(
+        sessionId: identical(sessionId, sdkOmittedValue)
+            ? this.sessionId
+            : sessionId as String,
+      );
 
-  factory LiveSidebandPathParams.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(LiveSidebandPathParams(
-    sessionId: (json['session_id'] as String?)!,
-  ), json);
+  factory LiveSidebandPathParams.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          LiveSidebandPathParams(
+            sessionId: (json['session_id'] as String?)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'session_id': sessionId,
-  };
+        'session_id': sessionId,
+      };
 }

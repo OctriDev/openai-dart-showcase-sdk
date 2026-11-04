@@ -36,12 +36,17 @@ Future<RunGraderResponse> runGrader(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'runGrader',
-          fromJsonRaw: (value) => RunGraderResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              RunGraderResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Validates a grader definition without running it against a model sample. Supply a `grader` that matches one of the supported grader types to receive the validated definition.
 ///
@@ -57,12 +62,17 @@ Future<ValidateGraderResponse> validateGrader(ClientConfig config,
           body: {'grader': grader},
           decoder: SdkResponseDecoder.json,
           operationId: 'validateGrader',
-          fromJsonRaw: (value) => ValidateGraderResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ValidateGraderResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Lists permissions for a fine-tuned model checkpoint. Use `project_id` to filter permissions by project and `after` to continue from a permission ID; this endpoint requires an admin API key.
 ///
@@ -81,26 +91,36 @@ Future<ListFineTuningCheckpointPermissionResponse>
         SdkOptional<String> projectId = const SdkOmitted(),
         SdkOptional<String> after = const SdkOmitted(),
         SdkOptional<int> limit = const SdkOmitted(),
-        SdkOptional<ListFineTuningCheckpointPermissionsOrder> order = const SdkOmitted(),
+        SdkOptional<ListFineTuningCheckpointPermissionsOrder> order =
+            const SdkOmitted(),
         RequestOptions? requestOptions}) async {
   return (await sdkRequest<ListFineTuningCheckpointPermissionResponse>('GET',
           '/fine_tuning/checkpoints/${Uri.encodeComponent(fineTunedModelCheckpoint.toString())}/permissions',
           config: config,
           query: {
-            'project_id': SdkQueryValue(SdkUtils.unwrapOptional(projectId), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true)
+            'project_id': SdkQueryValue(SdkUtils.unwrapOptional(projectId),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listFineTuningCheckpointPermissions',
-          fromJsonRaw: (value) => ListFineTuningCheckpointPermissionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListFineTuningCheckpointPermissionResponse.fromJson(
+                  value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists permissions for a fine-tuned model checkpoint. Use `project_id` to filter permissions by project and `after` to continue from a permission ID; this endpoint requires an admin API key.
 ///
@@ -113,13 +133,34 @@ Future<ListFineTuningCheckpointPermissionResponse>
 ///   request.
 /// [limit] Number of permissions to retrieve.
 /// [order] The order in which to retrieve permissions.
-Stream<FineTuningCheckpointPermission> listFineTuningCheckpointPermissionsPaginated(ClientConfig config, {required String fineTunedModelCheckpoint, String? projectId, String? after, int? limit, ListFineTuningCheckpointPermissionsOrder? order, RequestOptions? requestOptions}) async* {
+Stream<FineTuningCheckpointPermission>
+    listFineTuningCheckpointPermissionsPaginated(ClientConfig config,
+        {required String fineTunedModelCheckpoint,
+        String? projectId,
+        String? after,
+        int? limit,
+        ListFineTuningCheckpointPermissionsOrder? order,
+        RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listFineTuningCheckpointPermissions(config, fineTunedModelCheckpoint: fineTunedModelCheckpoint, projectId: projectId == null ? const SdkOmitted<String>() : SdkPresent<String>(projectId), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListFineTuningCheckpointPermissionsOrder>() : SdkPresent<ListFineTuningCheckpointPermissionsOrder>(order), requestOptions: requestOptions);
+    final sdkPage = await listFineTuningCheckpointPermissions(config,
+        fineTunedModelCheckpoint: fineTunedModelCheckpoint,
+        projectId: projectId == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(projectId),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<ListFineTuningCheckpointPermissionsOrder>()
+            : SdkPresent<ListFineTuningCheckpointPermissionsOrder>(order),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
     if (sdkNext == null) return;
@@ -127,10 +168,31 @@ Stream<FineTuningCheckpointPermission> listFineTuningCheckpointPermissionsPagina
   }
 }
 
-Stream<SdkPage<ListFineTuningCheckpointPermissionResponse, FineTuningCheckpointPermission>> listFineTuningCheckpointPermissionsPages(ClientConfig config, {required String fineTunedModelCheckpoint, String? projectId, String? after, int? limit, ListFineTuningCheckpointPermissionsOrder? order, RequestOptions? requestOptions}) async* {
+Stream<
+        SdkPage<ListFineTuningCheckpointPermissionResponse,
+            FineTuningCheckpointPermission>>
+    listFineTuningCheckpointPermissionsPages(ClientConfig config,
+        {required String fineTunedModelCheckpoint,
+        String? projectId,
+        String? after,
+        int? limit,
+        ListFineTuningCheckpointPermissionsOrder? order,
+        RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listFineTuningCheckpointPermissions(config, fineTunedModelCheckpoint: fineTunedModelCheckpoint, projectId: projectId == null ? const SdkOmitted<String>() : SdkPresent<String>(projectId), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListFineTuningCheckpointPermissionsOrder>() : SdkPresent<ListFineTuningCheckpointPermissionsOrder>(order), requestOptions: requestOptions);
+    final sdkPage = await listFineTuningCheckpointPermissions(config,
+        fineTunedModelCheckpoint: fineTunedModelCheckpoint,
+        projectId: projectId == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(projectId),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<ListFineTuningCheckpointPermissionsOrder>()
+            : SdkPresent<ListFineTuningCheckpointPermissionsOrder>(order),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
@@ -140,7 +202,6 @@ Stream<SdkPage<ListFineTuningCheckpointPermissionResponse, FineTuningCheckpointP
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Creates permissions that let other projects in the organization access a fine-tuned model checkpoint. Supply the target project IDs in `project_ids`; this operation requires an admin API key.
 ///
@@ -160,12 +221,20 @@ Future<ListFineTuningCheckpointPermissionResponse>
           body: {'project_ids': projectIds},
           decoder: SdkResponseDecoder.json,
           operationId: 'createFineTuningCheckpointPermission',
-          fromJsonRaw: (value) => ListFineTuningCheckpointPermissionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListFineTuningCheckpointPermissionResponse.fromJson(
+                  value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a permission for a fine-tuned model checkpoint. Use an admin API key as an organization owner, and provide both identifiers to target the permission. The response confirms whether the permission was deleted.
 ///
@@ -180,17 +249,23 @@ Future<DeleteFineTuningCheckpointPermissionResponse>
         {required String fineTunedModelCheckpoint,
         required String permissionId,
         RequestOptions? requestOptions}) async {
-  return (await sdkRequest<DeleteFineTuningCheckpointPermissionResponse>('DELETE',
+  return (await sdkRequest<DeleteFineTuningCheckpointPermissionResponse>(
+          'DELETE',
           '/fine_tuning/checkpoints/${Uri.encodeComponent(fineTunedModelCheckpoint.toString())}/permissions/${Uri.encodeComponent(permissionId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteFineTuningCheckpointPermission',
-          fromJsonRaw: (value) => DeleteFineTuningCheckpointPermissionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeleteFineTuningCheckpointPermissionResponse.fromJson(
+                  value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Creates and queues a fine-tuning job to train a model on a dataset. Supply `model` and `training_file`, and optionally configure the training method, validation data, integrations, and metadata. The job runs asynchronously; retrieve it with GET /fine_tuning/jobs/{fine_tuning_job_id} to check its status.
 ///
@@ -242,10 +317,12 @@ Future<DeleteFineTuningCheckpointPermissionResponse>
 Future<FineTuningJob> createFineTuningJob(ClientConfig config,
     {required String model,
     required String trainingFile,
-    SdkOptional<CreateFineTuningJobRequestHyperparameters> hyperparameters = const SdkOmitted(),
+    SdkOptional<CreateFineTuningJobRequestHyperparameters> hyperparameters =
+        const SdkOmitted(),
     SdkOptional<String?> suffix = const SdkOmitted(),
     SdkOptional<String?> validationFile = const SdkOmitted(),
-    SdkOptional<List<CreateFineTuningJobRequestIntegrationsItem>?> integrations = const SdkOmitted(),
+    SdkOptional<List<CreateFineTuningJobRequestIntegrationsItem>?>
+        integrations = const SdkOmitted(),
     SdkOptional<int?> seed = const SdkOmitted(),
     SdkOptional<FineTuneMethod> method = const SdkOmitted(),
     SdkOptional<Map<String, dynamic>?> metadata = const SdkOmitted(),
@@ -278,12 +355,17 @@ Future<FineTuningJob> createFineTuningJob(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createFineTuningJob',
-          fromJsonRaw: (value) => FineTuningJob.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              FineTuningJob.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Lists fine-tuning jobs belonging to your organization. Use `after` to continue from the last job in a previous page, and use `limit` to control how many jobs to retrieve. You can filter jobs by metadata using the `metadata[k]=v` query syntax.
 ///
@@ -298,28 +380,36 @@ Future<FineTuningJob> createFineTuningJob(ClientConfig config,
 ///   literal query string `metadata=null`. Nullable caller types do not specify
 ///   how a client serializes null for a deep-object parameter. Use a raw query
 ///   parameter if the client omits null. Do not combine the two query forms.
-Future<ListPaginatedFineTuningJobsResponse>
-    listFineTuningJobs(ClientConfig config,
-        {SdkOptional<String> after = const SdkOmitted(),
-        SdkOptional<int> limit = const SdkOmitted(),
-        SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<ListPaginatedFineTuningJobsResponse> listFineTuningJobs(
+    ClientConfig config,
+    {SdkOptional<String> after = const SdkOmitted(),
+    SdkOptional<int> limit = const SdkOmitted(),
+    SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<ListPaginatedFineTuningJobsResponse>(
           'GET', '/fine_tuning/jobs',
           config: config,
           query: {
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'metadata': SdkQueryValue(SdkUtils.unwrapOptional(metadata), style: 'deepObject', explode: true)
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'metadata': SdkQueryValue(SdkUtils.unwrapOptional(metadata),
+                style: 'deepObject', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listFineTuningJobs',
-          fromJsonRaw: (value) => ListPaginatedFineTuningJobsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListPaginatedFineTuningJobsResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves details for a fine-tuning job. Use `fine_tuning_job_id` to identify the job whose status, model, and training details you need. The response includes result file IDs when they are available.
 ///
@@ -333,12 +423,15 @@ Future<FineTuningJob> retrieveFineTuningJob(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveFineTuningJob',
-          fromJsonRaw: (value) => FineTuningJob.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              FineTuningJob.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Cancels a fine-tuning job immediately. Use `fine_tuning_job_id` to identify the job you want to stop. The response returns the job object with its current status.
 ///
@@ -352,12 +445,16 @@ Future<FineTuningJob> cancelFineTuningJob(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'cancelFineTuningJob',
-          fromJsonRaw: (value) => FineTuningJob.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              FineTuningJob.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Lists checkpoints produced by a fine-tuning job. Use `fine_tuning_job_id` to select the job, and use `after` to continue from a checkpoint on a previous page. Set `limit` to control the number of checkpoints retrieved.
 ///
@@ -367,28 +464,36 @@ Future<FineTuningJob> cancelFineTuningJob(ClientConfig config,
 /// [after] Identifier for the last checkpoint ID from the previous pagination
 ///   request.
 /// [limit] Number of checkpoints to retrieve.
-Future<ListFineTuningJobCheckpointsResponse>
-    listFineTuningJobCheckpoints(ClientConfig config,
-        {required String fineTuningJobId,
-        SdkOptional<String> after = const SdkOmitted(),
-        SdkOptional<int> limit = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<ListFineTuningJobCheckpointsResponse> listFineTuningJobCheckpoints(
+    ClientConfig config,
+    {required String fineTuningJobId,
+    SdkOptional<String> after = const SdkOmitted(),
+    SdkOptional<int> limit = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<ListFineTuningJobCheckpointsResponse>('GET',
           '/fine_tuning/jobs/${Uri.encodeComponent(fineTuningJobId.toString())}/checkpoints',
           config: config,
           query: {
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true)
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listFineTuningJobCheckpoints',
-          fromJsonRaw: (value) => ListFineTuningJobCheckpointsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListFineTuningJobCheckpointsResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists checkpoints produced by a fine-tuning job. Use `fine_tuning_job_id` to select the job, and use `after` to continue from a checkpoint on a previous page. Set `limit` to control the number of checkpoints retrieved.
 ///
@@ -398,13 +503,26 @@ Future<ListFineTuningJobCheckpointsResponse>
 /// [after] Identifier for the last checkpoint ID from the previous pagination
 ///   request.
 /// [limit] Number of checkpoints to retrieve.
-Stream<FineTuningJobCheckpoint> listFineTuningJobCheckpointsPaginated(ClientConfig config, {required String fineTuningJobId, String? after, int? limit, RequestOptions? requestOptions}) async* {
+Stream<FineTuningJobCheckpoint> listFineTuningJobCheckpointsPaginated(
+    ClientConfig config,
+    {required String fineTuningJobId,
+    String? after,
+    int? limit,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listFineTuningJobCheckpoints(config, fineTuningJobId: fineTuningJobId, after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), requestOptions: requestOptions);
+    final sdkPage = await listFineTuningJobCheckpoints(config,
+        fineTuningJobId: fineTuningJobId,
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
     if (sdkNext == null) return;
@@ -412,10 +530,21 @@ Stream<FineTuningJobCheckpoint> listFineTuningJobCheckpointsPaginated(ClientConf
   }
 }
 
-Stream<SdkPage<ListFineTuningJobCheckpointsResponse, FineTuningJobCheckpoint>> listFineTuningJobCheckpointsPages(ClientConfig config, {required String fineTuningJobId, String? after, int? limit, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ListFineTuningJobCheckpointsResponse, FineTuningJobCheckpoint>>
+    listFineTuningJobCheckpointsPages(ClientConfig config,
+        {required String fineTuningJobId,
+        String? after,
+        int? limit,
+        RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listFineTuningJobCheckpoints(config, fineTuningJobId: fineTuningJobId, after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), requestOptions: requestOptions);
+    final sdkPage = await listFineTuningJobCheckpoints(config,
+        fineTuningJobId: fineTuningJobId,
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
@@ -426,7 +555,6 @@ Stream<SdkPage<ListFineTuningJobCheckpointsResponse, FineTuningJobCheckpoint>> l
   }
 }
 
-
 /// Lists status-update events for a fine-tuning job. Use `fine_tuning_job_id` to select the job, and use `after` to continue from an event on a previous page. Set `limit` to control the number of events retrieved.
 ///
 /// Get status updates for a fine-tuning job.
@@ -434,27 +562,36 @@ Stream<SdkPage<ListFineTuningJobCheckpointsResponse, FineTuningJobCheckpoint>> l
 /// [fineTuningJobId] The ID of the fine-tuning job to get events for.
 /// [after] Identifier for the last event from the previous pagination request.
 /// [limit] Number of events to retrieve.
-Future<ListFineTuningJobEventsResponse>
-    listFineTuningEvents(ClientConfig config,
-        {required String fineTuningJobId,
-        SdkOptional<String> after = const SdkOmitted(),
-        SdkOptional<int> limit = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<ListFineTuningJobEventsResponse> listFineTuningEvents(
+    ClientConfig config,
+    {required String fineTuningJobId,
+    SdkOptional<String> after = const SdkOmitted(),
+    SdkOptional<int> limit = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<ListFineTuningJobEventsResponse>('GET',
           '/fine_tuning/jobs/${Uri.encodeComponent(fineTuningJobId.toString())}/events',
           config: config,
           query: {
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true)
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listFineTuningEvents',
-          fromJsonRaw: (value) => ListFineTuningJobEventsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListFineTuningJobEventsResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Pauses a fine-tuning job that supports pausing. Use `fine_tuning_job_id` to identify the job you want to pause. The response returns the job object and its current status.
 ///
@@ -468,12 +605,16 @@ Future<FineTuningJob> pauseFineTuningJob(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'pauseFineTuningJob',
-          fromJsonRaw: (value) => FineTuningJob.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              FineTuningJob.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Resumes a paused fine-tuning job that supports resuming. Use `fine_tuning_job_id` to identify the job you want to resume. The response returns the job object and its current status.
 ///
@@ -487,8 +628,13 @@ Future<FineTuningJob> resumeFineTuningJob(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'resumeFineTuningJob',
-          fromJsonRaw: (value) => FineTuningJob.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              FineTuningJob.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

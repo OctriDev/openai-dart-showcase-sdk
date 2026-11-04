@@ -8,23 +8,33 @@ part of 'shared_chat.dart';
 class ChatSessionAutomaticThreadTitling implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Whether automatic thread titling is enabled.
   final bool enabled;
 
   const ChatSessionAutomaticThreadTitling({required this.enabled});
 
-  ChatSessionAutomaticThreadTitling Function({bool enabled}) get copyWith => _copyWith;
+  ChatSessionAutomaticThreadTitling Function({bool enabled}) get copyWith =>
+      _copyWith;
 
-  ChatSessionAutomaticThreadTitling _copyWith({Object? enabled = sdkOmittedValue}) => ChatSessionAutomaticThreadTitling(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as bool,
-  );
+  ChatSessionAutomaticThreadTitling _copyWith(
+          {Object? enabled = sdkOmittedValue}) =>
+      ChatSessionAutomaticThreadTitling(
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as bool,
+      );
 
-  factory ChatSessionAutomaticThreadTitling.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ChatSessionAutomaticThreadTitling(
-    enabled: (json['enabled'] as bool?)!,
-  ), json);
+  factory ChatSessionAutomaticThreadTitling.fromJson(
+          Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ChatSessionAutomaticThreadTitling(
+            enabled: (json['enabled'] as bool?)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'enabled': enabled,
-  };
+        'enabled': enabled,
+      };
 }

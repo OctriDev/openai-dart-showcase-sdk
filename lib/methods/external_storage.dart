@@ -26,33 +26,62 @@ Future<ExternalStorageListResource> listExternalStorage(ClientConfig config,
           'GET', '/organization/external_storage',
           config: config,
           query: {
-            'project_id': SdkQueryValue(SdkUtils.unwrapOptional(projectId), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true)
+            'project_id': SdkQueryValue(SdkUtils.unwrapOptional(projectId),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listExternalStorage',
-          fromJsonRaw: (value) => ExternalStorageListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ExternalStorageListResource.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists the organization's customer-managed external storage configurations. Use `project_id` to scope the results to a project, and `after` and `limit` to navigate the list. Set `order` to control the sort direction.
 ///
 /// List the organization's customer-managed external storage configurations.
 ///
 /// [after] Return external storage configurations after this ID.
-Stream<ExternalStorageResponse> listExternalStoragePaginated(ClientConfig config, {String? projectId, String? after, ExternalStorageOrder? order, int? limit, RequestOptions? requestOptions}) async* {
+Stream<ExternalStorageResponse> listExternalStoragePaginated(
+    ClientConfig config,
+    {String? projectId,
+    String? after,
+    ExternalStorageOrder? order,
+    int? limit,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listExternalStorage(config, projectId: projectId == null ? const SdkOmitted<String?>() : SdkPresent<String?>(projectId), after: sdkCursor == null ? const SdkOmitted<String?>() : SdkPresent<String?>(sdkCursor), order: order == null ? const SdkOmitted<ExternalStorageOrder>() : SdkPresent<ExternalStorageOrder>(order), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), requestOptions: requestOptions);
+    final sdkPage = await listExternalStorage(config,
+        projectId: projectId == null
+            ? const SdkOmitted<String?>()
+            : SdkPresent<String?>(projectId),
+        after: sdkCursor == null
+            ? const SdkOmitted<String?>()
+            : SdkPresent<String?>(sdkCursor),
+        order: order == null
+            ? const SdkOmitted<ExternalStorageOrder>()
+            : SdkPresent<ExternalStorageOrder>(order),
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -60,10 +89,27 @@ Stream<ExternalStorageResponse> listExternalStoragePaginated(ClientConfig config
   }
 }
 
-Stream<SdkPage<ExternalStorageListResource, ExternalStorageResponse>> listExternalStoragePages(ClientConfig config, {String? projectId, String? after, ExternalStorageOrder? order, int? limit, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ExternalStorageListResource, ExternalStorageResponse>>
+    listExternalStoragePages(ClientConfig config,
+        {String? projectId,
+        String? after,
+        ExternalStorageOrder? order,
+        int? limit,
+        RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listExternalStorage(config, projectId: projectId == null ? const SdkOmitted<String?>() : SdkPresent<String?>(projectId), after: sdkCursor == null ? const SdkOmitted<String?>() : SdkPresent<String?>(sdkCursor), order: order == null ? const SdkOmitted<ExternalStorageOrder>() : SdkPresent<ExternalStorageOrder>(order), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), requestOptions: requestOptions);
+    final sdkPage = await listExternalStorage(config,
+        projectId: projectId == null
+            ? const SdkOmitted<String?>()
+            : SdkPresent<String?>(projectId),
+        after: sdkCursor == null
+            ? const SdkOmitted<String?>()
+            : SdkPresent<String?>(sdkCursor),
+        order: order == null
+            ? const SdkOmitted<ExternalStorageOrder>()
+            : SdkPresent<ExternalStorageOrder>(order),
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -73,7 +119,6 @@ Stream<SdkPage<ExternalStorageListResource, ExternalStorageResponse>> listExtern
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Creates a customer-managed external storage configuration for a project. Supply `project_id` and a `provider` object containing the configuration fields required by the selected storage provider. The response includes the configuration's identifier, geography, and status.
 ///
@@ -92,12 +137,21 @@ Future<ExternalStorageResponse> createExternalStorage(ClientConfig config,
           body: {'project_id': projectId, 'provider': provider},
           decoder: SdkResponseDecoder.json,
           operationId: 'createExternalStorage',
-          fromJsonRaw: (value) => ExternalStorageResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ExternalStorageResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '503': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves one customer-managed external storage configuration. Use `external_storage_id` to identify the configuration you want to inspect.
 ///
@@ -109,29 +163,39 @@ Future<ExternalStorageResponse> retrieveExternalStorage(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveExternalStorage',
-          fromJsonRaw: (value) => ExternalStorageResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ExternalStorageResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Deletes a customer-managed external storage configuration. Use `external_storage_id` to identify the configuration to disconnect. Deleting a project's last configuration restores organization-default retention if customer-managed retention was active; cloud storage is unchanged.
 ///
 /// Disconnect a customer-managed external storage configuration. Removing the project's last configuration restores organization-default retention if customer-managed retention was active. Repeating a deletion also completes any interrupted retention update. Cloud storage is unchanged.
-Future<ExternalStorageDeletedResource> deleteExternalStorage(ClientConfig config,
-    {required String externalStorageId, RequestOptions? requestOptions}) async {
+Future<ExternalStorageDeletedResource> deleteExternalStorage(
+    ClientConfig config,
+    {required String externalStorageId,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<ExternalStorageDeletedResource>('DELETE',
           '/organization/external_storage/${Uri.encodeComponent(externalStorageId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteExternalStorage',
-          fromJsonRaw: (value) => ExternalStorageDeletedResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ExternalStorageDeletedResource.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Validates a customer-managed external storage configuration. Use `external_storage_id` to select the configuration whose provider setup you want to validate. The response returns the configuration and its status.
 ///
@@ -143,8 +207,14 @@ Future<ExternalStorageResponse> validateExternalStorage(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'validateExternalStorage',
-          fromJsonRaw: (value) => ExternalStorageResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ExternalStorageResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '503': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

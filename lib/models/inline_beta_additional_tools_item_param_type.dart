@@ -10,14 +10,17 @@ enum BetaAdditionalToolsItemParamType {
 
   static BetaAdditionalToolsItemParamType fromJson(String value) {
     switch (value) {
-      case 'additional_tools': return BetaAdditionalToolsItemParamType.additionalTools;
-      default: throw ArgumentError('Unknown BetaAdditionalToolsItemParamType: $value');
+      case 'additional_tools':
+        return BetaAdditionalToolsItemParamType.additionalTools;
+      default:
+        throw ArgumentError('Unknown BetaAdditionalToolsItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaAdditionalToolsItemParamType.additionalTools: return 'additional_tools';
+      case BetaAdditionalToolsItemParamType.additionalTools:
+        return 'additional_tools';
     }
   }
 
@@ -31,14 +34,17 @@ enum BetaAgentMessageType {
 
   static BetaAgentMessageType fromJson(String value) {
     switch (value) {
-      case 'agent_message': return BetaAgentMessageType.agentMessage;
-      default: throw ArgumentError('Unknown BetaAgentMessageType: $value');
+      case 'agent_message':
+        return BetaAgentMessageType.agentMessage;
+      default:
+        throw ArgumentError('Unknown BetaAgentMessageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaAgentMessageType.agentMessage: return 'agent_message';
+      case BetaAgentMessageType.agentMessage:
+        return 'agent_message';
     }
   }
 
@@ -52,14 +58,17 @@ enum BetaAgentMessageItemParamType {
 
   static BetaAgentMessageItemParamType fromJson(String value) {
     switch (value) {
-      case 'agent_message': return BetaAgentMessageItemParamType.agentMessage;
-      default: throw ArgumentError('Unknown BetaAgentMessageItemParamType: $value');
+      case 'agent_message':
+        return BetaAgentMessageItemParamType.agentMessage;
+      default:
+        throw ArgumentError('Unknown BetaAgentMessageItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaAgentMessageItemParamType.agentMessage: return 'agent_message';
+      case BetaAgentMessageItemParamType.agentMessage:
+        return 'agent_message';
     }
   }
 
@@ -73,14 +82,18 @@ enum BetaApplyPatchCreateFileOperationType {
 
   static BetaApplyPatchCreateFileOperationType fromJson(String value) {
     switch (value) {
-      case 'create_file': return BetaApplyPatchCreateFileOperationType.createFile;
-      default: throw ArgumentError('Unknown BetaApplyPatchCreateFileOperationType: $value');
+      case 'create_file':
+        return BetaApplyPatchCreateFileOperationType.createFile;
+      default:
+        throw ArgumentError(
+            'Unknown BetaApplyPatchCreateFileOperationType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaApplyPatchCreateFileOperationType.createFile: return 'create_file';
+      case BetaApplyPatchCreateFileOperationType.createFile:
+        return 'create_file';
     }
   }
 
@@ -94,14 +107,18 @@ enum BetaApplyPatchCreateFileOperationParamType {
 
   static BetaApplyPatchCreateFileOperationParamType fromJson(String value) {
     switch (value) {
-      case 'create_file': return BetaApplyPatchCreateFileOperationParamType.createFile;
-      default: throw ArgumentError('Unknown BetaApplyPatchCreateFileOperationParamType: $value');
+      case 'create_file':
+        return BetaApplyPatchCreateFileOperationParamType.createFile;
+      default:
+        throw ArgumentError(
+            'Unknown BetaApplyPatchCreateFileOperationParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaApplyPatchCreateFileOperationParamType.createFile: return 'create_file';
+      case BetaApplyPatchCreateFileOperationParamType.createFile:
+        return 'create_file';
     }
   }
 
@@ -115,14 +132,18 @@ enum BetaApplyPatchDeleteFileOperationType {
 
   static BetaApplyPatchDeleteFileOperationType fromJson(String value) {
     switch (value) {
-      case 'delete_file': return BetaApplyPatchDeleteFileOperationType.deleteFile;
-      default: throw ArgumentError('Unknown BetaApplyPatchDeleteFileOperationType: $value');
+      case 'delete_file':
+        return BetaApplyPatchDeleteFileOperationType.deleteFile;
+      default:
+        throw ArgumentError(
+            'Unknown BetaApplyPatchDeleteFileOperationType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaApplyPatchDeleteFileOperationType.deleteFile: return 'delete_file';
+      case BetaApplyPatchDeleteFileOperationType.deleteFile:
+        return 'delete_file';
     }
   }
 
@@ -136,14 +157,18 @@ enum BetaApplyPatchDeleteFileOperationParamType {
 
   static BetaApplyPatchDeleteFileOperationParamType fromJson(String value) {
     switch (value) {
-      case 'delete_file': return BetaApplyPatchDeleteFileOperationParamType.deleteFile;
-      default: throw ArgumentError('Unknown BetaApplyPatchDeleteFileOperationParamType: $value');
+      case 'delete_file':
+        return BetaApplyPatchDeleteFileOperationParamType.deleteFile;
+      default:
+        throw ArgumentError(
+            'Unknown BetaApplyPatchDeleteFileOperationParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaApplyPatchDeleteFileOperationParamType.deleteFile: return 'delete_file';
+      case BetaApplyPatchDeleteFileOperationParamType.deleteFile:
+        return 'delete_file';
     }
   }
 
@@ -157,14 +182,17 @@ enum BetaApplyPatchToolCallType {
 
   static BetaApplyPatchToolCallType fromJson(String value) {
     switch (value) {
-      case 'apply_patch_call': return BetaApplyPatchToolCallType.applyPatchCall;
-      default: throw ArgumentError('Unknown BetaApplyPatchToolCallType: $value');
+      case 'apply_patch_call':
+        return BetaApplyPatchToolCallType.applyPatchCall;
+      default:
+        throw ArgumentError('Unknown BetaApplyPatchToolCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaApplyPatchToolCallType.applyPatchCall: return 'apply_patch_call';
+      case BetaApplyPatchToolCallType.applyPatchCall:
+        return 'apply_patch_call';
     }
   }
 
@@ -178,14 +206,18 @@ enum BetaApplyPatchToolCallItemParamType {
 
   static BetaApplyPatchToolCallItemParamType fromJson(String value) {
     switch (value) {
-      case 'apply_patch_call': return BetaApplyPatchToolCallItemParamType.applyPatchCall;
-      default: throw ArgumentError('Unknown BetaApplyPatchToolCallItemParamType: $value');
+      case 'apply_patch_call':
+        return BetaApplyPatchToolCallItemParamType.applyPatchCall;
+      default:
+        throw ArgumentError(
+            'Unknown BetaApplyPatchToolCallItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaApplyPatchToolCallItemParamType.applyPatchCall: return 'apply_patch_call';
+      case BetaApplyPatchToolCallItemParamType.applyPatchCall:
+        return 'apply_patch_call';
     }
   }
 
@@ -199,14 +231,17 @@ enum BetaApplyPatchToolCallOutputType {
 
   static BetaApplyPatchToolCallOutputType fromJson(String value) {
     switch (value) {
-      case 'apply_patch_call_output': return BetaApplyPatchToolCallOutputType.applyPatchCallOutput;
-      default: throw ArgumentError('Unknown BetaApplyPatchToolCallOutputType: $value');
+      case 'apply_patch_call_output':
+        return BetaApplyPatchToolCallOutputType.applyPatchCallOutput;
+      default:
+        throw ArgumentError('Unknown BetaApplyPatchToolCallOutputType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaApplyPatchToolCallOutputType.applyPatchCallOutput: return 'apply_patch_call_output';
+      case BetaApplyPatchToolCallOutputType.applyPatchCallOutput:
+        return 'apply_patch_call_output';
     }
   }
 
@@ -220,14 +255,18 @@ enum BetaApplyPatchToolCallOutputItemParamType {
 
   static BetaApplyPatchToolCallOutputItemParamType fromJson(String value) {
     switch (value) {
-      case 'apply_patch_call_output': return BetaApplyPatchToolCallOutputItemParamType.applyPatchCallOutput;
-      default: throw ArgumentError('Unknown BetaApplyPatchToolCallOutputItemParamType: $value');
+      case 'apply_patch_call_output':
+        return BetaApplyPatchToolCallOutputItemParamType.applyPatchCallOutput;
+      default:
+        throw ArgumentError(
+            'Unknown BetaApplyPatchToolCallOutputItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaApplyPatchToolCallOutputItemParamType.applyPatchCallOutput: return 'apply_patch_call_output';
+      case BetaApplyPatchToolCallOutputItemParamType.applyPatchCallOutput:
+        return 'apply_patch_call_output';
     }
   }
 
@@ -241,14 +280,17 @@ enum BetaApplyPatchToolParamType {
 
   static BetaApplyPatchToolParamType fromJson(String value) {
     switch (value) {
-      case 'apply_patch': return BetaApplyPatchToolParamType.applyPatch;
-      default: throw ArgumentError('Unknown BetaApplyPatchToolParamType: $value');
+      case 'apply_patch':
+        return BetaApplyPatchToolParamType.applyPatch;
+      default:
+        throw ArgumentError('Unknown BetaApplyPatchToolParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaApplyPatchToolParamType.applyPatch: return 'apply_patch';
+      case BetaApplyPatchToolParamType.applyPatch:
+        return 'apply_patch';
     }
   }
 
@@ -262,14 +304,18 @@ enum BetaApplyPatchUpdateFileOperationType {
 
   static BetaApplyPatchUpdateFileOperationType fromJson(String value) {
     switch (value) {
-      case 'update_file': return BetaApplyPatchUpdateFileOperationType.updateFile;
-      default: throw ArgumentError('Unknown BetaApplyPatchUpdateFileOperationType: $value');
+      case 'update_file':
+        return BetaApplyPatchUpdateFileOperationType.updateFile;
+      default:
+        throw ArgumentError(
+            'Unknown BetaApplyPatchUpdateFileOperationType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaApplyPatchUpdateFileOperationType.updateFile: return 'update_file';
+      case BetaApplyPatchUpdateFileOperationType.updateFile:
+        return 'update_file';
     }
   }
 

@@ -8,16 +8,23 @@ part of 'inline.dart';
 enum BetaResponseShellCallCommandDoneStreamingEventType {
   responseShellCallCommandDone;
 
-  static BetaResponseShellCallCommandDoneStreamingEventType fromJson(String value) {
+  static BetaResponseShellCallCommandDoneStreamingEventType fromJson(
+      String value) {
     switch (value) {
-      case 'response.shell_call_command.done': return BetaResponseShellCallCommandDoneStreamingEventType.responseShellCallCommandDone;
-      default: throw ArgumentError('Unknown BetaResponseShellCallCommandDoneStreamingEventType: $value');
+      case 'response.shell_call_command.done':
+        return BetaResponseShellCallCommandDoneStreamingEventType
+            .responseShellCallCommandDone;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseShellCallCommandDoneStreamingEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseShellCallCommandDoneStreamingEventType.responseShellCallCommandDone: return 'response.shell_call_command.done';
+      case BetaResponseShellCallCommandDoneStreamingEventType
+            .responseShellCallCommandDone:
+        return 'response.shell_call_command.done';
     }
   }
 
@@ -29,16 +36,23 @@ enum BetaResponseShellCallCommandDoneStreamingEventType {
 enum BetaResponseShellCallOutputContentDeltaStreamingEventType {
   responseShellCallOutputContentDelta;
 
-  static BetaResponseShellCallOutputContentDeltaStreamingEventType fromJson(String value) {
+  static BetaResponseShellCallOutputContentDeltaStreamingEventType fromJson(
+      String value) {
     switch (value) {
-      case 'response.shell_call_output_content.delta': return BetaResponseShellCallOutputContentDeltaStreamingEventType.responseShellCallOutputContentDelta;
-      default: throw ArgumentError('Unknown BetaResponseShellCallOutputContentDeltaStreamingEventType: $value');
+      case 'response.shell_call_output_content.delta':
+        return BetaResponseShellCallOutputContentDeltaStreamingEventType
+            .responseShellCallOutputContentDelta;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseShellCallOutputContentDeltaStreamingEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseShellCallOutputContentDeltaStreamingEventType.responseShellCallOutputContentDelta: return 'response.shell_call_output_content.delta';
+      case BetaResponseShellCallOutputContentDeltaStreamingEventType
+            .responseShellCallOutputContentDelta:
+        return 'response.shell_call_output_content.delta';
     }
   }
 
@@ -50,16 +64,23 @@ enum BetaResponseShellCallOutputContentDeltaStreamingEventType {
 enum BetaResponseShellCallOutputContentDoneStreamingEventType {
   responseShellCallOutputContentDone;
 
-  static BetaResponseShellCallOutputContentDoneStreamingEventType fromJson(String value) {
+  static BetaResponseShellCallOutputContentDoneStreamingEventType fromJson(
+      String value) {
     switch (value) {
-      case 'response.shell_call_output_content.done': return BetaResponseShellCallOutputContentDoneStreamingEventType.responseShellCallOutputContentDone;
-      default: throw ArgumentError('Unknown BetaResponseShellCallOutputContentDoneStreamingEventType: $value');
+      case 'response.shell_call_output_content.done':
+        return BetaResponseShellCallOutputContentDoneStreamingEventType
+            .responseShellCallOutputContentDone;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseShellCallOutputContentDoneStreamingEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseShellCallOutputContentDoneStreamingEventType.responseShellCallOutputContentDone: return 'response.shell_call_output_content.done';
+      case BetaResponseShellCallOutputContentDoneStreamingEventType
+            .responseShellCallOutputContentDone:
+        return 'response.shell_call_output_content.done';
     }
   }
 
@@ -73,14 +94,18 @@ enum BetaResponseSteerAcceptedEventType {
 
   static BetaResponseSteerAcceptedEventType fromJson(String value) {
     switch (value) {
-      case 'response.steer.accepted': return BetaResponseSteerAcceptedEventType.responseSteerAccepted;
-      default: throw ArgumentError('Unknown BetaResponseSteerAcceptedEventType: $value');
+      case 'response.steer.accepted':
+        return BetaResponseSteerAcceptedEventType.responseSteerAccepted;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseSteerAcceptedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseSteerAcceptedEventType.responseSteerAccepted: return 'response.steer.accepted';
+      case BetaResponseSteerAcceptedEventType.responseSteerAccepted:
+        return 'response.steer.accepted';
     }
   }
 
@@ -94,14 +119,17 @@ enum BetaResponseSteerEventType {
 
   static BetaResponseSteerEventType fromJson(String value) {
     switch (value) {
-      case 'response.steer': return BetaResponseSteerEventType.responseSteer;
-      default: throw ArgumentError('Unknown BetaResponseSteerEventType: $value');
+      case 'response.steer':
+        return BetaResponseSteerEventType.responseSteer;
+      default:
+        throw ArgumentError('Unknown BetaResponseSteerEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseSteerEventType.responseSteer: return 'response.steer';
+      case BetaResponseSteerEventType.responseSteer:
+        return 'response.steer';
     }
   }
 
@@ -111,23 +139,27 @@ enum BetaResponseSteerEventType {
 
 /// The error type. Always `invalid_request_error`.
 final class BetaResponseSteerFailedEventErrorType {
-
   final String value;
 
   const BetaResponseSteerFailedEventErrorType._(this.value);
 
-  factory BetaResponseSteerFailedEventErrorType.fromJson(String value) => BetaResponseSteerFailedEventErrorType._(value);
+  factory BetaResponseSteerFailedEventErrorType.fromJson(String value) =>
+      BetaResponseSteerFailedEventErrorType._(value);
 
-  static const invalidRequestError = BetaResponseSteerFailedEventErrorType._('invalid_request_error');
+  static const invalidRequestError =
+      BetaResponseSteerFailedEventErrorType._('invalid_request_error');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaResponseSteerFailedEventErrorType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaResponseSteerFailedEventErrorType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The event discriminator. Always `response.steer.failed`.
@@ -136,14 +168,17 @@ enum BetaResponseSteerFailedEventType {
 
   static BetaResponseSteerFailedEventType fromJson(String value) {
     switch (value) {
-      case 'response.steer.failed': return BetaResponseSteerFailedEventType.responseSteerFailed;
-      default: throw ArgumentError('Unknown BetaResponseSteerFailedEventType: $value');
+      case 'response.steer.failed':
+        return BetaResponseSteerFailedEventType.responseSteerFailed;
+      default:
+        throw ArgumentError('Unknown BetaResponseSteerFailedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseSteerFailedEventType.responseSteerFailed: return 'response.steer.failed';
+      case BetaResponseSteerFailedEventType.responseSteerFailed:
+        return 'response.steer.failed';
     }
   }
 
@@ -157,14 +192,18 @@ enum BetaResponseSteerPendingEventType {
 
   static BetaResponseSteerPendingEventType fromJson(String value) {
     switch (value) {
-      case 'response.steer.pending': return BetaResponseSteerPendingEventType.responseSteerPending;
-      default: throw ArgumentError('Unknown BetaResponseSteerPendingEventType: $value');
+      case 'response.steer.pending':
+        return BetaResponseSteerPendingEventType.responseSteerPending;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseSteerPendingEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseSteerPendingEventType.responseSteerPending: return 'response.steer.pending';
+      case BetaResponseSteerPendingEventType.responseSteerPending:
+        return 'response.steer.pending';
     }
   }
 
@@ -178,14 +217,18 @@ enum BetaResponseSteerRequiredInputVariant0Type {
 
   static BetaResponseSteerRequiredInputVariant0Type fromJson(String value) {
     switch (value) {
-      case 'function_call_output': return BetaResponseSteerRequiredInputVariant0Type.functionCallOutput;
-      default: throw ArgumentError('Unknown BetaResponseSteerRequiredInputVariant0Type: $value');
+      case 'function_call_output':
+        return BetaResponseSteerRequiredInputVariant0Type.functionCallOutput;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseSteerRequiredInputVariant0Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseSteerRequiredInputVariant0Type.functionCallOutput: return 'function_call_output';
+      case BetaResponseSteerRequiredInputVariant0Type.functionCallOutput:
+        return 'function_call_output';
     }
   }
 
@@ -199,14 +242,18 @@ enum BetaResponseSteerRequiredInputVariant1Type {
 
   static BetaResponseSteerRequiredInputVariant1Type fromJson(String value) {
     switch (value) {
-      case 'custom_tool_call_output': return BetaResponseSteerRequiredInputVariant1Type.customToolCallOutput;
-      default: throw ArgumentError('Unknown BetaResponseSteerRequiredInputVariant1Type: $value');
+      case 'custom_tool_call_output':
+        return BetaResponseSteerRequiredInputVariant1Type.customToolCallOutput;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseSteerRequiredInputVariant1Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseSteerRequiredInputVariant1Type.customToolCallOutput: return 'custom_tool_call_output';
+      case BetaResponseSteerRequiredInputVariant1Type.customToolCallOutput:
+        return 'custom_tool_call_output';
     }
   }
 
@@ -220,14 +267,18 @@ enum BetaResponseSteerRequiredInputVariant2Type {
 
   static BetaResponseSteerRequiredInputVariant2Type fromJson(String value) {
     switch (value) {
-      case 'computer_call_output': return BetaResponseSteerRequiredInputVariant2Type.computerCallOutput;
-      default: throw ArgumentError('Unknown BetaResponseSteerRequiredInputVariant2Type: $value');
+      case 'computer_call_output':
+        return BetaResponseSteerRequiredInputVariant2Type.computerCallOutput;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseSteerRequiredInputVariant2Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseSteerRequiredInputVariant2Type.computerCallOutput: return 'computer_call_output';
+      case BetaResponseSteerRequiredInputVariant2Type.computerCallOutput:
+        return 'computer_call_output';
     }
   }
 
@@ -241,14 +292,18 @@ enum BetaResponseSteerRequiredInputVariant3Type {
 
   static BetaResponseSteerRequiredInputVariant3Type fromJson(String value) {
     switch (value) {
-      case 'shell_call_output': return BetaResponseSteerRequiredInputVariant3Type.shellCallOutput;
-      default: throw ArgumentError('Unknown BetaResponseSteerRequiredInputVariant3Type: $value');
+      case 'shell_call_output':
+        return BetaResponseSteerRequiredInputVariant3Type.shellCallOutput;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseSteerRequiredInputVariant3Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseSteerRequiredInputVariant3Type.shellCallOutput: return 'shell_call_output';
+      case BetaResponseSteerRequiredInputVariant3Type.shellCallOutput:
+        return 'shell_call_output';
     }
   }
 
@@ -262,14 +317,18 @@ enum BetaResponseSteerRequiredInputVariant4Type {
 
   static BetaResponseSteerRequiredInputVariant4Type fromJson(String value) {
     switch (value) {
-      case 'apply_patch_call_output': return BetaResponseSteerRequiredInputVariant4Type.applyPatchCallOutput;
-      default: throw ArgumentError('Unknown BetaResponseSteerRequiredInputVariant4Type: $value');
+      case 'apply_patch_call_output':
+        return BetaResponseSteerRequiredInputVariant4Type.applyPatchCallOutput;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseSteerRequiredInputVariant4Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseSteerRequiredInputVariant4Type.applyPatchCallOutput: return 'apply_patch_call_output';
+      case BetaResponseSteerRequiredInputVariant4Type.applyPatchCallOutput:
+        return 'apply_patch_call_output';
     }
   }
 

@@ -8,6 +8,7 @@ part of 'items.dart';
 class ToolChoice implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Identifier of the requested tool.
   final String id;
 
@@ -16,15 +17,17 @@ class ToolChoice implements SdkJsonModel {
   ToolChoice Function({String id}) get copyWith => _copyWith;
 
   ToolChoice _copyWith({Object? id = sdkOmittedValue}) => ToolChoice(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
 
-  factory ToolChoice.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ToolChoice(
-    id: (json['id'] as String?)!,
-  ), json);
+  factory ToolChoice.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      ToolChoice(
+        id: (json['id'] as String?)!,
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'id': id,
-  };
+        'id': id,
+      };
 }

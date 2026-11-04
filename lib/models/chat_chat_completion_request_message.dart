@@ -10,64 +10,150 @@ sealed class ChatCompletionRequestMessage {
   const ChatCompletionRequestMessage();
   factory ChatCompletionRequestMessage.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = ChatCompletionRequestDeveloperMessage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionRequestMessageChatCompletionRequestDeveloperMessage(value); } } catch (_) {}
-      try { final value = ChatCompletionRequestSystemMessage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionRequestMessageChatCompletionRequestSystemMessage(value); } } catch (_) {}
-      try { final value = ChatCompletionRequestUserMessage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionRequestMessageChatCompletionRequestUserMessage(value); } } catch (_) {}
-      try { final value = ChatCompletionRequestAssistantMessage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionRequestMessageChatCompletionRequestAssistantMessage(value); } } catch (_) {}
-      try { final value = ChatCompletionRequestToolMessage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionRequestMessageChatCompletionRequestToolMessage(value); } } catch (_) {}
-      try { final value = ChatCompletionRequestFunctionMessage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ChatCompletionRequestMessageChatCompletionRequestFunctionMessage(value); } } catch (_) {}
+      try {
+        final value = ChatCompletionRequestDeveloperMessage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChatCompletionRequestMessageChatCompletionRequestDeveloperMessage(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ChatCompletionRequestSystemMessage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChatCompletionRequestMessageChatCompletionRequestSystemMessage(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ChatCompletionRequestUserMessage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChatCompletionRequestMessageChatCompletionRequestUserMessage(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ChatCompletionRequestAssistantMessage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChatCompletionRequestMessageChatCompletionRequestAssistantMessage(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ChatCompletionRequestToolMessage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChatCompletionRequestMessageChatCompletionRequestToolMessage(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ChatCompletionRequestFunctionMessage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ChatCompletionRequestMessageChatCompletionRequestFunctionMessage(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return ChatCompletionRequestMessageChatCompletionRequestDeveloperMessage(ChatCompletionRequestDeveloperMessage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ChatCompletionRequestMessageChatCompletionRequestSystemMessage(ChatCompletionRequestSystemMessage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ChatCompletionRequestMessageChatCompletionRequestUserMessage(ChatCompletionRequestUserMessage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ChatCompletionRequestMessageChatCompletionRequestAssistantMessage(ChatCompletionRequestAssistantMessage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ChatCompletionRequestMessageChatCompletionRequestToolMessage(ChatCompletionRequestToolMessage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ChatCompletionRequestMessageChatCompletionRequestFunctionMessage(ChatCompletionRequestFunctionMessage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["role"] is String && !const {"developer", "system", "user", "assistant", "tool", "function"}.contains(json["role"])) { return UnknownChatCompletionRequestMessage(json); }
-    throw FormatException("No variant matched for ChatCompletionRequestMessage");
+    try {
+      return ChatCompletionRequestMessageChatCompletionRequestDeveloperMessage(
+          ChatCompletionRequestDeveloperMessage.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ChatCompletionRequestMessageChatCompletionRequestSystemMessage(
+          ChatCompletionRequestSystemMessage.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ChatCompletionRequestMessageChatCompletionRequestUserMessage(
+          ChatCompletionRequestUserMessage.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ChatCompletionRequestMessageChatCompletionRequestAssistantMessage(
+          ChatCompletionRequestAssistantMessage.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ChatCompletionRequestMessageChatCompletionRequestToolMessage(
+          ChatCompletionRequestToolMessage.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ChatCompletionRequestMessageChatCompletionRequestFunctionMessage(
+          ChatCompletionRequestFunctionMessage.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["role"] is String &&
+        !const {"developer", "system", "user", "assistant", "tool", "function"}
+            .contains(json["role"])) {
+      return UnknownChatCompletionRequestMessage(json);
+    }
+    throw FormatException(
+        "No variant matched for ChatCompletionRequestMessage");
   }
   Object? toJson();
 }
 
-final class ChatCompletionRequestMessageChatCompletionRequestDeveloperMessage extends ChatCompletionRequestMessage {
+final class ChatCompletionRequestMessageChatCompletionRequestDeveloperMessage
+    extends ChatCompletionRequestMessage {
   final ChatCompletionRequestDeveloperMessage value;
-  const ChatCompletionRequestMessageChatCompletionRequestDeveloperMessage(this.value);
-  @override Object? toJson() => value.toJson();
+  const ChatCompletionRequestMessageChatCompletionRequestDeveloperMessage(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ChatCompletionRequestMessageChatCompletionRequestSystemMessage extends ChatCompletionRequestMessage {
+final class ChatCompletionRequestMessageChatCompletionRequestSystemMessage
+    extends ChatCompletionRequestMessage {
   final ChatCompletionRequestSystemMessage value;
-  const ChatCompletionRequestMessageChatCompletionRequestSystemMessage(this.value);
-  @override Object? toJson() => value.toJson();
+  const ChatCompletionRequestMessageChatCompletionRequestSystemMessage(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ChatCompletionRequestMessageChatCompletionRequestUserMessage extends ChatCompletionRequestMessage {
+final class ChatCompletionRequestMessageChatCompletionRequestUserMessage
+    extends ChatCompletionRequestMessage {
   final ChatCompletionRequestUserMessage value;
-  const ChatCompletionRequestMessageChatCompletionRequestUserMessage(this.value);
-  @override Object? toJson() => value.toJson();
+  const ChatCompletionRequestMessageChatCompletionRequestUserMessage(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ChatCompletionRequestMessageChatCompletionRequestAssistantMessage extends ChatCompletionRequestMessage {
+final class ChatCompletionRequestMessageChatCompletionRequestAssistantMessage
+    extends ChatCompletionRequestMessage {
   final ChatCompletionRequestAssistantMessage value;
-  const ChatCompletionRequestMessageChatCompletionRequestAssistantMessage(this.value);
-  @override Object? toJson() => value.toJson();
+  const ChatCompletionRequestMessageChatCompletionRequestAssistantMessage(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ChatCompletionRequestMessageChatCompletionRequestToolMessage extends ChatCompletionRequestMessage {
+final class ChatCompletionRequestMessageChatCompletionRequestToolMessage
+    extends ChatCompletionRequestMessage {
   final ChatCompletionRequestToolMessage value;
-  const ChatCompletionRequestMessageChatCompletionRequestToolMessage(this.value);
-  @override Object? toJson() => value.toJson();
+  const ChatCompletionRequestMessageChatCompletionRequestToolMessage(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ChatCompletionRequestMessageChatCompletionRequestFunctionMessage extends ChatCompletionRequestMessage {
+final class ChatCompletionRequestMessageChatCompletionRequestFunctionMessage
+    extends ChatCompletionRequestMessage {
   final ChatCompletionRequestFunctionMessage value;
-  const ChatCompletionRequestMessageChatCompletionRequestFunctionMessage(this.value);
-  @override Object? toJson() => value.toJson();
+  const ChatCompletionRequestMessageChatCompletionRequestFunctionMessage(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [ChatCompletionRequestMessage] whose `role` names no branch this SDK knows, kept as received.
-final class UnknownChatCompletionRequestMessage extends ChatCompletionRequestMessage {
+final class UnknownChatCompletionRequestMessage
+    extends ChatCompletionRequestMessage {
   final Map<String, dynamic> raw;
   const UnknownChatCompletionRequestMessage(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

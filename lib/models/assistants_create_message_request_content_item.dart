@@ -10,40 +10,83 @@ sealed class CreateMessageRequestContentItem {
   const CreateMessageRequestContentItem();
   factory CreateMessageRequestContentItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = MessageContentImageFileObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateMessageRequestContentItemMessageContentImageFileObject(value); } } catch (_) {}
-      try { final value = MessageContentImageUrlObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateMessageRequestContentItemMessageContentImageUrlObject(value); } } catch (_) {}
-      try { final value = MessageRequestContentTextObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateMessageRequestContentItemMessageRequestContentTextObject(value); } } catch (_) {}
+      try {
+        final value = MessageContentImageFileObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateMessageRequestContentItemMessageContentImageFileObject(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = MessageContentImageUrlObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateMessageRequestContentItemMessageContentImageUrlObject(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = MessageRequestContentTextObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateMessageRequestContentItemMessageRequestContentTextObject(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return CreateMessageRequestContentItemMessageContentImageFileObject(MessageContentImageFileObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateMessageRequestContentItemMessageContentImageUrlObject(MessageContentImageUrlObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateMessageRequestContentItemMessageRequestContentTextObject(MessageRequestContentTextObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"image_file", "image_url", "text"}.contains(json["type"])) { return UnknownCreateMessageRequestContentItem(json); }
-    throw FormatException("No variant matched for CreateMessageRequestContentItem");
+    try {
+      return CreateMessageRequestContentItemMessageContentImageFileObject(
+          MessageContentImageFileObject.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateMessageRequestContentItemMessageContentImageUrlObject(
+          MessageContentImageUrlObject.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateMessageRequestContentItemMessageRequestContentTextObject(
+          MessageRequestContentTextObject.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"image_file", "image_url", "text"}.contains(json["type"])) {
+      return UnknownCreateMessageRequestContentItem(json);
+    }
+    throw FormatException(
+        "No variant matched for CreateMessageRequestContentItem");
   }
   Object? toJson();
 }
 
-final class CreateMessageRequestContentItemMessageContentImageFileObject extends CreateMessageRequestContentItem {
+final class CreateMessageRequestContentItemMessageContentImageFileObject
+    extends CreateMessageRequestContentItem {
   final MessageContentImageFileObject value;
-  const CreateMessageRequestContentItemMessageContentImageFileObject(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateMessageRequestContentItemMessageContentImageFileObject(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateMessageRequestContentItemMessageContentImageUrlObject extends CreateMessageRequestContentItem {
+final class CreateMessageRequestContentItemMessageContentImageUrlObject
+    extends CreateMessageRequestContentItem {
   final MessageContentImageUrlObject value;
   const CreateMessageRequestContentItemMessageContentImageUrlObject(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateMessageRequestContentItemMessageRequestContentTextObject extends CreateMessageRequestContentItem {
+final class CreateMessageRequestContentItemMessageRequestContentTextObject
+    extends CreateMessageRequestContentItem {
   final MessageRequestContentTextObject value;
-  const CreateMessageRequestContentItemMessageRequestContentTextObject(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateMessageRequestContentItemMessageRequestContentTextObject(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [CreateMessageRequestContentItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownCreateMessageRequestContentItem extends CreateMessageRequestContentItem {
+final class UnknownCreateMessageRequestContentItem
+    extends CreateMessageRequestContentItem {
   final Map<String, dynamic> raw;
   const UnknownCreateMessageRequestContentItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

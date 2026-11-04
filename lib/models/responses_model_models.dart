@@ -9,8 +9,13 @@ sealed class ModelIdsCompaction {
   static const String constructionSurface = 'named';
   const ModelIdsCompaction();
   factory ModelIdsCompaction.fromJson(Object? json) {
-    if (json is String) { return ModelIdsCompactionString(json); }
-    try { return ModelIdsCompactionModelIdsResponses(ModelIdsResponses.fromJson(json)); } catch (_) {}
+    if (json is String) {
+      return ModelIdsCompactionString(json);
+    }
+    try {
+      return ModelIdsCompactionModelIdsResponses(
+          ModelIdsResponses.fromJson(json));
+    } catch (_) {}
     throw FormatException("No variant matched for ModelIdsCompaction");
   }
   Object? toJson();
@@ -19,13 +24,15 @@ sealed class ModelIdsCompaction {
 final class ModelIdsCompactionModelIdsResponses extends ModelIdsCompaction {
   final ModelIdsResponses value;
   const ModelIdsCompactionModelIdsResponses(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ModelIdsCompactionString extends ModelIdsCompaction {
   final String value;
   const ModelIdsCompactionString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 sealed class ModelIdsResponses {
@@ -33,8 +40,13 @@ sealed class ModelIdsResponses {
   static const String constructionSurface = 'named';
   const ModelIdsResponses();
   factory ModelIdsResponses.fromJson(Object? json) {
-    if (json is String) { return ModelIdsResponsesString(json); }
-    try { return ModelIdsResponsesModelIdsResponsesVariant1(ModelIdsResponsesVariant1.fromJson(json as String)); } catch (_) {}
+    if (json is String) {
+      return ModelIdsResponsesString(json);
+    }
+    try {
+      return ModelIdsResponsesModelIdsResponsesVariant1(
+          ModelIdsResponsesVariant1.fromJson(json as String));
+    } catch (_) {}
     throw FormatException("No variant matched for ModelIdsResponses");
   }
   Object? toJson();
@@ -43,11 +55,14 @@ sealed class ModelIdsResponses {
 final class ModelIdsResponsesString extends ModelIdsResponses {
   final String value;
   const ModelIdsResponsesString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class ModelIdsResponsesModelIdsResponsesVariant1 extends ModelIdsResponses {
+final class ModelIdsResponsesModelIdsResponsesVariant1
+    extends ModelIdsResponses {
   final ModelIdsResponsesVariant1 value;
   const ModelIdsResponsesModelIdsResponsesVariant1(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }

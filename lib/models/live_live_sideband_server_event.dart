@@ -10,200 +10,459 @@ sealed class LiveSidebandServerEvent {
   const LiveSidebandServerEvent();
   factory LiveSidebandServerEvent.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = LiveTransportRinging.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSidebandServerEventLiveTransportRinging(value); } } catch (_) {}
-      try { final value = LiveTransportAnswered.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSidebandServerEventLiveTransportAnswered(value); } } catch (_) {}
-      try { final value = LiveTransportFailed.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSidebandServerEventLiveTransportFailed(value); } } catch (_) {}
-      try { final value = LiveSessionStarted.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSidebandServerEventLiveSessionStarted(value); } } catch (_) {}
-      try { final value = LiveSessionUpdated.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSidebandServerEventLiveSessionUpdated(value); } } catch (_) {}
-      try { final value = LiveInputAudioMuted.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSidebandServerEventLiveInputAudioMuted(value); } } catch (_) {}
-      try { final value = LiveInputAudioUnmuted.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSidebandServerEventLiveInputAudioUnmuted(value); } } catch (_) {}
-      try { final value = LiveOutputAudioFixturePlaying.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSidebandServerEventLiveOutputAudioFixturePlaying(value); } } catch (_) {}
-      try { final value = LiveOutputAudioFixturePlayed.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSidebandServerEventLiveOutputAudioFixturePlayed(value); } } catch (_) {}
-      try { final value = LiveInstructionsAppended.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSidebandServerEventLiveInstructionsAppended(value); } } catch (_) {}
-      try { final value = LiveThinkingAppended.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSidebandServerEventLiveThinkingAppended(value); } } catch (_) {}
-      try { final value = LiveCommentaryAppended.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSidebandServerEventLiveCommentaryAppended(value); } } catch (_) {}
-      try { final value = LiveInputTranscriptDelta.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSidebandServerEventLiveInputTranscriptDelta(value); } } catch (_) {}
-      try { final value = LiveOutputTranscriptDelta.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSidebandServerEventLiveOutputTranscriptDelta(value); } } catch (_) {}
-      try { final value = LiveDelegationCreated.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSidebandServerEventLiveDelegationCreated(value); } } catch (_) {}
-      try { final value = LiveDecisionEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSidebandServerEventLiveDecisionEvent(value); } } catch (_) {}
-      try { final value = LiveDecisionItemCreated.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSidebandServerEventLiveDecisionItemCreated(value); } } catch (_) {}
-      try { final value = LiveDecisionItemDeleted.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSidebandServerEventLiveDecisionItemDeleted(value); } } catch (_) {}
-      try { final value = LiveResponseEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSidebandServerEventLiveResponseEvent(value); } } catch (_) {}
-      try { final value = LiveSessionUsageUpdated.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSidebandServerEventLiveSessionUsageUpdated(value); } } catch (_) {}
-      try { final value = LiveSessionClosed.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSidebandServerEventLiveSessionClosed(value); } } catch (_) {}
-      try { final value = LiveErrorEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSidebandServerEventLiveErrorEvent(value); } } catch (_) {}
-      try { final value = LiveInfoEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveSidebandServerEventLiveInfoEvent(value); } } catch (_) {}
+      try {
+        final value = LiveTransportRinging.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSidebandServerEventLiveTransportRinging(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveTransportAnswered.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSidebandServerEventLiveTransportAnswered(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveTransportFailed.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSidebandServerEventLiveTransportFailed(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSessionStarted.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSidebandServerEventLiveSessionStarted(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSessionUpdated.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSidebandServerEventLiveSessionUpdated(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveInputAudioMuted.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSidebandServerEventLiveInputAudioMuted(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveInputAudioUnmuted.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSidebandServerEventLiveInputAudioUnmuted(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveOutputAudioFixturePlaying.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSidebandServerEventLiveOutputAudioFixturePlaying(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveOutputAudioFixturePlayed.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSidebandServerEventLiveOutputAudioFixturePlayed(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveInstructionsAppended.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSidebandServerEventLiveInstructionsAppended(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveThinkingAppended.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSidebandServerEventLiveThinkingAppended(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveCommentaryAppended.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSidebandServerEventLiveCommentaryAppended(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveInputTranscriptDelta.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSidebandServerEventLiveInputTranscriptDelta(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveOutputTranscriptDelta.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSidebandServerEventLiveOutputTranscriptDelta(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveDelegationCreated.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSidebandServerEventLiveDelegationCreated(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveDecisionEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSidebandServerEventLiveDecisionEvent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveDecisionItemCreated.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSidebandServerEventLiveDecisionItemCreated(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveDecisionItemDeleted.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSidebandServerEventLiveDecisionItemDeleted(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveResponseEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSidebandServerEventLiveResponseEvent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSessionUsageUpdated.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSidebandServerEventLiveSessionUsageUpdated(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveSessionClosed.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSidebandServerEventLiveSessionClosed(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveErrorEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSidebandServerEventLiveErrorEvent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveInfoEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveSidebandServerEventLiveInfoEvent(value);
+        }
+      } catch (_) {}
     }
-    try { return LiveSidebandServerEventLiveTransportRinging(LiveTransportRinging.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSidebandServerEventLiveTransportAnswered(LiveTransportAnswered.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSidebandServerEventLiveTransportFailed(LiveTransportFailed.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSidebandServerEventLiveSessionStarted(LiveSessionStarted.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSidebandServerEventLiveSessionUpdated(LiveSessionUpdated.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSidebandServerEventLiveInputAudioMuted(LiveInputAudioMuted.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSidebandServerEventLiveInputAudioUnmuted(LiveInputAudioUnmuted.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSidebandServerEventLiveOutputAudioFixturePlaying(LiveOutputAudioFixturePlaying.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSidebandServerEventLiveOutputAudioFixturePlayed(LiveOutputAudioFixturePlayed.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSidebandServerEventLiveInstructionsAppended(LiveInstructionsAppended.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSidebandServerEventLiveThinkingAppended(LiveThinkingAppended.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSidebandServerEventLiveCommentaryAppended(LiveCommentaryAppended.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSidebandServerEventLiveInputTranscriptDelta(LiveInputTranscriptDelta.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSidebandServerEventLiveOutputTranscriptDelta(LiveOutputTranscriptDelta.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSidebandServerEventLiveDelegationCreated(LiveDelegationCreated.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSidebandServerEventLiveDecisionEvent(LiveDecisionEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSidebandServerEventLiveDecisionItemCreated(LiveDecisionItemCreated.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSidebandServerEventLiveDecisionItemDeleted(LiveDecisionItemDeleted.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSidebandServerEventLiveResponseEvent(LiveResponseEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSidebandServerEventLiveSessionUsageUpdated(LiveSessionUsageUpdated.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSidebandServerEventLiveSessionClosed(LiveSessionClosed.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSidebandServerEventLiveErrorEvent(LiveErrorEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveSidebandServerEventLiveInfoEvent(LiveInfoEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"transport.ringing", "transport.answered", "transport.failed", "session.started", "session.updated", "session.input_audio.muted", "session.input_audio.unmuted", "session.output_audio.fixture.playing", "session.output_audio.fixture.played", "session.instructions.appended", "session.thinking.appended", "session.commentary.appended", "session.input_transcript.delta", "session.output_transcript.delta", "session.delegation.created", "decision.event", "decision.item.created", "decision.item.deleted", "response.event", "session.usage.updated", "session.closed", "error", "info"}.contains(json["type"])) { return UnknownLiveSidebandServerEvent(json); }
+    try {
+      return LiveSidebandServerEventLiveTransportRinging(
+          LiveTransportRinging.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSidebandServerEventLiveTransportAnswered(
+          LiveTransportAnswered.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSidebandServerEventLiveTransportFailed(
+          LiveTransportFailed.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSidebandServerEventLiveSessionStarted(
+          LiveSessionStarted.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSidebandServerEventLiveSessionUpdated(
+          LiveSessionUpdated.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSidebandServerEventLiveInputAudioMuted(
+          LiveInputAudioMuted.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSidebandServerEventLiveInputAudioUnmuted(
+          LiveInputAudioUnmuted.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSidebandServerEventLiveOutputAudioFixturePlaying(
+          LiveOutputAudioFixturePlaying.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSidebandServerEventLiveOutputAudioFixturePlayed(
+          LiveOutputAudioFixturePlayed.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSidebandServerEventLiveInstructionsAppended(
+          LiveInstructionsAppended.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSidebandServerEventLiveThinkingAppended(
+          LiveThinkingAppended.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSidebandServerEventLiveCommentaryAppended(
+          LiveCommentaryAppended.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSidebandServerEventLiveInputTranscriptDelta(
+          LiveInputTranscriptDelta.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSidebandServerEventLiveOutputTranscriptDelta(
+          LiveOutputTranscriptDelta.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSidebandServerEventLiveDelegationCreated(
+          LiveDelegationCreated.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSidebandServerEventLiveDecisionEvent(
+          LiveDecisionEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSidebandServerEventLiveDecisionItemCreated(
+          LiveDecisionItemCreated.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSidebandServerEventLiveDecisionItemDeleted(
+          LiveDecisionItemDeleted.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSidebandServerEventLiveResponseEvent(
+          LiveResponseEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSidebandServerEventLiveSessionUsageUpdated(
+          LiveSessionUsageUpdated.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSidebandServerEventLiveSessionClosed(
+          LiveSessionClosed.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSidebandServerEventLiveErrorEvent(
+          LiveErrorEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveSidebandServerEventLiveInfoEvent(
+          LiveInfoEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {
+          "transport.ringing",
+          "transport.answered",
+          "transport.failed",
+          "session.started",
+          "session.updated",
+          "session.input_audio.muted",
+          "session.input_audio.unmuted",
+          "session.output_audio.fixture.playing",
+          "session.output_audio.fixture.played",
+          "session.instructions.appended",
+          "session.thinking.appended",
+          "session.commentary.appended",
+          "session.input_transcript.delta",
+          "session.output_transcript.delta",
+          "session.delegation.created",
+          "decision.event",
+          "decision.item.created",
+          "decision.item.deleted",
+          "response.event",
+          "session.usage.updated",
+          "session.closed",
+          "error",
+          "info"
+        }.contains(json["type"])) {
+      return UnknownLiveSidebandServerEvent(json);
+    }
     throw FormatException("No variant matched for LiveSidebandServerEvent");
   }
   Object? toJson();
 }
 
-final class LiveSidebandServerEventLiveTransportRinging extends LiveSidebandServerEvent {
+final class LiveSidebandServerEventLiveTransportRinging
+    extends LiveSidebandServerEvent {
   final LiveTransportRinging value;
   const LiveSidebandServerEventLiveTransportRinging(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSidebandServerEventLiveTransportAnswered extends LiveSidebandServerEvent {
+final class LiveSidebandServerEventLiveTransportAnswered
+    extends LiveSidebandServerEvent {
   final LiveTransportAnswered value;
   const LiveSidebandServerEventLiveTransportAnswered(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSidebandServerEventLiveTransportFailed extends LiveSidebandServerEvent {
+final class LiveSidebandServerEventLiveTransportFailed
+    extends LiveSidebandServerEvent {
   final LiveTransportFailed value;
   const LiveSidebandServerEventLiveTransportFailed(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSidebandServerEventLiveSessionStarted extends LiveSidebandServerEvent {
+final class LiveSidebandServerEventLiveSessionStarted
+    extends LiveSidebandServerEvent {
   final LiveSessionStarted value;
   const LiveSidebandServerEventLiveSessionStarted(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSidebandServerEventLiveSessionUpdated extends LiveSidebandServerEvent {
+final class LiveSidebandServerEventLiveSessionUpdated
+    extends LiveSidebandServerEvent {
   final LiveSessionUpdated value;
   const LiveSidebandServerEventLiveSessionUpdated(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSidebandServerEventLiveInputAudioMuted extends LiveSidebandServerEvent {
+final class LiveSidebandServerEventLiveInputAudioMuted
+    extends LiveSidebandServerEvent {
   final LiveInputAudioMuted value;
   const LiveSidebandServerEventLiveInputAudioMuted(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSidebandServerEventLiveInputAudioUnmuted extends LiveSidebandServerEvent {
+final class LiveSidebandServerEventLiveInputAudioUnmuted
+    extends LiveSidebandServerEvent {
   final LiveInputAudioUnmuted value;
   const LiveSidebandServerEventLiveInputAudioUnmuted(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSidebandServerEventLiveOutputAudioFixturePlaying extends LiveSidebandServerEvent {
+final class LiveSidebandServerEventLiveOutputAudioFixturePlaying
+    extends LiveSidebandServerEvent {
   final LiveOutputAudioFixturePlaying value;
   const LiveSidebandServerEventLiveOutputAudioFixturePlaying(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSidebandServerEventLiveOutputAudioFixturePlayed extends LiveSidebandServerEvent {
+final class LiveSidebandServerEventLiveOutputAudioFixturePlayed
+    extends LiveSidebandServerEvent {
   final LiveOutputAudioFixturePlayed value;
   const LiveSidebandServerEventLiveOutputAudioFixturePlayed(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSidebandServerEventLiveInstructionsAppended extends LiveSidebandServerEvent {
+final class LiveSidebandServerEventLiveInstructionsAppended
+    extends LiveSidebandServerEvent {
   final LiveInstructionsAppended value;
   const LiveSidebandServerEventLiveInstructionsAppended(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSidebandServerEventLiveThinkingAppended extends LiveSidebandServerEvent {
+final class LiveSidebandServerEventLiveThinkingAppended
+    extends LiveSidebandServerEvent {
   final LiveThinkingAppended value;
   const LiveSidebandServerEventLiveThinkingAppended(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSidebandServerEventLiveCommentaryAppended extends LiveSidebandServerEvent {
+final class LiveSidebandServerEventLiveCommentaryAppended
+    extends LiveSidebandServerEvent {
   final LiveCommentaryAppended value;
   const LiveSidebandServerEventLiveCommentaryAppended(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSidebandServerEventLiveInputTranscriptDelta extends LiveSidebandServerEvent {
+final class LiveSidebandServerEventLiveInputTranscriptDelta
+    extends LiveSidebandServerEvent {
   final LiveInputTranscriptDelta value;
   const LiveSidebandServerEventLiveInputTranscriptDelta(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSidebandServerEventLiveOutputTranscriptDelta extends LiveSidebandServerEvent {
+final class LiveSidebandServerEventLiveOutputTranscriptDelta
+    extends LiveSidebandServerEvent {
   final LiveOutputTranscriptDelta value;
   const LiveSidebandServerEventLiveOutputTranscriptDelta(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSidebandServerEventLiveDelegationCreated extends LiveSidebandServerEvent {
+final class LiveSidebandServerEventLiveDelegationCreated
+    extends LiveSidebandServerEvent {
   final LiveDelegationCreated value;
   const LiveSidebandServerEventLiveDelegationCreated(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSidebandServerEventLiveDecisionEvent extends LiveSidebandServerEvent {
+final class LiveSidebandServerEventLiveDecisionEvent
+    extends LiveSidebandServerEvent {
   final LiveDecisionEvent value;
   const LiveSidebandServerEventLiveDecisionEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSidebandServerEventLiveDecisionItemCreated extends LiveSidebandServerEvent {
+final class LiveSidebandServerEventLiveDecisionItemCreated
+    extends LiveSidebandServerEvent {
   final LiveDecisionItemCreated value;
   const LiveSidebandServerEventLiveDecisionItemCreated(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSidebandServerEventLiveDecisionItemDeleted extends LiveSidebandServerEvent {
+final class LiveSidebandServerEventLiveDecisionItemDeleted
+    extends LiveSidebandServerEvent {
   final LiveDecisionItemDeleted value;
   const LiveSidebandServerEventLiveDecisionItemDeleted(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSidebandServerEventLiveResponseEvent extends LiveSidebandServerEvent {
+final class LiveSidebandServerEventLiveResponseEvent
+    extends LiveSidebandServerEvent {
   final LiveResponseEvent value;
   const LiveSidebandServerEventLiveResponseEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSidebandServerEventLiveSessionUsageUpdated extends LiveSidebandServerEvent {
+final class LiveSidebandServerEventLiveSessionUsageUpdated
+    extends LiveSidebandServerEvent {
   final LiveSessionUsageUpdated value;
   const LiveSidebandServerEventLiveSessionUsageUpdated(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSidebandServerEventLiveSessionClosed extends LiveSidebandServerEvent {
+final class LiveSidebandServerEventLiveSessionClosed
+    extends LiveSidebandServerEvent {
   final LiveSessionClosed value;
   const LiveSidebandServerEventLiveSessionClosed(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSidebandServerEventLiveErrorEvent extends LiveSidebandServerEvent {
+final class LiveSidebandServerEventLiveErrorEvent
+    extends LiveSidebandServerEvent {
   final LiveErrorEvent value;
   const LiveSidebandServerEventLiveErrorEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveSidebandServerEventLiveInfoEvent extends LiveSidebandServerEvent {
+final class LiveSidebandServerEventLiveInfoEvent
+    extends LiveSidebandServerEvent {
   final LiveInfoEvent value;
   const LiveSidebandServerEventLiveInfoEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [LiveSidebandServerEvent] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownLiveSidebandServerEvent extends LiveSidebandServerEvent {
   final Map<String, dynamic> raw;
   const UnknownLiveSidebandServerEvent(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

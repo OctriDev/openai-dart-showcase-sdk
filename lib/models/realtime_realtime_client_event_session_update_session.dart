@@ -10,32 +10,66 @@ sealed class RealtimeClientEventSessionUpdateSession {
   const RealtimeClientEventSessionUpdateSession();
   factory RealtimeClientEventSessionUpdateSession.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = RealtimeSessionCreateRequestGA.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeClientEventSessionUpdateSessionRealtimeSessionCreateRequestGA(value); } } catch (_) {}
-      try { final value = RealtimeTranscriptionSessionCreateRequestGA.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeClientEventSessionUpdateSessionRealtimeTranscriptionSessionCreateRequestGA(value); } } catch (_) {}
+      try {
+        final value = RealtimeSessionCreateRequestGA.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeClientEventSessionUpdateSessionRealtimeSessionCreateRequestGA(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RealtimeTranscriptionSessionCreateRequestGA.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeClientEventSessionUpdateSessionRealtimeTranscriptionSessionCreateRequestGA(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return RealtimeClientEventSessionUpdateSessionRealtimeSessionCreateRequestGA(RealtimeSessionCreateRequestGA.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeClientEventSessionUpdateSessionRealtimeTranscriptionSessionCreateRequestGA(RealtimeTranscriptionSessionCreateRequestGA.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"realtime", "transcription"}.contains(json["type"])) { return UnknownRealtimeClientEventSessionUpdateSession(json); }
-    throw FormatException("No variant matched for RealtimeClientEventSessionUpdateSession");
+    try {
+      return RealtimeClientEventSessionUpdateSessionRealtimeSessionCreateRequestGA(
+          RealtimeSessionCreateRequestGA.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeClientEventSessionUpdateSessionRealtimeTranscriptionSessionCreateRequestGA(
+          RealtimeTranscriptionSessionCreateRequestGA.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"realtime", "transcription"}.contains(json["type"])) {
+      return UnknownRealtimeClientEventSessionUpdateSession(json);
+    }
+    throw FormatException(
+        "No variant matched for RealtimeClientEventSessionUpdateSession");
   }
   Object? toJson();
 }
 
-final class RealtimeClientEventSessionUpdateSessionRealtimeSessionCreateRequestGA extends RealtimeClientEventSessionUpdateSession {
+final class RealtimeClientEventSessionUpdateSessionRealtimeSessionCreateRequestGA
+    extends RealtimeClientEventSessionUpdateSession {
   final RealtimeSessionCreateRequestGA value;
-  const RealtimeClientEventSessionUpdateSessionRealtimeSessionCreateRequestGA(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeClientEventSessionUpdateSessionRealtimeSessionCreateRequestGA(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeClientEventSessionUpdateSessionRealtimeTranscriptionSessionCreateRequestGA extends RealtimeClientEventSessionUpdateSession {
+final class RealtimeClientEventSessionUpdateSessionRealtimeTranscriptionSessionCreateRequestGA
+    extends RealtimeClientEventSessionUpdateSession {
   final RealtimeTranscriptionSessionCreateRequestGA value;
-  const RealtimeClientEventSessionUpdateSessionRealtimeTranscriptionSessionCreateRequestGA(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeClientEventSessionUpdateSessionRealtimeTranscriptionSessionCreateRequestGA(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [RealtimeClientEventSessionUpdateSession] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownRealtimeClientEventSessionUpdateSession extends RealtimeClientEventSessionUpdateSession {
+final class UnknownRealtimeClientEventSessionUpdateSession
+    extends RealtimeClientEventSessionUpdateSession {
   final Map<String, dynamic> raw;
   const UnknownRealtimeClientEventSessionUpdateSession(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

@@ -6,22 +6,25 @@ part of 'responses_beta_apply.dart';
 // responses_beta_apply domain models
 /// Outcome values reported for apply_patch tool call outputs.
 final class BetaApplyPatchCallOutputStatusParam {
-
   final String value;
 
   const BetaApplyPatchCallOutputStatusParam._(this.value);
 
-  factory BetaApplyPatchCallOutputStatusParam.fromJson(String value) => BetaApplyPatchCallOutputStatusParam._(value);
+  factory BetaApplyPatchCallOutputStatusParam.fromJson(String value) =>
+      BetaApplyPatchCallOutputStatusParam._(value);
 
   static const completed = BetaApplyPatchCallOutputStatusParam._('completed');
   static const failed = BetaApplyPatchCallOutputStatusParam._('failed');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaApplyPatchCallOutputStatusParam && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaApplyPatchCallOutputStatusParam && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

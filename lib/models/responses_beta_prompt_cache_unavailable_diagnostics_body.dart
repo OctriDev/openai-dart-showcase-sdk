@@ -8,23 +8,37 @@ part of 'responses_beta_prompt.dart';
 class BetaPromptCacheUnavailableDiagnosticsBody implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final BetaPromptCacheUnavailableDiagnosticsBodyType type_;
 
   const BetaPromptCacheUnavailableDiagnosticsBody({required this.type_});
 
-  BetaPromptCacheUnavailableDiagnosticsBody Function({BetaPromptCacheUnavailableDiagnosticsBodyType type_}) get copyWith => _copyWith;
+  BetaPromptCacheUnavailableDiagnosticsBody Function(
+          {BetaPromptCacheUnavailableDiagnosticsBodyType type_})
+      get copyWith => _copyWith;
 
-  BetaPromptCacheUnavailableDiagnosticsBody _copyWith({Object? type_ = sdkOmittedValue}) => BetaPromptCacheUnavailableDiagnosticsBody(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaPromptCacheUnavailableDiagnosticsBodyType,
-  );
+  BetaPromptCacheUnavailableDiagnosticsBody _copyWith(
+          {Object? type_ = sdkOmittedValue}) =>
+      BetaPromptCacheUnavailableDiagnosticsBody(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaPromptCacheUnavailableDiagnosticsBodyType,
+      );
 
-  factory BetaPromptCacheUnavailableDiagnosticsBody.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(BetaPromptCacheUnavailableDiagnosticsBody(
-    type_: (json['type'] != null ? BetaPromptCacheUnavailableDiagnosticsBodyType.fromJson(json['type'] as String) : null)!,
-  ), json);
+  factory BetaPromptCacheUnavailableDiagnosticsBody.fromJson(
+          Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          BetaPromptCacheUnavailableDiagnosticsBody(
+            type_: (json['type'] != null
+                ? BetaPromptCacheUnavailableDiagnosticsBodyType.fromJson(
+                    json['type'] as String)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }

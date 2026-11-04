@@ -10,32 +10,69 @@ sealed class RotateMcpOauthTokenEndpointAuthParam {
   const RotateMcpOauthTokenEndpointAuthParam();
   factory RotateMcpOauthTokenEndpointAuthParam.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = RotateMcpOauthTokenEndpointAuthParamClientSecretBasic.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretBasic(value); } } catch (_) {}
-      try { final value = RotateMcpOauthTokenEndpointAuthParamClientSecretPost.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretPost(value); } } catch (_) {}
+      try {
+        final value =
+            RotateMcpOauthTokenEndpointAuthParamClientSecretBasic.fromJson(
+                json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretBasic(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            RotateMcpOauthTokenEndpointAuthParamClientSecretPost.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretPost(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretBasic(RotateMcpOauthTokenEndpointAuthParamClientSecretBasic.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretPost(RotateMcpOauthTokenEndpointAuthParamClientSecretPost.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"client_secret_basic", "client_secret_post"}.contains(json["type"])) { return UnknownRotateMcpOauthTokenEndpointAuthParam(json); }
-    throw FormatException("No variant matched for RotateMcpOauthTokenEndpointAuthParam");
+    try {
+      return RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretBasic(
+          RotateMcpOauthTokenEndpointAuthParamClientSecretBasic.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretPost(
+          RotateMcpOauthTokenEndpointAuthParamClientSecretPost.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"client_secret_basic", "client_secret_post"}
+            .contains(json["type"])) {
+      return UnknownRotateMcpOauthTokenEndpointAuthParam(json);
+    }
+    throw FormatException(
+        "No variant matched for RotateMcpOauthTokenEndpointAuthParam");
   }
   Object? toJson();
 }
 
-final class RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretBasic extends RotateMcpOauthTokenEndpointAuthParam {
+final class RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretBasic
+    extends RotateMcpOauthTokenEndpointAuthParam {
   final RotateMcpOauthTokenEndpointAuthParamClientSecretBasic value;
-  const RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretBasic(this.value);
-  @override Object? toJson() => value.toJson();
+  const RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretBasic(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretPost extends RotateMcpOauthTokenEndpointAuthParam {
+final class RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretPost
+    extends RotateMcpOauthTokenEndpointAuthParam {
   final RotateMcpOauthTokenEndpointAuthParamClientSecretPost value;
-  const RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretPost(this.value);
-  @override Object? toJson() => value.toJson();
+  const RotateMcpOauthTokenEndpointAuthParamRotateMcpOauthTokenEndpointAuthParamClientSecretPost(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [RotateMcpOauthTokenEndpointAuthParam] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownRotateMcpOauthTokenEndpointAuthParam extends RotateMcpOauthTokenEndpointAuthParam {
+final class UnknownRotateMcpOauthTokenEndpointAuthParam
+    extends RotateMcpOauthTokenEndpointAuthParam {
   final Map<String, dynamic> raw;
   const UnknownRotateMcpOauthTokenEndpointAuthParam(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

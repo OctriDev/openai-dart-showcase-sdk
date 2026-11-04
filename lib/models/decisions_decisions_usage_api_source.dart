@@ -6,22 +6,25 @@ part of 'decisions_decisions.dart';
 // decisions_decisions domain models
 /// Typed representation of the `DecisionsUsageApiSource` API schema.
 final class DecisionsUsageApiSource {
-
   final String value;
 
   const DecisionsUsageApiSource._(this.value);
 
-  factory DecisionsUsageApiSource.fromJson(String value) => DecisionsUsageApiSource._(value);
+  factory DecisionsUsageApiSource.fromJson(String value) =>
+      DecisionsUsageApiSource._(value);
 
   static const agentsApi = DecisionsUsageApiSource._('agents_api');
   static const unlabeled = DecisionsUsageApiSource._('unlabeled');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DecisionsUsageApiSource && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DecisionsUsageApiSource && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

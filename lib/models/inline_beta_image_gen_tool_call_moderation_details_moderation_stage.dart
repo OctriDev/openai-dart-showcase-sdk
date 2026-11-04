@@ -6,25 +6,33 @@ part of 'inline.dart';
 // Inline operation models
 /// The stage where moderation blocked the image generation call.
 final class BetaImageGenToolCallModerationDetailsModerationStage {
-
   final String value;
 
   const BetaImageGenToolCallModerationDetailsModerationStage._(this.value);
 
-  factory BetaImageGenToolCallModerationDetailsModerationStage.fromJson(String value) => BetaImageGenToolCallModerationDetailsModerationStage._(value);
+  factory BetaImageGenToolCallModerationDetailsModerationStage.fromJson(
+          String value) =>
+      BetaImageGenToolCallModerationDetailsModerationStage._(value);
 
-  static const input = BetaImageGenToolCallModerationDetailsModerationStage._('input');
-  static const output = BetaImageGenToolCallModerationDetailsModerationStage._('output');
-  static const unknown = BetaImageGenToolCallModerationDetailsModerationStage._('unknown');
+  static const input =
+      BetaImageGenToolCallModerationDetailsModerationStage._('input');
+  static const output =
+      BetaImageGenToolCallModerationDetailsModerationStage._('output');
+  static const unknown =
+      BetaImageGenToolCallModerationDetailsModerationStage._('unknown');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaImageGenToolCallModerationDetailsModerationStage && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaImageGenToolCallModerationDetailsModerationStage &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Defines an inline skill for this request.
@@ -33,14 +41,17 @@ enum BetaInlineSkillParamType {
 
   static BetaInlineSkillParamType fromJson(String value) {
     switch (value) {
-      case 'inline': return BetaInlineSkillParamType.inline;
-      default: throw ArgumentError('Unknown BetaInlineSkillParamType: $value');
+      case 'inline':
+        return BetaInlineSkillParamType.inline;
+      default:
+        throw ArgumentError('Unknown BetaInlineSkillParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaInlineSkillParamType.inline: return 'inline';
+      case BetaInlineSkillParamType.inline:
+        return 'inline';
     }
   }
 
@@ -50,87 +61,100 @@ enum BetaInlineSkillParamType {
 
 /// The media type of the inline skill payload. Must be `application/zip`.
 final class BetaInlineSkillSourceParamMediaType {
-
   final String value;
 
   const BetaInlineSkillSourceParamMediaType._(this.value);
 
-  factory BetaInlineSkillSourceParamMediaType.fromJson(String value) => BetaInlineSkillSourceParamMediaType._(value);
+  factory BetaInlineSkillSourceParamMediaType.fromJson(String value) =>
+      BetaInlineSkillSourceParamMediaType._(value);
 
-  static const applicationZip = BetaInlineSkillSourceParamMediaType._('application/zip');
+  static const applicationZip =
+      BetaInlineSkillSourceParamMediaType._('application/zip');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaInlineSkillSourceParamMediaType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaInlineSkillSourceParamMediaType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the inline skill source. Must be `base64`.
 final class BetaInlineSkillSourceParamType {
-
   final String value;
 
   const BetaInlineSkillSourceParamType._(this.value);
 
-  factory BetaInlineSkillSourceParamType.fromJson(String value) => BetaInlineSkillSourceParamType._(value);
+  factory BetaInlineSkillSourceParamType.fromJson(String value) =>
+      BetaInlineSkillSourceParamType._(value);
 
   static const base64 = BetaInlineSkillSourceParamType._('base64');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaInlineSkillSourceParamType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaInlineSkillSourceParamType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The format of the audio data. Currently supported formats are `mp3` and `wav`.
 final class BetaInputAudioInputAudioFormat {
-
   final String value;
 
   const BetaInputAudioInputAudioFormat._(this.value);
 
-  factory BetaInputAudioInputAudioFormat.fromJson(String value) => BetaInputAudioInputAudioFormat._(value);
+  factory BetaInputAudioInputAudioFormat.fromJson(String value) =>
+      BetaInputAudioInputAudioFormat._(value);
 
   static const mp3 = BetaInputAudioInputAudioFormat._('mp3');
   static const wav = BetaInputAudioInputAudioFormat._('wav');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaInputAudioInputAudioFormat && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaInputAudioInputAudioFormat && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the input item. Always `input_audio`.
 final class BetaInputAudioType {
-
   final String value;
 
   const BetaInputAudioType._(this.value);
 
-  factory BetaInputAudioType.fromJson(String value) => BetaInputAudioType._(value);
+  factory BetaInputAudioType.fromJson(String value) =>
+      BetaInputAudioType._(value);
 
   static const inputAudio = BetaInputAudioType._('input_audio');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaInputAudioType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaInputAudioType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the input item. Always `input_file`.
@@ -139,14 +163,17 @@ enum BetaInputFileContentType {
 
   static BetaInputFileContentType fromJson(String value) {
     switch (value) {
-      case 'input_file': return BetaInputFileContentType.inputFile;
-      default: throw ArgumentError('Unknown BetaInputFileContentType: $value');
+      case 'input_file':
+        return BetaInputFileContentType.inputFile;
+      default:
+        throw ArgumentError('Unknown BetaInputFileContentType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaInputFileContentType.inputFile: return 'input_file';
+      case BetaInputFileContentType.inputFile:
+        return 'input_file';
     }
   }
 
@@ -160,14 +187,17 @@ enum BetaInputFileContentParamType {
 
   static BetaInputFileContentParamType fromJson(String value) {
     switch (value) {
-      case 'input_file': return BetaInputFileContentParamType.inputFile;
-      default: throw ArgumentError('Unknown BetaInputFileContentParamType: $value');
+      case 'input_file':
+        return BetaInputFileContentParamType.inputFile;
+      default:
+        throw ArgumentError('Unknown BetaInputFileContentParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaInputFileContentParamType.inputFile: return 'input_file';
+      case BetaInputFileContentParamType.inputFile:
+        return 'input_file';
     }
   }
 
@@ -181,14 +211,17 @@ enum BetaInputImageContentType {
 
   static BetaInputImageContentType fromJson(String value) {
     switch (value) {
-      case 'input_image': return BetaInputImageContentType.inputImage;
-      default: throw ArgumentError('Unknown BetaInputImageContentType: $value');
+      case 'input_image':
+        return BetaInputImageContentType.inputImage;
+      default:
+        throw ArgumentError('Unknown BetaInputImageContentType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaInputImageContentType.inputImage: return 'input_image';
+      case BetaInputImageContentType.inputImage:
+        return 'input_image';
     }
   }
 
@@ -202,14 +235,18 @@ enum BetaInputImageContentParamAutoParamType {
 
   static BetaInputImageContentParamAutoParamType fromJson(String value) {
     switch (value) {
-      case 'input_image': return BetaInputImageContentParamAutoParamType.inputImage;
-      default: throw ArgumentError('Unknown BetaInputImageContentParamAutoParamType: $value');
+      case 'input_image':
+        return BetaInputImageContentParamAutoParamType.inputImage;
+      default:
+        throw ArgumentError(
+            'Unknown BetaInputImageContentParamAutoParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaInputImageContentParamAutoParamType.inputImage: return 'input_image';
+      case BetaInputImageContentParamAutoParamType.inputImage:
+        return 'input_image';
     }
   }
 
@@ -219,12 +256,12 @@ enum BetaInputImageContentParamAutoParamType {
 
 /// The role of the message input. One of `user`, `system`, or `developer`.
 final class BetaInputMessageRole {
-
   final String value;
 
   const BetaInputMessageRole._(this.value);
 
-  factory BetaInputMessageRole.fromJson(String value) => BetaInputMessageRole._(value);
+  factory BetaInputMessageRole.fromJson(String value) =>
+      BetaInputMessageRole._(value);
 
   static const user = BetaInputMessageRole._('user');
   static const system = BetaInputMessageRole._('system');
@@ -232,22 +269,25 @@ final class BetaInputMessageRole {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaInputMessageRole && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaInputMessageRole && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The status of item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
 final class BetaInputMessageStatus {
-
   final String value;
 
   const BetaInputMessageStatus._(this.value);
 
-  factory BetaInputMessageStatus.fromJson(String value) => BetaInputMessageStatus._(value);
+  factory BetaInputMessageStatus.fromJson(String value) =>
+      BetaInputMessageStatus._(value);
 
   static const inProgress = BetaInputMessageStatus._('in_progress');
   static const completed = BetaInputMessageStatus._('completed');
@@ -255,12 +295,15 @@ final class BetaInputMessageStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaInputMessageStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaInputMessageStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the message input. Always set to `message`.
@@ -269,14 +312,17 @@ enum BetaInputMessageType {
 
   static BetaInputMessageType fromJson(String value) {
     switch (value) {
-      case 'message': return BetaInputMessageType.message;
-      default: throw ArgumentError('Unknown BetaInputMessageType: $value');
+      case 'message':
+        return BetaInputMessageType.message;
+      default:
+        throw ArgumentError('Unknown BetaInputMessageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaInputMessageType.message: return 'message';
+      case BetaInputMessageType.message:
+        return 'message';
     }
   }
 

@@ -8,28 +8,47 @@ part of 'projects.dart';
 class ProjectModelPermissionsDeleteResponse implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The object type, which is always `project.model_permissions.deleted`.
   final ProjectModelPermissionsDeleteResponseObject object;
+
   /// Whether the project model permissions were deleted.
   final bool deleted;
 
-  const ProjectModelPermissionsDeleteResponse({required this.object, required this.deleted});
+  const ProjectModelPermissionsDeleteResponse(
+      {required this.object, required this.deleted});
 
-  ProjectModelPermissionsDeleteResponse Function({ProjectModelPermissionsDeleteResponseObject object, bool deleted}) get copyWith => _copyWith;
+  ProjectModelPermissionsDeleteResponse Function(
+      {ProjectModelPermissionsDeleteResponseObject object,
+      bool deleted}) get copyWith => _copyWith;
 
-  ProjectModelPermissionsDeleteResponse _copyWith({Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => ProjectModelPermissionsDeleteResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as ProjectModelPermissionsDeleteResponseObject,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
-  );
+  ProjectModelPermissionsDeleteResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue}) =>
+      ProjectModelPermissionsDeleteResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ProjectModelPermissionsDeleteResponseObject,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as bool,
+      );
 
-  factory ProjectModelPermissionsDeleteResponse.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ProjectModelPermissionsDeleteResponse(
-    object: (json['object'] != null ? ProjectModelPermissionsDeleteResponseObject.fromJson(json['object'] as String) : null)!,
-    deleted: (json['deleted'] as bool?)!,
-  ), json);
+  factory ProjectModelPermissionsDeleteResponse.fromJson(
+          Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ProjectModelPermissionsDeleteResponse(
+            object: (json['object'] != null
+                ? ProjectModelPermissionsDeleteResponseObject.fromJson(
+                    json['object'] as String)
+                : null)!,
+            deleted: (json['deleted'] as bool?)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'deleted': deleted,
-  };
+        'object': object.toJson(),
+        'deleted': deleted,
+      };
 }

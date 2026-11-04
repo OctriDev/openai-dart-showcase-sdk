@@ -10,12 +10,32 @@ sealed class ToolCallCaller {
   const ToolCallCaller();
   factory ToolCallCaller.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = DirectToolCallCaller.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolCallCallerDirectToolCallCaller(value); } } catch (_) {}
-      try { final value = ProgramToolCallCaller.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ToolCallCallerProgramToolCallCaller(value); } } catch (_) {}
+      try {
+        final value = DirectToolCallCaller.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolCallCallerDirectToolCallCaller(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ProgramToolCallCaller.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ToolCallCallerProgramToolCallCaller(value);
+        }
+      } catch (_) {}
     }
-    try { return ToolCallCallerDirectToolCallCaller(DirectToolCallCaller.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ToolCallCallerProgramToolCallCaller(ProgramToolCallCaller.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"direct", "program"}.contains(json["type"])) { return UnknownToolCallCaller(json); }
+    try {
+      return ToolCallCallerDirectToolCallCaller(
+          DirectToolCallCaller.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ToolCallCallerProgramToolCallCaller(
+          ProgramToolCallCaller.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"direct", "program"}.contains(json["type"])) {
+      return UnknownToolCallCaller(json);
+    }
     throw FormatException("No variant matched for ToolCallCaller");
   }
   Object? toJson();
@@ -24,18 +44,21 @@ sealed class ToolCallCaller {
 final class ToolCallCallerDirectToolCallCaller extends ToolCallCaller {
   final DirectToolCallCaller value;
   const ToolCallCallerDirectToolCallCaller(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ToolCallCallerProgramToolCallCaller extends ToolCallCaller {
   final ProgramToolCallCaller value;
   const ToolCallCallerProgramToolCallCaller(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [ToolCallCaller] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownToolCallCaller extends ToolCallCaller {
   final Map<String, dynamic> raw;
   const UnknownToolCallCaller(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

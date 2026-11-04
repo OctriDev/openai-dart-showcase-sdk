@@ -10,12 +10,33 @@ sealed class BetaFilters {
   const BetaFilters();
   factory BetaFilters.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = BetaComparisonFilter.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaFiltersBetaComparisonFilter(value); } } catch (_) {}
-      try { final value = BetaCompoundFilter.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaFiltersBetaCompoundFilter(value); } } catch (_) {}
+      try {
+        final value = BetaComparisonFilter.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaFiltersBetaComparisonFilter(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaCompoundFilter.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaFiltersBetaCompoundFilter(value);
+        }
+      } catch (_) {}
     }
-    try { return BetaFiltersBetaComparisonFilter(BetaComparisonFilter.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaFiltersBetaCompoundFilter(BetaCompoundFilter.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"eq", "ne", "gt", "gte", "lt", "lte", "in", "nin", "and", "or"}.contains(json["type"])) { return UnknownBetaFilters(json); }
+    try {
+      return BetaFiltersBetaComparisonFilter(
+          BetaComparisonFilter.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaFiltersBetaCompoundFilter(
+          BetaCompoundFilter.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"eq", "ne", "gt", "gte", "lt", "lte", "in", "nin", "and", "or"}
+            .contains(json["type"])) {
+      return UnknownBetaFilters(json);
+    }
     throw FormatException("No variant matched for BetaFilters");
   }
   Object? toJson();
@@ -24,18 +45,21 @@ sealed class BetaFilters {
 final class BetaFiltersBetaComparisonFilter extends BetaFilters {
   final BetaComparisonFilter value;
   const BetaFiltersBetaComparisonFilter(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaFiltersBetaCompoundFilter extends BetaFilters {
   final BetaCompoundFilter value;
   const BetaFiltersBetaCompoundFilter(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [BetaFilters] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownBetaFilters extends BetaFilters {
   final Map<String, dynamic> raw;
   const UnknownBetaFilters(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

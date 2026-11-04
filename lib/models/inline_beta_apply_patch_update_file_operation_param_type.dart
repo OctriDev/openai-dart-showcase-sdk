@@ -10,14 +10,18 @@ enum BetaApplyPatchUpdateFileOperationParamType {
 
   static BetaApplyPatchUpdateFileOperationParamType fromJson(String value) {
     switch (value) {
-      case 'update_file': return BetaApplyPatchUpdateFileOperationParamType.updateFile;
-      default: throw ArgumentError('Unknown BetaApplyPatchUpdateFileOperationParamType: $value');
+      case 'update_file':
+        return BetaApplyPatchUpdateFileOperationParamType.updateFile;
+      default:
+        throw ArgumentError(
+            'Unknown BetaApplyPatchUpdateFileOperationParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaApplyPatchUpdateFileOperationParamType.updateFile: return 'update_file';
+      case BetaApplyPatchUpdateFileOperationParamType.updateFile:
+        return 'update_file';
     }
   }
 
@@ -27,44 +31,50 @@ enum BetaApplyPatchUpdateFileOperationParamType {
 
 /// The type of location approximation. Always `approximate`.
 final class BetaApproximateLocationType {
-
   final String value;
 
   const BetaApproximateLocationType._(this.value);
 
-  factory BetaApproximateLocationType.fromJson(String value) => BetaApproximateLocationType._(value);
+  factory BetaApproximateLocationType.fromJson(String value) =>
+      BetaApproximateLocationType._(value);
 
   static const approximate = BetaApproximateLocationType._('approximate');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaApproximateLocationType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaApproximateLocationType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Always `auto`.
 final class BetaAutoCodeInterpreterToolParamType {
-
   final String value;
 
   const BetaAutoCodeInterpreterToolParamType._(this.value);
 
-  factory BetaAutoCodeInterpreterToolParamType.fromJson(String value) => BetaAutoCodeInterpreterToolParamType._(value);
+  factory BetaAutoCodeInterpreterToolParamType.fromJson(String value) =>
+      BetaAutoCodeInterpreterToolParamType._(value);
 
   static const auto = BetaAutoCodeInterpreterToolParamType._('auto');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaAutoCodeInterpreterToolParamType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaAutoCodeInterpreterToolParamType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Specifies the event type. For a click action, this property is always `click`.
@@ -73,14 +83,17 @@ enum BetaClickParamType {
 
   static BetaClickParamType fromJson(String value) {
     switch (value) {
-      case 'click': return BetaClickParamType.click;
-      default: throw ArgumentError('Unknown BetaClickParamType: $value');
+      case 'click':
+        return BetaClickParamType.click;
+      default:
+        throw ArgumentError('Unknown BetaClickParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaClickParamType.click: return 'click';
+      case BetaClickParamType.click:
+        return 'click';
     }
   }
 
@@ -94,14 +107,18 @@ enum BetaCodeInterpreterOutputImageType {
 
   static BetaCodeInterpreterOutputImageType fromJson(String value) {
     switch (value) {
-      case 'image': return BetaCodeInterpreterOutputImageType.image;
-      default: throw ArgumentError('Unknown BetaCodeInterpreterOutputImageType: $value');
+      case 'image':
+        return BetaCodeInterpreterOutputImageType.image;
+      default:
+        throw ArgumentError(
+            'Unknown BetaCodeInterpreterOutputImageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaCodeInterpreterOutputImageType.image: return 'image';
+      case BetaCodeInterpreterOutputImageType.image:
+        return 'image';
     }
   }
 
@@ -115,14 +132,18 @@ enum BetaCodeInterpreterOutputLogsType {
 
   static BetaCodeInterpreterOutputLogsType fromJson(String value) {
     switch (value) {
-      case 'logs': return BetaCodeInterpreterOutputLogsType.logs;
-      default: throw ArgumentError('Unknown BetaCodeInterpreterOutputLogsType: $value');
+      case 'logs':
+        return BetaCodeInterpreterOutputLogsType.logs;
+      default:
+        throw ArgumentError(
+            'Unknown BetaCodeInterpreterOutputLogsType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaCodeInterpreterOutputLogsType.logs: return 'logs';
+      case BetaCodeInterpreterOutputLogsType.logs:
+        return 'logs';
     }
   }
 
@@ -136,14 +157,17 @@ enum BetaCodeInterpreterToolType {
 
   static BetaCodeInterpreterToolType fromJson(String value) {
     switch (value) {
-      case 'code_interpreter': return BetaCodeInterpreterToolType.codeInterpreter;
-      default: throw ArgumentError('Unknown BetaCodeInterpreterToolType: $value');
+      case 'code_interpreter':
+        return BetaCodeInterpreterToolType.codeInterpreter;
+      default:
+        throw ArgumentError('Unknown BetaCodeInterpreterToolType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaCodeInterpreterToolType.codeInterpreter: return 'code_interpreter';
+      case BetaCodeInterpreterToolType.codeInterpreter:
+        return 'code_interpreter';
     }
   }
 
@@ -153,27 +177,31 @@ enum BetaCodeInterpreterToolType {
 
 /// The status of the code interpreter tool call. Valid values are `in_progress`, `completed`, `incomplete`, `interpreting`, and `failed`.
 final class BetaCodeInterpreterToolCallStatus {
-
   final String value;
 
   const BetaCodeInterpreterToolCallStatus._(this.value);
 
-  factory BetaCodeInterpreterToolCallStatus.fromJson(String value) => BetaCodeInterpreterToolCallStatus._(value);
+  factory BetaCodeInterpreterToolCallStatus.fromJson(String value) =>
+      BetaCodeInterpreterToolCallStatus._(value);
 
   static const inProgress = BetaCodeInterpreterToolCallStatus._('in_progress');
   static const completed = BetaCodeInterpreterToolCallStatus._('completed');
   static const incomplete = BetaCodeInterpreterToolCallStatus._('incomplete');
-  static const interpreting = BetaCodeInterpreterToolCallStatus._('interpreting');
+  static const interpreting =
+      BetaCodeInterpreterToolCallStatus._('interpreting');
   static const failed = BetaCodeInterpreterToolCallStatus._('failed');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaCodeInterpreterToolCallStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaCodeInterpreterToolCallStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the code interpreter tool call. Always `code_interpreter_call`.
@@ -182,14 +210,17 @@ enum BetaCodeInterpreterToolCallType {
 
   static BetaCodeInterpreterToolCallType fromJson(String value) {
     switch (value) {
-      case 'code_interpreter_call': return BetaCodeInterpreterToolCallType.codeInterpreterCall;
-      default: throw ArgumentError('Unknown BetaCodeInterpreterToolCallType: $value');
+      case 'code_interpreter_call':
+        return BetaCodeInterpreterToolCallType.codeInterpreterCall;
+      default:
+        throw ArgumentError('Unknown BetaCodeInterpreterToolCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaCodeInterpreterToolCallType.codeInterpreterCall: return 'code_interpreter_call';
+      case BetaCodeInterpreterToolCallType.codeInterpreterCall:
+        return 'code_interpreter_call';
     }
   }
 
@@ -203,14 +234,17 @@ enum BetaCompactionBodyType {
 
   static BetaCompactionBodyType fromJson(String value) {
     switch (value) {
-      case 'compaction': return BetaCompactionBodyType.compaction;
-      default: throw ArgumentError('Unknown BetaCompactionBodyType: $value');
+      case 'compaction':
+        return BetaCompactionBodyType.compaction;
+      default:
+        throw ArgumentError('Unknown BetaCompactionBodyType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaCompactionBodyType.compaction: return 'compaction';
+      case BetaCompactionBodyType.compaction:
+        return 'compaction';
     }
   }
 
@@ -224,14 +258,18 @@ enum BetaCompactionSummaryItemParamType {
 
   static BetaCompactionSummaryItemParamType fromJson(String value) {
     switch (value) {
-      case 'compaction': return BetaCompactionSummaryItemParamType.compaction;
-      default: throw ArgumentError('Unknown BetaCompactionSummaryItemParamType: $value');
+      case 'compaction':
+        return BetaCompactionSummaryItemParamType.compaction;
+      default:
+        throw ArgumentError(
+            'Unknown BetaCompactionSummaryItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaCompactionSummaryItemParamType.compaction: return 'compaction';
+      case BetaCompactionSummaryItemParamType.compaction:
+        return 'compaction';
     }
   }
 
@@ -245,14 +283,18 @@ enum BetaCompactionTriggerItemParamType {
 
   static BetaCompactionTriggerItemParamType fromJson(String value) {
     switch (value) {
-      case 'compaction_trigger': return BetaCompactionTriggerItemParamType.compactionTrigger;
-      default: throw ArgumentError('Unknown BetaCompactionTriggerItemParamType: $value');
+      case 'compaction_trigger':
+        return BetaCompactionTriggerItemParamType.compactionTrigger;
+      default:
+        throw ArgumentError(
+            'Unknown BetaCompactionTriggerItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaCompactionTriggerItemParamType.compactionTrigger: return 'compaction_trigger';
+      case BetaCompactionTriggerItemParamType.compactionTrigger:
+        return 'compaction_trigger';
     }
   }
 
@@ -262,21 +304,25 @@ enum BetaCompactionTriggerItemParamType {
 
 /// The object type. Always `response.compaction`.
 final class BetaCompactResourceObject {
-
   final String value;
 
   const BetaCompactResourceObject._(this.value);
 
-  factory BetaCompactResourceObject.fromJson(String value) => BetaCompactResourceObject._(value);
+  factory BetaCompactResourceObject.fromJson(String value) =>
+      BetaCompactResourceObject._(value);
 
-  static const responseCompaction = BetaCompactResourceObject._('response.compaction');
+  static const responseCompaction =
+      BetaCompactResourceObject._('response.compaction');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaCompactResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaCompactResourceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

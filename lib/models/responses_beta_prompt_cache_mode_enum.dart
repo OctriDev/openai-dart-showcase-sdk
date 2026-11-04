@@ -6,22 +6,25 @@ part of 'responses_beta_prompt.dart';
 // responses_beta_prompt domain models
 /// Typed representation of the `BetaPromptCacheModeEnum` API schema.
 final class BetaPromptCacheModeEnum {
-
   final String value;
 
   const BetaPromptCacheModeEnum._(this.value);
 
-  factory BetaPromptCacheModeEnum.fromJson(String value) => BetaPromptCacheModeEnum._(value);
+  factory BetaPromptCacheModeEnum.fromJson(String value) =>
+      BetaPromptCacheModeEnum._(value);
 
   static const implicit = BetaPromptCacheModeEnum._('implicit');
   static const explicit = BetaPromptCacheModeEnum._('explicit');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaPromptCacheModeEnum && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaPromptCacheModeEnum && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

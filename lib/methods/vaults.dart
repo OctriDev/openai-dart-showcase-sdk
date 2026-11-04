@@ -36,21 +36,40 @@ Future<VaultListResource> listVaults(ClientConfig config,
   return (await sdkRequest<VaultListResource>('GET', '/vaults',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'metadata': SdkQueryValue(SdkUtils.unwrapOptional(metadata), style: 'deepObject', explode: true),
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'metadata': SdkQueryValue(SdkUtils.unwrapOptional(metadata),
+                style: 'deepObject', explode: true),
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listVaults',
-          fromJsonRaw: (value) => VaultListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              VaultListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '409': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '503': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists vaults using ID-based pagination. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).
 ///
@@ -64,13 +83,35 @@ Future<VaultListResource> listVaults(ClientConfig config,
 ///   metadata changes may take time to appear.
 /// [status] Filter by one status or a list, such as `status=active` or
 ///   `status[]=active&status[]=archived`. Both statuses are included by default.
-Stream<VaultResource> listVaultsPaginated(ClientConfig config, {int? limit, ListOrderParam? order, String? after, Map<String, String>? metadata, VaultStatusFilterParam? status, RequestOptions? requestOptions}) async* {
+Stream<VaultResource> listVaultsPaginated(ClientConfig config,
+    {int? limit,
+    ListOrderParam? order,
+    String? after,
+    Map<String, String>? metadata,
+    VaultStatusFilterParam? status,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listVaults(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), metadata: metadata == null ? const SdkOmitted<Map<String, String>>() : SdkPresent<Map<String, String>>(metadata), status: status == null ? const SdkOmitted<VaultStatusFilterParam>() : SdkPresent<VaultStatusFilterParam>(status), requestOptions: requestOptions);
+    final sdkPage = await listVaults(config,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<ListOrderParam>()
+            : SdkPresent<ListOrderParam>(order),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        metadata: metadata == null
+            ? const SdkOmitted<Map<String, String>>()
+            : SdkPresent<Map<String, String>>(metadata),
+        status: status == null
+            ? const SdkOmitted<VaultStatusFilterParam>()
+            : SdkPresent<VaultStatusFilterParam>(status),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -78,10 +119,31 @@ Stream<VaultResource> listVaultsPaginated(ClientConfig config, {int? limit, List
   }
 }
 
-Stream<SdkPage<VaultListResource, VaultResource>> listVaultsPages(ClientConfig config, {int? limit, ListOrderParam? order, String? after, Map<String, String>? metadata, VaultStatusFilterParam? status, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<VaultListResource, VaultResource>> listVaultsPages(
+    ClientConfig config,
+    {int? limit,
+    ListOrderParam? order,
+    String? after,
+    Map<String, String>? metadata,
+    VaultStatusFilterParam? status,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listVaults(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), metadata: metadata == null ? const SdkOmitted<Map<String, String>>() : SdkPresent<Map<String, String>>(metadata), status: status == null ? const SdkOmitted<VaultStatusFilterParam>() : SdkPresent<VaultStatusFilterParam>(status), requestOptions: requestOptions);
+    final sdkPage = await listVaults(config,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<ListOrderParam>()
+            : SdkPresent<ListOrderParam>(order),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        metadata: metadata == null
+            ? const SdkOmitted<Map<String, String>>()
+            : SdkPresent<Map<String, String>>(metadata),
+        status: status == null
+            ? const SdkOmitted<VaultStatusFilterParam>()
+            : SdkPresent<VaultStatusFilterParam>(status),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -91,7 +153,6 @@ Stream<SdkPage<VaultListResource, VaultResource>> listVaultsPages(ClientConfig c
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Creates a vault for the current project. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).
 ///
@@ -115,12 +176,27 @@ Future<VaultResource> createVault(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createVault',
-          fromJsonRaw: (value) => VaultResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              VaultResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '409': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '503': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves a vault by its ID. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).
 ///
@@ -134,12 +210,26 @@ Future<VaultResource> retrieveVault(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveVault',
-          fromJsonRaw: (value) => VaultResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              VaultResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) =>
+            ErrorResponse2.fromJson(value as Map<String, dynamic>),
+        '401': (value) =>
+            ErrorResponse2.fromJson(value as Map<String, dynamic>),
+        '403': (value) =>
+            ErrorResponse2.fromJson(value as Map<String, dynamic>),
+        '404': (value) =>
+            ErrorResponse2.fromJson(value as Map<String, dynamic>),
+        '409': (value) =>
+            ErrorResponse2.fromJson(value as Map<String, dynamic>),
+        '500': (value) =>
+            ErrorResponse2.fromJson(value as Map<String, dynamic>),
+        '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates the name or metadata of an active vault. Omitted fields remain unchanged. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).
 ///
@@ -172,12 +262,27 @@ Future<VaultResource> updateVault(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateVault',
-          fromJsonRaw: (value) => VaultResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              VaultResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '409': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '503': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a vault and all its credentials. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).
 ///
@@ -191,12 +296,26 @@ Future<DeletedVaultResource> deleteVault(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteVault',
-          fromJsonRaw: (value) => DeletedVaultResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeletedVaultResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) =>
+            ErrorResponse2.fromJson(value as Map<String, dynamic>),
+        '401': (value) =>
+            ErrorResponse2.fromJson(value as Map<String, dynamic>),
+        '403': (value) =>
+            ErrorResponse2.fromJson(value as Map<String, dynamic>),
+        '404': (value) =>
+            ErrorResponse2.fromJson(value as Map<String, dynamic>),
+        '409': (value) =>
+            ErrorResponse2.fromJson(value as Map<String, dynamic>),
+        '500': (value) =>
+            ErrorResponse2.fromJson(value as Map<String, dynamic>),
+        '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Lists a vault's credentials using ID-based pagination without returning secret values. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).
 ///
@@ -231,21 +350,40 @@ Future<VaultCredentialListResource> listVaultCredentials(ClientConfig config,
           '/vaults/${Uri.encodeComponent(vaultId.toString())}/credentials',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'metadata': SdkQueryValue(SdkUtils.unwrapOptional(metadata), style: 'deepObject', explode: true),
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'metadata': SdkQueryValue(SdkUtils.unwrapOptional(metadata),
+                style: 'deepObject', explode: true),
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listVaultCredentials',
-          fromJsonRaw: (value) => VaultCredentialListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VaultCredentialListResource.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '409': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '503': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists a vault's credentials using ID-based pagination without returning secret values. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).
 ///
@@ -260,13 +398,38 @@ Future<VaultCredentialListResource> listVaultCredentials(ClientConfig config,
 ///   metadata changes may take time to appear.
 /// [status] Filter by one status or a list, such as `status=active` or
 ///   `status[]=active&status[]=archived`. Both statuses are included by default.
-Stream<VaultCredentialResource> listVaultCredentialsPaginated(ClientConfig config, {required String vaultId, int? limit, ListOrderParam? order, String? after, Map<String, String>? metadata, VaultStatusFilterParam? status, RequestOptions? requestOptions}) async* {
+Stream<VaultCredentialResource> listVaultCredentialsPaginated(
+    ClientConfig config,
+    {required String vaultId,
+    int? limit,
+    ListOrderParam? order,
+    String? after,
+    Map<String, String>? metadata,
+    VaultStatusFilterParam? status,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listVaultCredentials(config, vaultId: vaultId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), metadata: metadata == null ? const SdkOmitted<Map<String, String>>() : SdkPresent<Map<String, String>>(metadata), status: status == null ? const SdkOmitted<VaultStatusFilterParam>() : SdkPresent<VaultStatusFilterParam>(status), requestOptions: requestOptions);
+    final sdkPage = await listVaultCredentials(config,
+        vaultId: vaultId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<ListOrderParam>()
+            : SdkPresent<ListOrderParam>(order),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        metadata: metadata == null
+            ? const SdkOmitted<Map<String, String>>()
+            : SdkPresent<Map<String, String>>(metadata),
+        status: status == null
+            ? const SdkOmitted<VaultStatusFilterParam>()
+            : SdkPresent<VaultStatusFilterParam>(status),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     if (sdkNext == null) return;
@@ -274,10 +437,33 @@ Stream<VaultCredentialResource> listVaultCredentialsPaginated(ClientConfig confi
   }
 }
 
-Stream<SdkPage<VaultCredentialListResource, VaultCredentialResource>> listVaultCredentialsPages(ClientConfig config, {required String vaultId, int? limit, ListOrderParam? order, String? after, Map<String, String>? metadata, VaultStatusFilterParam? status, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<VaultCredentialListResource, VaultCredentialResource>>
+    listVaultCredentialsPages(ClientConfig config,
+        {required String vaultId,
+        int? limit,
+        ListOrderParam? order,
+        String? after,
+        Map<String, String>? metadata,
+        VaultStatusFilterParam? status,
+        RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listVaultCredentials(config, vaultId: vaultId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListOrderParam>() : SdkPresent<ListOrderParam>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), metadata: metadata == null ? const SdkOmitted<Map<String, String>>() : SdkPresent<Map<String, String>>(metadata), status: status == null ? const SdkOmitted<VaultStatusFilterParam>() : SdkPresent<VaultStatusFilterParam>(status), requestOptions: requestOptions);
+    final sdkPage = await listVaultCredentials(config,
+        vaultId: vaultId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<ListOrderParam>()
+            : SdkPresent<ListOrderParam>(order),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        metadata: metadata == null
+            ? const SdkOmitted<Map<String, String>>()
+            : SdkPresent<Map<String, String>>(metadata),
+        status: status == null
+            ? const SdkOmitted<VaultStatusFilterParam>()
+            : SdkPresent<VaultStatusFilterParam>(status),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -287,7 +473,6 @@ Stream<SdkPage<VaultCredentialListResource, VaultCredentialResource>> listVaultC
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Creates a vault credential. Secret values are write-only and are never returned. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).
 ///
@@ -316,12 +501,27 @@ Future<VaultCredentialResource> createVaultCredential(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createVaultCredential',
-          fromJsonRaw: (value) => VaultCredentialResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              VaultCredentialResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '409': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '503': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves vault credential metadata without returning secret values. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).
 ///
@@ -339,12 +539,26 @@ Future<VaultCredentialResource> retrieveVaultCredential(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveVaultCredential',
-          fromJsonRaw: (value) => VaultCredentialResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              VaultCredentialResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) =>
+            ErrorResponse2.fromJson(value as Map<String, dynamic>),
+        '401': (value) =>
+            ErrorResponse2.fromJson(value as Map<String, dynamic>),
+        '403': (value) =>
+            ErrorResponse2.fromJson(value as Map<String, dynamic>),
+        '404': (value) =>
+            ErrorResponse2.fromJson(value as Map<String, dynamic>),
+        '409': (value) =>
+            ErrorResponse2.fromJson(value as Map<String, dynamic>),
+        '500': (value) =>
+            ErrorResponse2.fromJson(value as Map<String, dynamic>),
+        '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates credential metadata or rotates its write-only secret. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).
 ///
@@ -373,22 +587,37 @@ Future<VaultCredentialResource> rotateVaultCredential(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'rotateVaultCredential',
-          fromJsonRaw: (value) => VaultCredentialResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              VaultCredentialResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '409': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>),
+            '503': (value) =>
+                ErrorResponse2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a vault credential. See [vaults](https://developers.openai.com/api/docs/guides/agents-api/tools/vaults).
 ///
 /// [vaultId] The ID of the vault.
 /// [credentialId] The ID of the vault credential.
-Future<DeletedVaultCredentialResource>
-    deleteVaultCredential(ClientConfig config,
-        {required String vaultId,
-        required String credentialId,
-        RequestOptions? requestOptions}) async {
+Future<DeletedVaultCredentialResource> deleteVaultCredential(
+    ClientConfig config,
+    {required String vaultId,
+    required String credentialId,
+    RequestOptions? requestOptions}) async {
   validateLength('vault_id', vaultId, min: 0, max: 1048576);
   validateLength('credential_id', credentialId, min: 0, max: 1048576);
 
@@ -397,8 +626,23 @@ Future<DeletedVaultCredentialResource>
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteVaultCredential',
-          fromJsonRaw: (value) => DeletedVaultCredentialResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeletedVaultCredentialResource.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '401': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '403': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>), '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) =>
+            ErrorResponse2.fromJson(value as Map<String, dynamic>),
+        '401': (value) =>
+            ErrorResponse2.fromJson(value as Map<String, dynamic>),
+        '403': (value) =>
+            ErrorResponse2.fromJson(value as Map<String, dynamic>),
+        '404': (value) =>
+            ErrorResponse2.fromJson(value as Map<String, dynamic>),
+        '409': (value) =>
+            ErrorResponse2.fromJson(value as Map<String, dynamic>),
+        '500': (value) =>
+            ErrorResponse2.fromJson(value as Map<String, dynamic>),
+        '503': (value) => ErrorResponse2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

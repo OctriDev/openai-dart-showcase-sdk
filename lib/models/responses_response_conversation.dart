@@ -8,6 +8,7 @@ part of 'responses_response.dart';
 class ResponseConversation implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the conversation that this response was associated with.
   final String id;
 
@@ -15,16 +16,20 @@ class ResponseConversation implements SdkJsonModel {
 
   ResponseConversation Function({String id}) get copyWith => _copyWith;
 
-  ResponseConversation _copyWith({Object? id = sdkOmittedValue}) => ResponseConversation(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
+  ResponseConversation _copyWith({Object? id = sdkOmittedValue}) =>
+      ResponseConversation(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
 
-  factory ResponseConversation.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ResponseConversation(
-    id: (json['id'] as String?)!,
-  ), json);
+  factory ResponseConversation.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ResponseConversation(
+            id: (json['id'] as String?)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'id': id,
-  };
+        'id': id,
+      };
 }

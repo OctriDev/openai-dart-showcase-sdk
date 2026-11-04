@@ -6,21 +6,24 @@ part of 'agents_environment.dart';
 // agents_environment domain models
 /// The hosting type of an execution environment.
 final class EnvironmentTypeParam {
-
   final String value;
 
   const EnvironmentTypeParam._(this.value);
 
-  factory EnvironmentTypeParam.fromJson(String value) => EnvironmentTypeParam._(value);
+  factory EnvironmentTypeParam.fromJson(String value) =>
+      EnvironmentTypeParam._(value);
 
   static const openaiHosted = EnvironmentTypeParam._('openai_hosted');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is EnvironmentTypeParam && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is EnvironmentTypeParam && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

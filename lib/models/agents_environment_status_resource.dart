@@ -6,12 +6,12 @@ part of 'agents_environment.dart';
 // agents_environment domain models
 /// The public lifecycle status of an execution environment.
 final class EnvironmentStatusResource {
-
   final String value;
 
   const EnvironmentStatusResource._(this.value);
 
-  factory EnvironmentStatusResource.fromJson(String value) => EnvironmentStatusResource._(value);
+  factory EnvironmentStatusResource.fromJson(String value) =>
+      EnvironmentStatusResource._(value);
 
   static const pending = EnvironmentStatusResource._('pending');
   static const ready = EnvironmentStatusResource._('ready');
@@ -23,10 +23,13 @@ final class EnvironmentStatusResource {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is EnvironmentStatusResource && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is EnvironmentStatusResource && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

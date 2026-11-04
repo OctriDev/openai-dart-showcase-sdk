@@ -10,40 +10,76 @@ sealed class BetaWebSearchToolCallAction {
   const BetaWebSearchToolCallAction();
   factory BetaWebSearchToolCallAction.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = BetaWebSearchActionSearch.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaWebSearchToolCallActionBetaWebSearchActionSearch(value); } } catch (_) {}
-      try { final value = BetaWebSearchActionOpenPage.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaWebSearchToolCallActionBetaWebSearchActionOpenPage(value); } } catch (_) {}
-      try { final value = BetaWebSearchActionFind.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaWebSearchToolCallActionBetaWebSearchActionFind(value); } } catch (_) {}
+      try {
+        final value = BetaWebSearchActionSearch.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaWebSearchToolCallActionBetaWebSearchActionSearch(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaWebSearchActionOpenPage.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaWebSearchToolCallActionBetaWebSearchActionOpenPage(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaWebSearchActionFind.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaWebSearchToolCallActionBetaWebSearchActionFind(value);
+        }
+      } catch (_) {}
     }
-    try { return BetaWebSearchToolCallActionBetaWebSearchActionSearch(BetaWebSearchActionSearch.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaWebSearchToolCallActionBetaWebSearchActionOpenPage(BetaWebSearchActionOpenPage.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaWebSearchToolCallActionBetaWebSearchActionFind(BetaWebSearchActionFind.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"search", "open_page", "find_in_page"}.contains(json["type"])) { return UnknownBetaWebSearchToolCallAction(json); }
+    try {
+      return BetaWebSearchToolCallActionBetaWebSearchActionSearch(
+          BetaWebSearchActionSearch.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaWebSearchToolCallActionBetaWebSearchActionOpenPage(
+          BetaWebSearchActionOpenPage.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaWebSearchToolCallActionBetaWebSearchActionFind(
+          BetaWebSearchActionFind.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"search", "open_page", "find_in_page"}.contains(json["type"])) {
+      return UnknownBetaWebSearchToolCallAction(json);
+    }
     throw FormatException("No variant matched for BetaWebSearchToolCallAction");
   }
   Object? toJson();
 }
 
-final class BetaWebSearchToolCallActionBetaWebSearchActionSearch extends BetaWebSearchToolCallAction {
+final class BetaWebSearchToolCallActionBetaWebSearchActionSearch
+    extends BetaWebSearchToolCallAction {
   final BetaWebSearchActionSearch value;
   const BetaWebSearchToolCallActionBetaWebSearchActionSearch(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaWebSearchToolCallActionBetaWebSearchActionOpenPage extends BetaWebSearchToolCallAction {
+final class BetaWebSearchToolCallActionBetaWebSearchActionOpenPage
+    extends BetaWebSearchToolCallAction {
   final BetaWebSearchActionOpenPage value;
   const BetaWebSearchToolCallActionBetaWebSearchActionOpenPage(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaWebSearchToolCallActionBetaWebSearchActionFind extends BetaWebSearchToolCallAction {
+final class BetaWebSearchToolCallActionBetaWebSearchActionFind
+    extends BetaWebSearchToolCallAction {
   final BetaWebSearchActionFind value;
   const BetaWebSearchToolCallActionBetaWebSearchActionFind(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [BetaWebSearchToolCallAction] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownBetaWebSearchToolCallAction extends BetaWebSearchToolCallAction {
+final class UnknownBetaWebSearchToolCallAction
+    extends BetaWebSearchToolCallAction {
   final Map<String, dynamic> raw;
   const UnknownBetaWebSearchToolCallAction(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

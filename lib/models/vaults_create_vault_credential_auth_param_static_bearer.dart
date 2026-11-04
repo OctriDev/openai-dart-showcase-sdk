@@ -8,33 +8,55 @@ part of 'vaults_create.dart';
 class CreateVaultCredentialAuthParamStaticBearer implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the object. Always `static_bearer`.
   final CreateVaultCredentialAuthParamStaticBearerType type_;
+
   /// The HTTPS MCP server URL authorized by this credential.
   final String mcpServerUrl;
+
   /// The bearer token to store. This secret is never returned in credential resources.
   final String token;
 
-  const CreateVaultCredentialAuthParamStaticBearer({required this.type_, required this.mcpServerUrl, required this.token});
+  const CreateVaultCredentialAuthParamStaticBearer(
+      {required this.type_, required this.mcpServerUrl, required this.token});
 
-  CreateVaultCredentialAuthParamStaticBearer Function({CreateVaultCredentialAuthParamStaticBearerType type_, String mcpServerUrl, String token}) get copyWith => _copyWith;
+  CreateVaultCredentialAuthParamStaticBearer Function(
+      {CreateVaultCredentialAuthParamStaticBearerType type_,
+      String mcpServerUrl,
+      String token}) get copyWith => _copyWith;
 
-  CreateVaultCredentialAuthParamStaticBearer _copyWith({Object? type_ = sdkOmittedValue, Object? mcpServerUrl = sdkOmittedValue, Object? token = sdkOmittedValue}) => CreateVaultCredentialAuthParamStaticBearer(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateVaultCredentialAuthParamStaticBearerType,
-    mcpServerUrl: identical(mcpServerUrl, sdkOmittedValue) ? this.mcpServerUrl : mcpServerUrl as String,
-    token: identical(token, sdkOmittedValue) ? this.token : token as String,
-  );
+  CreateVaultCredentialAuthParamStaticBearer _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? mcpServerUrl = sdkOmittedValue,
+          Object? token = sdkOmittedValue}) =>
+      CreateVaultCredentialAuthParamStaticBearer(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as CreateVaultCredentialAuthParamStaticBearerType,
+        mcpServerUrl: identical(mcpServerUrl, sdkOmittedValue)
+            ? this.mcpServerUrl
+            : mcpServerUrl as String,
+        token: identical(token, sdkOmittedValue) ? this.token : token as String,
+      );
 
-  factory CreateVaultCredentialAuthParamStaticBearer.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(CreateVaultCredentialAuthParamStaticBearer(
-    type_: (json['type'] != null ? CreateVaultCredentialAuthParamStaticBearerType.fromJson(json['type'] as String) : null)!,
-    mcpServerUrl: (json['mcp_server_url'] as String?)!,
-    token: (json['token'] as String?)!,
-  ), json);
+  factory CreateVaultCredentialAuthParamStaticBearer.fromJson(
+          Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          CreateVaultCredentialAuthParamStaticBearer(
+            type_: (json['type'] != null
+                ? CreateVaultCredentialAuthParamStaticBearerType.fromJson(
+                    json['type'] as String)
+                : null)!,
+            mcpServerUrl: (json['mcp_server_url'] as String?)!,
+            token: (json['token'] as String?)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'mcp_server_url': mcpServerUrl,
-    'token': token,
-  };
+        'type': type_.toJson(),
+        'mcp_server_url': mcpServerUrl,
+        'token': token,
+      };
 }

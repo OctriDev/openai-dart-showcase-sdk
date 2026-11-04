@@ -10,14 +10,17 @@ enum TranscriptTextSegmentEventType {
 
   static TranscriptTextSegmentEventType fromJson(String value) {
     switch (value) {
-      case 'transcript.text.segment': return TranscriptTextSegmentEventType.transcriptTextSegment;
-      default: throw ArgumentError('Unknown TranscriptTextSegmentEventType: $value');
+      case 'transcript.text.segment':
+        return TranscriptTextSegmentEventType.transcriptTextSegment;
+      default:
+        throw ArgumentError('Unknown TranscriptTextSegmentEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case TranscriptTextSegmentEventType.transcriptTextSegment: return 'transcript.text.segment';
+      case TranscriptTextSegmentEventType.transcriptTextSegment:
+        return 'transcript.text.segment';
     }
   }
 
@@ -31,14 +34,17 @@ enum TranscriptTextUsageDurationType {
 
   static TranscriptTextUsageDurationType fromJson(String value) {
     switch (value) {
-      case 'duration': return TranscriptTextUsageDurationType.duration;
-      default: throw ArgumentError('Unknown TranscriptTextUsageDurationType: $value');
+      case 'duration':
+        return TranscriptTextUsageDurationType.duration;
+      default:
+        throw ArgumentError('Unknown TranscriptTextUsageDurationType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case TranscriptTextUsageDurationType.duration: return 'duration';
+      case TranscriptTextUsageDurationType.duration:
+        return 'duration';
     }
   }
 
@@ -52,14 +58,17 @@ enum TranscriptTextUsageTokensType {
 
   static TranscriptTextUsageTokensType fromJson(String value) {
     switch (value) {
-      case 'tokens': return TranscriptTextUsageTokensType.tokens;
-      default: throw ArgumentError('Unknown TranscriptTextUsageTokensType: $value');
+      case 'tokens':
+        return TranscriptTextUsageTokensType.tokens;
+      default:
+        throw ArgumentError('Unknown TranscriptTextUsageTokensType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case TranscriptTextUsageTokensType.tokens: return 'tokens';
+      case TranscriptTextUsageTokensType.tokens:
+        return 'tokens';
     }
   }
 
@@ -69,24 +78,27 @@ enum TranscriptTextUsageTokensType {
 
 /// The truncation strategy to use for the thread. The default is `auto`. If set to `last_messages`, the thread will be truncated to the n most recent messages in the thread. When set to `auto`, messages in the middle of the thread will be dropped to fit the context length of the model, `max_prompt_tokens`.
 final class TruncationObjectType {
-
   final String value;
 
   const TruncationObjectType._(this.value);
 
-  factory TruncationObjectType.fromJson(String value) => TruncationObjectType._(value);
+  factory TruncationObjectType.fromJson(String value) =>
+      TruncationObjectType._(value);
 
   static const auto = TruncationObjectType._('auto');
   static const lastMessages = TruncationObjectType._('last_messages');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is TruncationObjectType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is TruncationObjectType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Specifies the event type. For a type action, this property is always set to `type`.
@@ -95,14 +107,17 @@ enum TypeParamType {
 
   static TypeParamType fromJson(String value) {
     switch (value) {
-      case 'type': return TypeParamType.type_;
-      default: throw ArgumentError('Unknown TypeParamType: $value');
+      case 'type':
+        return TypeParamType.type_;
+      default:
+        throw ArgumentError('Unknown TypeParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case TypeParamType.type_: return 'type';
+      case TypeParamType.type_:
+        return 'type';
     }
   }
 
@@ -112,163 +127,201 @@ enum TypeParamType {
 
 /// The desired organization data retention type.
 final class UpdateOrganizationDataRetentionBodyRetentionType {
-
   final String value;
 
   const UpdateOrganizationDataRetentionBodyRetentionType._(this.value);
 
-  factory UpdateOrganizationDataRetentionBodyRetentionType.fromJson(String value) => UpdateOrganizationDataRetentionBodyRetentionType._(value);
+  factory UpdateOrganizationDataRetentionBodyRetentionType.fromJson(
+          String value) =>
+      UpdateOrganizationDataRetentionBodyRetentionType._(value);
 
-  static const zeroDataRetention = UpdateOrganizationDataRetentionBodyRetentionType._('zero_data_retention');
-  static const modifiedAbuseMonitoring = UpdateOrganizationDataRetentionBodyRetentionType._('modified_abuse_monitoring');
-  static const enhancedZeroDataRetention = UpdateOrganizationDataRetentionBodyRetentionType._('enhanced_zero_data_retention');
-  static const enhancedModifiedAbuseMonitoring = UpdateOrganizationDataRetentionBodyRetentionType._('enhanced_modified_abuse_monitoring');
+  static const zeroDataRetention =
+      UpdateOrganizationDataRetentionBodyRetentionType._('zero_data_retention');
+  static const modifiedAbuseMonitoring =
+      UpdateOrganizationDataRetentionBodyRetentionType._(
+          'modified_abuse_monitoring');
+  static const enhancedZeroDataRetention =
+      UpdateOrganizationDataRetentionBodyRetentionType._(
+          'enhanced_zero_data_retention');
+  static const enhancedModifiedAbuseMonitoring =
+      UpdateOrganizationDataRetentionBodyRetentionType._(
+          'enhanced_modified_abuse_monitoring');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UpdateOrganizationDataRetentionBodyRetentionType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UpdateOrganizationDataRetentionBodyRetentionType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The currency for the threshold amount. Currently, only `USD` is supported.
 final class UpdateOrganizationSpendLimitBodyCurrency {
-
   final String value;
 
   const UpdateOrganizationSpendLimitBodyCurrency._(this.value);
 
-  factory UpdateOrganizationSpendLimitBodyCurrency.fromJson(String value) => UpdateOrganizationSpendLimitBodyCurrency._(value);
+  factory UpdateOrganizationSpendLimitBodyCurrency.fromJson(String value) =>
+      UpdateOrganizationSpendLimitBodyCurrency._(value);
 
   static const usd = UpdateOrganizationSpendLimitBodyCurrency._('USD');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UpdateOrganizationSpendLimitBodyCurrency && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UpdateOrganizationSpendLimitBodyCurrency && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The time interval for evaluating spend against the threshold. Currently, only `month` is supported.
 final class UpdateOrganizationSpendLimitBodyInterval {
-
   final String value;
 
   const UpdateOrganizationSpendLimitBodyInterval._(this.value);
 
-  factory UpdateOrganizationSpendLimitBodyInterval.fromJson(String value) => UpdateOrganizationSpendLimitBodyInterval._(value);
+  factory UpdateOrganizationSpendLimitBodyInterval.fromJson(String value) =>
+      UpdateOrganizationSpendLimitBodyInterval._(value);
 
   static const month = UpdateOrganizationSpendLimitBodyInterval._('month');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UpdateOrganizationSpendLimitBodyInterval && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UpdateOrganizationSpendLimitBodyInterval && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The desired project data retention type.
 final class UpdateProjectDataRetentionBodyRetentionType {
-
   final String value;
 
   const UpdateProjectDataRetentionBodyRetentionType._(this.value);
 
-  factory UpdateProjectDataRetentionBodyRetentionType.fromJson(String value) => UpdateProjectDataRetentionBodyRetentionType._(value);
+  factory UpdateProjectDataRetentionBodyRetentionType.fromJson(String value) =>
+      UpdateProjectDataRetentionBodyRetentionType._(value);
 
-  static const organizationDefault = UpdateProjectDataRetentionBodyRetentionType._('organization_default');
+  static const organizationDefault =
+      UpdateProjectDataRetentionBodyRetentionType._('organization_default');
   static const none = UpdateProjectDataRetentionBodyRetentionType._('none');
-  static const zeroDataRetention = UpdateProjectDataRetentionBodyRetentionType._('zero_data_retention');
-  static const modifiedAbuseMonitoring = UpdateProjectDataRetentionBodyRetentionType._('modified_abuse_monitoring');
-  static const enhancedZeroDataRetention = UpdateProjectDataRetentionBodyRetentionType._('enhanced_zero_data_retention');
-  static const enhancedModifiedAbuseMonitoring = UpdateProjectDataRetentionBodyRetentionType._('enhanced_modified_abuse_monitoring');
+  static const zeroDataRetention =
+      UpdateProjectDataRetentionBodyRetentionType._('zero_data_retention');
+  static const modifiedAbuseMonitoring =
+      UpdateProjectDataRetentionBodyRetentionType._(
+          'modified_abuse_monitoring');
+  static const enhancedZeroDataRetention =
+      UpdateProjectDataRetentionBodyRetentionType._(
+          'enhanced_zero_data_retention');
+  static const enhancedModifiedAbuseMonitoring =
+      UpdateProjectDataRetentionBodyRetentionType._(
+          'enhanced_modified_abuse_monitoring');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UpdateProjectDataRetentionBodyRetentionType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UpdateProjectDataRetentionBodyRetentionType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The updated service account role.
 final class UpdateProjectServiceAccountBodyRole {
-
   final String value;
 
   const UpdateProjectServiceAccountBodyRole._(this.value);
 
-  factory UpdateProjectServiceAccountBodyRole.fromJson(String value) => UpdateProjectServiceAccountBodyRole._(value);
+  factory UpdateProjectServiceAccountBodyRole.fromJson(String value) =>
+      UpdateProjectServiceAccountBodyRole._(value);
 
   static const member = UpdateProjectServiceAccountBodyRole._('member');
   static const owner = UpdateProjectServiceAccountBodyRole._('owner');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UpdateProjectServiceAccountBodyRole && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UpdateProjectServiceAccountBodyRole && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The currency for the threshold amount. Currently, only `USD` is supported.
 final class UpdateProjectSpendLimitBodyCurrency {
-
   final String value;
 
   const UpdateProjectSpendLimitBodyCurrency._(this.value);
 
-  factory UpdateProjectSpendLimitBodyCurrency.fromJson(String value) => UpdateProjectSpendLimitBodyCurrency._(value);
+  factory UpdateProjectSpendLimitBodyCurrency.fromJson(String value) =>
+      UpdateProjectSpendLimitBodyCurrency._(value);
 
   static const usd = UpdateProjectSpendLimitBodyCurrency._('USD');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UpdateProjectSpendLimitBodyCurrency && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UpdateProjectSpendLimitBodyCurrency && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The time interval for evaluating spend against the threshold. Currently, only `month` is supported.
 final class UpdateProjectSpendLimitBodyInterval {
-
   final String value;
 
   const UpdateProjectSpendLimitBodyInterval._(this.value);
 
-  factory UpdateProjectSpendLimitBodyInterval.fromJson(String value) => UpdateProjectSpendLimitBodyInterval._(value);
+  factory UpdateProjectSpendLimitBodyInterval.fromJson(String value) =>
+      UpdateProjectSpendLimitBodyInterval._(value);
 
   static const month = UpdateProjectSpendLimitBodyInterval._('month');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UpdateProjectSpendLimitBodyInterval && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UpdateProjectSpendLimitBodyInterval && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type, which is always "upload".
 final class UploadObject {
-
   final String value;
 
   const UploadObject._(this.value);
@@ -279,10 +332,13 @@ final class UploadObject {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UploadObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UploadObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

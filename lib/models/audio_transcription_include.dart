@@ -6,21 +6,24 @@ part of 'audio.dart';
 // audio domain models
 /// Typed representation of the `TranscriptionInclude` API schema.
 final class TranscriptionInclude {
-
   final String value;
 
   const TranscriptionInclude._(this.value);
 
-  factory TranscriptionInclude.fromJson(String value) => TranscriptionInclude._(value);
+  factory TranscriptionInclude.fromJson(String value) =>
+      TranscriptionInclude._(value);
 
   static const logprobs = TranscriptionInclude._('logprobs');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is TranscriptionInclude && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is TranscriptionInclude && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

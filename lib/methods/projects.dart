@@ -27,19 +27,32 @@ Future<ProjectListResponse> listProjects(ClientConfig config,
   return (await sdkRequest<ProjectListResponse>('GET', '/organization/projects',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'include_archived': SdkQueryValue(SdkUtils.unwrapOptional(includeArchived), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'include_archived': SdkQueryValue(
+                SdkUtils.unwrapOptional(includeArchived),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listProjects',
-          fromJsonRaw: (value) => ProjectListResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ProjectListResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists projects in the organization. Use `include_archived` to include archived projects and `limit` and `after` to control and continue through the results. The response includes a `has_more` flag and cursor IDs for pagination.
 ///
@@ -53,13 +66,27 @@ Future<ProjectListResponse> listProjects(ClientConfig config,
 ///   after=obj_foo in order to fetch the next page of the list.
 /// [includeArchived] If `true` returns all projects including those that have
 ///   been `archived`. Archived projects are not included by default.
-Stream<Project> listProjectsPaginated(ClientConfig config, {int? limit, String? after, bool? includeArchived, RequestOptions? requestOptions}) async* {
+Stream<Project> listProjectsPaginated(ClientConfig config,
+    {int? limit,
+    String? after,
+    bool? includeArchived,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listProjects(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), includeArchived: includeArchived == null ? const SdkOmitted<bool>() : SdkPresent<bool>(includeArchived), requestOptions: requestOptions);
+    final sdkPage = await listProjects(config,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        includeArchived: includeArchived == null
+            ? const SdkOmitted<bool>()
+            : SdkPresent<bool>(includeArchived),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
     if (sdkNext == null) return;
@@ -67,10 +94,23 @@ Stream<Project> listProjectsPaginated(ClientConfig config, {int? limit, String? 
   }
 }
 
-Stream<SdkPage<ProjectListResponse, Project>> listProjectsPages(ClientConfig config, {int? limit, String? after, bool? includeArchived, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ProjectListResponse, Project>> listProjectsPages(
+    ClientConfig config,
+    {int? limit,
+    String? after,
+    bool? includeArchived,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listProjects(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), includeArchived: includeArchived == null ? const SdkOmitted<bool>() : SdkPresent<bool>(includeArchived), requestOptions: requestOptions);
+    final sdkPage = await listProjects(config,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        includeArchived: includeArchived == null
+            ? const SdkOmitted<bool>()
+            : SdkPresent<bool>(includeArchived),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
@@ -80,7 +120,6 @@ Stream<SdkPage<ProjectListResponse, Project>> listProjectsPages(ClientConfig con
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Create a new project in the organization. Projects can be created and archived, but cannot be deleted.
 ///
@@ -115,12 +154,19 @@ Future<Project> createProject(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createProject',
-          fromJsonRaw: (value) => Project.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Project.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves a project in the organization by its identifier. Use `project_id` to select the project whose name, status, and residency configuration you need to inspect.
 ///
@@ -134,12 +180,17 @@ Future<Project> retrieveProject(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveProject',
-          fromJsonRaw: (value) => Project.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Project.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '403': (value) =>
+            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates a project in the organization. Supply any of `name`, `external_key_id`, or `geography` to change the corresponding project value; omitted fields are not specified for update. The `geography` field is retained for backward compatibility, while data residency is configured with `residency` when creating a project.
 ///
@@ -167,12 +218,21 @@ Future<Project> modifyProject(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'modifyProject',
-          fromJsonRaw: (value) => Project.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Project.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Lists API keys in an organization project. Use `owner_project_access` to filter keys by their owner's effective project access, and `limit` and `after` to control and continue through the results. The response includes redacted key values, owner details, and a `has_more` flag for pagination.
 ///
@@ -194,25 +254,39 @@ Future<ProjectApiKeyListResponse> listProjectApiKeys(ClientConfig config,
     {required String projectId,
     SdkOptional<int> limit = const SdkOmitted(),
     SdkOptional<String> after = const SdkOmitted(),
-    SdkOptional<ListProjectApiKeysOwnerProjectAccess> ownerProjectAccess = const SdkOmitted(),
+    SdkOptional<ListProjectApiKeysOwnerProjectAccess> ownerProjectAccess =
+        const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<ProjectApiKeyListResponse>('GET',
           '/organization/projects/${Uri.encodeComponent(projectId.toString())}/api_keys',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'owner_project_access': SdkQueryValue(SdkUtils.unwrapOptional(ownerProjectAccess), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'owner_project_access': SdkQueryValue(
+                SdkUtils.unwrapOptional(ownerProjectAccess),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listProjectApiKeys',
-          fromJsonRaw: (value) => ProjectApiKeyListResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ProjectApiKeyListResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists API keys in an organization project. Use `owner_project_access` to filter keys by their owner's effective project access, and `limit` and `after` to control and continue through the results. The response includes redacted key values, owner details, and a `has_more` flag for pagination.
 ///
@@ -230,13 +304,30 @@ Future<ProjectApiKeyListResponse> listProjectApiKeys(ClientConfig config,
 ///   `inactive` for owners without access, or `any` for all enabled project API
 ///   keys. If omitted, the endpoint applies its existing membership-based
 ///   visibility rules, which may exclude some enabled keys.
-Stream<ProjectApiKey> listProjectApiKeysPaginated(ClientConfig config, {required String projectId, int? limit, String? after, ListProjectApiKeysOwnerProjectAccess? ownerProjectAccess, RequestOptions? requestOptions}) async* {
+Stream<ProjectApiKey> listProjectApiKeysPaginated(ClientConfig config,
+    {required String projectId,
+    int? limit,
+    String? after,
+    ListProjectApiKeysOwnerProjectAccess? ownerProjectAccess,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listProjectApiKeys(config, projectId: projectId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), ownerProjectAccess: ownerProjectAccess == null ? const SdkOmitted<ListProjectApiKeysOwnerProjectAccess>() : SdkPresent<ListProjectApiKeysOwnerProjectAccess>(ownerProjectAccess), requestOptions: requestOptions);
+    final sdkPage = await listProjectApiKeys(config,
+        projectId: projectId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        ownerProjectAccess: ownerProjectAccess == null
+            ? const SdkOmitted<ListProjectApiKeysOwnerProjectAccess>()
+            : SdkPresent<ListProjectApiKeysOwnerProjectAccess>(
+                ownerProjectAccess),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
     if (sdkNext == null) return;
@@ -244,10 +335,26 @@ Stream<ProjectApiKey> listProjectApiKeysPaginated(ClientConfig config, {required
   }
 }
 
-Stream<SdkPage<ProjectApiKeyListResponse, ProjectApiKey>> listProjectApiKeysPages(ClientConfig config, {required String projectId, int? limit, String? after, ListProjectApiKeysOwnerProjectAccess? ownerProjectAccess, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ProjectApiKeyListResponse, ProjectApiKey>>
+    listProjectApiKeysPages(ClientConfig config,
+        {required String projectId,
+        int? limit,
+        String? after,
+        ListProjectApiKeysOwnerProjectAccess? ownerProjectAccess,
+        RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listProjectApiKeys(config, projectId: projectId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), ownerProjectAccess: ownerProjectAccess == null ? const SdkOmitted<ListProjectApiKeysOwnerProjectAccess>() : SdkPresent<ListProjectApiKeysOwnerProjectAccess>(ownerProjectAccess), requestOptions: requestOptions);
+    final sdkPage = await listProjectApiKeys(config,
+        projectId: projectId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        ownerProjectAccess: ownerProjectAccess == null
+            ? const SdkOmitted<ListProjectApiKeysOwnerProjectAccess>()
+            : SdkPresent<ListProjectApiKeysOwnerProjectAccess>(
+                ownerProjectAccess),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
@@ -257,7 +364,6 @@ Stream<SdkPage<ProjectApiKeyListResponse, ProjectApiKey>> listProjectApiKeysPage
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Retrieves an API key in an organization project by its identifier. Use `project_id` and `api_key_id` to select the project and key whose redacted value, owner access, and usage timestamps you need to inspect.
 ///
@@ -274,12 +380,18 @@ Future<ProjectApiKey> retrieveProjectApiKey(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveProjectApiKey',
-          fromJsonRaw: (value) => ProjectApiKey.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ProjectApiKey.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '403': (value) =>
+            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Deletes an API key from the project. Returns confirmation of the key deletion, or an error if the key belonged to a service account.
 ///
@@ -294,12 +406,18 @@ Future<ProjectApiKeyDeleteResponse> deleteProjectApiKey(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteProjectApiKey',
-          fromJsonRaw: (value) => ProjectApiKeyDeleteResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ProjectApiKeyDeleteResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '403': (value) =>
+            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates the scopes and/or expiration of an existing API key in the project, including a service-account-owned key. Requires permission to write project API keys. Provide at least one of `scopes` or `expires_in_seconds`. Omitted fields stay unchanged; neither field accepts `null`. Both changes are saved together. `scopes` replaces the key's scope restrictions using the same scope identifiers as the dashboard. An empty array means All permissions, subject to the owner's effective access; it does not mean no access. Use `["api.all.read"]` for read-only access or specific scopes such as `["api.files.read"]` for restricted access. This does not change user or service-account roles or grant admin permissions. Scope changes follow the same authentication-cache propagation as dashboard edits. Provide `expires_in_seconds` to set the expiration relative to this request. The value must satisfy the organization's and project's expiry policies. Expired keys cannot be updated. Retrying resets the expiration relative to the new request. The response contains only the redacted key, not its secret.
 ///
@@ -321,7 +439,8 @@ Future<ProjectApiKey> updateProjectApiKey(ClientConfig config,
     SdkOptional<List<String>> scopes = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   if (expiresInSeconds is SdkPresent<int>) {
-    validateRange('expires_in_seconds', expiresInSeconds.value, min: 1, max: 31536000);
+    validateRange('expires_in_seconds', expiresInSeconds.value,
+        min: 1, max: 31536000);
   }
 
   return (await sdkRequest<ProjectApiKey>('POST',
@@ -333,12 +452,21 @@ Future<ProjectApiKey> updateProjectApiKey(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateProjectApiKey',
-          fromJsonRaw: (value) => ProjectApiKey.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ProjectApiKey.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Archives a project in the organization. Archived projects cannot be used or updated.
 ///
@@ -350,31 +478,45 @@ Future<Project> archiveProject(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'archiveProject',
-          fromJsonRaw: (value) => Project.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Project.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '403': (value) =>
+            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Retrieves the model permission policy for a project. Use `project_id` to identify the project whose model access policy you want to inspect. The response includes the policy mode and the model IDs it applies to.
 ///
 /// Returns model permissions for a project.
 ///
 /// [projectId] The ID of the project.
-Future<ProjectModelPermissions> retrieveProjectModelPermissions(ClientConfig config,
-    {required String projectId, RequestOptions? requestOptions}) async {
+Future<ProjectModelPermissions> retrieveProjectModelPermissions(
+    ClientConfig config,
+    {required String projectId,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<ProjectModelPermissions>('GET',
           '/organization/projects/${Uri.encodeComponent(projectId.toString())}/model_permissions',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveProjectModelPermissions',
-          fromJsonRaw: (value) => ProjectModelPermissions.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ProjectModelPermissions.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '403': (value) =>
+            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates a project's model permission policy. Provide `mode` and `model_ids` to specify whether the listed models are allowed or denied. The response returns the updated policy.
 ///
@@ -383,43 +525,61 @@ Future<ProjectModelPermissions> retrieveProjectModelPermissions(ClientConfig con
 /// [projectId] The ID of the project.
 /// [mode] The model permissions mode to apply.
 /// [modelIds] The model IDs included in this permissions policy.
-Future<ProjectModelPermissions>
-    updateProjectModelPermissions(ClientConfig config,
-        {required String projectId,
-        required ProjectModelPermissionsUpdateRequestMode mode,
-        required List<String> modelIds,
-        RequestOptions? requestOptions}) async {
+Future<ProjectModelPermissions> updateProjectModelPermissions(
+    ClientConfig config,
+    {required String projectId,
+    required ProjectModelPermissionsUpdateRequestMode mode,
+    required List<String> modelIds,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<ProjectModelPermissions>('POST',
           '/organization/projects/${Uri.encodeComponent(projectId.toString())}/model_permissions',
           config: config,
           body: {'mode': mode, 'model_ids': modelIds},
           decoder: SdkResponseDecoder.json,
           operationId: 'updateProjectModelPermissions',
-          fromJsonRaw: (value) => ProjectModelPermissions.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ProjectModelPermissions.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes the model permission policy for a project. Use `project_id` to identify the project whose policy you want to remove. The response confirms whether the permissions were deleted.
 ///
 /// Deletes model permissions for a project.
 ///
 /// [projectId] The ID of the project.
-Future<ProjectModelPermissionsDeleteResponse> deleteProjectModelPermissions(ClientConfig config,
-    {required String projectId, RequestOptions? requestOptions}) async {
+Future<ProjectModelPermissionsDeleteResponse> deleteProjectModelPermissions(
+    ClientConfig config,
+    {required String projectId,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<ProjectModelPermissionsDeleteResponse>('DELETE',
           '/organization/projects/${Uri.encodeComponent(projectId.toString())}/model_permissions',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteProjectModelPermissions',
-          fromJsonRaw: (value) => ProjectModelPermissionsDeleteResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ProjectModelPermissionsDeleteResponse.fromJson(
+                  value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '403': (value) =>
+            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Lists the rate limits configured for a project, with each result describing limits for a model. Use `limit` to set the number of results and `after` or `before` to navigate the list using cursors.
 ///
@@ -445,19 +605,28 @@ Future<ProjectRateLimitListResponse> listProjectRateLimits(ClientConfig config,
           '/organization/projects/${Uri.encodeComponent(projectId.toString())}/rate_limits',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listProjectRateLimits',
-          fromJsonRaw: (value) => ProjectRateLimitListResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ProjectRateLimitListResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists the rate limits configured for a project, with each result describing limits for a model. Use `limit` to set the number of results and `after` or `before` to navigate the list using cursors.
 ///
@@ -473,13 +642,29 @@ Future<ProjectRateLimitListResponse> listProjectRateLimits(ClientConfig config,
 ///   defines your place in the list. For instance, if you make a list request and
 ///   receive 100 objects, beginning with obj_foo, your subsequent call can
 ///   include before=obj_foo in order to fetch the previous page of the list.
-Stream<ProjectRateLimit> listProjectRateLimitsPaginated(ClientConfig config, {required String projectId, int? limit, String? after, String? before, RequestOptions? requestOptions}) async* {
+Stream<ProjectRateLimit> listProjectRateLimitsPaginated(ClientConfig config,
+    {required String projectId,
+    int? limit,
+    String? after,
+    String? before,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listProjectRateLimits(config, projectId: projectId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), before: before == null ? const SdkOmitted<String>() : SdkPresent<String>(before), requestOptions: requestOptions);
+    final sdkPage = await listProjectRateLimits(config,
+        projectId: projectId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        before: before == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(before),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
     if (sdkNext == null) return;
@@ -487,10 +672,25 @@ Stream<ProjectRateLimit> listProjectRateLimitsPaginated(ClientConfig config, {re
   }
 }
 
-Stream<SdkPage<ProjectRateLimitListResponse, ProjectRateLimit>> listProjectRateLimitsPages(ClientConfig config, {required String projectId, int? limit, String? after, String? before, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ProjectRateLimitListResponse, ProjectRateLimit>>
+    listProjectRateLimitsPages(ClientConfig config,
+        {required String projectId,
+        int? limit,
+        String? after,
+        String? before,
+        RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listProjectRateLimits(config, projectId: projectId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), before: before == null ? const SdkOmitted<String>() : SdkPresent<String>(before), requestOptions: requestOptions);
+    final sdkPage = await listProjectRateLimits(config,
+        projectId: projectId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        before: before == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(before),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
@@ -500,7 +700,6 @@ Stream<SdkPage<ProjectRateLimitListResponse, ProjectRateLimit>> listProjectRateL
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Updates a rate limit configuration for a project. Use `project_id` and `rate_limit_id` to identify the project and rate limit, then provide the limit values to change. The response returns the updated rate limit configuration.
 ///
@@ -532,21 +731,34 @@ Future<ProjectRateLimit> updateProjectRateLimits(ClientConfig config,
           '/organization/projects/${Uri.encodeComponent(projectId.toString())}/rate_limits/${Uri.encodeComponent(rateLimitId.toString())}',
           config: config,
           body: {
-            'max_requests_per_1_minute': SdkUtils.unwrapOptional(maxRequestsPer1Minute),
-            'max_tokens_per_1_minute': SdkUtils.unwrapOptional(maxTokensPer1Minute),
-            'max_images_per_1_minute': SdkUtils.unwrapOptional(maxImagesPer1Minute),
-            'max_audio_megabytes_per_1_minute': SdkUtils.unwrapOptional(maxAudioMegabytesPer1Minute),
-            'max_requests_per_1_day': SdkUtils.unwrapOptional(maxRequestsPer1Day),
-            'batch_1_day_max_input_tokens': SdkUtils.unwrapOptional(batch1DayMaxInputTokens)
+            'max_requests_per_1_minute':
+                SdkUtils.unwrapOptional(maxRequestsPer1Minute),
+            'max_tokens_per_1_minute':
+                SdkUtils.unwrapOptional(maxTokensPer1Minute),
+            'max_images_per_1_minute':
+                SdkUtils.unwrapOptional(maxImagesPer1Minute),
+            'max_audio_megabytes_per_1_minute':
+                SdkUtils.unwrapOptional(maxAudioMegabytesPer1Minute),
+            'max_requests_per_1_day':
+                SdkUtils.unwrapOptional(maxRequestsPer1Day),
+            'batch_1_day_max_input_tokens':
+                SdkUtils.unwrapOptional(batch1DayMaxInputTokens)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateProjectRateLimits',
-          fromJsonRaw: (value) => ProjectRateLimit.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ProjectRateLimit.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns a list of service accounts in the project.
 ///
@@ -557,28 +769,38 @@ Future<ProjectRateLimit> updateProjectRateLimits(ClientConfig config,
 ///   your place in the list. For instance, if you make a list request and receive
 ///   100 objects, ending with obj_foo, your subsequent call can include
 ///   after=obj_foo in order to fetch the next page of the list.
-Future<ProjectServiceAccountListResponse>
-    listProjectServiceAccounts(ClientConfig config,
-        {required String projectId,
-        SdkOptional<int> limit = const SdkOmitted(),
-        SdkOptional<String> after = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<ProjectServiceAccountListResponse> listProjectServiceAccounts(
+    ClientConfig config,
+    {required String projectId,
+    SdkOptional<int> limit = const SdkOmitted(),
+    SdkOptional<String> after = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<ProjectServiceAccountListResponse>('GET',
           '/organization/projects/${Uri.encodeComponent(projectId.toString())}/service_accounts',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listProjectServiceAccounts',
-          fromJsonRaw: (value) => ProjectServiceAccountListResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ProjectServiceAccountListResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Returns a list of service accounts in the project.
 ///
@@ -589,13 +811,26 @@ Future<ProjectServiceAccountListResponse>
 ///   your place in the list. For instance, if you make a list request and receive
 ///   100 objects, ending with obj_foo, your subsequent call can include
 ///   after=obj_foo in order to fetch the next page of the list.
-Stream<ProjectServiceAccount> listProjectServiceAccountsPaginated(ClientConfig config, {required String projectId, int? limit, String? after, RequestOptions? requestOptions}) async* {
+Stream<ProjectServiceAccount> listProjectServiceAccountsPaginated(
+    ClientConfig config,
+    {required String projectId,
+    int? limit,
+    String? after,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listProjectServiceAccounts(config, projectId: projectId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await listProjectServiceAccounts(config,
+        projectId: projectId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
     if (sdkNext == null) return;
@@ -603,10 +838,21 @@ Stream<ProjectServiceAccount> listProjectServiceAccountsPaginated(ClientConfig c
   }
 }
 
-Stream<SdkPage<ProjectServiceAccountListResponse, ProjectServiceAccount>> listProjectServiceAccountsPages(ClientConfig config, {required String projectId, int? limit, String? after, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ProjectServiceAccountListResponse, ProjectServiceAccount>>
+    listProjectServiceAccountsPages(ClientConfig config,
+        {required String projectId,
+        int? limit,
+        String? after,
+        RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listProjectServiceAccounts(config, projectId: projectId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await listProjectServiceAccounts(config,
+        projectId: projectId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
@@ -616,7 +862,6 @@ Stream<SdkPage<ProjectServiceAccountListResponse, ProjectServiceAccount>> listPr
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Creates a service account in a project and, by default, returns an unredacted API key for it. Supply a `name`; set `create_service_account_only` to create the account without default roles or an API key, and use `expires_in_seconds` to configure the initial key's lifetime.
 ///
@@ -631,29 +876,39 @@ Stream<SdkPage<ProjectServiceAccountListResponse, ProjectServiceAccount>> listPr
 ///   or project policy requires an expiration. When a policy sets a maximum
 ///   lifetime, this value must be provided and must not exceed that limit. A
 ///   non-null value cannot be used when `create_service_account_only` is true.
-Future<ProjectServiceAccountCreateResponse>
-    createProjectServiceAccount(ClientConfig config,
-        {required String projectId,
-        required String name,
-        SdkOptional<bool?> createServiceAccountOnly = const SdkOmitted(),
-        SdkOptional<int?> expiresInSeconds = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<ProjectServiceAccountCreateResponse> createProjectServiceAccount(
+    ClientConfig config,
+    {required String projectId,
+    required String name,
+    SdkOptional<bool?> createServiceAccountOnly = const SdkOmitted(),
+    SdkOptional<int?> expiresInSeconds = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<ProjectServiceAccountCreateResponse>('POST',
           '/organization/projects/${Uri.encodeComponent(projectId.toString())}/service_accounts',
           config: config,
           body: {
             'name': name,
-            'create_service_account_only': SdkUtils.unwrapOptional(createServiceAccountOnly),
+            'create_service_account_only':
+                SdkUtils.unwrapOptional(createServiceAccountOnly),
             'expires_in_seconds': SdkUtils.unwrapOptional(expiresInSeconds)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createProjectServiceAccount',
-          fromJsonRaw: (value) => ProjectServiceAccountCreateResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ProjectServiceAccountCreateResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves a service account in a project. Use the project and service account identifiers to inspect the account's name, role, and creation timestamp.
 ///
@@ -670,12 +925,18 @@ Future<ProjectServiceAccount> retrieveProjectServiceAccount(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveProjectServiceAccount',
-          fromJsonRaw: (value) => ProjectServiceAccount.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ProjectServiceAccount.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '403': (value) =>
+            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates a service account in a project. Supply `name` or `role` to change the corresponding account property; the role must be `member` or `owner`.
 ///
@@ -700,33 +961,48 @@ Future<ProjectServiceAccount> updateProjectServiceAccount(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateProjectServiceAccount',
-          fromJsonRaw: (value) => ProjectServiceAccount.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ProjectServiceAccount.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a service account from the project. Returns confirmation of service account deletion, or an error if the project is archived (archived projects have no service accounts).
 ///
 /// [projectId] The ID of the project.
 /// [serviceAccountId] The ID of the service account.
-Future<ProjectServiceAccountDeleteResponse>
-    deleteProjectServiceAccount(ClientConfig config,
-        {required String projectId,
-        required String serviceAccountId,
-        RequestOptions? requestOptions}) async {
+Future<ProjectServiceAccountDeleteResponse> deleteProjectServiceAccount(
+    ClientConfig config,
+    {required String projectId,
+    required String serviceAccountId,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<ProjectServiceAccountDeleteResponse>('DELETE',
           '/organization/projects/${Uri.encodeComponent(projectId.toString())}/service_accounts/${Uri.encodeComponent(serviceAccountId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteProjectServiceAccount',
-          fromJsonRaw: (value) => ProjectServiceAccountDeleteResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ProjectServiceAccountDeleteResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '403': (value) =>
+            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Lists users in a project using cursor-based pagination. Set `limit` to control the number of results and pass an `after` cursor from a previous response to continue through the list.
 ///
@@ -748,18 +1024,28 @@ Future<ProjectUserListResponse> listProjectUsers(ClientConfig config,
           '/organization/projects/${Uri.encodeComponent(projectId.toString())}/users',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listProjectUsers',
-          fromJsonRaw: (value) => ProjectUserListResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ProjectUserListResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists users in a project using cursor-based pagination. Set `limit` to control the number of results and pass an `after` cursor from a previous response to continue through the list.
 ///
@@ -772,13 +1058,25 @@ Future<ProjectUserListResponse> listProjectUsers(ClientConfig config,
 ///   your place in the list. For instance, if you make a list request and receive
 ///   100 objects, ending with obj_foo, your subsequent call can include
 ///   after=obj_foo in order to fetch the next page of the list.
-Stream<ProjectUser> listProjectUsersPaginated(ClientConfig config, {required String projectId, int? limit, String? after, RequestOptions? requestOptions}) async* {
+Stream<ProjectUser> listProjectUsersPaginated(ClientConfig config,
+    {required String projectId,
+    int? limit,
+    String? after,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listProjectUsers(config, projectId: projectId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await listProjectUsers(config,
+        projectId: projectId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
     if (sdkNext == null) return;
@@ -786,10 +1084,21 @@ Stream<ProjectUser> listProjectUsersPaginated(ClientConfig config, {required Str
   }
 }
 
-Stream<SdkPage<ProjectUserListResponse, ProjectUser>> listProjectUsersPages(ClientConfig config, {required String projectId, int? limit, String? after, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ProjectUserListResponse, ProjectUser>> listProjectUsersPages(
+    ClientConfig config,
+    {required String projectId,
+    int? limit,
+    String? after,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listProjectUsers(config, projectId: projectId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await listProjectUsers(config,
+        projectId: projectId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
@@ -799,7 +1108,6 @@ Stream<SdkPage<ProjectUserListResponse, ProjectUser>> listProjectUsersPages(Clie
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Adds a user to the project. Users must already be members of the organization to be added to a project.
 ///
@@ -823,12 +1131,23 @@ Future<ProjectUser> createProjectUser(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createProjectUser',
-          fromJsonRaw: (value) => ProjectUser.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ProjectUser.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '409': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves a user's membership details for a project. Use `project_id` and `user_id` to identify the project and user, and review the returned role and membership timestamp.
 ///
@@ -845,12 +1164,18 @@ Future<ProjectUser> retrieveProjectUser(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveProjectUser',
-          fromJsonRaw: (value) => ProjectUser.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ProjectUser.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '403': (value) =>
+            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates a user's role in a project. Use `project_id` and `user_id` to identify the project membership, and set `role` to `owner` or `member` when changing the role.
 ///
@@ -870,12 +1195,21 @@ Future<ProjectUser> modifyProjectUser(ClientConfig config,
           body: {'role': SdkUtils.unwrapOptional(role)},
           decoder: SdkResponseDecoder.json,
           operationId: 'modifyProjectUser',
-          fromJsonRaw: (value) => ProjectUser.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ProjectUser.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a user from the project. Returns confirmation of project user deletion, or an error if the project is archived (archived projects have no users).
 ///
@@ -890,12 +1224,18 @@ Future<ProjectUserDeleteResponse> deleteProjectUser(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteProjectUser',
-          fromJsonRaw: (value) => ProjectUserDeleteResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ProjectUserDeleteResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '403': (value) =>
+            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Creates an API key for a service account in a project. Use `name` and `scopes` to set the key's label and scopes, and `expires_in_seconds` to configure its lifetime. The response includes the unredacted key value and its identifier.
 ///
@@ -907,14 +1247,14 @@ Future<ProjectUserDeleteResponse> deleteProjectUser(ClientConfig config,
 /// [scopes] API key scopes.
 /// [expiresInSeconds] Optional API value serialized in the `expires_in_seconds`
 ///   wire field.
-Future<ServiceAccountApiKeyBody>
-    createProjectsServiceAccountApiKey(ClientConfig config,
-        {required String projectId,
-        required String serviceAccountId,
-        SdkOptional<String> name = const SdkOmitted(),
-        SdkOptional<List<String>> scopes = const SdkOmitted(),
-        SdkOptional<int?> expiresInSeconds = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<ServiceAccountApiKeyBody> createProjectsServiceAccountApiKey(
+    ClientConfig config,
+    {required String projectId,
+    required String serviceAccountId,
+    SdkOptional<String> name = const SdkOmitted(),
+    SdkOptional<List<String>> scopes = const SdkOmitted(),
+    SdkOptional<int?> expiresInSeconds = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<ServiceAccountApiKeyBody>('POST',
           '/organization/projects/${Uri.encodeComponent(projectId.toString())}/service_accounts/${Uri.encodeComponent(serviceAccountId.toString())}/api_keys',
           config: config,
@@ -925,8 +1265,20 @@ Future<ServiceAccountApiKeyBody>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createProjectsServiceAccountApiKey',
-          fromJsonRaw: (value) => ServiceAccountApiKeyBody.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ServiceAccountApiKeyBody.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '409': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '409': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

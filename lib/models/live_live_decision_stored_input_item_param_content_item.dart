@@ -10,32 +10,63 @@ sealed class LiveDecisionStoredInputItemParamContentItem {
   const LiveDecisionStoredInputItemParamContentItem();
   factory LiveDecisionStoredInputItemParamContentItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = LiveDecisionInputTextParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveDecisionStoredInputItemParamContentItemLiveDecisionInputTextParam(value); } } catch (_) {}
-      try { final value = LiveDecisionInputImageParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveDecisionStoredInputItemParamContentItemLiveDecisionInputImageParam(value); } } catch (_) {}
+      try {
+        final value = LiveDecisionInputTextParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveDecisionStoredInputItemParamContentItemLiveDecisionInputTextParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveDecisionInputImageParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveDecisionStoredInputItemParamContentItemLiveDecisionInputImageParam(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return LiveDecisionStoredInputItemParamContentItemLiveDecisionInputTextParam(LiveDecisionInputTextParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveDecisionStoredInputItemParamContentItemLiveDecisionInputImageParam(LiveDecisionInputImageParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"input_text", "input_image"}.contains(json["type"])) { return UnknownLiveDecisionStoredInputItemParamContentItem(json); }
-    throw FormatException("No variant matched for LiveDecisionStoredInputItemParamContentItem");
+    try {
+      return LiveDecisionStoredInputItemParamContentItemLiveDecisionInputTextParam(
+          LiveDecisionInputTextParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveDecisionStoredInputItemParamContentItemLiveDecisionInputImageParam(
+          LiveDecisionInputImageParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"input_text", "input_image"}.contains(json["type"])) {
+      return UnknownLiveDecisionStoredInputItemParamContentItem(json);
+    }
+    throw FormatException(
+        "No variant matched for LiveDecisionStoredInputItemParamContentItem");
   }
   Object? toJson();
 }
 
-final class LiveDecisionStoredInputItemParamContentItemLiveDecisionInputTextParam extends LiveDecisionStoredInputItemParamContentItem {
+final class LiveDecisionStoredInputItemParamContentItemLiveDecisionInputTextParam
+    extends LiveDecisionStoredInputItemParamContentItem {
   final LiveDecisionInputTextParam value;
-  const LiveDecisionStoredInputItemParamContentItemLiveDecisionInputTextParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const LiveDecisionStoredInputItemParamContentItemLiveDecisionInputTextParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveDecisionStoredInputItemParamContentItemLiveDecisionInputImageParam extends LiveDecisionStoredInputItemParamContentItem {
+final class LiveDecisionStoredInputItemParamContentItemLiveDecisionInputImageParam
+    extends LiveDecisionStoredInputItemParamContentItem {
   final LiveDecisionInputImageParam value;
-  const LiveDecisionStoredInputItemParamContentItemLiveDecisionInputImageParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const LiveDecisionStoredInputItemParamContentItemLiveDecisionInputImageParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [LiveDecisionStoredInputItemParamContentItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownLiveDecisionStoredInputItemParamContentItem extends LiveDecisionStoredInputItemParamContentItem {
+final class UnknownLiveDecisionStoredInputItemParamContentItem
+    extends LiveDecisionStoredInputItemParamContentItem {
   final Map<String, dynamic> raw;
   const UnknownLiveDecisionStoredInputItemParamContentItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

@@ -6,12 +6,12 @@ part of 'shared_function.dart';
 // shared_function domain models
 /// Typed representation of the `FunctionCallItemStatus` API schema.
 final class FunctionCallItemStatus {
-
   final String value;
 
   const FunctionCallItemStatus._(this.value);
 
-  factory FunctionCallItemStatus.fromJson(String value) => FunctionCallItemStatus._(value);
+  factory FunctionCallItemStatus.fromJson(String value) =>
+      FunctionCallItemStatus._(value);
 
   static const inProgress = FunctionCallItemStatus._('in_progress');
   static const completed = FunctionCallItemStatus._('completed');
@@ -19,10 +19,13 @@ final class FunctionCallItemStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is FunctionCallItemStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is FunctionCallItemStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

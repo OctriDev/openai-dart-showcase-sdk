@@ -6,22 +6,25 @@ part of 'responses_beta_program.dart';
 // responses_beta_program domain models
 /// Typed representation of the `BetaProgramOutputItemStatus` API schema.
 final class BetaProgramOutputItemStatus {
-
   final String value;
 
   const BetaProgramOutputItemStatus._(this.value);
 
-  factory BetaProgramOutputItemStatus.fromJson(String value) => BetaProgramOutputItemStatus._(value);
+  factory BetaProgramOutputItemStatus.fromJson(String value) =>
+      BetaProgramOutputItemStatus._(value);
 
   static const completed = BetaProgramOutputItemStatus._('completed');
   static const incomplete = BetaProgramOutputItemStatus._('incomplete');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaProgramOutputItemStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaProgramOutputItemStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

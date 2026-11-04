@@ -5,31 +5,61 @@ part of 'agents_computer.dart';
 
 // agents_computer domain models
 /// Typed representation of the `ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource` API schema.
-class ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource implements SdkJsonModel {
+class ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource
+    implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
-  final ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType type_;
+  final ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType
+      type_;
+
   /// Required enumerated value serialized in the `action` wire field.
-  final ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceAction action;
+  final ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceAction
+      action;
 
-  const ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource({required this.type_, required this.action});
+  const ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource(
+      {required this.type_, required this.action});
 
-  ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource Function({ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType type_, ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceAction action}) get copyWith => _copyWith;
+  ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource Function(
+      {ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType
+          type_,
+      ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceAction
+          action}) get copyWith => _copyWith;
 
-  ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource _copyWith({Object? type_ = sdkOmittedValue, Object? action = sdkOmittedValue}) => ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType,
-    action: identical(action, sdkOmittedValue) ? this.action : action as ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceAction,
-  );
+  ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource
+      _copyWith(
+              {Object? type_ = sdkOmittedValue,
+              Object? action = sdkOmittedValue}) =>
+          ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource(
+            type_: identical(type_, sdkOmittedValue)
+                ? this.type_
+                : type_
+                    as ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType,
+            action: identical(action, sdkOmittedValue)
+                ? this.action
+                : action
+                    as ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceAction,
+          );
 
-  factory ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource(
-    type_: (json['type'] != null ? ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType.fromJson(json['type'] as String) : null)!,
-    action: (json['action'] != null ? ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceAction.fromJson(json['action'] as String) : null)!,
-  ), json);
+  factory ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource.fromJson(
+          Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResource(
+            type_: (json['type'] != null
+                ? ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceType
+                    .fromJson(json['type'] as String)
+                : null)!,
+            action: (json['action'] != null
+                ? ComputerUseApprovalResponseKindResourceBrowserAuthenticationCancelResourceAction
+                    .fromJson(json['action'] as String)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'action': action.toJson(),
-  };
+        'type': type_.toJson(),
+        'action': action.toJson(),
+      };
 }

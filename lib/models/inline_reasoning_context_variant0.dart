@@ -6,12 +6,12 @@ part of 'inline.dart';
 // Inline operation models
 /// Controls which reasoning items are rendered back to the model on later turns. If omitted or set to `auto`, the model determines the context mode. The `gpt-5.6` model family defaults to `all_turns`; earlier models default to `current_turn`. When returned on a response, this is the effective reasoning context mode used for the response.
 final class ReasoningContextVariant0 {
-
   final String value;
 
   const ReasoningContextVariant0._(this.value);
 
-  factory ReasoningContextVariant0.fromJson(String value) => ReasoningContextVariant0._(value);
+  factory ReasoningContextVariant0.fromJson(String value) =>
+      ReasoningContextVariant0._(value);
 
   static const auto = ReasoningContextVariant0._('auto');
   static const currentTurn = ReasoningContextVariant0._('current_turn');
@@ -19,22 +19,25 @@ final class ReasoningContextVariant0 {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ReasoningContextVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ReasoningContextVariant0 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// **Deprecated:** use `summary` instead. A summary of the reasoning performed by the model. This can be useful for debugging and understanding the model's reasoning process. One of `auto`, `concise`, or `detailed`.
 final class ReasoningGenerateSummaryVariant0 {
-
   final String value;
 
   const ReasoningGenerateSummaryVariant0._(this.value);
 
-  factory ReasoningGenerateSummaryVariant0.fromJson(String value) => ReasoningGenerateSummaryVariant0._(value);
+  factory ReasoningGenerateSummaryVariant0.fromJson(String value) =>
+      ReasoningGenerateSummaryVariant0._(value);
 
   static const auto = ReasoningGenerateSummaryVariant0._('auto');
   static const concise = ReasoningGenerateSummaryVariant0._('concise');
@@ -42,22 +45,25 @@ final class ReasoningGenerateSummaryVariant0 {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ReasoningGenerateSummaryVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ReasoningGenerateSummaryVariant0 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// A summary of the reasoning performed by the model. This can be useful for debugging and understanding the model's reasoning process. One of `auto`, `concise`, or `detailed`. `concise` is supported for `computer-use-preview` models and all reasoning models after `gpt-5`.
 final class ReasoningSummaryVariant0 {
-
   final String value;
 
   const ReasoningSummaryVariant0._(this.value);
 
-  factory ReasoningSummaryVariant0.fromJson(String value) => ReasoningSummaryVariant0._(value);
+  factory ReasoningSummaryVariant0.fromJson(String value) =>
+      ReasoningSummaryVariant0._(value);
 
   static const auto = ReasoningSummaryVariant0._('auto');
   static const concise = ReasoningSummaryVariant0._('concise');
@@ -65,22 +71,25 @@ final class ReasoningSummaryVariant0 {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ReasoningSummaryVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ReasoningSummaryVariant0 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Constrains effort on reasoning for reasoning models. Currently supported values are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response. Not all reasoning models support every value. See the [reasoning guide](https://developers.openai.com/api/docs/guides/reasoning) for model-specific support.
 final class ReasoningEffortVariant0 {
-
   final String value;
 
   const ReasoningEffortVariant0._(this.value);
 
-  factory ReasoningEffortVariant0.fromJson(String value) => ReasoningEffortVariant0._(value);
+  factory ReasoningEffortVariant0.fromJson(String value) =>
+      ReasoningEffortVariant0._(value);
 
   static const none = ReasoningEffortVariant0._('none');
   static const minimal = ReasoningEffortVariant0._('minimal');
@@ -92,22 +101,25 @@ final class ReasoningEffortVariant0 {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ReasoningEffortVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ReasoningEffortVariant0 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The status of the item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
 final class ReasoningItemStatus {
-
   final String value;
 
   const ReasoningItemStatus._(this.value);
 
-  factory ReasoningItemStatus.fromJson(String value) => ReasoningItemStatus._(value);
+  factory ReasoningItemStatus.fromJson(String value) =>
+      ReasoningItemStatus._(value);
 
   static const inProgress = ReasoningItemStatus._('in_progress');
   static const completed = ReasoningItemStatus._('completed');
@@ -115,12 +127,15 @@ final class ReasoningItemStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ReasoningItemStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ReasoningItemStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the object. Always `reasoning`.
@@ -129,14 +144,17 @@ enum ReasoningItemType {
 
   static ReasoningItemType fromJson(String value) {
     switch (value) {
-      case 'reasoning': return ReasoningItemType.reasoning;
-      default: throw ArgumentError('Unknown ReasoningItemType: $value');
+      case 'reasoning':
+        return ReasoningItemType.reasoning;
+      default:
+        throw ArgumentError('Unknown ReasoningItemType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ReasoningItemType.reasoning: return 'reasoning';
+      case ReasoningItemType.reasoning:
+        return 'reasoning';
     }
   }
 
@@ -150,14 +168,17 @@ enum ReasoningItemResourceType {
 
   static ReasoningItemResourceType fromJson(String value) {
     switch (value) {
-      case 'reasoning': return ReasoningItemResourceType.reasoning;
-      default: throw ArgumentError('Unknown ReasoningItemResourceType: $value');
+      case 'reasoning':
+        return ReasoningItemResourceType.reasoning;
+      default:
+        throw ArgumentError('Unknown ReasoningItemResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ReasoningItemResourceType.reasoning: return 'reasoning';
+      case ReasoningItemResourceType.reasoning:
+        return 'reasoning';
     }
   }
 
@@ -171,14 +192,17 @@ enum ReasoningTextContentType {
 
   static ReasoningTextContentType fromJson(String value) {
     switch (value) {
-      case 'reasoning_text': return ReasoningTextContentType.reasoningText;
-      default: throw ArgumentError('Unknown ReasoningTextContentType: $value');
+      case 'reasoning_text':
+        return ReasoningTextContentType.reasoningText;
+      default:
+        throw ArgumentError('Unknown ReasoningTextContentType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ReasoningTextContentType.reasoningText: return 'reasoning_text';
+      case ReasoningTextContentType.reasoningText:
+        return 'reasoning_text';
     }
   }
 
@@ -192,14 +216,17 @@ enum RefusalContentType {
 
   static RefusalContentType fromJson(String value) {
     switch (value) {
-      case 'refusal': return RefusalContentType.refusal;
-      default: throw ArgumentError('Unknown RefusalContentType: $value');
+      case 'refusal':
+        return RefusalContentType.refusal;
+      default:
+        throw ArgumentError('Unknown RefusalContentType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RefusalContentType.refusal: return 'refusal';
+      case RefusalContentType.refusal:
+        return 'refusal';
     }
   }
 
@@ -209,57 +236,66 @@ enum RefusalContentType {
 
 /// The reason why the response is incomplete. `steered` means the response stopped at a safe output boundary after a WebSocket `response.steer` event. The server can then create a successor response automatically with the queued input.
 final class ResponseVariant2IncompleteDetailsReason {
-
   final String value;
 
   const ResponseVariant2IncompleteDetailsReason._(this.value);
 
-  factory ResponseVariant2IncompleteDetailsReason.fromJson(String value) => ResponseVariant2IncompleteDetailsReason._(value);
+  factory ResponseVariant2IncompleteDetailsReason.fromJson(String value) =>
+      ResponseVariant2IncompleteDetailsReason._(value);
 
-  static const maxOutputTokens = ResponseVariant2IncompleteDetailsReason._('max_output_tokens');
-  static const maxMessages = ResponseVariant2IncompleteDetailsReason._('max_messages');
-  static const contentFilter = ResponseVariant2IncompleteDetailsReason._('content_filter');
+  static const maxOutputTokens =
+      ResponseVariant2IncompleteDetailsReason._('max_output_tokens');
+  static const maxMessages =
+      ResponseVariant2IncompleteDetailsReason._('max_messages');
+  static const contentFilter =
+      ResponseVariant2IncompleteDetailsReason._('content_filter');
   static const steered = ResponseVariant2IncompleteDetailsReason._('steered');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ResponseVariant2IncompleteDetailsReason && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ResponseVariant2IncompleteDetailsReason && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type of this resource - always set to `response`.
 final class ResponseVariant2Object {
-
   final String value;
 
   const ResponseVariant2Object._(this.value);
 
-  factory ResponseVariant2Object.fromJson(String value) => ResponseVariant2Object._(value);
+  factory ResponseVariant2Object.fromJson(String value) =>
+      ResponseVariant2Object._(value);
 
   static const response = ResponseVariant2Object._('response');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ResponseVariant2Object && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ResponseVariant2Object && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The status of the response generation. One of `completed`, `failed`, `in_progress`, `cancelled`, `queued`, or `incomplete`.
 final class ResponseVariant2Status {
-
   final String value;
 
   const ResponseVariant2Status._(this.value);
 
-  factory ResponseVariant2Status.fromJson(String value) => ResponseVariant2Status._(value);
+  factory ResponseVariant2Status.fromJson(String value) =>
+      ResponseVariant2Status._(value);
 
   static const completed = ResponseVariant2Status._('completed');
   static const failed = ResponseVariant2Status._('failed');
@@ -270,10 +306,13 @@ final class ResponseVariant2Status {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ResponseVariant2Status && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ResponseVariant2Status && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

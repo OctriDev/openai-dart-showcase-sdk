@@ -6,22 +6,25 @@ part of 'responses_beta.dart';
 // responses_beta domain models
 /// Typed representation of the `BetaGrammarSyntax1` API schema.
 final class BetaGrammarSyntax1 {
-
   final String value;
 
   const BetaGrammarSyntax1._(this.value);
 
-  factory BetaGrammarSyntax1.fromJson(String value) => BetaGrammarSyntax1._(value);
+  factory BetaGrammarSyntax1.fromJson(String value) =>
+      BetaGrammarSyntax1._(value);
 
   static const lark = BetaGrammarSyntax1._('lark');
   static const regex = BetaGrammarSyntax1._('regex');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaGrammarSyntax1 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaGrammarSyntax1 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

@@ -8,28 +8,42 @@ part of 'images.dart';
 class ImageGenInputUsageDetails implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The number of text tokens in the input prompt.
   final int textTokens;
+
   /// The number of image tokens in the input prompt.
   final int imageTokens;
 
-  const ImageGenInputUsageDetails({required this.textTokens, required this.imageTokens});
+  const ImageGenInputUsageDetails(
+      {required this.textTokens, required this.imageTokens});
 
-  ImageGenInputUsageDetails Function({int textTokens, int imageTokens}) get copyWith => _copyWith;
+  ImageGenInputUsageDetails Function({int textTokens, int imageTokens})
+      get copyWith => _copyWith;
 
-  ImageGenInputUsageDetails _copyWith({Object? textTokens = sdkOmittedValue, Object? imageTokens = sdkOmittedValue}) => ImageGenInputUsageDetails(
-    textTokens: identical(textTokens, sdkOmittedValue) ? this.textTokens : textTokens as int,
-    imageTokens: identical(imageTokens, sdkOmittedValue) ? this.imageTokens : imageTokens as int,
-  );
+  ImageGenInputUsageDetails _copyWith(
+          {Object? textTokens = sdkOmittedValue,
+          Object? imageTokens = sdkOmittedValue}) =>
+      ImageGenInputUsageDetails(
+        textTokens: identical(textTokens, sdkOmittedValue)
+            ? this.textTokens
+            : textTokens as int,
+        imageTokens: identical(imageTokens, sdkOmittedValue)
+            ? this.imageTokens
+            : imageTokens as int,
+      );
 
-  factory ImageGenInputUsageDetails.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ImageGenInputUsageDetails(
-    textTokens: ((json['text_tokens'] as num?)?.toInt())!,
-    imageTokens: ((json['image_tokens'] as num?)?.toInt())!,
-  ), json);
+  factory ImageGenInputUsageDetails.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ImageGenInputUsageDetails(
+            textTokens: ((json['text_tokens'] as num?)?.toInt())!,
+            imageTokens: ((json['image_tokens'] as num?)?.toInt())!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'text_tokens': textTokens,
-    'image_tokens': imageTokens,
-  };
+        'text_tokens': textTokens,
+        'image_tokens': imageTokens,
+      };
 }

@@ -6,7 +6,6 @@ part of 'live_live.dart';
 // live_live domain models
 /// Typed representation of the `LiveDetailEnum` API schema.
 final class LiveDetailEnum {
-
   final String value;
 
   const LiveDetailEnum._(this.value);
@@ -20,10 +19,13 @@ final class LiveDetailEnum {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveDetailEnum && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveDetailEnum && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

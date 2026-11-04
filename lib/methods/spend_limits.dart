@@ -9,19 +9,24 @@ import '../types.dart';
 /// Retrieves the hard spend limit configured for the organization. Use this operation to check the limit amount, currency, evaluation interval, and enforcement state.
 ///
 /// Get the organization's hard spend limit.
-Future<OrganizationSpendLimitResource> retrieveSpendLimitsOrganization(ClientConfig config,
+Future<OrganizationSpendLimitResource> retrieveSpendLimitsOrganization(
+    ClientConfig config,
     {RequestOptions? requestOptions}) async {
   return (await sdkRequest<OrganizationSpendLimitResource>(
           'GET', '/organization/spend_limit',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveSpendLimitsOrganization',
-          fromJsonRaw: (value) => OrganizationSpendLimitResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => OrganizationSpendLimitResource.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '403': (value) =>
+            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Create or replace the organization's hard spend limit.
 ///
@@ -30,12 +35,12 @@ Future<OrganizationSpendLimitResource> retrieveSpendLimitsOrganization(ClientCon
 ///   supported.
 /// [interval] The time interval for evaluating spend against the threshold.
 ///   Currently, only `month` is supported.
-Future<OrganizationSpendLimitResource>
-    updateSpendLimitsOrganization(ClientConfig config,
-        {required int thresholdAmount,
-        required UpdateOrganizationSpendLimitBodyCurrency currency,
-        required UpdateOrganizationSpendLimitBodyInterval interval,
-        RequestOptions? requestOptions}) async {
+Future<OrganizationSpendLimitResource> updateSpendLimitsOrganization(
+    ClientConfig config,
+    {required int thresholdAmount,
+    required UpdateOrganizationSpendLimitBodyCurrency currency,
+    required UpdateOrganizationSpendLimitBodyInterval interval,
+    RequestOptions? requestOptions}) async {
   validateRange('threshold_amount', thresholdAmount, min: 1);
 
   return (await sdkRequest<OrganizationSpendLimitResource>(
@@ -48,67 +53,92 @@ Future<OrganizationSpendLimitResource>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateSpendLimitsOrganization',
-          fromJsonRaw: (value) => OrganizationSpendLimitResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => OrganizationSpendLimitResource.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes the hard spend limit configured for the organization. Use this operation when the organization should no longer enforce its configured spending threshold. The response confirms whether the limit was deleted.
 ///
 /// Delete the organization's hard spend limit.
-Future<OrganizationSpendLimitDeletedResource> deleteSpendLimitsOrganization(ClientConfig config,
+Future<OrganizationSpendLimitDeletedResource> deleteSpendLimitsOrganization(
+    ClientConfig config,
     {RequestOptions? requestOptions}) async {
   return (await sdkRequest<OrganizationSpendLimitDeletedResource>(
           'DELETE', '/organization/spend_limit',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteSpendLimitsOrganization',
-          fromJsonRaw: (value) => OrganizationSpendLimitDeletedResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OrganizationSpendLimitDeletedResource.fromJson(
+                  value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '403': (value) =>
+            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Retrieves the hard spend limit configured for a project. Use `project_id` to identify the project whose limit and enforcement state you want to inspect.
 ///
 /// Get a project's hard spend limit.
 ///
 /// [projectId] The ID of the project whose hard spend limit is being managed.
-Future<ProjectSpendLimitResource> retrieveSpendLimitsProject(ClientConfig config,
-    {required String projectId, RequestOptions? requestOptions}) async {
+Future<ProjectSpendLimitResource> retrieveSpendLimitsProject(
+    ClientConfig config,
+    {required String projectId,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<ProjectSpendLimitResource>('GET',
           '/organization/projects/${Uri.encodeComponent(projectId.toString())}/spend_limit',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveSpendLimitsProject',
-          fromJsonRaw: (value) => ProjectSpendLimitResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ProjectSpendLimitResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '403': (value) =>
+            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Deletes a project's hard spend limit. Use `project_id` to identify the project whose configured spending threshold you want to remove. The response confirms whether the limit was deleted.
 ///
 /// Delete a project's hard spend limit.
 ///
 /// [projectId] The ID of the project whose hard spend limit is being managed.
-Future<ProjectSpendLimitDeletedResource> deleteSpendLimitsProject(ClientConfig config,
-    {required String projectId, RequestOptions? requestOptions}) async {
+Future<ProjectSpendLimitDeletedResource> deleteSpendLimitsProject(
+    ClientConfig config,
+    {required String projectId,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<ProjectSpendLimitDeletedResource>('DELETE',
           '/organization/projects/${Uri.encodeComponent(projectId.toString())}/spend_limit',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteSpendLimitsProject',
-          fromJsonRaw: (value) => ProjectSpendLimitDeletedResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ProjectSpendLimitDeletedResource.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '403': (value) =>
+            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Creates or replaces a project's hard spend limit. Supply `threshold_amount`, `currency`, and `interval` to set the spending threshold and the period used to evaluate it. The response includes the resulting limit and its enforcement state.
 ///
@@ -138,8 +168,16 @@ Future<ProjectSpendLimitResource> updateProjectSpendLimit(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateProjectSpendLimit',
-          fromJsonRaw: (value) => ProjectSpendLimitResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ProjectSpendLimitResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

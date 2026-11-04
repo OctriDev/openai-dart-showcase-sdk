@@ -8,28 +8,43 @@ part of 'shared_apply.dart';
 class ApplyPatchDeleteFileOperation implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Delete the specified file.
   final ApplyPatchDeleteFileOperationType type_;
+
   /// Path of the file to delete.
   final String path;
 
-  const ApplyPatchDeleteFileOperation({required this.type_, required this.path});
+  const ApplyPatchDeleteFileOperation(
+      {required this.type_, required this.path});
 
-  ApplyPatchDeleteFileOperation Function({ApplyPatchDeleteFileOperationType type_, String path}) get copyWith => _copyWith;
+  ApplyPatchDeleteFileOperation Function(
+      {ApplyPatchDeleteFileOperationType type_,
+      String path}) get copyWith => _copyWith;
 
-  ApplyPatchDeleteFileOperation _copyWith({Object? type_ = sdkOmittedValue, Object? path = sdkOmittedValue}) => ApplyPatchDeleteFileOperation(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ApplyPatchDeleteFileOperationType,
-    path: identical(path, sdkOmittedValue) ? this.path : path as String,
-  );
+  ApplyPatchDeleteFileOperation _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? path = sdkOmittedValue}) =>
+      ApplyPatchDeleteFileOperation(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ApplyPatchDeleteFileOperationType,
+        path: identical(path, sdkOmittedValue) ? this.path : path as String,
+      );
 
-  factory ApplyPatchDeleteFileOperation.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ApplyPatchDeleteFileOperation(
-    type_: (json['type'] != null ? ApplyPatchDeleteFileOperationType.fromJson(json['type'] as String) : null)!,
-    path: (json['path'] as String?)!,
-  ), json);
+  factory ApplyPatchDeleteFileOperation.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ApplyPatchDeleteFileOperation(
+            type_: (json['type'] != null
+                ? ApplyPatchDeleteFileOperationType.fromJson(
+                    json['type'] as String)
+                : null)!,
+            path: (json['path'] as String?)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'path': path,
-  };
+        'type': type_.toJson(),
+        'path': path,
+      };
 }

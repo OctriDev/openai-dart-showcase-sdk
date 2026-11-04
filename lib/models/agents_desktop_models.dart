@@ -8,6 +8,7 @@ part of 'agents_desktop.dart';
 class DesktopParam implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Whether to provision the desktop and its browser proxy.
   final bool enabled;
 
@@ -16,23 +17,28 @@ class DesktopParam implements SdkJsonModel {
   DesktopParam Function({bool enabled}) get copyWith => _copyWith;
 
   DesktopParam _copyWith({Object? enabled = sdkOmittedValue}) => DesktopParam(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as bool,
-  );
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as bool,
+      );
 
-  factory DesktopParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(DesktopParam(
-    enabled: (json['enabled'] as bool?)!,
-  ), json);
+  factory DesktopParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      DesktopParam(
+        enabled: (json['enabled'] as bool?)!,
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'enabled': enabled,
-  };
+        'enabled': enabled,
+      };
 }
 
 /// The effective desktop configuration for an OpenAI-hosted environment.
 class DesktopResource implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Whether the environment provisions a desktop and browser proxy.
   final bool enabled;
 
@@ -40,16 +46,21 @@ class DesktopResource implements SdkJsonModel {
 
   DesktopResource Function({bool enabled}) get copyWith => _copyWith;
 
-  DesktopResource _copyWith({Object? enabled = sdkOmittedValue}) => DesktopResource(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as bool,
-  );
+  DesktopResource _copyWith({Object? enabled = sdkOmittedValue}) =>
+      DesktopResource(
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as bool,
+      );
 
-  factory DesktopResource.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(DesktopResource(
-    enabled: (json['enabled'] as bool?)!,
-  ), json);
+  factory DesktopResource.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      DesktopResource(
+        enabled: (json['enabled'] as bool?)!,
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'enabled': enabled,
-  };
+        'enabled': enabled,
+      };
 }

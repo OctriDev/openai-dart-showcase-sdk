@@ -9,8 +9,12 @@ sealed class Content {
   static const String constructionSurface = 'named';
   const Content();
   factory Content.fromJson(Object? json) {
-    try { return ContentInputContent(InputContent.fromJson(json)); } catch (_) {}
-    try { return ContentOutputContent(OutputContent.fromJson(json)); } catch (_) {}
+    try {
+      return ContentInputContent(InputContent.fromJson(json));
+    } catch (_) {}
+    try {
+      return ContentOutputContent(OutputContent.fromJson(json));
+    } catch (_) {}
     throw FormatException("No variant matched for Content");
   }
   Object? toJson();
@@ -19,11 +23,13 @@ sealed class Content {
 final class ContentInputContent extends Content {
   final InputContent value;
   const ContentInputContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ContentOutputContent extends Content {
   final OutputContent value;
   const ContentOutputContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }

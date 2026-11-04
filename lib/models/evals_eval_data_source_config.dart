@@ -10,40 +10,78 @@ sealed class EvalDataSourceConfig {
   const EvalDataSourceConfig();
   factory EvalDataSourceConfig.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = EvalCustomDataSourceConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EvalDataSourceConfigEvalCustomDataSourceConfig(value); } } catch (_) {}
-      try { final value = EvalLogsDataSourceConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EvalDataSourceConfigEvalLogsDataSourceConfig(value); } } catch (_) {}
-      try { final value = EvalStoredCompletionsDataSourceConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EvalDataSourceConfigEvalStoredCompletionsDataSourceConfig(value); } } catch (_) {}
+      try {
+        final value = EvalCustomDataSourceConfig.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EvalDataSourceConfigEvalCustomDataSourceConfig(value);
+        }
+      } catch (_) {}
+      try {
+        final value = EvalLogsDataSourceConfig.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EvalDataSourceConfigEvalLogsDataSourceConfig(value);
+        }
+      } catch (_) {}
+      try {
+        final value = EvalStoredCompletionsDataSourceConfig.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EvalDataSourceConfigEvalStoredCompletionsDataSourceConfig(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return EvalDataSourceConfigEvalCustomDataSourceConfig(EvalCustomDataSourceConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return EvalDataSourceConfigEvalLogsDataSourceConfig(EvalLogsDataSourceConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return EvalDataSourceConfigEvalStoredCompletionsDataSourceConfig(EvalStoredCompletionsDataSourceConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"custom", "logs", "stored_completions"}.contains(json["type"])) { return UnknownEvalDataSourceConfig(json); }
+    try {
+      return EvalDataSourceConfigEvalCustomDataSourceConfig(
+          EvalCustomDataSourceConfig.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return EvalDataSourceConfigEvalLogsDataSourceConfig(
+          EvalLogsDataSourceConfig.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return EvalDataSourceConfigEvalStoredCompletionsDataSourceConfig(
+          EvalStoredCompletionsDataSourceConfig.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"custom", "logs", "stored_completions"}
+            .contains(json["type"])) {
+      return UnknownEvalDataSourceConfig(json);
+    }
     throw FormatException("No variant matched for EvalDataSourceConfig");
   }
   Object? toJson();
 }
 
-final class EvalDataSourceConfigEvalCustomDataSourceConfig extends EvalDataSourceConfig {
+final class EvalDataSourceConfigEvalCustomDataSourceConfig
+    extends EvalDataSourceConfig {
   final EvalCustomDataSourceConfig value;
   const EvalDataSourceConfigEvalCustomDataSourceConfig(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class EvalDataSourceConfigEvalLogsDataSourceConfig extends EvalDataSourceConfig {
+final class EvalDataSourceConfigEvalLogsDataSourceConfig
+    extends EvalDataSourceConfig {
   final EvalLogsDataSourceConfig value;
   const EvalDataSourceConfigEvalLogsDataSourceConfig(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class EvalDataSourceConfigEvalStoredCompletionsDataSourceConfig extends EvalDataSourceConfig {
+final class EvalDataSourceConfigEvalStoredCompletionsDataSourceConfig
+    extends EvalDataSourceConfig {
   final EvalStoredCompletionsDataSourceConfig value;
   const EvalDataSourceConfigEvalStoredCompletionsDataSourceConfig(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [EvalDataSourceConfig] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownEvalDataSourceConfig extends EvalDataSourceConfig {
   final Map<String, dynamic> raw;
   const UnknownEvalDataSourceConfig(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

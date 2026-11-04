@@ -10,32 +10,57 @@ sealed class BetaOutputMessageContent {
   const BetaOutputMessageContent();
   factory BetaOutputMessageContent.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = BetaOutputTextContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaOutputMessageContentBetaOutputTextContent(value); } } catch (_) {}
-      try { final value = BetaRefusalContent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaOutputMessageContentBetaRefusalContent(value); } } catch (_) {}
+      try {
+        final value = BetaOutputTextContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaOutputMessageContentBetaOutputTextContent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaRefusalContent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaOutputMessageContentBetaRefusalContent(value);
+        }
+      } catch (_) {}
     }
-    try { return BetaOutputMessageContentBetaOutputTextContent(BetaOutputTextContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaOutputMessageContentBetaRefusalContent(BetaRefusalContent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"output_text", "refusal"}.contains(json["type"])) { return UnknownBetaOutputMessageContent(json); }
+    try {
+      return BetaOutputMessageContentBetaOutputTextContent(
+          BetaOutputTextContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaOutputMessageContentBetaRefusalContent(
+          BetaRefusalContent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"output_text", "refusal"}.contains(json["type"])) {
+      return UnknownBetaOutputMessageContent(json);
+    }
     throw FormatException("No variant matched for BetaOutputMessageContent");
   }
   Object? toJson();
 }
 
-final class BetaOutputMessageContentBetaOutputTextContent extends BetaOutputMessageContent {
+final class BetaOutputMessageContentBetaOutputTextContent
+    extends BetaOutputMessageContent {
   final BetaOutputTextContent value;
   const BetaOutputMessageContentBetaOutputTextContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaOutputMessageContentBetaRefusalContent extends BetaOutputMessageContent {
+final class BetaOutputMessageContentBetaRefusalContent
+    extends BetaOutputMessageContent {
   final BetaRefusalContent value;
   const BetaOutputMessageContentBetaRefusalContent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [BetaOutputMessageContent] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownBetaOutputMessageContent extends BetaOutputMessageContent {
   final Map<String, dynamic> raw;
   const UnknownBetaOutputMessageContent(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

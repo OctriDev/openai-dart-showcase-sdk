@@ -6,22 +6,25 @@ part of 'responses_beta.dart';
 // responses_beta domain models
 /// Typed representation of the `BetaRankerVersionType` API schema.
 final class BetaRankerVersionType {
-
   final String value;
 
   const BetaRankerVersionType._(this.value);
 
-  factory BetaRankerVersionType.fromJson(String value) => BetaRankerVersionType._(value);
+  factory BetaRankerVersionType.fromJson(String value) =>
+      BetaRankerVersionType._(value);
 
   static const auto = BetaRankerVersionType._('auto');
   static const default20241115 = BetaRankerVersionType._('default-2024-11-15');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaRankerVersionType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaRankerVersionType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

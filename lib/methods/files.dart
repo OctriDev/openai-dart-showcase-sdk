@@ -28,20 +28,30 @@ Future<ListFilesResponse> listFiles(ClientConfig config,
   return (await sdkRequest<ListFilesResponse>('GET', '/files',
           config: config,
           query: {
-            'purpose': SdkQueryValue(SdkUtils.unwrapOptional(purpose), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true)
+            'purpose': SdkQueryValue(SdkUtils.unwrapOptional(purpose),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listFiles',
-          fromJsonRaw: (value) => ListFilesResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListFilesResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists uploaded files, with optional filtering, sorting, and cursor-based pagination. Use `purpose` to filter the results, and use `after` with the last file ID from a page to retrieve the next page.
 ///
@@ -56,23 +66,58 @@ Future<ListFilesResponse> listFiles(ClientConfig config,
 ///   your place in the list. For instance, if you make a list request and receive
 ///   100 objects, ending with obj_foo, your subsequent call can include
 ///   after=obj_foo in order to fetch the next page of the list.
-Stream<OpenAIFile> listFilesPaginated(ClientConfig config, {String? purpose, int? limit, ListFilesOrder? order, String? after, RequestOptions? requestOptions}) async* {
+Stream<OpenAIFile> listFilesPaginated(ClientConfig config,
+    {String? purpose,
+    int? limit,
+    ListFilesOrder? order,
+    String? after,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listFiles(config, purpose: purpose == null ? const SdkOmitted<String>() : SdkPresent<String>(purpose), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListFilesOrder>() : SdkPresent<ListFilesOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await listFiles(config,
+        purpose: purpose == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(purpose),
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<ListFilesOrder>()
+            : SdkPresent<ListFilesOrder>(order),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<ListFilesResponse, OpenAIFile>> listFilesPages(ClientConfig config, {String? purpose, int? limit, ListFilesOrder? order, String? after, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ListFilesResponse, OpenAIFile>> listFilesPages(
+    ClientConfig config,
+    {String? purpose,
+    int? limit,
+    ListFilesOrder? order,
+    String? after,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listFiles(config, purpose: purpose == null ? const SdkOmitted<String>() : SdkPresent<String>(purpose), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), order: order == null ? const SdkOmitted<ListFilesOrder>() : SdkPresent<ListFilesOrder>(order), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await listFiles(config,
+        purpose: purpose == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(purpose),
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        order: order == null
+            ? const SdkOmitted<ListFilesOrder>()
+            : SdkPresent<ListFilesOrder>(order),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId;
@@ -82,7 +127,6 @@ Stream<SdkPage<ListFilesResponse, OpenAIFile>> listFilesPages(ClientConfig confi
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Uploads a file for use across supported API endpoints. Send the file and its `purpose` as multipart form data, and use `expires_after` when you want to set an expiration policy. File uploads are limited to 512 MB per file and 2.5 TB of storage per project.
 ///
@@ -107,17 +151,26 @@ Future<OpenAIFile> createFile(ClientConfig config,
           body: {
             'file': file,
             'purpose': purpose,
-            'expires_after': SdkMultipartPart(SdkUtils.unwrapOptional(expiresAfter), contentType: 'application/json')
+            'expires_after': SdkMultipartPart(
+                SdkUtils.unwrapOptional(expiresAfter),
+                contentType: 'application/json')
           },
           contentType: 'multipart/form-data',
           decoder: SdkResponseDecoder.json,
           operationId: 'createFile',
-          fromJsonRaw: (value) => OpenAIFile.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OpenAIFile.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a file and removes it from all vector stores. Use `file_id` to identify the file to remove.
 ///
@@ -131,12 +184,15 @@ Future<DeleteFileResponse> deleteFile(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteFile',
-          fromJsonRaw: (value) => DeleteFileResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeleteFileResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Retrieves metadata for a specific uploaded file. Use `file_id` to identify the file whose purpose, size, status, and timestamps you need.
 ///
@@ -150,12 +206,15 @@ Future<OpenAIFile> retrieveFile(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveFile',
-          fromJsonRaw: (value) => OpenAIFile.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OpenAIFile.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Retrieves the contents of a specific uploaded file. Use `file_id` to identify the file, and note that some file purposes or account permissions do not allow downloads.
 ///
@@ -170,6 +229,11 @@ Future<List<int>> downloadFile(ClientConfig config,
           decoder: SdkResponseDecoder.bytes,
           operationId: 'downloadFile',
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '500': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

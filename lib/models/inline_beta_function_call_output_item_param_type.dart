@@ -10,14 +10,18 @@ enum BetaFunctionCallOutputItemParamType {
 
   static BetaFunctionCallOutputItemParamType fromJson(String value) {
     switch (value) {
-      case 'function_call_output': return BetaFunctionCallOutputItemParamType.functionCallOutput;
-      default: throw ArgumentError('Unknown BetaFunctionCallOutputItemParamType: $value');
+      case 'function_call_output':
+        return BetaFunctionCallOutputItemParamType.functionCallOutput;
+      default:
+        throw ArgumentError(
+            'Unknown BetaFunctionCallOutputItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaFunctionCallOutputItemParamType.functionCallOutput: return 'function_call_output';
+      case BetaFunctionCallOutputItemParamType.functionCallOutput:
+        return 'function_call_output';
     }
   }
 
@@ -31,14 +35,17 @@ enum BetaFunctionShellCallType {
 
   static BetaFunctionShellCallType fromJson(String value) {
     switch (value) {
-      case 'shell_call': return BetaFunctionShellCallType.shellCall;
-      default: throw ArgumentError('Unknown BetaFunctionShellCallType: $value');
+      case 'shell_call':
+        return BetaFunctionShellCallType.shellCall;
+      default:
+        throw ArgumentError('Unknown BetaFunctionShellCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaFunctionShellCallType.shellCall: return 'shell_call';
+      case BetaFunctionShellCallType.shellCall:
+        return 'shell_call';
     }
   }
 
@@ -52,14 +59,18 @@ enum BetaFunctionShellCallItemParamType {
 
   static BetaFunctionShellCallItemParamType fromJson(String value) {
     switch (value) {
-      case 'shell_call': return BetaFunctionShellCallItemParamType.shellCall;
-      default: throw ArgumentError('Unknown BetaFunctionShellCallItemParamType: $value');
+      case 'shell_call':
+        return BetaFunctionShellCallItemParamType.shellCall;
+      default:
+        throw ArgumentError(
+            'Unknown BetaFunctionShellCallItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaFunctionShellCallItemParamType.shellCall: return 'shell_call';
+      case BetaFunctionShellCallItemParamType.shellCall:
+        return 'shell_call';
     }
   }
 
@@ -73,14 +84,17 @@ enum BetaFunctionShellCallOutputType {
 
   static BetaFunctionShellCallOutputType fromJson(String value) {
     switch (value) {
-      case 'shell_call_output': return BetaFunctionShellCallOutputType.shellCallOutput;
-      default: throw ArgumentError('Unknown BetaFunctionShellCallOutputType: $value');
+      case 'shell_call_output':
+        return BetaFunctionShellCallOutputType.shellCallOutput;
+      default:
+        throw ArgumentError('Unknown BetaFunctionShellCallOutputType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaFunctionShellCallOutputType.shellCallOutput: return 'shell_call_output';
+      case BetaFunctionShellCallOutputType.shellCallOutput:
+        return 'shell_call_output';
     }
   }
 
@@ -94,14 +108,18 @@ enum BetaFunctionShellCallOutputExitOutcomeType {
 
   static BetaFunctionShellCallOutputExitOutcomeType fromJson(String value) {
     switch (value) {
-      case 'exit': return BetaFunctionShellCallOutputExitOutcomeType.exit;
-      default: throw ArgumentError('Unknown BetaFunctionShellCallOutputExitOutcomeType: $value');
+      case 'exit':
+        return BetaFunctionShellCallOutputExitOutcomeType.exit;
+      default:
+        throw ArgumentError(
+            'Unknown BetaFunctionShellCallOutputExitOutcomeType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaFunctionShellCallOutputExitOutcomeType.exit: return 'exit';
+      case BetaFunctionShellCallOutputExitOutcomeType.exit:
+        return 'exit';
     }
   }
 
@@ -113,16 +131,21 @@ enum BetaFunctionShellCallOutputExitOutcomeType {
 enum BetaFunctionShellCallOutputExitOutcomeParamType {
   exit;
 
-  static BetaFunctionShellCallOutputExitOutcomeParamType fromJson(String value) {
+  static BetaFunctionShellCallOutputExitOutcomeParamType fromJson(
+      String value) {
     switch (value) {
-      case 'exit': return BetaFunctionShellCallOutputExitOutcomeParamType.exit;
-      default: throw ArgumentError('Unknown BetaFunctionShellCallOutputExitOutcomeParamType: $value');
+      case 'exit':
+        return BetaFunctionShellCallOutputExitOutcomeParamType.exit;
+      default:
+        throw ArgumentError(
+            'Unknown BetaFunctionShellCallOutputExitOutcomeParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaFunctionShellCallOutputExitOutcomeParamType.exit: return 'exit';
+      case BetaFunctionShellCallOutputExitOutcomeParamType.exit:
+        return 'exit';
     }
   }
 
@@ -136,14 +159,18 @@ enum BetaFunctionShellCallOutputItemParamType {
 
   static BetaFunctionShellCallOutputItemParamType fromJson(String value) {
     switch (value) {
-      case 'shell_call_output': return BetaFunctionShellCallOutputItemParamType.shellCallOutput;
-      default: throw ArgumentError('Unknown BetaFunctionShellCallOutputItemParamType: $value');
+      case 'shell_call_output':
+        return BetaFunctionShellCallOutputItemParamType.shellCallOutput;
+      default:
+        throw ArgumentError(
+            'Unknown BetaFunctionShellCallOutputItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaFunctionShellCallOutputItemParamType.shellCallOutput: return 'shell_call_output';
+      case BetaFunctionShellCallOutputItemParamType.shellCallOutput:
+        return 'shell_call_output';
     }
   }
 
@@ -157,14 +184,18 @@ enum BetaFunctionShellCallOutputTimeoutOutcomeType {
 
   static BetaFunctionShellCallOutputTimeoutOutcomeType fromJson(String value) {
     switch (value) {
-      case 'timeout': return BetaFunctionShellCallOutputTimeoutOutcomeType.timeout;
-      default: throw ArgumentError('Unknown BetaFunctionShellCallOutputTimeoutOutcomeType: $value');
+      case 'timeout':
+        return BetaFunctionShellCallOutputTimeoutOutcomeType.timeout;
+      default:
+        throw ArgumentError(
+            'Unknown BetaFunctionShellCallOutputTimeoutOutcomeType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaFunctionShellCallOutputTimeoutOutcomeType.timeout: return 'timeout';
+      case BetaFunctionShellCallOutputTimeoutOutcomeType.timeout:
+        return 'timeout';
     }
   }
 
@@ -176,16 +207,21 @@ enum BetaFunctionShellCallOutputTimeoutOutcomeType {
 enum BetaFunctionShellCallOutputTimeoutOutcomeParamType {
   timeout;
 
-  static BetaFunctionShellCallOutputTimeoutOutcomeParamType fromJson(String value) {
+  static BetaFunctionShellCallOutputTimeoutOutcomeParamType fromJson(
+      String value) {
     switch (value) {
-      case 'timeout': return BetaFunctionShellCallOutputTimeoutOutcomeParamType.timeout;
-      default: throw ArgumentError('Unknown BetaFunctionShellCallOutputTimeoutOutcomeParamType: $value');
+      case 'timeout':
+        return BetaFunctionShellCallOutputTimeoutOutcomeParamType.timeout;
+      default:
+        throw ArgumentError(
+            'Unknown BetaFunctionShellCallOutputTimeoutOutcomeParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaFunctionShellCallOutputTimeoutOutcomeParamType.timeout: return 'timeout';
+      case BetaFunctionShellCallOutputTimeoutOutcomeParamType.timeout:
+        return 'timeout';
     }
   }
 
@@ -199,14 +235,17 @@ enum BetaFunctionShellToolParamType {
 
   static BetaFunctionShellToolParamType fromJson(String value) {
     switch (value) {
-      case 'shell': return BetaFunctionShellToolParamType.shell;
-      default: throw ArgumentError('Unknown BetaFunctionShellToolParamType: $value');
+      case 'shell':
+        return BetaFunctionShellToolParamType.shell;
+      default:
+        throw ArgumentError('Unknown BetaFunctionShellToolParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaFunctionShellToolParamType.shell: return 'shell';
+      case BetaFunctionShellToolParamType.shell:
+        return 'shell';
     }
   }
 
@@ -220,14 +259,17 @@ enum BetaFunctionToolType {
 
   static BetaFunctionToolType fromJson(String value) {
     switch (value) {
-      case 'function': return BetaFunctionToolType.function_;
-      default: throw ArgumentError('Unknown BetaFunctionToolType: $value');
+      case 'function':
+        return BetaFunctionToolType.function_;
+      default:
+        throw ArgumentError('Unknown BetaFunctionToolType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaFunctionToolType.function_: return 'function';
+      case BetaFunctionToolType.function_:
+        return 'function';
     }
   }
 
@@ -237,12 +279,12 @@ enum BetaFunctionToolType {
 
 /// The status of the item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
 final class BetaFunctionToolCallStatus {
-
   final String value;
 
   const BetaFunctionToolCallStatus._(this.value);
 
-  factory BetaFunctionToolCallStatus.fromJson(String value) => BetaFunctionToolCallStatus._(value);
+  factory BetaFunctionToolCallStatus.fromJson(String value) =>
+      BetaFunctionToolCallStatus._(value);
 
   static const inProgress = BetaFunctionToolCallStatus._('in_progress');
   static const completed = BetaFunctionToolCallStatus._('completed');
@@ -250,12 +292,15 @@ final class BetaFunctionToolCallStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaFunctionToolCallStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaFunctionToolCallStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the function tool call. Always `function_call`.
@@ -264,14 +309,17 @@ enum BetaFunctionToolCallType {
 
   static BetaFunctionToolCallType fromJson(String value) {
     switch (value) {
-      case 'function_call': return BetaFunctionToolCallType.functionCall;
-      default: throw ArgumentError('Unknown BetaFunctionToolCallType: $value');
+      case 'function_call':
+        return BetaFunctionToolCallType.functionCall;
+      default:
+        throw ArgumentError('Unknown BetaFunctionToolCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaFunctionToolCallType.functionCall: return 'function_call';
+      case BetaFunctionToolCallType.functionCall:
+        return 'function_call';
     }
   }
 

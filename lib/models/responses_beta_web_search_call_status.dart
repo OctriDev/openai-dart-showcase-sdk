@@ -6,12 +6,12 @@ part of 'responses_beta_web.dart';
 // responses_beta_web domain models
 /// Typed representation of the `BetaWebSearchCallStatus` API schema.
 final class BetaWebSearchCallStatus {
-
   final String value;
 
   const BetaWebSearchCallStatus._(this.value);
 
-  factory BetaWebSearchCallStatus.fromJson(String value) => BetaWebSearchCallStatus._(value);
+  factory BetaWebSearchCallStatus.fromJson(String value) =>
+      BetaWebSearchCallStatus._(value);
 
   static const inProgress = BetaWebSearchCallStatus._('in_progress');
   static const searching = BetaWebSearchCallStatus._('searching');
@@ -21,10 +21,13 @@ final class BetaWebSearchCallStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaWebSearchCallStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaWebSearchCallStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

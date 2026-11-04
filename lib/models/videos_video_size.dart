@@ -6,7 +6,6 @@ part of 'videos.dart';
 // videos domain models
 /// Typed representation of the `VideoSize` API schema.
 final class VideoSize {
-
   final String value;
 
   const VideoSize._(this.value);
@@ -20,10 +19,12 @@ final class VideoSize {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is VideoSize && other.value == value;
+  @override
+  bool operator ==(Object other) => other is VideoSize && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

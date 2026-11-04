@@ -13,8 +13,11 @@ Future<WebhookEventTypeListResource> listWebhookEventTypes(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'listWebhookEventTypes',
-          fromJsonRaw: (value) => WebhookEventTypeListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => WebhookEventTypeListResource.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

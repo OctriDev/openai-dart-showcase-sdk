@@ -8,23 +8,34 @@ part of 'responses_beta_prompt.dart';
 class BetaPromptCacheBreakpointParam implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The breakpoint mode. Always `explicit`.
   final BetaPromptCacheBreakpointParamMode mode;
 
   const BetaPromptCacheBreakpointParam({required this.mode});
 
-  BetaPromptCacheBreakpointParam Function({BetaPromptCacheBreakpointParamMode mode}) get copyWith => _copyWith;
+  BetaPromptCacheBreakpointParam Function(
+      {BetaPromptCacheBreakpointParamMode mode}) get copyWith => _copyWith;
 
-  BetaPromptCacheBreakpointParam _copyWith({Object? mode = sdkOmittedValue}) => BetaPromptCacheBreakpointParam(
-    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as BetaPromptCacheBreakpointParamMode,
-  );
+  BetaPromptCacheBreakpointParam _copyWith({Object? mode = sdkOmittedValue}) =>
+      BetaPromptCacheBreakpointParam(
+        mode: identical(mode, sdkOmittedValue)
+            ? this.mode
+            : mode as BetaPromptCacheBreakpointParamMode,
+      );
 
-  factory BetaPromptCacheBreakpointParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(BetaPromptCacheBreakpointParam(
-    mode: (json['mode'] != null ? BetaPromptCacheBreakpointParamMode.fromJson(json['mode'] as String) : null)!,
-  ), json);
+  factory BetaPromptCacheBreakpointParam.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          BetaPromptCacheBreakpointParam(
+            mode: (json['mode'] != null
+                ? BetaPromptCacheBreakpointParamMode.fromJson(
+                    json['mode'] as String)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'mode': mode.toJson(),
-  };
+        'mode': mode.toJson(),
+      };
 }

@@ -10,14 +10,17 @@ enum WebSearchActionResourceOtherType {
 
   static WebSearchActionResourceOtherType fromJson(String value) {
     switch (value) {
-      case 'other': return WebSearchActionResourceOtherType.other;
-      default: throw ArgumentError('Unknown WebSearchActionResourceOtherType: $value');
+      case 'other':
+        return WebSearchActionResourceOtherType.other;
+      default:
+        throw ArgumentError('Unknown WebSearchActionResourceOtherType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case WebSearchActionResourceOtherType.other: return 'other';
+      case WebSearchActionResourceOtherType.other:
+        return 'other';
     }
   }
 
@@ -31,14 +34,18 @@ enum WebSearchActionResourceSearchType {
 
   static WebSearchActionResourceSearchType fromJson(String value) {
     switch (value) {
-      case 'search': return WebSearchActionResourceSearchType.search;
-      default: throw ArgumentError('Unknown WebSearchActionResourceSearchType: $value');
+      case 'search':
+        return WebSearchActionResourceSearchType.search;
+      default:
+        throw ArgumentError(
+            'Unknown WebSearchActionResourceSearchType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case WebSearchActionResourceSearchType.search: return 'search';
+      case WebSearchActionResourceSearchType.search:
+        return 'search';
     }
   }
 
@@ -48,23 +55,26 @@ enum WebSearchActionResourceSearchType {
 
 /// The type of source. Always `url`.
 final class WebSearchActionSearchSourcesItemType {
-
   final String value;
 
   const WebSearchActionSearchSourcesItemType._(this.value);
 
-  factory WebSearchActionSearchSourcesItemType.fromJson(String value) => WebSearchActionSearchSourcesItemType._(value);
+  factory WebSearchActionSearchSourcesItemType.fromJson(String value) =>
+      WebSearchActionSearchSourcesItemType._(value);
 
   static const url = WebSearchActionSearchSourcesItemType._('url');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is WebSearchActionSearchSourcesItemType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is WebSearchActionSearchSourcesItemType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The action type.
@@ -73,14 +83,17 @@ enum WebSearchActionSearchType {
 
   static WebSearchActionSearchType fromJson(String value) {
     switch (value) {
-      case 'search': return WebSearchActionSearchType.search;
-      default: throw ArgumentError('Unknown WebSearchActionSearchType: $value');
+      case 'search':
+        return WebSearchActionSearchType.search;
+      default:
+        throw ArgumentError('Unknown WebSearchActionSearchType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case WebSearchActionSearchType.search: return 'search';
+      case WebSearchActionSearchType.search:
+        return 'search';
     }
   }
 
@@ -90,23 +103,26 @@ enum WebSearchActionSearchType {
 
 /// The type of location approximation. Always `approximate`.
 final class WebSearchApproximateLocationType {
-
   final String value;
 
   const WebSearchApproximateLocationType._(this.value);
 
-  factory WebSearchApproximateLocationType.fromJson(String value) => WebSearchApproximateLocationType._(value);
+  factory WebSearchApproximateLocationType.fromJson(String value) =>
+      WebSearchApproximateLocationType._(value);
 
   static const approximate = WebSearchApproximateLocationType._('approximate');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is WebSearchApproximateLocationType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is WebSearchApproximateLocationType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The item type. Always `web_search_call`.
@@ -115,14 +131,17 @@ enum WebSearchCallItemResourceType {
 
   static WebSearchCallItemResourceType fromJson(String value) {
     switch (value) {
-      case 'web_search_call': return WebSearchCallItemResourceType.webSearchCall;
-      default: throw ArgumentError('Unknown WebSearchCallItemResourceType: $value');
+      case 'web_search_call':
+        return WebSearchCallItemResourceType.webSearchCall;
+      default:
+        throw ArgumentError('Unknown WebSearchCallItemResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case WebSearchCallItemResourceType.webSearchCall: return 'web_search_call';
+      case WebSearchCallItemResourceType.webSearchCall:
+        return 'web_search_call';
     }
   }
 
@@ -137,16 +156,21 @@ enum WebSearchPreviewToolType {
 
   static WebSearchPreviewToolType fromJson(String value) {
     switch (value) {
-      case 'web_search_preview': return WebSearchPreviewToolType.webSearchPreview;
-      case 'web_search_preview_2025_03_11': return WebSearchPreviewToolType.webSearchPreview20250311;
-      default: throw ArgumentError('Unknown WebSearchPreviewToolType: $value');
+      case 'web_search_preview':
+        return WebSearchPreviewToolType.webSearchPreview;
+      case 'web_search_preview_2025_03_11':
+        return WebSearchPreviewToolType.webSearchPreview20250311;
+      default:
+        throw ArgumentError('Unknown WebSearchPreviewToolType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case WebSearchPreviewToolType.webSearchPreview: return 'web_search_preview';
-      case WebSearchPreviewToolType.webSearchPreview20250311: return 'web_search_preview_2025_03_11';
+      case WebSearchPreviewToolType.webSearchPreview:
+        return 'web_search_preview';
+      case WebSearchPreviewToolType.webSearchPreview20250311:
+        return 'web_search_preview_2025_03_11';
     }
   }
 
@@ -156,12 +180,12 @@ enum WebSearchPreviewToolType {
 
 /// High level guidance for the amount of context window space to use for the search. One of `low`, `medium`, or `high`. `medium` is the default.
 final class WebSearchToolSearchContextSize {
-
   final String value;
 
   const WebSearchToolSearchContextSize._(this.value);
 
-  factory WebSearchToolSearchContextSize.fromJson(String value) => WebSearchToolSearchContextSize._(value);
+  factory WebSearchToolSearchContextSize.fromJson(String value) =>
+      WebSearchToolSearchContextSize._(value);
 
   static const low = WebSearchToolSearchContextSize._('low');
   static const medium = WebSearchToolSearchContextSize._('medium');
@@ -169,12 +193,15 @@ final class WebSearchToolSearchContextSize {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is WebSearchToolSearchContextSize && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is WebSearchToolSearchContextSize && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the web search tool. One of `web_search` or `web_search_2025_08_26`.
@@ -184,16 +211,21 @@ enum WebSearchToolType {
 
   static WebSearchToolType fromJson(String value) {
     switch (value) {
-      case 'web_search': return WebSearchToolType.webSearch;
-      case 'web_search_2025_08_26': return WebSearchToolType.webSearch20250826;
-      default: throw ArgumentError('Unknown WebSearchToolType: $value');
+      case 'web_search':
+        return WebSearchToolType.webSearch;
+      case 'web_search_2025_08_26':
+        return WebSearchToolType.webSearch20250826;
+      default:
+        throw ArgumentError('Unknown WebSearchToolType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case WebSearchToolType.webSearch: return 'web_search';
-      case WebSearchToolType.webSearch20250826: return 'web_search_2025_08_26';
+      case WebSearchToolType.webSearch:
+        return 'web_search';
+      case WebSearchToolType.webSearch20250826:
+        return 'web_search_2025_08_26';
     }
   }
 
@@ -207,14 +239,17 @@ enum WebSearchToolCallType {
 
   static WebSearchToolCallType fromJson(String value) {
     switch (value) {
-      case 'web_search_call': return WebSearchToolCallType.webSearchCall;
-      default: throw ArgumentError('Unknown WebSearchToolCallType: $value');
+      case 'web_search_call':
+        return WebSearchToolCallType.webSearchCall;
+      default:
+        throw ArgumentError('Unknown WebSearchToolCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case WebSearchToolCallType.webSearchCall: return 'web_search_call';
+      case WebSearchToolCallType.webSearchCall:
+        return 'web_search_call';
     }
   }
 
@@ -224,23 +259,27 @@ enum WebSearchToolCallType {
 
 /// Type discriminator that is always `chatkit.thread_item`.
 final class WidgetMessageItemObject {
-
   final String value;
 
   const WidgetMessageItemObject._(this.value);
 
-  factory WidgetMessageItemObject.fromJson(String value) => WidgetMessageItemObject._(value);
+  factory WidgetMessageItemObject.fromJson(String value) =>
+      WidgetMessageItemObject._(value);
 
-  static const chatkitThreadItem = WidgetMessageItemObject._('chatkit.thread_item');
+  static const chatkitThreadItem =
+      WidgetMessageItemObject._('chatkit.thread_item');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is WidgetMessageItemObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is WidgetMessageItemObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Type discriminator that is always `chatkit.widget`.
@@ -249,14 +288,17 @@ enum WidgetMessageItemType {
 
   static WidgetMessageItemType fromJson(String value) {
     switch (value) {
-      case 'chatkit.widget': return WidgetMessageItemType.chatkitWidget;
-      default: throw ArgumentError('Unknown WidgetMessageItemType: $value');
+      case 'chatkit.widget':
+        return WidgetMessageItemType.chatkitWidget;
+      default:
+        throw ArgumentError('Unknown WidgetMessageItemType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case WidgetMessageItemType.chatkitWidget: return 'chatkit.widget';
+      case WidgetMessageItemType.chatkitWidget:
+        return 'chatkit.widget';
     }
   }
 
@@ -266,21 +308,24 @@ enum WidgetMessageItemType {
 
 /// The object type, which is always `list`.
 final class ListAgentSessionSubagentsResponseObject {
-
   final String value;
 
   const ListAgentSessionSubagentsResponseObject._(this.value);
 
-  factory ListAgentSessionSubagentsResponseObject.fromJson(String value) => ListAgentSessionSubagentsResponseObject._(value);
+  factory ListAgentSessionSubagentsResponseObject.fromJson(String value) =>
+      ListAgentSessionSubagentsResponseObject._(value);
 
   static const list = ListAgentSessionSubagentsResponseObject._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListAgentSessionSubagentsResponseObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListAgentSessionSubagentsResponseObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

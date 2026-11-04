@@ -10,87 +10,194 @@ sealed class BetaToolChoiceParam {
   const BetaToolChoiceParam();
   factory BetaToolChoiceParam.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = BetaToolChoiceAllowed.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolChoiceParamBetaToolChoiceAllowed(value); } } catch (_) {}
-      try { final value = BetaToolChoiceTypes.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolChoiceParamBetaToolChoiceTypes(value); } } catch (_) {}
-      try { final value = BetaToolChoiceFunction.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolChoiceParamBetaToolChoiceFunction(value); } } catch (_) {}
-      try { final value = BetaToolChoiceMCP.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolChoiceParamBetaToolChoiceMCP(value); } } catch (_) {}
-      try { final value = BetaToolChoiceCustom.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolChoiceParamBetaToolChoiceCustom(value); } } catch (_) {}
-      try { final value = BetaSpecificProgrammaticToolCallingParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolChoiceParamBetaSpecificProgrammaticToolCallingParam(value); } } catch (_) {}
-      try { final value = BetaSpecificApplyPatchParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolChoiceParamBetaSpecificApplyPatchParam(value); } } catch (_) {}
-      try { final value = BetaSpecificFunctionShellParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolChoiceParamBetaSpecificFunctionShellParam(value); } } catch (_) {}
+      try {
+        final value = BetaToolChoiceAllowed.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaToolChoiceParamBetaToolChoiceAllowed(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaToolChoiceTypes.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaToolChoiceParamBetaToolChoiceTypes(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaToolChoiceFunction.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaToolChoiceParamBetaToolChoiceFunction(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaToolChoiceMCP.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaToolChoiceParamBetaToolChoiceMCP(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaToolChoiceCustom.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaToolChoiceParamBetaToolChoiceCustom(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaSpecificProgrammaticToolCallingParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaToolChoiceParamBetaSpecificProgrammaticToolCallingParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaSpecificApplyPatchParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaToolChoiceParamBetaSpecificApplyPatchParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaSpecificFunctionShellParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaToolChoiceParamBetaSpecificFunctionShellParam(value);
+        }
+      } catch (_) {}
     }
-    try { return BetaToolChoiceParamBetaToolChoiceOptions(BetaToolChoiceOptions.fromJson(json as String)); } catch (_) {}
-    try { return BetaToolChoiceParamBetaToolChoiceAllowed(BetaToolChoiceAllowed.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaToolChoiceParamBetaToolChoiceTypes(BetaToolChoiceTypes.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaToolChoiceParamBetaToolChoiceFunction(BetaToolChoiceFunction.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaToolChoiceParamBetaToolChoiceMCP(BetaToolChoiceMCP.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaToolChoiceParamBetaToolChoiceCustom(BetaToolChoiceCustom.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaToolChoiceParamBetaSpecificProgrammaticToolCallingParam(BetaSpecificProgrammaticToolCallingParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaToolChoiceParamBetaSpecificApplyPatchParam(BetaSpecificApplyPatchParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaToolChoiceParamBetaSpecificFunctionShellParam(BetaSpecificFunctionShellParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"allowed_tools", "file_search", "web_search_preview", "computer", "computer_use_preview", "computer_use", "web_search_preview_2025_03_11", "image_generation", "code_interpreter", "function", "mcp", "custom", "programmatic_tool_calling", "apply_patch", "shell"}.contains(json["type"])) { return UnknownBetaToolChoiceParam(json); }
+    try {
+      return BetaToolChoiceParamBetaToolChoiceOptions(
+          BetaToolChoiceOptions.fromJson(json as String));
+    } catch (_) {}
+    try {
+      return BetaToolChoiceParamBetaToolChoiceAllowed(
+          BetaToolChoiceAllowed.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaToolChoiceParamBetaToolChoiceTypes(
+          BetaToolChoiceTypes.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaToolChoiceParamBetaToolChoiceFunction(
+          BetaToolChoiceFunction.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaToolChoiceParamBetaToolChoiceMCP(
+          BetaToolChoiceMCP.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaToolChoiceParamBetaToolChoiceCustom(
+          BetaToolChoiceCustom.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaToolChoiceParamBetaSpecificProgrammaticToolCallingParam(
+          BetaSpecificProgrammaticToolCallingParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaToolChoiceParamBetaSpecificApplyPatchParam(
+          BetaSpecificApplyPatchParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaToolChoiceParamBetaSpecificFunctionShellParam(
+          BetaSpecificFunctionShellParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {
+          "allowed_tools",
+          "file_search",
+          "web_search_preview",
+          "computer",
+          "computer_use_preview",
+          "computer_use",
+          "web_search_preview_2025_03_11",
+          "image_generation",
+          "code_interpreter",
+          "function",
+          "mcp",
+          "custom",
+          "programmatic_tool_calling",
+          "apply_patch",
+          "shell"
+        }.contains(json["type"])) {
+      return UnknownBetaToolChoiceParam(json);
+    }
     throw FormatException("No variant matched for BetaToolChoiceParam");
   }
   Object? toJson();
 }
 
-final class BetaToolChoiceParamBetaToolChoiceOptions extends BetaToolChoiceParam {
+final class BetaToolChoiceParamBetaToolChoiceOptions
+    extends BetaToolChoiceParam {
   final BetaToolChoiceOptions value;
   const BetaToolChoiceParamBetaToolChoiceOptions(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaToolChoiceParamBetaToolChoiceAllowed extends BetaToolChoiceParam {
+final class BetaToolChoiceParamBetaToolChoiceAllowed
+    extends BetaToolChoiceParam {
   final BetaToolChoiceAllowed value;
   const BetaToolChoiceParamBetaToolChoiceAllowed(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaToolChoiceParamBetaToolChoiceTypes extends BetaToolChoiceParam {
   final BetaToolChoiceTypes value;
   const BetaToolChoiceParamBetaToolChoiceTypes(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaToolChoiceParamBetaToolChoiceFunction extends BetaToolChoiceParam {
+final class BetaToolChoiceParamBetaToolChoiceFunction
+    extends BetaToolChoiceParam {
   final BetaToolChoiceFunction value;
   const BetaToolChoiceParamBetaToolChoiceFunction(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaToolChoiceParamBetaToolChoiceMCP extends BetaToolChoiceParam {
   final BetaToolChoiceMCP value;
   const BetaToolChoiceParamBetaToolChoiceMCP(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaToolChoiceParamBetaToolChoiceCustom extends BetaToolChoiceParam {
+final class BetaToolChoiceParamBetaToolChoiceCustom
+    extends BetaToolChoiceParam {
   final BetaToolChoiceCustom value;
   const BetaToolChoiceParamBetaToolChoiceCustom(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaToolChoiceParamBetaSpecificProgrammaticToolCallingParam extends BetaToolChoiceParam {
+final class BetaToolChoiceParamBetaSpecificProgrammaticToolCallingParam
+    extends BetaToolChoiceParam {
   final BetaSpecificProgrammaticToolCallingParam value;
   const BetaToolChoiceParamBetaSpecificProgrammaticToolCallingParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaToolChoiceParamBetaSpecificApplyPatchParam extends BetaToolChoiceParam {
+final class BetaToolChoiceParamBetaSpecificApplyPatchParam
+    extends BetaToolChoiceParam {
   final BetaSpecificApplyPatchParam value;
   const BetaToolChoiceParamBetaSpecificApplyPatchParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class BetaToolChoiceParamBetaSpecificFunctionShellParam extends BetaToolChoiceParam {
+final class BetaToolChoiceParamBetaSpecificFunctionShellParam
+    extends BetaToolChoiceParam {
   final BetaSpecificFunctionShellParam value;
   const BetaToolChoiceParamBetaSpecificFunctionShellParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [BetaToolChoiceParam] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownBetaToolChoiceParam extends BetaToolChoiceParam {
   final Map<String, dynamic> raw;
   const UnknownBetaToolChoiceParam(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

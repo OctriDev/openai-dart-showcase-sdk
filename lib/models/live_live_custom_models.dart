@@ -8,31 +8,42 @@ part of 'live_live_custom.dart';
 class LiveCustomToolInputParam implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final LiveCustomToolInputParamType type_;
 
   const LiveCustomToolInputParam({required this.type_});
 
-  LiveCustomToolInputParam Function({LiveCustomToolInputParamType type_}) get copyWith => _copyWith;
+  LiveCustomToolInputParam Function({LiveCustomToolInputParamType type_})
+      get copyWith => _copyWith;
 
-  LiveCustomToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) => LiveCustomToolInputParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveCustomToolInputParamType,
-  );
+  LiveCustomToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) =>
+      LiveCustomToolInputParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveCustomToolInputParamType,
+      );
 
-  factory LiveCustomToolInputParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(LiveCustomToolInputParam(
-    type_: (json['type'] != null ? LiveCustomToolInputParamType.fromJson(json['type'] as String) : null)!,
-  ), json);
+  factory LiveCustomToolInputParam.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          LiveCustomToolInputParam(
+            type_: (json['type'] != null
+                ? LiveCustomToolInputParamType.fromJson(json['type'] as String)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 /// Typed representation of the `LiveCustomVoiceParam` API schema.
 class LiveCustomVoiceParam implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required `string` value serialized in the `id` wire field.
   final String id;
 
@@ -40,16 +51,20 @@ class LiveCustomVoiceParam implements SdkJsonModel {
 
   LiveCustomVoiceParam Function({String id}) get copyWith => _copyWith;
 
-  LiveCustomVoiceParam _copyWith({Object? id = sdkOmittedValue}) => LiveCustomVoiceParam(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
+  LiveCustomVoiceParam _copyWith({Object? id = sdkOmittedValue}) =>
+      LiveCustomVoiceParam(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
 
-  factory LiveCustomVoiceParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(LiveCustomVoiceParam(
-    id: (json['id'] as String?)!,
-  ), json);
+  factory LiveCustomVoiceParam.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          LiveCustomVoiceParam(
+            id: (json['id'] as String?)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'id': id,
-  };
+        'id': id,
+      };
 }

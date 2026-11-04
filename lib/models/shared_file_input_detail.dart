@@ -6,7 +6,6 @@ part of 'shared_file.dart';
 // shared_file domain models
 /// Typed representation of the `FileInputDetail` API schema.
 final class FileInputDetail {
-
   final String value;
 
   const FileInputDetail._(this.value);
@@ -19,10 +18,13 @@ final class FileInputDetail {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is FileInputDetail && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is FileInputDetail && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

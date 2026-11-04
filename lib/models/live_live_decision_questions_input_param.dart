@@ -8,23 +8,34 @@ part of 'live_live_decision.dart';
 class LiveDecisionQuestionsInputParam implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Native Decision API questions evaluated together, in order.
   final List<LiveDecisionQuestion> questions;
 
   const LiveDecisionQuestionsInputParam({required this.questions});
 
-  LiveDecisionQuestionsInputParam Function({List<LiveDecisionQuestion> questions}) get copyWith => _copyWith;
+  LiveDecisionQuestionsInputParam Function(
+      {List<LiveDecisionQuestion> questions}) get copyWith => _copyWith;
 
-  LiveDecisionQuestionsInputParam _copyWith({Object? questions = sdkOmittedValue}) => LiveDecisionQuestionsInputParam(
-    questions: identical(questions, sdkOmittedValue) ? this.questions : questions as List<LiveDecisionQuestion>,
-  );
+  LiveDecisionQuestionsInputParam _copyWith(
+          {Object? questions = sdkOmittedValue}) =>
+      LiveDecisionQuestionsInputParam(
+        questions: identical(questions, sdkOmittedValue)
+            ? this.questions
+            : questions as List<LiveDecisionQuestion>,
+      );
 
-  factory LiveDecisionQuestionsInputParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(LiveDecisionQuestionsInputParam(
-    questions: ((json['questions'] as List?)?.map((e) => LiveDecisionQuestion.fromJson(e)).toList())!,
-  ), json);
+  factory LiveDecisionQuestionsInputParam.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          LiveDecisionQuestionsInputParam(
+            questions: ((json['questions'] as List?)
+                ?.map((e) => LiveDecisionQuestion.fromJson(e))
+                .toList())!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'questions': questions.map((item) => item.toJson()).toList(),
-  };
+        'questions': questions.map((item) => item.toJson()).toList(),
+      };
 }

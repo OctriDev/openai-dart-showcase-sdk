@@ -9,7 +9,10 @@ sealed class Verbosity {
   static const String constructionSurface = 'named';
   const Verbosity();
   factory Verbosity.fromJson(Object? json) {
-    try { return VerbosityVerbosityVariant0(VerbosityVariant0.fromJson(json as String)); } catch (_) {}
+    try {
+      return VerbosityVerbosityVariant0(
+          VerbosityVariant0.fromJson(json as String));
+    } catch (_) {}
     throw FormatException("No variant matched for Verbosity");
   }
   Object? toJson();
@@ -18,5 +21,6 @@ sealed class Verbosity {
 final class VerbosityVerbosityVariant0 extends Verbosity {
   final VerbosityVariant0 value;
   const VerbosityVerbosityVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }

@@ -6,7 +6,6 @@ part of 'items.dart';
 // items domain models
 /// Typed representation of the `TaskType` API schema.
 final class TaskType {
-
   final String value;
 
   const TaskType._(this.value);
@@ -18,10 +17,12 @@ final class TaskType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is TaskType && other.value == value;
+  @override
+  bool operator ==(Object other) => other is TaskType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

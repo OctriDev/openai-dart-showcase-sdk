@@ -8,48 +8,68 @@ part of 'shared_direct.dart';
 class DirectToolCallCaller implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final DirectToolCallCallerType type_;
 
   const DirectToolCallCaller({required this.type_});
 
-  DirectToolCallCaller Function({DirectToolCallCallerType type_}) get copyWith => _copyWith;
+  DirectToolCallCaller Function({DirectToolCallCallerType type_})
+      get copyWith => _copyWith;
 
-  DirectToolCallCaller _copyWith({Object? type_ = sdkOmittedValue}) => DirectToolCallCaller(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DirectToolCallCallerType,
-  );
+  DirectToolCallCaller _copyWith({Object? type_ = sdkOmittedValue}) =>
+      DirectToolCallCaller(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as DirectToolCallCallerType,
+      );
 
-  factory DirectToolCallCaller.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(DirectToolCallCaller(
-    type_: (json['type'] != null ? DirectToolCallCallerType.fromJson(json['type'] as String) : null)!,
-  ), json);
+  factory DirectToolCallCaller.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          DirectToolCallCaller(
+            type_: (json['type'] != null
+                ? DirectToolCallCallerType.fromJson(json['type'] as String)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 /// Typed representation of the `DirectToolCallCallerParam` API schema.
 class DirectToolCallCallerParam implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The caller type. Always `direct`.
   final DirectToolCallCallerParamType type_;
 
   const DirectToolCallCallerParam({required this.type_});
 
-  DirectToolCallCallerParam Function({DirectToolCallCallerParamType type_}) get copyWith => _copyWith;
+  DirectToolCallCallerParam Function({DirectToolCallCallerParamType type_})
+      get copyWith => _copyWith;
 
-  DirectToolCallCallerParam _copyWith({Object? type_ = sdkOmittedValue}) => DirectToolCallCallerParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DirectToolCallCallerParamType,
-  );
+  DirectToolCallCallerParam _copyWith({Object? type_ = sdkOmittedValue}) =>
+      DirectToolCallCallerParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as DirectToolCallCallerParamType,
+      );
 
-  factory DirectToolCallCallerParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(DirectToolCallCallerParam(
-    type_: (json['type'] != null ? DirectToolCallCallerParamType.fromJson(json['type'] as String) : null)!,
-  ), json);
+  factory DirectToolCallCallerParam.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          DirectToolCallCallerParam(
+            type_: (json['type'] != null
+                ? DirectToolCallCallerParamType.fromJson(json['type'] as String)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }

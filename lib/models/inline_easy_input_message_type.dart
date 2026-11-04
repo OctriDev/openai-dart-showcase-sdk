@@ -10,14 +10,17 @@ enum EasyInputMessageType {
 
   static EasyInputMessageType fromJson(String value) {
     switch (value) {
-      case 'message': return EasyInputMessageType.message;
-      default: throw ArgumentError('Unknown EasyInputMessageType: $value');
+      case 'message':
+        return EasyInputMessageType.message;
+      default:
+        throw ArgumentError('Unknown EasyInputMessageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EasyInputMessageType.message: return 'message';
+      case EasyInputMessageType.message:
+        return 'message';
     }
   }
 
@@ -27,79 +30,90 @@ enum EasyInputMessageType {
 
 /// Optional enumerated value serialized in the `background` wire field.
 final class EditImageBodyJsonParamBackgroundVariant0 {
-
   final String value;
 
   const EditImageBodyJsonParamBackgroundVariant0._(this.value);
 
-  factory EditImageBodyJsonParamBackgroundVariant0.fromJson(String value) => EditImageBodyJsonParamBackgroundVariant0._(value);
+  factory EditImageBodyJsonParamBackgroundVariant0.fromJson(String value) =>
+      EditImageBodyJsonParamBackgroundVariant0._(value);
 
-  static const transparent = EditImageBodyJsonParamBackgroundVariant0._('transparent');
+  static const transparent =
+      EditImageBodyJsonParamBackgroundVariant0._('transparent');
   static const opaque = EditImageBodyJsonParamBackgroundVariant0._('opaque');
   static const auto = EditImageBodyJsonParamBackgroundVariant0._('auto');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is EditImageBodyJsonParamBackgroundVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is EditImageBodyJsonParamBackgroundVariant0 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `input_fidelity` wire field.
 final class EditImageBodyJsonParamInputFidelityVariant0 {
-
   final String value;
 
   const EditImageBodyJsonParamInputFidelityVariant0._(this.value);
 
-  factory EditImageBodyJsonParamInputFidelityVariant0.fromJson(String value) => EditImageBodyJsonParamInputFidelityVariant0._(value);
+  factory EditImageBodyJsonParamInputFidelityVariant0.fromJson(String value) =>
+      EditImageBodyJsonParamInputFidelityVariant0._(value);
 
   static const high = EditImageBodyJsonParamInputFidelityVariant0._('high');
   static const low = EditImageBodyJsonParamInputFidelityVariant0._('low');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is EditImageBodyJsonParamInputFidelityVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is EditImageBodyJsonParamInputFidelityVariant0 &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `moderation` wire field.
 final class EditImageBodyJsonParamModerationVariant0 {
-
   final String value;
 
   const EditImageBodyJsonParamModerationVariant0._(this.value);
 
-  factory EditImageBodyJsonParamModerationVariant0.fromJson(String value) => EditImageBodyJsonParamModerationVariant0._(value);
+  factory EditImageBodyJsonParamModerationVariant0.fromJson(String value) =>
+      EditImageBodyJsonParamModerationVariant0._(value);
 
   static const low = EditImageBodyJsonParamModerationVariant0._('low');
   static const auto = EditImageBodyJsonParamModerationVariant0._('auto');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is EditImageBodyJsonParamModerationVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is EditImageBodyJsonParamModerationVariant0 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `output_format` wire field.
 final class EditImageBodyJsonParamOutputFormatVariant0 {
-
   final String value;
 
   const EditImageBodyJsonParamOutputFormatVariant0._(this.value);
 
-  factory EditImageBodyJsonParamOutputFormatVariant0.fromJson(String value) => EditImageBodyJsonParamOutputFormatVariant0._(value);
+  factory EditImageBodyJsonParamOutputFormatVariant0.fromJson(String value) =>
+      EditImageBodyJsonParamOutputFormatVariant0._(value);
 
   static const png = EditImageBodyJsonParamOutputFormatVariant0._('png');
   static const jpeg = EditImageBodyJsonParamOutputFormatVariant0._('jpeg');
@@ -107,22 +121,26 @@ final class EditImageBodyJsonParamOutputFormatVariant0 {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is EditImageBodyJsonParamOutputFormatVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is EditImageBodyJsonParamOutputFormatVariant0 &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `quality` wire field.
 final class EditImageBodyJsonParamQualityVariant0 {
-
   final String value;
 
   const EditImageBodyJsonParamQualityVariant0._(this.value);
 
-  factory EditImageBodyJsonParamQualityVariant0.fromJson(String value) => EditImageBodyJsonParamQualityVariant0._(value);
+  factory EditImageBodyJsonParamQualityVariant0.fromJson(String value) =>
+      EditImageBodyJsonParamQualityVariant0._(value);
 
   static const low = EditImageBodyJsonParamQualityVariant0._('low');
   static const medium = EditImageBodyJsonParamQualityVariant0._('medium');
@@ -133,17 +151,19 @@ final class EditImageBodyJsonParamQualityVariant0 {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is EditImageBodyJsonParamQualityVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is EditImageBodyJsonParamQualityVariant0 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type, which is always "embedding".
 final class EmbeddingObject {
-
   final String value;
 
   const EmbeddingObject._(this.value);
@@ -154,12 +174,15 @@ final class EmbeddingObject {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is EmbeddingObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is EmbeddingObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The content type. Always `encrypted_content`.
@@ -168,14 +191,17 @@ enum EncryptedContentResourceType {
 
   static EncryptedContentResourceType fromJson(String value) {
     switch (value) {
-      case 'encrypted_content': return EncryptedContentResourceType.encryptedContent;
-      default: throw ArgumentError('Unknown EncryptedContentResourceType: $value');
+      case 'encrypted_content':
+        return EncryptedContentResourceType.encryptedContent;
+      default:
+        throw ArgumentError('Unknown EncryptedContentResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EncryptedContentResourceType.encryptedContent: return 'encrypted_content';
+      case EncryptedContentResourceType.encryptedContent:
+        return 'encrypted_content';
     }
   }
 
@@ -185,23 +211,27 @@ enum EncryptedContentResourceType {
 
 /// The object type. Always `agent.environment.file`.
 final class EnvironmentFileResourceObject {
-
   final String value;
 
   const EnvironmentFileResourceObject._(this.value);
 
-  factory EnvironmentFileResourceObject.fromJson(String value) => EnvironmentFileResourceObject._(value);
+  factory EnvironmentFileResourceObject.fromJson(String value) =>
+      EnvironmentFileResourceObject._(value);
 
-  static const agentEnvironmentFile = EnvironmentFileResourceObject._('agent.environment.file');
+  static const agentEnvironmentFile =
+      EnvironmentFileResourceObject._('agent.environment.file');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is EnvironmentFileResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is EnvironmentFileResourceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the object. Always `none`.
@@ -210,14 +240,17 @@ enum EnvironmentParamNoneType {
 
   static EnvironmentParamNoneType fromJson(String value) {
     switch (value) {
-      case 'none': return EnvironmentParamNoneType.none;
-      default: throw ArgumentError('Unknown EnvironmentParamNoneType: $value');
+      case 'none':
+        return EnvironmentParamNoneType.none;
+      default:
+        throw ArgumentError('Unknown EnvironmentParamNoneType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EnvironmentParamNoneType.none: return 'none';
+      case EnvironmentParamNoneType.none:
+        return 'none';
     }
   }
 
@@ -231,14 +264,17 @@ enum EnvironmentParamOpenaiHostedType {
 
   static EnvironmentParamOpenaiHostedType fromJson(String value) {
     switch (value) {
-      case 'openai_hosted': return EnvironmentParamOpenaiHostedType.openaiHosted;
-      default: throw ArgumentError('Unknown EnvironmentParamOpenaiHostedType: $value');
+      case 'openai_hosted':
+        return EnvironmentParamOpenaiHostedType.openaiHosted;
+      default:
+        throw ArgumentError('Unknown EnvironmentParamOpenaiHostedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EnvironmentParamOpenaiHostedType.openaiHosted: return 'openai_hosted';
+      case EnvironmentParamOpenaiHostedType.openaiHosted:
+        return 'openai_hosted';
     }
   }
 
@@ -252,14 +288,17 @@ enum EnvironmentParamSelfHostedType {
 
   static EnvironmentParamSelfHostedType fromJson(String value) {
     switch (value) {
-      case 'self_hosted': return EnvironmentParamSelfHostedType.selfHosted;
-      default: throw ArgumentError('Unknown EnvironmentParamSelfHostedType: $value');
+      case 'self_hosted':
+        return EnvironmentParamSelfHostedType.selfHosted;
+      default:
+        throw ArgumentError('Unknown EnvironmentParamSelfHostedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EnvironmentParamSelfHostedType.selfHosted: return 'self_hosted';
+      case EnvironmentParamSelfHostedType.selfHosted:
+        return 'self_hosted';
     }
   }
 
@@ -273,14 +312,17 @@ enum EnvironmentResourceNoneType {
 
   static EnvironmentResourceNoneType fromJson(String value) {
     switch (value) {
-      case 'none': return EnvironmentResourceNoneType.none;
-      default: throw ArgumentError('Unknown EnvironmentResourceNoneType: $value');
+      case 'none':
+        return EnvironmentResourceNoneType.none;
+      default:
+        throw ArgumentError('Unknown EnvironmentResourceNoneType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EnvironmentResourceNoneType.none: return 'none';
+      case EnvironmentResourceNoneType.none:
+        return 'none';
     }
   }
 

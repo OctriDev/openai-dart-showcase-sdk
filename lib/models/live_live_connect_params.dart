@@ -11,10 +11,9 @@ class LiveConnectParams implements SdkJsonModel {
 
   const LiveConnectParams();
 
-  factory LiveConnectParams.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(LiveConnectParams(
-  ), json);
+  factory LiveConnectParams.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(LiveConnectParams(), json);
 
   @override
-  Map<String, dynamic> toJson() => {
-  };
+  Map<String, dynamic> toJson() => {};
 }

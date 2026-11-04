@@ -10,271 +10,880 @@ sealed class ResponsesServerEvent {
   const ResponsesServerEvent();
   factory ResponsesServerEvent.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = ResponsesServerEventVariant0.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant0(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant1.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant1(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant2.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant2(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant3.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant3(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant4.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant4(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant5.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant5(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant6.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant6(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant7.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant7(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant8.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant8(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant9.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant9(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant10.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant10(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant11.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant11(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant12.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant12(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant13.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant13(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant14.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant14(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant15.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant15(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant16.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant16(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant17.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant17(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant18.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant18(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant19.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant19(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant20.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant20(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant21.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant21(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant22.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant22(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant23.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant23(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant24.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant24(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant25.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant25(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant26.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant26(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant27.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant27(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant28.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant28(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant29.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant29(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant30.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant30(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant31.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant31(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant32.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant32(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant33.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant33(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant34.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant34(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant35.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant35(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant36.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant36(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant37.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant37(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant38.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant38(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant39.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant39(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant40.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant40(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant41.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant41(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant42.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant42(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant43.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant43(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant44.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant44(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant45.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant45(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant46.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant46(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant47.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant47(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant48.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant48(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant49.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant49(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant50.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant50(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant51.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant51(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant52.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant52(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant53.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant53(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant54.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant54(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant55.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant55(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant56.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant56(value); } } catch (_) {}
-      try { final value = ResponsesServerEventVariant57.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponsesServerEventVariant57(value); } } catch (_) {}
-      try { final value = ResponseWsError.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponseWsError(value); } } catch (_) {}
-      try { final value = ResponseSteerAcceptedEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponseSteerAcceptedEvent(value); } } catch (_) {}
-      try { final value = ResponseSteerPendingEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponseSteerPendingEvent(value); } } catch (_) {}
-      try { final value = ResponseSteerFailedEvent.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ResponsesServerEventResponseSteerFailedEvent(value); } } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant0.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant0(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant1.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant1(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant2.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant2(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant3.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant3(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant4.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant4(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant5.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant5(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant6.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant6(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant7.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant7(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant8.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant8(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant9.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant9(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant10.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant10(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant11.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant11(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant12.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant12(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant13.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant13(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant14.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant14(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant15.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant15(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant16.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant16(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant17.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant17(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant18.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant18(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant19.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant19(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant20.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant20(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant21.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant21(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant22.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant22(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant23.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant23(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant24.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant24(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant25.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant25(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant26.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant26(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant27.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant27(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant28.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant28(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant29.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant29(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant30.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant30(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant31.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant31(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant32.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant32(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant33.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant33(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant34.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant34(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant35.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant35(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant36.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant36(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant37.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant37(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant38.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant38(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant39.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant39(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant40.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant40(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant41.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant41(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant42.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant42(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant43.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant43(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant44.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant44(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant45.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant45(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant46.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant46(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant47.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant47(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant48.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant48(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant49.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant49(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant50.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant50(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant51.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant51(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant52.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant52(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant53.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant53(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant54.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant54(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant55.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant55(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant56.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant56(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponsesServerEventVariant57.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponsesServerEventVariant57(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseWsError.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponseWsError(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseSteerAcceptedEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponseSteerAcceptedEvent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseSteerPendingEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponseSteerPendingEvent(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ResponseSteerFailedEvent.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ResponsesServerEventResponseSteerFailedEvent(value);
+        }
+      } catch (_) {}
     }
-    try { return ResponsesServerEventResponsesServerEventVariant0(ResponsesServerEventVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant1(ResponsesServerEventVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant2(ResponsesServerEventVariant2.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant3(ResponsesServerEventVariant3.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant4(ResponsesServerEventVariant4.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant5(ResponsesServerEventVariant5.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant6(ResponsesServerEventVariant6.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant7(ResponsesServerEventVariant7.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant8(ResponsesServerEventVariant8.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant9(ResponsesServerEventVariant9.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant10(ResponsesServerEventVariant10.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant11(ResponsesServerEventVariant11.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant12(ResponsesServerEventVariant12.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant13(ResponsesServerEventVariant13.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant14(ResponsesServerEventVariant14.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant15(ResponsesServerEventVariant15.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant16(ResponsesServerEventVariant16.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant17(ResponsesServerEventVariant17.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant18(ResponsesServerEventVariant18.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant19(ResponsesServerEventVariant19.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant20(ResponsesServerEventVariant20.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant21(ResponsesServerEventVariant21.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant22(ResponsesServerEventVariant22.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant23(ResponsesServerEventVariant23.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant24(ResponsesServerEventVariant24.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant25(ResponsesServerEventVariant25.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant26(ResponsesServerEventVariant26.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant27(ResponsesServerEventVariant27.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant28(ResponsesServerEventVariant28.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant29(ResponsesServerEventVariant29.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant30(ResponsesServerEventVariant30.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant31(ResponsesServerEventVariant31.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant32(ResponsesServerEventVariant32.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant33(ResponsesServerEventVariant33.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant34(ResponsesServerEventVariant34.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant35(ResponsesServerEventVariant35.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant36(ResponsesServerEventVariant36.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant37(ResponsesServerEventVariant37.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant38(ResponsesServerEventVariant38.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant39(ResponsesServerEventVariant39.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant40(ResponsesServerEventVariant40.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant41(ResponsesServerEventVariant41.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant42(ResponsesServerEventVariant42.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant43(ResponsesServerEventVariant43.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant44(ResponsesServerEventVariant44.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant45(ResponsesServerEventVariant45.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant46(ResponsesServerEventVariant46.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant47(ResponsesServerEventVariant47.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant48(ResponsesServerEventVariant48.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant49(ResponsesServerEventVariant49.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant50(ResponsesServerEventVariant50.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant51(ResponsesServerEventVariant51.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant52(ResponsesServerEventVariant52.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant53(ResponsesServerEventVariant53.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant54(ResponsesServerEventVariant54.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant55(ResponsesServerEventVariant55.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant56(ResponsesServerEventVariant56.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponsesServerEventVariant57(ResponsesServerEventVariant57.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponseWsError(ResponseWsError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponseSteerAcceptedEvent(ResponseSteerAcceptedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponseSteerPendingEvent(ResponseSteerPendingEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ResponsesServerEventResponseSteerFailedEvent(ResponseSteerFailedEvent.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"error", "response.steer.accepted", "response.steer.pending", "response.steer.failed", "response.audio.delta", "response.audio.done", "response.audio.transcript.delta", "response.audio.transcript.done", "response.code_interpreter_call_code.delta", "response.code_interpreter_call_code.done", "response.code_interpreter_call.completed", "response.code_interpreter_call.in_progress", "response.code_interpreter_call.interpreting", "response.compaction.compacting", "response.completed", "response.content_part.added", "response.content_part.done", "response.created", "response.file_search_call.completed", "response.file_search_call.in_progress", "response.file_search_call.searching", "response.function_call_arguments.delta", "response.function_call_arguments.done", "response.shell_call_command.added", "response.shell_call_command.delta", "response.shell_call_command.done", "response.shell_call_output_content.delta", "response.shell_call_output_content.done", "response.in_progress", "response.failed", "response.incomplete", "response.output_item.added", "response.output_item.done", "response.reasoning_summary_part.added", "response.reasoning_summary_part.done", "response.reasoning_summary_text.delta", "response.reasoning_summary_text.done", "response.reasoning_text.delta", "response.reasoning_text.done", "response.refusal.delta", "response.refusal.done", "response.output_text.delta", "response.output_text.done", "response.web_search_call.completed", "response.web_search_call.in_progress", "response.web_search_call.searching", "response.image_generation_call.completed", "response.image_generation_call.generating", "response.image_generation_call.in_progress", "response.image_generation_call.partial_image", "response.mcp_call_arguments.delta", "response.mcp_call_arguments.done", "response.mcp_call.completed", "response.mcp_call.failed", "response.mcp_call.in_progress", "response.mcp_list_tools.completed", "response.mcp_list_tools.failed", "response.mcp_list_tools.in_progress", "response.output_text.annotation.added", "response.queued", "response.custom_tool_call_input.delta", "response.custom_tool_call_input.done"}.contains(json["type"])) { return UnknownResponsesServerEvent(json); }
+    try {
+      return ResponsesServerEventResponsesServerEventVariant0(
+          ResponsesServerEventVariant0.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant1(
+          ResponsesServerEventVariant1.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant2(
+          ResponsesServerEventVariant2.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant3(
+          ResponsesServerEventVariant3.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant4(
+          ResponsesServerEventVariant4.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant5(
+          ResponsesServerEventVariant5.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant6(
+          ResponsesServerEventVariant6.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant7(
+          ResponsesServerEventVariant7.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant8(
+          ResponsesServerEventVariant8.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant9(
+          ResponsesServerEventVariant9.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant10(
+          ResponsesServerEventVariant10.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant11(
+          ResponsesServerEventVariant11.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant12(
+          ResponsesServerEventVariant12.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant13(
+          ResponsesServerEventVariant13.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant14(
+          ResponsesServerEventVariant14.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant15(
+          ResponsesServerEventVariant15.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant16(
+          ResponsesServerEventVariant16.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant17(
+          ResponsesServerEventVariant17.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant18(
+          ResponsesServerEventVariant18.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant19(
+          ResponsesServerEventVariant19.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant20(
+          ResponsesServerEventVariant20.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant21(
+          ResponsesServerEventVariant21.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant22(
+          ResponsesServerEventVariant22.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant23(
+          ResponsesServerEventVariant23.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant24(
+          ResponsesServerEventVariant24.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant25(
+          ResponsesServerEventVariant25.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant26(
+          ResponsesServerEventVariant26.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant27(
+          ResponsesServerEventVariant27.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant28(
+          ResponsesServerEventVariant28.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant29(
+          ResponsesServerEventVariant29.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant30(
+          ResponsesServerEventVariant30.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant31(
+          ResponsesServerEventVariant31.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant32(
+          ResponsesServerEventVariant32.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant33(
+          ResponsesServerEventVariant33.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant34(
+          ResponsesServerEventVariant34.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant35(
+          ResponsesServerEventVariant35.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant36(
+          ResponsesServerEventVariant36.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant37(
+          ResponsesServerEventVariant37.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant38(
+          ResponsesServerEventVariant38.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant39(
+          ResponsesServerEventVariant39.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant40(
+          ResponsesServerEventVariant40.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant41(
+          ResponsesServerEventVariant41.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant42(
+          ResponsesServerEventVariant42.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant43(
+          ResponsesServerEventVariant43.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant44(
+          ResponsesServerEventVariant44.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant45(
+          ResponsesServerEventVariant45.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant46(
+          ResponsesServerEventVariant46.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant47(
+          ResponsesServerEventVariant47.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant48(
+          ResponsesServerEventVariant48.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant49(
+          ResponsesServerEventVariant49.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant50(
+          ResponsesServerEventVariant50.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant51(
+          ResponsesServerEventVariant51.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant52(
+          ResponsesServerEventVariant52.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant53(
+          ResponsesServerEventVariant53.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant54(
+          ResponsesServerEventVariant54.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant55(
+          ResponsesServerEventVariant55.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant56(
+          ResponsesServerEventVariant56.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponsesServerEventVariant57(
+          ResponsesServerEventVariant57.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponseWsError(
+          ResponseWsError.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponseSteerAcceptedEvent(
+          ResponseSteerAcceptedEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponseSteerPendingEvent(
+          ResponseSteerPendingEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ResponsesServerEventResponseSteerFailedEvent(
+          ResponseSteerFailedEvent.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {
+          "error",
+          "response.steer.accepted",
+          "response.steer.pending",
+          "response.steer.failed",
+          "response.audio.delta",
+          "response.audio.done",
+          "response.audio.transcript.delta",
+          "response.audio.transcript.done",
+          "response.code_interpreter_call_code.delta",
+          "response.code_interpreter_call_code.done",
+          "response.code_interpreter_call.completed",
+          "response.code_interpreter_call.in_progress",
+          "response.code_interpreter_call.interpreting",
+          "response.compaction.compacting",
+          "response.completed",
+          "response.content_part.added",
+          "response.content_part.done",
+          "response.created",
+          "response.file_search_call.completed",
+          "response.file_search_call.in_progress",
+          "response.file_search_call.searching",
+          "response.function_call_arguments.delta",
+          "response.function_call_arguments.done",
+          "response.shell_call_command.added",
+          "response.shell_call_command.delta",
+          "response.shell_call_command.done",
+          "response.shell_call_output_content.delta",
+          "response.shell_call_output_content.done",
+          "response.in_progress",
+          "response.failed",
+          "response.incomplete",
+          "response.output_item.added",
+          "response.output_item.done",
+          "response.reasoning_summary_part.added",
+          "response.reasoning_summary_part.done",
+          "response.reasoning_summary_text.delta",
+          "response.reasoning_summary_text.done",
+          "response.reasoning_text.delta",
+          "response.reasoning_text.done",
+          "response.refusal.delta",
+          "response.refusal.done",
+          "response.output_text.delta",
+          "response.output_text.done",
+          "response.web_search_call.completed",
+          "response.web_search_call.in_progress",
+          "response.web_search_call.searching",
+          "response.image_generation_call.completed",
+          "response.image_generation_call.generating",
+          "response.image_generation_call.in_progress",
+          "response.image_generation_call.partial_image",
+          "response.mcp_call_arguments.delta",
+          "response.mcp_call_arguments.done",
+          "response.mcp_call.completed",
+          "response.mcp_call.failed",
+          "response.mcp_call.in_progress",
+          "response.mcp_list_tools.completed",
+          "response.mcp_list_tools.failed",
+          "response.mcp_list_tools.in_progress",
+          "response.output_text.annotation.added",
+          "response.queued",
+          "response.custom_tool_call_input.delta",
+          "response.custom_tool_call_input.done"
+        }.contains(json["type"])) {
+      return UnknownResponsesServerEvent(json);
+    }
     throw FormatException("No variant matched for ResponsesServerEvent");
   }
   Object? toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant0 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant0
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant0 value;
   const ResponsesServerEventResponsesServerEventVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant1 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant1
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant1 value;
   const ResponsesServerEventResponsesServerEventVariant1(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant2 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant2
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant2 value;
   const ResponsesServerEventResponsesServerEventVariant2(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant3 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant3
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant3 value;
   const ResponsesServerEventResponsesServerEventVariant3(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant4 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant4
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant4 value;
   const ResponsesServerEventResponsesServerEventVariant4(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant5 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant5
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant5 value;
   const ResponsesServerEventResponsesServerEventVariant5(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant6 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant6
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant6 value;
   const ResponsesServerEventResponsesServerEventVariant6(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant7 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant7
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant7 value;
   const ResponsesServerEventResponsesServerEventVariant7(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant8 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant8
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant8 value;
   const ResponsesServerEventResponsesServerEventVariant8(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant9 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant9
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant9 value;
   const ResponsesServerEventResponsesServerEventVariant9(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant10 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant10
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant10 value;
   const ResponsesServerEventResponsesServerEventVariant10(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant11 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant11
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant11 value;
   const ResponsesServerEventResponsesServerEventVariant11(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant12 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant12
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant12 value;
   const ResponsesServerEventResponsesServerEventVariant12(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant13 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant13
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant13 value;
   const ResponsesServerEventResponsesServerEventVariant13(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant14 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant14
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant14 value;
   const ResponsesServerEventResponsesServerEventVariant14(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant15 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant15
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant15 value;
   const ResponsesServerEventResponsesServerEventVariant15(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant16 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant16
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant16 value;
   const ResponsesServerEventResponsesServerEventVariant16(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant17 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant17
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant17 value;
   const ResponsesServerEventResponsesServerEventVariant17(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant18 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant18
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant18 value;
   const ResponsesServerEventResponsesServerEventVariant18(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant19 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant19
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant19 value;
   const ResponsesServerEventResponsesServerEventVariant19(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant20 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant20
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant20 value;
   const ResponsesServerEventResponsesServerEventVariant20(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant21 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant21
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant21 value;
   const ResponsesServerEventResponsesServerEventVariant21(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant22 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant22
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant22 value;
   const ResponsesServerEventResponsesServerEventVariant22(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }

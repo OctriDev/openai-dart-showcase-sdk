@@ -8,16 +8,23 @@ part of 'inline.dart';
 enum ComputerUseApprovalResponseParamBrowserOriginAccessParamType {
   browserOriginAccess;
 
-  static ComputerUseApprovalResponseParamBrowserOriginAccessParamType fromJson(String value) {
+  static ComputerUseApprovalResponseParamBrowserOriginAccessParamType fromJson(
+      String value) {
     switch (value) {
-      case 'browser_origin_access': return ComputerUseApprovalResponseParamBrowserOriginAccessParamType.browserOriginAccess;
-      default: throw ArgumentError('Unknown ComputerUseApprovalResponseParamBrowserOriginAccessParamType: $value');
+      case 'browser_origin_access':
+        return ComputerUseApprovalResponseParamBrowserOriginAccessParamType
+            .browserOriginAccess;
+      default:
+        throw ArgumentError(
+            'Unknown ComputerUseApprovalResponseParamBrowserOriginAccessParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ComputerUseApprovalResponseParamBrowserOriginAccessParamType.browserOriginAccess: return 'browser_origin_access';
+      case ComputerUseApprovalResponseParamBrowserOriginAccessParamType
+            .browserOriginAccess:
+        return 'browser_origin_access';
     }
   }
 
@@ -31,14 +38,17 @@ enum ComputerUseCallItemResourceType {
 
   static ComputerUseCallItemResourceType fromJson(String value) {
     switch (value) {
-      case 'computer_use_call': return ComputerUseCallItemResourceType.computerUseCall;
-      default: throw ArgumentError('Unknown ComputerUseCallItemResourceType: $value');
+      case 'computer_use_call':
+        return ComputerUseCallItemResourceType.computerUseCall;
+      default:
+        throw ArgumentError('Unknown ComputerUseCallItemResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ComputerUseCallItemResourceType.computerUseCall: return 'computer_use_call';
+      case ComputerUseCallItemResourceType.computerUseCall:
+        return 'computer_use_call';
     }
   }
 
@@ -52,14 +62,17 @@ enum ComputerUsePreviewToolType {
 
   static ComputerUsePreviewToolType fromJson(String value) {
     switch (value) {
-      case 'computer_use_preview': return ComputerUsePreviewToolType.computerUsePreview;
-      default: throw ArgumentError('Unknown ComputerUsePreviewToolType: $value');
+      case 'computer_use_preview':
+        return ComputerUsePreviewToolType.computerUsePreview;
+      default:
+        throw ArgumentError('Unknown ComputerUsePreviewToolType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ComputerUsePreviewToolType.computerUsePreview: return 'computer_use_preview';
+      case ComputerUsePreviewToolType.computerUsePreview:
+        return 'computer_use_preview';
     }
   }
 
@@ -73,14 +86,17 @@ enum ContainerAutoParamType {
 
   static ContainerAutoParamType fromJson(String value) {
     switch (value) {
-      case 'container_auto': return ContainerAutoParamType.containerAuto;
-      default: throw ArgumentError('Unknown ContainerAutoParamType: $value');
+      case 'container_auto':
+        return ContainerAutoParamType.containerAuto;
+      default:
+        throw ArgumentError('Unknown ContainerAutoParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ContainerAutoParamType.containerAuto: return 'container_auto';
+      case ContainerAutoParamType.containerAuto:
+        return 'container_auto';
     }
   }
 
@@ -94,14 +110,17 @@ enum ContainerFileCitationBodyType {
 
   static ContainerFileCitationBodyType fromJson(String value) {
     switch (value) {
-      case 'container_file_citation': return ContainerFileCitationBodyType.containerFileCitation;
-      default: throw ArgumentError('Unknown ContainerFileCitationBodyType: $value');
+      case 'container_file_citation':
+        return ContainerFileCitationBodyType.containerFileCitation;
+      default:
+        throw ArgumentError('Unknown ContainerFileCitationBodyType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ContainerFileCitationBodyType.containerFileCitation: return 'container_file_citation';
+      case ContainerFileCitationBodyType.containerFileCitation:
+        return 'container_file_citation';
     }
   }
 
@@ -111,65 +130,75 @@ enum ContainerFileCitationBodyType {
 
 /// The citation type. Always `container_file_citation`.
 final class ContainerFileCitationParamType {
-
   final String value;
 
   const ContainerFileCitationParamType._(this.value);
 
-  factory ContainerFileCitationParamType.fromJson(String value) => ContainerFileCitationParamType._(value);
+  factory ContainerFileCitationParamType.fromJson(String value) =>
+      ContainerFileCitationParamType._(value);
 
-  static const containerFileCitation = ContainerFileCitationParamType._('container_file_citation');
+  static const containerFileCitation =
+      ContainerFileCitationParamType._('container_file_citation');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ContainerFileCitationParamType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ContainerFileCitationParamType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of object returned, must be 'list'.
 final class ContainerFileListResourceObject {
-
   final String value;
 
   const ContainerFileListResourceObject._(this.value);
 
-  factory ContainerFileListResourceObject.fromJson(String value) => ContainerFileListResourceObject._(value);
+  factory ContainerFileListResourceObject.fromJson(String value) =>
+      ContainerFileListResourceObject._(value);
 
   static const list = ContainerFileListResourceObject._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ContainerFileListResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ContainerFileListResourceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of object returned, must be 'list'.
 final class ContainerListResourceObject {
-
   final String value;
 
   const ContainerListResourceObject._(this.value);
 
-  factory ContainerListResourceObject.fromJson(String value) => ContainerListResourceObject._(value);
+  factory ContainerListResourceObject.fromJson(String value) =>
+      ContainerListResourceObject._(value);
 
   static const list = ContainerListResourceObject._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ContainerListResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ContainerListResourceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Allow outbound network access only to specified domains. Always `allowlist`.
@@ -178,14 +207,18 @@ enum ContainerNetworkPolicyAllowlistParamType {
 
   static ContainerNetworkPolicyAllowlistParamType fromJson(String value) {
     switch (value) {
-      case 'allowlist': return ContainerNetworkPolicyAllowlistParamType.allowlist;
-      default: throw ArgumentError('Unknown ContainerNetworkPolicyAllowlistParamType: $value');
+      case 'allowlist':
+        return ContainerNetworkPolicyAllowlistParamType.allowlist;
+      default:
+        throw ArgumentError(
+            'Unknown ContainerNetworkPolicyAllowlistParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ContainerNetworkPolicyAllowlistParamType.allowlist: return 'allowlist';
+      case ContainerNetworkPolicyAllowlistParamType.allowlist:
+        return 'allowlist';
     }
   }
 
@@ -199,14 +232,18 @@ enum ContainerNetworkPolicyDisabledParamType {
 
   static ContainerNetworkPolicyDisabledParamType fromJson(String value) {
     switch (value) {
-      case 'disabled': return ContainerNetworkPolicyDisabledParamType.disabled;
-      default: throw ArgumentError('Unknown ContainerNetworkPolicyDisabledParamType: $value');
+      case 'disabled':
+        return ContainerNetworkPolicyDisabledParamType.disabled;
+      default:
+        throw ArgumentError(
+            'Unknown ContainerNetworkPolicyDisabledParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ContainerNetworkPolicyDisabledParamType.disabled: return 'disabled';
+      case ContainerNetworkPolicyDisabledParamType.disabled:
+        return 'disabled';
     }
   }
 
@@ -220,14 +257,17 @@ enum ContainerReferenceParamType {
 
   static ContainerReferenceParamType fromJson(String value) {
     switch (value) {
-      case 'container_reference': return ContainerReferenceParamType.containerReference;
-      default: throw ArgumentError('Unknown ContainerReferenceParamType: $value');
+      case 'container_reference':
+        return ContainerReferenceParamType.containerReference;
+      default:
+        throw ArgumentError('Unknown ContainerReferenceParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ContainerReferenceParamType.containerReference: return 'container_reference';
+      case ContainerReferenceParamType.containerReference:
+        return 'container_reference';
     }
   }
 
@@ -241,14 +281,17 @@ enum ContainerReferenceResourceType {
 
   static ContainerReferenceResourceType fromJson(String value) {
     switch (value) {
-      case 'container_reference': return ContainerReferenceResourceType.containerReference;
-      default: throw ArgumentError('Unknown ContainerReferenceResourceType: $value');
+      case 'container_reference':
+        return ContainerReferenceResourceType.containerReference;
+      default:
+        throw ArgumentError('Unknown ContainerReferenceResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ContainerReferenceResourceType.containerReference: return 'container_reference';
+      case ContainerReferenceResourceType.containerReference:
+        return 'container_reference';
     }
   }
 
@@ -258,21 +301,25 @@ enum ContainerReferenceResourceType {
 
 /// The reference point for the expiration.
 final class ContainerResourceExpiresAfterAnchor {
-
   final String value;
 
   const ContainerResourceExpiresAfterAnchor._(this.value);
 
-  factory ContainerResourceExpiresAfterAnchor.fromJson(String value) => ContainerResourceExpiresAfterAnchor._(value);
+  factory ContainerResourceExpiresAfterAnchor.fromJson(String value) =>
+      ContainerResourceExpiresAfterAnchor._(value);
 
-  static const lastActiveAt = ContainerResourceExpiresAfterAnchor._('last_active_at');
+  static const lastActiveAt =
+      ContainerResourceExpiresAfterAnchor._('last_active_at');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ContainerResourceExpiresAfterAnchor && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ContainerResourceExpiresAfterAnchor && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

@@ -10,32 +10,65 @@ sealed class FunctionShellCallOutputOutcomeParam {
   const FunctionShellCallOutputOutcomeParam();
   factory FunctionShellCallOutputOutcomeParam.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = FunctionShellCallOutputTimeoutOutcomeParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FunctionShellCallOutputOutcomeParamFunctionShellCallOutputTimeoutOutcomeParam(value); } } catch (_) {}
-      try { final value = FunctionShellCallOutputExitOutcomeParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return FunctionShellCallOutputOutcomeParamFunctionShellCallOutputExitOutcomeParam(value); } } catch (_) {}
+      try {
+        final value = FunctionShellCallOutputTimeoutOutcomeParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return FunctionShellCallOutputOutcomeParamFunctionShellCallOutputTimeoutOutcomeParam(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = FunctionShellCallOutputExitOutcomeParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return FunctionShellCallOutputOutcomeParamFunctionShellCallOutputExitOutcomeParam(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return FunctionShellCallOutputOutcomeParamFunctionShellCallOutputTimeoutOutcomeParam(FunctionShellCallOutputTimeoutOutcomeParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return FunctionShellCallOutputOutcomeParamFunctionShellCallOutputExitOutcomeParam(FunctionShellCallOutputExitOutcomeParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"timeout", "exit"}.contains(json["type"])) { return UnknownFunctionShellCallOutputOutcomeParam(json); }
-    throw FormatException("No variant matched for FunctionShellCallOutputOutcomeParam");
+    try {
+      return FunctionShellCallOutputOutcomeParamFunctionShellCallOutputTimeoutOutcomeParam(
+          FunctionShellCallOutputTimeoutOutcomeParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return FunctionShellCallOutputOutcomeParamFunctionShellCallOutputExitOutcomeParam(
+          FunctionShellCallOutputExitOutcomeParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"timeout", "exit"}.contains(json["type"])) {
+      return UnknownFunctionShellCallOutputOutcomeParam(json);
+    }
+    throw FormatException(
+        "No variant matched for FunctionShellCallOutputOutcomeParam");
   }
   Object? toJson();
 }
 
-final class FunctionShellCallOutputOutcomeParamFunctionShellCallOutputTimeoutOutcomeParam extends FunctionShellCallOutputOutcomeParam {
+final class FunctionShellCallOutputOutcomeParamFunctionShellCallOutputTimeoutOutcomeParam
+    extends FunctionShellCallOutputOutcomeParam {
   final FunctionShellCallOutputTimeoutOutcomeParam value;
-  const FunctionShellCallOutputOutcomeParamFunctionShellCallOutputTimeoutOutcomeParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const FunctionShellCallOutputOutcomeParamFunctionShellCallOutputTimeoutOutcomeParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class FunctionShellCallOutputOutcomeParamFunctionShellCallOutputExitOutcomeParam extends FunctionShellCallOutputOutcomeParam {
+final class FunctionShellCallOutputOutcomeParamFunctionShellCallOutputExitOutcomeParam
+    extends FunctionShellCallOutputOutcomeParam {
   final FunctionShellCallOutputExitOutcomeParam value;
-  const FunctionShellCallOutputOutcomeParamFunctionShellCallOutputExitOutcomeParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const FunctionShellCallOutputOutcomeParamFunctionShellCallOutputExitOutcomeParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [FunctionShellCallOutputOutcomeParam] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownFunctionShellCallOutputOutcomeParam extends FunctionShellCallOutputOutcomeParam {
+final class UnknownFunctionShellCallOutputOutcomeParam
+    extends FunctionShellCallOutputOutcomeParam {
   final Map<String, dynamic> raw;
   const UnknownFunctionShellCallOutputOutcomeParam(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

@@ -8,28 +8,42 @@ part of 'responses_beta.dart';
 class BetaHybridSearchOptions implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The weight of the embedding in the reciprocal ranking fusion.
   final double embeddingWeight;
+
   /// The weight of the text in the reciprocal ranking fusion.
   final double textWeight;
 
-  const BetaHybridSearchOptions({required this.embeddingWeight, required this.textWeight});
+  const BetaHybridSearchOptions(
+      {required this.embeddingWeight, required this.textWeight});
 
-  BetaHybridSearchOptions Function({double embeddingWeight, double textWeight}) get copyWith => _copyWith;
+  BetaHybridSearchOptions Function({double embeddingWeight, double textWeight})
+      get copyWith => _copyWith;
 
-  BetaHybridSearchOptions _copyWith({Object? embeddingWeight = sdkOmittedValue, Object? textWeight = sdkOmittedValue}) => BetaHybridSearchOptions(
-    embeddingWeight: identical(embeddingWeight, sdkOmittedValue) ? this.embeddingWeight : embeddingWeight as double,
-    textWeight: identical(textWeight, sdkOmittedValue) ? this.textWeight : textWeight as double,
-  );
+  BetaHybridSearchOptions _copyWith(
+          {Object? embeddingWeight = sdkOmittedValue,
+          Object? textWeight = sdkOmittedValue}) =>
+      BetaHybridSearchOptions(
+        embeddingWeight: identical(embeddingWeight, sdkOmittedValue)
+            ? this.embeddingWeight
+            : embeddingWeight as double,
+        textWeight: identical(textWeight, sdkOmittedValue)
+            ? this.textWeight
+            : textWeight as double,
+      );
 
-  factory BetaHybridSearchOptions.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(BetaHybridSearchOptions(
-    embeddingWeight: ((json['embedding_weight'] as num?)?.toDouble())!,
-    textWeight: ((json['text_weight'] as num?)?.toDouble())!,
-  ), json);
+  factory BetaHybridSearchOptions.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          BetaHybridSearchOptions(
+            embeddingWeight: ((json['embedding_weight'] as num?)?.toDouble())!,
+            textWeight: ((json['text_weight'] as num?)?.toDouble())!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'embedding_weight': embeddingWeight,
-    'text_weight': textWeight,
-  };
+        'embedding_weight': embeddingWeight,
+        'text_weight': textWeight,
+      };
 }

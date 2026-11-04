@@ -10,14 +10,17 @@ enum ClientToolCallItemType {
 
   static ClientToolCallItemType fromJson(String value) {
     switch (value) {
-      case 'chatkit.client_tool_call': return ClientToolCallItemType.chatkitClientToolCall;
-      default: throw ArgumentError('Unknown ClientToolCallItemType: $value');
+      case 'chatkit.client_tool_call':
+        return ClientToolCallItemType.chatkitClientToolCall;
+      default:
+        throw ArgumentError('Unknown ClientToolCallItemType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ClientToolCallItemType.chatkitClientToolCall: return 'chatkit.client_tool_call';
+      case ClientToolCallItemType.chatkitClientToolCall:
+        return 'chatkit.client_tool_call';
     }
   }
 
@@ -31,14 +34,17 @@ enum ClosedStatusType {
 
   static ClosedStatusType fromJson(String value) {
     switch (value) {
-      case 'closed': return ClosedStatusType.closed;
-      default: throw ArgumentError('Unknown ClosedStatusType: $value');
+      case 'closed':
+        return ClosedStatusType.closed;
+      default:
+        throw ArgumentError('Unknown ClosedStatusType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ClosedStatusType.closed: return 'closed';
+      case ClosedStatusType.closed:
+        return 'closed';
     }
   }
 
@@ -52,14 +58,18 @@ enum CloseSubagentCallItemResourceType {
 
   static CloseSubagentCallItemResourceType fromJson(String value) {
     switch (value) {
-      case 'close_subagent_call': return CloseSubagentCallItemResourceType.closeSubagentCall;
-      default: throw ArgumentError('Unknown CloseSubagentCallItemResourceType: $value');
+      case 'close_subagent_call':
+        return CloseSubagentCallItemResourceType.closeSubagentCall;
+      default:
+        throw ArgumentError(
+            'Unknown CloseSubagentCallItemResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CloseSubagentCallItemResourceType.closeSubagentCall: return 'close_subagent_call';
+      case CloseSubagentCallItemResourceType.closeSubagentCall:
+        return 'close_subagent_call';
     }
   }
 
@@ -69,23 +79,26 @@ enum CloseSubagentCallItemResourceType {
 
 /// The type of the code interpreter file output. Always `files`.
 final class CodeInterpreterFileOutputType {
-
   final String value;
 
   const CodeInterpreterFileOutputType._(this.value);
 
-  factory CodeInterpreterFileOutputType.fromJson(String value) => CodeInterpreterFileOutputType._(value);
+  factory CodeInterpreterFileOutputType.fromJson(String value) =>
+      CodeInterpreterFileOutputType._(value);
 
   static const files = CodeInterpreterFileOutputType._('files');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CodeInterpreterFileOutputType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CodeInterpreterFileOutputType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the output. Always `image`.
@@ -94,14 +107,17 @@ enum CodeInterpreterOutputImageType {
 
   static CodeInterpreterOutputImageType fromJson(String value) {
     switch (value) {
-      case 'image': return CodeInterpreterOutputImageType.image;
-      default: throw ArgumentError('Unknown CodeInterpreterOutputImageType: $value');
+      case 'image':
+        return CodeInterpreterOutputImageType.image;
+      default:
+        throw ArgumentError('Unknown CodeInterpreterOutputImageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CodeInterpreterOutputImageType.image: return 'image';
+      case CodeInterpreterOutputImageType.image:
+        return 'image';
     }
   }
 
@@ -115,14 +131,17 @@ enum CodeInterpreterOutputLogsType {
 
   static CodeInterpreterOutputLogsType fromJson(String value) {
     switch (value) {
-      case 'logs': return CodeInterpreterOutputLogsType.logs;
-      default: throw ArgumentError('Unknown CodeInterpreterOutputLogsType: $value');
+      case 'logs':
+        return CodeInterpreterOutputLogsType.logs;
+      default:
+        throw ArgumentError('Unknown CodeInterpreterOutputLogsType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CodeInterpreterOutputLogsType.logs: return 'logs';
+      case CodeInterpreterOutputLogsType.logs:
+        return 'logs';
     }
   }
 
@@ -132,23 +151,26 @@ enum CodeInterpreterOutputLogsType {
 
 /// The type of the code interpreter text output. Always `logs`.
 final class CodeInterpreterTextOutputType {
-
   final String value;
 
   const CodeInterpreterTextOutputType._(this.value);
 
-  factory CodeInterpreterTextOutputType.fromJson(String value) => CodeInterpreterTextOutputType._(value);
+  factory CodeInterpreterTextOutputType.fromJson(String value) =>
+      CodeInterpreterTextOutputType._(value);
 
   static const logs = CodeInterpreterTextOutputType._('logs');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CodeInterpreterTextOutputType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CodeInterpreterTextOutputType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the code interpreter tool. Always `code_interpreter`.
@@ -157,14 +179,17 @@ enum CodeInterpreterToolType {
 
   static CodeInterpreterToolType fromJson(String value) {
     switch (value) {
-      case 'code_interpreter': return CodeInterpreterToolType.codeInterpreter;
-      default: throw ArgumentError('Unknown CodeInterpreterToolType: $value');
+      case 'code_interpreter':
+        return CodeInterpreterToolType.codeInterpreter;
+      default:
+        throw ArgumentError('Unknown CodeInterpreterToolType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CodeInterpreterToolType.codeInterpreter: return 'code_interpreter';
+      case CodeInterpreterToolType.codeInterpreter:
+        return 'code_interpreter';
     }
   }
 
@@ -174,12 +199,12 @@ enum CodeInterpreterToolType {
 
 /// The status of the code interpreter tool call. Valid values are `in_progress`, `completed`, `incomplete`, `interpreting`, and `failed`.
 final class CodeInterpreterToolCallStatus {
-
   final String value;
 
   const CodeInterpreterToolCallStatus._(this.value);
 
-  factory CodeInterpreterToolCallStatus.fromJson(String value) => CodeInterpreterToolCallStatus._(value);
+  factory CodeInterpreterToolCallStatus.fromJson(String value) =>
+      CodeInterpreterToolCallStatus._(value);
 
   static const inProgress = CodeInterpreterToolCallStatus._('in_progress');
   static const completed = CodeInterpreterToolCallStatus._('completed');
@@ -189,12 +214,15 @@ final class CodeInterpreterToolCallStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CodeInterpreterToolCallStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CodeInterpreterToolCallStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the code interpreter tool call. Always `code_interpreter_call`.
@@ -203,14 +231,17 @@ enum CodeInterpreterToolCallType {
 
   static CodeInterpreterToolCallType fromJson(String value) {
     switch (value) {
-      case 'code_interpreter_call': return CodeInterpreterToolCallType.codeInterpreterCall;
-      default: throw ArgumentError('Unknown CodeInterpreterToolCallType: $value');
+      case 'code_interpreter_call':
+        return CodeInterpreterToolCallType.codeInterpreterCall;
+      default:
+        throw ArgumentError('Unknown CodeInterpreterToolCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CodeInterpreterToolCallType.codeInterpreterCall: return 'code_interpreter_call';
+      case CodeInterpreterToolCallType.codeInterpreterCall:
+        return 'code_interpreter_call';
     }
   }
 
@@ -224,14 +255,17 @@ enum CommandExecutionItemResourceType {
 
   static CommandExecutionItemResourceType fromJson(String value) {
     switch (value) {
-      case 'command_execution': return CommandExecutionItemResourceType.commandExecution;
-      default: throw ArgumentError('Unknown CommandExecutionItemResourceType: $value');
+      case 'command_execution':
+        return CommandExecutionItemResourceType.commandExecution;
+      default:
+        throw ArgumentError('Unknown CommandExecutionItemResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CommandExecutionItemResourceType.commandExecution: return 'command_execution';
+      case CommandExecutionItemResourceType.commandExecution:
+        return 'command_execution';
     }
   }
 
@@ -245,14 +279,17 @@ enum CompactionBodyType {
 
   static CompactionBodyType fromJson(String value) {
     switch (value) {
-      case 'compaction': return CompactionBodyType.compaction;
-      default: throw ArgumentError('Unknown CompactionBodyType: $value');
+      case 'compaction':
+        return CompactionBodyType.compaction;
+      default:
+        throw ArgumentError('Unknown CompactionBodyType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CompactionBodyType.compaction: return 'compaction';
+      case CompactionBodyType.compaction:
+        return 'compaction';
     }
   }
 
@@ -266,14 +303,17 @@ enum CompactionSummaryItemParamType {
 
   static CompactionSummaryItemParamType fromJson(String value) {
     switch (value) {
-      case 'compaction': return CompactionSummaryItemParamType.compaction;
-      default: throw ArgumentError('Unknown CompactionSummaryItemParamType: $value');
+      case 'compaction':
+        return CompactionSummaryItemParamType.compaction;
+      default:
+        throw ArgumentError('Unknown CompactionSummaryItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CompactionSummaryItemParamType.compaction: return 'compaction';
+      case CompactionSummaryItemParamType.compaction:
+        return 'compaction';
     }
   }
 

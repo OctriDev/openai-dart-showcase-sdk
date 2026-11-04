@@ -9,14 +9,17 @@ enum RunStreamEventVariant1Event {
 
   static RunStreamEventVariant1Event fromJson(String value) {
     switch (value) {
-      case 'thread.run.queued': return RunStreamEventVariant1Event.threadRunQueued;
-      default: throw ArgumentError('Unknown RunStreamEventVariant1Event: $value');
+      case 'thread.run.queued':
+        return RunStreamEventVariant1Event.threadRunQueued;
+      default:
+        throw ArgumentError('Unknown RunStreamEventVariant1Event: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStreamEventVariant1Event.threadRunQueued: return 'thread.run.queued';
+      case RunStreamEventVariant1Event.threadRunQueued:
+        return 'thread.run.queued';
     }
   }
 
@@ -29,14 +32,17 @@ enum RunStreamEventVariant2Event {
 
   static RunStreamEventVariant2Event fromJson(String value) {
     switch (value) {
-      case 'thread.run.in_progress': return RunStreamEventVariant2Event.threadRunInProgress;
-      default: throw ArgumentError('Unknown RunStreamEventVariant2Event: $value');
+      case 'thread.run.in_progress':
+        return RunStreamEventVariant2Event.threadRunInProgress;
+      default:
+        throw ArgumentError('Unknown RunStreamEventVariant2Event: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStreamEventVariant2Event.threadRunInProgress: return 'thread.run.in_progress';
+      case RunStreamEventVariant2Event.threadRunInProgress:
+        return 'thread.run.in_progress';
     }
   }
 
@@ -49,14 +55,17 @@ enum RunStreamEventVariant3Event {
 
   static RunStreamEventVariant3Event fromJson(String value) {
     switch (value) {
-      case 'thread.run.requires_action': return RunStreamEventVariant3Event.threadRunRequiresAction;
-      default: throw ArgumentError('Unknown RunStreamEventVariant3Event: $value');
+      case 'thread.run.requires_action':
+        return RunStreamEventVariant3Event.threadRunRequiresAction;
+      default:
+        throw ArgumentError('Unknown RunStreamEventVariant3Event: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStreamEventVariant3Event.threadRunRequiresAction: return 'thread.run.requires_action';
+      case RunStreamEventVariant3Event.threadRunRequiresAction:
+        return 'thread.run.requires_action';
     }
   }
 
@@ -69,14 +78,17 @@ enum RunStreamEventVariant4Event {
 
   static RunStreamEventVariant4Event fromJson(String value) {
     switch (value) {
-      case 'thread.run.completed': return RunStreamEventVariant4Event.threadRunCompleted;
-      default: throw ArgumentError('Unknown RunStreamEventVariant4Event: $value');
+      case 'thread.run.completed':
+        return RunStreamEventVariant4Event.threadRunCompleted;
+      default:
+        throw ArgumentError('Unknown RunStreamEventVariant4Event: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStreamEventVariant4Event.threadRunCompleted: return 'thread.run.completed';
+      case RunStreamEventVariant4Event.threadRunCompleted:
+        return 'thread.run.completed';
     }
   }
 
@@ -89,14 +101,17 @@ enum RunStreamEventVariant5Event {
 
   static RunStreamEventVariant5Event fromJson(String value) {
     switch (value) {
-      case 'thread.run.incomplete': return RunStreamEventVariant5Event.threadRunIncomplete;
-      default: throw ArgumentError('Unknown RunStreamEventVariant5Event: $value');
+      case 'thread.run.incomplete':
+        return RunStreamEventVariant5Event.threadRunIncomplete;
+      default:
+        throw ArgumentError('Unknown RunStreamEventVariant5Event: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStreamEventVariant5Event.threadRunIncomplete: return 'thread.run.incomplete';
+      case RunStreamEventVariant5Event.threadRunIncomplete:
+        return 'thread.run.incomplete';
     }
   }
 
@@ -109,14 +124,17 @@ enum RunStreamEventVariant6Event {
 
   static RunStreamEventVariant6Event fromJson(String value) {
     switch (value) {
-      case 'thread.run.failed': return RunStreamEventVariant6Event.threadRunFailed;
-      default: throw ArgumentError('Unknown RunStreamEventVariant6Event: $value');
+      case 'thread.run.failed':
+        return RunStreamEventVariant6Event.threadRunFailed;
+      default:
+        throw ArgumentError('Unknown RunStreamEventVariant6Event: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStreamEventVariant6Event.threadRunFailed: return 'thread.run.failed';
+      case RunStreamEventVariant6Event.threadRunFailed:
+        return 'thread.run.failed';
     }
   }
 
@@ -129,14 +147,17 @@ enum RunStreamEventVariant7Event {
 
   static RunStreamEventVariant7Event fromJson(String value) {
     switch (value) {
-      case 'thread.run.cancelling': return RunStreamEventVariant7Event.threadRunCancelling;
-      default: throw ArgumentError('Unknown RunStreamEventVariant7Event: $value');
+      case 'thread.run.cancelling':
+        return RunStreamEventVariant7Event.threadRunCancelling;
+      default:
+        throw ArgumentError('Unknown RunStreamEventVariant7Event: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStreamEventVariant7Event.threadRunCancelling: return 'thread.run.cancelling';
+      case RunStreamEventVariant7Event.threadRunCancelling:
+        return 'thread.run.cancelling';
     }
   }
 
@@ -149,14 +170,17 @@ enum RunStreamEventVariant8Event {
 
   static RunStreamEventVariant8Event fromJson(String value) {
     switch (value) {
-      case 'thread.run.cancelled': return RunStreamEventVariant8Event.threadRunCancelled;
-      default: throw ArgumentError('Unknown RunStreamEventVariant8Event: $value');
+      case 'thread.run.cancelled':
+        return RunStreamEventVariant8Event.threadRunCancelled;
+      default:
+        throw ArgumentError('Unknown RunStreamEventVariant8Event: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStreamEventVariant8Event.threadRunCancelled: return 'thread.run.cancelled';
+      case RunStreamEventVariant8Event.threadRunCancelled:
+        return 'thread.run.cancelled';
     }
   }
 
@@ -169,14 +193,17 @@ enum RunStreamEventVariant9Event {
 
   static RunStreamEventVariant9Event fromJson(String value) {
     switch (value) {
-      case 'thread.run.expired': return RunStreamEventVariant9Event.threadRunExpired;
-      default: throw ArgumentError('Unknown RunStreamEventVariant9Event: $value');
+      case 'thread.run.expired':
+        return RunStreamEventVariant9Event.threadRunExpired;
+      default:
+        throw ArgumentError('Unknown RunStreamEventVariant9Event: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RunStreamEventVariant9Event.threadRunExpired: return 'thread.run.expired';
+      case RunStreamEventVariant9Event.threadRunExpired:
+        return 'thread.run.expired';
     }
   }
 
@@ -186,65 +213,74 @@ enum RunStreamEventVariant9Event {
 
 /// The type of tool call the output is required for. For now, this is always `function`.
 final class RunToolCallObjectType {
-
   final String value;
 
   const RunToolCallObjectType._(this.value);
 
-  factory RunToolCallObjectType.fromJson(String value) => RunToolCallObjectType._(value);
+  factory RunToolCallObjectType.fromJson(String value) =>
+      RunToolCallObjectType._(value);
 
   static const function_ = RunToolCallObjectType._('function');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RunToolCallObjectType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RunToolCallObjectType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class SafetyAlertResourceObject {
-
   final String value;
 
   const SafetyAlertResourceObject._(this.value);
 
-  factory SafetyAlertResourceObject.fromJson(String value) => SafetyAlertResourceObject._(value);
+  factory SafetyAlertResourceObject.fromJson(String value) =>
+      SafetyAlertResourceObject._(value);
 
   static const safetyAlert = SafetyAlertResourceObject._('safety.alert');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SafetyAlertResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SafetyAlertResourceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class SafetyCaseResourceObject {
-
   final String value;
 
   const SafetyCaseResourceObject._(this.value);
 
-  factory SafetyCaseResourceObject.fromJson(String value) => SafetyCaseResourceObject._(value);
+  factory SafetyCaseResourceObject.fromJson(String value) =>
+      SafetyCaseResourceObject._(value);
 
   static const safetyCase = SafetyCaseResourceObject._('safety.case');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SafetyCaseResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SafetyCaseResourceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Specifies the event type. For a screenshot action, this property is always set to `screenshot`.
@@ -253,14 +289,17 @@ enum ScreenshotParamType {
 
   static ScreenshotParamType fromJson(String value) {
     switch (value) {
-      case 'screenshot': return ScreenshotParamType.screenshot;
-      default: throw ArgumentError('Unknown ScreenshotParamType: $value');
+      case 'screenshot':
+        return ScreenshotParamType.screenshot;
+      default:
+        throw ArgumentError('Unknown ScreenshotParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ScreenshotParamType.screenshot: return 'screenshot';
+      case ScreenshotParamType.screenshot:
+        return 'screenshot';
     }
   }
 
@@ -274,14 +313,17 @@ enum ScrollParamType {
 
   static ScrollParamType fromJson(String value) {
     switch (value) {
-      case 'scroll': return ScrollParamType.scroll;
-      default: throw ArgumentError('Unknown ScrollParamType: $value');
+      case 'scroll':
+        return ScrollParamType.scroll;
+      default:
+        throw ArgumentError('Unknown ScrollParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ScrollParamType.scroll: return 'scroll';
+      case ScrollParamType.scroll:
+        return 'scroll';
     }
   }
 

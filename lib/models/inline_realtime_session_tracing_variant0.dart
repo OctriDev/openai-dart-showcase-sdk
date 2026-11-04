@@ -6,125 +6,163 @@ part of 'inline.dart';
 // Inline operation models
 /// Default tracing mode for the session.
 final class RealtimeSessionTracingVariant0 {
-
   final String value;
 
   const RealtimeSessionTracingVariant0._(this.value);
 
-  factory RealtimeSessionTracingVariant0.fromJson(String value) => RealtimeSessionTracingVariant0._(value);
+  factory RealtimeSessionTracingVariant0.fromJson(String value) =>
+      RealtimeSessionTracingVariant0._(value);
 
   static const auto = RealtimeSessionTracingVariant0._('auto');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeSessionTracingVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeSessionTracingVariant0 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `include[]` wire field.
 final class RealtimeTranscriptionSessionCreateRequestIncludeItem {
-
   final String value;
 
   const RealtimeTranscriptionSessionCreateRequestIncludeItem._(this.value);
 
-  factory RealtimeTranscriptionSessionCreateRequestIncludeItem.fromJson(String value) => RealtimeTranscriptionSessionCreateRequestIncludeItem._(value);
+  factory RealtimeTranscriptionSessionCreateRequestIncludeItem.fromJson(
+          String value) =>
+      RealtimeTranscriptionSessionCreateRequestIncludeItem._(value);
 
-  static const itemInputAudioTranscriptionLogprobs = RealtimeTranscriptionSessionCreateRequestIncludeItem._('item.input_audio_transcription.logprobs');
+  static const itemInputAudioTranscriptionLogprobs =
+      RealtimeTranscriptionSessionCreateRequestIncludeItem._(
+          'item.input_audio_transcription.logprobs');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeTranscriptionSessionCreateRequestIncludeItem && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeTranscriptionSessionCreateRequestIncludeItem &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The format of input audio. Options are `pcm16`, `g711_ulaw`, or `g711_alaw`. For `pcm16`, input audio must be 16-bit PCM at a 24kHz sample rate, single channel (mono), and little-endian byte order.
 final class RealtimeTranscriptionSessionCreateRequestInputAudioFormat {
-
   final String value;
 
   const RealtimeTranscriptionSessionCreateRequestInputAudioFormat._(this.value);
 
-  factory RealtimeTranscriptionSessionCreateRequestInputAudioFormat.fromJson(String value) => RealtimeTranscriptionSessionCreateRequestInputAudioFormat._(value);
+  factory RealtimeTranscriptionSessionCreateRequestInputAudioFormat.fromJson(
+          String value) =>
+      RealtimeTranscriptionSessionCreateRequestInputAudioFormat._(value);
 
-  static const pcm16 = RealtimeTranscriptionSessionCreateRequestInputAudioFormat._('pcm16');
-  static const g711Ulaw = RealtimeTranscriptionSessionCreateRequestInputAudioFormat._('g711_ulaw');
-  static const g711Alaw = RealtimeTranscriptionSessionCreateRequestInputAudioFormat._('g711_alaw');
+  static const pcm16 =
+      RealtimeTranscriptionSessionCreateRequestInputAudioFormat._('pcm16');
+  static const g711Ulaw =
+      RealtimeTranscriptionSessionCreateRequestInputAudioFormat._('g711_ulaw');
+  static const g711Alaw =
+      RealtimeTranscriptionSessionCreateRequestInputAudioFormat._('g711_alaw');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeTranscriptionSessionCreateRequestInputAudioFormat && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeTranscriptionSessionCreateRequestInputAudioFormat &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Type of turn detection. Only `server_vad` is currently supported for transcription sessions.
 final class RealtimeTranscriptionSessionCreateRequestTurnDetectionType {
-
   final String value;
 
-  const RealtimeTranscriptionSessionCreateRequestTurnDetectionType._(this.value);
+  const RealtimeTranscriptionSessionCreateRequestTurnDetectionType._(
+      this.value);
 
-  factory RealtimeTranscriptionSessionCreateRequestTurnDetectionType.fromJson(String value) => RealtimeTranscriptionSessionCreateRequestTurnDetectionType._(value);
+  factory RealtimeTranscriptionSessionCreateRequestTurnDetectionType.fromJson(
+          String value) =>
+      RealtimeTranscriptionSessionCreateRequestTurnDetectionType._(value);
 
-  static const serverVad = RealtimeTranscriptionSessionCreateRequestTurnDetectionType._('server_vad');
+  static const serverVad =
+      RealtimeTranscriptionSessionCreateRequestTurnDetectionType._(
+          'server_vad');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeTranscriptionSessionCreateRequestTurnDetectionType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeTranscriptionSessionCreateRequestTurnDetectionType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `include[]` wire field.
 final class RealtimeTranscriptionSessionCreateRequestGAIncludeItem {
-
   final String value;
 
   const RealtimeTranscriptionSessionCreateRequestGAIncludeItem._(this.value);
 
-  factory RealtimeTranscriptionSessionCreateRequestGAIncludeItem.fromJson(String value) => RealtimeTranscriptionSessionCreateRequestGAIncludeItem._(value);
+  factory RealtimeTranscriptionSessionCreateRequestGAIncludeItem.fromJson(
+          String value) =>
+      RealtimeTranscriptionSessionCreateRequestGAIncludeItem._(value);
 
-  static const itemInputAudioTranscriptionLogprobs = RealtimeTranscriptionSessionCreateRequestGAIncludeItem._('item.input_audio_transcription.logprobs');
+  static const itemInputAudioTranscriptionLogprobs =
+      RealtimeTranscriptionSessionCreateRequestGAIncludeItem._(
+          'item.input_audio_transcription.logprobs');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeTranscriptionSessionCreateRequestGAIncludeItem && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeTranscriptionSessionCreateRequestGAIncludeItem &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of session to create. Always `transcription` for transcription sessions.
 enum RealtimeTranscriptionSessionCreateRequestGAType {
   transcription;
 
-  static RealtimeTranscriptionSessionCreateRequestGAType fromJson(String value) {
+  static RealtimeTranscriptionSessionCreateRequestGAType fromJson(
+      String value) {
     switch (value) {
-      case 'transcription': return RealtimeTranscriptionSessionCreateRequestGAType.transcription;
-      default: throw ArgumentError('Unknown RealtimeTranscriptionSessionCreateRequestGAType: $value');
+      case 'transcription':
+        return RealtimeTranscriptionSessionCreateRequestGAType.transcription;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeTranscriptionSessionCreateRequestGAType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeTranscriptionSessionCreateRequestGAType.transcription: return 'transcription';
+      case RealtimeTranscriptionSessionCreateRequestGAType.transcription:
+        return 'transcription';
     }
   }
 
@@ -134,61 +172,80 @@ enum RealtimeTranscriptionSessionCreateRequestGAType {
 
 /// Required enumerated value serialized in the `modalities[]` wire field.
 final class RealtimeTranscriptionSessionCreateResponseModalitiesItem {
-
   final String value;
 
   const RealtimeTranscriptionSessionCreateResponseModalitiesItem._(this.value);
 
-  factory RealtimeTranscriptionSessionCreateResponseModalitiesItem.fromJson(String value) => RealtimeTranscriptionSessionCreateResponseModalitiesItem._(value);
+  factory RealtimeTranscriptionSessionCreateResponseModalitiesItem.fromJson(
+          String value) =>
+      RealtimeTranscriptionSessionCreateResponseModalitiesItem._(value);
 
-  static const text = RealtimeTranscriptionSessionCreateResponseModalitiesItem._('text');
-  static const audio = RealtimeTranscriptionSessionCreateResponseModalitiesItem._('audio');
+  static const text =
+      RealtimeTranscriptionSessionCreateResponseModalitiesItem._('text');
+  static const audio =
+      RealtimeTranscriptionSessionCreateResponseModalitiesItem._('audio');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeTranscriptionSessionCreateResponseModalitiesItem && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeTranscriptionSessionCreateResponseModalitiesItem &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `include[]` wire field.
 final class RealtimeTranscriptionSessionCreateResponseGAIncludeItem {
-
   final String value;
 
   const RealtimeTranscriptionSessionCreateResponseGAIncludeItem._(this.value);
 
-  factory RealtimeTranscriptionSessionCreateResponseGAIncludeItem.fromJson(String value) => RealtimeTranscriptionSessionCreateResponseGAIncludeItem._(value);
+  factory RealtimeTranscriptionSessionCreateResponseGAIncludeItem.fromJson(
+          String value) =>
+      RealtimeTranscriptionSessionCreateResponseGAIncludeItem._(value);
 
-  static const itemInputAudioTranscriptionLogprobs = RealtimeTranscriptionSessionCreateResponseGAIncludeItem._('item.input_audio_transcription.logprobs');
+  static const itemInputAudioTranscriptionLogprobs =
+      RealtimeTranscriptionSessionCreateResponseGAIncludeItem._(
+          'item.input_audio_transcription.logprobs');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeTranscriptionSessionCreateResponseGAIncludeItem && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeTranscriptionSessionCreateResponseGAIncludeItem &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of session. Always `transcription` for transcription sessions.
 enum RealtimeTranscriptionSessionCreateResponseGAType {
   transcription;
 
-  static RealtimeTranscriptionSessionCreateResponseGAType fromJson(String value) {
+  static RealtimeTranscriptionSessionCreateResponseGAType fromJson(
+      String value) {
     switch (value) {
-      case 'transcription': return RealtimeTranscriptionSessionCreateResponseGAType.transcription;
-      default: throw ArgumentError('Unknown RealtimeTranscriptionSessionCreateResponseGAType: $value');
+      case 'transcription':
+        return RealtimeTranscriptionSessionCreateResponseGAType.transcription;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeTranscriptionSessionCreateResponseGAType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeTranscriptionSessionCreateResponseGAType.transcription: return 'transcription';
+      case RealtimeTranscriptionSessionCreateResponseGAType.transcription:
+        return 'transcription';
     }
   }
 
@@ -200,16 +257,23 @@ enum RealtimeTranscriptionSessionCreateResponseGAType {
 enum RealtimeTranslationClientEventInputAudioBufferAppendType {
   sessionInputAudioBufferAppend;
 
-  static RealtimeTranslationClientEventInputAudioBufferAppendType fromJson(String value) {
+  static RealtimeTranslationClientEventInputAudioBufferAppendType fromJson(
+      String value) {
     switch (value) {
-      case 'session.input_audio_buffer.append': return RealtimeTranslationClientEventInputAudioBufferAppendType.sessionInputAudioBufferAppend;
-      default: throw ArgumentError('Unknown RealtimeTranslationClientEventInputAudioBufferAppendType: $value');
+      case 'session.input_audio_buffer.append':
+        return RealtimeTranslationClientEventInputAudioBufferAppendType
+            .sessionInputAudioBufferAppend;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeTranslationClientEventInputAudioBufferAppendType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeTranslationClientEventInputAudioBufferAppendType.sessionInputAudioBufferAppend: return 'session.input_audio_buffer.append';
+      case RealtimeTranslationClientEventInputAudioBufferAppendType
+            .sessionInputAudioBufferAppend:
+        return 'session.input_audio_buffer.append';
     }
   }
 
@@ -223,14 +287,18 @@ enum RealtimeTranslationClientEventSessionCloseType {
 
   static RealtimeTranslationClientEventSessionCloseType fromJson(String value) {
     switch (value) {
-      case 'session.close': return RealtimeTranslationClientEventSessionCloseType.sessionClose;
-      default: throw ArgumentError('Unknown RealtimeTranslationClientEventSessionCloseType: $value');
+      case 'session.close':
+        return RealtimeTranslationClientEventSessionCloseType.sessionClose;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeTranslationClientEventSessionCloseType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeTranslationClientEventSessionCloseType.sessionClose: return 'session.close';
+      case RealtimeTranslationClientEventSessionCloseType.sessionClose:
+        return 'session.close';
     }
   }
 
@@ -242,16 +310,21 @@ enum RealtimeTranslationClientEventSessionCloseType {
 enum RealtimeTranslationClientEventSessionUpdateType {
   sessionUpdate;
 
-  static RealtimeTranslationClientEventSessionUpdateType fromJson(String value) {
+  static RealtimeTranslationClientEventSessionUpdateType fromJson(
+      String value) {
     switch (value) {
-      case 'session.update': return RealtimeTranslationClientEventSessionUpdateType.sessionUpdate;
-      default: throw ArgumentError('Unknown RealtimeTranslationClientEventSessionUpdateType: $value');
+      case 'session.update':
+        return RealtimeTranslationClientEventSessionUpdateType.sessionUpdate;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeTranslationClientEventSessionUpdateType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeTranslationClientEventSessionUpdateType.sessionUpdate: return 'session.update';
+      case RealtimeTranslationClientEventSessionUpdateType.sessionUpdate:
+        return 'session.update';
     }
   }
 
@@ -261,21 +334,29 @@ enum RealtimeTranslationClientEventSessionUpdateType {
 
 /// The anchor point for the client secret expiration, meaning that `seconds` will be added to the `created_at` time of the client secret to produce an expiration timestamp. Only `created_at` is currently supported.
 final class RealtimeTranslationClientSecretCreateRequestExpiresAfterAnchor {
-
   final String value;
 
-  const RealtimeTranslationClientSecretCreateRequestExpiresAfterAnchor._(this.value);
+  const RealtimeTranslationClientSecretCreateRequestExpiresAfterAnchor._(
+      this.value);
 
-  factory RealtimeTranslationClientSecretCreateRequestExpiresAfterAnchor.fromJson(String value) => RealtimeTranslationClientSecretCreateRequestExpiresAfterAnchor._(value);
+  factory RealtimeTranslationClientSecretCreateRequestExpiresAfterAnchor.fromJson(
+          String value) =>
+      RealtimeTranslationClientSecretCreateRequestExpiresAfterAnchor._(value);
 
-  static const createdAt = RealtimeTranslationClientSecretCreateRequestExpiresAfterAnchor._('created_at');
+  static const createdAt =
+      RealtimeTranslationClientSecretCreateRequestExpiresAfterAnchor._(
+          'created_at');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RealtimeTranslationClientSecretCreateRequestExpiresAfterAnchor && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RealtimeTranslationClientSecretCreateRequestExpiresAfterAnchor &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

@@ -8,23 +8,34 @@ part of 'live_live.dart';
 class LiveFileSearchToolInputParam implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final LiveFileSearchToolInputParamType type_;
 
   const LiveFileSearchToolInputParam({required this.type_});
 
-  LiveFileSearchToolInputParam Function({LiveFileSearchToolInputParamType type_}) get copyWith => _copyWith;
+  LiveFileSearchToolInputParam Function(
+      {LiveFileSearchToolInputParamType type_}) get copyWith => _copyWith;
 
-  LiveFileSearchToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) => LiveFileSearchToolInputParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveFileSearchToolInputParamType,
-  );
+  LiveFileSearchToolInputParam _copyWith({Object? type_ = sdkOmittedValue}) =>
+      LiveFileSearchToolInputParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveFileSearchToolInputParamType,
+      );
 
-  factory LiveFileSearchToolInputParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(LiveFileSearchToolInputParam(
-    type_: (json['type'] != null ? LiveFileSearchToolInputParamType.fromJson(json['type'] as String) : null)!,
-  ), json);
+  factory LiveFileSearchToolInputParam.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          LiveFileSearchToolInputParam(
+            type_: (json['type'] != null
+                ? LiveFileSearchToolInputParamType.fromJson(
+                    json['type'] as String)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }

@@ -10,32 +10,59 @@ sealed class RunStepObjectStepDetails {
   const RunStepObjectStepDetails();
   factory RunStepObjectStepDetails.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = RunStepDetailsMessageCreationObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunStepObjectStepDetailsRunStepDetailsMessageCreationObject(value); } } catch (_) {}
-      try { final value = RunStepDetailsToolCallsObject.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunStepObjectStepDetailsRunStepDetailsToolCallsObject(value); } } catch (_) {}
+      try {
+        final value = RunStepDetailsMessageCreationObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStepObjectStepDetailsRunStepDetailsMessageCreationObject(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RunStepDetailsToolCallsObject.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunStepObjectStepDetailsRunStepDetailsToolCallsObject(value);
+        }
+      } catch (_) {}
     }
-    try { return RunStepObjectStepDetailsRunStepDetailsMessageCreationObject(RunStepDetailsMessageCreationObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RunStepObjectStepDetailsRunStepDetailsToolCallsObject(RunStepDetailsToolCallsObject.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"message_creation", "tool_calls"}.contains(json["type"])) { return UnknownRunStepObjectStepDetails(json); }
+    try {
+      return RunStepObjectStepDetailsRunStepDetailsMessageCreationObject(
+          RunStepDetailsMessageCreationObject.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RunStepObjectStepDetailsRunStepDetailsToolCallsObject(
+          RunStepDetailsToolCallsObject.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"message_creation", "tool_calls"}.contains(json["type"])) {
+      return UnknownRunStepObjectStepDetails(json);
+    }
     throw FormatException("No variant matched for RunStepObjectStepDetails");
   }
   Object? toJson();
 }
 
-final class RunStepObjectStepDetailsRunStepDetailsMessageCreationObject extends RunStepObjectStepDetails {
+final class RunStepObjectStepDetailsRunStepDetailsMessageCreationObject
+    extends RunStepObjectStepDetails {
   final RunStepDetailsMessageCreationObject value;
   const RunStepObjectStepDetailsRunStepDetailsMessageCreationObject(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RunStepObjectStepDetailsRunStepDetailsToolCallsObject extends RunStepObjectStepDetails {
+final class RunStepObjectStepDetailsRunStepDetailsToolCallsObject
+    extends RunStepObjectStepDetails {
   final RunStepDetailsToolCallsObject value;
   const RunStepObjectStepDetailsRunStepDetailsToolCallsObject(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [RunStepObjectStepDetails] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownRunStepObjectStepDetails extends RunStepObjectStepDetails {
   final Map<String, dynamic> raw;
   const UnknownRunStepObjectStepDetails(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

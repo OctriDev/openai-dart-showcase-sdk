@@ -9,8 +9,15 @@ sealed class BetaResponseSteerInput {
   static const String constructionSurface = 'named';
   const BetaResponseSteerInput();
   factory BetaResponseSteerInput.fromJson(Object? json) {
-    if (json is String) { return BetaResponseSteerInputString(json); }
-    if (json is List) { return BetaResponseSteerInputListBetaResponseSteerInputItem(json.map((e) => BetaResponseSteerInputItem.fromJson(e)).toList().cast<BetaResponseSteerInputItem>()); }
+    if (json is String) {
+      return BetaResponseSteerInputString(json);
+    }
+    if (json is List) {
+      return BetaResponseSteerInputListBetaResponseSteerInputItem(json
+          .map((e) => BetaResponseSteerInputItem.fromJson(e))
+          .toList()
+          .cast<BetaResponseSteerInputItem>());
+    }
     throw FormatException("No variant matched for BetaResponseSteerInput");
   }
   Object? toJson();
@@ -19,11 +26,14 @@ sealed class BetaResponseSteerInput {
 final class BetaResponseSteerInputString extends BetaResponseSteerInput {
   final String value;
   const BetaResponseSteerInputString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class BetaResponseSteerInputListBetaResponseSteerInputItem extends BetaResponseSteerInput {
+final class BetaResponseSteerInputListBetaResponseSteerInputItem
+    extends BetaResponseSteerInput {
   final List<BetaResponseSteerInputItem> value;
   const BetaResponseSteerInputListBetaResponseSteerInputItem(this.value);
-  @override Object? toJson() => value.map((e) => e.toJson()).toList();
+  @override
+  Object? toJson() => value.map((e) => e.toJson()).toList();
 }

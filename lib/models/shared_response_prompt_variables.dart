@@ -12,13 +12,14 @@ class ResponsePromptVariables {
 
   const ResponsePromptVariables({this.value = const <String, dynamic>{}});
 
-  factory ResponsePromptVariables.fromJson(Map<String, dynamic> json) => ResponsePromptVariables(
-    value: json.map((key, value) => MapEntry(key, value)),
-  );
+  factory ResponsePromptVariables.fromJson(Map<String, dynamic> json) =>
+      ResponsePromptVariables(
+        value: json.map((key, value) => MapEntry(key, value)),
+      );
 
   Map<String, dynamic> toJson() => value.map(
-    (key, value) => MapEntry(key, value),
-  );
+        (key, value) => MapEntry(key, value),
+      );
 
   dynamic operator [](String key) => value[key];
   Iterable<String> get keys => value.keys;

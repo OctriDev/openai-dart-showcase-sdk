@@ -6,12 +6,12 @@ part of 'shared_computer.dart';
 // shared_computer domain models
 /// Typed representation of the `ComputerEnvironment` API schema.
 final class ComputerEnvironment {
-
   final String value;
 
   const ComputerEnvironment._(this.value);
 
-  factory ComputerEnvironment.fromJson(String value) => ComputerEnvironment._(value);
+  factory ComputerEnvironment.fromJson(String value) =>
+      ComputerEnvironment._(value);
 
   static const windows = ComputerEnvironment._('windows');
   static const mac = ComputerEnvironment._('mac');
@@ -21,10 +21,13 @@ final class ComputerEnvironment {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ComputerEnvironment && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ComputerEnvironment && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

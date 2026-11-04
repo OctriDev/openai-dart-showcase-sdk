@@ -10,40 +10,78 @@ sealed class ModifyAssistantRequestToolsItem {
   const ModifyAssistantRequestToolsItem();
   factory ModifyAssistantRequestToolsItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = AssistantToolsCode.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ModifyAssistantRequestToolsItemAssistantToolsCode(value); } } catch (_) {}
-      try { final value = AssistantToolsFileSearch.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ModifyAssistantRequestToolsItemAssistantToolsFileSearch(value); } } catch (_) {}
-      try { final value = AssistantToolsFunction.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ModifyAssistantRequestToolsItemAssistantToolsFunction(value); } } catch (_) {}
+      try {
+        final value = AssistantToolsCode.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ModifyAssistantRequestToolsItemAssistantToolsCode(value);
+        }
+      } catch (_) {}
+      try {
+        final value = AssistantToolsFileSearch.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ModifyAssistantRequestToolsItemAssistantToolsFileSearch(value);
+        }
+      } catch (_) {}
+      try {
+        final value = AssistantToolsFunction.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ModifyAssistantRequestToolsItemAssistantToolsFunction(value);
+        }
+      } catch (_) {}
     }
-    try { return ModifyAssistantRequestToolsItemAssistantToolsCode(AssistantToolsCode.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ModifyAssistantRequestToolsItemAssistantToolsFileSearch(AssistantToolsFileSearch.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ModifyAssistantRequestToolsItemAssistantToolsFunction(AssistantToolsFunction.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"code_interpreter", "file_search", "function"}.contains(json["type"])) { return UnknownModifyAssistantRequestToolsItem(json); }
-    throw FormatException("No variant matched for ModifyAssistantRequestToolsItem");
+    try {
+      return ModifyAssistantRequestToolsItemAssistantToolsCode(
+          AssistantToolsCode.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ModifyAssistantRequestToolsItemAssistantToolsFileSearch(
+          AssistantToolsFileSearch.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ModifyAssistantRequestToolsItemAssistantToolsFunction(
+          AssistantToolsFunction.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"code_interpreter", "file_search", "function"}
+            .contains(json["type"])) {
+      return UnknownModifyAssistantRequestToolsItem(json);
+    }
+    throw FormatException(
+        "No variant matched for ModifyAssistantRequestToolsItem");
   }
   Object? toJson();
 }
 
-final class ModifyAssistantRequestToolsItemAssistantToolsCode extends ModifyAssistantRequestToolsItem {
+final class ModifyAssistantRequestToolsItemAssistantToolsCode
+    extends ModifyAssistantRequestToolsItem {
   final AssistantToolsCode value;
   const ModifyAssistantRequestToolsItemAssistantToolsCode(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ModifyAssistantRequestToolsItemAssistantToolsFileSearch extends ModifyAssistantRequestToolsItem {
+final class ModifyAssistantRequestToolsItemAssistantToolsFileSearch
+    extends ModifyAssistantRequestToolsItem {
   final AssistantToolsFileSearch value;
   const ModifyAssistantRequestToolsItemAssistantToolsFileSearch(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ModifyAssistantRequestToolsItemAssistantToolsFunction extends ModifyAssistantRequestToolsItem {
+final class ModifyAssistantRequestToolsItemAssistantToolsFunction
+    extends ModifyAssistantRequestToolsItem {
   final AssistantToolsFunction value;
   const ModifyAssistantRequestToolsItemAssistantToolsFunction(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [ModifyAssistantRequestToolsItem] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownModifyAssistantRequestToolsItem extends ModifyAssistantRequestToolsItem {
+final class UnknownModifyAssistantRequestToolsItem
+    extends ModifyAssistantRequestToolsItem {
   final Map<String, dynamic> raw;
   const UnknownModifyAssistantRequestToolsItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

@@ -8,33 +8,47 @@ part of 'responses_beta_local.dart';
 class BetaLocalSkillParam implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the skill.
   final String name;
+
   /// The description of the skill.
   final String description;
+
   /// The path to the directory containing the skill.
   final String path;
 
-  const BetaLocalSkillParam({required this.name, required this.description, required this.path});
+  const BetaLocalSkillParam(
+      {required this.name, required this.description, required this.path});
 
-  BetaLocalSkillParam Function({String name, String description, String path}) get copyWith => _copyWith;
+  BetaLocalSkillParam Function({String name, String description, String path})
+      get copyWith => _copyWith;
 
-  BetaLocalSkillParam _copyWith({Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? path = sdkOmittedValue}) => BetaLocalSkillParam(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as String,
-    path: identical(path, sdkOmittedValue) ? this.path : path as String,
-  );
+  BetaLocalSkillParam _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? path = sdkOmittedValue}) =>
+      BetaLocalSkillParam(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as String,
+        path: identical(path, sdkOmittedValue) ? this.path : path as String,
+      );
 
-  factory BetaLocalSkillParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(BetaLocalSkillParam(
-    name: (json['name'] as String?)!,
-    description: (json['description'] as String?)!,
-    path: (json['path'] as String?)!,
-  ), json);
+  factory BetaLocalSkillParam.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          BetaLocalSkillParam(
+            name: (json['name'] as String?)!,
+            description: (json['description'] as String?)!,
+            path: (json['path'] as String?)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'description': description,
-    'path': path,
-  };
+        'name': name,
+        'description': description,
+        'path': path,
+      };
 }

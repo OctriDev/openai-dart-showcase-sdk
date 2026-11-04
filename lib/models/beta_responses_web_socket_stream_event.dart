@@ -8,26 +8,40 @@ part of 'beta_responses.dart';
 class BetaResponsesWebSocketStreamEvent implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The WebSocket lane that emitted this event. This field is present when the originating `response.create` event supplied a `stream_id`.
   final SdkOptional<String> streamId;
 
   const BetaResponsesWebSocketStreamEvent({this.streamId = const SdkOmitted()});
 
-  BetaResponsesWebSocketStreamEvent Function({SdkOptional<String> streamId}) get copyWith => _copyWith;
+  BetaResponsesWebSocketStreamEvent Function({SdkOptional<String> streamId})
+      get copyWith => _copyWith;
 
-  BetaResponsesWebSocketStreamEvent _copyWith({Object? streamId = sdkOmittedValue}) => BetaResponsesWebSocketStreamEvent(
-    streamId: identical(streamId, sdkOmittedValue) ? this.streamId : streamId as SdkOptional<String>,
-  );
+  BetaResponsesWebSocketStreamEvent _copyWith(
+          {Object? streamId = sdkOmittedValue}) =>
+      BetaResponsesWebSocketStreamEvent(
+        streamId: identical(streamId, sdkOmittedValue)
+            ? this.streamId
+            : streamId as SdkOptional<String>,
+      );
 
-  factory BetaResponsesWebSocketStreamEvent.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(BetaResponsesWebSocketStreamEvent(
-    streamId: json['stream_id'] != null ? SdkPresent((json['stream_id'] as String?)!) : const SdkOmitted(),
-  ), json);
+  factory BetaResponsesWebSocketStreamEvent.fromJson(
+          Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          BetaResponsesWebSocketStreamEvent(
+            streamId: json['stream_id'] != null
+                ? SdkPresent((json['stream_id'] as String?)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (streamId) {
-      SdkPresent<String>(value: final value) => {'stream_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (streamId) {
+          SdkPresent<String>(value: final value) => {
+              'stream_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

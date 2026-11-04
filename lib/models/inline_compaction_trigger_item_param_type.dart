@@ -10,14 +10,17 @@ enum CompactionTriggerItemParamType {
 
   static CompactionTriggerItemParamType fromJson(String value) {
     switch (value) {
-      case 'compaction_trigger': return CompactionTriggerItemParamType.compactionTrigger;
-      default: throw ArgumentError('Unknown CompactionTriggerItemParamType: $value');
+      case 'compaction_trigger':
+        return CompactionTriggerItemParamType.compactionTrigger;
+      default:
+        throw ArgumentError('Unknown CompactionTriggerItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CompactionTriggerItemParamType.compactionTrigger: return 'compaction_trigger';
+      case CompactionTriggerItemParamType.compactionTrigger:
+        return 'compaction_trigger';
     }
   }
 
@@ -27,23 +30,27 @@ enum CompactionTriggerItemParamType {
 
 /// The object type. Always `response.compaction`.
 final class CompactResourceObject {
-
   final String value;
 
   const CompactResourceObject._(this.value);
 
-  factory CompactResourceObject.fromJson(String value) => CompactResourceObject._(value);
+  factory CompactResourceObject.fromJson(String value) =>
+      CompactResourceObject._(value);
 
-  static const responseCompaction = CompactResourceObject._('response.compaction');
+  static const responseCompaction =
+      CompactResourceObject._('response.compaction');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CompactResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CompactResourceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Specifies the comparison operator: `eq`, `ne`, `gt`, `gte`, `lt`, `lte`, `in`, `nin`. - `eq`: equals - `ne`: not equal - `gt`: greater than - `gte`: greater than or equal - `lt`: less than - `lte`: less than or equal - `in`: in - `nin`: not in
@@ -59,28 +66,45 @@ enum ComparisonFilterType {
 
   static ComparisonFilterType fromJson(String value) {
     switch (value) {
-      case 'eq': return ComparisonFilterType.eq;
-      case 'ne': return ComparisonFilterType.ne;
-      case 'gt': return ComparisonFilterType.gt;
-      case 'gte': return ComparisonFilterType.gte;
-      case 'lt': return ComparisonFilterType.lt;
-      case 'lte': return ComparisonFilterType.lte;
-      case 'in': return ComparisonFilterType.in_;
-      case 'nin': return ComparisonFilterType.nin;
-      default: throw ArgumentError('Unknown ComparisonFilterType: $value');
+      case 'eq':
+        return ComparisonFilterType.eq;
+      case 'ne':
+        return ComparisonFilterType.ne;
+      case 'gt':
+        return ComparisonFilterType.gt;
+      case 'gte':
+        return ComparisonFilterType.gte;
+      case 'lt':
+        return ComparisonFilterType.lt;
+      case 'lte':
+        return ComparisonFilterType.lte;
+      case 'in':
+        return ComparisonFilterType.in_;
+      case 'nin':
+        return ComparisonFilterType.nin;
+      default:
+        throw ArgumentError('Unknown ComparisonFilterType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ComparisonFilterType.eq: return 'eq';
-      case ComparisonFilterType.ne: return 'ne';
-      case ComparisonFilterType.gt: return 'gt';
-      case ComparisonFilterType.gte: return 'gte';
-      case ComparisonFilterType.lt: return 'lt';
-      case ComparisonFilterType.lte: return 'lte';
-      case ComparisonFilterType.in_: return 'in';
-      case ComparisonFilterType.nin: return 'nin';
+      case ComparisonFilterType.eq:
+        return 'eq';
+      case ComparisonFilterType.ne:
+        return 'ne';
+      case ComparisonFilterType.gt:
+        return 'gt';
+      case ComparisonFilterType.gte:
+        return 'gte';
+      case ComparisonFilterType.lt:
+        return 'lt';
+      case ComparisonFilterType.lte:
+        return 'lte';
+      case ComparisonFilterType.in_:
+        return 'in';
+      case ComparisonFilterType.nin:
+        return 'nin';
     }
   }
 
@@ -95,16 +119,21 @@ enum CompoundFilterType {
 
   static CompoundFilterType fromJson(String value) {
     switch (value) {
-      case 'and': return CompoundFilterType.and;
-      case 'or': return CompoundFilterType.or;
-      default: throw ArgumentError('Unknown CompoundFilterType: $value');
+      case 'and':
+        return CompoundFilterType.and;
+      case 'or':
+        return CompoundFilterType.or;
+      default:
+        throw ArgumentError('Unknown CompoundFilterType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CompoundFilterType.and: return 'and';
-      case CompoundFilterType.or: return 'or';
+      case CompoundFilterType.and:
+        return 'and';
+      case CompoundFilterType.or:
+        return 'or';
     }
   }
 
@@ -118,14 +147,17 @@ enum ComputerCallOutputItemParamType {
 
   static ComputerCallOutputItemParamType fromJson(String value) {
     switch (value) {
-      case 'computer_call_output': return ComputerCallOutputItemParamType.computerCallOutput;
-      default: throw ArgumentError('Unknown ComputerCallOutputItemParamType: $value');
+      case 'computer_call_output':
+        return ComputerCallOutputItemParamType.computerCallOutput;
+      default:
+        throw ArgumentError('Unknown ComputerCallOutputItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ComputerCallOutputItemParamType.computerCallOutput: return 'computer_call_output';
+      case ComputerCallOutputItemParamType.computerCallOutput:
+        return 'computer_call_output';
     }
   }
 
@@ -139,14 +171,17 @@ enum ComputerScreenshotContentType {
 
   static ComputerScreenshotContentType fromJson(String value) {
     switch (value) {
-      case 'computer_screenshot': return ComputerScreenshotContentType.computerScreenshot;
-      default: throw ArgumentError('Unknown ComputerScreenshotContentType: $value');
+      case 'computer_screenshot':
+        return ComputerScreenshotContentType.computerScreenshot;
+      default:
+        throw ArgumentError('Unknown ComputerScreenshotContentType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ComputerScreenshotContentType.computerScreenshot: return 'computer_screenshot';
+      case ComputerScreenshotContentType.computerScreenshot:
+        return 'computer_screenshot';
     }
   }
 
@@ -156,44 +191,52 @@ enum ComputerScreenshotContentType {
 
 /// Specifies the event type. For a computer screenshot, this property is always set to `computer_screenshot`.
 final class ComputerScreenshotImageType {
-
   final String value;
 
   const ComputerScreenshotImageType._(this.value);
 
-  factory ComputerScreenshotImageType.fromJson(String value) => ComputerScreenshotImageType._(value);
+  factory ComputerScreenshotImageType.fromJson(String value) =>
+      ComputerScreenshotImageType._(value);
 
-  static const computerScreenshot = ComputerScreenshotImageType._('computer_screenshot');
+  static const computerScreenshot =
+      ComputerScreenshotImageType._('computer_screenshot');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ComputerScreenshotImageType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ComputerScreenshotImageType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The content type. Always `computer_screenshot`.
 final class ComputerScreenshotResourceType {
-
   final String value;
 
   const ComputerScreenshotResourceType._(this.value);
 
-  factory ComputerScreenshotResourceType.fromJson(String value) => ComputerScreenshotResourceType._(value);
+  factory ComputerScreenshotResourceType.fromJson(String value) =>
+      ComputerScreenshotResourceType._(value);
 
-  static const computerScreenshot = ComputerScreenshotResourceType._('computer_screenshot');
+  static const computerScreenshot =
+      ComputerScreenshotResourceType._('computer_screenshot');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ComputerScreenshotResourceType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ComputerScreenshotResourceType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the computer tool. Always `computer`.
@@ -202,14 +245,17 @@ enum ComputerToolType {
 
   static ComputerToolType fromJson(String value) {
     switch (value) {
-      case 'computer': return ComputerToolType.computer;
-      default: throw ArgumentError('Unknown ComputerToolType: $value');
+      case 'computer':
+        return ComputerToolType.computer;
+      default:
+        throw ArgumentError('Unknown ComputerToolType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ComputerToolType.computer: return 'computer';
+      case ComputerToolType.computer:
+        return 'computer';
     }
   }
 
@@ -219,12 +265,12 @@ enum ComputerToolType {
 
 /// The status of the item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
 final class ComputerToolCallStatus {
-
   final String value;
 
   const ComputerToolCallStatus._(this.value);
 
-  factory ComputerToolCallStatus.fromJson(String value) => ComputerToolCallStatus._(value);
+  factory ComputerToolCallStatus.fromJson(String value) =>
+      ComputerToolCallStatus._(value);
 
   static const inProgress = ComputerToolCallStatus._('in_progress');
   static const completed = ComputerToolCallStatus._('completed');
@@ -232,12 +278,15 @@ final class ComputerToolCallStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ComputerToolCallStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ComputerToolCallStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the computer call. Always `computer_call`.
@@ -246,14 +295,17 @@ enum ComputerToolCallType {
 
   static ComputerToolCallType fromJson(String value) {
     switch (value) {
-      case 'computer_call': return ComputerToolCallType.computerCall;
-      default: throw ArgumentError('Unknown ComputerToolCallType: $value');
+      case 'computer_call':
+        return ComputerToolCallType.computerCall;
+      default:
+        throw ArgumentError('Unknown ComputerToolCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ComputerToolCallType.computerCall: return 'computer_call';
+      case ComputerToolCallType.computerCall:
+        return 'computer_call';
     }
   }
 
@@ -263,12 +315,12 @@ enum ComputerToolCallType {
 
 /// The status of the message input. One of `in_progress`, `completed`, or `incomplete`. Populated when input items are returned via API.
 final class ComputerToolCallOutputStatus {
-
   final String value;
 
   const ComputerToolCallOutputStatus._(this.value);
 
-  factory ComputerToolCallOutputStatus.fromJson(String value) => ComputerToolCallOutputStatus._(value);
+  factory ComputerToolCallOutputStatus.fromJson(String value) =>
+      ComputerToolCallOutputStatus._(value);
 
   static const inProgress = ComputerToolCallOutputStatus._('in_progress');
   static const completed = ComputerToolCallOutputStatus._('completed');
@@ -276,10 +328,13 @@ final class ComputerToolCallOutputStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ComputerToolCallOutputStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ComputerToolCallOutputStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

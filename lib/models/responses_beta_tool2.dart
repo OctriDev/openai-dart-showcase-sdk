@@ -10,40 +10,192 @@ sealed class BetaTool {
   const BetaTool();
   factory BetaTool.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = BetaFunctionTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaFunctionTool(value); } } catch (_) {}
-      try { final value = BetaFileSearchTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaFileSearchTool(value); } } catch (_) {}
-      try { final value = BetaComputerTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaComputerTool(value); } } catch (_) {}
-      try { final value = BetaComputerUsePreviewTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaComputerUsePreviewTool(value); } } catch (_) {}
-      try { final value = BetaWebSearchTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaWebSearchTool(value); } } catch (_) {}
-      try { final value = BetaMCPTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaMCPTool(value); } } catch (_) {}
-      try { final value = BetaCodeInterpreterTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaCodeInterpreterTool(value); } } catch (_) {}
-      try { final value = BetaProgrammaticToolCallingParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaProgrammaticToolCallingParam(value); } } catch (_) {}
-      try { final value = BetaImageGenTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaImageGenTool(value); } } catch (_) {}
-      try { final value = BetaLocalShellToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaLocalShellToolParam(value); } } catch (_) {}
-      try { final value = BetaFunctionShellToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaFunctionShellToolParam(value); } } catch (_) {}
-      try { final value = BetaCustomToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaCustomToolParam(value); } } catch (_) {}
-      try { final value = BetaNamespaceToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaNamespaceToolParam(value); } } catch (_) {}
-      try { final value = BetaToolSearchToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaToolSearchToolParam(value); } } catch (_) {}
-      try { final value = BetaWebSearchPreviewTool.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaWebSearchPreviewTool(value); } } catch (_) {}
-      try { final value = BetaApplyPatchToolParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return BetaToolBetaApplyPatchToolParam(value); } } catch (_) {}
+      try {
+        final value = BetaFunctionTool.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaToolBetaFunctionTool(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaFileSearchTool.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaToolBetaFileSearchTool(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaComputerTool.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaToolBetaComputerTool(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaComputerUsePreviewTool.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaToolBetaComputerUsePreviewTool(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaWebSearchTool.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaToolBetaWebSearchTool(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaMCPTool.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaToolBetaMCPTool(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaCodeInterpreterTool.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaToolBetaCodeInterpreterTool(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaProgrammaticToolCallingParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaToolBetaProgrammaticToolCallingParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaImageGenTool.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaToolBetaImageGenTool(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaLocalShellToolParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaToolBetaLocalShellToolParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaFunctionShellToolParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaToolBetaFunctionShellToolParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaCustomToolParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaToolBetaCustomToolParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaNamespaceToolParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaToolBetaNamespaceToolParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaToolSearchToolParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaToolBetaToolSearchToolParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaWebSearchPreviewTool.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaToolBetaWebSearchPreviewTool(value);
+        }
+      } catch (_) {}
+      try {
+        final value = BetaApplyPatchToolParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return BetaToolBetaApplyPatchToolParam(value);
+        }
+      } catch (_) {}
     }
-    try { return BetaToolBetaFunctionTool(BetaFunctionTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaToolBetaFileSearchTool(BetaFileSearchTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaToolBetaComputerTool(BetaComputerTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaToolBetaComputerUsePreviewTool(BetaComputerUsePreviewTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaToolBetaWebSearchTool(BetaWebSearchTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaToolBetaMCPTool(BetaMCPTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaToolBetaCodeInterpreterTool(BetaCodeInterpreterTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaToolBetaProgrammaticToolCallingParam(BetaProgrammaticToolCallingParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaToolBetaImageGenTool(BetaImageGenTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaToolBetaLocalShellToolParam(BetaLocalShellToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaToolBetaFunctionShellToolParam(BetaFunctionShellToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaToolBetaCustomToolParam(BetaCustomToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaToolBetaNamespaceToolParam(BetaNamespaceToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaToolBetaToolSearchToolParam(BetaToolSearchToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaToolBetaWebSearchPreviewTool(BetaWebSearchPreviewTool.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return BetaToolBetaApplyPatchToolParam(BetaApplyPatchToolParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"function", "file_search", "computer", "computer_use_preview", "web_search", "web_search_2025_08_26", "mcp", "code_interpreter", "programmatic_tool_calling", "image_generation", "local_shell", "shell", "custom", "namespace", "tool_search", "web_search_preview", "web_search_preview_2025_03_11", "apply_patch"}.contains(json["type"])) { return UnknownBetaTool(json); }
+    try {
+      return BetaToolBetaFunctionTool(
+          BetaFunctionTool.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaToolBetaFileSearchTool(
+          BetaFileSearchTool.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaToolBetaComputerTool(
+          BetaComputerTool.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaToolBetaComputerUsePreviewTool(
+          BetaComputerUsePreviewTool.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaToolBetaWebSearchTool(
+          BetaWebSearchTool.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaToolBetaMCPTool(
+          BetaMCPTool.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaToolBetaCodeInterpreterTool(
+          BetaCodeInterpreterTool.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaToolBetaProgrammaticToolCallingParam(
+          BetaProgrammaticToolCallingParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaToolBetaImageGenTool(
+          BetaImageGenTool.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaToolBetaLocalShellToolParam(
+          BetaLocalShellToolParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaToolBetaFunctionShellToolParam(
+          BetaFunctionShellToolParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaToolBetaCustomToolParam(
+          BetaCustomToolParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaToolBetaNamespaceToolParam(
+          BetaNamespaceToolParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaToolBetaToolSearchToolParam(
+          BetaToolSearchToolParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaToolBetaWebSearchPreviewTool(
+          BetaWebSearchPreviewTool.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return BetaToolBetaApplyPatchToolParam(
+          BetaApplyPatchToolParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {
+          "function",
+          "file_search",
+          "computer",
+          "computer_use_preview",
+          "web_search",
+          "web_search_2025_08_26",
+          "mcp",
+          "code_interpreter",
+          "programmatic_tool_calling",
+          "image_generation",
+          "local_shell",
+          "shell",
+          "custom",
+          "namespace",
+          "tool_search",
+          "web_search_preview",
+          "web_search_preview_2025_03_11",
+          "apply_patch"
+        }.contains(json["type"])) {
+      return UnknownBetaTool(json);
+    }
     throw FormatException("No variant matched for BetaTool");
   }
   Object? toJson();
@@ -52,102 +204,119 @@ sealed class BetaTool {
 final class BetaToolBetaFunctionTool extends BetaTool {
   final BetaFunctionTool value;
   const BetaToolBetaFunctionTool(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaToolBetaFileSearchTool extends BetaTool {
   final BetaFileSearchTool value;
   const BetaToolBetaFileSearchTool(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaToolBetaComputerTool extends BetaTool {
   final BetaComputerTool value;
   const BetaToolBetaComputerTool(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaToolBetaComputerUsePreviewTool extends BetaTool {
   final BetaComputerUsePreviewTool value;
   const BetaToolBetaComputerUsePreviewTool(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaToolBetaWebSearchTool extends BetaTool {
   final BetaWebSearchTool value;
   const BetaToolBetaWebSearchTool(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaToolBetaMCPTool extends BetaTool {
   final BetaMCPTool value;
   const BetaToolBetaMCPTool(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaToolBetaCodeInterpreterTool extends BetaTool {
   final BetaCodeInterpreterTool value;
   const BetaToolBetaCodeInterpreterTool(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaToolBetaProgrammaticToolCallingParam extends BetaTool {
   final BetaProgrammaticToolCallingParam value;
   const BetaToolBetaProgrammaticToolCallingParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaToolBetaImageGenTool extends BetaTool {
   final BetaImageGenTool value;
   const BetaToolBetaImageGenTool(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaToolBetaLocalShellToolParam extends BetaTool {
   final BetaLocalShellToolParam value;
   const BetaToolBetaLocalShellToolParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaToolBetaFunctionShellToolParam extends BetaTool {
   final BetaFunctionShellToolParam value;
   const BetaToolBetaFunctionShellToolParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaToolBetaCustomToolParam extends BetaTool {
   final BetaCustomToolParam value;
   const BetaToolBetaCustomToolParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaToolBetaNamespaceToolParam extends BetaTool {
   final BetaNamespaceToolParam value;
   const BetaToolBetaNamespaceToolParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaToolBetaToolSearchToolParam extends BetaTool {
   final BetaToolSearchToolParam value;
   const BetaToolBetaToolSearchToolParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaToolBetaWebSearchPreviewTool extends BetaTool {
   final BetaWebSearchPreviewTool value;
   const BetaToolBetaWebSearchPreviewTool(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class BetaToolBetaApplyPatchToolParam extends BetaTool {
   final BetaApplyPatchToolParam value;
   const BetaToolBetaApplyPatchToolParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [BetaTool] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownBetaTool extends BetaTool {
   final Map<String, dynamic> raw;
   const UnknownBetaTool(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

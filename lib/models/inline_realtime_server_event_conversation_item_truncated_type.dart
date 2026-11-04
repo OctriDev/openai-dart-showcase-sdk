@@ -8,16 +8,23 @@ part of 'inline.dart';
 enum RealtimeServerEventConversationItemTruncatedType {
   conversationItemTruncated;
 
-  static RealtimeServerEventConversationItemTruncatedType fromJson(String value) {
+  static RealtimeServerEventConversationItemTruncatedType fromJson(
+      String value) {
     switch (value) {
-      case 'conversation.item.truncated': return RealtimeServerEventConversationItemTruncatedType.conversationItemTruncated;
-      default: throw ArgumentError('Unknown RealtimeServerEventConversationItemTruncatedType: $value');
+      case 'conversation.item.truncated':
+        return RealtimeServerEventConversationItemTruncatedType
+            .conversationItemTruncated;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeServerEventConversationItemTruncatedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventConversationItemTruncatedType.conversationItemTruncated: return 'conversation.item.truncated';
+      case RealtimeServerEventConversationItemTruncatedType
+            .conversationItemTruncated:
+        return 'conversation.item.truncated';
     }
   }
 
@@ -31,14 +38,17 @@ enum RealtimeServerEventErrorType {
 
   static RealtimeServerEventErrorType fromJson(String value) {
     switch (value) {
-      case 'error': return RealtimeServerEventErrorType.error;
-      default: throw ArgumentError('Unknown RealtimeServerEventErrorType: $value');
+      case 'error':
+        return RealtimeServerEventErrorType.error;
+      default:
+        throw ArgumentError('Unknown RealtimeServerEventErrorType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventErrorType.error: return 'error';
+      case RealtimeServerEventErrorType.error:
+        return 'error';
     }
   }
 
@@ -52,14 +62,20 @@ enum RealtimeServerEventInputAudioBufferClearedType {
 
   static RealtimeServerEventInputAudioBufferClearedType fromJson(String value) {
     switch (value) {
-      case 'input_audio_buffer.cleared': return RealtimeServerEventInputAudioBufferClearedType.inputAudioBufferCleared;
-      default: throw ArgumentError('Unknown RealtimeServerEventInputAudioBufferClearedType: $value');
+      case 'input_audio_buffer.cleared':
+        return RealtimeServerEventInputAudioBufferClearedType
+            .inputAudioBufferCleared;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeServerEventInputAudioBufferClearedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventInputAudioBufferClearedType.inputAudioBufferCleared: return 'input_audio_buffer.cleared';
+      case RealtimeServerEventInputAudioBufferClearedType
+            .inputAudioBufferCleared:
+        return 'input_audio_buffer.cleared';
     }
   }
 
@@ -71,16 +87,23 @@ enum RealtimeServerEventInputAudioBufferClearedType {
 enum RealtimeServerEventInputAudioBufferCommittedType {
   inputAudioBufferCommitted;
 
-  static RealtimeServerEventInputAudioBufferCommittedType fromJson(String value) {
+  static RealtimeServerEventInputAudioBufferCommittedType fromJson(
+      String value) {
     switch (value) {
-      case 'input_audio_buffer.committed': return RealtimeServerEventInputAudioBufferCommittedType.inputAudioBufferCommitted;
-      default: throw ArgumentError('Unknown RealtimeServerEventInputAudioBufferCommittedType: $value');
+      case 'input_audio_buffer.committed':
+        return RealtimeServerEventInputAudioBufferCommittedType
+            .inputAudioBufferCommitted;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeServerEventInputAudioBufferCommittedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventInputAudioBufferCommittedType.inputAudioBufferCommitted: return 'input_audio_buffer.committed';
+      case RealtimeServerEventInputAudioBufferCommittedType
+            .inputAudioBufferCommitted:
+        return 'input_audio_buffer.committed';
     }
   }
 
@@ -92,16 +115,23 @@ enum RealtimeServerEventInputAudioBufferCommittedType {
 enum RealtimeServerEventInputAudioBufferDtmfEventReceivedType {
   inputAudioBufferDtmfEventReceived;
 
-  static RealtimeServerEventInputAudioBufferDtmfEventReceivedType fromJson(String value) {
+  static RealtimeServerEventInputAudioBufferDtmfEventReceivedType fromJson(
+      String value) {
     switch (value) {
-      case 'input_audio_buffer.dtmf_event_received': return RealtimeServerEventInputAudioBufferDtmfEventReceivedType.inputAudioBufferDtmfEventReceived;
-      default: throw ArgumentError('Unknown RealtimeServerEventInputAudioBufferDtmfEventReceivedType: $value');
+      case 'input_audio_buffer.dtmf_event_received':
+        return RealtimeServerEventInputAudioBufferDtmfEventReceivedType
+            .inputAudioBufferDtmfEventReceived;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeServerEventInputAudioBufferDtmfEventReceivedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventInputAudioBufferDtmfEventReceivedType.inputAudioBufferDtmfEventReceived: return 'input_audio_buffer.dtmf_event_received';
+      case RealtimeServerEventInputAudioBufferDtmfEventReceivedType
+            .inputAudioBufferDtmfEventReceived:
+        return 'input_audio_buffer.dtmf_event_received';
     }
   }
 
@@ -113,16 +143,23 @@ enum RealtimeServerEventInputAudioBufferDtmfEventReceivedType {
 enum RealtimeServerEventInputAudioBufferSpeechStartedType {
   inputAudioBufferSpeechStarted;
 
-  static RealtimeServerEventInputAudioBufferSpeechStartedType fromJson(String value) {
+  static RealtimeServerEventInputAudioBufferSpeechStartedType fromJson(
+      String value) {
     switch (value) {
-      case 'input_audio_buffer.speech_started': return RealtimeServerEventInputAudioBufferSpeechStartedType.inputAudioBufferSpeechStarted;
-      default: throw ArgumentError('Unknown RealtimeServerEventInputAudioBufferSpeechStartedType: $value');
+      case 'input_audio_buffer.speech_started':
+        return RealtimeServerEventInputAudioBufferSpeechStartedType
+            .inputAudioBufferSpeechStarted;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeServerEventInputAudioBufferSpeechStartedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventInputAudioBufferSpeechStartedType.inputAudioBufferSpeechStarted: return 'input_audio_buffer.speech_started';
+      case RealtimeServerEventInputAudioBufferSpeechStartedType
+            .inputAudioBufferSpeechStarted:
+        return 'input_audio_buffer.speech_started';
     }
   }
 
@@ -134,16 +171,23 @@ enum RealtimeServerEventInputAudioBufferSpeechStartedType {
 enum RealtimeServerEventInputAudioBufferSpeechStoppedType {
   inputAudioBufferSpeechStopped;
 
-  static RealtimeServerEventInputAudioBufferSpeechStoppedType fromJson(String value) {
+  static RealtimeServerEventInputAudioBufferSpeechStoppedType fromJson(
+      String value) {
     switch (value) {
-      case 'input_audio_buffer.speech_stopped': return RealtimeServerEventInputAudioBufferSpeechStoppedType.inputAudioBufferSpeechStopped;
-      default: throw ArgumentError('Unknown RealtimeServerEventInputAudioBufferSpeechStoppedType: $value');
+      case 'input_audio_buffer.speech_stopped':
+        return RealtimeServerEventInputAudioBufferSpeechStoppedType
+            .inputAudioBufferSpeechStopped;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeServerEventInputAudioBufferSpeechStoppedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventInputAudioBufferSpeechStoppedType.inputAudioBufferSpeechStopped: return 'input_audio_buffer.speech_stopped';
+      case RealtimeServerEventInputAudioBufferSpeechStoppedType
+            .inputAudioBufferSpeechStopped:
+        return 'input_audio_buffer.speech_stopped';
     }
   }
 
@@ -155,16 +199,23 @@ enum RealtimeServerEventInputAudioBufferSpeechStoppedType {
 enum RealtimeServerEventInputAudioBufferTimeoutTriggeredType {
   inputAudioBufferTimeoutTriggered;
 
-  static RealtimeServerEventInputAudioBufferTimeoutTriggeredType fromJson(String value) {
+  static RealtimeServerEventInputAudioBufferTimeoutTriggeredType fromJson(
+      String value) {
     switch (value) {
-      case 'input_audio_buffer.timeout_triggered': return RealtimeServerEventInputAudioBufferTimeoutTriggeredType.inputAudioBufferTimeoutTriggered;
-      default: throw ArgumentError('Unknown RealtimeServerEventInputAudioBufferTimeoutTriggeredType: $value');
+      case 'input_audio_buffer.timeout_triggered':
+        return RealtimeServerEventInputAudioBufferTimeoutTriggeredType
+            .inputAudioBufferTimeoutTriggered;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeServerEventInputAudioBufferTimeoutTriggeredType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventInputAudioBufferTimeoutTriggeredType.inputAudioBufferTimeoutTriggered: return 'input_audio_buffer.timeout_triggered';
+      case RealtimeServerEventInputAudioBufferTimeoutTriggeredType
+            .inputAudioBufferTimeoutTriggered:
+        return 'input_audio_buffer.timeout_triggered';
     }
   }
 
@@ -178,14 +229,19 @@ enum RealtimeServerEventMCPListToolsCompletedType {
 
   static RealtimeServerEventMCPListToolsCompletedType fromJson(String value) {
     switch (value) {
-      case 'mcp_list_tools.completed': return RealtimeServerEventMCPListToolsCompletedType.mcpListToolsCompleted;
-      default: throw ArgumentError('Unknown RealtimeServerEventMCPListToolsCompletedType: $value');
+      case 'mcp_list_tools.completed':
+        return RealtimeServerEventMCPListToolsCompletedType
+            .mcpListToolsCompleted;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeServerEventMCPListToolsCompletedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventMCPListToolsCompletedType.mcpListToolsCompleted: return 'mcp_list_tools.completed';
+      case RealtimeServerEventMCPListToolsCompletedType.mcpListToolsCompleted:
+        return 'mcp_list_tools.completed';
     }
   }
 
@@ -199,14 +255,18 @@ enum RealtimeServerEventMCPListToolsFailedType {
 
   static RealtimeServerEventMCPListToolsFailedType fromJson(String value) {
     switch (value) {
-      case 'mcp_list_tools.failed': return RealtimeServerEventMCPListToolsFailedType.mcpListToolsFailed;
-      default: throw ArgumentError('Unknown RealtimeServerEventMCPListToolsFailedType: $value');
+      case 'mcp_list_tools.failed':
+        return RealtimeServerEventMCPListToolsFailedType.mcpListToolsFailed;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeServerEventMCPListToolsFailedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventMCPListToolsFailedType.mcpListToolsFailed: return 'mcp_list_tools.failed';
+      case RealtimeServerEventMCPListToolsFailedType.mcpListToolsFailed:
+        return 'mcp_list_tools.failed';
     }
   }
 
@@ -220,14 +280,19 @@ enum RealtimeServerEventMCPListToolsInProgressType {
 
   static RealtimeServerEventMCPListToolsInProgressType fromJson(String value) {
     switch (value) {
-      case 'mcp_list_tools.in_progress': return RealtimeServerEventMCPListToolsInProgressType.mcpListToolsInProgress;
-      default: throw ArgumentError('Unknown RealtimeServerEventMCPListToolsInProgressType: $value');
+      case 'mcp_list_tools.in_progress':
+        return RealtimeServerEventMCPListToolsInProgressType
+            .mcpListToolsInProgress;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeServerEventMCPListToolsInProgressType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventMCPListToolsInProgressType.mcpListToolsInProgress: return 'mcp_list_tools.in_progress';
+      case RealtimeServerEventMCPListToolsInProgressType.mcpListToolsInProgress:
+        return 'mcp_list_tools.in_progress';
     }
   }
 
@@ -239,16 +304,23 @@ enum RealtimeServerEventMCPListToolsInProgressType {
 enum RealtimeServerEventOutputAudioBufferClearedType {
   outputAudioBufferCleared;
 
-  static RealtimeServerEventOutputAudioBufferClearedType fromJson(String value) {
+  static RealtimeServerEventOutputAudioBufferClearedType fromJson(
+      String value) {
     switch (value) {
-      case 'output_audio_buffer.cleared': return RealtimeServerEventOutputAudioBufferClearedType.outputAudioBufferCleared;
-      default: throw ArgumentError('Unknown RealtimeServerEventOutputAudioBufferClearedType: $value');
+      case 'output_audio_buffer.cleared':
+        return RealtimeServerEventOutputAudioBufferClearedType
+            .outputAudioBufferCleared;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeServerEventOutputAudioBufferClearedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventOutputAudioBufferClearedType.outputAudioBufferCleared: return 'output_audio_buffer.cleared';
+      case RealtimeServerEventOutputAudioBufferClearedType
+            .outputAudioBufferCleared:
+        return 'output_audio_buffer.cleared';
     }
   }
 
@@ -260,16 +332,23 @@ enum RealtimeServerEventOutputAudioBufferClearedType {
 enum RealtimeServerEventOutputAudioBufferStartedType {
   outputAudioBufferStarted;
 
-  static RealtimeServerEventOutputAudioBufferStartedType fromJson(String value) {
+  static RealtimeServerEventOutputAudioBufferStartedType fromJson(
+      String value) {
     switch (value) {
-      case 'output_audio_buffer.started': return RealtimeServerEventOutputAudioBufferStartedType.outputAudioBufferStarted;
-      default: throw ArgumentError('Unknown RealtimeServerEventOutputAudioBufferStartedType: $value');
+      case 'output_audio_buffer.started':
+        return RealtimeServerEventOutputAudioBufferStartedType
+            .outputAudioBufferStarted;
+      default:
+        throw ArgumentError(
+            'Unknown RealtimeServerEventOutputAudioBufferStartedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case RealtimeServerEventOutputAudioBufferStartedType.outputAudioBufferStarted: return 'output_audio_buffer.started';
+      case RealtimeServerEventOutputAudioBufferStartedType
+            .outputAudioBufferStarted:
+        return 'output_audio_buffer.started';
     }
   }
 

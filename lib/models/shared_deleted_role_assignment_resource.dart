@@ -8,28 +8,41 @@ part of 'shared.dart';
 class DeletedRoleAssignmentResource implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Identifier for the deleted assignment, such as `group.role.deleted` or `user.role.deleted`.
   final String object;
+
   /// Whether the assignment was removed.
   final bool deleted;
 
-  const DeletedRoleAssignmentResource({required this.object, required this.deleted});
+  const DeletedRoleAssignmentResource(
+      {required this.object, required this.deleted});
 
-  DeletedRoleAssignmentResource Function({String object, bool deleted}) get copyWith => _copyWith;
+  DeletedRoleAssignmentResource Function({String object, bool deleted})
+      get copyWith => _copyWith;
 
-  DeletedRoleAssignmentResource _copyWith({Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => DeletedRoleAssignmentResource(
-    object: identical(object, sdkOmittedValue) ? this.object : object as String,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
-  );
+  DeletedRoleAssignmentResource _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue}) =>
+      DeletedRoleAssignmentResource(
+        object:
+            identical(object, sdkOmittedValue) ? this.object : object as String,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as bool,
+      );
 
-  factory DeletedRoleAssignmentResource.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(DeletedRoleAssignmentResource(
-    object: (json['object'] as String?)!,
-    deleted: (json['deleted'] as bool?)!,
-  ), json);
+  factory DeletedRoleAssignmentResource.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          DeletedRoleAssignmentResource(
+            object: (json['object'] as String?)!,
+            deleted: (json['deleted'] as bool?)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'object': object,
-    'deleted': deleted,
-  };
+        'object': object,
+        'deleted': deleted,
+      };
 }

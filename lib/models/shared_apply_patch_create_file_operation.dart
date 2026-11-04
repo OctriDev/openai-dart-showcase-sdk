@@ -8,33 +8,52 @@ part of 'shared_apply.dart';
 class ApplyPatchCreateFileOperation implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Create a new file with the provided diff.
   final ApplyPatchCreateFileOperationType type_;
+
   /// Path of the file to create.
   final String path;
+
   /// Diff to apply.
   final String diff;
 
-  const ApplyPatchCreateFileOperation({required this.type_, required this.path, required this.diff});
+  const ApplyPatchCreateFileOperation(
+      {required this.type_, required this.path, required this.diff});
 
-  ApplyPatchCreateFileOperation Function({ApplyPatchCreateFileOperationType type_, String path, String diff}) get copyWith => _copyWith;
+  ApplyPatchCreateFileOperation Function(
+      {ApplyPatchCreateFileOperationType type_,
+      String path,
+      String diff}) get copyWith => _copyWith;
 
-  ApplyPatchCreateFileOperation _copyWith({Object? type_ = sdkOmittedValue, Object? path = sdkOmittedValue, Object? diff = sdkOmittedValue}) => ApplyPatchCreateFileOperation(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ApplyPatchCreateFileOperationType,
-    path: identical(path, sdkOmittedValue) ? this.path : path as String,
-    diff: identical(diff, sdkOmittedValue) ? this.diff : diff as String,
-  );
+  ApplyPatchCreateFileOperation _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? path = sdkOmittedValue,
+          Object? diff = sdkOmittedValue}) =>
+      ApplyPatchCreateFileOperation(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ApplyPatchCreateFileOperationType,
+        path: identical(path, sdkOmittedValue) ? this.path : path as String,
+        diff: identical(diff, sdkOmittedValue) ? this.diff : diff as String,
+      );
 
-  factory ApplyPatchCreateFileOperation.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ApplyPatchCreateFileOperation(
-    type_: (json['type'] != null ? ApplyPatchCreateFileOperationType.fromJson(json['type'] as String) : null)!,
-    path: (json['path'] as String?)!,
-    diff: (json['diff'] as String?)!,
-  ), json);
+  factory ApplyPatchCreateFileOperation.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ApplyPatchCreateFileOperation(
+            type_: (json['type'] != null
+                ? ApplyPatchCreateFileOperationType.fromJson(
+                    json['type'] as String)
+                : null)!,
+            path: (json['path'] as String?)!,
+            diff: (json['diff'] as String?)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'path': path,
-    'diff': diff,
-  };
+        'type': type_.toJson(),
+        'path': path,
+        'diff': diff,
+      };
 }

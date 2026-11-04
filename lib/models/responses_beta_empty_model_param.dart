@@ -10,14 +10,19 @@ class BetaEmptyModelParam implements SdkJsonModel {
   static const String constructionSurface = 'named';
   final Map<String, dynamic> additionalProperties;
 
-  const BetaEmptyModelParam({this.additionalProperties = const <String, dynamic>{}});
+  const BetaEmptyModelParam(
+      {this.additionalProperties = const <String, dynamic>{}});
 
-  factory BetaEmptyModelParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(BetaEmptyModelParam(
-    additionalProperties: Map.of(json)..removeWhere((key, _) => const <String>{}.contains(key)),
-  ), json);
+  factory BetaEmptyModelParam.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          BetaEmptyModelParam(
+            additionalProperties: Map.of(json)
+              ..removeWhere((key, _) => const <String>{}.contains(key)),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...additionalProperties,
-  };
+        ...additionalProperties,
+      };
 }

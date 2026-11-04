@@ -10,32 +10,65 @@ sealed class PersistedMcpTransportConfigParam {
   const PersistedMcpTransportConfigParam();
   factory PersistedMcpTransportConfigParam.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = PersistedMcpTransportConfigParamHttp.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PersistedMcpTransportConfigParamPersistedMcpTransportConfigParamHttp(value); } } catch (_) {}
-      try { final value = PersistedMcpTransportConfigParamStdio.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PersistedMcpTransportConfigParamPersistedMcpTransportConfigParamStdio(value); } } catch (_) {}
+      try {
+        final value = PersistedMcpTransportConfigParamHttp.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return PersistedMcpTransportConfigParamPersistedMcpTransportConfigParamHttp(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = PersistedMcpTransportConfigParamStdio.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return PersistedMcpTransportConfigParamPersistedMcpTransportConfigParamStdio(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return PersistedMcpTransportConfigParamPersistedMcpTransportConfigParamHttp(PersistedMcpTransportConfigParamHttp.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return PersistedMcpTransportConfigParamPersistedMcpTransportConfigParamStdio(PersistedMcpTransportConfigParamStdio.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"http", "stdio"}.contains(json["type"])) { return UnknownPersistedMcpTransportConfigParam(json); }
-    throw FormatException("No variant matched for PersistedMcpTransportConfigParam");
+    try {
+      return PersistedMcpTransportConfigParamPersistedMcpTransportConfigParamHttp(
+          PersistedMcpTransportConfigParamHttp.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return PersistedMcpTransportConfigParamPersistedMcpTransportConfigParamStdio(
+          PersistedMcpTransportConfigParamStdio.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"http", "stdio"}.contains(json["type"])) {
+      return UnknownPersistedMcpTransportConfigParam(json);
+    }
+    throw FormatException(
+        "No variant matched for PersistedMcpTransportConfigParam");
   }
   Object? toJson();
 }
 
-final class PersistedMcpTransportConfigParamPersistedMcpTransportConfigParamHttp extends PersistedMcpTransportConfigParam {
+final class PersistedMcpTransportConfigParamPersistedMcpTransportConfigParamHttp
+    extends PersistedMcpTransportConfigParam {
   final PersistedMcpTransportConfigParamHttp value;
-  const PersistedMcpTransportConfigParamPersistedMcpTransportConfigParamHttp(this.value);
-  @override Object? toJson() => value.toJson();
+  const PersistedMcpTransportConfigParamPersistedMcpTransportConfigParamHttp(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class PersistedMcpTransportConfigParamPersistedMcpTransportConfigParamStdio extends PersistedMcpTransportConfigParam {
+final class PersistedMcpTransportConfigParamPersistedMcpTransportConfigParamStdio
+    extends PersistedMcpTransportConfigParam {
   final PersistedMcpTransportConfigParamStdio value;
-  const PersistedMcpTransportConfigParamPersistedMcpTransportConfigParamStdio(this.value);
-  @override Object? toJson() => value.toJson();
+  const PersistedMcpTransportConfigParamPersistedMcpTransportConfigParamStdio(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [PersistedMcpTransportConfigParam] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownPersistedMcpTransportConfigParam extends PersistedMcpTransportConfigParam {
+final class UnknownPersistedMcpTransportConfigParam
+    extends PersistedMcpTransportConfigParam {
   final Map<String, dynamic> raw;
   const UnknownPersistedMcpTransportConfigParam(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

@@ -28,19 +28,30 @@ Future<RoleListResource> listUserRoleAssignments(ClientConfig config,
           '/organization/users/${Uri.encodeComponent(userId.toString())}/roles',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listUserRoleAssignments',
-          fromJsonRaw: (value) => RoleListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              RoleListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists the organization roles assigned to a user within the organization.
 ///
@@ -49,13 +60,30 @@ Future<RoleListResource> listUserRoleAssignments(ClientConfig config,
 /// [after] Cursor for pagination. Provide the value from the previous
 ///   response's `next` field to continue listing organization roles.
 /// [order] Sort order for the returned organization roles.
-Stream<AssignedRoleDetails> listUserRoleAssignmentsPaginated(ClientConfig config, {required String userId, int? limit, String? after, ListUserRoleAssignmentsOrder? order, RequestOptions? requestOptions}) async* {
+Stream<AssignedRoleDetails> listUserRoleAssignmentsPaginated(
+    ClientConfig config,
+    {required String userId,
+    int? limit,
+    String? after,
+    ListUserRoleAssignmentsOrder? order,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listUserRoleAssignments(config, userId: userId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), order: order == null ? const SdkOmitted<ListUserRoleAssignmentsOrder>() : SdkPresent<ListUserRoleAssignmentsOrder>(order), requestOptions: requestOptions);
+    final sdkPage = await listUserRoleAssignments(config,
+        userId: userId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        order: order == null
+            ? const SdkOmitted<ListUserRoleAssignmentsOrder>()
+            : SdkPresent<ListUserRoleAssignmentsOrder>(order),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.next;
     if (sdkNext == null) return;
@@ -63,10 +91,25 @@ Stream<AssignedRoleDetails> listUserRoleAssignmentsPaginated(ClientConfig config
   }
 }
 
-Stream<SdkPage<RoleListResource, AssignedRoleDetails>> listUserRoleAssignmentsPages(ClientConfig config, {required String userId, int? limit, String? after, ListUserRoleAssignmentsOrder? order, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<RoleListResource, AssignedRoleDetails>>
+    listUserRoleAssignmentsPages(ClientConfig config,
+        {required String userId,
+        int? limit,
+        String? after,
+        ListUserRoleAssignmentsOrder? order,
+        RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listUserRoleAssignments(config, userId: userId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), order: order == null ? const SdkOmitted<ListUserRoleAssignmentsOrder>() : SdkPresent<ListUserRoleAssignmentsOrder>(order), requestOptions: requestOptions);
+    final sdkPage = await listUserRoleAssignments(config,
+        userId: userId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        order: order == null
+            ? const SdkOmitted<ListUserRoleAssignmentsOrder>()
+            : SdkPresent<ListUserRoleAssignmentsOrder>(order),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.next;
@@ -76,7 +119,6 @@ Stream<SdkPage<RoleListResource, AssignedRoleDetails>> listUserRoleAssignmentsPa
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Assigns an organization role to a user within the organization.
 ///
@@ -92,12 +134,21 @@ Future<UserRoleAssignment> assignUserRole(ClientConfig config,
           body: {'role_id': roleId},
           decoder: SdkResponseDecoder.json,
           operationId: 'assignUserRole',
-          fromJsonRaw: (value) => UserRoleAssignment.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              UserRoleAssignment.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves an organization role assigned to a user.
 ///
@@ -112,12 +163,18 @@ Future<AssignedRoleDetails> retrieveUserRole(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'retrieveUserRole',
-          fromJsonRaw: (value) => AssignedRoleDetails.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AssignedRoleDetails.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '403': (value) =>
+            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Unassigns an organization role from a user within the organization.
 ///
@@ -132,8 +189,15 @@ Future<DeletedRoleAssignmentResource> unassignUserRole(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'unassignUserRole',
-          fromJsonRaw: (value) => DeletedRoleAssignmentResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeletedRoleAssignmentResource.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '403': (value) =>
+            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

@@ -10,14 +10,17 @@ enum UserMessageInputTextType {
 
   static UserMessageInputTextType fromJson(String value) {
     switch (value) {
-      case 'input_text': return UserMessageInputTextType.inputText;
-      default: throw ArgumentError('Unknown UserMessageInputTextType: $value');
+      case 'input_text':
+        return UserMessageInputTextType.inputText;
+      default:
+        throw ArgumentError('Unknown UserMessageInputTextType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case UserMessageInputTextType.inputText: return 'input_text';
+      case UserMessageInputTextType.inputText:
+        return 'input_text';
     }
   }
 
@@ -27,23 +30,27 @@ enum UserMessageInputTextType {
 
 /// Type discriminator that is always `chatkit.thread_item`.
 final class UserMessageItemObject {
-
   final String value;
 
   const UserMessageItemObject._(this.value);
 
-  factory UserMessageItemObject.fromJson(String value) => UserMessageItemObject._(value);
+  factory UserMessageItemObject.fromJson(String value) =>
+      UserMessageItemObject._(value);
 
-  static const chatkitThreadItem = UserMessageItemObject._('chatkit.thread_item');
+  static const chatkitThreadItem =
+      UserMessageItemObject._('chatkit.thread_item');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UserMessageItemObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UserMessageItemObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `type` wire field.
@@ -52,14 +59,17 @@ enum UserMessageItemType {
 
   static UserMessageItemType fromJson(String value) {
     switch (value) {
-      case 'chatkit.user_message': return UserMessageItemType.chatkitUserMessage;
-      default: throw ArgumentError('Unknown UserMessageItemType: $value');
+      case 'chatkit.user_message':
+        return UserMessageItemType.chatkitUserMessage;
+      default:
+        throw ArgumentError('Unknown UserMessageItemType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case UserMessageItemType.chatkitUserMessage: return 'chatkit.user_message';
+      case UserMessageItemType.chatkitUserMessage:
+        return 'chatkit.user_message';
     }
   }
 
@@ -69,23 +79,26 @@ enum UserMessageItemType {
 
 /// The message role. Always `user`.
 final class UserMessageItemParamRole {
-
   final String value;
 
   const UserMessageItemParamRole._(this.value);
 
-  factory UserMessageItemParamRole.fromJson(String value) => UserMessageItemParamRole._(value);
+  factory UserMessageItemParamRole.fromJson(String value) =>
+      UserMessageItemParamRole._(value);
 
   static const user = UserMessageItemParamRole._('user');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UserMessageItemParamRole && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UserMessageItemParamRole && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The item type. Always `message`.
@@ -94,14 +107,17 @@ enum UserMessageItemParamType {
 
   static UserMessageItemParamType fromJson(String value) {
     switch (value) {
-      case 'message': return UserMessageItemParamType.message;
-      default: throw ArgumentError('Unknown UserMessageItemParamType: $value');
+      case 'message':
+        return UserMessageItemParamType.message;
+      default:
+        throw ArgumentError('Unknown UserMessageItemParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case UserMessageItemParamType.message: return 'message';
+      case UserMessageItemParamType.message:
+        return 'message';
     }
   }
 
@@ -115,14 +131,17 @@ enum UserMessageQuotedTextType {
 
   static UserMessageQuotedTextType fromJson(String value) {
     switch (value) {
-      case 'quoted_text': return UserMessageQuotedTextType.quotedText;
-      default: throw ArgumentError('Unknown UserMessageQuotedTextType: $value');
+      case 'quoted_text':
+        return UserMessageQuotedTextType.quotedText;
+      default:
+        throw ArgumentError('Unknown UserMessageQuotedTextType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case UserMessageQuotedTextType.quotedText: return 'quoted_text';
+      case UserMessageQuotedTextType.quotedText:
+        return 'quoted_text';
     }
   }
 
@@ -132,28 +151,30 @@ enum UserMessageQuotedTextType {
 
 /// Always `user.role`.
 final class UserRoleAssignmentObject {
-
   final String value;
 
   const UserRoleAssignmentObject._(this.value);
 
-  factory UserRoleAssignmentObject.fromJson(String value) => UserRoleAssignmentObject._(value);
+  factory UserRoleAssignmentObject.fromJson(String value) =>
+      UserRoleAssignmentObject._(value);
 
   static const userRole = UserRoleAssignmentObject._('user.role');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UserRoleAssignmentObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UserRoleAssignmentObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Must be set to `server_vad` to enable manual chunking using server side VAD.
 final class VadConfigType {
-
   final String value;
 
   const VadConfigType._(this.value);
@@ -164,28 +185,38 @@ final class VadConfigType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is VadConfigType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is VadConfigType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the object. Always `environment_variable`.
 enum VaultCredentialAuthResourceEnvironmentVariableType {
   environmentVariable;
 
-  static VaultCredentialAuthResourceEnvironmentVariableType fromJson(String value) {
+  static VaultCredentialAuthResourceEnvironmentVariableType fromJson(
+      String value) {
     switch (value) {
-      case 'environment_variable': return VaultCredentialAuthResourceEnvironmentVariableType.environmentVariable;
-      default: throw ArgumentError('Unknown VaultCredentialAuthResourceEnvironmentVariableType: $value');
+      case 'environment_variable':
+        return VaultCredentialAuthResourceEnvironmentVariableType
+            .environmentVariable;
+      default:
+        throw ArgumentError(
+            'Unknown VaultCredentialAuthResourceEnvironmentVariableType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case VaultCredentialAuthResourceEnvironmentVariableType.environmentVariable: return 'environment_variable';
+      case VaultCredentialAuthResourceEnvironmentVariableType
+            .environmentVariable:
+        return 'environment_variable';
     }
   }
 
@@ -199,14 +230,18 @@ enum VaultCredentialAuthResourceMcpOauthType {
 
   static VaultCredentialAuthResourceMcpOauthType fromJson(String value) {
     switch (value) {
-      case 'mcp_oauth': return VaultCredentialAuthResourceMcpOauthType.mcpOauth;
-      default: throw ArgumentError('Unknown VaultCredentialAuthResourceMcpOauthType: $value');
+      case 'mcp_oauth':
+        return VaultCredentialAuthResourceMcpOauthType.mcpOauth;
+      default:
+        throw ArgumentError(
+            'Unknown VaultCredentialAuthResourceMcpOauthType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case VaultCredentialAuthResourceMcpOauthType.mcpOauth: return 'mcp_oauth';
+      case VaultCredentialAuthResourceMcpOauthType.mcpOauth:
+        return 'mcp_oauth';
     }
   }
 
@@ -220,14 +255,18 @@ enum VaultCredentialAuthResourceStaticBearerType {
 
   static VaultCredentialAuthResourceStaticBearerType fromJson(String value) {
     switch (value) {
-      case 'static_bearer': return VaultCredentialAuthResourceStaticBearerType.staticBearer;
-      default: throw ArgumentError('Unknown VaultCredentialAuthResourceStaticBearerType: $value');
+      case 'static_bearer':
+        return VaultCredentialAuthResourceStaticBearerType.staticBearer;
+      default:
+        throw ArgumentError(
+            'Unknown VaultCredentialAuthResourceStaticBearerType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case VaultCredentialAuthResourceStaticBearerType.staticBearer: return 'static_bearer';
+      case VaultCredentialAuthResourceStaticBearerType.staticBearer:
+        return 'static_bearer';
     }
   }
 
@@ -237,23 +276,26 @@ enum VaultCredentialAuthResourceStaticBearerType {
 
 /// The object type, which is always `list`.
 final class VaultCredentialListResourceObject {
-
   final String value;
 
   const VaultCredentialListResourceObject._(this.value);
 
-  factory VaultCredentialListResourceObject.fromJson(String value) => VaultCredentialListResourceObject._(value);
+  factory VaultCredentialListResourceObject.fromJson(String value) =>
+      VaultCredentialListResourceObject._(value);
 
   static const list = VaultCredentialListResourceObject._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is VaultCredentialListResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is VaultCredentialListResourceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the object. Always `limited`.
@@ -262,14 +304,18 @@ enum VaultCredentialNetworkingParamLimitedType {
 
   static VaultCredentialNetworkingParamLimitedType fromJson(String value) {
     switch (value) {
-      case 'limited': return VaultCredentialNetworkingParamLimitedType.limited;
-      default: throw ArgumentError('Unknown VaultCredentialNetworkingParamLimitedType: $value');
+      case 'limited':
+        return VaultCredentialNetworkingParamLimitedType.limited;
+      default:
+        throw ArgumentError(
+            'Unknown VaultCredentialNetworkingParamLimitedType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case VaultCredentialNetworkingParamLimitedType.limited: return 'limited';
+      case VaultCredentialNetworkingParamLimitedType.limited:
+        return 'limited';
     }
   }
 

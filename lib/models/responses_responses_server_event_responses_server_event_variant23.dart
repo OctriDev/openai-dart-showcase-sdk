@@ -4,243 +4,321 @@
 part of 'responses_responses.dart';
 
 // responses_responses domain models
-final class ResponsesServerEventResponsesServerEventVariant23 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant23
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant23 value;
   const ResponsesServerEventResponsesServerEventVariant23(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant24 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant24
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant24 value;
   const ResponsesServerEventResponsesServerEventVariant24(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant25 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant25
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant25 value;
   const ResponsesServerEventResponsesServerEventVariant25(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant26 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant26
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant26 value;
   const ResponsesServerEventResponsesServerEventVariant26(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant27 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant27
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant27 value;
   const ResponsesServerEventResponsesServerEventVariant27(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant28 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant28
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant28 value;
   const ResponsesServerEventResponsesServerEventVariant28(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant29 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant29
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant29 value;
   const ResponsesServerEventResponsesServerEventVariant29(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant30 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant30
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant30 value;
   const ResponsesServerEventResponsesServerEventVariant30(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant31 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant31
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant31 value;
   const ResponsesServerEventResponsesServerEventVariant31(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant32 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant32
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant32 value;
   const ResponsesServerEventResponsesServerEventVariant32(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant33 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant33
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant33 value;
   const ResponsesServerEventResponsesServerEventVariant33(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant34 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant34
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant34 value;
   const ResponsesServerEventResponsesServerEventVariant34(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant35 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant35
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant35 value;
   const ResponsesServerEventResponsesServerEventVariant35(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant36 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant36
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant36 value;
   const ResponsesServerEventResponsesServerEventVariant36(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant37 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant37
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant37 value;
   const ResponsesServerEventResponsesServerEventVariant37(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant38 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant38
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant38 value;
   const ResponsesServerEventResponsesServerEventVariant38(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant39 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant39
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant39 value;
   const ResponsesServerEventResponsesServerEventVariant39(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant40 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant40
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant40 value;
   const ResponsesServerEventResponsesServerEventVariant40(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant41 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant41
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant41 value;
   const ResponsesServerEventResponsesServerEventVariant41(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant42 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant42
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant42 value;
   const ResponsesServerEventResponsesServerEventVariant42(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant43 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant43
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant43 value;
   const ResponsesServerEventResponsesServerEventVariant43(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant44 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant44
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant44 value;
   const ResponsesServerEventResponsesServerEventVariant44(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant45 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant45
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant45 value;
   const ResponsesServerEventResponsesServerEventVariant45(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant46 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant46
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant46 value;
   const ResponsesServerEventResponsesServerEventVariant46(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant47 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant47
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant47 value;
   const ResponsesServerEventResponsesServerEventVariant47(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant48 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant48
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant48 value;
   const ResponsesServerEventResponsesServerEventVariant48(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant49 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant49
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant49 value;
   const ResponsesServerEventResponsesServerEventVariant49(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant50 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant50
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant50 value;
   const ResponsesServerEventResponsesServerEventVariant50(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant51 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant51
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant51 value;
   const ResponsesServerEventResponsesServerEventVariant51(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant52 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant52
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant52 value;
   const ResponsesServerEventResponsesServerEventVariant52(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant53 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant53
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant53 value;
   const ResponsesServerEventResponsesServerEventVariant53(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant54 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant54
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant54 value;
   const ResponsesServerEventResponsesServerEventVariant54(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant55 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant55
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant55 value;
   const ResponsesServerEventResponsesServerEventVariant55(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant56 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant56
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant56 value;
   const ResponsesServerEventResponsesServerEventVariant56(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponsesServerEventVariant57 extends ResponsesServerEvent {
+final class ResponsesServerEventResponsesServerEventVariant57
+    extends ResponsesServerEvent {
   final ResponsesServerEventVariant57 value;
   const ResponsesServerEventResponsesServerEventVariant57(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ResponsesServerEventResponseWsError extends ResponsesServerEvent {
   final ResponseWsError value;
   const ResponsesServerEventResponseWsError(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponseSteerAcceptedEvent extends ResponsesServerEvent {
+final class ResponsesServerEventResponseSteerAcceptedEvent
+    extends ResponsesServerEvent {
   final ResponseSteerAcceptedEvent value;
   const ResponsesServerEventResponseSteerAcceptedEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponseSteerPendingEvent extends ResponsesServerEvent {
+final class ResponsesServerEventResponseSteerPendingEvent
+    extends ResponsesServerEvent {
   final ResponseSteerPendingEvent value;
   const ResponsesServerEventResponseSteerPendingEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ResponsesServerEventResponseSteerFailedEvent extends ResponsesServerEvent {
+final class ResponsesServerEventResponseSteerFailedEvent
+    extends ResponsesServerEvent {
   final ResponseSteerFailedEvent value;
   const ResponsesServerEventResponseSteerFailedEvent(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [ResponsesServerEvent] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownResponsesServerEvent extends ResponsesServerEvent {
   final Map<String, dynamic> raw;
   const UnknownResponsesServerEvent(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

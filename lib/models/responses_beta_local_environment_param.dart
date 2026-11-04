@@ -8,31 +8,55 @@ part of 'responses_beta_local.dart';
 class BetaLocalEnvironmentParam implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Use a local computer environment.
   final BetaLocalEnvironmentParamType type_;
+
   /// An optional list of skills.
   final SdkOptional<List<BetaLocalSkillParam>> skills;
 
-  const BetaLocalEnvironmentParam({required this.type_, this.skills = const SdkOmitted()});
+  const BetaLocalEnvironmentParam(
+      {required this.type_, this.skills = const SdkOmitted()});
 
-  BetaLocalEnvironmentParam Function({BetaLocalEnvironmentParamType type_, SdkOptional<List<BetaLocalSkillParam>> skills}) get copyWith => _copyWith;
+  BetaLocalEnvironmentParam Function(
+      {BetaLocalEnvironmentParamType type_,
+      SdkOptional<List<BetaLocalSkillParam>> skills}) get copyWith => _copyWith;
 
-  BetaLocalEnvironmentParam _copyWith({Object? type_ = sdkOmittedValue, Object? skills = sdkOmittedValue}) => BetaLocalEnvironmentParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaLocalEnvironmentParamType,
-    skills: identical(skills, sdkOmittedValue) ? this.skills : skills as SdkOptional<List<BetaLocalSkillParam>>,
-  );
+  BetaLocalEnvironmentParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? skills = sdkOmittedValue}) =>
+      BetaLocalEnvironmentParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaLocalEnvironmentParamType,
+        skills: identical(skills, sdkOmittedValue)
+            ? this.skills
+            : skills as SdkOptional<List<BetaLocalSkillParam>>,
+      );
 
-  factory BetaLocalEnvironmentParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(BetaLocalEnvironmentParam(
-    type_: (json['type'] != null ? BetaLocalEnvironmentParamType.fromJson(json['type'] as String) : null)!,
-    skills: json['skills'] != null ? SdkPresent(((json['skills'] as List?)?.map((e) => BetaLocalSkillParam.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  ), json);
+  factory BetaLocalEnvironmentParam.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          BetaLocalEnvironmentParam(
+            type_: (json['type'] != null
+                ? BetaLocalEnvironmentParamType.fromJson(json['type'] as String)
+                : null)!,
+            skills: json['skills'] != null
+                ? SdkPresent(((json['skills'] as List?)
+                    ?.map((e) =>
+                        BetaLocalSkillParam.fromJson(e as Map<String, dynamic>))
+                    .toList())!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (skills) {
-      SdkPresent<List<BetaLocalSkillParam>>(value: final value) => {'skills': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (skills) {
+          SdkPresent<List<BetaLocalSkillParam>>(value: final value) => {
+              'skills': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

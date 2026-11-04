@@ -6,7 +6,6 @@ part of 'inline.dart';
 // Inline operation models
 /// The type of this object. It is always set to "list".
 final class EvalListObject {
-
   final String value;
 
   const EvalListObject._(this.value);
@@ -17,12 +16,15 @@ final class EvalListObject {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is EvalListObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is EvalListObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of data source. Always `logs`.
@@ -31,14 +33,17 @@ enum EvalLogsDataSourceConfigType {
 
   static EvalLogsDataSourceConfigType fromJson(String value) {
     switch (value) {
-      case 'logs': return EvalLogsDataSourceConfigType.logs;
-      default: throw ArgumentError('Unknown EvalLogsDataSourceConfigType: $value');
+      case 'logs':
+        return EvalLogsDataSourceConfigType.logs;
+      default:
+        throw ArgumentError('Unknown EvalLogsDataSourceConfigType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EvalLogsDataSourceConfigType.logs: return 'logs';
+      case EvalLogsDataSourceConfigType.logs:
+        return 'logs';
     }
   }
 
@@ -52,14 +57,17 @@ enum EvalResponsesSourceType {
 
   static EvalResponsesSourceType fromJson(String value) {
     switch (value) {
-      case 'responses': return EvalResponsesSourceType.responses;
-      default: throw ArgumentError('Unknown EvalResponsesSourceType: $value');
+      case 'responses':
+        return EvalResponsesSourceType.responses;
+      default:
+        throw ArgumentError('Unknown EvalResponsesSourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EvalResponsesSourceType.responses: return 'responses';
+      case EvalResponsesSourceType.responses:
+        return 'responses';
     }
   }
 
@@ -69,7 +77,6 @@ enum EvalResponsesSourceType {
 
 /// The type of the object. Always "eval.run".
 final class EvalRunObject {
-
   final String value;
 
   const EvalRunObject._(this.value);
@@ -80,75 +87,88 @@ final class EvalRunObject {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is EvalRunObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is EvalRunObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of this object. It is always set to "list".
 final class EvalRunListObject {
-
   final String value;
 
   const EvalRunListObject._(this.value);
 
-  factory EvalRunListObject.fromJson(String value) => EvalRunListObject._(value);
+  factory EvalRunListObject.fromJson(String value) =>
+      EvalRunListObject._(value);
 
   static const list = EvalRunListObject._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is EvalRunListObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is EvalRunListObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the object. Always "eval.run.output_item".
 final class EvalRunOutputItemObject {
-
   final String value;
 
   const EvalRunOutputItemObject._(this.value);
 
-  factory EvalRunOutputItemObject.fromJson(String value) => EvalRunOutputItemObject._(value);
+  factory EvalRunOutputItemObject.fromJson(String value) =>
+      EvalRunOutputItemObject._(value);
 
-  static const evalRunOutputItem = EvalRunOutputItemObject._('eval.run.output_item');
+  static const evalRunOutputItem =
+      EvalRunOutputItemObject._('eval.run.output_item');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is EvalRunOutputItemObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is EvalRunOutputItemObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of this object. It is always set to "list".
 final class EvalRunOutputItemListObject {
-
   final String value;
 
   const EvalRunOutputItemListObject._(this.value);
 
-  factory EvalRunOutputItemListObject.fromJson(String value) => EvalRunOutputItemListObject._(value);
+  factory EvalRunOutputItemListObject.fromJson(String value) =>
+      EvalRunOutputItemListObject._(value);
 
   static const list = EvalRunOutputItemListObject._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is EvalRunOutputItemListObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is EvalRunOutputItemListObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of data source. Always `stored_completions`.
@@ -157,14 +177,18 @@ enum EvalStoredCompletionsDataSourceConfigType {
 
   static EvalStoredCompletionsDataSourceConfigType fromJson(String value) {
     switch (value) {
-      case 'stored_completions': return EvalStoredCompletionsDataSourceConfigType.storedCompletions;
-      default: throw ArgumentError('Unknown EvalStoredCompletionsDataSourceConfigType: $value');
+      case 'stored_completions':
+        return EvalStoredCompletionsDataSourceConfigType.storedCompletions;
+      default:
+        throw ArgumentError(
+            'Unknown EvalStoredCompletionsDataSourceConfigType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EvalStoredCompletionsDataSourceConfigType.storedCompletions: return 'stored_completions';
+      case EvalStoredCompletionsDataSourceConfigType.storedCompletions:
+        return 'stored_completions';
     }
   }
 
@@ -178,14 +202,17 @@ enum EvalStoredCompletionsSourceType {
 
   static EvalStoredCompletionsSourceType fromJson(String value) {
     switch (value) {
-      case 'stored_completions': return EvalStoredCompletionsSourceType.storedCompletions;
-      default: throw ArgumentError('Unknown EvalStoredCompletionsSourceType: $value');
+      case 'stored_completions':
+        return EvalStoredCompletionsSourceType.storedCompletions;
+      default:
+        throw ArgumentError('Unknown EvalStoredCompletionsSourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case EvalStoredCompletionsSourceType.storedCompletions: return 'stored_completions';
+      case EvalStoredCompletionsSourceType.storedCompletions:
+        return 'stored_completions';
     }
   }
 
@@ -195,84 +222,99 @@ enum EvalStoredCompletionsSourceType {
 
 /// Base timestamp used to calculate expiration. Currently fixed to `created_at`.
 final class ExpiresAfterParamAnchor {
-
   final String value;
 
   const ExpiresAfterParamAnchor._(this.value);
 
-  factory ExpiresAfterParamAnchor.fromJson(String value) => ExpiresAfterParamAnchor._(value);
+  factory ExpiresAfterParamAnchor.fromJson(String value) =>
+      ExpiresAfterParamAnchor._(value);
 
   static const createdAt = ExpiresAfterParamAnchor._('created_at');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ExpiresAfterParamAnchor && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ExpiresAfterParamAnchor && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class ExternalStorageDeletedResourceObject {
-
   final String value;
 
   const ExternalStorageDeletedResourceObject._(this.value);
 
-  factory ExternalStorageDeletedResourceObject.fromJson(String value) => ExternalStorageDeletedResourceObject._(value);
+  factory ExternalStorageDeletedResourceObject.fromJson(String value) =>
+      ExternalStorageDeletedResourceObject._(value);
 
-  static const organizationExternalStorageDeleted = ExternalStorageDeletedResourceObject._('organization.external_storage.deleted');
+  static const organizationExternalStorageDeleted =
+      ExternalStorageDeletedResourceObject._(
+          'organization.external_storage.deleted');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ExternalStorageDeletedResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ExternalStorageDeletedResourceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class ExternalStorageListResourceObject {
-
   final String value;
 
   const ExternalStorageListResourceObject._(this.value);
 
-  factory ExternalStorageListResourceObject.fromJson(String value) => ExternalStorageListResourceObject._(value);
+  factory ExternalStorageListResourceObject.fromJson(String value) =>
+      ExternalStorageListResourceObject._(value);
 
   static const list = ExternalStorageListResourceObject._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ExternalStorageListResourceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ExternalStorageListResourceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class ExternalStorageResponseObject {
-
   final String value;
 
   const ExternalStorageResponseObject._(this.value);
 
-  factory ExternalStorageResponseObject.fromJson(String value) => ExternalStorageResponseObject._(value);
+  factory ExternalStorageResponseObject.fromJson(String value) =>
+      ExternalStorageResponseObject._(value);
 
-  static const organizationExternalStorage = ExternalStorageResponseObject._('organization.external_storage');
+  static const organizationExternalStorage =
+      ExternalStorageResponseObject._('organization.external_storage');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ExternalStorageResponseObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ExternalStorageResponseObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

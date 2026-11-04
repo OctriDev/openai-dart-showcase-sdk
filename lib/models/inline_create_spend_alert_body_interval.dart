@@ -6,23 +6,26 @@ part of 'inline.dart';
 // Inline operation models
 /// The time interval for evaluating spend against the threshold.
 final class CreateSpendAlertBodyInterval {
-
   final String value;
 
   const CreateSpendAlertBodyInterval._(this.value);
 
-  factory CreateSpendAlertBodyInterval.fromJson(String value) => CreateSpendAlertBodyInterval._(value);
+  factory CreateSpendAlertBodyInterval.fromJson(String value) =>
+      CreateSpendAlertBodyInterval._(value);
 
   static const month = CreateSpendAlertBodyInterval._('month');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateSpendAlertBodyInterval && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateSpendAlertBodyInterval && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The item type. Always `create_subagent_call`.
@@ -31,14 +34,18 @@ enum CreateSubagentCallItemResourceType {
 
   static CreateSubagentCallItemResourceType fromJson(String value) {
     switch (value) {
-      case 'create_subagent_call': return CreateSubagentCallItemResourceType.createSubagentCall;
-      default: throw ArgumentError('Unknown CreateSubagentCallItemResourceType: $value');
+      case 'create_subagent_call':
+        return CreateSubagentCallItemResourceType.createSubagentCall;
+      default:
+        throw ArgumentError(
+            'Unknown CreateSubagentCallItemResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateSubagentCallItemResourceType.createSubagentCall: return 'create_subagent_call';
+      case CreateSubagentCallItemResourceType.createSubagentCall:
+        return 'create_subagent_call';
     }
   }
 
@@ -50,16 +57,23 @@ enum CreateSubagentCallItemResourceType {
 enum CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type {
   auto;
 
-  static CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type fromJson(String value) {
+  static CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type
+      fromJson(String value) {
     switch (value) {
-      case 'auto': return CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type.auto;
-      default: throw ArgumentError('Unknown CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type: $value');
+      case 'auto':
+        return CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type
+            .auto;
+      default:
+        throw ArgumentError(
+            'Unknown CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type.auto: return 'auto';
+      case CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant0Type
+            .auto:
+        return 'auto';
     }
   }
 
@@ -71,16 +85,23 @@ enum CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyV
 enum CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type {
   static_;
 
-  static CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type fromJson(String value) {
+  static CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type
+      fromJson(String value) {
     switch (value) {
-      case 'static': return CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type.static_;
-      default: throw ArgumentError('Unknown CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type: $value');
+      case 'static':
+        return CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type
+            .static_;
+      default:
+        throw ArgumentError(
+            'Unknown CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type.static_: return 'static';
+      case CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyVariant1Type
+            .static_:
+        return 'static';
     }
   }
 
@@ -90,101 +111,123 @@ enum CreateThreadRequestToolResourcesFileSearchVectorStoresItemChunkingStrategyV
 
 /// Required enumerated value serialized in the `timestamp_granularities[]` wire field.
 final class CreateTranscriptionRequestTimestampGranularitiesItem {
-
   final String value;
 
   const CreateTranscriptionRequestTimestampGranularitiesItem._(this.value);
 
-  factory CreateTranscriptionRequestTimestampGranularitiesItem.fromJson(String value) => CreateTranscriptionRequestTimestampGranularitiesItem._(value);
+  factory CreateTranscriptionRequestTimestampGranularitiesItem.fromJson(
+          String value) =>
+      CreateTranscriptionRequestTimestampGranularitiesItem._(value);
 
-  static const word = CreateTranscriptionRequestTimestampGranularitiesItem._('word');
-  static const segment = CreateTranscriptionRequestTimestampGranularitiesItem._('segment');
+  static const word =
+      CreateTranscriptionRequestTimestampGranularitiesItem._('word');
+  static const segment =
+      CreateTranscriptionRequestTimestampGranularitiesItem._('segment');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateTranscriptionRequestTimestampGranularitiesItem && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateTranscriptionRequestTimestampGranularitiesItem &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Automatically set chunking parameters based on the audio. Must be set to `"auto"`.
 final class CreateTranscriptionRequestChunkingStrategyVariant0 {
-
   final String value;
 
   const CreateTranscriptionRequestChunkingStrategyVariant0._(this.value);
 
-  factory CreateTranscriptionRequestChunkingStrategyVariant0.fromJson(String value) => CreateTranscriptionRequestChunkingStrategyVariant0._(value);
+  factory CreateTranscriptionRequestChunkingStrategyVariant0.fromJson(
+          String value) =>
+      CreateTranscriptionRequestChunkingStrategyVariant0._(value);
 
-  static const auto = CreateTranscriptionRequestChunkingStrategyVariant0._('auto');
+  static const auto =
+      CreateTranscriptionRequestChunkingStrategyVariant0._('auto');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateTranscriptionRequestChunkingStrategyVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateTranscriptionRequestChunkingStrategyVariant0 &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of task that was run. Always `transcribe`.
 final class CreateTranscriptionResponseDiarizedJsonTask {
-
   final String value;
 
   const CreateTranscriptionResponseDiarizedJsonTask._(this.value);
 
-  factory CreateTranscriptionResponseDiarizedJsonTask.fromJson(String value) => CreateTranscriptionResponseDiarizedJsonTask._(value);
+  factory CreateTranscriptionResponseDiarizedJsonTask.fromJson(String value) =>
+      CreateTranscriptionResponseDiarizedJsonTask._(value);
 
-  static const transcribe = CreateTranscriptionResponseDiarizedJsonTask._('transcribe');
+  static const transcribe =
+      CreateTranscriptionResponseDiarizedJsonTask._('transcribe');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateTranscriptionResponseDiarizedJsonTask && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateTranscriptionResponseDiarizedJsonTask &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The format of the output, in one of these options: `json`, `text`, `srt`, `verbose_json`, or `vtt`.
 final class CreateTranslationRequestResponseFormat {
-
   final String value;
 
   const CreateTranslationRequestResponseFormat._(this.value);
 
-  factory CreateTranslationRequestResponseFormat.fromJson(String value) => CreateTranslationRequestResponseFormat._(value);
+  factory CreateTranslationRequestResponseFormat.fromJson(String value) =>
+      CreateTranslationRequestResponseFormat._(value);
 
   static const json = CreateTranslationRequestResponseFormat._('json');
   static const text = CreateTranslationRequestResponseFormat._('text');
   static const srt = CreateTranslationRequestResponseFormat._('srt');
-  static const verboseJson = CreateTranslationRequestResponseFormat._('verbose_json');
+  static const verboseJson =
+      CreateTranslationRequestResponseFormat._('verbose_json');
   static const vtt = CreateTranslationRequestResponseFormat._('vtt');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateTranslationRequestResponseFormat && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateTranslationRequestResponseFormat && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The intended purpose of the uploaded file. See the [documentation on File purposes](https://developers.openai.com/api/reference/resources/files/methods/create#%28resource%29%20files%20%3E%20%28method%29%20create%20%3E%20%28params%29%200%20%3E%20%28param%29%20purpose%20%3E%20%28schema%29).
 final class CreateUploadRequestPurpose {
-
   final String value;
 
   const CreateUploadRequestPurpose._(this.value);
 
-  factory CreateUploadRequestPurpose.fromJson(String value) => CreateUploadRequestPurpose._(value);
+  factory CreateUploadRequestPurpose.fromJson(String value) =>
+      CreateUploadRequestPurpose._(value);
 
   static const assistants = CreateUploadRequestPurpose._('assistants');
   static const batch = CreateUploadRequestPurpose._('batch');
@@ -193,28 +236,38 @@ final class CreateUploadRequestPurpose {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateUploadRequestPurpose && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateUploadRequestPurpose && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the object. Always `environment_variable`.
 enum CreateVaultCredentialAuthParamEnvironmentVariableType {
   environmentVariable;
 
-  static CreateVaultCredentialAuthParamEnvironmentVariableType fromJson(String value) {
+  static CreateVaultCredentialAuthParamEnvironmentVariableType fromJson(
+      String value) {
     switch (value) {
-      case 'environment_variable': return CreateVaultCredentialAuthParamEnvironmentVariableType.environmentVariable;
-      default: throw ArgumentError('Unknown CreateVaultCredentialAuthParamEnvironmentVariableType: $value');
+      case 'environment_variable':
+        return CreateVaultCredentialAuthParamEnvironmentVariableType
+            .environmentVariable;
+      default:
+        throw ArgumentError(
+            'Unknown CreateVaultCredentialAuthParamEnvironmentVariableType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateVaultCredentialAuthParamEnvironmentVariableType.environmentVariable: return 'environment_variable';
+      case CreateVaultCredentialAuthParamEnvironmentVariableType
+            .environmentVariable:
+        return 'environment_variable';
     }
   }
 
@@ -228,14 +281,18 @@ enum CreateVaultCredentialAuthParamMcpOauthType {
 
   static CreateVaultCredentialAuthParamMcpOauthType fromJson(String value) {
     switch (value) {
-      case 'mcp_oauth': return CreateVaultCredentialAuthParamMcpOauthType.mcpOauth;
-      default: throw ArgumentError('Unknown CreateVaultCredentialAuthParamMcpOauthType: $value');
+      case 'mcp_oauth':
+        return CreateVaultCredentialAuthParamMcpOauthType.mcpOauth;
+      default:
+        throw ArgumentError(
+            'Unknown CreateVaultCredentialAuthParamMcpOauthType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateVaultCredentialAuthParamMcpOauthType.mcpOauth: return 'mcp_oauth';
+      case CreateVaultCredentialAuthParamMcpOauthType.mcpOauth:
+        return 'mcp_oauth';
     }
   }
 
@@ -249,14 +306,18 @@ enum CreateVaultCredentialAuthParamStaticBearerType {
 
   static CreateVaultCredentialAuthParamStaticBearerType fromJson(String value) {
     switch (value) {
-      case 'static_bearer': return CreateVaultCredentialAuthParamStaticBearerType.staticBearer;
-      default: throw ArgumentError('Unknown CreateVaultCredentialAuthParamStaticBearerType: $value');
+      case 'static_bearer':
+        return CreateVaultCredentialAuthParamStaticBearerType.staticBearer;
+      default:
+        throw ArgumentError(
+            'Unknown CreateVaultCredentialAuthParamStaticBearerType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateVaultCredentialAuthParamStaticBearerType.staticBearer: return 'static_bearer';
+      case CreateVaultCredentialAuthParamStaticBearerType.staticBearer:
+        return 'static_bearer';
     }
   }
 
@@ -270,14 +331,18 @@ enum CreateVoiceFromConsentRequestType {
 
   static CreateVoiceFromConsentRequestType fromJson(String value) {
     switch (value) {
-      case 'audio_sample': return CreateVoiceFromConsentRequestType.audioSample;
-      default: throw ArgumentError('Unknown CreateVoiceFromConsentRequestType: $value');
+      case 'audio_sample':
+        return CreateVoiceFromConsentRequestType.audioSample;
+      default:
+        throw ArgumentError(
+            'Unknown CreateVoiceFromConsentRequestType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CreateVoiceFromConsentRequestType.audioSample: return 'audio_sample';
+      case CreateVoiceFromConsentRequestType.audioSample:
+        return 'audio_sample';
     }
   }
 

@@ -6,191 +6,223 @@ part of 'inline.dart';
 // Inline operation models
 /// The type of the event. Always `response.incomplete`.
 final class WebhookResponseIncompleteType {
-
   final String value;
 
   const WebhookResponseIncompleteType._(this.value);
 
-  factory WebhookResponseIncompleteType.fromJson(String value) => WebhookResponseIncompleteType._(value);
+  factory WebhookResponseIncompleteType.fromJson(String value) =>
+      WebhookResponseIncompleteType._(value);
 
-  static const responseIncomplete = WebhookResponseIncompleteType._('response.incomplete');
+  static const responseIncomplete =
+      WebhookResponseIncompleteType._('response.incomplete');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is WebhookResponseIncompleteType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is WebhookResponseIncompleteType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Always `event`.
 final class WebhookSafetyAlertCreatedObject {
-
   final String value;
 
   const WebhookSafetyAlertCreatedObject._(this.value);
 
-  factory WebhookSafetyAlertCreatedObject.fromJson(String value) => WebhookSafetyAlertCreatedObject._(value);
+  factory WebhookSafetyAlertCreatedObject.fromJson(String value) =>
+      WebhookSafetyAlertCreatedObject._(value);
 
   static const event = WebhookSafetyAlertCreatedObject._('event');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is WebhookSafetyAlertCreatedObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is WebhookSafetyAlertCreatedObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Always `safety.alert.created`.
 final class WebhookSafetyAlertCreatedType {
-
   final String value;
 
   const WebhookSafetyAlertCreatedType._(this.value);
 
-  factory WebhookSafetyAlertCreatedType.fromJson(String value) => WebhookSafetyAlertCreatedType._(value);
+  factory WebhookSafetyAlertCreatedType.fromJson(String value) =>
+      WebhookSafetyAlertCreatedType._(value);
 
-  static const safetyAlertCreated = WebhookSafetyAlertCreatedType._('safety.alert.created');
+  static const safetyAlertCreated =
+      WebhookSafetyAlertCreatedType._('safety.alert.created');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is WebhookSafetyAlertCreatedType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is WebhookSafetyAlertCreatedType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Always `event`.
 final class WebhookSafetyDeactivationIssuedObject {
-
   final String value;
 
   const WebhookSafetyDeactivationIssuedObject._(this.value);
 
-  factory WebhookSafetyDeactivationIssuedObject.fromJson(String value) => WebhookSafetyDeactivationIssuedObject._(value);
+  factory WebhookSafetyDeactivationIssuedObject.fromJson(String value) =>
+      WebhookSafetyDeactivationIssuedObject._(value);
 
   static const event = WebhookSafetyDeactivationIssuedObject._('event');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is WebhookSafetyDeactivationIssuedObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is WebhookSafetyDeactivationIssuedObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Always `safety.deactivation_issued`.
 final class WebhookSafetyDeactivationIssuedType {
-
   final String value;
 
   const WebhookSafetyDeactivationIssuedType._(this.value);
 
-  factory WebhookSafetyDeactivationIssuedType.fromJson(String value) => WebhookSafetyDeactivationIssuedType._(value);
+  factory WebhookSafetyDeactivationIssuedType.fromJson(String value) =>
+      WebhookSafetyDeactivationIssuedType._(value);
 
-  static const safetyDeactivationIssued = WebhookSafetyDeactivationIssuedType._('safety.deactivation_issued');
+  static const safetyDeactivationIssued =
+      WebhookSafetyDeactivationIssuedType._('safety.deactivation_issued');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is WebhookSafetyDeactivationIssuedType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is WebhookSafetyDeactivationIssuedType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Always `event`.
 final class WebhookSafetyOrgAlertCreatedObject {
-
   final String value;
 
   const WebhookSafetyOrgAlertCreatedObject._(this.value);
 
-  factory WebhookSafetyOrgAlertCreatedObject.fromJson(String value) => WebhookSafetyOrgAlertCreatedObject._(value);
+  factory WebhookSafetyOrgAlertCreatedObject.fromJson(String value) =>
+      WebhookSafetyOrgAlertCreatedObject._(value);
 
   static const event = WebhookSafetyOrgAlertCreatedObject._('event');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is WebhookSafetyOrgAlertCreatedObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is WebhookSafetyOrgAlertCreatedObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Always `safety.org_alert.created`.
 final class WebhookSafetyOrgAlertCreatedType {
-
   final String value;
 
   const WebhookSafetyOrgAlertCreatedType._(this.value);
 
-  factory WebhookSafetyOrgAlertCreatedType.fromJson(String value) => WebhookSafetyOrgAlertCreatedType._(value);
+  factory WebhookSafetyOrgAlertCreatedType.fromJson(String value) =>
+      WebhookSafetyOrgAlertCreatedType._(value);
 
-  static const safetyOrgAlertCreated = WebhookSafetyOrgAlertCreatedType._('safety.org_alert.created');
+  static const safetyOrgAlertCreated =
+      WebhookSafetyOrgAlertCreatedType._('safety.org_alert.created');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is WebhookSafetyOrgAlertCreatedType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is WebhookSafetyOrgAlertCreatedType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Always `event`.
 final class WebhookSafetyWarningIssuedObject {
-
   final String value;
 
   const WebhookSafetyWarningIssuedObject._(this.value);
 
-  factory WebhookSafetyWarningIssuedObject.fromJson(String value) => WebhookSafetyWarningIssuedObject._(value);
+  factory WebhookSafetyWarningIssuedObject.fromJson(String value) =>
+      WebhookSafetyWarningIssuedObject._(value);
 
   static const event = WebhookSafetyWarningIssuedObject._('event');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is WebhookSafetyWarningIssuedObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is WebhookSafetyWarningIssuedObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Always `safety.warning_issued`.
 final class WebhookSafetyWarningIssuedType {
-
   final String value;
 
   const WebhookSafetyWarningIssuedType._(this.value);
 
-  factory WebhookSafetyWarningIssuedType.fromJson(String value) => WebhookSafetyWarningIssuedType._(value);
+  factory WebhookSafetyWarningIssuedType.fromJson(String value) =>
+      WebhookSafetyWarningIssuedType._(value);
 
-  static const safetyWarningIssued = WebhookSafetyWarningIssuedType._('safety.warning_issued');
+  static const safetyWarningIssued =
+      WebhookSafetyWarningIssuedType._('safety.warning_issued');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is WebhookSafetyWarningIssuedType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is WebhookSafetyWarningIssuedType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The action type.
@@ -199,14 +231,17 @@ enum WebSearchActionFindType {
 
   static WebSearchActionFindType fromJson(String value) {
     switch (value) {
-      case 'find_in_page': return WebSearchActionFindType.findInPage;
-      default: throw ArgumentError('Unknown WebSearchActionFindType: $value');
+      case 'find_in_page':
+        return WebSearchActionFindType.findInPage;
+      default:
+        throw ArgumentError('Unknown WebSearchActionFindType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case WebSearchActionFindType.findInPage: return 'find_in_page';
+      case WebSearchActionFindType.findInPage:
+        return 'find_in_page';
     }
   }
 
@@ -220,14 +255,17 @@ enum WebSearchActionOpenPageType {
 
   static WebSearchActionOpenPageType fromJson(String value) {
     switch (value) {
-      case 'open_page': return WebSearchActionOpenPageType.openPage;
-      default: throw ArgumentError('Unknown WebSearchActionOpenPageType: $value');
+      case 'open_page':
+        return WebSearchActionOpenPageType.openPage;
+      default:
+        throw ArgumentError('Unknown WebSearchActionOpenPageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case WebSearchActionOpenPageType.openPage: return 'open_page';
+      case WebSearchActionOpenPageType.openPage:
+        return 'open_page';
     }
   }
 
@@ -241,14 +279,18 @@ enum WebSearchActionResourceFindInPageType {
 
   static WebSearchActionResourceFindInPageType fromJson(String value) {
     switch (value) {
-      case 'find_in_page': return WebSearchActionResourceFindInPageType.findInPage;
-      default: throw ArgumentError('Unknown WebSearchActionResourceFindInPageType: $value');
+      case 'find_in_page':
+        return WebSearchActionResourceFindInPageType.findInPage;
+      default:
+        throw ArgumentError(
+            'Unknown WebSearchActionResourceFindInPageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case WebSearchActionResourceFindInPageType.findInPage: return 'find_in_page';
+      case WebSearchActionResourceFindInPageType.findInPage:
+        return 'find_in_page';
     }
   }
 
@@ -262,14 +304,18 @@ enum WebSearchActionResourceOpenPageType {
 
   static WebSearchActionResourceOpenPageType fromJson(String value) {
     switch (value) {
-      case 'open_page': return WebSearchActionResourceOpenPageType.openPage;
-      default: throw ArgumentError('Unknown WebSearchActionResourceOpenPageType: $value');
+      case 'open_page':
+        return WebSearchActionResourceOpenPageType.openPage;
+      default:
+        throw ArgumentError(
+            'Unknown WebSearchActionResourceOpenPageType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case WebSearchActionResourceOpenPageType.openPage: return 'open_page';
+      case WebSearchActionResourceOpenPageType.openPage:
+        return 'open_page';
     }
   }
 

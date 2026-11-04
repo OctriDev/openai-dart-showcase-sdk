@@ -13,12 +13,12 @@ class BetaMetadata {
   const BetaMetadata({this.value = const <String, String>{}});
 
   factory BetaMetadata.fromJson(Map<String, dynamic> json) => BetaMetadata(
-    value: json.map((key, value) => MapEntry(key, value as String)),
-  );
+        value: json.map((key, value) => MapEntry(key, value as String)),
+      );
 
   Map<String, dynamic> toJson() => value.map(
-    (key, value) => MapEntry(key, value),
-  );
+        (key, value) => MapEntry(key, value),
+      );
 
   String? operator [](String key) => value[key];
   Iterable<String> get keys => value.keys;

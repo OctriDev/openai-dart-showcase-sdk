@@ -6,22 +6,25 @@ part of 'responses_beta_tool.dart';
 // responses_beta_tool domain models
 /// Typed representation of the `BetaToolSearchExecutionType` API schema.
 final class BetaToolSearchExecutionType {
-
   final String value;
 
   const BetaToolSearchExecutionType._(this.value);
 
-  factory BetaToolSearchExecutionType.fromJson(String value) => BetaToolSearchExecutionType._(value);
+  factory BetaToolSearchExecutionType.fromJson(String value) =>
+      BetaToolSearchExecutionType._(value);
 
   static const server = BetaToolSearchExecutionType._('server');
   static const client = BetaToolSearchExecutionType._('client');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaToolSearchExecutionType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaToolSearchExecutionType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

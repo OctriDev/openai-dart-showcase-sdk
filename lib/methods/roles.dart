@@ -27,19 +27,30 @@ Future<PublicRoleListResource> listRoles(ClientConfig config,
   return (await sdkRequest<PublicRoleListResource>('GET', '/organization/roles',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listRoles',
-          fromJsonRaw: (value) => PublicRoleListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              PublicRoleListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists roles configured for the organization. Use `limit` to control the number of roles returned and `order` to choose the sort direction. Continue through the results with the `after` cursor from the previous response's `next` field.
 ///
@@ -49,13 +60,27 @@ Future<PublicRoleListResource> listRoles(ClientConfig config,
 /// [after] Cursor for pagination. Provide the value from the previous
 ///   response's `next` field to continue listing roles.
 /// [order] Sort order for the returned roles.
-Stream<Role> listRolesPaginated(ClientConfig config, {int? limit, String? after, ListRolesOrder? order, RequestOptions? requestOptions}) async* {
+Stream<Role> listRolesPaginated(ClientConfig config,
+    {int? limit,
+    String? after,
+    ListRolesOrder? order,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listRoles(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), order: order == null ? const SdkOmitted<ListRolesOrder>() : SdkPresent<ListRolesOrder>(order), requestOptions: requestOptions);
+    final sdkPage = await listRoles(config,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        order: order == null
+            ? const SdkOmitted<ListRolesOrder>()
+            : SdkPresent<ListRolesOrder>(order),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.next;
     if (sdkNext == null) return;
@@ -63,10 +88,23 @@ Stream<Role> listRolesPaginated(ClientConfig config, {int? limit, String? after,
   }
 }
 
-Stream<SdkPage<PublicRoleListResource, Role>> listRolesPages(ClientConfig config, {int? limit, String? after, ListRolesOrder? order, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<PublicRoleListResource, Role>> listRolesPages(
+    ClientConfig config,
+    {int? limit,
+    String? after,
+    ListRolesOrder? order,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listRoles(config, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), order: order == null ? const SdkOmitted<ListRolesOrder>() : SdkPresent<ListRolesOrder>(order), requestOptions: requestOptions);
+    final sdkPage = await listRoles(config,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        order: order == null
+            ? const SdkOmitted<ListRolesOrder>()
+            : SdkPresent<ListRolesOrder>(order),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.next;
@@ -76,7 +114,6 @@ Stream<SdkPage<PublicRoleListResource, Role>> listRolesPages(ClientConfig config
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Creates a custom role for the organization. Provide `role_name` and `permissions`; you can also include an optional `description`. The response includes the new role's identifier, permissions, and resource type.
 ///
@@ -101,10 +138,18 @@ Future<Role> createRole(ClientConfig config,
           operationId: 'createRole',
           fromJsonRaw: (value) => Role.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves a role configured for the organization. Use `role_id` to identify the role and review its name, permissions, and resource type.
 ///
@@ -120,10 +165,14 @@ Future<Role> retrieveRole(ClientConfig config,
           operationId: 'retrieveRole',
           fromJsonRaw: (value) => Role.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '403': (value) =>
+            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates an existing organization role. Use `role_id` to identify the role and provide any of `permissions`, `description`, or `role_name` to change those values. The response contains the updated role details.
 ///
@@ -151,10 +200,18 @@ Future<Role> updateRole(ClientConfig config,
           operationId: 'updateRole',
           fromJsonRaw: (value) => Role.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a custom role from the organization. Use `role_id` to identify the role to remove. The response confirms whether the role was deleted and includes its identifier.
 ///
@@ -168,12 +225,18 @@ Future<RoleDeletedResource> deleteRole(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteRole',
-          fromJsonRaw: (value) => RoleDeletedResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              RoleDeletedResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '403': (value) =>
+            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Lists the roles configured for a project in a paginated response. Use `limit` to set the page size, `after` to continue from a cursor, and `order` to choose the sort direction.
 ///
@@ -198,19 +261,30 @@ Future<PublicRoleListResource> listRolesProjectRoles(ClientConfig config,
           'GET', '/projects/${Uri.encodeComponent(projectId.toString())}/roles',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'order': SdkQueryValue(SdkUtils.unwrapOptional(order), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'order': SdkQueryValue(SdkUtils.unwrapOptional(order),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listRolesProjectRoles',
-          fromJsonRaw: (value) => PublicRoleListResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              PublicRoleListResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists the roles configured for a project in a paginated response. Use `limit` to set the page size, `after` to continue from a cursor, and `order` to choose the sort direction.
 ///
@@ -221,13 +295,29 @@ Future<PublicRoleListResource> listRolesProjectRoles(ClientConfig config,
 /// [after] Cursor for pagination. Provide the value from the previous
 ///   response's `next` field to continue listing roles.
 /// [order] Sort order for the returned roles.
-Stream<Role> listRolesProjectRolesPaginated(ClientConfig config, {required String projectId, int? limit, String? after, ListRolesProjectRolesOrder? order, RequestOptions? requestOptions}) async* {
+Stream<Role> listRolesProjectRolesPaginated(ClientConfig config,
+    {required String projectId,
+    int? limit,
+    String? after,
+    ListRolesProjectRolesOrder? order,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listRolesProjectRoles(config, projectId: projectId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), order: order == null ? const SdkOmitted<ListRolesProjectRolesOrder>() : SdkPresent<ListRolesProjectRolesOrder>(order), requestOptions: requestOptions);
+    final sdkPage = await listRolesProjectRoles(config,
+        projectId: projectId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        order: order == null
+            ? const SdkOmitted<ListRolesProjectRolesOrder>()
+            : SdkPresent<ListRolesProjectRolesOrder>(order),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.next;
     if (sdkNext == null) return;
@@ -235,10 +325,25 @@ Stream<Role> listRolesProjectRolesPaginated(ClientConfig config, {required Strin
   }
 }
 
-Stream<SdkPage<PublicRoleListResource, Role>> listRolesProjectRolesPages(ClientConfig config, {required String projectId, int? limit, String? after, ListRolesProjectRolesOrder? order, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<PublicRoleListResource, Role>> listRolesProjectRolesPages(
+    ClientConfig config,
+    {required String projectId,
+    int? limit,
+    String? after,
+    ListRolesProjectRolesOrder? order,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listRolesProjectRoles(config, projectId: projectId, limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), order: order == null ? const SdkOmitted<ListRolesProjectRolesOrder>() : SdkPresent<ListRolesProjectRolesOrder>(order), requestOptions: requestOptions);
+    final sdkPage = await listRolesProjectRoles(config,
+        projectId: projectId,
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        order: order == null
+            ? const SdkOmitted<ListRolesProjectRolesOrder>()
+            : SdkPresent<ListRolesProjectRolesOrder>(order),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.next;
@@ -248,7 +353,6 @@ Stream<SdkPage<PublicRoleListResource, Role>> listRolesProjectRolesPages(ClientC
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Creates a custom role for a project with a unique name and a set of permissions. Supply `role_name` and `permissions`; you can also provide a description for the role.
 ///
@@ -276,10 +380,18 @@ Future<Role> createRolesProjectRole(ClientConfig config,
           operationId: 'createRolesProjectRole',
           fromJsonRaw: (value) => Role.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves a project role by its identifier. Use `project_id` and `role_id` to identify the project and role whose details you need.
 ///
@@ -298,10 +410,14 @@ Future<Role> retrieveRolesProjectRole(ClientConfig config,
           operationId: 'retrieveRolesProjectRole',
           fromJsonRaw: (value) => Role.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '403': (value) =>
+            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates an existing project role's name, permissions, or description. Provide the fields you want to change; each body field can be omitted or set to null when it does not need an update.
 ///
@@ -331,10 +447,18 @@ Future<Role> updateRolesProjectRole(ClientConfig config,
           operationId: 'updateRolesProjectRole',
           fromJsonRaw: (value) => Role.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a custom role from a project. Use `project_id` and `role_id` to identify the project role to remove. A 200 response confirms deletion and identifies the deleted role.
 ///
@@ -351,8 +475,15 @@ Future<RoleDeletedResource> deleteRolesProjectRole(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteRolesProjectRole',
-          fromJsonRaw: (value) => RoleDeletedResource.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              RoleDeletedResource.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '403': (value) => PermissionErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '403': (value) =>
+            PermissionErrorResponse.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

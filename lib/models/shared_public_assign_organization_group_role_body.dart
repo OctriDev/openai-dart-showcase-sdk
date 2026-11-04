@@ -8,23 +8,32 @@ part of 'shared.dart';
 class PublicAssignOrganizationGroupRoleBody implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Identifier of the role to assign.
   final String roleId;
 
   const PublicAssignOrganizationGroupRoleBody({required this.roleId});
 
-  PublicAssignOrganizationGroupRoleBody Function({String roleId}) get copyWith => _copyWith;
+  PublicAssignOrganizationGroupRoleBody Function({String roleId})
+      get copyWith => _copyWith;
 
-  PublicAssignOrganizationGroupRoleBody _copyWith({Object? roleId = sdkOmittedValue}) => PublicAssignOrganizationGroupRoleBody(
-    roleId: identical(roleId, sdkOmittedValue) ? this.roleId : roleId as String,
-  );
+  PublicAssignOrganizationGroupRoleBody _copyWith(
+          {Object? roleId = sdkOmittedValue}) =>
+      PublicAssignOrganizationGroupRoleBody(
+        roleId:
+            identical(roleId, sdkOmittedValue) ? this.roleId : roleId as String,
+      );
 
-  factory PublicAssignOrganizationGroupRoleBody.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(PublicAssignOrganizationGroupRoleBody(
-    roleId: (json['role_id'] as String?)!,
-  ), json);
+  factory PublicAssignOrganizationGroupRoleBody.fromJson(
+          Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          PublicAssignOrganizationGroupRoleBody(
+            roleId: (json['role_id'] as String?)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'role_id': roleId,
-  };
+        'role_id': roleId,
+      };
 }

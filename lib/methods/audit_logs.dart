@@ -53,26 +53,46 @@ Future<ListAuditLogsResponse> listAuditLogs(ClientConfig config,
           'GET', '/organization/audit_logs',
           config: config,
           query: {
-            'effective_at': SdkQueryValue(SdkUtils.unwrapOptional(effectiveAt), style: 'form', explode: true),
-            'project_ids[]': SdkQueryValue(SdkUtils.unwrapOptional(projectIds), style: 'form', explode: true),
-            'event_types[]': SdkQueryValue(SdkUtils.unwrapOptional(eventTypes), style: 'form', explode: true),
-            'actor_ids[]': SdkQueryValue(SdkUtils.unwrapOptional(actorIds), style: 'form', explode: true),
-            'actor_emails[]': SdkQueryValue(SdkUtils.unwrapOptional(actorEmails), style: 'form', explode: true),
-            'resource_ids[]': SdkQueryValue(SdkUtils.unwrapOptional(resourceIds), style: 'form', explode: true),
-            'tenant_only': SdkQueryValue(SdkUtils.unwrapOptional(tenantOnly), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
-            'before': SdkQueryValue(SdkUtils.unwrapOptional(before), style: 'form', explode: true)
+            'effective_at': SdkQueryValue(SdkUtils.unwrapOptional(effectiveAt),
+                style: 'form', explode: true),
+            'project_ids[]': SdkQueryValue(SdkUtils.unwrapOptional(projectIds),
+                style: 'form', explode: true),
+            'event_types[]': SdkQueryValue(SdkUtils.unwrapOptional(eventTypes),
+                style: 'form', explode: true),
+            'actor_ids[]': SdkQueryValue(SdkUtils.unwrapOptional(actorIds),
+                style: 'form', explode: true),
+            'actor_emails[]': SdkQueryValue(
+                SdkUtils.unwrapOptional(actorEmails),
+                style: 'form',
+                explode: true),
+            'resource_ids[]': SdkQueryValue(
+                SdkUtils.unwrapOptional(resourceIds),
+                style: 'form',
+                explode: true),
+            'tenant_only': SdkQueryValue(SdkUtils.unwrapOptional(tenantOnly),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
+                style: 'form', explode: true),
+            'before': SdkQueryValue(SdkUtils.unwrapOptional(before),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listAuditLogs',
-          fromJsonRaw: (value) => ListAuditLogsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListAuditLogsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '404': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>), '429': (value) => ErrorResponse.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ErrorResponse.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// List user actions and configuration changes within this organization.
 ///
@@ -105,13 +125,55 @@ Future<ListAuditLogsResponse> listAuditLogs(ClientConfig config,
 ///   defines your place in the list. For instance, if you make a list request and
 ///   receive 100 objects, starting with obj_foo, your subsequent call can include
 ///   before=obj_foo in order to fetch the previous page of the list.
-Stream<AuditLog> listAuditLogsPaginated(ClientConfig config, {ListAuditLogsEffectiveAt? effectiveAt, List<String>? projectIds, List<AuditLogEventType>? eventTypes, List<String>? actorIds, List<String>? actorEmails, List<String>? resourceIds, bool? tenantOnly, int? limit, String? after, String? before, RequestOptions? requestOptions}) async* {
+Stream<AuditLog> listAuditLogsPaginated(ClientConfig config,
+    {ListAuditLogsEffectiveAt? effectiveAt,
+    List<String>? projectIds,
+    List<AuditLogEventType>? eventTypes,
+    List<String>? actorIds,
+    List<String>? actorEmails,
+    List<String>? resourceIds,
+    bool? tenantOnly,
+    int? limit,
+    String? after,
+    String? before,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAuditLogs(config, effectiveAt: effectiveAt == null ? const SdkOmitted<ListAuditLogsEffectiveAt>() : SdkPresent<ListAuditLogsEffectiveAt>(effectiveAt), projectIds: projectIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(projectIds), eventTypes: eventTypes == null ? const SdkOmitted<List<AuditLogEventType>>() : SdkPresent<List<AuditLogEventType>>(eventTypes), actorIds: actorIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(actorIds), actorEmails: actorEmails == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(actorEmails), resourceIds: resourceIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(resourceIds), tenantOnly: tenantOnly == null ? const SdkOmitted<bool>() : SdkPresent<bool>(tenantOnly), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), before: before == null ? const SdkOmitted<String>() : SdkPresent<String>(before), requestOptions: requestOptions);
+    final sdkPage = await listAuditLogs(config,
+        effectiveAt: effectiveAt == null
+            ? const SdkOmitted<ListAuditLogsEffectiveAt>()
+            : SdkPresent<ListAuditLogsEffectiveAt>(effectiveAt),
+        projectIds: projectIds == null
+            ? const SdkOmitted<List<String>>()
+            : SdkPresent<List<String>>(projectIds),
+        eventTypes: eventTypes == null
+            ? const SdkOmitted<List<AuditLogEventType>>()
+            : SdkPresent<List<AuditLogEventType>>(eventTypes),
+        actorIds: actorIds == null
+            ? const SdkOmitted<List<String>>()
+            : SdkPresent<List<String>>(actorIds),
+        actorEmails: actorEmails == null
+            ? const SdkOmitted<List<String>>()
+            : SdkPresent<List<String>>(actorEmails),
+        resourceIds: resourceIds == null
+            ? const SdkOmitted<List<String>>()
+            : SdkPresent<List<String>>(resourceIds),
+        tenantOnly: tenantOnly == null
+            ? const SdkOmitted<bool>()
+            : SdkPresent<bool>(tenantOnly),
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        before: before == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(before),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
     if (sdkNext == null) return;
@@ -119,10 +181,51 @@ Stream<AuditLog> listAuditLogsPaginated(ClientConfig config, {ListAuditLogsEffec
   }
 }
 
-Stream<SdkPage<ListAuditLogsResponse, AuditLog>> listAuditLogsPages(ClientConfig config, {ListAuditLogsEffectiveAt? effectiveAt, List<String>? projectIds, List<AuditLogEventType>? eventTypes, List<String>? actorIds, List<String>? actorEmails, List<String>? resourceIds, bool? tenantOnly, int? limit, String? after, String? before, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ListAuditLogsResponse, AuditLog>> listAuditLogsPages(
+    ClientConfig config,
+    {ListAuditLogsEffectiveAt? effectiveAt,
+    List<String>? projectIds,
+    List<AuditLogEventType>? eventTypes,
+    List<String>? actorIds,
+    List<String>? actorEmails,
+    List<String>? resourceIds,
+    bool? tenantOnly,
+    int? limit,
+    String? after,
+    String? before,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await listAuditLogs(config, effectiveAt: effectiveAt == null ? const SdkOmitted<ListAuditLogsEffectiveAt>() : SdkPresent<ListAuditLogsEffectiveAt>(effectiveAt), projectIds: projectIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(projectIds), eventTypes: eventTypes == null ? const SdkOmitted<List<AuditLogEventType>>() : SdkPresent<List<AuditLogEventType>>(eventTypes), actorIds: actorIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(actorIds), actorEmails: actorEmails == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(actorEmails), resourceIds: resourceIds == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(resourceIds), tenantOnly: tenantOnly == null ? const SdkOmitted<bool>() : SdkPresent<bool>(tenantOnly), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), before: before == null ? const SdkOmitted<String>() : SdkPresent<String>(before), requestOptions: requestOptions);
+    final sdkPage = await listAuditLogs(config,
+        effectiveAt: effectiveAt == null
+            ? const SdkOmitted<ListAuditLogsEffectiveAt>()
+            : SdkPresent<ListAuditLogsEffectiveAt>(effectiveAt),
+        projectIds: projectIds == null
+            ? const SdkOmitted<List<String>>()
+            : SdkPresent<List<String>>(projectIds),
+        eventTypes: eventTypes == null
+            ? const SdkOmitted<List<AuditLogEventType>>()
+            : SdkPresent<List<AuditLogEventType>>(eventTypes),
+        actorIds: actorIds == null
+            ? const SdkOmitted<List<String>>()
+            : SdkPresent<List<String>>(actorIds),
+        actorEmails: actorEmails == null
+            ? const SdkOmitted<List<String>>()
+            : SdkPresent<List<String>>(actorEmails),
+        resourceIds: resourceIds == null
+            ? const SdkOmitted<List<String>>()
+            : SdkPresent<List<String>>(resourceIds),
+        tenantOnly: tenantOnly == null
+            ? const SdkOmitted<bool>()
+            : SdkPresent<bool>(tenantOnly),
+        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
+        after: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        before: before == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(before),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId.valueOrNull;

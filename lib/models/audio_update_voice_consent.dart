@@ -8,6 +8,7 @@ part of 'audio.dart';
 class UpdateVoiceConsentRequest implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The updated label for this consent recording.
   final String name;
 
@@ -15,16 +16,20 @@ class UpdateVoiceConsentRequest implements SdkJsonModel {
 
   UpdateVoiceConsentRequest Function({String name}) get copyWith => _copyWith;
 
-  UpdateVoiceConsentRequest _copyWith({Object? name = sdkOmittedValue}) => UpdateVoiceConsentRequest(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-  );
+  UpdateVoiceConsentRequest _copyWith({Object? name = sdkOmittedValue}) =>
+      UpdateVoiceConsentRequest(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+      );
 
-  factory UpdateVoiceConsentRequest.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(UpdateVoiceConsentRequest(
-    name: (json['name'] as String?)!,
-  ), json);
+  factory UpdateVoiceConsentRequest.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          UpdateVoiceConsentRequest(
+            name: (json['name'] as String?)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'name': name,
-  };
+        'name': name,
+      };
 }

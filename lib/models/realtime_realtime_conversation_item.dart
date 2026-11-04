@@ -10,88 +10,204 @@ sealed class RealtimeConversationItem {
   const RealtimeConversationItem();
   factory RealtimeConversationItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = RealtimeConversationItemMessageSystem.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeConversationItemRealtimeConversationItemMessageSystem(value); } } catch (_) {}
-      try { final value = RealtimeConversationItemMessageUser.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeConversationItemRealtimeConversationItemMessageUser(value); } } catch (_) {}
-      try { final value = RealtimeConversationItemMessageAssistant.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeConversationItemRealtimeConversationItemMessageAssistant(value); } } catch (_) {}
-      try { final value = RealtimeConversationItemFunctionCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeConversationItemRealtimeConversationItemFunctionCall(value); } } catch (_) {}
-      try { final value = RealtimeConversationItemFunctionCallOutput.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeConversationItemRealtimeConversationItemFunctionCallOutput(value); } } catch (_) {}
-      try { final value = RealtimeMCPApprovalResponse.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeConversationItemRealtimeMCPApprovalResponse(value); } } catch (_) {}
-      try { final value = RealtimeMCPListTools.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeConversationItemRealtimeMCPListTools(value); } } catch (_) {}
-      try { final value = RealtimeMCPToolCall.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeConversationItemRealtimeMCPToolCall(value); } } catch (_) {}
-      try { final value = RealtimeMCPApprovalRequest.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RealtimeConversationItemRealtimeMCPApprovalRequest(value); } } catch (_) {}
+      try {
+        final value = RealtimeConversationItemMessageSystem.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeConversationItemRealtimeConversationItemMessageSystem(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeConversationItemMessageUser.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeConversationItemRealtimeConversationItemMessageUser(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeConversationItemMessageAssistant.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeConversationItemRealtimeConversationItemMessageAssistant(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeConversationItemFunctionCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeConversationItemRealtimeConversationItemFunctionCall(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeConversationItemFunctionCallOutput.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeConversationItemRealtimeConversationItemFunctionCallOutput(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeMCPApprovalResponse.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeConversationItemRealtimeMCPApprovalResponse(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeMCPListTools.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeConversationItemRealtimeMCPListTools(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeMCPToolCall.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeConversationItemRealtimeMCPToolCall(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RealtimeMCPApprovalRequest.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RealtimeConversationItemRealtimeMCPApprovalRequest(value);
+        }
+      } catch (_) {}
     }
-    try { return RealtimeConversationItemRealtimeConversationItemMessageSystem(RealtimeConversationItemMessageSystem.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeConversationItemRealtimeConversationItemMessageUser(RealtimeConversationItemMessageUser.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeConversationItemRealtimeConversationItemMessageAssistant(RealtimeConversationItemMessageAssistant.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeConversationItemRealtimeConversationItemFunctionCall(RealtimeConversationItemFunctionCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeConversationItemRealtimeConversationItemFunctionCallOutput(RealtimeConversationItemFunctionCallOutput.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeConversationItemRealtimeMCPApprovalResponse(RealtimeMCPApprovalResponse.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeConversationItemRealtimeMCPListTools(RealtimeMCPListTools.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeConversationItemRealtimeMCPToolCall(RealtimeMCPToolCall.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RealtimeConversationItemRealtimeMCPApprovalRequest(RealtimeMCPApprovalRequest.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"function_call", "function_call_output", "mcp_approval_response", "mcp_list_tools", "mcp_call", "mcp_approval_request"}.contains(json["type"])) { return UnknownRealtimeConversationItem(json); }
+    try {
+      return RealtimeConversationItemRealtimeConversationItemMessageSystem(
+          RealtimeConversationItemMessageSystem.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeConversationItemRealtimeConversationItemMessageUser(
+          RealtimeConversationItemMessageUser.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeConversationItemRealtimeConversationItemMessageAssistant(
+          RealtimeConversationItemMessageAssistant.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeConversationItemRealtimeConversationItemFunctionCall(
+          RealtimeConversationItemFunctionCall.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeConversationItemRealtimeConversationItemFunctionCallOutput(
+          RealtimeConversationItemFunctionCallOutput.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeConversationItemRealtimeMCPApprovalResponse(
+          RealtimeMCPApprovalResponse.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeConversationItemRealtimeMCPListTools(
+          RealtimeMCPListTools.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeConversationItemRealtimeMCPToolCall(
+          RealtimeMCPToolCall.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RealtimeConversationItemRealtimeMCPApprovalRequest(
+          RealtimeMCPApprovalRequest.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {
+          "function_call",
+          "function_call_output",
+          "mcp_approval_response",
+          "mcp_list_tools",
+          "mcp_call",
+          "mcp_approval_request"
+        }.contains(json["type"])) {
+      return UnknownRealtimeConversationItem(json);
+    }
     throw FormatException("No variant matched for RealtimeConversationItem");
   }
   Object? toJson();
 }
 
-final class RealtimeConversationItemRealtimeConversationItemMessageSystem extends RealtimeConversationItem {
+final class RealtimeConversationItemRealtimeConversationItemMessageSystem
+    extends RealtimeConversationItem {
   final RealtimeConversationItemMessageSystem value;
-  const RealtimeConversationItemRealtimeConversationItemMessageSystem(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeConversationItemRealtimeConversationItemMessageSystem(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeConversationItemRealtimeConversationItemMessageUser extends RealtimeConversationItem {
+final class RealtimeConversationItemRealtimeConversationItemMessageUser
+    extends RealtimeConversationItem {
   final RealtimeConversationItemMessageUser value;
   const RealtimeConversationItemRealtimeConversationItemMessageUser(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeConversationItemRealtimeConversationItemMessageAssistant extends RealtimeConversationItem {
+final class RealtimeConversationItemRealtimeConversationItemMessageAssistant
+    extends RealtimeConversationItem {
   final RealtimeConversationItemMessageAssistant value;
-  const RealtimeConversationItemRealtimeConversationItemMessageAssistant(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeConversationItemRealtimeConversationItemMessageAssistant(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeConversationItemRealtimeConversationItemFunctionCall extends RealtimeConversationItem {
+final class RealtimeConversationItemRealtimeConversationItemFunctionCall
+    extends RealtimeConversationItem {
   final RealtimeConversationItemFunctionCall value;
-  const RealtimeConversationItemRealtimeConversationItemFunctionCall(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeConversationItemRealtimeConversationItemFunctionCall(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeConversationItemRealtimeConversationItemFunctionCallOutput extends RealtimeConversationItem {
+final class RealtimeConversationItemRealtimeConversationItemFunctionCallOutput
+    extends RealtimeConversationItem {
   final RealtimeConversationItemFunctionCallOutput value;
-  const RealtimeConversationItemRealtimeConversationItemFunctionCallOutput(this.value);
-  @override Object? toJson() => value.toJson();
+  const RealtimeConversationItemRealtimeConversationItemFunctionCallOutput(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeConversationItemRealtimeMCPApprovalResponse extends RealtimeConversationItem {
+final class RealtimeConversationItemRealtimeMCPApprovalResponse
+    extends RealtimeConversationItem {
   final RealtimeMCPApprovalResponse value;
   const RealtimeConversationItemRealtimeMCPApprovalResponse(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeConversationItemRealtimeMCPListTools extends RealtimeConversationItem {
+final class RealtimeConversationItemRealtimeMCPListTools
+    extends RealtimeConversationItem {
   final RealtimeMCPListTools value;
   const RealtimeConversationItemRealtimeMCPListTools(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeConversationItemRealtimeMCPToolCall extends RealtimeConversationItem {
+final class RealtimeConversationItemRealtimeMCPToolCall
+    extends RealtimeConversationItem {
   final RealtimeMCPToolCall value;
   const RealtimeConversationItemRealtimeMCPToolCall(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RealtimeConversationItemRealtimeMCPApprovalRequest extends RealtimeConversationItem {
+final class RealtimeConversationItemRealtimeMCPApprovalRequest
+    extends RealtimeConversationItem {
   final RealtimeMCPApprovalRequest value;
   const RealtimeConversationItemRealtimeMCPApprovalRequest(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [RealtimeConversationItem] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownRealtimeConversationItem extends RealtimeConversationItem {
   final Map<String, dynamic> raw;
   const UnknownRealtimeConversationItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

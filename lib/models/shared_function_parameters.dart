@@ -12,13 +12,14 @@ class FunctionParameters {
 
   const FunctionParameters({this.value = const <String, dynamic>{}});
 
-  factory FunctionParameters.fromJson(Map<String, dynamic> json) => FunctionParameters(
-    value: json.map((key, value) => MapEntry(key, value)),
-  );
+  factory FunctionParameters.fromJson(Map<String, dynamic> json) =>
+      FunctionParameters(
+        value: json.map((key, value) => MapEntry(key, value)),
+      );
 
   Map<String, dynamic> toJson() => value.map(
-    (key, value) => MapEntry(key, value),
-  );
+        (key, value) => MapEntry(key, value),
+      );
 
   dynamic operator [](String key) => value[key];
   Iterable<String> get keys => value.keys;

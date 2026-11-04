@@ -6,7 +6,6 @@ part of 'inline.dart';
 // Inline operation models
 /// The status of the Upload.
 final class UploadStatus {
-
   final String value;
 
   const UploadStatus._(this.value);
@@ -20,17 +19,19 @@ final class UploadStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UploadStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UploadStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The object type, which is always `upload.part`.
 final class UploadPartObject {
-
   final String value;
 
   const UploadPartObject._(this.value);
@@ -41,12 +42,15 @@ final class UploadPartObject {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UploadPartObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UploadPartObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Type discriminator that is always `url` for this annotation.
@@ -55,14 +59,17 @@ enum UrlAnnotationType {
 
   static UrlAnnotationType fromJson(String value) {
     switch (value) {
-      case 'url': return UrlAnnotationType.url;
-      default: throw ArgumentError('Unknown UrlAnnotationType: $value');
+      case 'url':
+        return UrlAnnotationType.url;
+      default:
+        throw ArgumentError('Unknown UrlAnnotationType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case UrlAnnotationType.url: return 'url';
+      case UrlAnnotationType.url:
+        return 'url';
     }
   }
 
@@ -72,23 +79,26 @@ enum UrlAnnotationType {
 
 /// Type discriminator that is always `url`.
 final class UrlAnnotationSourceType {
-
   final String value;
 
   const UrlAnnotationSourceType._(this.value);
 
-  factory UrlAnnotationSourceType.fromJson(String value) => UrlAnnotationSourceType._(value);
+  factory UrlAnnotationSourceType.fromJson(String value) =>
+      UrlAnnotationSourceType._(value);
 
   static const url = UrlAnnotationSourceType._('url');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UrlAnnotationSourceType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UrlAnnotationSourceType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the URL citation. Always `url_citation`.
@@ -97,14 +107,17 @@ enum UrlCitationBodyType {
 
   static UrlCitationBodyType fromJson(String value) {
     switch (value) {
-      case 'url_citation': return UrlCitationBodyType.urlCitation;
-      default: throw ArgumentError('Unknown UrlCitationBodyType: $value');
+      case 'url_citation':
+        return UrlCitationBodyType.urlCitation;
+      default:
+        throw ArgumentError('Unknown UrlCitationBodyType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case UrlCitationBodyType.urlCitation: return 'url_citation';
+      case UrlCitationBodyType.urlCitation:
+        return 'url_citation';
     }
   }
 
@@ -114,23 +127,26 @@ enum UrlCitationBodyType {
 
 /// The citation type. Always `url_citation`.
 final class UrlCitationParamType {
-
   final String value;
 
   const UrlCitationParamType._(this.value);
 
-  factory UrlCitationParamType.fromJson(String value) => UrlCitationParamType._(value);
+  factory UrlCitationParamType.fromJson(String value) =>
+      UrlCitationParamType._(value);
 
   static const urlCitation = UrlCitationParamType._('url_citation');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UrlCitationParamType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UrlCitationParamType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
@@ -139,14 +155,18 @@ enum UsageAudioSpeechesResultObject {
 
   static UsageAudioSpeechesResultObject fromJson(String value) {
     switch (value) {
-      case 'organization.usage.audio_speeches.result': return UsageAudioSpeechesResultObject.organizationUsageAudioSpeechesResult;
-      default: throw ArgumentError('Unknown UsageAudioSpeechesResultObject: $value');
+      case 'organization.usage.audio_speeches.result':
+        return UsageAudioSpeechesResultObject
+            .organizationUsageAudioSpeechesResult;
+      default:
+        throw ArgumentError('Unknown UsageAudioSpeechesResultObject: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case UsageAudioSpeechesResultObject.organizationUsageAudioSpeechesResult: return 'organization.usage.audio_speeches.result';
+      case UsageAudioSpeechesResultObject.organizationUsageAudioSpeechesResult:
+        return 'organization.usage.audio_speeches.result';
     }
   }
 
@@ -160,14 +180,20 @@ enum UsageAudioTranscriptionsResultObject {
 
   static UsageAudioTranscriptionsResultObject fromJson(String value) {
     switch (value) {
-      case 'organization.usage.audio_transcriptions.result': return UsageAudioTranscriptionsResultObject.organizationUsageAudioTranscriptionsResult;
-      default: throw ArgumentError('Unknown UsageAudioTranscriptionsResultObject: $value');
+      case 'organization.usage.audio_transcriptions.result':
+        return UsageAudioTranscriptionsResultObject
+            .organizationUsageAudioTranscriptionsResult;
+      default:
+        throw ArgumentError(
+            'Unknown UsageAudioTranscriptionsResultObject: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case UsageAudioTranscriptionsResultObject.organizationUsageAudioTranscriptionsResult: return 'organization.usage.audio_transcriptions.result';
+      case UsageAudioTranscriptionsResultObject
+            .organizationUsageAudioTranscriptionsResult:
+        return 'organization.usage.audio_transcriptions.result';
     }
   }
 
@@ -181,14 +207,20 @@ enum UsageCodeInterpreterSessionsResultObject {
 
   static UsageCodeInterpreterSessionsResultObject fromJson(String value) {
     switch (value) {
-      case 'organization.usage.code_interpreter_sessions.result': return UsageCodeInterpreterSessionsResultObject.organizationUsageCodeInterpreterSessionsResult;
-      default: throw ArgumentError('Unknown UsageCodeInterpreterSessionsResultObject: $value');
+      case 'organization.usage.code_interpreter_sessions.result':
+        return UsageCodeInterpreterSessionsResultObject
+            .organizationUsageCodeInterpreterSessionsResult;
+      default:
+        throw ArgumentError(
+            'Unknown UsageCodeInterpreterSessionsResultObject: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case UsageCodeInterpreterSessionsResultObject.organizationUsageCodeInterpreterSessionsResult: return 'organization.usage.code_interpreter_sessions.result';
+      case UsageCodeInterpreterSessionsResultObject
+            .organizationUsageCodeInterpreterSessionsResult:
+        return 'organization.usage.code_interpreter_sessions.result';
     }
   }
 
@@ -198,24 +230,29 @@ enum UsageCodeInterpreterSessionsResultObject {
 
 /// Optional enumerated value serialized in the `api_source` wire field.
 final class UsageCompletionsResultApiSourceVariant0 {
-
   final String value;
 
   const UsageCompletionsResultApiSourceVariant0._(this.value);
 
-  factory UsageCompletionsResultApiSourceVariant0.fromJson(String value) => UsageCompletionsResultApiSourceVariant0._(value);
+  factory UsageCompletionsResultApiSourceVariant0.fromJson(String value) =>
+      UsageCompletionsResultApiSourceVariant0._(value);
 
-  static const agentsApi = UsageCompletionsResultApiSourceVariant0._('agents_api');
-  static const unlabeled = UsageCompletionsResultApiSourceVariant0._('unlabeled');
+  static const agentsApi =
+      UsageCompletionsResultApiSourceVariant0._('agents_api');
+  static const unlabeled =
+      UsageCompletionsResultApiSourceVariant0._('unlabeled');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UsageCompletionsResultApiSourceVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UsageCompletionsResultApiSourceVariant0 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
@@ -224,14 +261,17 @@ enum UsageCompletionsResultObject {
 
   static UsageCompletionsResultObject fromJson(String value) {
     switch (value) {
-      case 'organization.usage.completions.result': return UsageCompletionsResultObject.organizationUsageCompletionsResult;
-      default: throw ArgumentError('Unknown UsageCompletionsResultObject: $value');
+      case 'organization.usage.completions.result':
+        return UsageCompletionsResultObject.organizationUsageCompletionsResult;
+      default:
+        throw ArgumentError('Unknown UsageCompletionsResultObject: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case UsageCompletionsResultObject.organizationUsageCompletionsResult: return 'organization.usage.completions.result';
+      case UsageCompletionsResultObject.organizationUsageCompletionsResult:
+        return 'organization.usage.completions.result';
     }
   }
 
@@ -245,14 +285,17 @@ enum UsageEmbeddingsResultObject {
 
   static UsageEmbeddingsResultObject fromJson(String value) {
     switch (value) {
-      case 'organization.usage.embeddings.result': return UsageEmbeddingsResultObject.organizationUsageEmbeddingsResult;
-      default: throw ArgumentError('Unknown UsageEmbeddingsResultObject: $value');
+      case 'organization.usage.embeddings.result':
+        return UsageEmbeddingsResultObject.organizationUsageEmbeddingsResult;
+      default:
+        throw ArgumentError('Unknown UsageEmbeddingsResultObject: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case UsageEmbeddingsResultObject.organizationUsageEmbeddingsResult: return 'organization.usage.embeddings.result';
+      case UsageEmbeddingsResultObject.organizationUsageEmbeddingsResult:
+        return 'organization.usage.embeddings.result';
     }
   }
 
@@ -266,14 +309,18 @@ enum UsageFileSearchCallsResultObject {
 
   static UsageFileSearchCallsResultObject fromJson(String value) {
     switch (value) {
-      case 'organization.usage.file_searches.result': return UsageFileSearchCallsResultObject.organizationUsageFileSearchesResult;
-      default: throw ArgumentError('Unknown UsageFileSearchCallsResultObject: $value');
+      case 'organization.usage.file_searches.result':
+        return UsageFileSearchCallsResultObject
+            .organizationUsageFileSearchesResult;
+      default:
+        throw ArgumentError('Unknown UsageFileSearchCallsResultObject: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case UsageFileSearchCallsResultObject.organizationUsageFileSearchesResult: return 'organization.usage.file_searches.result';
+      case UsageFileSearchCallsResultObject.organizationUsageFileSearchesResult:
+        return 'organization.usage.file_searches.result';
     }
   }
 

@@ -10,14 +10,18 @@ class EmptyModelParam implements SdkJsonModel {
   static const String constructionSurface = 'named';
   final Map<String, dynamic> additionalProperties;
 
-  const EmptyModelParam({this.additionalProperties = const <String, dynamic>{}});
+  const EmptyModelParam(
+      {this.additionalProperties = const <String, dynamic>{}});
 
-  factory EmptyModelParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(EmptyModelParam(
-    additionalProperties: Map.of(json)..removeWhere((key, _) => const <String>{}.contains(key)),
-  ), json);
+  factory EmptyModelParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      EmptyModelParam(
+        additionalProperties: Map.of(json)
+          ..removeWhere((key, _) => const <String>{}.contains(key)),
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...additionalProperties,
-  };
+        ...additionalProperties,
+      };
 }

@@ -10,14 +10,20 @@ enum BrowserAuthenticationRequestItemResourceType {
 
   static BrowserAuthenticationRequestItemResourceType fromJson(String value) {
     switch (value) {
-      case 'computer_use_approval_request': return BrowserAuthenticationRequestItemResourceType.computerUseApprovalRequest;
-      default: throw ArgumentError('Unknown BrowserAuthenticationRequestItemResourceType: $value');
+      case 'computer_use_approval_request':
+        return BrowserAuthenticationRequestItemResourceType
+            .computerUseApprovalRequest;
+      default:
+        throw ArgumentError(
+            'Unknown BrowserAuthenticationRequestItemResourceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BrowserAuthenticationRequestItemResourceType.computerUseApprovalRequest: return 'computer_use_approval_request';
+      case BrowserAuthenticationRequestItemResourceType
+            .computerUseApprovalRequest:
+        return 'computer_use_approval_request';
     }
   }
 
@@ -31,14 +37,17 @@ enum C2PAProvenanceResultType {
 
   static C2PAProvenanceResultType fromJson(String value) {
     switch (value) {
-      case 'c2pa': return C2PAProvenanceResultType.c2pa;
-      default: throw ArgumentError('Unknown C2PAProvenanceResultType: $value');
+      case 'c2pa':
+        return C2PAProvenanceResultType.c2pa;
+      default:
+        throw ArgumentError('Unknown C2PAProvenanceResultType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case C2PAProvenanceResultType.c2pa: return 'c2pa';
+      case C2PAProvenanceResultType.c2pa:
+        return 'c2pa';
     }
   }
 
@@ -48,47 +57,55 @@ enum C2PAProvenanceResultType {
 
 /// The object type. - If creating, updating, or getting a specific certificate, the object type is `certificate`. - If listing, activating, or deactivating certificates for the organization, the object type is `organization.certificate`. - If listing, activating, or deactivating certificates for a project, the object type is `organization.project.certificate`.
 final class CertificateObject {
-
   final String value;
 
   const CertificateObject._(this.value);
 
-  factory CertificateObject.fromJson(String value) => CertificateObject._(value);
+  factory CertificateObject.fromJson(String value) =>
+      CertificateObject._(value);
 
   static const certificate = CertificateObject._('certificate');
-  static const organizationCertificate = CertificateObject._('organization.certificate');
-  static const organizationProjectCertificate = CertificateObject._('organization.project.certificate');
+  static const organizationCertificate =
+      CertificateObject._('organization.certificate');
+  static const organizationProjectCertificate =
+      CertificateObject._('organization.project.certificate');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CertificateObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CertificateObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Constrains the tools available to the model to a pre-defined set. `auto` allows the model to pick from among the allowed tools and generate a message. `required` requires the model to call one or more of the allowed tools.
 final class ChatCompletionAllowedToolsMode {
-
   final String value;
 
   const ChatCompletionAllowedToolsMode._(this.value);
 
-  factory ChatCompletionAllowedToolsMode.fromJson(String value) => ChatCompletionAllowedToolsMode._(value);
+  factory ChatCompletionAllowedToolsMode.fromJson(String value) =>
+      ChatCompletionAllowedToolsMode._(value);
 
   static const auto = ChatCompletionAllowedToolsMode._('auto');
   static const required_ = ChatCompletionAllowedToolsMode._('required');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ChatCompletionAllowedToolsMode && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ChatCompletionAllowedToolsMode && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Allowed tool configuration type. Always `allowed_tools`.
@@ -97,14 +114,18 @@ enum ChatCompletionAllowedToolsChoiceType {
 
   static ChatCompletionAllowedToolsChoiceType fromJson(String value) {
     switch (value) {
-      case 'allowed_tools': return ChatCompletionAllowedToolsChoiceType.allowedTools;
-      default: throw ArgumentError('Unknown ChatCompletionAllowedToolsChoiceType: $value');
+      case 'allowed_tools':
+        return ChatCompletionAllowedToolsChoiceType.allowedTools;
+      default:
+        throw ArgumentError(
+            'Unknown ChatCompletionAllowedToolsChoiceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ChatCompletionAllowedToolsChoiceType.allowedTools: return 'allowed_tools';
+      case ChatCompletionAllowedToolsChoiceType.allowedTools:
+        return 'allowed_tools';
     }
   }
 
@@ -114,44 +135,51 @@ enum ChatCompletionAllowedToolsChoiceType {
 
 /// The type of object being deleted.
 final class ChatCompletionDeletedObject {
-
   final String value;
 
   const ChatCompletionDeletedObject._(this.value);
 
-  factory ChatCompletionDeletedObject.fromJson(String value) => ChatCompletionDeletedObject._(value);
+  factory ChatCompletionDeletedObject.fromJson(String value) =>
+      ChatCompletionDeletedObject._(value);
 
-  static const chatCompletionDeleted = ChatCompletionDeletedObject._('chat.completion.deleted');
+  static const chatCompletionDeleted =
+      ChatCompletionDeletedObject._('chat.completion.deleted');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ChatCompletionDeletedObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ChatCompletionDeletedObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of this object. It is always set to "list".
 final class ChatCompletionListObject {
-
   final String value;
 
   const ChatCompletionListObject._(this.value);
 
-  factory ChatCompletionListObject.fromJson(String value) => ChatCompletionListObject._(value);
+  factory ChatCompletionListObject.fromJson(String value) =>
+      ChatCompletionListObject._(value);
 
   static const list = ChatCompletionListObject._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ChatCompletionListObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ChatCompletionListObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the tool. Always `custom`.
@@ -160,14 +188,18 @@ enum ChatCompletionMessageCustomToolCallType {
 
   static ChatCompletionMessageCustomToolCallType fromJson(String value) {
     switch (value) {
-      case 'custom': return ChatCompletionMessageCustomToolCallType.custom;
-      default: throw ArgumentError('Unknown ChatCompletionMessageCustomToolCallType: $value');
+      case 'custom':
+        return ChatCompletionMessageCustomToolCallType.custom;
+      default:
+        throw ArgumentError(
+            'Unknown ChatCompletionMessageCustomToolCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ChatCompletionMessageCustomToolCallType.custom: return 'custom';
+      case ChatCompletionMessageCustomToolCallType.custom:
+        return 'custom';
     }
   }
 
@@ -177,36 +209,45 @@ enum ChatCompletionMessageCustomToolCallType {
 
 /// Required enumerated value serialized in the `type` wire field.
 final class ChatCompletionMessageListDataItemContentPartsItemType {
-
   final String value;
 
   const ChatCompletionMessageListDataItemContentPartsItemType._(this.value);
 
-  factory ChatCompletionMessageListDataItemContentPartsItemType.fromJson(String value) => ChatCompletionMessageListDataItemContentPartsItemType._(value);
+  factory ChatCompletionMessageListDataItemContentPartsItemType.fromJson(
+          String value) =>
+      ChatCompletionMessageListDataItemContentPartsItemType._(value);
 
-  static const text = ChatCompletionMessageListDataItemContentPartsItemType._('text');
-  static const imageUrl = ChatCompletionMessageListDataItemContentPartsItemType._('image_url');
-  static const inputAudio = ChatCompletionMessageListDataItemContentPartsItemType._('input_audio');
-  static const file = ChatCompletionMessageListDataItemContentPartsItemType._('file');
+  static const text =
+      ChatCompletionMessageListDataItemContentPartsItemType._('text');
+  static const imageUrl =
+      ChatCompletionMessageListDataItemContentPartsItemType._('image_url');
+  static const inputAudio =
+      ChatCompletionMessageListDataItemContentPartsItemType._('input_audio');
+  static const file =
+      ChatCompletionMessageListDataItemContentPartsItemType._('file');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ChatCompletionMessageListDataItemContentPartsItemType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ChatCompletionMessageListDataItemContentPartsItemType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `role` wire field.
 final class ChatCompletionMessageListDataItemRole {
-
   final String value;
 
   const ChatCompletionMessageListDataItemRole._(this.value);
 
-  factory ChatCompletionMessageListDataItemRole.fromJson(String value) => ChatCompletionMessageListDataItemRole._(value);
+  factory ChatCompletionMessageListDataItemRole.fromJson(String value) =>
+      ChatCompletionMessageListDataItemRole._(value);
 
   static const user = ChatCompletionMessageListDataItemRole._('user');
   static const assistant = ChatCompletionMessageListDataItemRole._('assistant');
@@ -217,33 +258,39 @@ final class ChatCompletionMessageListDataItemRole {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ChatCompletionMessageListDataItemRole && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ChatCompletionMessageListDataItemRole && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of this object. It is always set to "list".
 final class ChatCompletionMessageListObject {
-
   final String value;
 
   const ChatCompletionMessageListObject._(this.value);
 
-  factory ChatCompletionMessageListObject.fromJson(String value) => ChatCompletionMessageListObject._(value);
+  factory ChatCompletionMessageListObject.fromJson(String value) =>
+      ChatCompletionMessageListObject._(value);
 
   static const list = ChatCompletionMessageListObject._('list');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ChatCompletionMessageListObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ChatCompletionMessageListObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the tool. Currently, only `function` is supported.
@@ -252,14 +299,18 @@ enum ChatCompletionMessageToolCallType {
 
   static ChatCompletionMessageToolCallType fromJson(String value) {
     switch (value) {
-      case 'function': return ChatCompletionMessageToolCallType.function_;
-      default: throw ArgumentError('Unknown ChatCompletionMessageToolCallType: $value');
+      case 'function':
+        return ChatCompletionMessageToolCallType.function_;
+      default:
+        throw ArgumentError(
+            'Unknown ChatCompletionMessageToolCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ChatCompletionMessageToolCallType.function_: return 'function';
+      case ChatCompletionMessageToolCallType.function_:
+        return 'function';
     }
   }
 
@@ -269,21 +320,24 @@ enum ChatCompletionMessageToolCallType {
 
 /// The type of the tool. Currently, only `function` is supported.
 final class ChatCompletionMessageToolCallChunkType {
-
   final String value;
 
   const ChatCompletionMessageToolCallChunkType._(this.value);
 
-  factory ChatCompletionMessageToolCallChunkType.fromJson(String value) => ChatCompletionMessageToolCallChunkType._(value);
+  factory ChatCompletionMessageToolCallChunkType.fromJson(String value) =>
+      ChatCompletionMessageToolCallChunkType._(value);
 
   static const function_ = ChatCompletionMessageToolCallChunkType._('function');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ChatCompletionMessageToolCallChunkType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ChatCompletionMessageToolCallChunkType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

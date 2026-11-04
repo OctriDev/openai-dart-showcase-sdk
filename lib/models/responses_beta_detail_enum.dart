@@ -6,7 +6,6 @@ part of 'responses_beta.dart';
 // responses_beta domain models
 /// Typed representation of the `BetaDetailEnum` API schema.
 final class BetaDetailEnum {
-
   final String value;
 
   const BetaDetailEnum._(this.value);
@@ -20,10 +19,13 @@ final class BetaDetailEnum {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaDetailEnum && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaDetailEnum && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

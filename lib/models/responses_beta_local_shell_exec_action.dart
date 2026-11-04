@@ -8,57 +8,115 @@ part of 'responses_beta_local.dart';
 class BetaLocalShellExecAction implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the local shell action. Always `exec`.
   final BetaLocalShellExecActionType type_;
+
   /// The command to run.
   final List<String> command;
+
   /// Optional `integer` value serialized in the `timeout_ms` wire field.
   final SdkOptional<int?> timeoutMs;
+
   /// Optional `string` value serialized in the `working_directory` wire field.
   final SdkOptional<String?> workingDirectory;
+
   /// Environment variables to set for the command.
   final Map<String, String> env;
+
   /// Optional `string` value serialized in the `user` wire field.
   final SdkOptional<String?> user;
 
-  const BetaLocalShellExecAction({required this.type_, required this.command, this.timeoutMs = const SdkOmitted(), this.workingDirectory = const SdkOmitted(), required this.env, this.user = const SdkOmitted()});
+  const BetaLocalShellExecAction(
+      {required this.type_,
+      required this.command,
+      this.timeoutMs = const SdkOmitted(),
+      this.workingDirectory = const SdkOmitted(),
+      required this.env,
+      this.user = const SdkOmitted()});
 
-  BetaLocalShellExecAction Function({BetaLocalShellExecActionType type_, List<String> command, SdkOptional<int?> timeoutMs, SdkOptional<String?> workingDirectory, Map<String, String> env, SdkOptional<String?> user}) get copyWith => _copyWith;
+  BetaLocalShellExecAction Function(
+      {BetaLocalShellExecActionType type_,
+      List<String> command,
+      SdkOptional<int?> timeoutMs,
+      SdkOptional<String?> workingDirectory,
+      Map<String, String> env,
+      SdkOptional<String?> user}) get copyWith => _copyWith;
 
-  BetaLocalShellExecAction _copyWith({Object? type_ = sdkOmittedValue, Object? command = sdkOmittedValue, Object? timeoutMs = sdkOmittedValue, Object? workingDirectory = sdkOmittedValue, Object? env = sdkOmittedValue, Object? user = sdkOmittedValue}) => BetaLocalShellExecAction(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaLocalShellExecActionType,
-    command: identical(command, sdkOmittedValue) ? this.command : command as List<String>,
-    timeoutMs: identical(timeoutMs, sdkOmittedValue) ? this.timeoutMs : timeoutMs as SdkOptional<int?>,
-    workingDirectory: identical(workingDirectory, sdkOmittedValue) ? this.workingDirectory : workingDirectory as SdkOptional<String?>,
-    env: identical(env, sdkOmittedValue) ? this.env : env as Map<String, String>,
-    user: identical(user, sdkOmittedValue) ? this.user : user as SdkOptional<String?>,
-  );
+  BetaLocalShellExecAction _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? command = sdkOmittedValue,
+          Object? timeoutMs = sdkOmittedValue,
+          Object? workingDirectory = sdkOmittedValue,
+          Object? env = sdkOmittedValue,
+          Object? user = sdkOmittedValue}) =>
+      BetaLocalShellExecAction(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaLocalShellExecActionType,
+        command: identical(command, sdkOmittedValue)
+            ? this.command
+            : command as List<String>,
+        timeoutMs: identical(timeoutMs, sdkOmittedValue)
+            ? this.timeoutMs
+            : timeoutMs as SdkOptional<int?>,
+        workingDirectory: identical(workingDirectory, sdkOmittedValue)
+            ? this.workingDirectory
+            : workingDirectory as SdkOptional<String?>,
+        env: identical(env, sdkOmittedValue)
+            ? this.env
+            : env as Map<String, String>,
+        user: identical(user, sdkOmittedValue)
+            ? this.user
+            : user as SdkOptional<String?>,
+      );
 
-  factory BetaLocalShellExecAction.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(BetaLocalShellExecAction(
-    type_: (json['type'] != null ? BetaLocalShellExecActionType.fromJson(json['type'] as String) : null)!,
-    command: ((json['command'] as List?)?.map((e) => e as String).toList())!,
-    timeoutMs: json.containsKey('timeout_ms') ? SdkPresent((json['timeout_ms'] as num?)?.toInt()) : const SdkOmitted(),
-    workingDirectory: json.containsKey('working_directory') ? SdkPresent(json['working_directory'] as String?) : const SdkOmitted(),
-    env: (json['env'] == null ? null : Map<String, dynamic>.from(json['env'] as Map).map((key, value) => MapEntry(key, value as String)))!,
-    user: json.containsKey('user') ? SdkPresent(json['user'] as String?) : const SdkOmitted(),
-  ), json);
+  factory BetaLocalShellExecAction.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          BetaLocalShellExecAction(
+            type_: (json['type'] != null
+                ? BetaLocalShellExecActionType.fromJson(json['type'] as String)
+                : null)!,
+            command:
+                ((json['command'] as List?)?.map((e) => e as String).toList())!,
+            timeoutMs: json.containsKey('timeout_ms')
+                ? SdkPresent((json['timeout_ms'] as num?)?.toInt())
+                : const SdkOmitted(),
+            workingDirectory: json.containsKey('working_directory')
+                ? SdkPresent(json['working_directory'] as String?)
+                : const SdkOmitted(),
+            env: (json['env'] == null
+                ? null
+                : Map<String, dynamic>.from(json['env'] as Map)
+                    .map((key, value) => MapEntry(key, value as String)))!,
+            user: json.containsKey('user')
+                ? SdkPresent(json['user'] as String?)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'command': command,
-    ...switch (timeoutMs) {
-      SdkPresent<int?>(value: final value) => {'timeout_ms': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (workingDirectory) {
-      SdkPresent<String?>(value: final value) => {'working_directory': value,},
-      _ => const <String, dynamic>{},
-    },
-    'env': env,
-    ...switch (user) {
-      SdkPresent<String?>(value: final value) => {'user': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'command': command,
+        ...switch (timeoutMs) {
+          SdkPresent<int?>(value: final value) => {
+              'timeout_ms': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (workingDirectory) {
+          SdkPresent<String?>(value: final value) => {
+              'working_directory': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'env': env,
+        ...switch (user) {
+          SdkPresent<String?>(value: final value) => {
+              'user': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

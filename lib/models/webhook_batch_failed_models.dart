@@ -8,6 +8,7 @@ part of 'webhook_batch_failed.dart';
 class WebhookBatchFailedData implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique ID of the batch API request.
   final String id;
 
@@ -15,64 +16,112 @@ class WebhookBatchFailedData implements SdkJsonModel {
 
   WebhookBatchFailedData Function({String id}) get copyWith => _copyWith;
 
-  WebhookBatchFailedData _copyWith({Object? id = sdkOmittedValue}) => WebhookBatchFailedData(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
+  WebhookBatchFailedData _copyWith({Object? id = sdkOmittedValue}) =>
+      WebhookBatchFailedData(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
 
-  factory WebhookBatchFailedData.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(WebhookBatchFailedData(
-    id: (json['id'] as String?)!,
-  ), json);
+  factory WebhookBatchFailedData.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          WebhookBatchFailedData(
+            id: (json['id'] as String?)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'id': id,
-  };
+        'id': id,
+      };
 }
 
 /// Sent when a batch API request has failed.
 class WebhookBatchFailed implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The Unix timestamp (in seconds) of when the batch API request failed.
   final int createdAt;
+
   /// The unique ID of the event.
   final String id;
+
   /// Event data payload.
   final WebhookBatchFailedData data;
+
   /// The object of the event. Always `event`.
   final SdkOptional<WebhookBatchFailedObject> object;
+
   /// The type of the event. Always `batch.failed`.
   final WebhookBatchFailedType type_;
 
-  const WebhookBatchFailed({required this.createdAt, required this.id, required this.data, this.object = const SdkOmitted(), required this.type_});
+  const WebhookBatchFailed(
+      {required this.createdAt,
+      required this.id,
+      required this.data,
+      this.object = const SdkOmitted(),
+      required this.type_});
 
-  WebhookBatchFailed Function({int createdAt, String id, WebhookBatchFailedData data, SdkOptional<WebhookBatchFailedObject> object, WebhookBatchFailedType type_}) get copyWith => _copyWith;
+  WebhookBatchFailed Function(
+      {int createdAt,
+      String id,
+      WebhookBatchFailedData data,
+      SdkOptional<WebhookBatchFailedObject> object,
+      WebhookBatchFailedType type_}) get copyWith => _copyWith;
 
-  WebhookBatchFailed _copyWith({Object? createdAt = sdkOmittedValue, Object? id = sdkOmittedValue, Object? data = sdkOmittedValue, Object? object = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => WebhookBatchFailed(
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    data: identical(data, sdkOmittedValue) ? this.data : data as WebhookBatchFailedData,
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<WebhookBatchFailedObject>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as WebhookBatchFailedType,
-  );
+  WebhookBatchFailed _copyWith(
+          {Object? createdAt = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue}) =>
+      WebhookBatchFailed(
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as WebhookBatchFailedData,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<WebhookBatchFailedObject>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as WebhookBatchFailedType,
+      );
 
-  factory WebhookBatchFailed.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(WebhookBatchFailed(
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    id: (json['id'] as String?)!,
-    data: (json['data'] != null ? WebhookBatchFailedData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-    object: json['object'] != null ? SdkPresent((json['object'] != null ? WebhookBatchFailedObject.fromJson(json['object'] as String) : null)!) : const SdkOmitted(),
-    type_: (json['type'] != null ? WebhookBatchFailedType.fromJson(json['type'] as String) : null)!,
-  ), json);
+  factory WebhookBatchFailed.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          WebhookBatchFailed(
+            createdAt: ((json['created_at'] as num?)?.toInt())!,
+            id: (json['id'] as String?)!,
+            data: (json['data'] != null
+                ? WebhookBatchFailedData.fromJson(
+                    json['data'] as Map<String, dynamic>)
+                : null)!,
+            object: json['object'] != null
+                ? SdkPresent((json['object'] != null
+                    ? WebhookBatchFailedObject.fromJson(
+                        json['object'] as String)
+                    : null)!)
+                : const SdkOmitted(),
+            type_: (json['type'] != null
+                ? WebhookBatchFailedType.fromJson(json['type'] as String)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'created_at': createdAt,
-    'id': id,
-    'data': data.toJson(),
-    ...switch (object) {
-      SdkPresent<WebhookBatchFailedObject>(value: final value) => {'object': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'type': type_.toJson(),
-  };
+        'created_at': createdAt,
+        'id': id,
+        'data': data.toJson(),
+        ...switch (object) {
+          SdkPresent<WebhookBatchFailedObject>(value: final value) => {
+              'object': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'type': type_.toJson(),
+      };
 }

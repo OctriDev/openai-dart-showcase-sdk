@@ -8,253 +8,371 @@ part of 'live_live_specific.dart';
 class LiveSpecificApplyPatchParam implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The tool to call. Always `apply_patch`.
   final LiveSpecificApplyPatchParamType type_;
 
   const LiveSpecificApplyPatchParam({required this.type_});
 
-  LiveSpecificApplyPatchParam Function({LiveSpecificApplyPatchParamType type_}) get copyWith => _copyWith;
+  LiveSpecificApplyPatchParam Function({LiveSpecificApplyPatchParamType type_})
+      get copyWith => _copyWith;
 
-  LiveSpecificApplyPatchParam _copyWith({Object? type_ = sdkOmittedValue}) => LiveSpecificApplyPatchParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveSpecificApplyPatchParamType,
-  );
+  LiveSpecificApplyPatchParam _copyWith({Object? type_ = sdkOmittedValue}) =>
+      LiveSpecificApplyPatchParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveSpecificApplyPatchParamType,
+      );
 
-  factory LiveSpecificApplyPatchParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(LiveSpecificApplyPatchParam(
-    type_: (json['type'] != null ? LiveSpecificApplyPatchParamType.fromJson(json['type'] as String) : null)!,
-  ), json);
+  factory LiveSpecificApplyPatchParam.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          LiveSpecificApplyPatchParam(
+            type_: (json['type'] != null
+                ? LiveSpecificApplyPatchParamType.fromJson(
+                    json['type'] as String)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 /// Typed representation of the `LiveSpecificCodeInterpreterParam` API schema.
 class LiveSpecificCodeInterpreterParam implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The tool to call. Always `code_interpreter`.
   final LiveSpecificCodeInterpreterParamType type_;
 
   const LiveSpecificCodeInterpreterParam({required this.type_});
 
-  LiveSpecificCodeInterpreterParam Function({LiveSpecificCodeInterpreterParamType type_}) get copyWith => _copyWith;
+  LiveSpecificCodeInterpreterParam Function(
+      {LiveSpecificCodeInterpreterParamType type_}) get copyWith => _copyWith;
 
-  LiveSpecificCodeInterpreterParam _copyWith({Object? type_ = sdkOmittedValue}) => LiveSpecificCodeInterpreterParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveSpecificCodeInterpreterParamType,
-  );
+  LiveSpecificCodeInterpreterParam _copyWith(
+          {Object? type_ = sdkOmittedValue}) =>
+      LiveSpecificCodeInterpreterParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveSpecificCodeInterpreterParamType,
+      );
 
-  factory LiveSpecificCodeInterpreterParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(LiveSpecificCodeInterpreterParam(
-    type_: (json['type'] != null ? LiveSpecificCodeInterpreterParamType.fromJson(json['type'] as String) : null)!,
-  ), json);
+  factory LiveSpecificCodeInterpreterParam.fromJson(
+          Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          LiveSpecificCodeInterpreterParam(
+            type_: (json['type'] != null
+                ? LiveSpecificCodeInterpreterParamType.fromJson(
+                    json['type'] as String)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 /// Typed representation of the `LiveSpecificComputerParam` API schema.
 class LiveSpecificComputerParam implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The tool to call. Always `computer`.
   final LiveSpecificComputerParamType type_;
 
   const LiveSpecificComputerParam({required this.type_});
 
-  LiveSpecificComputerParam Function({LiveSpecificComputerParamType type_}) get copyWith => _copyWith;
+  LiveSpecificComputerParam Function({LiveSpecificComputerParamType type_})
+      get copyWith => _copyWith;
 
-  LiveSpecificComputerParam _copyWith({Object? type_ = sdkOmittedValue}) => LiveSpecificComputerParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveSpecificComputerParamType,
-  );
+  LiveSpecificComputerParam _copyWith({Object? type_ = sdkOmittedValue}) =>
+      LiveSpecificComputerParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveSpecificComputerParamType,
+      );
 
-  factory LiveSpecificComputerParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(LiveSpecificComputerParam(
-    type_: (json['type'] != null ? LiveSpecificComputerParamType.fromJson(json['type'] as String) : null)!,
-  ), json);
+  factory LiveSpecificComputerParam.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          LiveSpecificComputerParam(
+            type_: (json['type'] != null
+                ? LiveSpecificComputerParamType.fromJson(json['type'] as String)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 /// Typed representation of the `LiveSpecificCustomToolParam` API schema.
 class LiveSpecificCustomToolParam implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The tool to call. Always `custom`.
   final LiveSpecificCustomToolParamType type_;
+
   /// The name of the custom tool to call.
   final String name;
 
   const LiveSpecificCustomToolParam({required this.type_, required this.name});
 
-  LiveSpecificCustomToolParam Function({LiveSpecificCustomToolParamType type_, String name}) get copyWith => _copyWith;
+  LiveSpecificCustomToolParam Function(
+      {LiveSpecificCustomToolParamType type_,
+      String name}) get copyWith => _copyWith;
 
-  LiveSpecificCustomToolParam _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue}) => LiveSpecificCustomToolParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveSpecificCustomToolParamType,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-  );
+  LiveSpecificCustomToolParam _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue}) =>
+      LiveSpecificCustomToolParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveSpecificCustomToolParamType,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+      );
 
-  factory LiveSpecificCustomToolParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(LiveSpecificCustomToolParam(
-    type_: (json['type'] != null ? LiveSpecificCustomToolParamType.fromJson(json['type'] as String) : null)!,
-    name: (json['name'] as String?)!,
-  ), json);
+  factory LiveSpecificCustomToolParam.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          LiveSpecificCustomToolParam(
+            type_: (json['type'] != null
+                ? LiveSpecificCustomToolParamType.fromJson(
+                    json['type'] as String)
+                : null)!,
+            name: (json['name'] as String?)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'name': name,
-  };
+        'type': type_.toJson(),
+        'name': name,
+      };
 }
 
 /// Typed representation of the `LiveSpecificFileSearchParam` API schema.
 class LiveSpecificFileSearchParam implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The tool to call. Always `file_search`.
   final LiveSpecificFileSearchParamType type_;
 
   const LiveSpecificFileSearchParam({required this.type_});
 
-  LiveSpecificFileSearchParam Function({LiveSpecificFileSearchParamType type_}) get copyWith => _copyWith;
+  LiveSpecificFileSearchParam Function({LiveSpecificFileSearchParamType type_})
+      get copyWith => _copyWith;
 
-  LiveSpecificFileSearchParam _copyWith({Object? type_ = sdkOmittedValue}) => LiveSpecificFileSearchParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveSpecificFileSearchParamType,
-  );
+  LiveSpecificFileSearchParam _copyWith({Object? type_ = sdkOmittedValue}) =>
+      LiveSpecificFileSearchParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveSpecificFileSearchParamType,
+      );
 
-  factory LiveSpecificFileSearchParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(LiveSpecificFileSearchParam(
-    type_: (json['type'] != null ? LiveSpecificFileSearchParamType.fromJson(json['type'] as String) : null)!,
-  ), json);
+  factory LiveSpecificFileSearchParam.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          LiveSpecificFileSearchParam(
+            type_: (json['type'] != null
+                ? LiveSpecificFileSearchParamType.fromJson(
+                    json['type'] as String)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 /// Forces the model to call the shell tool when a tool call is required.
 class LiveSpecificFunctionShellParam implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The tool to call. Always `shell`.
   final LiveSpecificFunctionShellParamType type_;
 
   const LiveSpecificFunctionShellParam({required this.type_});
 
-  LiveSpecificFunctionShellParam Function({LiveSpecificFunctionShellParamType type_}) get copyWith => _copyWith;
+  LiveSpecificFunctionShellParam Function(
+      {LiveSpecificFunctionShellParamType type_}) get copyWith => _copyWith;
 
-  LiveSpecificFunctionShellParam _copyWith({Object? type_ = sdkOmittedValue}) => LiveSpecificFunctionShellParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveSpecificFunctionShellParamType,
-  );
+  LiveSpecificFunctionShellParam _copyWith({Object? type_ = sdkOmittedValue}) =>
+      LiveSpecificFunctionShellParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveSpecificFunctionShellParamType,
+      );
 
-  factory LiveSpecificFunctionShellParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(LiveSpecificFunctionShellParam(
-    type_: (json['type'] != null ? LiveSpecificFunctionShellParamType.fromJson(json['type'] as String) : null)!,
-  ), json);
+  factory LiveSpecificFunctionShellParam.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          LiveSpecificFunctionShellParam(
+            type_: (json['type'] != null
+                ? LiveSpecificFunctionShellParamType.fromJson(
+                    json['type'] as String)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 /// Typed representation of the `LiveSpecificImageGenParam` API schema.
 class LiveSpecificImageGenParam implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The tool to call. Always `image_generation`.
   final LiveSpecificImageGenParamType type_;
 
   const LiveSpecificImageGenParam({required this.type_});
 
-  LiveSpecificImageGenParam Function({LiveSpecificImageGenParamType type_}) get copyWith => _copyWith;
+  LiveSpecificImageGenParam Function({LiveSpecificImageGenParamType type_})
+      get copyWith => _copyWith;
 
-  LiveSpecificImageGenParam _copyWith({Object? type_ = sdkOmittedValue}) => LiveSpecificImageGenParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveSpecificImageGenParamType,
-  );
+  LiveSpecificImageGenParam _copyWith({Object? type_ = sdkOmittedValue}) =>
+      LiveSpecificImageGenParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveSpecificImageGenParamType,
+      );
 
-  factory LiveSpecificImageGenParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(LiveSpecificImageGenParam(
-    type_: (json['type'] != null ? LiveSpecificImageGenParamType.fromJson(json['type'] as String) : null)!,
-  ), json);
+  factory LiveSpecificImageGenParam.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          LiveSpecificImageGenParam(
+            type_: (json['type'] != null
+                ? LiveSpecificImageGenParamType.fromJson(json['type'] as String)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 /// Typed representation of the `LiveSpecificProgrammaticToolCallingParam` API schema.
 class LiveSpecificProgrammaticToolCallingParam implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The tool to call. Always `programmatic_tool_calling`.
   final LiveSpecificProgrammaticToolCallingParamType type_;
 
   const LiveSpecificProgrammaticToolCallingParam({required this.type_});
 
-  LiveSpecificProgrammaticToolCallingParam Function({LiveSpecificProgrammaticToolCallingParamType type_}) get copyWith => _copyWith;
+  LiveSpecificProgrammaticToolCallingParam Function(
+          {LiveSpecificProgrammaticToolCallingParamType type_})
+      get copyWith => _copyWith;
 
-  LiveSpecificProgrammaticToolCallingParam _copyWith({Object? type_ = sdkOmittedValue}) => LiveSpecificProgrammaticToolCallingParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveSpecificProgrammaticToolCallingParamType,
-  );
+  LiveSpecificProgrammaticToolCallingParam _copyWith(
+          {Object? type_ = sdkOmittedValue}) =>
+      LiveSpecificProgrammaticToolCallingParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveSpecificProgrammaticToolCallingParamType,
+      );
 
-  factory LiveSpecificProgrammaticToolCallingParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(LiveSpecificProgrammaticToolCallingParam(
-    type_: (json['type'] != null ? LiveSpecificProgrammaticToolCallingParamType.fromJson(json['type'] as String) : null)!,
-  ), json);
+  factory LiveSpecificProgrammaticToolCallingParam.fromJson(
+          Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          LiveSpecificProgrammaticToolCallingParam(
+            type_: (json['type'] != null
+                ? LiveSpecificProgrammaticToolCallingParamType.fromJson(
+                    json['type'] as String)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 /// Typed representation of the `LiveSpecificWebSearchParam` API schema.
 class LiveSpecificWebSearchParam implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The tool to call. Always `web_search`.
   final LiveSpecificWebSearchParamType type_;
 
   const LiveSpecificWebSearchParam({required this.type_});
 
-  LiveSpecificWebSearchParam Function({LiveSpecificWebSearchParamType type_}) get copyWith => _copyWith;
+  LiveSpecificWebSearchParam Function({LiveSpecificWebSearchParamType type_})
+      get copyWith => _copyWith;
 
-  LiveSpecificWebSearchParam _copyWith({Object? type_ = sdkOmittedValue}) => LiveSpecificWebSearchParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveSpecificWebSearchParamType,
-  );
+  LiveSpecificWebSearchParam _copyWith({Object? type_ = sdkOmittedValue}) =>
+      LiveSpecificWebSearchParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveSpecificWebSearchParamType,
+      );
 
-  factory LiveSpecificWebSearchParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(LiveSpecificWebSearchParam(
-    type_: (json['type'] != null ? LiveSpecificWebSearchParamType.fromJson(json['type'] as String) : null)!,
-  ), json);
+  factory LiveSpecificWebSearchParam.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          LiveSpecificWebSearchParam(
+            type_: (json['type'] != null
+                ? LiveSpecificWebSearchParamType.fromJson(
+                    json['type'] as String)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 /// Typed representation of the `LiveSpecificWebSearchPreviewParam` API schema.
 class LiveSpecificWebSearchPreviewParam implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The tool to call. Always `web_search_preview`.
   final LiveSpecificWebSearchPreviewParamType type_;
 
   const LiveSpecificWebSearchPreviewParam({required this.type_});
 
-  LiveSpecificWebSearchPreviewParam Function({LiveSpecificWebSearchPreviewParamType type_}) get copyWith => _copyWith;
+  LiveSpecificWebSearchPreviewParam Function(
+      {LiveSpecificWebSearchPreviewParamType type_}) get copyWith => _copyWith;
 
-  LiveSpecificWebSearchPreviewParam _copyWith({Object? type_ = sdkOmittedValue}) => LiveSpecificWebSearchPreviewParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as LiveSpecificWebSearchPreviewParamType,
-  );
+  LiveSpecificWebSearchPreviewParam _copyWith(
+          {Object? type_ = sdkOmittedValue}) =>
+      LiveSpecificWebSearchPreviewParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as LiveSpecificWebSearchPreviewParamType,
+      );
 
-  factory LiveSpecificWebSearchPreviewParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(LiveSpecificWebSearchPreviewParam(
-    type_: (json['type'] != null ? LiveSpecificWebSearchPreviewParamType.fromJson(json['type'] as String) : null)!,
-  ), json);
+  factory LiveSpecificWebSearchPreviewParam.fromJson(
+          Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          LiveSpecificWebSearchPreviewParam(
+            type_: (json['type'] != null
+                ? LiveSpecificWebSearchPreviewParamType.fromJson(
+                    json['type'] as String)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }

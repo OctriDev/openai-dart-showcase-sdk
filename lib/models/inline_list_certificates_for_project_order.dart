@@ -5,91 +5,102 @@ part of 'inline.dart';
 
 // Inline operation models
 final class ListCertificatesForProjectOrder {
-
   final String value;
 
   const ListCertificatesForProjectOrder._(this.value);
 
-  factory ListCertificatesForProjectOrder.fromJson(String value) => ListCertificatesForProjectOrder._(value);
+  factory ListCertificatesForProjectOrder.fromJson(String value) =>
+      ListCertificatesForProjectOrder._(value);
 
   static const asc = ListCertificatesForProjectOrder._('asc');
   static const desc = ListCertificatesForProjectOrder._('desc');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListCertificatesForProjectOrder && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListCertificatesForProjectOrder && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class ListProjectGroupsOrder {
-
   final String value;
 
   const ListProjectGroupsOrder._(this.value);
 
-  factory ListProjectGroupsOrder.fromJson(String value) => ListProjectGroupsOrder._(value);
+  factory ListProjectGroupsOrder.fromJson(String value) =>
+      ListProjectGroupsOrder._(value);
 
   static const asc = ListProjectGroupsOrder._('asc');
   static const desc = ListProjectGroupsOrder._('desc');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListProjectGroupsOrder && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListProjectGroupsOrder && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class RetrieveProjectGroupGroupType {
-
   final String value;
 
   const RetrieveProjectGroupGroupType._(this.value);
 
-  factory RetrieveProjectGroupGroupType.fromJson(String value) => RetrieveProjectGroupGroupType._(value);
+  factory RetrieveProjectGroupGroupType.fromJson(String value) =>
+      RetrieveProjectGroupGroupType._(value);
 
   static const group = RetrieveProjectGroupGroupType._('group');
   static const tenantGroup = RetrieveProjectGroupGroupType._('tenant_group');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RetrieveProjectGroupGroupType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RetrieveProjectGroupGroupType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class ListProjectSpendAlertsOrder {
-
   final String value;
 
   const ListProjectSpendAlertsOrder._(this.value);
 
-  factory ListProjectSpendAlertsOrder.fromJson(String value) => ListProjectSpendAlertsOrder._(value);
+  factory ListProjectSpendAlertsOrder.fromJson(String value) =>
+      ListProjectSpendAlertsOrder._(value);
 
   static const asc = ListProjectSpendAlertsOrder._('asc');
   static const desc = ListProjectSpendAlertsOrder._('desc');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListProjectSpendAlertsOrder && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListProjectSpendAlertsOrder && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class ListRolesOrder {
-
   final String value;
 
   const ListRolesOrder._(this.value);
@@ -101,42 +112,48 @@ final class ListRolesOrder {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListRolesOrder && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListRolesOrder && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class ListOrganizationSpendAlertsOrder {
-
   final String value;
 
   const ListOrganizationSpendAlertsOrder._(this.value);
 
-  factory ListOrganizationSpendAlertsOrder.fromJson(String value) => ListOrganizationSpendAlertsOrder._(value);
+  factory ListOrganizationSpendAlertsOrder.fromJson(String value) =>
+      ListOrganizationSpendAlertsOrder._(value);
 
   static const asc = ListOrganizationSpendAlertsOrder._('asc');
   static const desc = ListOrganizationSpendAlertsOrder._('desc');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListOrganizationSpendAlertsOrder && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListOrganizationSpendAlertsOrder && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class UsageAudioSpeechesBucketWidth {
-
   final String value;
 
   const UsageAudioSpeechesBucketWidth._(this.value);
 
-  factory UsageAudioSpeechesBucketWidth.fromJson(String value) => UsageAudioSpeechesBucketWidth._(value);
+  factory UsageAudioSpeechesBucketWidth.fromJson(String value) =>
+      UsageAudioSpeechesBucketWidth._(value);
 
   static const v1m = UsageAudioSpeechesBucketWidth._('1m');
   static const v1h = UsageAudioSpeechesBucketWidth._('1h');
@@ -144,21 +161,24 @@ final class UsageAudioSpeechesBucketWidth {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UsageAudioSpeechesBucketWidth && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UsageAudioSpeechesBucketWidth && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class UsageAudioSpeechesGroupByItem {
-
   final String value;
 
   const UsageAudioSpeechesGroupByItem._(this.value);
 
-  factory UsageAudioSpeechesGroupByItem.fromJson(String value) => UsageAudioSpeechesGroupByItem._(value);
+  factory UsageAudioSpeechesGroupByItem.fromJson(String value) =>
+      UsageAudioSpeechesGroupByItem._(value);
 
   static const projectId = UsageAudioSpeechesGroupByItem._('project_id');
   static const userId = UsageAudioSpeechesGroupByItem._('user_id');
@@ -167,21 +187,24 @@ final class UsageAudioSpeechesGroupByItem {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UsageAudioSpeechesGroupByItem && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UsageAudioSpeechesGroupByItem && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class UsageAudioTranscriptionsBucketWidth {
-
   final String value;
 
   const UsageAudioTranscriptionsBucketWidth._(this.value);
 
-  factory UsageAudioTranscriptionsBucketWidth.fromJson(String value) => UsageAudioTranscriptionsBucketWidth._(value);
+  factory UsageAudioTranscriptionsBucketWidth.fromJson(String value) =>
+      UsageAudioTranscriptionsBucketWidth._(value);
 
   static const v1m = UsageAudioTranscriptionsBucketWidth._('1m');
   static const v1h = UsageAudioTranscriptionsBucketWidth._('1h');
@@ -189,21 +212,24 @@ final class UsageAudioTranscriptionsBucketWidth {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UsageAudioTranscriptionsBucketWidth && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UsageAudioTranscriptionsBucketWidth && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class UsageAudioTranscriptionsGroupByItem {
-
   final String value;
 
   const UsageAudioTranscriptionsGroupByItem._(this.value);
 
-  factory UsageAudioTranscriptionsGroupByItem.fromJson(String value) => UsageAudioTranscriptionsGroupByItem._(value);
+  factory UsageAudioTranscriptionsGroupByItem.fromJson(String value) =>
+      UsageAudioTranscriptionsGroupByItem._(value);
 
   static const projectId = UsageAudioTranscriptionsGroupByItem._('project_id');
   static const userId = UsageAudioTranscriptionsGroupByItem._('user_id');
@@ -212,21 +238,24 @@ final class UsageAudioTranscriptionsGroupByItem {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UsageAudioTranscriptionsGroupByItem && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UsageAudioTranscriptionsGroupByItem && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class UsageCodeInterpreterSessionsBucketWidth {
-
   final String value;
 
   const UsageCodeInterpreterSessionsBucketWidth._(this.value);
 
-  factory UsageCodeInterpreterSessionsBucketWidth.fromJson(String value) => UsageCodeInterpreterSessionsBucketWidth._(value);
+  factory UsageCodeInterpreterSessionsBucketWidth.fromJson(String value) =>
+      UsageCodeInterpreterSessionsBucketWidth._(value);
 
   static const v1m = UsageCodeInterpreterSessionsBucketWidth._('1m');
   static const v1h = UsageCodeInterpreterSessionsBucketWidth._('1h');
@@ -234,41 +263,48 @@ final class UsageCodeInterpreterSessionsBucketWidth {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UsageCodeInterpreterSessionsBucketWidth && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UsageCodeInterpreterSessionsBucketWidth && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class UsageCodeInterpreterSessionsGroupByItem {
-
   final String value;
 
   const UsageCodeInterpreterSessionsGroupByItem._(this.value);
 
-  factory UsageCodeInterpreterSessionsGroupByItem.fromJson(String value) => UsageCodeInterpreterSessionsGroupByItem._(value);
+  factory UsageCodeInterpreterSessionsGroupByItem.fromJson(String value) =>
+      UsageCodeInterpreterSessionsGroupByItem._(value);
 
-  static const projectId = UsageCodeInterpreterSessionsGroupByItem._('project_id');
+  static const projectId =
+      UsageCodeInterpreterSessionsGroupByItem._('project_id');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UsageCodeInterpreterSessionsGroupByItem && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UsageCodeInterpreterSessionsGroupByItem && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class UsageCompletionsBucketWidth {
-
   final String value;
 
   const UsageCompletionsBucketWidth._(this.value);
 
-  factory UsageCompletionsBucketWidth.fromJson(String value) => UsageCompletionsBucketWidth._(value);
+  factory UsageCompletionsBucketWidth.fromJson(String value) =>
+      UsageCompletionsBucketWidth._(value);
 
   static const v1m = UsageCompletionsBucketWidth._('1m');
   static const v1h = UsageCompletionsBucketWidth._('1h');
@@ -276,10 +312,13 @@ final class UsageCompletionsBucketWidth {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UsageCompletionsBucketWidth && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is UsageCompletionsBucketWidth && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

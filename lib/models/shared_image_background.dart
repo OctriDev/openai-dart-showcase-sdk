@@ -6,7 +6,6 @@ part of 'shared_image.dart';
 // shared_image domain models
 /// Typed representation of the `ImageBackground` API schema.
 final class ImageBackground {
-
   final String value;
 
   const ImageBackground._(this.value);
@@ -19,10 +18,13 @@ final class ImageBackground {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ImageBackground && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ImageBackground && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

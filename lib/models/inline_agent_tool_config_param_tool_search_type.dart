@@ -10,14 +10,18 @@ enum AgentToolConfigParamToolSearchType {
 
   static AgentToolConfigParamToolSearchType fromJson(String value) {
     switch (value) {
-      case 'tool_search': return AgentToolConfigParamToolSearchType.toolSearch;
-      default: throw ArgumentError('Unknown AgentToolConfigParamToolSearchType: $value');
+      case 'tool_search':
+        return AgentToolConfigParamToolSearchType.toolSearch;
+      default:
+        throw ArgumentError(
+            'Unknown AgentToolConfigParamToolSearchType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AgentToolConfigParamToolSearchType.toolSearch: return 'tool_search';
+      case AgentToolConfigParamToolSearchType.toolSearch:
+        return 'tool_search';
     }
   }
 
@@ -31,14 +35,18 @@ enum AgentToolConfigParamWebSearchType {
 
   static AgentToolConfigParamWebSearchType fromJson(String value) {
     switch (value) {
-      case 'web_search': return AgentToolConfigParamWebSearchType.webSearch;
-      default: throw ArgumentError('Unknown AgentToolConfigParamWebSearchType: $value');
+      case 'web_search':
+        return AgentToolConfigParamWebSearchType.webSearch;
+      default:
+        throw ArgumentError(
+            'Unknown AgentToolConfigParamWebSearchType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AgentToolConfigParamWebSearchType.webSearch: return 'web_search';
+      case AgentToolConfigParamWebSearchType.webSearch:
+        return 'web_search';
     }
   }
 
@@ -52,14 +60,17 @@ enum AgentToolResourceComputerUseType {
 
   static AgentToolResourceComputerUseType fromJson(String value) {
     switch (value) {
-      case 'computer_use': return AgentToolResourceComputerUseType.computerUse;
-      default: throw ArgumentError('Unknown AgentToolResourceComputerUseType: $value');
+      case 'computer_use':
+        return AgentToolResourceComputerUseType.computerUse;
+      default:
+        throw ArgumentError('Unknown AgentToolResourceComputerUseType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AgentToolResourceComputerUseType.computerUse: return 'computer_use';
+      case AgentToolResourceComputerUseType.computerUse:
+        return 'computer_use';
     }
   }
 
@@ -73,14 +84,17 @@ enum AgentToolResourceFunctionType {
 
   static AgentToolResourceFunctionType fromJson(String value) {
     switch (value) {
-      case 'function': return AgentToolResourceFunctionType.function_;
-      default: throw ArgumentError('Unknown AgentToolResourceFunctionType: $value');
+      case 'function':
+        return AgentToolResourceFunctionType.function_;
+      default:
+        throw ArgumentError('Unknown AgentToolResourceFunctionType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AgentToolResourceFunctionType.function_: return 'function';
+      case AgentToolResourceFunctionType.function_:
+        return 'function';
     }
   }
 
@@ -94,14 +108,17 @@ enum AgentToolResourceMcpType {
 
   static AgentToolResourceMcpType fromJson(String value) {
     switch (value) {
-      case 'mcp': return AgentToolResourceMcpType.mcp;
-      default: throw ArgumentError('Unknown AgentToolResourceMcpType: $value');
+      case 'mcp':
+        return AgentToolResourceMcpType.mcp;
+      default:
+        throw ArgumentError('Unknown AgentToolResourceMcpType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AgentToolResourceMcpType.mcp: return 'mcp';
+      case AgentToolResourceMcpType.mcp:
+        return 'mcp';
     }
   }
 
@@ -115,14 +132,19 @@ enum AgentToolResourceProgrammaticToolCallingType {
 
   static AgentToolResourceProgrammaticToolCallingType fromJson(String value) {
     switch (value) {
-      case 'programmatic_tool_calling': return AgentToolResourceProgrammaticToolCallingType.programmaticToolCalling;
-      default: throw ArgumentError('Unknown AgentToolResourceProgrammaticToolCallingType: $value');
+      case 'programmatic_tool_calling':
+        return AgentToolResourceProgrammaticToolCallingType
+            .programmaticToolCalling;
+      default:
+        throw ArgumentError(
+            'Unknown AgentToolResourceProgrammaticToolCallingType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AgentToolResourceProgrammaticToolCallingType.programmaticToolCalling: return 'programmatic_tool_calling';
+      case AgentToolResourceProgrammaticToolCallingType.programmaticToolCalling:
+        return 'programmatic_tool_calling';
     }
   }
 
@@ -136,14 +158,17 @@ enum AgentToolResourceWebSearchType {
 
   static AgentToolResourceWebSearchType fromJson(String value) {
     switch (value) {
-      case 'web_search': return AgentToolResourceWebSearchType.webSearch;
-      default: throw ArgumentError('Unknown AgentToolResourceWebSearchType: $value');
+      case 'web_search':
+        return AgentToolResourceWebSearchType.webSearch;
+      default:
+        throw ArgumentError('Unknown AgentToolResourceWebSearchType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AgentToolResourceWebSearchType.webSearch: return 'web_search';
+      case AgentToolResourceWebSearchType.webSearch:
+        return 'web_search';
     }
   }
 
@@ -157,14 +182,17 @@ enum AnswerResourceChoiceType {
 
   static AnswerResourceChoiceType fromJson(String value) {
     switch (value) {
-      case 'choice': return AnswerResourceChoiceType.choice;
-      default: throw ArgumentError('Unknown AnswerResourceChoiceType: $value');
+      case 'choice':
+        return AnswerResourceChoiceType.choice;
+      default:
+        throw ArgumentError('Unknown AnswerResourceChoiceType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AnswerResourceChoiceType.choice: return 'choice';
+      case AnswerResourceChoiceType.choice:
+        return 'choice';
     }
   }
 
@@ -178,14 +206,17 @@ enum AnswerResourcePredicateType {
 
   static AnswerResourcePredicateType fromJson(String value) {
     switch (value) {
-      case 'predicate': return AnswerResourcePredicateType.predicate;
-      default: throw ArgumentError('Unknown AnswerResourcePredicateType: $value');
+      case 'predicate':
+        return AnswerResourcePredicateType.predicate;
+      default:
+        throw ArgumentError('Unknown AnswerResourcePredicateType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AnswerResourcePredicateType.predicate: return 'predicate';
+      case AnswerResourcePredicateType.predicate:
+        return 'predicate';
     }
   }
 
@@ -199,14 +230,17 @@ enum AnswerResourceRefusalType {
 
   static AnswerResourceRefusalType fromJson(String value) {
     switch (value) {
-      case 'refusal': return AnswerResourceRefusalType.refusal;
-      default: throw ArgumentError('Unknown AnswerResourceRefusalType: $value');
+      case 'refusal':
+        return AnswerResourceRefusalType.refusal;
+      default:
+        throw ArgumentError('Unknown AnswerResourceRefusalType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AnswerResourceRefusalType.refusal: return 'refusal';
+      case AnswerResourceRefusalType.refusal:
+        return 'refusal';
     }
   }
 
@@ -220,14 +254,17 @@ enum AnswerResourceScoreType {
 
   static AnswerResourceScoreType fromJson(String value) {
     switch (value) {
-      case 'score': return AnswerResourceScoreType.score;
-      default: throw ArgumentError('Unknown AnswerResourceScoreType: $value');
+      case 'score':
+        return AnswerResourceScoreType.score;
+      default:
+        throw ArgumentError('Unknown AnswerResourceScoreType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case AnswerResourceScoreType.score: return 'score';
+      case AnswerResourceScoreType.score:
+        return 'score';
     }
   }
 
@@ -237,7 +274,6 @@ enum AnswerResourceScoreType {
 
 /// Required enumerated value serialized in the `object` wire field.
 final class ApiKeyListObject {
-
   final String value;
 
   const ApiKeyListObject._(this.value);
@@ -248,12 +284,15 @@ final class ApiKeyListObject {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiKeyListObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiKeyListObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Create a new file with the provided diff.
@@ -262,14 +301,18 @@ enum ApplyPatchCreateFileOperationType {
 
   static ApplyPatchCreateFileOperationType fromJson(String value) {
     switch (value) {
-      case 'create_file': return ApplyPatchCreateFileOperationType.createFile;
-      default: throw ArgumentError('Unknown ApplyPatchCreateFileOperationType: $value');
+      case 'create_file':
+        return ApplyPatchCreateFileOperationType.createFile;
+      default:
+        throw ArgumentError(
+            'Unknown ApplyPatchCreateFileOperationType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ApplyPatchCreateFileOperationType.createFile: return 'create_file';
+      case ApplyPatchCreateFileOperationType.createFile:
+        return 'create_file';
     }
   }
 

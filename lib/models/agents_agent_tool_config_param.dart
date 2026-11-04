@@ -10,64 +10,142 @@ sealed class AgentToolConfigParam {
   const AgentToolConfigParam();
   factory AgentToolConfigParam.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = AgentToolConfigParamFunction.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentToolConfigParamAgentToolConfigParamFunction(value); } } catch (_) {}
-      try { final value = AgentToolConfigParamToolSearch.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentToolConfigParamAgentToolConfigParamToolSearch(value); } } catch (_) {}
-      try { final value = AgentToolConfigParamProgrammaticToolCalling.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentToolConfigParamAgentToolConfigParamProgrammaticToolCalling(value); } } catch (_) {}
-      try { final value = AgentToolConfigParamMcp.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentToolConfigParamAgentToolConfigParamMcp(value); } } catch (_) {}
-      try { final value = AgentToolConfigParamWebSearch.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentToolConfigParamAgentToolConfigParamWebSearch(value); } } catch (_) {}
-      try { final value = AgentToolConfigParamComputerUse.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AgentToolConfigParamAgentToolConfigParamComputerUse(value); } } catch (_) {}
+      try {
+        final value = AgentToolConfigParamFunction.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentToolConfigParamAgentToolConfigParamFunction(value);
+        }
+      } catch (_) {}
+      try {
+        final value = AgentToolConfigParamToolSearch.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentToolConfigParamAgentToolConfigParamToolSearch(value);
+        }
+      } catch (_) {}
+      try {
+        final value =
+            AgentToolConfigParamProgrammaticToolCalling.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentToolConfigParamAgentToolConfigParamProgrammaticToolCalling(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = AgentToolConfigParamMcp.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentToolConfigParamAgentToolConfigParamMcp(value);
+        }
+      } catch (_) {}
+      try {
+        final value = AgentToolConfigParamWebSearch.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentToolConfigParamAgentToolConfigParamWebSearch(value);
+        }
+      } catch (_) {}
+      try {
+        final value = AgentToolConfigParamComputerUse.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AgentToolConfigParamAgentToolConfigParamComputerUse(value);
+        }
+      } catch (_) {}
     }
-    try { return AgentToolConfigParamAgentToolConfigParamFunction(AgentToolConfigParamFunction.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentToolConfigParamAgentToolConfigParamToolSearch(AgentToolConfigParamToolSearch.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentToolConfigParamAgentToolConfigParamProgrammaticToolCalling(AgentToolConfigParamProgrammaticToolCalling.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentToolConfigParamAgentToolConfigParamMcp(AgentToolConfigParamMcp.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentToolConfigParamAgentToolConfigParamWebSearch(AgentToolConfigParamWebSearch.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AgentToolConfigParamAgentToolConfigParamComputerUse(AgentToolConfigParamComputerUse.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"function", "tool_search", "programmatic_tool_calling", "mcp", "web_search", "computer_use"}.contains(json["type"])) { return UnknownAgentToolConfigParam(json); }
+    try {
+      return AgentToolConfigParamAgentToolConfigParamFunction(
+          AgentToolConfigParamFunction.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentToolConfigParamAgentToolConfigParamToolSearch(
+          AgentToolConfigParamToolSearch.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentToolConfigParamAgentToolConfigParamProgrammaticToolCalling(
+          AgentToolConfigParamProgrammaticToolCalling.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentToolConfigParamAgentToolConfigParamMcp(
+          AgentToolConfigParamMcp.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentToolConfigParamAgentToolConfigParamWebSearch(
+          AgentToolConfigParamWebSearch.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AgentToolConfigParamAgentToolConfigParamComputerUse(
+          AgentToolConfigParamComputerUse.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {
+          "function",
+          "tool_search",
+          "programmatic_tool_calling",
+          "mcp",
+          "web_search",
+          "computer_use"
+        }.contains(json["type"])) {
+      return UnknownAgentToolConfigParam(json);
+    }
     throw FormatException("No variant matched for AgentToolConfigParam");
   }
   Object? toJson();
 }
 
-final class AgentToolConfigParamAgentToolConfigParamFunction extends AgentToolConfigParam {
+final class AgentToolConfigParamAgentToolConfigParamFunction
+    extends AgentToolConfigParam {
   final AgentToolConfigParamFunction value;
   const AgentToolConfigParamAgentToolConfigParamFunction(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentToolConfigParamAgentToolConfigParamToolSearch extends AgentToolConfigParam {
+final class AgentToolConfigParamAgentToolConfigParamToolSearch
+    extends AgentToolConfigParam {
   final AgentToolConfigParamToolSearch value;
   const AgentToolConfigParamAgentToolConfigParamToolSearch(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentToolConfigParamAgentToolConfigParamProgrammaticToolCalling extends AgentToolConfigParam {
+final class AgentToolConfigParamAgentToolConfigParamProgrammaticToolCalling
+    extends AgentToolConfigParam {
   final AgentToolConfigParamProgrammaticToolCalling value;
-  const AgentToolConfigParamAgentToolConfigParamProgrammaticToolCalling(this.value);
-  @override Object? toJson() => value.toJson();
+  const AgentToolConfigParamAgentToolConfigParamProgrammaticToolCalling(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentToolConfigParamAgentToolConfigParamMcp extends AgentToolConfigParam {
+final class AgentToolConfigParamAgentToolConfigParamMcp
+    extends AgentToolConfigParam {
   final AgentToolConfigParamMcp value;
   const AgentToolConfigParamAgentToolConfigParamMcp(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentToolConfigParamAgentToolConfigParamWebSearch extends AgentToolConfigParam {
+final class AgentToolConfigParamAgentToolConfigParamWebSearch
+    extends AgentToolConfigParam {
   final AgentToolConfigParamWebSearch value;
   const AgentToolConfigParamAgentToolConfigParamWebSearch(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AgentToolConfigParamAgentToolConfigParamComputerUse extends AgentToolConfigParam {
+final class AgentToolConfigParamAgentToolConfigParamComputerUse
+    extends AgentToolConfigParam {
   final AgentToolConfigParamComputerUse value;
   const AgentToolConfigParamAgentToolConfigParamComputerUse(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [AgentToolConfigParam] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownAgentToolConfigParam extends AgentToolConfigParam {
   final Map<String, dynamic> raw;
   const UnknownAgentToolConfigParam(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

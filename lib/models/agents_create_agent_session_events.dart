@@ -8,23 +8,33 @@ part of 'agents_create.dart';
 class CreateSessionEventsParams implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The input events to submit to the session.
   final List<SessionInputParam> events;
 
   const CreateSessionEventsParams({required this.events});
 
-  CreateSessionEventsParams Function({List<SessionInputParam> events}) get copyWith => _copyWith;
+  CreateSessionEventsParams Function({List<SessionInputParam> events})
+      get copyWith => _copyWith;
 
-  CreateSessionEventsParams _copyWith({Object? events = sdkOmittedValue}) => CreateSessionEventsParams(
-    events: identical(events, sdkOmittedValue) ? this.events : events as List<SessionInputParam>,
-  );
+  CreateSessionEventsParams _copyWith({Object? events = sdkOmittedValue}) =>
+      CreateSessionEventsParams(
+        events: identical(events, sdkOmittedValue)
+            ? this.events
+            : events as List<SessionInputParam>,
+      );
 
-  factory CreateSessionEventsParams.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(CreateSessionEventsParams(
-    events: ((json['events'] as List?)?.map((e) => SessionInputParam.fromJson(e)).toList())!,
-  ), json);
+  factory CreateSessionEventsParams.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          CreateSessionEventsParams(
+            events: ((json['events'] as List?)
+                ?.map((e) => SessionInputParam.fromJson(e))
+                .toList())!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'events': events.map((item) => item.toJson()).toList(),
-  };
+        'events': events.map((item) => item.toJson()).toList(),
+      };
 }

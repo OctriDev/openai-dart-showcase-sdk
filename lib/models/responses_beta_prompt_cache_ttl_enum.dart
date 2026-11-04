@@ -6,21 +6,24 @@ part of 'responses_beta_prompt.dart';
 // responses_beta_prompt domain models
 /// Typed representation of the `BetaPromptCacheTTLEnum` API schema.
 final class BetaPromptCacheTTLEnum {
-
   final String value;
 
   const BetaPromptCacheTTLEnum._(this.value);
 
-  factory BetaPromptCacheTTLEnum.fromJson(String value) => BetaPromptCacheTTLEnum._(value);
+  factory BetaPromptCacheTTLEnum.fromJson(String value) =>
+      BetaPromptCacheTTLEnum._(value);
 
   static const v30m = BetaPromptCacheTTLEnum._('30m');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaPromptCacheTTLEnum && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaPromptCacheTTLEnum && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

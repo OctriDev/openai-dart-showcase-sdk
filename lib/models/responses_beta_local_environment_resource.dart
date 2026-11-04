@@ -8,23 +8,34 @@ part of 'responses_beta_local.dart';
 class BetaLocalEnvironmentResource implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The environment type. Always `local`.
   final BetaLocalEnvironmentResourceType type_;
 
   const BetaLocalEnvironmentResource({required this.type_});
 
-  BetaLocalEnvironmentResource Function({BetaLocalEnvironmentResourceType type_}) get copyWith => _copyWith;
+  BetaLocalEnvironmentResource Function(
+      {BetaLocalEnvironmentResourceType type_}) get copyWith => _copyWith;
 
-  BetaLocalEnvironmentResource _copyWith({Object? type_ = sdkOmittedValue}) => BetaLocalEnvironmentResource(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as BetaLocalEnvironmentResourceType,
-  );
+  BetaLocalEnvironmentResource _copyWith({Object? type_ = sdkOmittedValue}) =>
+      BetaLocalEnvironmentResource(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as BetaLocalEnvironmentResourceType,
+      );
 
-  factory BetaLocalEnvironmentResource.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(BetaLocalEnvironmentResource(
-    type_: (json['type'] != null ? BetaLocalEnvironmentResourceType.fromJson(json['type'] as String) : null)!,
-  ), json);
+  factory BetaLocalEnvironmentResource.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          BetaLocalEnvironmentResource(
+            type_: (json['type'] != null
+                ? BetaLocalEnvironmentResourceType.fromJson(
+                    json['type'] as String)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }

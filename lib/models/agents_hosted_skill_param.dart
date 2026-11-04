@@ -10,32 +10,57 @@ sealed class HostedSkillParam {
   const HostedSkillParam();
   factory HostedSkillParam.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = HostedSkillParamSkillReference.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return HostedSkillParamHostedSkillParamSkillReference(value); } } catch (_) {}
-      try { final value = HostedSkillParamInline.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return HostedSkillParamHostedSkillParamInline(value); } } catch (_) {}
+      try {
+        final value = HostedSkillParamSkillReference.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return HostedSkillParamHostedSkillParamSkillReference(value);
+        }
+      } catch (_) {}
+      try {
+        final value = HostedSkillParamInline.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return HostedSkillParamHostedSkillParamInline(value);
+        }
+      } catch (_) {}
     }
-    try { return HostedSkillParamHostedSkillParamSkillReference(HostedSkillParamSkillReference.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return HostedSkillParamHostedSkillParamInline(HostedSkillParamInline.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"skill_reference", "inline"}.contains(json["type"])) { return UnknownHostedSkillParam(json); }
+    try {
+      return HostedSkillParamHostedSkillParamSkillReference(
+          HostedSkillParamSkillReference.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return HostedSkillParamHostedSkillParamInline(
+          HostedSkillParamInline.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"skill_reference", "inline"}.contains(json["type"])) {
+      return UnknownHostedSkillParam(json);
+    }
     throw FormatException("No variant matched for HostedSkillParam");
   }
   Object? toJson();
 }
 
-final class HostedSkillParamHostedSkillParamSkillReference extends HostedSkillParam {
+final class HostedSkillParamHostedSkillParamSkillReference
+    extends HostedSkillParam {
   final HostedSkillParamSkillReference value;
   const HostedSkillParamHostedSkillParamSkillReference(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class HostedSkillParamHostedSkillParamInline extends HostedSkillParam {
   final HostedSkillParamInline value;
   const HostedSkillParamHostedSkillParamInline(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [HostedSkillParam] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownHostedSkillParam extends HostedSkillParam {
   final Map<String, dynamic> raw;
   const UnknownHostedSkillParam(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

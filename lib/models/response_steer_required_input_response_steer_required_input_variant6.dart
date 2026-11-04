@@ -4,15 +4,20 @@
 part of 'response_steer.dart';
 
 // response_steer domain models
-final class ResponseSteerRequiredInputResponseSteerRequiredInputVariant6 extends ResponseSteerRequiredInput {
+final class ResponseSteerRequiredInputResponseSteerRequiredInputVariant6
+    extends ResponseSteerRequiredInput {
   final ResponseSteerRequiredInputVariant6 value;
-  const ResponseSteerRequiredInputResponseSteerRequiredInputVariant6(this.value);
-  @override Object? toJson() => value.toJson();
+  const ResponseSteerRequiredInputResponseSteerRequiredInputVariant6(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [ResponseSteerRequiredInput] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownResponseSteerRequiredInput extends ResponseSteerRequiredInput {
+final class UnknownResponseSteerRequiredInput
+    extends ResponseSteerRequiredInput {
   final Map<String, dynamic> raw;
   const UnknownResponseSteerRequiredInput(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

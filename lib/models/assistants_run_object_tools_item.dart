@@ -10,14 +10,43 @@ sealed class RunObjectToolsItem {
   const RunObjectToolsItem();
   factory RunObjectToolsItem.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = AssistantToolsCode.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunObjectToolsItemAssistantToolsCode(value); } } catch (_) {}
-      try { final value = AssistantToolsFileSearch.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunObjectToolsItemAssistantToolsFileSearch(value); } } catch (_) {}
-      try { final value = AssistantToolsFunction.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return RunObjectToolsItemAssistantToolsFunction(value); } } catch (_) {}
+      try {
+        final value = AssistantToolsCode.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunObjectToolsItemAssistantToolsCode(value);
+        }
+      } catch (_) {}
+      try {
+        final value = AssistantToolsFileSearch.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunObjectToolsItemAssistantToolsFileSearch(value);
+        }
+      } catch (_) {}
+      try {
+        final value = AssistantToolsFunction.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return RunObjectToolsItemAssistantToolsFunction(value);
+        }
+      } catch (_) {}
     }
-    try { return RunObjectToolsItemAssistantToolsCode(AssistantToolsCode.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RunObjectToolsItemAssistantToolsFileSearch(AssistantToolsFileSearch.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return RunObjectToolsItemAssistantToolsFunction(AssistantToolsFunction.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"code_interpreter", "file_search", "function"}.contains(json["type"])) { return UnknownRunObjectToolsItem(json); }
+    try {
+      return RunObjectToolsItemAssistantToolsCode(
+          AssistantToolsCode.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RunObjectToolsItemAssistantToolsFileSearch(
+          AssistantToolsFileSearch.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return RunObjectToolsItemAssistantToolsFunction(
+          AssistantToolsFunction.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"code_interpreter", "file_search", "function"}
+            .contains(json["type"])) {
+      return UnknownRunObjectToolsItem(json);
+    }
     throw FormatException("No variant matched for RunObjectToolsItem");
   }
   Object? toJson();
@@ -26,24 +55,30 @@ sealed class RunObjectToolsItem {
 final class RunObjectToolsItemAssistantToolsCode extends RunObjectToolsItem {
   final AssistantToolsCode value;
   const RunObjectToolsItemAssistantToolsCode(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RunObjectToolsItemAssistantToolsFileSearch extends RunObjectToolsItem {
+final class RunObjectToolsItemAssistantToolsFileSearch
+    extends RunObjectToolsItem {
   final AssistantToolsFileSearch value;
   const RunObjectToolsItemAssistantToolsFileSearch(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class RunObjectToolsItemAssistantToolsFunction extends RunObjectToolsItem {
+final class RunObjectToolsItemAssistantToolsFunction
+    extends RunObjectToolsItem {
   final AssistantToolsFunction value;
   const RunObjectToolsItemAssistantToolsFunction(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [RunObjectToolsItem] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownRunObjectToolsItem extends RunObjectToolsItem {
   final Map<String, dynamic> raw;
   const UnknownRunObjectToolsItem(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

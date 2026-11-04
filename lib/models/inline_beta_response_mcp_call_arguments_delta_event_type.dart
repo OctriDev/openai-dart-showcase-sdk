@@ -10,14 +10,20 @@ enum BetaResponseMCPCallArgumentsDeltaEventType {
 
   static BetaResponseMCPCallArgumentsDeltaEventType fromJson(String value) {
     switch (value) {
-      case 'response.mcp_call_arguments.delta': return BetaResponseMCPCallArgumentsDeltaEventType.responseMcpCallArgumentsDelta;
-      default: throw ArgumentError('Unknown BetaResponseMCPCallArgumentsDeltaEventType: $value');
+      case 'response.mcp_call_arguments.delta':
+        return BetaResponseMCPCallArgumentsDeltaEventType
+            .responseMcpCallArgumentsDelta;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseMCPCallArgumentsDeltaEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseMCPCallArgumentsDeltaEventType.responseMcpCallArgumentsDelta: return 'response.mcp_call_arguments.delta';
+      case BetaResponseMCPCallArgumentsDeltaEventType
+            .responseMcpCallArgumentsDelta:
+        return 'response.mcp_call_arguments.delta';
     }
   }
 
@@ -31,14 +37,20 @@ enum BetaResponseMCPCallArgumentsDoneEventType {
 
   static BetaResponseMCPCallArgumentsDoneEventType fromJson(String value) {
     switch (value) {
-      case 'response.mcp_call_arguments.done': return BetaResponseMCPCallArgumentsDoneEventType.responseMcpCallArgumentsDone;
-      default: throw ArgumentError('Unknown BetaResponseMCPCallArgumentsDoneEventType: $value');
+      case 'response.mcp_call_arguments.done':
+        return BetaResponseMCPCallArgumentsDoneEventType
+            .responseMcpCallArgumentsDone;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseMCPCallArgumentsDoneEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseMCPCallArgumentsDoneEventType.responseMcpCallArgumentsDone: return 'response.mcp_call_arguments.done';
+      case BetaResponseMCPCallArgumentsDoneEventType
+            .responseMcpCallArgumentsDone:
+        return 'response.mcp_call_arguments.done';
     }
   }
 
@@ -52,14 +64,18 @@ enum BetaResponseMCPCallCompletedEventType {
 
   static BetaResponseMCPCallCompletedEventType fromJson(String value) {
     switch (value) {
-      case 'response.mcp_call.completed': return BetaResponseMCPCallCompletedEventType.responseMcpCallCompleted;
-      default: throw ArgumentError('Unknown BetaResponseMCPCallCompletedEventType: $value');
+      case 'response.mcp_call.completed':
+        return BetaResponseMCPCallCompletedEventType.responseMcpCallCompleted;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseMCPCallCompletedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseMCPCallCompletedEventType.responseMcpCallCompleted: return 'response.mcp_call.completed';
+      case BetaResponseMCPCallCompletedEventType.responseMcpCallCompleted:
+        return 'response.mcp_call.completed';
     }
   }
 
@@ -73,14 +89,18 @@ enum BetaResponseMCPCallFailedEventType {
 
   static BetaResponseMCPCallFailedEventType fromJson(String value) {
     switch (value) {
-      case 'response.mcp_call.failed': return BetaResponseMCPCallFailedEventType.responseMcpCallFailed;
-      default: throw ArgumentError('Unknown BetaResponseMCPCallFailedEventType: $value');
+      case 'response.mcp_call.failed':
+        return BetaResponseMCPCallFailedEventType.responseMcpCallFailed;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseMCPCallFailedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseMCPCallFailedEventType.responseMcpCallFailed: return 'response.mcp_call.failed';
+      case BetaResponseMCPCallFailedEventType.responseMcpCallFailed:
+        return 'response.mcp_call.failed';
     }
   }
 
@@ -94,14 +114,18 @@ enum BetaResponseMCPCallInProgressEventType {
 
   static BetaResponseMCPCallInProgressEventType fromJson(String value) {
     switch (value) {
-      case 'response.mcp_call.in_progress': return BetaResponseMCPCallInProgressEventType.responseMcpCallInProgress;
-      default: throw ArgumentError('Unknown BetaResponseMCPCallInProgressEventType: $value');
+      case 'response.mcp_call.in_progress':
+        return BetaResponseMCPCallInProgressEventType.responseMcpCallInProgress;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseMCPCallInProgressEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseMCPCallInProgressEventType.responseMcpCallInProgress: return 'response.mcp_call.in_progress';
+      case BetaResponseMCPCallInProgressEventType.responseMcpCallInProgress:
+        return 'response.mcp_call.in_progress';
     }
   }
 
@@ -115,14 +139,20 @@ enum BetaResponseMCPListToolsCompletedEventType {
 
   static BetaResponseMCPListToolsCompletedEventType fromJson(String value) {
     switch (value) {
-      case 'response.mcp_list_tools.completed': return BetaResponseMCPListToolsCompletedEventType.responseMcpListToolsCompleted;
-      default: throw ArgumentError('Unknown BetaResponseMCPListToolsCompletedEventType: $value');
+      case 'response.mcp_list_tools.completed':
+        return BetaResponseMCPListToolsCompletedEventType
+            .responseMcpListToolsCompleted;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseMCPListToolsCompletedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseMCPListToolsCompletedEventType.responseMcpListToolsCompleted: return 'response.mcp_list_tools.completed';
+      case BetaResponseMCPListToolsCompletedEventType
+            .responseMcpListToolsCompleted:
+        return 'response.mcp_list_tools.completed';
     }
   }
 
@@ -136,14 +166,19 @@ enum BetaResponseMCPListToolsFailedEventType {
 
   static BetaResponseMCPListToolsFailedEventType fromJson(String value) {
     switch (value) {
-      case 'response.mcp_list_tools.failed': return BetaResponseMCPListToolsFailedEventType.responseMcpListToolsFailed;
-      default: throw ArgumentError('Unknown BetaResponseMCPListToolsFailedEventType: $value');
+      case 'response.mcp_list_tools.failed':
+        return BetaResponseMCPListToolsFailedEventType
+            .responseMcpListToolsFailed;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseMCPListToolsFailedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseMCPListToolsFailedEventType.responseMcpListToolsFailed: return 'response.mcp_list_tools.failed';
+      case BetaResponseMCPListToolsFailedEventType.responseMcpListToolsFailed:
+        return 'response.mcp_list_tools.failed';
     }
   }
 
@@ -157,14 +192,20 @@ enum BetaResponseMCPListToolsInProgressEventType {
 
   static BetaResponseMCPListToolsInProgressEventType fromJson(String value) {
     switch (value) {
-      case 'response.mcp_list_tools.in_progress': return BetaResponseMCPListToolsInProgressEventType.responseMcpListToolsInProgress;
-      default: throw ArgumentError('Unknown BetaResponseMCPListToolsInProgressEventType: $value');
+      case 'response.mcp_list_tools.in_progress':
+        return BetaResponseMCPListToolsInProgressEventType
+            .responseMcpListToolsInProgress;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseMCPListToolsInProgressEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseMCPListToolsInProgressEventType.responseMcpListToolsInProgress: return 'response.mcp_list_tools.in_progress';
+      case BetaResponseMCPListToolsInProgressEventType
+            .responseMcpListToolsInProgress:
+        return 'response.mcp_list_tools.in_progress';
     }
   }
 
@@ -178,14 +219,18 @@ enum BetaResponseOutputItemAddedEventType {
 
   static BetaResponseOutputItemAddedEventType fromJson(String value) {
     switch (value) {
-      case 'response.output_item.added': return BetaResponseOutputItemAddedEventType.responseOutputItemAdded;
-      default: throw ArgumentError('Unknown BetaResponseOutputItemAddedEventType: $value');
+      case 'response.output_item.added':
+        return BetaResponseOutputItemAddedEventType.responseOutputItemAdded;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseOutputItemAddedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseOutputItemAddedEventType.responseOutputItemAdded: return 'response.output_item.added';
+      case BetaResponseOutputItemAddedEventType.responseOutputItemAdded:
+        return 'response.output_item.added';
     }
   }
 
@@ -199,14 +244,18 @@ enum BetaResponseOutputItemDoneEventType {
 
   static BetaResponseOutputItemDoneEventType fromJson(String value) {
     switch (value) {
-      case 'response.output_item.done': return BetaResponseOutputItemDoneEventType.responseOutputItemDone;
-      default: throw ArgumentError('Unknown BetaResponseOutputItemDoneEventType: $value');
+      case 'response.output_item.done':
+        return BetaResponseOutputItemDoneEventType.responseOutputItemDone;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseOutputItemDoneEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseOutputItemDoneEventType.responseOutputItemDone: return 'response.output_item.done';
+      case BetaResponseOutputItemDoneEventType.responseOutputItemDone:
+        return 'response.output_item.done';
     }
   }
 
@@ -220,14 +269,20 @@ enum BetaResponseOutputTextAnnotationAddedEventType {
 
   static BetaResponseOutputTextAnnotationAddedEventType fromJson(String value) {
     switch (value) {
-      case 'response.output_text.annotation.added': return BetaResponseOutputTextAnnotationAddedEventType.responseOutputTextAnnotationAdded;
-      default: throw ArgumentError('Unknown BetaResponseOutputTextAnnotationAddedEventType: $value');
+      case 'response.output_text.annotation.added':
+        return BetaResponseOutputTextAnnotationAddedEventType
+            .responseOutputTextAnnotationAdded;
+      default:
+        throw ArgumentError(
+            'Unknown BetaResponseOutputTextAnnotationAddedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseOutputTextAnnotationAddedEventType.responseOutputTextAnnotationAdded: return 'response.output_text.annotation.added';
+      case BetaResponseOutputTextAnnotationAddedEventType
+            .responseOutputTextAnnotationAdded:
+        return 'response.output_text.annotation.added';
     }
   }
 
@@ -241,14 +296,17 @@ enum BetaResponseQueuedEventType {
 
   static BetaResponseQueuedEventType fromJson(String value) {
     switch (value) {
-      case 'response.queued': return BetaResponseQueuedEventType.responseQueued;
-      default: throw ArgumentError('Unknown BetaResponseQueuedEventType: $value');
+      case 'response.queued':
+        return BetaResponseQueuedEventType.responseQueued;
+      default:
+        throw ArgumentError('Unknown BetaResponseQueuedEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case BetaResponseQueuedEventType.responseQueued: return 'response.queued';
+      case BetaResponseQueuedEventType.responseQueued:
+        return 'response.queued';
     }
   }
 
@@ -258,21 +316,27 @@ enum BetaResponseQueuedEventType {
 
 /// The type of the summary part. Always `summary_text`.
 final class BetaResponseReasoningSummaryPartAddedEventPartType {
-
   final String value;
 
   const BetaResponseReasoningSummaryPartAddedEventPartType._(this.value);
 
-  factory BetaResponseReasoningSummaryPartAddedEventPartType.fromJson(String value) => BetaResponseReasoningSummaryPartAddedEventPartType._(value);
+  factory BetaResponseReasoningSummaryPartAddedEventPartType.fromJson(
+          String value) =>
+      BetaResponseReasoningSummaryPartAddedEventPartType._(value);
 
-  static const summaryText = BetaResponseReasoningSummaryPartAddedEventPartType._('summary_text');
+  static const summaryText =
+      BetaResponseReasoningSummaryPartAddedEventPartType._('summary_text');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is BetaResponseReasoningSummaryPartAddedEventPartType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is BetaResponseReasoningSummaryPartAddedEventPartType &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

@@ -8,26 +8,39 @@ part of 'live_live_sideband.dart';
 class LiveSidebandConnectParams implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Opt in to the graceful WebSocket closing handshake when the session ends. The server may also enable this behavior by default.
   final SdkOptional<bool> gracefulClose;
 
   const LiveSidebandConnectParams({this.gracefulClose = const SdkOmitted()});
 
-  LiveSidebandConnectParams Function({SdkOptional<bool> gracefulClose}) get copyWith => _copyWith;
+  LiveSidebandConnectParams Function({SdkOptional<bool> gracefulClose})
+      get copyWith => _copyWith;
 
-  LiveSidebandConnectParams _copyWith({Object? gracefulClose = sdkOmittedValue}) => LiveSidebandConnectParams(
-    gracefulClose: identical(gracefulClose, sdkOmittedValue) ? this.gracefulClose : gracefulClose as SdkOptional<bool>,
-  );
+  LiveSidebandConnectParams _copyWith(
+          {Object? gracefulClose = sdkOmittedValue}) =>
+      LiveSidebandConnectParams(
+        gracefulClose: identical(gracefulClose, sdkOmittedValue)
+            ? this.gracefulClose
+            : gracefulClose as SdkOptional<bool>,
+      );
 
-  factory LiveSidebandConnectParams.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(LiveSidebandConnectParams(
-    gracefulClose: json['graceful_close'] != null ? SdkPresent((json['graceful_close'] as bool?)!) : const SdkOmitted(),
-  ), json);
+  factory LiveSidebandConnectParams.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          LiveSidebandConnectParams(
+            gracefulClose: json['graceful_close'] != null
+                ? SdkPresent((json['graceful_close'] as bool?)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (gracefulClose) {
-      SdkPresent<bool>(value: final value) => {'graceful_close': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (gracefulClose) {
+          SdkPresent<bool>(value: final value) => {
+              'graceful_close': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -10,14 +10,17 @@ enum ImageGenPartialImageEventType {
 
   static ImageGenPartialImageEventType fromJson(String value) {
     switch (value) {
-      case 'image_generation.partial_image': return ImageGenPartialImageEventType.imageGenerationPartialImage;
-      default: throw ArgumentError('Unknown ImageGenPartialImageEventType: $value');
+      case 'image_generation.partial_image':
+        return ImageGenPartialImageEventType.imageGenerationPartialImage;
+      default:
+        throw ArgumentError('Unknown ImageGenPartialImageEventType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ImageGenPartialImageEventType.imageGenerationPartialImage: return 'image_generation.partial_image';
+      case ImageGenPartialImageEventType.imageGenerationPartialImage:
+        return 'image_generation.partial_image';
     }
   }
 
@@ -27,12 +30,12 @@ enum ImageGenPartialImageEventType {
 
 /// Set the background of the generated image. One of `transparent`, `opaque`, or `auto`. `gpt-image-2.5-sunburst` and `gpt-image-2.5-flare`, including their `2026-09-08` snapshots, support `opaque` and `transparent` backgrounds. Transparent backgrounds are available for supported GPT Image models. For `gpt-image-2` and `gpt-image-2-2026-04-21`, this support is in preview. When using `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 final class ImageGenToolBackground {
-
   final String value;
 
   const ImageGenToolBackground._(this.value);
 
-  factory ImageGenToolBackground.fromJson(String value) => ImageGenToolBackground._(value);
+  factory ImageGenToolBackground.fromJson(String value) =>
+      ImageGenToolBackground._(value);
 
   static const transparent = ImageGenToolBackground._('transparent');
   static const opaque = ImageGenToolBackground._('opaque');
@@ -40,44 +43,50 @@ final class ImageGenToolBackground {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ImageGenToolBackground && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ImageGenToolBackground && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Moderation level for the generated image. Default: `auto`.
 final class ImageGenToolModeration {
-
   final String value;
 
   const ImageGenToolModeration._(this.value);
 
-  factory ImageGenToolModeration.fromJson(String value) => ImageGenToolModeration._(value);
+  factory ImageGenToolModeration.fromJson(String value) =>
+      ImageGenToolModeration._(value);
 
   static const auto = ImageGenToolModeration._('auto');
   static const low = ImageGenToolModeration._('low');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ImageGenToolModeration && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ImageGenToolModeration && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The output format of the generated image. One of `png`, `webp`, or `jpeg`. Default: `png`.
 final class ImageGenToolOutputFormat {
-
   final String value;
 
   const ImageGenToolOutputFormat._(this.value);
 
-  factory ImageGenToolOutputFormat.fromJson(String value) => ImageGenToolOutputFormat._(value);
+  factory ImageGenToolOutputFormat.fromJson(String value) =>
+      ImageGenToolOutputFormat._(value);
 
   static const png = ImageGenToolOutputFormat._('png');
   static const webp = ImageGenToolOutputFormat._('webp');
@@ -85,22 +94,25 @@ final class ImageGenToolOutputFormat {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ImageGenToolOutputFormat && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ImageGenToolOutputFormat && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The quality of the generated image. The GPT image models support `low`, `medium`, and `high`. `gpt-image-2.5-sunburst` and `gpt-image-2.5-flare`, including their `2026-09-08` snapshots, also support `xhigh` and `max`. Default: `auto`.
 final class ImageGenToolQuality {
-
   final String value;
 
   const ImageGenToolQuality._(this.value);
 
-  factory ImageGenToolQuality.fromJson(String value) => ImageGenToolQuality._(value);
+  factory ImageGenToolQuality.fromJson(String value) =>
+      ImageGenToolQuality._(value);
 
   static const low = ImageGenToolQuality._('low');
   static const medium = ImageGenToolQuality._('medium');
@@ -111,12 +123,15 @@ final class ImageGenToolQuality {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ImageGenToolQuality && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ImageGenToolQuality && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the image generation tool. Always `image_generation`.
@@ -125,14 +140,17 @@ enum ImageGenToolType {
 
   static ImageGenToolType fromJson(String value) {
     switch (value) {
-      case 'image_generation': return ImageGenToolType.imageGeneration;
-      default: throw ArgumentError('Unknown ImageGenToolType: $value');
+      case 'image_generation':
+        return ImageGenToolType.imageGeneration;
+      default:
+        throw ArgumentError('Unknown ImageGenToolType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ImageGenToolType.imageGeneration: return 'image_generation';
+      case ImageGenToolType.imageGeneration:
+        return 'image_generation';
     }
   }
 
@@ -142,12 +160,12 @@ enum ImageGenToolType {
 
 /// The quality of the image generated by the image generation tool call. One of `low`, `medium`, `high`, `xhigh`, `max`, or `auto`.
 final class ImageGenToolCallQualityVariant0 {
-
   final String value;
 
   const ImageGenToolCallQualityVariant0._(this.value);
 
-  factory ImageGenToolCallQualityVariant0.fromJson(String value) => ImageGenToolCallQualityVariant0._(value);
+  factory ImageGenToolCallQualityVariant0.fromJson(String value) =>
+      ImageGenToolCallQualityVariant0._(value);
 
   static const low = ImageGenToolCallQualityVariant0._('low');
   static const medium = ImageGenToolCallQualityVariant0._('medium');
@@ -158,22 +176,25 @@ final class ImageGenToolCallQualityVariant0 {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ImageGenToolCallQualityVariant0 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ImageGenToolCallQualityVariant0 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The status of the image generation call.
 final class ImageGenToolCallStatus {
-
   final String value;
 
   const ImageGenToolCallStatus._(this.value);
 
-  factory ImageGenToolCallStatus.fromJson(String value) => ImageGenToolCallStatus._(value);
+  factory ImageGenToolCallStatus.fromJson(String value) =>
+      ImageGenToolCallStatus._(value);
 
   static const inProgress = ImageGenToolCallStatus._('in_progress');
   static const completed = ImageGenToolCallStatus._('completed');
@@ -182,12 +203,15 @@ final class ImageGenToolCallStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ImageGenToolCallStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ImageGenToolCallStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the image generation call. Always `image_generation_call`.
@@ -196,14 +220,17 @@ enum ImageGenToolCallType {
 
   static ImageGenToolCallType fromJson(String value) {
     switch (value) {
-      case 'image_generation_call': return ImageGenToolCallType.imageGenerationCall;
-      default: throw ArgumentError('Unknown ImageGenToolCallType: $value');
+      case 'image_generation_call':
+        return ImageGenToolCallType.imageGenerationCall;
+      default:
+        throw ArgumentError('Unknown ImageGenToolCallType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ImageGenToolCallType.imageGenerationCall: return 'image_generation_call';
+      case ImageGenToolCallType.imageGenerationCall:
+        return 'image_generation_call';
     }
   }
 
@@ -213,57 +240,68 @@ enum ImageGenToolCallType {
 
 /// The stage where moderation blocked the image generation call.
 final class ImageGenToolCallModerationDetailsModerationStage {
-
   final String value;
 
   const ImageGenToolCallModerationDetailsModerationStage._(this.value);
 
-  factory ImageGenToolCallModerationDetailsModerationStage.fromJson(String value) => ImageGenToolCallModerationDetailsModerationStage._(value);
+  factory ImageGenToolCallModerationDetailsModerationStage.fromJson(
+          String value) =>
+      ImageGenToolCallModerationDetailsModerationStage._(value);
 
-  static const input = ImageGenToolCallModerationDetailsModerationStage._('input');
-  static const output = ImageGenToolCallModerationDetailsModerationStage._('output');
-  static const unknown = ImageGenToolCallModerationDetailsModerationStage._('unknown');
+  static const input =
+      ImageGenToolCallModerationDetailsModerationStage._('input');
+  static const output =
+      ImageGenToolCallModerationDetailsModerationStage._('output');
+  static const unknown =
+      ImageGenToolCallModerationDetailsModerationStage._('unknown');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ImageGenToolCallModerationDetailsModerationStage && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ImageGenToolCallModerationDetailsModerationStage &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The background parameter used for the image generation. Either `transparent` or `opaque`.
 final class ImagesResponseBackground {
-
   final String value;
 
   const ImagesResponseBackground._(this.value);
 
-  factory ImagesResponseBackground.fromJson(String value) => ImagesResponseBackground._(value);
+  factory ImagesResponseBackground.fromJson(String value) =>
+      ImagesResponseBackground._(value);
 
   static const transparent = ImagesResponseBackground._('transparent');
   static const opaque = ImagesResponseBackground._('opaque');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ImagesResponseBackground && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ImagesResponseBackground && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The output format of the image generation. Either `png`, `webp`, or `jpeg`.
 final class ImagesResponseOutputFormat {
-
   final String value;
 
   const ImagesResponseOutputFormat._(this.value);
 
-  factory ImagesResponseOutputFormat.fromJson(String value) => ImagesResponseOutputFormat._(value);
+  factory ImagesResponseOutputFormat.fromJson(String value) =>
+      ImagesResponseOutputFormat._(value);
 
   static const png = ImagesResponseOutputFormat._('png');
   static const webp = ImagesResponseOutputFormat._('webp');
@@ -271,10 +309,13 @@ final class ImagesResponseOutputFormat {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ImagesResponseOutputFormat && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ImagesResponseOutputFormat && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

@@ -6,12 +6,12 @@ part of 'live_live_reasoning.dart';
 // live_live_reasoning domain models
 /// Typed representation of the `LiveReasoningEffort` API schema.
 final class LiveReasoningEffort {
-
   final String value;
 
   const LiveReasoningEffort._(this.value);
 
-  factory LiveReasoningEffort.fromJson(String value) => LiveReasoningEffort._(value);
+  factory LiveReasoningEffort.fromJson(String value) =>
+      LiveReasoningEffort._(value);
 
   static const none = LiveReasoningEffort._('none');
   static const minimal = LiveReasoningEffort._('minimal');
@@ -22,22 +22,25 @@ final class LiveReasoningEffort {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveReasoningEffort && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveReasoningEffort && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Typed representation of the `LiveReasoningSummary` API schema.
 final class LiveReasoningSummary {
-
   final String value;
 
   const LiveReasoningSummary._(this.value);
 
-  factory LiveReasoningSummary.fromJson(String value) => LiveReasoningSummary._(value);
+  factory LiveReasoningSummary.fromJson(String value) =>
+      LiveReasoningSummary._(value);
 
   static const concise = LiveReasoningSummary._('concise');
   static const detailed = LiveReasoningSummary._('detailed');
@@ -45,10 +48,13 @@ final class LiveReasoningSummary {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is LiveReasoningSummary && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is LiveReasoningSummary && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

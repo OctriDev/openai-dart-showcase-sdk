@@ -8,6 +8,7 @@ part of 'videos.dart';
 class CreateVideoRemixBody implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Updated text prompt that directs the remix generation.
   final String prompt;
 
@@ -15,16 +16,21 @@ class CreateVideoRemixBody implements SdkJsonModel {
 
   CreateVideoRemixBody Function({String prompt}) get copyWith => _copyWith;
 
-  CreateVideoRemixBody _copyWith({Object? prompt = sdkOmittedValue}) => CreateVideoRemixBody(
-    prompt: identical(prompt, sdkOmittedValue) ? this.prompt : prompt as String,
-  );
+  CreateVideoRemixBody _copyWith({Object? prompt = sdkOmittedValue}) =>
+      CreateVideoRemixBody(
+        prompt:
+            identical(prompt, sdkOmittedValue) ? this.prompt : prompt as String,
+      );
 
-  factory CreateVideoRemixBody.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(CreateVideoRemixBody(
-    prompt: (json['prompt'] as String?)!,
-  ), json);
+  factory CreateVideoRemixBody.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          CreateVideoRemixBody(
+            prompt: (json['prompt'] as String?)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'prompt': prompt,
-  };
+        'prompt': prompt,
+      };
 }

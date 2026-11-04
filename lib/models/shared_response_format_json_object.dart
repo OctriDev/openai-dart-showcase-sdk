@@ -8,23 +8,33 @@ part of 'shared_response.dart';
 class ResponseFormatJsonObject implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of response format being defined. Always `json_object`.
   final ResponseFormatJsonObjectType type_;
 
   const ResponseFormatJsonObject({required this.type_});
 
-  ResponseFormatJsonObject Function({ResponseFormatJsonObjectType type_}) get copyWith => _copyWith;
+  ResponseFormatJsonObject Function({ResponseFormatJsonObjectType type_})
+      get copyWith => _copyWith;
 
-  ResponseFormatJsonObject _copyWith({Object? type_ = sdkOmittedValue}) => ResponseFormatJsonObject(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ResponseFormatJsonObjectType,
-  );
+  ResponseFormatJsonObject _copyWith({Object? type_ = sdkOmittedValue}) =>
+      ResponseFormatJsonObject(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ResponseFormatJsonObjectType,
+      );
 
-  factory ResponseFormatJsonObject.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ResponseFormatJsonObject(
-    type_: (json['type'] != null ? ResponseFormatJsonObjectType.fromJson(json['type'] as String) : null)!,
-  ), json);
+  factory ResponseFormatJsonObject.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ResponseFormatJsonObject(
+            type_: (json['type'] != null
+                ? ResponseFormatJsonObjectType.fromJson(json['type'] as String)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }

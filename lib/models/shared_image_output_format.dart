@@ -6,12 +6,12 @@ part of 'shared_image.dart';
 // shared_image domain models
 /// Typed representation of the `ImageOutputFormat` API schema.
 final class ImageOutputFormat {
-
   final String value;
 
   const ImageOutputFormat._(this.value);
 
-  factory ImageOutputFormat.fromJson(String value) => ImageOutputFormat._(value);
+  factory ImageOutputFormat.fromJson(String value) =>
+      ImageOutputFormat._(value);
 
   static const png = ImageOutputFormat._('png');
   static const webp = ImageOutputFormat._('webp');
@@ -19,10 +19,13 @@ final class ImageOutputFormat {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ImageOutputFormat && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ImageOutputFormat && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

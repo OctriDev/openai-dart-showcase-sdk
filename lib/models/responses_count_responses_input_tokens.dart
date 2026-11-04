@@ -8,7 +8,6 @@ part of 'responses.dart';
 
 /// Typed representation of the `TruncationEnum` API schema.
 final class TruncationEnum {
-
   final String value;
 
   const TruncationEnum._(this.value);
@@ -20,10 +19,13 @@ final class TruncationEnum {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is TruncationEnum && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is TruncationEnum && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

@@ -10,32 +10,63 @@ sealed class CreateTranscriptionResponseJsonUsage {
   const CreateTranscriptionResponseJsonUsage();
   factory CreateTranscriptionResponseJsonUsage.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = TranscriptTextUsageTokens.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateTranscriptionResponseJsonUsageTranscriptTextUsageTokens(value); } } catch (_) {}
-      try { final value = TranscriptTextUsageDuration.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return CreateTranscriptionResponseJsonUsageTranscriptTextUsageDuration(value); } } catch (_) {}
+      try {
+        final value = TranscriptTextUsageTokens.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateTranscriptionResponseJsonUsageTranscriptTextUsageTokens(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = TranscriptTextUsageDuration.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return CreateTranscriptionResponseJsonUsageTranscriptTextUsageDuration(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return CreateTranscriptionResponseJsonUsageTranscriptTextUsageTokens(TranscriptTextUsageTokens.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return CreateTranscriptionResponseJsonUsageTranscriptTextUsageDuration(TranscriptTextUsageDuration.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"tokens", "duration"}.contains(json["type"])) { return UnknownCreateTranscriptionResponseJsonUsage(json); }
-    throw FormatException("No variant matched for CreateTranscriptionResponseJsonUsage");
+    try {
+      return CreateTranscriptionResponseJsonUsageTranscriptTextUsageTokens(
+          TranscriptTextUsageTokens.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return CreateTranscriptionResponseJsonUsageTranscriptTextUsageDuration(
+          TranscriptTextUsageDuration.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"tokens", "duration"}.contains(json["type"])) {
+      return UnknownCreateTranscriptionResponseJsonUsage(json);
+    }
+    throw FormatException(
+        "No variant matched for CreateTranscriptionResponseJsonUsage");
   }
   Object? toJson();
 }
 
-final class CreateTranscriptionResponseJsonUsageTranscriptTextUsageTokens extends CreateTranscriptionResponseJsonUsage {
+final class CreateTranscriptionResponseJsonUsageTranscriptTextUsageTokens
+    extends CreateTranscriptionResponseJsonUsage {
   final TranscriptTextUsageTokens value;
-  const CreateTranscriptionResponseJsonUsageTranscriptTextUsageTokens(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateTranscriptionResponseJsonUsageTranscriptTextUsageTokens(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class CreateTranscriptionResponseJsonUsageTranscriptTextUsageDuration extends CreateTranscriptionResponseJsonUsage {
+final class CreateTranscriptionResponseJsonUsageTranscriptTextUsageDuration
+    extends CreateTranscriptionResponseJsonUsage {
   final TranscriptTextUsageDuration value;
-  const CreateTranscriptionResponseJsonUsageTranscriptTextUsageDuration(this.value);
-  @override Object? toJson() => value.toJson();
+  const CreateTranscriptionResponseJsonUsageTranscriptTextUsageDuration(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [CreateTranscriptionResponseJsonUsage] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownCreateTranscriptionResponseJsonUsage extends CreateTranscriptionResponseJsonUsage {
+final class UnknownCreateTranscriptionResponseJsonUsage
+    extends CreateTranscriptionResponseJsonUsage {
   final Map<String, dynamic> raw;
   const UnknownCreateTranscriptionResponseJsonUsage(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

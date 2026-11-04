@@ -10,40 +10,78 @@ sealed class LiveDecisionQuestion {
   const LiveDecisionQuestion();
   factory LiveDecisionQuestion.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = LiveDecisionChoiceQuestionParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveDecisionQuestionLiveDecisionChoiceQuestionParam(value); } } catch (_) {}
-      try { final value = LiveDecisionPredicateQuestionParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveDecisionQuestionLiveDecisionPredicateQuestionParam(value); } } catch (_) {}
-      try { final value = LiveDecisionScoreQuestionParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LiveDecisionQuestionLiveDecisionScoreQuestionParam(value); } } catch (_) {}
+      try {
+        final value = LiveDecisionChoiceQuestionParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveDecisionQuestionLiveDecisionChoiceQuestionParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveDecisionPredicateQuestionParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveDecisionQuestionLiveDecisionPredicateQuestionParam(value);
+        }
+      } catch (_) {}
+      try {
+        final value = LiveDecisionScoreQuestionParam.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LiveDecisionQuestionLiveDecisionScoreQuestionParam(value);
+        }
+      } catch (_) {}
     }
-    try { return LiveDecisionQuestionLiveDecisionChoiceQuestionParam(LiveDecisionChoiceQuestionParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveDecisionQuestionLiveDecisionPredicateQuestionParam(LiveDecisionPredicateQuestionParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LiveDecisionQuestionLiveDecisionScoreQuestionParam(LiveDecisionScoreQuestionParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"choice", "predicate", "score"}.contains(json["type"])) { return UnknownLiveDecisionQuestion(json); }
+    try {
+      return LiveDecisionQuestionLiveDecisionChoiceQuestionParam(
+          LiveDecisionChoiceQuestionParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveDecisionQuestionLiveDecisionPredicateQuestionParam(
+          LiveDecisionPredicateQuestionParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LiveDecisionQuestionLiveDecisionScoreQuestionParam(
+          LiveDecisionScoreQuestionParam.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"choice", "predicate", "score"}.contains(json["type"])) {
+      return UnknownLiveDecisionQuestion(json);
+    }
     throw FormatException("No variant matched for LiveDecisionQuestion");
   }
   Object? toJson();
 }
 
-final class LiveDecisionQuestionLiveDecisionChoiceQuestionParam extends LiveDecisionQuestion {
+final class LiveDecisionQuestionLiveDecisionChoiceQuestionParam
+    extends LiveDecisionQuestion {
   final LiveDecisionChoiceQuestionParam value;
   const LiveDecisionQuestionLiveDecisionChoiceQuestionParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveDecisionQuestionLiveDecisionPredicateQuestionParam extends LiveDecisionQuestion {
+final class LiveDecisionQuestionLiveDecisionPredicateQuestionParam
+    extends LiveDecisionQuestion {
   final LiveDecisionPredicateQuestionParam value;
   const LiveDecisionQuestionLiveDecisionPredicateQuestionParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LiveDecisionQuestionLiveDecisionScoreQuestionParam extends LiveDecisionQuestion {
+final class LiveDecisionQuestionLiveDecisionScoreQuestionParam
+    extends LiveDecisionQuestion {
   final LiveDecisionScoreQuestionParam value;
   const LiveDecisionQuestionLiveDecisionScoreQuestionParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [LiveDecisionQuestion] whose `type` names no branch this SDK knows, kept as received.
 final class UnknownLiveDecisionQuestion extends LiveDecisionQuestion {
   final Map<String, dynamic> raw;
   const UnknownLiveDecisionQuestion(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }
